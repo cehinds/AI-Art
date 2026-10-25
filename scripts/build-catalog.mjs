@@ -2,13 +2,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { ROOT,GAMES,TYPES,KINDS,hash,isAsset,classify,loadInventory,sourceLinks } from './lib.mjs';
+import { GitBlobReader } from './git-blobs.mjs';
 
-export async function manifestHints(folder, inventory) {
+export async function manifestHints(folder, inventory,reader=null) {
   const paths=new Set(inventory.files.map(x=>x.path));
   const hints=new Map();
   for(const item of inventory.files.filter(x=>x.path.endsWith('.json'))) {
     let json;
-    try { json=JSON.parse(await fs.readFile(path.join(folder,item.path),'utf8')); } catch { continue; }
+    try { json=JSON.parse((reader?await reader.read(item.blob):await fs.readFile(path.join(folder,item.path))).toString('utf8')); } catch(error) {if(reader && !(error instanceof SyntaxError)) throw error;continue;}
     const base=path.posix.dirname(item.path);
     const resolve=relative=>{
       if(typeof relative!=='string' || !isAsset(relative)) return null;
@@ -88,7 +89,9 @@ export async function makePreview(bytes,destination) {
   const result=await pipeline.resize({width:320,height:320,fit:'inside',kernel:'nearest'}).webp({quality:82,effort:2}).toFile(destination);
   return {previewWidth:result.width,previewHeight:result.height,previewCrop:crop};
 }
-export async function buildCatalog({root=ROOT,out=path.join(ROOT,'_site')}={}) {
+export async function buildCatalog({root=ROOT,out=path.join(ROOT,'_site'),gitMode=false}={}) {
+  const reader=gitMode?new GitBlobReader(root):null;
+  try {
   await fs.mkdir(path.join(out,'thumbs'),{recursive:true});
   const assets=[],games=[],warnings=[],thumbnailTasks=new Map();
   let previewMetadata={};
@@ -98,7 +101,7 @@ export async function buildCatalog({root=ROOT,out=path.join(ROOT,'_site')}={}) {
   for(const game of GAMES) {
     const manifest=await loadInventory(game,root);
     const folder=path.join(root,'Games',game.id);
-    const hints=await manifestHints(folder,manifest);
+    const hints=await manifestHints(folder,manifest,reader);
     let assetCount=0;
     for(const entry of manifest.files.filter(x=>isAsset(x.path))) {
       const hint=hints.get(entry.path)||{};
@@ -117,8 +120,12 @@ export async function buildCatalog({root=ROOT,out=path.join(ROOT,'_site')}={}) {
   async function worker() {
     while(next<tasks.length) {
       const task=tasks[next++];
+      // Missing/corrupt packed objects must fail the build, never silently
+      // downgrade an original to a download-only item.
+      const packedBytes=reader?await reader.read(task.entry.blob):null;
+      if(packedBytes && hash(packedBytes)!==task.entry.sha256) throw new Error(`Git blob SHA256 mismatch: ${task.entry.path}`);
       try {
-        const bytes=await fs.readFile(task.file);
+        const bytes=packedBytes||await fs.readFile(task.file);
         if(hash(bytes)!==task.entry.sha256) throw new Error('Local original differs from pinned source inventory');
         const metadata=await sharp(bytes,{limitInputPixels:268402689}).metadata();
         const relative=`thumbs/v2-${task.entry.sha256}.webp`;
@@ -156,5 +163,6 @@ export async function buildCatalog({root=ROOT,out=path.join(ROOT,'_site')}={}) {
   await fs.writeFile(path.join(out,'build-report.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({assets:assets.length,uniqueImages:tasks.length,previewWarnings:warnings.length,games:games.map(x=>({game:x.id,assets:x.assetCount}))},null,2));
   return {catalog,report};
+  } finally {await reader?.close();}
 }
-if(process.argv[1]?.endsWith('build-catalog.mjs')) await buildCatalog();
+if(process.argv[1]?.endsWith('build-catalog.mjs')) await buildCatalog({gitMode:process.argv.includes('--git')});

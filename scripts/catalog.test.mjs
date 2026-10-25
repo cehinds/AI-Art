@@ -3,10 +3,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import sharp from 'sharp';
 import { ROOT,GAMES,hash,blobHash,isAsset,classify,sourceLinks,loadInventory,git } from './lib.mjs';
 import { manifestHints,buildCatalog,assetName,assetVariant,makePreview } from './build-catalog.mjs';
 import { importGame } from './import-snapshots.mjs';
+import { verifySnapshots } from './verify-snapshots.mjs';
+import { GitBlobReader } from './git-blobs.mjs';
 
 test('critical categories and provenance do not promote references and review sheets',()=>{
   const cases=[
@@ -195,4 +198,52 @@ test('reviewed updates require committed exact originals and retain an explicit 
   assert.equal(git(['show',`${preserved}:Games/fixture/removed.png`],root).toString(),'removed original');
   assert.equal(await fs.readFile(path.join(root,'Games','fixture','sprite.png'),'utf8'),'updated original');
   await assert.rejects(fs.access(path.join(root,'Games','fixture','removed.png')));
+});
+test('Git-backed sparse builds and verification match filesystem output and detect missing blobs',async()=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'art-git-build-test-'));
+  git(['init','--quiet'],root);git(['config','core.autocrlf','false'],root);
+  const pixels=await sharp({create:{width:12,height:8,channels:4,background:'#f02030'}}).png().toBuffer();
+  await fs.mkdir(path.join(root,'site'));
+  await fs.writeFile(path.join(root,'site','index.html'),'__BASE__ __GAME__ __TITLE__');
+  const originals=new Map();
+  await fs.writeFile(path.join(root,'package.json'),'{}');
+  await fs.writeFile(path.join(root,'package-lock.json'),'{}');
+  await fs.mkdir(path.join(root,'scripts'));
+  await fs.writeFile(path.join(root,'scripts','fixture.txt'),'fixture');
+  for(const game of GAMES) {
+    const folder=path.join(root,'Games',game.id);await fs.mkdir(folder,{recursive:true});
+    const entries=[];
+    if(game.id==='ff2') for(const [name,data] of [['sword.png',pixels],['manifest.json',Buffer.from(JSON.stringify({assets:[{file:'sword.png',label:'Manifest sword'}]}))]]) {
+      await fs.writeFile(path.join(folder,name),data);
+      originals.set(path.join(folder,name),data);
+      entries.push({path:name,mode:'100644',sha256:hash(data),blob:blobHash(data),bytes:data.length});
+    }
+    await fs.writeFile(path.join(folder,'_source.json'),JSON.stringify({repository:'cehinds/AI-Art',commit:'a'.repeat(40),files:entries}));
+  }
+  git(['add','.'],root);git(['-c','user.name=Catalog Test','-c','user.email=catalog-test@example.invalid','commit','--quiet','-m','Sparse fixture'],root);
+  const filesystem=await buildCatalog({root,out:path.join(root,'fs-output')});
+  // Exercise the exact non-cone patterns used by CI, in this disposable repo.
+  // The only original asset copies remaining are Git objects.
+  execFileSync('git',['sparse-checkout','set','--no-cone','--stdin'],{cwd:root,input:'/package.json\n/package-lock.json\n/scripts/\n/site/\n/Games/*/_source.json\n'});
+  for(const filename of originals.keys()) await assert.rejects(fs.access(filename));
+  for(const game of GAMES) await fs.access(path.join(root,'Games',game.id,'_source.json'));
+  for(const filename of ['package.json','package-lock.json','scripts/fixture.txt','site/index.html']) await fs.access(path.join(root,filename));
+  const packed=await buildCatalog({root,out:path.join(root,'git-output'),gitMode:true});
+  assert.deepEqual(packed.catalog,filesystem.catalog);
+  assert.equal(packed.catalog.assets[0].name,'Manifest sword');
+  const filename=packed.catalog.assets[0].preview;
+  assert.deepEqual(await fs.readFile(path.join(root,'fs-output',filename)),await fs.readFile(path.join(root,'git-output',filename)));
+  assert.deepEqual(await verifySnapshots(root,{gitMode:true}),{count:2,bytes:[...originals.values()].reduce((sum,data)=>sum+data.length,0)});
+  const reader=new GitBlobReader(root);
+  try {
+    const requested=await Promise.all([reader.read(blobHash(pixels)),reader.read(blobHash(pixels))]);
+    assert.deepEqual(requested,[pixels,pixels]);
+    await assert.rejects(reader.read('0'.repeat(40)),/Missing Git blob/);
+    assert.deepEqual(await reader.read(blobHash(pixels)),pixels,'Reader must remain usable after a missing object');
+  } finally {await reader.close();}
+  const broken=JSON.parse(await fs.readFile(path.join(root,'Games','ff2','_source.json'),'utf8'));
+  broken.files.find(entry=>entry.path==='sword.png').blob='0'.repeat(40);
+  await fs.writeFile(path.join(root,'Games','ff2','_source.json'),JSON.stringify(broken));
+  await assert.rejects(buildCatalog({root,out:path.join(root,'broken-output'),gitMode:true}),/Missing Git blob/);
+  await assert.rejects(verifySnapshots(root,{gitMode:true}),/HEAD inventory mismatch/);
 });

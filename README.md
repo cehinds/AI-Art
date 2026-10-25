@@ -36,6 +36,8 @@ npm run serve
 
 Open `http://127.0.0.1:4173/AI-Art/`. `_site/` contains the generated Pages site and is excluded from Git. Snapshot originals stay in `Games/`; the site serves previews and links to commit-pinned originals.
 
+GitHub Actions uses a sparse checkout and `npm run verify -- --git` / `npm run build -- --git`. This reads original blobs from Git without creating another full-size artwork copy in the runner's working directory. Local builds can use either mode; commit snapshot changes before using Git-backed verification.
+
 ## Refresh the collection
 
 Fetch the source branches, verify and commit your current snapshot first, then run the reviewed update:
@@ -55,8 +57,9 @@ After committing a verified snapshot update, connect the imported source histori
 
 ```sh
 git merge --no-ff --strategy=ours origin/ff2 origin/dungeon-crawler origin/ashenspire origin/Dovakiin
+git -c pack.useSparse=false -c pack.allowPackReuse=false -c push.useBitmaps=false -c push.negotiate=true push origin dev
 ```
 
-This records the game commits as parents while preserving the already verified `Games/` layout. It avoids re-uploading gigabytes of artwork GitHub already has; it does not replace the snapshot importer or its verification.
+This records the game commits as parents while preserving the already verified `Games/` layout. The scoped push settings use a full object walk so moving the source trees under `Games/` does not cause gigabytes of redundant uploads. These steps do not replace the snapshot importer or its verification. Promote the reviewed `dev` commit to `main` separately to publish it.
 
 [Design reference and visual checks](docs/design/spec.md) · [Original repository index](docs/repository-index.md)
