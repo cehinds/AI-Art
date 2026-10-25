@@ -87,6 +87,28 @@ class PublishedReviewTests(unittest.TestCase):
         self.assertEqual(len(self.report['sets']),1)
         self.assertNotEqual(contract.reference(projected)['sha256'],contract.reference(self.report)['sha256'])
 
+    def test_targeted_existing_review_is_explicit_and_cannot_replace_full_review(self):
+        self.index['assets'].append({'id':'old-object','views':{'applicable':True,'complete':True}})
+        legacy=copy.deepcopy(self.report);legacy['scope_mode']='targeted-existing-assets'
+        (self.pack/contract.LEGACY_REVIEW_PATH).write_bytes(contract.encoded(legacy))
+        contract.attach_review(self.pack,self.index,legacy=True)
+        self.assertEqual(contract.load_review(self.pack,self.index,True,legacy=True),legacy)
+        self.assertEqual(self.index['legacy_view_review']['coverage']['object_ids'],['crate'])
+        with self.assertRaisesRegex(ValueError,'inventory differs'):
+            contract.load_review(self.pack,self.index,True)
+        self.index['legacy_view_review']['coverage']['object_ids'].append('missing-object')
+        with self.assertRaisesRegex(ValueError,'legacy review coverage'):
+            contract.load_review(self.pack,self.index,True,legacy=True)
+
+    def test_targeted_application_preserves_unreviewed_existing_group(self):
+        untouched={'object_id':'old-object','complete':True,'notes':'Earlier delivery review'}
+        worker={'view_sets':[copy.deepcopy(self.group),copy.deepcopy(untouched)]}
+        legacy=copy.deepcopy(self.report);legacy['scope_mode']='targeted-existing-assets'
+        merge.apply_approvals(worker,legacy)
+        self.assertEqual(worker['view_sets'][1],untouched)
+        self.assertEqual(worker['view_sets'][0]['geometry_qa']['status'],'passed')
+        self.assertEqual(worker['view_sets'][0]['geometry_qa']['evidence'],contract.LEGACY_REVIEW_PATH)
+
     def test_archive_retains_local_review_and_tools_for_selected_maps(self):
         from package_pocket_reusable import plan
         self.index['assets'].append({'id':'icon','kind':'ui','image':{'path':'icon.png','width':4,'height':4}})
@@ -97,6 +119,10 @@ class PublishedReviewTests(unittest.TestCase):
             (self.pack/Path(asset['image']['path']).with_suffix('.json')).write_bytes(contract.encoded(asset))
         (self.pack/'manifest.json').write_text('{}')
         (self.pack/'README.md').write_text('Fixture')
+        (self.pack/'reusable/index.json').write_bytes(contract.encoded(self.index))
+        legacy=copy.deepcopy(self.report);legacy['scope_mode']='targeted-existing-assets'
+        (self.pack/contract.LEGACY_REVIEW_PATH).write_bytes(contract.encoded(legacy))
+        self.index['legacy_view_review']=contract.reference(legacy,legacy=True)
         (self.pack/'reusable/index.json').write_bytes(contract.encoded(self.index))
         for selected in (None,['icon-map']):
             contents=plan(self.pack,selected)
@@ -109,6 +135,8 @@ class PublishedReviewTests(unittest.TestCase):
                 catalog=json.loads(contents['library/reusable/index.json'])
                 report=contract.load_review(root/'library',catalog,True)
                 self.assertEqual(report['statistics']['approved_sets'],0 if selected else 1)
+                legacy_report=contract.load_review(root/'library',catalog,True,legacy=True)
+                self.assertEqual(legacy_report['statistics']['approved_sets'],0 if selected else 1)
 
 
 if __name__=='__main__':

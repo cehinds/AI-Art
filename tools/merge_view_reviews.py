@@ -159,10 +159,12 @@ def merge_library(pack, scope, catalog, worker, ledgers):
 def apply_approvals(worker, report):
     records = {r['object_id']: r for r in report['sets']}
     for group in worker['view_sets']:
+        if group['object_id'] not in records and report.get('scope_mode') == 'targeted-existing-assets':
+            continue
         record = records[group['object_id']]
         group['complete'] = record['complete']
         group['geometry_qa'] = {'status': 'passed' if record['complete'] else record['status'],
-                               'evidence': 'reusable/view-review.json',
+                               'evidence': 'reusable/legacy-view-review.json' if report.get('scope_mode') == 'targeted-existing-assets' else 'reusable/view-review.json',
                                'object_id': group['object_id'],
                                'source_sha256': (record['source'] or {}).get('sha256'),
                                'image_hashes': {v: a['sha256'] for v, a in record['views'].items()}}
@@ -170,6 +172,19 @@ def apply_approvals(worker, report):
             group['geometry_qa'].update(record['review'])
             group['geometry_qa']['status'] = 'passed' if record['complete'] else record['status']
     return worker
+
+
+def legacy_inputs(pack, catalog, target_ids):
+    """Read only the declared existing assets, across their original extensions."""
+    expected = {a.get('object_id', a['id']) for a in catalog['assets'] if a.get('views', {}).get('applicable')}
+    if len(target_ids) != len(set(target_ids)) or not set(target_ids) <= expected:
+        raise ValueError('Invalid legacy review target inventory')
+    workers = [(path, read(path)) for path in sorted((pack / 'reusable').glob('views-*/set-index.json'))]
+    groups = [g for _, w in workers for g in w.get('view_sets', []) if g['object_id'] in target_ids]
+    leaf_ids = {r.get('asset_id') if isinstance(r, dict) else r for g in groups for r in g['views'].values()}
+    assets = [a for _, w in workers for a in w.get('assets', []) if a['id'] in leaf_ids]
+    scoped = {**catalog, 'assets': [a for a in catalog['assets'] if a.get('object_id', a['id']) in target_ids]}
+    return workers, scoped, {'assets': assets, 'view_sets': groups}
 
 
 def main():
@@ -187,20 +202,34 @@ def main():
             parser.error(f'Unknown independent reviewer: {reviewer}')
         ledgers.append((reviewer, read(Path(path))))
     root = args.assets.resolve()
+    legacy_targets = read(ROOT / 'tools/legacy_view_review_targets.json')['libraries']
     reports = []
     for entry in read(root / 'reusable-library.json')['libraries']:
-        if entry['base'] == 'style-packs/pocket-dungeon':
-            continue  # Original 326 sets were delivered previously; do not re-author.
         pack = contained(root, entry['base'])
-        worker_path = pack / 'reusable/views-additional/set-index.json'
-        worker = read(worker_path) if worker_path.is_file() else {'assets': [], 'view_sets': []}
-        report = merge_library(pack, entry['base'], read(contained(root, entry['index'])), worker, ledgers)
+        catalog = read(contained(root, entry['index']))
+        legacy = entry['base'] in legacy_targets
+        if legacy:
+            workers, scoped, worker = legacy_inputs(pack, catalog, legacy_targets[entry['base']]['object_ids'])
+            report = merge_library(pack, entry['base'], scoped, worker, ledgers)
+            report['scope_mode'] = 'targeted-existing-assets'
+            report['scope_note'] = legacy_targets[entry['base']]['note']
+        else:
+            worker_path = pack / 'reusable/views-additional/set-index.json'
+            worker = read(worker_path) if worker_path.is_file() else {'assets': [], 'view_sets': []}
+            workers = [(worker_path, worker)]
+            report = merge_library(pack, entry['base'], catalog, worker, ledgers)
         reports.append(report)
         if args.apply:
-            (pack / 'reusable/view-review.json').write_text(encode(report))
-            worker_path.write_text(encode(apply_approvals(worker, report)))
+            name = 'legacy-view-review.json' if legacy else 'view-review.json'
+            (pack / 'reusable' / name).write_text(encode(report))
+            for worker_path, worker in workers:
+                value = encode(apply_approvals(worker, report))
+                if not worker_path.exists() or worker_path.read_text() != value:
+                    worker_path.parent.mkdir(parents=True, exist_ok=True)
+                    worker_path.write_text(value)
     summary = {'schema_version': 1, 'libraries': reports,
                'expected_sets': sum(r['statistics']['expected_sets'] for r in reports),
+               'targeted_existing_sets': sum(r['statistics']['expected_sets'] for r in reports if r.get('scope_mode') == 'targeted-existing-assets'),
                'approved_sets': sum(r['statistics']['approved_sets'] for r in reports)}
     args.report.write_text(encode(summary))
     print(encode({k: v for k, v in summary.items() if k != 'libraries'}).strip())

@@ -493,10 +493,10 @@ class GameplayBuilder(Builder):
 def write_outputs(builder, check, finalize_views=False):
     builder.readonly_views=not finalize_views
     builder.build(); outputs=builder.finalize_outputs(); changed=[]
-    if builder.pack.resolve() != (ASSETS/'style-packs/pocket-dungeon').resolve():
-        from view_review_contract import attach_review
-        index=attach_review(builder.pack,json.loads(outputs['reusable/index.json']))
-        outputs['reusable/index.json']=json_bytes(index)
+    from view_review_contract import attach_review
+    legacy=builder.pack.resolve() == (ASSETS/'style-packs/pocket-dungeon').resolve()
+    index=attach_review(builder.pack,json.loads(outputs['reusable/index.json']),legacy=legacy)
+    outputs['reusable/index.json']=json_bytes(index)
     for relative,data in outputs.items():
         path=builder.pack/relative
         if not path.exists() or path.read_bytes()!=data:

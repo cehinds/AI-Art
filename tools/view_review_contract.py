@@ -8,6 +8,7 @@ from pathlib import Path
 VIEWS = ('front', 'top', 'right', 'left', 'bottom', 'rear')
 POLICY = 'current-source-and-six-independent-review-v1'
 REVIEW_PATH = 'reusable/view-review.json'
+LEGACY_REVIEW_PATH = 'reusable/legacy-view-review.json'
 
 
 def encoded(value):
@@ -19,9 +20,14 @@ def statistics(records):
             'statuses': dict(sorted(Counter(r['status'] for r in records).items()))}
 
 
-def reference(report):
-    return {'path': REVIEW_PATH, 'sha256': hashlib.sha256(encoded(report)).hexdigest(),
-            'statistics': report['statistics']}
+def reference(report, legacy=False):
+    ref = {'path': LEGACY_REVIEW_PATH if legacy else REVIEW_PATH,
+           'sha256': hashlib.sha256(encoded(report)).hexdigest(), 'statistics': report['statistics']}
+    if legacy:
+        ref['coverage'] = {'mode': 'targeted-existing-assets',
+            'object_ids': sorted(r['object_id'] for r in report['sets']),
+            'note': 'Targeted review of existing assets; other previously delivered assets retain their existing reviews.'}
+    return ref
 
 
 def expected_objects(index):
@@ -35,10 +41,10 @@ def project(report, object_ids):
     return result
 
 
-def load_review(pack, index, required=False):
+def load_review(pack, index, required=False, legacy=False):
     """Validate the report against the exported catalog and actual PNG bytes."""
     from validate_pocket_reusable import contained, unique_records, view_reference
-    ref = index.get('view_review')
+    ref = index.get('legacy_view_review' if legacy else 'view_review')
     if not ref:
         if required:
             raise ValueError('Missing independent view-review JSON')
@@ -50,7 +56,16 @@ def load_review(pack, index, required=False):
     if report.get('schema_version') != 1 or report.get('path_base') != 'library-root':
         raise ValueError('Unsupported view-review JSON contract')
     records = unique_records(report['sets'], 'object_id', 'independent view reviews')
-    if set(records) != expected_objects(index):
+    expected = expected_objects(index)
+    if legacy:
+        coverage = ref.get('coverage', {})
+        declared = coverage.get('object_ids', [])
+        if (coverage.get('mode') != 'targeted-existing-assets'
+                or report.get('scope_mode') != 'targeted-existing-assets'
+                or len(declared) != len(set(declared)) or not set(declared) <= expected):
+            raise ValueError('Invalid targeted legacy review coverage')
+        expected = set(declared)
+    if set(records) != expected:
         raise ValueError('View-review inventory differs from physical catalog')
     counts = statistics(report['sets'])
     if report.get('statistics') != counts or ref.get('statistics') != counts:
@@ -105,16 +120,17 @@ def load_review(pack, index, required=False):
     return report
 
 
-def attach_review(pack, index):
+def attach_review(pack, index, legacy=False):
     """Add the optional report reference; enforce it when strict validation runs."""
-    index['view_review_policy'] = POLICY
-    path = pack / REVIEW_PATH
+    field = 'legacy_view_review' if legacy else 'view_review'
+    index[field + '_policy'] = POLICY
+    path = pack / (LEGACY_REVIEW_PATH if legacy else REVIEW_PATH)
     if path.is_file():
         raw = path.read_bytes()
         report = json.loads(raw)
-        index['view_review'] = {'path': REVIEW_PATH, 'sha256': hashlib.sha256(raw).hexdigest(),
-                                'statistics': report['statistics']}
-        load_review(pack, index)
+        index[field] = reference(report, legacy)
+        index[field]['sha256'] = hashlib.sha256(raw).hexdigest()
+        load_review(pack, index, legacy=legacy)
     else:
-        index.pop('view_review', None)
+        index.pop(field, None)
     return index

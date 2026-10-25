@@ -35,6 +35,7 @@ def plan(pack, selected_maps=None, include_raw=False):
     original = read_json(pack / "reusable/index.json")
     from view_review_contract import load_review, project, expected_objects, reference
     review_report = load_review(pack, original)
+    legacy_review_report = load_review(pack, original, legacy=True)
     index = copy.deepcopy(original)
     by_id = unique_records(original["assets"], "id", "source catalog assets")
     map_index = unique_records(original["maps"], "id", "source catalog maps")
@@ -198,13 +199,17 @@ def plan(pack, selected_maps=None, include_raw=False):
         review_report = project(review_report, expected_objects(index))
         index['view_review'] = reference(review_report)
         contents[f"{folder}/reusable/view-review.json"] = encoded(review_report)
+    if legacy_review_report is not None:
+        legacy_review_report = project(legacy_review_report, expected_objects(index))
+        index['legacy_view_review'] = reference(legacy_review_report, legacy=True)
+        contents[f"{folder}/reusable/legacy-view-review.json"] = encoded(legacy_review_report)
     if localized_rules is not None:
         contents[f"{folder}/reusable/attachment-rules.json"] = encoded(localized_rules)
     if registry_entry is not None:
         contents["reusable-library.json"] = encoded({"schema_version": 1, "tags": ["metadata-document", "library-registry"], "libraries": [registry_entry]})
     contents[f"{folder}/reusable/index.json"] = encoded(index)
     contents[f"{folder}/reusable/archive-provenance.json"] = encoded({"tags": ["metadata-document", "external-provenance"], "external_provenance": list(external.values())})
-    for filename in (*TOOLS, "build_reusable_library.py", "register_existing_derivatives.py", "asset_attachment_tags.py", "render_art_remix.py", "view_review_contract.py", "merge_view_reviews.py"):
+    for filename in (*TOOLS, "build_reusable_library.py", "register_existing_derivatives.py", "asset_attachment_tags.py", "render_art_remix.py", "view_review_contract.py", "merge_view_reviews.py", "legacy_view_review_targets.json"):
         if not (Path(__file__).resolve().parent / filename).is_file():
             continue
         contents[filename] = (Path(__file__).resolve().parent / filename).read_bytes()
