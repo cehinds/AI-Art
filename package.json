@@ -4,6 +4,8 @@
   "private": true,
   "description": "FFII art sources, production assets, review galleries and validation tools",
   "scripts": {
+    "build:tiles": "node Tools/procedural-tiles/build.cjs",
+    "verify:tiles": "node --test Tools/procedural-tiles/test.cjs Tools/procedural-tiles/review-page.test.cjs",
     "verify:batch01": "node Tools/art-pipeline/verify.cjs",
     "verify:campaign": "node Tools/campaign-art/verify.cjs",
     "verify:expansion": "node Tools/remaster-expansion/verify.cjs",

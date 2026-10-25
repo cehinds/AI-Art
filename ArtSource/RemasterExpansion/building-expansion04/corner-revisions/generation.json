@@ -1,0 +1,30 @@
+{
+  "tool": "Built-in ImageGen",
+  "purpose": "Correct lower inner-corner edge topology while preserving original candidate assets",
+  "rejectedIntermediate": {
+    "path": "ArtSource/Revisions/building-expansion04/corner-corrections-v1.png",
+    "prompt": "Create exactly FOUR replacement INNER CONCAVE building corner tiles in an exact2column by2row opaque square atlas, fourfullbleedcells, NO gridlines, gaps or gutters. Match reference1 creamstone building and reference2 blue slate roof exactly in material palette/pixelstyle. Eachcell exports64x64. Use top-downorthographicGBAqualitypixelclusters.\nThe topology is CRITICAL: these are bottom-corner GRASS BITES into an otherwise solid interior surface, not convex outside building corners.\nTOPLEFT CELL: stone-building INNER SOUTHWEST. Entire TOP edge and entire RIGHT edge must be uninterrupted tan flagstone floor, with NO grass or wall touching those two edges. Grass occupies only the LOWER LEFT quadrant, touching the LEFT edge in its bottomhalf and BOTTOM edge in its lefthalf. Cream masonry wall follows the two inward-facing sides of this grass quadrant, forming a reversed-L boundary around the grass bite. Floor fills the otherthreequarters.\nTOPRIGHT CELL: stone-building INNER SOUTHEAST. Entire TOP edge and entire LEFT edge are uninterrupted tan flagstone floor. Grass occupies onlyLOWER RIGHT quadrant, touchingRIGHTbottomhalf andBOTTOMrighthalf. Creammasonryboundary follows the inward-facing topandleft sides of this grassbite. Floor fillsotherthreequarters.\nBOTTOMLEFT CELL: slate-roof INNER SOUTHWEST. EntireTOPedge and entireRIGHTedge uninterrupted bluehorizontalshingles. GrassonlyLOWER LEFT quadrant. Warmochretimberfascia boundaryaroundgrassbite, connect atmidpointsLEFTandBOTTOM. Blue roofotherthreequarters.\nBOTTOMRIGHT CELL: slate-roof INNER SOUTHEAST. EntireTOPedge and entireLEFTedge uninterrupted bluehorizontalshingles. GrassonlyLOWER RIGHTquadrant. Warmochretimberfascia boundaryaroundgrassbite, connect atmidpointsRIGHTandBOTTOM. Blue roofotherthreequarters.\nThis is a tile-socket correction. No grass whatsoever on TOPedgeofANYcell. No solidgrassstrips spanningwholeleft/rightedge. No scene, no objects, no labels or text, no opaque darkborders. Floor/roof is full bleed righttoedgeswhereindicated. Preserve referencepixeltexture and lightdirection. Do not clone incorrect corner topology from reference: obeytheexplicitquartile grassbitepositions.",
+    "reason": "Topology corrected but material and wall detail scale mismatched the surrounding kit"
+  },
+  "sources": [
+    {
+      "source": "../stone-building-corners-v2.png",
+      "prompt": "Edit ONLY the BOTTOM ROW's THIRD and FOURTH cells of this exact4x4 stone building atlas (the two lower-right quarter-sized tiles). Allother14cells mustremain unchanged. Fix thirdcell to INNER SOUTHWEST: grass ONLY in bottomleft quadrant of thatcell, tanflagstone floor across itsENTIRETOPedgeandENTIRERIGHTedge. Fix fourthcell to INNER SOUTHEAST: grassONLYbottomrightquadrant, tanfloor acrossENTIRETOPedgeandENTIRELEFTedge. Creammasonry follows inwardtopandright sides ofSWgrassbite, inwardtopandleft sides ofSEgrassbite. GrassmustNOTtouchtheTOPedgeofeitherbottomcell. Make corners exact counterparts to firsttwo bottomrowcorners, but for lowergrassbites. Use SAME masonry wallthickness, stoneblocksize, flagstonepatternscale, grasspixelclusters as existingadjacentcells. Do not shrinktexturesorwallthickness. No gridlines,gutters,textorlabels. Keep1254square4x4layout andopaqueimage.",
+      "reference": "../stone-building.png"
+    },
+    {
+      "source": "../slate-roof-corners-v2.png",
+      "prompt": "Edit ONLY BOTTOM ROW THIRD and FOURTH cells of this exact4x4 blue slate roof atlas. Allother14cellsunchanged. Thirdcell mustbe INNER SOUTHWEST: grassONLYbottomleft quadrant, blue roof acrossENTIRETOPedgeandENTIRERIGHTedge. Fourthcell INNER SOUTHEAST: grassONLYbottomright quadrant, blue roof acrossENTIRETOPedgeandENTIRELEFTedge. GrassmustNOTtouchTOPedgeofeitherbottomcell. Remove those wrong green strips fromupperhalf ofbothcells andreplacewith sameblueshingles. Ochretimberfascia bendsaroundthe inwardtop/right sides ofSWgrassbite andtop/left sides ofSEgrassbite. Cornersareexactcounterpartstofirsttwobottomrowcorners,butgrassbitesatbottom. Match SAME timberthickness, shinglesize, grasspixelclusters andmaterialscaleofexistingtiles. No gridlinesorgutters, nocellshift,norescaling,nolabels. Keep1254square4x4layout opaque.",
+      "reference": "../slate-roof.png"
+    }
+  ],
+  "selectedRectangles": "Only bottom-row third and fourth source cells exported; other source pixels unused.",
+  "supersededNames": [
+    "inner-sw",
+    "inner-se"
+  ],
+  "selectedNames": [
+    "inner-sw-v2",
+    "inner-se-v2"
+  ]
+}

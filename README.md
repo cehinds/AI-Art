@@ -6,6 +6,8 @@ This transfer preserves 1,202 production PNGs, their Unity metadata, generated s
 
 ## Review the artwork
 
+- [Procedural tile tags: search tiles and inspect compatible neighbors](Review/procedural-tiles/index.html)
+- [Building Expansion 04: stone walls, slate roofs and inner/outer corners](Review/remaster-expansion/building-expansion04/index.html)
 - [Exploration Expansion 03: Maria, Guy and Leon walks, 16 props and 16 cavern tiles](Review/remaster-expansion/exploration-expansion03/index.html)
 - [Exploration Expansion 03 portable ZIP](Review/exploration-expansion03.zip)
 - [World Builder Expansion 02: 24 props at 128px and 32 tiles at 64px](Review/remaster-expansion/worldbuilder-expansion02/index.html)
@@ -18,7 +20,9 @@ This transfer preserves 1,202 production PNGs, their Unity metadata, generated s
 - [Concept art and interactive wireframes](Review/index.html)
 - [Remaining art work](Docs/ArtNextPass.md)
 
-Open the HTML galleries locally after cloning. Production art is under `Assets/Art/Production/`: Batch01 has 44 PNGs, Campaign has 744, and RemasterExpansion has 538. The expansion includes 39 timed clips; vehicle views are static directions. These are candidate art libraries, not a completed playable campaign.
+Open the HTML galleries locally after cloning. Production art is under `Assets/Art/Production/`: Batch01 has 44 PNGs, Campaign has 744, and RemasterExpansion has 575. The expansion includes 39 timed clips; vehicle views are static directions. These are candidate art libraries, not a completed playable campaign.
+
+Building Expansion 04 provides 32 selected building tiles plus five preserved, blocked corner candidates. Every tile now has north/east/south/west material profiles in the [procedural sidecar](Assets/Art/Production/procedural-tiles.json), with a shared matcher and an offline neighbor viewer. [Usage and limitations](Docs/ProceduralTiles.md) distinguish logical connection candidates from seamless artwork and gameplay collision.
 
 Exploration Expansion 03 adds 36 field frames for Maria, Guy and Leon, 12 candidate walk clips, 16 mine/crystal props and 16 cavern tiles. Its gallery includes native assets, a Firion scale comparison and three assembled maps. See [the batch notes](Docs/ExplorationExpansion03.md) for provenance and remaining pose/terrain polish.
 

@@ -1,19 +1,19 @@
 # Remaster expansion: animation and environment coverage
 
-**538 total expansion native PNGs, 58 selected source sheets, 39 timed animation clips, and 78 individual native/3× GIFs.** Existing Batch 01 and Campaign assets are preserved. 29 superseded source candidates remain on disk with explicit exclusion reasons; 0 source PNGs are unregistered.
+**575 total expansion native PNGs, 63 selected source sheets, 39 timed animation clips, and 78 individual native/3× GIFs.** Existing Batch 01 and Campaign assets are preserved. 29 superseded source candidates remain on disk with explicit exclusion reasons; 0 source PNGs are unregistered.
 
 | Group | Exported PNGs | Native pixels | Pixels per Unity unit |
 | --- | ---: | --- | --- |
 | animated-tiles | 16 | 32x32 | 32 |
 | animated-props | 4 | 64x64 | 32 |
 | tiles | 260 | 32x32 | 32 |
+| world-tiles | 85 | 64x64 | 64 |
 | field | 48 | 64x64 | 32 |
 | world-props | 56 | 128x128, 64x64 | 64, 32 |
-| world-tiles | 48 | 64x64 | 64 |
 | battle | 90 | 128x128 | 64 |
 | world-vehicles | 16 | 128x128 | 32 |
 
-This expansion covers 9 party members (Firion, Maria, Guy, Leon, Minwu, Josef, Gordon, Leila, Ricard), each with six attack frames and four cast frames; 48 directional field walk states across 4 characters; 23 environment families with ten-tile and sixteen-tile sets; sixteen animated water/lava tiles; and four torch frames. It is a new candidate set rather than a higher-resolution replacement of every old campaign sprite or an audit of all original maps.
+This expansion covers 9 party members (Firion, Maria, Guy, Leon, Minwu, Josef, Gordon, Leila, Ricard), each with six attack frames and four cast frames; 48 directional field walk states across 4 characters; 25 environment families with ten-tile and sixteen-tile sets; sixteen animated water/lava tiles; and four torch frames. It is a new candidate set rather than a higher-resolution replacement of every old campaign sprite or an audit of all original maps.
 
 ## World Builder 100 — current pass
 
@@ -33,7 +33,7 @@ There are 158 unique native states referenced by 174 timeline entries. Repeated 
 
 ## Incremental preservation
 
-[Preservation record](../Review/remaster-expansion/preservation.json) verifies all 282 pre-expansion PNG hashes and metadata hashes unchanged. This pass adds 256 PNGs. The 60.18-pixel battle body cohort is locked by Tools/remaster-expansion/preservation-baseline.json; a new strip that cannot fit fails before any output write rather than resizing older heroes.
+[Preservation record](../Review/remaster-expansion/preservation.json) verifies all 282 pre-expansion PNG hashes and metadata hashes unchanged. This pass adds 293 PNGs. The 60.18-pixel battle body cohort is locked by Tools/remaster-expansion/preservation-baseline.json; a new strip that cannot fit fails before any output write rather than resizing older heroes.
 
 ## Body registration and pixel density
 
@@ -63,7 +63,7 @@ node Tools/remaster-expansion/coverage.cjs
 
 Descriptors are discovered recursively under ArtSource/RemasterExpansion/**/sheets.json; excluded-sources.json preserves rejected revisions. Tile pixels are resampled from entire fixed grid cells to their declared 32×32 or 64×64 targets without visible-object bounding-box fitting. Sprite pixels use exact crop/component selection, a binary alpha threshold and nearest-neighbor resampling only. Existing edited PNGs are protected, existing .meta files are preserved, and no stale assets are automatically deleted.
 
-Strict file validation is **PASS** for all 538 PNGs and 78 individual GIFs: native dimensions, source/config/output hashes, reconstructed source pixels, complete clip order/durations, PPU/pivots, IDs/GUIDs, alpha and source inventories. Decoded GIF alpha matches every native silhouette with no previous-frame trails. Decoded GIF RGB is closest to the intended native frame among all distinct timeline alternatives, including fully opaque animated tiles. Maximum observed mean RGB palette error is **2.2622 /255** against an 18/255 bound. GIF palettes are limited; native PNGs remain authoritative.
+Strict file validation is **PASS** for all 575 PNGs and 78 individual GIFs: native dimensions, source/config/output hashes, reconstructed source pixels, complete clip order/durations, PPU/pivots, IDs/GUIDs, alpha and source inventories. Decoded GIF alpha matches every native silhouette with no previous-frame trails. Decoded GIF RGB is closest to the intended native frame among all distinct timeline alternatives, including fully opaque animated tiles. Maximum observed mean RGB palette error is **2.2622 /255** against an 18/255 bound. GIF palettes are limited; native PNGs remain authoritative.
 
 ## Unity setup and limits
 
