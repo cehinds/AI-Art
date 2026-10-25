@@ -1,5 +1,21 @@
 # Remaster expansion pipeline
 
+## World Builder Expansion 02
+
+`worldbuilder-expansion02.cjs` builds an additive review collection after the standard exporter has processed its five source sheets. It preserves and verifies the SHA-256 hashes of all 1,202 preexisting production PNGs and their 1,202 metadata files against `worldbuilder-expansion02-baseline.json`. The helper never generates or repaints artwork.
+
+```powershell
+node Tools/remaster-expansion/worldbuilder-expansion02.cjs --preservation-only
+node Tools/remaster-expansion/export.cjs --check-only
+node Tools/remaster-expansion/export.cjs
+node Tools/remaster-expansion/verify.cjs
+node Tools/remaster-expansion/worldbuilder-expansion02.cjs
+```
+
+The helper checks 24 transparent 128×128 props and 32 opaque 64×64 tiles at 64 PPU, copies their exact native PNG bytes into the portable review folder, and emits row-major native contacts, an HTML gallery and a source/native hash inventory. Exact crop rectangles and sprite registration are retained from the exporter manifest. Sprite normalization uses the existing shared-sheet scale; tiles use whole-cell nearest-neighbor normalization. Optional `proof-layouts.json` next to the new source descriptor supplies explicit `key`, `owner`, `columns`, row-major tile `cells`, and optional `props` with `owner`, `name`, `x`, `y` pixel coordinates. These produce actual native tile/prop map composites at 64 PPU. Assemblies expose join quality; they do not certify seamlessness or Unity runtime behavior.
+
+Review output: [World Builder Expansion 02](../../Review/remaster-expansion/worldbuilder-expansion02/index.html). New 64px tile owners use `world-tiles` so the earlier 32px tile proof renderer retains its original contract.
+
 Run `export.cjs`, `verify.cjs`, and `coverage.cjs` with Node from the repository root. The scripts use installed `sharp` or the bundled Codex Node package. They are offline mechanical asset processing; ImageGen source generation is separate.
 
 Sources and descriptors live recursively under `ArtSource/RemasterExpansion/`. A `sheets.json` can be an array or an object with `sheets`; exclusions can be `excludedSources` or a neighboring `excluded-sources.json` array/object. Every PNG must be exported or explicitly excluded. Output PNGs are isolated under `Assets/Art/Production/RemasterExpansion`; review GIFs, HTML, source/native contacts and tile assemblies stay outside Unity imports.
