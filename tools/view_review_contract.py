@@ -157,9 +157,9 @@ def load_review(pack, index, required=False, legacy=False):
             raise ValueError('Missing canonical primary source review: ' + oid)
         if complete:
             review = record.get('review') or {}
-            from merge_view_reviews import REVIEWERS, timestamp
+            from merge_view_reviews import reviewer_allowed, timestamp
             if (set(record['views']) != set(VIEWS) or not record.get('source')
-                    or review.get('status') != 'pass' or review.get('reviewer') not in REVIEWERS
+                    or review.get('status') != 'pass' or not reviewer_allowed(review.get('reviewer'), report.get('scope'))
                     or timestamp(review.get('reviewed_at')) is None):
                 raise ValueError('Incomplete independent approval evidence: ' + oid)
             proof = review.get('source_evidence') or {}

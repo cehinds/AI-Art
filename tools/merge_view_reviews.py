@@ -14,7 +14,8 @@ import json
 from pathlib import Path
 
 VIEWS = ('front', 'top', 'right', 'left', 'bottom', 'rear')
-REVIEWERS = {'root', 'page_inventory', 'reconstruction_design'}
+REVIEWERS = {'root', 'page_inventory', 'reconstruction_design', 'views_equipment'}
+REVIEWER_SCOPES = {'views_equipment': {'style-packs/ink-and-lanterns'}}
 FAILURES = {'issues', 'needs-correction', 'needs-review', 'rejected', 'fail'}
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ASSETS = ROOT / 'dungeon-crawler-tactics/Web/wwwroot/assets'
@@ -98,7 +99,13 @@ def primary_review_evidence(pack, object_id, record, primary, paths, current):
     return None
 
 
-def review_set(pack, object_id, group, assets, reviews):
+def reviewer_allowed(reviewer, scope):
+    """A cross-review assignment never permits an artist to approve their own pack."""
+    return reviewer in REVIEWERS and (reviewer not in REVIEWER_SCOPES
+                                     or scope in REVIEWER_SCOPES[reviewer])
+
+
+def review_set(pack, object_id, group, assets, reviews, scope=None):
     result = {'object_id': object_id, 'complete': False, 'status': 'missing-views',
               'source': None, 'primary_source':None, 'views': {}, 'review': None, 'reasons': []}
     if group is None:
@@ -160,7 +167,7 @@ def review_set(pack, object_id, group, assets, reviews):
         if status == 'pass' and proof is None:
             excluded['missing-or-stale-source-evidence'] += 1
             continue
-        if record.get('reviewer', reviewer) != reviewer or reviewer not in REVIEWERS:
+        if record.get('reviewer', reviewer) != reviewer or not reviewer_allowed(reviewer, scope):
             excluded['untrusted-reviewer'] += 1
             continue
         decisions.append((when, status != 'pass', reviewer, record, proof))
@@ -196,7 +203,7 @@ def merge_library(pack, scope, catalog, worker, ledgers):
         raise ValueError(f'Generated sets absent from canonical physical inventory: {unexpected}')
     records = [review_set(pack, oid, groups.get(oid), assets,
                          [(reviewer, ledger['reviewed'][scope + '::' + oid])
-                          for reviewer, ledger in ledgers if scope + '::' + oid in ledger.get('reviewed', {})])
+                          for reviewer, ledger in ledgers if scope + '::' + oid in ledger.get('reviewed', {})], scope=scope)
                for oid in sorted(expected)]
     return {'schema_version': 1, 'tags': ['attachment-tagged', 'coverage', 'independent-review', 'metadata-document', 'six-view-review'],
             'path_base': 'library-root', 'scope': scope,

@@ -48,6 +48,15 @@ class ApprovalTests(unittest.TestCase):
         self.assertFalse(result['complete'])
         self.assertEqual(result['excluded_review_counts']['missing-or-stale-source-evidence'], 1)
 
+    def test_cross_reviewer_cannot_approve_their_own_library(self):
+        review = {**self.review, 'reviewer': 'views_equipment'}
+        args = (self.pack, 'crate', self.group, self.assets, [('views_equipment', review)])
+        self.assertTrue(merge.review_set(*args, scope='style-packs/ink-and-lanterns')['complete'])
+        for scope in ('style-packs/dungeon-after-dark', 'book-tiles/ink-and-lanterns', None):
+            result = merge.review_set(*args, scope=scope)
+            self.assertFalse(result['complete'])
+            self.assertEqual(result['excluded_review_counts']['untrusted-reviewer'], 1)
+
     def test_partial_views_and_pending_snapshot_never_promote(self):
         self.review['status'] = 'pending'
         self.review['view_reviews'] = {v: {'status': 'pass'} for v in merge.VIEWS}
