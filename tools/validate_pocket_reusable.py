@@ -240,6 +240,9 @@ def validate_procedural(pack, settings, assets):
 
 def validate(pack, require_views=False):
     index = read_json(pack / "reusable/index.json")
+    from view_review_contract import load_review, POLICY
+    review_report = load_review(pack, index,
+        required=require_views and index.get('view_review_policy') == POLICY)
     assets = {}
     provenance_record = index.get("archive", {}).get("external_provenance_manifest")
     external_provenance = {}
@@ -450,6 +453,7 @@ def validate(pack, require_views=False):
         warnings.append(f"{len(boundary_findings)} generated views touch frame boundaries; review clipping.")
     procedural = validate_procedural(pack, index.get("procedural", {}), assets)
     return {"status": "passed", "schema_version": 1, "assets_checked": len(assets), "procedural_validation": procedural,
+        "independent_view_review": review_report['statistics'] if review_report else None,
         "maps_pixel_exact": len(results), "maps": results,
         "duplicate_pixel_groups": duplicate_groups, "missing_six_view_count": len(missing_views),
         "view_pixel_aliases": view_aliases, "view_boundary_findings": boundary_findings,

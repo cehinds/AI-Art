@@ -148,7 +148,7 @@ def merge_library(pack, scope, catalog, worker, ledgers):
                          [(reviewer, ledger['reviewed'][scope + '::' + oid])
                           for reviewer, ledger in ledgers if scope + '::' + oid in ledger.get('reviewed', {})])
                for oid in sorted(expected)]
-    return {'schema_version': 1, 'tags': ['six-view-review', 'coverage', 'independent-review'],
+    return {'schema_version': 1, 'tags': ['attachment-tagged', 'coverage', 'independent-review', 'metadata-document', 'six-view-review'],
             'path_base': 'library-root', 'scope': scope,
             'policy': 'Complete only with a whole-set independent PASS matching the current source and every principal PNG. Partial reviews and worker completion flags do not approve a set. Hidden surfaces remain inferred illustrative art.',
             'statistics': {'expected_sets': len(records), 'approved_sets': sum(r['complete'] for r in records),

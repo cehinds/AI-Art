@@ -136,9 +136,14 @@ class AttachmentRulesTests(unittest.TestCase):
         self.assertIn('ink::stone-floor',group['tile_ids']);self.assertEqual(group['preferred_tile_ids'],[])
 
     def test_anonymous_atlas_frames_tagged_without_geometry_or_id_changes(self):
-        document={'characters':{'frames':{'carl':{'idle':{'x':5,'y':8,'width':40,'height':70,'anchor':{'x':1,'y':2}}}}}}
+        rectangle={'x':2,'y':3,'width':30,'height':60}
+        document={'characters':{'frames':{'carl':{'idle':{'x':5,'y':8,'width':40,'height':70,
+            'anchor':{'x':1,'y':2},'bounds':copy.deepcopy(rectangle),
+            'provenance':{'frames':{'reference':copy.deepcopy(rectangle)}}}}}}}
         rules.enrich_document(document,'gameplay');frame=document['characters']['frames']['carl']['idle']
         self.assertIn('attachment:floor',frame['tags']);self.assertNotIn('id',frame);self.assertEqual([frame[k] for k in ('x','y','width','height')],[5,8,40,70]);self.assertEqual(frame['anchor'],{'x':1,'y':2})
+        self.assertEqual(frame['bounds'],rectangle)
+        self.assertEqual(frame['provenance'],{'frames':{'reference':rectangle}})
         first=copy.deepcopy(document);rules.enrich_document(document,'gameplay');self.assertEqual(first,document)
 
     def test_anonymous_file_records_are_tagged_without_touching_provenance(self):

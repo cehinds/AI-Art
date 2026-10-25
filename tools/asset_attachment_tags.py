@@ -195,7 +195,9 @@ def enrich_document(doc, style, by_id=None):
                 value['tags'] = sorted(old | set(tags))
                 value['attachment_generated_tags'] = sorted(set(tags) - old)
                 value['attachment'] = attachment
-            elif 'frames' in trail and all(k in value for k in ('x', 'y', 'width', 'height')):
+            elif ('frames' in trail and all(k in value for k in ('x', 'y', 'width', 'height'))
+                    and not any(k in trail for k in ('bounds', 'anchor', 'source_rect', 'sourceBox',
+                        'provenance', 'source', 'sources', 'generation', 'crop_bounds_px', 'normalization'))):
                 # Runtime sprite atlases often key frames by character/pose
                 # rather than repeating IDs. Tag the frame, not its geometry.
                 context = ' '.join(str(k) for k in trail if k != 'frames')
