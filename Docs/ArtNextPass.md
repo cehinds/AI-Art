@@ -7,7 +7,7 @@ The higher-resolution library is growing alongside the preserved first-pass Camp
 | Priority | Deliverable | Review evidence needed |
 | --- | --- | --- |
 | 1 | Complete each higher-resolution battle set with idle, hit, critical, victory and KO states | Same costume, body scale and baseline as its attack/cast; readable transitions at native size |
-| 2 | Extend 64 px four-direction field walks beyond Firion | Distinct stride/passing poses, consistent direction, feet registration, map-scale preview |
+| 2 | Polish the new Maria, Guy and Leon candidate walks, then extend 64 px four-direction walks to the remaining party | Distinct opposite foot contacts, consistent direction, feet registration, map-scale preview; see ExplorationExpansion03.md |
 | 3 | Repair environment joins and supply missing edge/corner combinations | Actual exported tiles assembled into rooms, shore bends, paths and floor/wall transitions; no painted-over proof images |
 | 4 | Build location-specific palettes and map assemblies | Original-game layout reference, collision and elevation review, door/stair connectivity, props and events |
 | 5 | Integrate and review in Unity | Licensed Editor import validation, generated clips, SpriteRenderer/Animator wiring, correct PPU, pixel-camera review and playback |

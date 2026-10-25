@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "batch": "exploration-expansion03",
+  "created": "2026-10-25",
+  "generator": "Built-in ImageGen",
+  "purpose": "Additive FFII candidate field sprites, mine/grotto objects and cavern tiles",
+  "artDirection": "Match approved local FFII concept and field references. Original generated assets; reference screenshot pixels are not production exports.",
+  "notes": [
+    "Leon field weapon is fully stowed under cape to avoid inconsistent sword attachment across frames.",
+    "Walking contact poses are candidate animation; native motion and Unity playback require review.",
+    "Cavern atlas revision removes artificial grid lines, without claiming every possible adjacency is seamless.",
+    "Mechanical export uses nearest-neighbor normalization and one shared scale per character sheet."
+  ],
+  "sources": [
+    {
+      "key": "maria-walk",
+      "selected": "maria-walk.png",
+      "transparent": true,
+      "initialPrompt": "Edit and extend the attached character reference into a NEW higher-detail field walking sprite sheet. Preserve the character identity, palette, outfit, hair silhouette, carried gear, and compact chibi JRPG proportions from reference1. Reference2 is the existing Firion field sheet: match its clean GBA-quality pixel clusters and character proportions, NOT its costume or colors. Exactly TWELVE isolated sprites on true transparency in an EXACT3-column x4-row grid, ideally1024wide x1360high. Equal-sizedslots; generous transparent gaps; no overlap; each full figure insideitscell. ROWS:1facesDOWNtowardcamera,2facesLEFT,3facesRIGHT,4facesUPawayfromcamera. COLUMNS:1 leftfootforward/rightarmforward WALKcontact,2feetgatheredneutralpassingstance,3rightfootforward/leftarmforward oppositeWALKcontact. BOTH side-facingcontactframes mustshowopposite leadinglegsandoppositeswingingarms, notduplicateposes. Front/backcontactsshouldshowclearalternatebootpositions. Onegroundbaselineperrow, consistentbodyheightandheadsizematchedacrossall12frames. Mildcloth/hairfollowthrough, NObattleswing, nojumporbiglean, no weaponinhand. Viewtop-down3/4orthographicJRPGfield. Crisp intentionalpixelclusters andhardcoloredoutlines, detailedbutreadableat64px perframe; no paintedgradientsoftedges, noscenery, no castshadowsoutsidecharacter, nolabels, NOwhiteorblackbackground, no gridlines. This is a practicalanimationasset, not a poster. CharacterMARIA:longviolethair,redheadbandwithtails,redscarf,ivoryshorttunicwithredsidepanels,brownleatherbelt,bracersandboots,smallbowandquiversecuredacrossback. Preserveoutfitthroughbackviews. A youngadultadventurer, modestpracticalclothing. No newcostume.",
+      "references": [
+        "ArtSource/Campaign/party/maria-field.png",
+        "Review/remaster-expansion/firion-field-remaster-native.png"
+      ],
+      "generatedFiles": [
+        "exec-4babdbf3-dc00-44a0-a2f0-fe02a657618b.png",
+        "exec-bfc5f577-b4dd-4d23-9cbc-917060865a16.png"
+      ],
+      "revisionPrompts": [
+        "Targeted animation repair of this exact Maria3column4row sheet. Keep all rows,directions,pixelstyle,canvas,characterhead/costume/palette/gearandcellpositions. Keep columns1and2 unchanged. EDIT COLUMN3 ONLY in all4rows: make the OPPOSITE foot contact to column1. Frontrow currentcol1has herRIGHTboot(screenLEFT)forward. In row1col3 put herLEFTboot(screenRIGHT)forward andotherbootvisiblybehind; swingrightarmforward,leftarmback. Backrowcol3swap which bootextendsoutbehindherdress relativetorow4col1. Leftfacingrow2col3:NEARarm reachesforward LEFT acrossbelt;NEARlegextendsback RIGHT withdarkoverlap, FARlegstepsLEFT (samefacing). Rightfacingrow3col3:NEARarmreachesforwardRIGHTacrossbelt,NEARlegextendsbackLEFT,FARlegstepsRIGHT. Avoid makingcolumn3a duplicatedcontactpose. DO NOTmirrorentirebody, head, quiverorbow; justchangearms/legs andminorclothfollowthrough. Same12slotsandgroundbaselines, transparentbackground, noaddedartorlabels. Produceentiresheetwiththesefourposecorrections."
+      ]
+    },
+    {
+      "key": "guy-walk",
+      "selected": "guy-walk.png",
+      "transparent": true,
+      "initialPrompt": "Edit and extend the attached character reference into a NEW higher-detail field walking sprite sheet. Preserve the character identity, palette, outfit, hair silhouette, carried gear, and compact chibi JRPG proportions from reference1. Reference2 is the existing Firion field sheet: match its clean GBA-quality pixel clusters and character proportions, NOT its costume or colors. Exactly TWELVE isolated sprites on true transparency in an EXACT3-column x4-row grid, ideally1024wide x1360high. Equal-sizedslots; generous transparent gaps; no overlap; each full figure insideitscell. ROWS:1facesDOWNtowardcamera,2facesLEFT,3facesRIGHT,4facesUPawayfromcamera. COLUMNS:1 leftfootforward/rightarmforward WALKcontact,2feetgatheredneutralpassingstance,3rightfootforward/leftarmforward oppositeWALKcontact. BOTH side-facingcontactframes mustshowopposite leadinglegsandoppositeswingingarms, notduplicateposes. Front/backcontactsshouldshowclearalternatebootpositions. Onegroundbaselineperrow, consistentbodyheightandheadsizematchedacrossall12frames. Mildcloth/hairfollowthrough, NObattleswing, nojumporbiglean, no weaponinhand. Viewtop-down3/4orthographicJRPGfield. Crisp intentionalpixelclusters andhardcoloredoutlines, detailedbutreadableat64px perframe; no paintedgradientsoftedges, noscenery, no castshadowsoutsidecharacter, nolabels, NOwhiteorblackbackground, no gridlines. This is a practicalanimationasset, not a poster. CharacterGUY:stocky/broadshoulderedbrownhairedyoungadultfighter,greentunic,ochreleathervest,goldbuckle,palecreamshorttrousers,brownleatherbootsandbracers,onesilver-headedaxe strappeddiagonallyacrossback. Keepstockybuildconsistentandaxeattachedtoharness. Nodrawnweaponinhands. No newcostume. IMPORTANT for columns1 versus3: visually swap the nearer arm and nearer leg. In contactA nearboot is forward and neararm behind; in contactB nearboot is BEHIND and neararm FORWARD. Change limb occlusion and belt/hand overlap so the two contact poses animate distinctly; do not just shift the same drawing.",
+      "references": [
+        "ArtSource/Campaign/party/guy-field.png",
+        "Review/remaster-expansion/firion-field-remaster-native.png"
+      ],
+      "generatedFiles": [
+        "exec-a76728a5-53e7-40da-bc99-ed51f655030b.png"
+      ],
+      "revisionPrompts": []
+    },
+    {
+      "key": "leon-walk",
+      "selected": "leon-walk.png",
+      "transparent": true,
+      "initialPrompt": "Edit and extend the attached character reference into a NEW higher-detail field walking sprite sheet. Preserve the character identity, palette, outfit, hair silhouette, carried gear, and compact chibi JRPG proportions from reference1. Reference2 is the existing Firion field sheet: match its clean GBA-quality pixel clusters and character proportions, NOT its costume or colors. Exactly TWELVE isolated sprites on true transparency in an EXACT3-column x4-row grid, ideally1024wide x1360high. Equal-sizedslots; generous transparent gaps; no overlap; each full figure insideitscell. ROWS:1facesDOWNtowardcamera,2facesLEFT,3facesRIGHT,4facesUPawayfromcamera. COLUMNS:1 leftfootforward/rightarmforward WALKcontact,2feetgatheredneutralpassingstance,3rightfootforward/leftarmforward oppositeWALKcontact. BOTH side-facingcontactframes mustshowopposite leadinglegsandoppositeswingingarms, notduplicateposes. Front/backcontactsshouldshowclearalternatebootpositions. Onegroundbaselineperrow, consistentbodyheightandheadsizematchedacrossall12frames. Mildcloth/hairfollowthrough, NObattleswing, nojumporbiglean, no weaponinhand. Viewtop-down3/4orthographicJRPGfield. Crisp intentionalpixelclusters andhardcoloredoutlines, detailedbutreadableat64px perframe; no paintedgradientsoftedges, noscenery, no castshadowsoutsidecharacter, nolabels, NOwhiteorblackbackground, no gridlines. This is a practicalanimationasset, not a poster. CharacterLEON:navyblacktousledhair,blue-blackarmorwithgoldtrim,smallsteel/goldshoulderplates,cobaltscarfandcape,grayleggings,gold/brownarmoredboots,silverswordscabbardsecuredatbelt. Keepcapelengthandarmorconsistentacrossfourviews. Adult/youngadultcompactadventurerproportions. No newcostume. IMPORTANT for columns1 versus3: visually swap the nearer arm and nearer leg. In contactA nearboot is forward and neararm behind; in contactB nearboot is BEHIND and neararm FORWARD. Change limb occlusion and belt/hand overlap so the two contact poses animate distinctly; do not just shift the same drawing.",
+      "references": [
+        "ArtSource/Campaign/party/leon-field.png",
+        "Review/remaster-expansion/firion-field-remaster-native.png"
+      ],
+      "generatedFiles": [
+        "exec-9216d9ec-09cb-428c-890c-c389d35ad389.png",
+        "exec-070d1925-f3bc-4546-b8dc-20495294e9be.png",
+        "exec-d0b8b44b-0245-488c-9f03-befdf0a3cce7.png"
+      ],
+      "revisionPrompts": [
+        "Repair this exact Leon fieldwalking atlas. Keep all12slots,3columns4rows,head/outfit/colors/scale,pixelstyleandtransparentbackground. In eachrowthethreeposesmustform contactA,neutralpassing,contactB. CorrectallfourCOLUMN3poses: activelyswingNEARarmforwardacrosswaistandNEARlegbackbehindbody, oppositecolumn1, so sidecontactBlooksnoticeablydifferentandnotthe samewalkdrawing. Row1androw4 contactBmustextendtheOTHERbootcomparedwithcontactA. Maintainposegroundbaseline. CRITICALGEAR:his sword/scabbardmuststayattachedtothesameanatomicalhipthroughallframes,neverteleportleft/right; forfrontrow use the samehip as center idle (sword on SCREENRIGHT), forbackrow use the correspondingSCREENLEFT hip. Don'tmirrorwholebodytocheatfootchanges. Onlyarms/legs/capefollowthroughshouldchange. Preserveall12distinctsprites, cleanuniformpixelclusters, noextras,noletters,noopaquebackground.",
+        "Small precise field-sprite edit to this 3column4row Leon walking atlas: REMOVE ALL VISIBLE SWORDS, SCABBARDS, GOLD SWORD HILTS AND SWORD BLADES from EVERY one of the12sprites. Fieldtravelpolicy: weaponisfullystowedunderhiscapeandNOTvisibleinanydirection. Fill newlyexposedarea with matching existingarmor/tunic/cape/transparentbackground as appropriate. This fixes the swordchanginghipsbetweenframes. Keep face,hair,body,outfit,palette,pose,boots,eachslotposition,footplacementandpixelart otherwiseunchanged. Preserve all12sprites and3x4layout. Do NOTadd a replacementweaponordecoration, no visible sword anyplace. True transparentbackground."
+      ]
+    },
+    {
+      "key": "mine-props",
+      "selected": "mine-props.png",
+      "transparent": true,
+      "initialPrompt": "New production-source pixel-art asset sheet for the established FFII-inspired GBA-quality library. Match attached environment and world-prop references for crisp pixel clusters, dark colored outlines, upper-left lighting, warm ochre timber, muted gray stone, restrained highlights, compact readable forms. EXACTLY8 different isolated map objects in4columns x2rows on TRUE TRANSPARENT background, ideally1536x768. Equalcells, sharedscale, oneobjectcenteredpercell, groundbaseline nearcellbottom, complete silhouettes with12% transparentmargin. Top-down3/4orthographicJRPGview, notisometricdiamondtiles. Nativeexports128px. Nopeople, no text/numbers/labels, noframes/gutters/grid, no groundplatforms, no scenery, no castshadowoutsideobject, no blur/smoothpainting. Row1 lefttoright: timber mine-shaft HEADFRAME with large overheadpulley andcrossbracing (no hole/terrainunderit); hand-cranked ropeWINCHDRUM oncompactwoodenframe; suspended openIRONOREBUCKET withshortchain foldedaboveit (notcrate); smallraisedWOODENORECHUTE filledwithfewgrayorechunks. Row2 lefttoright: shortT-shapedMINERAILSTOPASSEMBLY withwoodensleepers andironbuffer (notcart); standingPICKAXEANDSHOVELTOOLRACK; smallORESORTINGTABLE withthreecolororepilesandwiremeshtray; hand-poweredLEATHERBELLOWS ventilationunit onwoodbase, withsimplemetalnozzle. Medievalfantasycraft materials, no electricity/industrialsteampunk, no wheelsorvehicle.",
+      "generatedFiles": [
+        "exec-8eb5cd2d-8128-413e-994f-aaa8166ea734.png"
+      ],
+      "revisionPrompts": [],
+      "references": [
+        "Review/art/03-environment-kit.png",
+        "ArtSource/RemasterExpansion/worldbuilder-expansion02/village-props.png"
+      ]
+    },
+    {
+      "key": "grotto-props",
+      "selected": "grotto-props.png",
+      "transparent": true,
+      "initialPrompt": "New production-source pixel-art asset sheet for the established FFII-inspired GBA-quality library. Match attached environment and world-prop references for crisp pixel clusters, dark colored outlines, upper-left lighting, warm ochre timber, muted gray stone, restrained highlights, compact readable forms. EXACTLY8 different isolated map objects in4columns x2rows on TRUE TRANSPARENT background, ideally1536x768. Equalcells, sharedscale, oneobjectcenteredpercell, groundbaseline nearcellbottom, complete silhouettes with12% transparentmargin. Top-down3/4orthographicJRPGview, notisometricdiamondtiles. Nativeexports128px. Nopeople, no text/numbers/labels, noframes/gutters/grid, no groundplatforms, no scenery, no castshadowoutsideobject, no blur/smoothpainting. Row1 lefttoright: SAPPHIREBLUE crystalcluster (threeangularspires); AMETHYSTPURPLE crystalcluster (fiveunevenspires); EMERALDGREEN crystalcluster (broadangularfan); AMBERGOLDQUARTZ crystalcluster (twohighspirespluslowchips). Row2 lefttoright: largeOPENBROKENGEODE withvioletcrystalinterior; IRONOREBOULDER withthreeclearred-brownmetallicveins; hangingSTALACTITEcluster withnaturallybrokenflatattachmenttop, pointsdown; standingSTALAGMITEcluster withthreerockconespointingup. Everyformationcompact, pixelhardfacets, no luminousglowcloud,outlinesandshadingmatchstoneprops, nofaces/noenemies, nogroundtiles/terraincircle, novisualeffectparticles.",
+      "generatedFiles": [
+        "exec-8fdcf2cc-9db7-4d88-8259-37db94e0a308.png"
+      ],
+      "revisionPrompts": [],
+      "references": [
+        "Review/art/03-environment-kit.png",
+        "Review/remaster-expansion/worldbuilder-landmarks-contact.png"
+      ]
+    },
+    {
+      "key": "cavern-tiles",
+      "selected": "cavern-tiles.png",
+      "transparent": false,
+      "initialPrompt": "Create a new practical CRYSTAL CAVERN construction tile atlas matching attached approved FFII/GBAenvironment pixelart. Exactly4x4independentfull-bleedsquarecells on oneopaque1024x1024squareimage. NOgaps,gutters,padding,borders,labels,numbering,drawngrid,blackdividers. Pixelclusters crisp at64pxexport, upper-leftlight, coolgray/slate cavewall edged withsubtlemutedtealveins, darkblue-gray bedrock outside, flatstonefloor inside. Top-down3/4JRPGorthographic, NOTisometricfloatingblocks, NOtallcrystals/props/characters. A one-tile-deep lowcavernwall rims walkable rockfloor; first3colsfirst3rows are standard3x3boundarykit thatassemblesa connectedroom. EXACTROWMAJOR: Row1 [cavernNWouterwallcorner, cavernNwall, cavernNEouterwallcorner, solidBEDROCKfill]. Row2 [cavernWwall, plainwalkableSTONEFLOORcenter, cavernEwall, alternatefloorwithsmalltealmineralspecks]. Row3 [cavernSWouterwallcorner, cavernSwall, cavernSEouterwallcorner, walkablefloorwithsmallscatteredloosepebbles]. Row4 [INNERconcavecornerwithbedrockbiteatNWandwalkablefloorrest; samebedrockbiteNE; samebedrockbiteSW; samebedrockbiteSE]. Boundarywallfaceshaveconsistentthicknessaround20%cell anddarkshadowoutside,butneverdrawartificialgridseparators. Everyfloor-runcontinuesFULLYtocellboundarywhereitjoinsfloor. Namedwallcornersjoincorrespondingsides. Use mutedstone, smalltealhintsONLY notneon, no water/lava, no doors/stairs. Colorsandnoisecountconsistentwithapprovedstyle, notpainterly.",
+      "generatedFiles": [
+        "exec-9f94afe8-d33b-4528-a4a3-f644fd09fbf1.png",
+        "exec-d7aa9be5-087c-47cc-bf96-f313da2fdfc3.png"
+      ],
+      "revisionPrompts": [
+        "Edit this 4 by 4 cavern tile atlas. Remove ONLY the unwanted perfectly straight black separator lines along the three vertical and three horizontal cell boundaries (at 25%, 50%, and 75% of the canvas). Reconstruct the missing rock and floor pixel texture over those lines. There must be NO drawn grid or gutters. Keep all sixteen tile identities, shapes, cave walls, concave corners, palette, pixel art style, tile layout and exact cell positions unchanged. Each cell is full bleed to its edge. Keep opaque background. Do not add text, props, frames or new decoration."
+      ],
+      "references": [
+        "Review/art/03-environment-kit.png"
+      ]
+    }
+  ]
+}

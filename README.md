@@ -6,6 +6,8 @@ This transfer preserves 1,202 production PNGs, their Unity metadata, generated s
 
 ## Review the artwork
 
+- [Exploration Expansion 03: Maria, Guy and Leon walks, 16 props and 16 cavern tiles](Review/remaster-expansion/exploration-expansion03/index.html)
+- [Exploration Expansion 03 portable ZIP](Review/exploration-expansion03.zip)
 - [World Builder Expansion 02: 24 props at 128px and 32 tiles at 64px](Review/remaster-expansion/worldbuilder-expansion02/index.html)
 - [World Builder Expansion 02 portable ZIP](Review/worldbuilder-expansion02.zip)
 - [World Builder 100: 100 biome tiles and 32 object sprites](Review/remaster-expansion/worldbuilder100/index.html)
@@ -16,7 +18,9 @@ This transfer preserves 1,202 production PNGs, their Unity metadata, generated s
 - [Concept art and interactive wireframes](Review/index.html)
 - [Remaining art work](Docs/ArtNextPass.md)
 
-Open the HTML galleries locally after cloning. Production art is under `Assets/Art/Production/`: Batch01 has 44 PNGs, Campaign has 744, and RemasterExpansion has 470. The expansion includes 27 timed clips; the latest vehicle views are static directions. These are candidate art libraries, not a completed playable campaign.
+Open the HTML galleries locally after cloning. Production art is under `Assets/Art/Production/`: Batch01 has 44 PNGs, Campaign has 744, and RemasterExpansion has 538. The expansion includes 39 timed clips; vehicle views are static directions. These are candidate art libraries, not a completed playable campaign.
+
+Exploration Expansion 03 adds 36 field frames for Maria, Guy and Leon, 12 candidate walk clips, 16 mine/crystal props and 16 cavern tiles. Its gallery includes native assets, a Firion scale comparison and three assembled maps. See [the batch notes](Docs/ExplorationExpansion03.md) for provenance and remaining pose/terrain polish.
 
 World Builder Expansion 02 adds 24 transparent 128×128 props and 32 opaque 64×64 tiles at 64 PPU. Its review includes exact native contacts, three assembled maps and source/export SHA-256 records. All 1,202 earlier production PNGs and their Unity metadata remain byte-for-byte unchanged.
 
