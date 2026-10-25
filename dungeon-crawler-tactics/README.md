@@ -1,5 +1,7 @@
 # AI Art
 
+Dungeon Crawler artwork lives on the `dungeon-crawler` branch; `main` is the shared repository index and the other games have their own branches.
+
 Art library for [Dungeon Crawler Tactics](https://github.com/cehinds/dungeon-crawler-tactics).
 
 The `dungeon-crawler-tactics/` directory preserves project-relative paths, so the game can restore assets without changing browser URLs or Unity resource paths.
@@ -14,7 +16,7 @@ The `dungeon-crawler-tactics/` directory preserves project-relative paths, so th
 
 ## Use and update
 
-The game pins this repository to an exact commit in `art-assets.lock.json`; its Pages workflow restores and verifies the indexed files before validation and publication. Art still appears at the game's existing URLs. New art belongs here. After exporting revised assets, update `asset-index.json`, commit and push this repository, then update the game lock to that commit and the new index hash.
+The game pins this repository to an exact commit in `art-assets.lock.json`; its Pages workflow restores and verifies the indexed files before validation and publication. Art still appears at the game's existing URLs. New art belongs here. After exporting revised assets, run `python3 tools/index_assets.py dungeon-crawler-tactics` from the repository root, commit and push the `dungeon-crawler` branch, then update the game lock to that commit and the new index hash.
 
 The canonical tile grid is orthogonal, 128 × 128 logical pixels on transparent 256 × 256 component canvases. Doors face forward with straight horizontal thresholds. Keep the three styles visually distinct but geometrically compatible.
 
