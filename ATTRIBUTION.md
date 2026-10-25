@@ -21,7 +21,7 @@ assertion that any particular person/model created every imported file.
 ## No Relicensing
 
 No standalone LICENSE, COPYING, NOTICE, ATTRIBUTION, or CREDITS files were found
-in the 74 inspected branch-head trees. Their absence is not permission to reuse
+in the 73 inspected branch-head trees. Their absence is not permission to reuse
 the files and does not establish a license. No MIT, CC0, public-domain, or other
 new license is applied by this transfer. Existing rights remain with their
 respective holders; obtain permission where required.

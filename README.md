@@ -12,7 +12,7 @@ The branch spelling is intentional. `main` remains the shared repository index.
 - `assets/{sprites,bg}/manifest.json`: original, unmodified asset manifests.
 - `authoring/`: original palettes, sprite-part definitions, and model overrides.
 - `asset-manifest.json`: SHA-256, Git blob hashes, and source locations for every
-  imported file, with immutable commit IDs for all 74 inspected branch heads.
+  imported file, with immutable commit IDs for all 73 inspected branch heads.
 - `provenance/`: original asset documentation and Git author/coauthor records.
 - `ATTRIBUTION.md`: provenance and licensing limits. No new license is granted.
 
