@@ -61,9 +61,46 @@ def timestamp(value):
         return None
 
 
+def primary_review_evidence(pack, object_id, record, primary, paths, current):
+    """Recover only reviewed, hash-verified evidence, including captured crops."""
+    from view_review_contract import file_evidence
+    def verified_reference(info):
+        path = Path(info.get('path') or '/').resolve()
+        if not path.is_relative_to(pack.resolve()) or not path.is_file():return None
+        actual = file_evidence(pack, path.relative_to(pack).as_posix())
+        if actual['sha256'] != info.get('sha256') or actual['rgba_sha256'] != primary['rgba_sha256']:return None
+        return actual
+    captured = record.get('source_evidence', {})
+    manifest_path = captured.get('capture_manifest')
+    if manifest_path:
+        path = Path(manifest_path)
+        if not path.is_file():return None
+        raw = path.read_bytes(); manifest_hash = hashlib.sha256(raw).hexdigest()
+        if manifest_hash != captured.get('capture_manifest_sha256'):return None
+        document = json.loads(raw)
+        matches = [item for item in document.get('objects', []) if item.get('object_id') == object_id]
+        if len(matches) != 1:return None
+        item = matches[0]
+        if set(item.get('views', {})) != set(VIEWS):return None
+        if any(item['views'][v].get('sha256') != current[v]
+               or Path(item['views'][v].get('path') or '/').resolve() != paths[v] for v in VIEWS):return None
+        reference = verified_reference(item.get('source', {}))
+        if reference:
+            return {'method':'verified-capture-manifest', 'capture_manifest_sha256':manifest_hash,
+                    'reviewed_reference':reference,
+                    'equivalence':'Exact decoded width, height and RGBA equality with canonical primary crop.'}
+        return None
+    reference = verified_reference({'path':record.get('source') or record.get('source_path'),
+                                    'sha256':record.get('source_sha256')})
+    if reference:
+        return {'method':'direct-reviewed-source', 'reviewed_reference':reference,
+                'equivalence':'Exact decoded width, height and RGBA equality with canonical primary crop.'}
+    return None
+
+
 def review_set(pack, object_id, group, assets, reviews):
     result = {'object_id': object_id, 'complete': False, 'status': 'missing-views',
-              'source': None, 'views': {}, 'review': None, 'reasons': []}
+              'source': None, 'primary_source':None, 'views': {}, 'review': None, 'reasons': []}
     if group is None:
         result['reasons'] = ['No generated six-view set.']
         return result
@@ -94,6 +131,12 @@ def review_set(pack, object_id, group, assets, reviews):
         return result
     source = next(iter(sources))
     result['source'] = {'path': source.relative_to(pack).as_posix(), 'sha256': sha(source)}
+    from view_review_contract import canonical_primary
+    try:
+        result['primary_source'] = canonical_primary(pack, object_id, assets, group)
+    except (ValueError, OSError) as exc:
+        result.update(status='invalid-canonical-source', reasons=[str(exc)])
+        return result
     current = {v: result['views'][v]['sha256'] for v in VIEWS}
     decisions, excluded = [], Counter()
     for reviewer, record in reviews:
@@ -113,14 +156,14 @@ def review_set(pack, object_id, group, assets, reviews):
             continue
         # A current-image defect blocks approval even if its reviewer did not
         # capture source evidence. Passing requires BOTH source identity/hash.
-        if status == 'pass' and (record.get('source_sha256') != result['source']['sha256']
-                or Path(record.get('source') or record.get('source_path') or '/').resolve() != source):
+        proof = primary_review_evidence(pack, object_id, record, result['primary_source'], paths, current) if status == 'pass' else None
+        if status == 'pass' and proof is None:
             excluded['missing-or-stale-source-evidence'] += 1
             continue
         if record.get('reviewer', reviewer) != reviewer or reviewer not in REVIEWERS:
             excluded['untrusted-reviewer'] += 1
             continue
-        decisions.append((when, status != 'pass', reviewer, record))
+        decisions.append((when, status != 'pass', reviewer, record, proof))
     if excluded:
         result['excluded_review_counts'] = dict(sorted(excluded.items()))
     if not decisions:
@@ -128,19 +171,26 @@ def review_set(pack, object_id, group, assets, reviews):
         result['reasons'] = ['No whole-set independent PASS with current source and all six PNG hashes.']
         return result
     # Latest decisive review wins. At the same timestamp a rejection wins.
-    _, rejected, reviewer, record = max(decisions, key=lambda r: r[:3])
+    _, rejected, reviewer, record, proof = max(decisions, key=lambda r: r[:3])
     result['status'] = 'needs-correction' if rejected else 'passed'
     result['complete'] = not rejected
     result['review'] = {'reviewer': reviewer, 'reviewed_at': record['reviewed_at'],
                         'status': record['status'], 'notes': record.get('notes', []),
                         'affected_views': record.get('affected_views', [])}
+    if proof:result['review']['source_evidence'] = proof
     return result
 
 
 def merge_library(pack, scope, catalog, worker, ledgers):
     expected = {a.get('object_id', a['id']) for a in catalog['assets'] if a.get('views', {}).get('applicable')}
     groups = unique(worker.get('view_sets', []), 'object_id')
-    assets = unique(worker.get('assets', []), 'id')
+    assets = unique(catalog.get('assets', []), 'id')
+    for ident, asset in unique(worker.get('assets', []), 'id').items():
+        if ident in expected:
+            if ident not in assets or asset != assets[ident]:
+                raise ValueError('Worker cannot override canonical physical parent: ' + ident)
+        else:
+            assets[ident] = asset
     unexpected = sorted(set(groups) - expected)
     if unexpected:
         raise ValueError(f'Generated sets absent from canonical physical inventory: {unexpected}')
@@ -167,6 +217,7 @@ def apply_approvals(worker, report):
                                'evidence': 'reusable/legacy-view-review.json' if report.get('scope_mode') == 'targeted-existing-assets' else 'reusable/view-review.json',
                                'object_id': group['object_id'],
                                'source_sha256': (record['source'] or {}).get('sha256'),
+                               'primary_source': record.get('primary_source'),
                                'image_hashes': {v: a['sha256'] for v, a in record['views'].items()}}
         if record['review']:
             group['geometry_qa'].update(record['review'])

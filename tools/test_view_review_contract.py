@@ -87,6 +87,32 @@ class PublishedReviewTests(unittest.TestCase):
         self.assertEqual(len(self.report['sets']),1)
         self.assertNotEqual(contract.reference(projected)['sha256'],contract.reference(self.report)['sha256'])
 
+    def test_scene_unchanged_does_not_hide_primary_crop_change_or_alias_swap(self):
+        Image.new('RGBA',(10,10),(90,80,70,255)).save(self.pack/'scene.png')
+        self.index['assets'][0]['provenance']={'source_image':'scene.png'}
+        for leaf in self.index['assets'][1:]:
+            leaf['provenance']={'source_image':'scene.png','native_front':'source.png'}
+        self.report['sets'][0]['source']={'path':'scene.png','sha256':merge.sha(self.pack/'scene.png')}
+        self.publish();contract.load_review(self.pack,self.index,True)
+        Image.new('RGBA',(4,4),(99,98,97,255)).save(self.pack/'alias.png')
+        self.index['assets'][1]['provenance']['native_front']='alias.png'
+        with self.assertRaisesRegex(ValueError,'Noncanonical native_front'):
+            contract.load_review(self.pack,self.index,True)
+        self.index['assets'][1]['provenance']['native_front']='source.png'
+        Image.new('RGBA',(4,4),(100,101,102,255)).save(self.pack/'source.png')
+        with self.assertRaisesRegex(ValueError,'primary source review'):
+            contract.load_review(self.pack,self.index,True)
+
+    def test_published_review_requires_canonical_and_reviewed_crop_bindings(self):
+        record=self.report['sets'][0]
+        primary=record.pop('primary_source');self.publish()
+        with self.assertRaisesRegex(ValueError,'Missing canonical primary'):
+            contract.load_review(self.pack,self.index,True)
+        record['primary_source']=primary
+        record['review'].pop('source_evidence');self.publish()
+        with self.assertRaisesRegex(ValueError,'reviewed canonical crop'):
+            contract.load_review(self.pack,self.index,True)
+
     def test_targeted_existing_review_is_explicit_and_cannot_replace_full_review(self):
         self.index['assets'].append({'id':'old-object','views':{'applicable':True,'complete':True}})
         legacy=copy.deepcopy(self.report);legacy['scope_mode']='targeted-existing-assets'
@@ -111,6 +137,13 @@ class PublishedReviewTests(unittest.TestCase):
 
     def test_archive_retains_local_review_and_tools_for_selected_maps(self):
         from package_pocket_reusable import plan
+        # A separately encoded but pixel-identical reviewed crop must travel with
+        # the archive even when no asset's normal provenance references it.
+        (self.pack/'evidence').mkdir()
+        Image.open(self.pack/'source.png').save(self.pack/'evidence/reviewed-copy.png',compress_level=0)
+        proof=self.report['sets'][0]['review']['source_evidence']
+        proof['reviewed_reference']=contract.file_evidence(self.pack,'evidence/reviewed-copy.png')
+        self.publish()
         self.index['assets'].append({'id':'icon','kind':'ui','image':{'path':'icon.png','width':4,'height':4}})
         Image.new('RGBA',(4,4),(90,80,70,255)).save(self.pack/'icon.png')
         self.index['maps']=[{'id':'icon-map','file':'map.json','source':'icon.png'}]
@@ -126,6 +159,7 @@ class PublishedReviewTests(unittest.TestCase):
         (self.pack/'reusable/index.json').write_bytes(contract.encoded(self.index))
         for selected in (None,['icon-map']):
             contents=plan(self.pack,selected)
+            if selected is None:self.assertIn('library/evidence/reviewed-copy.png',contents)
             self.assertIn('view_review_contract.py',contents)
             self.assertIn('merge_view_reviews.py',contents)
             with tempfile.TemporaryDirectory() as exported:

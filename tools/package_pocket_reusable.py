@@ -203,6 +203,14 @@ def plan(pack, selected_maps=None, include_raw=False):
         legacy_review_report = project(legacy_review_report, expected_objects(index))
         index['legacy_view_review'] = reference(legacy_review_report, legacy=True)
         contents[f"{folder}/reusable/legacy-view-review.json"] = encoded(legacy_review_report)
+    # Portable approval evidence closes over the actual reviewed crop, which may
+    # be an exactly pixel-equivalent PNG copy outside normal catalog assets.
+    for report in (review_report, legacy_review_report):
+        for record in (report or {}).get('sets', []):
+            evidence = (record.get('review') or {}).get('source_evidence', {})
+            for info in (record.get('source'), record.get('primary_source'), evidence.get('reviewed_reference')):
+                if info:
+                    contents[f"{folder}/{info['path']}"] = contained(pack, info['path']).read_bytes()
     if localized_rules is not None:
         contents[f"{folder}/reusable/attachment-rules.json"] = encoded(localized_rules)
     if registry_entry is not None:

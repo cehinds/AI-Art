@@ -11,6 +11,47 @@ REVIEW_PATH = 'reusable/view-review.json'
 LEGACY_REVIEW_PATH = 'reusable/legacy-view-review.json'
 
 
+def file_evidence(pack, relative):
+    """Hash actual source bytes and decoded pixels; never trust catalog hashes."""
+    from validate_pocket_reusable import contained
+    from PIL import Image
+    from io import BytesIO
+    import struct
+    path = contained(pack, relative)
+    raw = path.read_bytes()
+    with Image.open(BytesIO(raw)) as image:
+        rgba = image.convert('RGBA')
+        pixel_hash = hashlib.sha256(struct.pack('>II', *rgba.size) + rgba.tobytes()).hexdigest()
+    return {'path': relative, 'sha256': hashlib.sha256(raw).hexdigest(), 'rgba_sha256': pixel_hash}
+
+
+def canonical_primary(pack, object_id, assets, group):
+    """Bind a generated set to id==object_id, never to a later scene alias."""
+    from validate_pocket_reusable import view_reference
+    parent = assets.get(object_id)
+    if not parent or parent.get('object_id', object_id) != object_id or not parent.get('image', {}).get('path'):
+        raise ValueError('Missing canonical physical source: ' + object_id)
+    primary = {'asset_id': object_id, **file_evidence(pack, parent['image']['path'])}
+    context = parent.get('provenance', {}).get('source_image')
+    checked = {primary['path']: primary}
+    for reference in group.get('views', {}).values():
+        leaf = assets.get(view_reference(reference), {})
+        provenance = leaf.get('provenance', {})
+        native = provenance.get('native_front')
+        if native:
+            if native not in checked:checked[native] = file_evidence(pack, native)
+            if checked[native]['rgba_sha256'] != primary['rgba_sha256']:
+                raise ValueError('Noncanonical native_front source: ' + object_id)
+            if provenance.get('native_front_sha256') not in (None, checked[native]['sha256']):
+                raise ValueError('Stale canonical native_front hash: ' + object_id)
+        source = provenance.get('source_image')
+        if source and source not in (primary['path'], context):
+            if source not in checked:checked[source] = file_evidence(pack, source)
+            if checked[source]['rgba_sha256'] != primary['rgba_sha256']:
+                raise ValueError('Generated source is not the canonical physical crop: ' + object_id)
+    return primary
+
+
 def encoded(value):
     return (json.dumps(value, indent=2, ensure_ascii=False) + '\n').encode()
 
@@ -108,6 +149,12 @@ def load_review(pack, index, required=False, legacy=False):
             if record.get('source') and asset.get('provenance', {}).get('source_image') != record['source']['path']:
                 raise ValueError('View-review source differs from catalog: ' + oid)
             check_file(info)
+        if record.get('primary_source'):
+            primary = canonical_primary(pack, oid, assets, group)
+            if record['primary_source'] != primary:
+                raise ValueError('Stale or noncanonical primary source review: ' + oid)
+        elif complete:
+            raise ValueError('Missing canonical primary source review: ' + oid)
         if complete:
             review = record.get('review') or {}
             from merge_view_reviews import REVIEWERS, timestamp
@@ -115,6 +162,17 @@ def load_review(pack, index, required=False, legacy=False):
                     or review.get('status') != 'pass' or review.get('reviewer') not in REVIEWERS
                     or timestamp(review.get('reviewed_at')) is None):
                 raise ValueError('Incomplete independent approval evidence: ' + oid)
+            proof = review.get('source_evidence') or {}
+            info = proof.get('reviewed_reference')
+            if proof.get('method') not in ('verified-capture-manifest', 'direct-reviewed-source') or not info:
+                raise ValueError('Missing reviewed canonical crop evidence: ' + oid)
+            actual = file_evidence(pack, info['path'])
+            if actual != info or actual['rgba_sha256'] != primary['rgba_sha256']:
+                raise ValueError('Stale reviewed crop evidence: ' + oid)
+            if proof['method'] == 'verified-capture-manifest':
+                import re
+                if not re.fullmatch('[0-9a-f]{64}', proof.get('capture_manifest_sha256', '')):
+                    raise ValueError('Missing verified capture manifest digest: ' + oid)
         elif required:
             raise ValueError('Independent six-view review incomplete: ' + oid)
     return report
