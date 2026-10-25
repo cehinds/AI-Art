@@ -51,4 +51,12 @@ npm run build
 
 The importer refuses unrecorded files, local snapshot edits or an uncommitted previous snapshot. Updates retain old versions in Git history and record changed, added and removed upstream paths. Review the result on `dev` before promoting to `main`; only `main` publishes the site. Future game additions belong in `scripts/lib.mjs` and the page navigation.
 
+After committing a verified snapshot update, connect the imported source histories before pushing:
+
+```sh
+git merge --no-ff --strategy=ours origin/ff2 origin/dungeon-crawler origin/ashenspire origin/Dovakiin
+```
+
+This records the game commits as parents while preserving the already verified `Games/` layout. It avoids re-uploading gigabytes of artwork GitHub already has; it does not replace the snapshot importer or its verification.
+
 [Design reference and visual checks](docs/design/spec.md) · [Original repository index](docs/repository-index.md)
