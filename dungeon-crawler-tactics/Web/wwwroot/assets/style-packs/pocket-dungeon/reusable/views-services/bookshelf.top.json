@@ -1,0 +1,88 @@
+{
+  "id": "bookshelf.top",
+  "name": "Bookshelf top",
+  "kind": "sprite",
+  "tags": [
+    "bookshelf",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "services",
+    "top"
+  ],
+  "object_id": "bookshelf",
+  "view": "top",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/bookshelf.top.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "9f1f796127f990da0b16463538d34b841de1724465b8cf27ea71ede00e7066cb",
+    "rgba_sha256": "40d85cf88b53009a43daa25158039b699db4c8962dd6e5ae011289bf5c34e3ee"
+  },
+  "metadata_path": "reusable/views-services/bookshelf.top.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/bookshelf.png",
+    "source_image_sha256": "597f277c89843b880eebc53f90e3956a63c2904ee5f97add195dbf388489e813",
+    "generated_atlas": "reusable/views-services/atlas-storage-furniture.png",
+    "generated_atlas_sha256": "2cfea813a394f564a8ca5148d7a1c15bb12706b574e60e39cd7c11528a2d68b4",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a transparent 6-column x 4-row orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly armor-rack, weapon-rack, bookshelf, wardrobe matching supplied references. One complete centered object per cell, same identity and proportions in every view. Preserve source colors, materials, silhouettes and distinguishing detail; objects remain the same design. True orthographic views with top straight down, bottom underside, rear opposite front, and inferred hidden surfaces. No scenery, floor, shadows, perspective, labels, borders, or cell marks. Crisp game pixel art; transparent background.",
+      "reference_images": [
+        "components/armor-rack.png",
+        "components/weapon-rack.png",
+        "components/bookshelf.png",
+        "components/wardrobe.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        2,
+        1
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        87
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        331,
+        584,
+        243,
+        123
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.88,
+      "render_size_px": [
+        214,
+        108
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

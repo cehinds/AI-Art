@@ -1,0 +1,81 @@
+{
+  "id": "forest-pond-shore-edge.top",
+  "name": "Pond shore edge top",
+  "kind": "tile",
+  "tags": [
+    "forest",
+    "top",
+    "orthographic",
+    "inferred-view"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/forest-pond-shore-edge.top.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "ad1e501b520acf553eae98987f8a2001b5254259e1f14f33bda96a61c7d21bf4",
+    "rgba_sha256": "c83fff6c6797f16277e453663a36989ce463541939ec6e6af33f072be022af45"
+  },
+  "object_id": "forest-pond-shore-edge",
+  "view": "top",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/forest-pond-shore-edge.png",
+    "source_image_sha256": "6475ef12f33d2c1af49ac18f807073c81663790394b23ef9fc622f15dff1d1eb",
+    "referenced_source_images": [
+      {
+        "path": "components/forest-pond-shore-edge.png",
+        "sha256": "6475ef12f33d2c1af49ac18f807073c81663790394b23ef9fc622f15dff1d1eb"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/forest-batch06.png",
+    "generated_atlas_sha256": "0df711e90a5dfeeea5df3360187a894f107b9fc14adfc42913b537233fdb48ca",
+    "crop_bounds_px": {
+      "logical_cell": [
+        296,
+        0,
+        591,
+        296
+      ],
+      "complete_component_bounds_atlas": [
+        411,
+        42,
+        676,
+        279
+      ],
+      "component_labels": [
+        {
+          "label": 4,
+          "pixels": 57788,
+          "bounds_atlas": [
+            411,
+            42,
+            676,
+            279
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.650887573964497,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/forest-pond-shore-edge.top.json"
+}

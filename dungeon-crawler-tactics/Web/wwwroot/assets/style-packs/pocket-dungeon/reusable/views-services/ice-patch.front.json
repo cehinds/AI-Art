@@ -1,0 +1,91 @@
+{
+  "id": "ice-patch.front",
+  "name": "Ice patch front",
+  "kind": "tile",
+  "tags": [
+    "existing",
+    "front",
+    "ice",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "patch",
+    "pocket-dungeon",
+    "services",
+    "terrain"
+  ],
+  "object_id": "ice-patch",
+  "view": "front",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/ice-patch.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "39e192d9b6c1f68406db5c617313668382723d056001885a0d0c8547dc0dfa24",
+    "rgba_sha256": "a9912a3a2bf723bbeca5e1f182f55a630f49629ca6a4b0c76bd29db0f45509e8"
+  },
+  "metadata_path": "reusable/views-services/ice-patch.front.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/ice-patch.png",
+    "source_image_sha256": "02e0d53c109ff2e2578bfe1856b0976e6f853e6249efa5cd26cb942d99294c30",
+    "generated_atlas": "reusable/views-services/atlas-terrain-b.png",
+    "generated_atlas_sha256": "e3d381a133558885f64fab3d34995fe8a3a558992cdd155f50f568194071d796",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas for the four supplied terrain objects. Columns exactly front, top, right, left, bottom, rear. Rows exactly ice-patch, moss-floor, poison-puddle, cracked-stone-floor matching references. One complete centered object per cell, consistent footprint and same material/palette as its source. True orthographic views: top straight down, bottom straight up, rear opposite front. Preserve the original tile's recognizable surface pattern when seen from above; infer thickness/underside consistently. No scenery, ground plane, cast shadows, labels, perspective, border or grid marks. Crisp game pixel-art clusters. Transparent background.",
+      "reference_images": [
+        "components/ice-patch.png",
+        "components/moss-floor.png",
+        "components/poison-puddle.png",
+        "components/cracked-stone-floor.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        0,
+        0
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        9,
+        23,
+        39,
+        41
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        17,
+        92,
+        242,
+        184
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.9090909090909091,
+      "render_size_px": [
+        220,
+        167
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

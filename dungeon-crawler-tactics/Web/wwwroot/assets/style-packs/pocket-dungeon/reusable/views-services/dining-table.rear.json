@@ -1,0 +1,87 @@
+{
+  "id": "dining-table.rear",
+  "name": "Dining table rear",
+  "kind": "sprite",
+  "tags": [
+    "dining",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "rear",
+    "services",
+    "table"
+  ],
+  "object_id": "dining-table",
+  "view": "rear",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/dining-table.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "5a57fe16d48a05828f25e47fc9b252d4f633096bfa812b7129459e0a0586794c",
+    "rgba_sha256": "32fc2a8b68f73240abc02e7fe71147fa310714b6348fe7c90eea964ee37f2e89"
+  },
+  "metadata_path": "reusable/views-services/dining-table.rear.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/dining-table.png",
+    "source_image_sha256": "68e01e75535f69603dd924c396f9ee36f7deb37571b2591eb52b31be18eb2d54",
+    "generated_atlas": "reusable/views-services/atlas-furniture.png",
+    "generated_atlas_sha256": "74b15718d2b77272ae6172290e984d520ddecafe434b13a5a3a86e3a1b167766",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a transparent 6-column x 2-row orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly dining-table, kitchen-stove matching supplied references. One complete centered object in each cell. Preserve object identity, source proportions, material, palette, decoration. True orthographic directions, top straight down, bottom underside, rear opposite front; infer hidden sides. No scenery, floor, shadow, perspective, text, labels, borders, or cell marks. Crisp game pixel art, transparent background.",
+      "reference_images": [
+        "components/dining-table.png",
+        "components/kitchen-stove.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        0,
+        5
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        1
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        1865,
+        41,
+        279,
+        270
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.5994550408719346,
+      "render_size_px": [
+        167,
+        162
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

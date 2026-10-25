@@ -16,6 +16,13 @@ The `dungeon-crawler-tactics/` directory preserves project-relative paths, so th
 
 ## Use and update
 
+The [Pocket Dungeon reusable library](Web/wwwroot/assets/style-packs/pocket-dungeon/reusable/README.md)
+adds tagged PNG sidecars, exact reconstruction maps, transparent UI layers,
+inferred six-view object sets and a seeded tile example. Its source PNGs remain
+unchanged. Run `python3 tools/render_pocket_map.py --list` from the repository
+root to list reconstructable originals; validation and rebuild commands are in
+the library guide.
+
 The game pins this repository to an exact commit in `art-assets.lock.json`; its Pages workflow restores and verifies the indexed files before validation and publication. Art still appears at the game's existing URLs. New art belongs here. After exporting revised assets, run `python3 tools/index_assets.py dungeon-crawler-tactics` from the repository root, commit and push the `dungeon-crawler` branch, then update the game lock to that commit and the new index hash.
 
 The canonical tile grid is orthogonal, 128 × 128 logical pixels on transparent 256 × 256 component canvases. Doors face forward with straight horizontal thresholds. Keep the three styles visually distinct but geometrically compatible.

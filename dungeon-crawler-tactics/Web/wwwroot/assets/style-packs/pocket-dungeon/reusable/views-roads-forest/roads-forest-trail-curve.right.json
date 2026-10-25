@@ -1,0 +1,81 @@
+{
+  "id": "roads-forest-trail-curve.right",
+  "name": "Forest trail curve right",
+  "kind": "tile",
+  "tags": [
+    "roads",
+    "right",
+    "orthographic",
+    "inferred-view"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/roads-forest-trail-curve.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "8dd795cb67bdf35e2eec0f8f33d8842687777e4b9a16c6f2d374372d59ee0fd2",
+    "rgba_sha256": "a3cd465c19d3e14fbfd81fd45cb9c9771c1cf93f55353859ab11b1c8fcf7f59e"
+  },
+  "object_id": "roads-forest-trail-curve",
+  "view": "right",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/roads-forest-trail-curve.png",
+    "source_image_sha256": "72e51e1301e061423f4ea32d4f3070511d96989e427a38c54cd31023699dca7f",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-forest-trail-curve.png",
+        "sha256": "72e51e1301e061423f4ea32d4f3070511d96989e427a38c54cd31023699dca7f"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/roads-batch03.png",
+    "generated_atlas_sha256": "29dc6817360062d983a8f09aaaa58fc251fd2127d1b133520eed02e752ac8acc",
+    "crop_bounds_px": {
+      "logical_cell": [
+        591,
+        296,
+        887,
+        591
+      ],
+      "complete_component_bounds_atlas": [
+        598,
+        340,
+        862,
+        554
+      ],
+      "component_labels": [
+        {
+          "label": 9,
+          "pixels": 35715,
+          "bounds_atlas": [
+            598,
+            340,
+            862,
+            554
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.8333333333333334,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/roads-forest-trail-curve.right.json"
+}
