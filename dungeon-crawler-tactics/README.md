@@ -21,3 +21,9 @@ The game pins this repository to an exact commit in `art-assets.lock.json`; its 
 The canonical tile grid is orthogonal, 128 × 128 logical pixels on transparent 256 × 256 component canvases. Doors face forward with straight horizontal thresholds. Keep the three styles visually distinct but geometrically compatible.
 
 This is an unofficial fan project. Location-specific artwork and layouts are adaptations; an asset does not establish an exact canonical map. This repository does not grant rights to underlying third-party characters, settings or trademarks.
+
+## Joining terrain tiles
+
+Full floor components contain a completely opaque 128 × 128 material plane inside the shared transparent 256 × 256 sprite canvas. Their painted icon borders and faint alpha halos are excluded from the derived export. Repeating wall segments trim only the joining axis. Doors, props and partial terrain transitions retain their silhouettes.
+
+Each affected component records its reviewed `derived.sourceWindow`; full floors also record their source-sampled grout matte. Original source atlases remain unchanged. The game's `Tools/book_tile_geometry.py` implements this deterministic normalization, and `materialInset` on an authored asset can override the default 6.5% inset.
