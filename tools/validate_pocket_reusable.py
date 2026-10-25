@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import struct
 import tempfile
 from pathlib import Path
@@ -19,6 +20,12 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PACK = ROOT / "dungeon-crawler-tactics/Web/wwwroot/assets/style-packs/pocket-dungeon"
 VIEWS = ("front", "top", "right", "left", "bottom", "rear")
+
+
+def view_set_approved(group):
+    qa = group.get("geometry_qa", {})
+    status = qa.get("status") if isinstance(qa, dict) else None
+    return bool(group.get("complete")) and (status is None or status in {"passed", "approved", "accepted", "verified"})
 
 
 def contained(root, relative):
@@ -74,6 +81,13 @@ def check_asset_geometry(pack, asset, image, source_sizes):
     if not (0 <= anchor[0] <= image.width and 0 <= anchor[1] <= image.height):
         raise ValueError(f"Anchor outside PNG: {asset['id']}")
     provenance = asset["provenance"]
+    calibration = provenance.get("source_cell_calibration")
+    if asset.get("view") in VIEWS and calibration is not None:
+        if (not isinstance(calibration, list) or len(calibration) != 2
+                or not all(isinstance(value, (int, float)) and math.isfinite(value) and value > 0 for value in calibration)):
+            raise ValueError(f"Malformed source cell calibration: {asset['id']}")
+        if not math.isclose(calibration[0], calibration[1], rel_tol=1e-9, abs_tol=1e-12):
+            raise ValueError(f"Anisotropic principal-view normalization: {asset['id']}")
     source = provenance.get("source_image")
     rectangle = provenance.get("source_rect")
     if isinstance(rectangle, list) and source and contained(pack, source).is_file():
@@ -237,6 +251,8 @@ def validate(pack, require_views=False):
     for object_id, group in view_sets.items():
         if set(group.get("views", {})) != set(VIEWS):
             raise ValueError(f"View set must declare exactly six principal keys: {object_id}")
+        if group.get("complete") and not view_set_approved(group):
+            raise ValueError(f"False geometry approval: {object_id}")
     image_paths = {}
     metadata_paths = {}
     pixel_hashes = {}
@@ -314,9 +330,10 @@ def validate(pack, require_views=False):
                 continue
         if views.get("applicable"):
             absent = [v for v in VIEWS if views.get(v, {}).get("status") in {None,"missing"} or not views.get(v,{}).get("asset_id")]
-            if absent:
-                missing_views.append({"id": asset_id, "missing": absent})
-                if views.get("complete"):
+            if absent or not views.get("complete"):
+                missing_views.append({"id": asset_id, "missing": absent,
+                    "reason": views.get("reason", "Missing or unapproved principal views.")})
+                if absent and views.get("complete"):
                     raise ValueError(f"False six-view completeness: {asset_id}")
         elif not views.get("reason"):
             raise ValueError(f"Non-applicable views need a reason: {asset_id}")
@@ -357,7 +374,7 @@ def validate(pack, require_views=False):
         if scales and max(scales) - min(scales) > 1e-9:
             raise ValueError(f"Principal views use inconsistent normalization scales: {object_id}")
         absent = [view for view in VIEWS if not view_reference(group["views"][view])]
-        if (absent or not group.get("complete")) and not any(item["id"] == object_id for item in missing_views):
+        if (absent or not view_set_approved(group)) and not any(item["id"] == object_id for item in missing_views):
             missing_views.append({"id": object_id, "missing": absent, "reason": "View set is not marked complete."})
         for same_views in hashes.values():
             if len(same_views) > 1:
@@ -368,7 +385,7 @@ def validate(pack, require_views=False):
     # Pre-existing aliases are reported, not rewritten; newly generated duplicate
     # residuals are a build defect because they should share one asset reference.
     for group in duplicate_groups:
-        new_residuals = [i for i in group if assets[i]["kind"] == "reconstruction_patch" and assets[i].get("managed_by") == "pocket-reusable-v1"]
+        new_residuals = [i for i in group if assets[i]["kind"] == "reconstruction_patch" and assets[i].get("provenance", {}).get("method") == "residual"]
         if len(new_residuals) > 1:
             raise ValueError(f"Duplicate residual PNGs: {new_residuals}")
     results = []
@@ -406,10 +423,18 @@ def validate(pack, require_views=False):
             for layer in document["layers"]:
                 if layer["role"] == "residual":
                     info = assets[layer["asset_id"]]["image"]
-                    if assets[layer["asset_id"]].get("managed_by") == "pocket-reusable-v1" and (info["width"] > 64 or info["height"] > 64):
+                    if assets[layer["asset_id"]].get("provenance", {}).get("method") == "residual" and (info["width"] > 64 or info["height"] > 64):
                         raise ValueError(f"Oversized generated residual tile: {document['id']}")
                     if info["width"] >= original.width and info["height"] >= original.height:
-                        raise ValueError(f"Whole-image/background residual shortcut: {document['id']}")
+                        patch = Image.open(contained(pack, info["path"])).convert("RGBA")
+                        # A source smaller than64px can have a single disjoint
+                        # remainder patch. Reject a complete visible source copy,
+                        # while allowing invisible RGB and genuinely uncovered pixels.
+                        source_pixels = np.asarray(original)
+                        patch_pixels = np.asarray(patch)[:original.height,:original.width]
+                        visible = source_pixels[:,:,3] > 0
+                        if np.any(visible) and np.array_equal(patch_pixels[visible], source_pixels[visible]):
+                            raise ValueError(f"Whole-image/background residual shortcut: {document['id']}")
         results.append({"id": document["id"], "source": document["source"]["path"],
             "map_sha256": hashlib.sha256(contained(pack, entry["file"]).read_bytes()).hexdigest(),
             "rgba_sha256": digest(reconstructed), "differing_pixels": different,

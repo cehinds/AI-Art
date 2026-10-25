@@ -8,6 +8,7 @@ reviewed six-view metadata survive rebuilding.
 """
 from __future__ import annotations
 import argparse
+import copy
 import hashlib
 import io
 import json
@@ -16,6 +17,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from validate_pocket_reusable import view_set_approved
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PACK = ROOT / "dungeon-crawler-tactics/Web/wwwroot/assets/style-packs/pocket-dungeon"
@@ -96,11 +98,19 @@ class Builder:
         self.assets[asset["id"]] = asset
         return asset
 
+    def read_record(self, path, default=None):
+        relative = path.relative_to(self.pack).as_posix()
+        return json.loads(self.outputs[relative]) if relative in self.outputs else read_json(path, default)
+
+    def open_image(self, path):
+        source = io.BytesIO(self.outputs[path]) if path in self.outputs else self.pack / path
+        return Image.open(source).convert("RGBA")
+
     def image_info(self, path, image=None, raw=None):
         if image is None:
-            image = Image.open(self.pack / path).convert("RGBA")
+            image = self.open_image(path)
         if raw is None:
-            raw = (self.pack / path).read_bytes()
+            raw = self.outputs[path] if path in self.outputs else (self.pack / path).read_bytes()
         return {"path": path, "width": image.width, "height": image.height,
                 "sha256": file_hash(raw), "rgba_sha256": canonical_hash(image)}
 
@@ -116,7 +126,7 @@ class Builder:
             asset = {**old, "schema_version": 1, "managed_by": MANAGER,
                 "id": asset_id, "name": original["label"], "kind": kind_for(category),
                 "category": category,
-                "tags": sorted(set(["pocket-dungeon", "existing", category, sheet, original["layer"], *asset_id.split("-")])),
+                "tags": sorted(set([self.manifest.get("id", self.pack.name), "existing", category, sheet, original["layer"], *asset_id.split("-")])),
                 "image": self.image_info(original["file"]), "metadata_path": metadata_path,
                 "provenance": {"method": "existing", "original_generation": "imagegen",
                     "source_image": source_sheet["file"], "source_sha256": source_sheet["sha256"],
@@ -160,7 +170,7 @@ class Builder:
         self.outputs[image_path] = raw
         asset = {"schema_version": 1, "managed_by": MANAGER, "id": asset_id,
             "name": f"Reconstruction residual {digest[:12]}", "kind": "reconstruction_patch",
-            "category": "reconstruction", "tags": ["pocket-dungeon", "residual", "lossless", "reconstruction-only"],
+            "category": "reconstruction", "tags": [self.manifest.get("id", self.pack.name), "residual", "lossless", "reconstruction-only"],
             "image": self.image_info(image_path, patch, raw),
             "metadata_path": image_path.removesuffix(".png") + ".json",
             "provenance": {"method": "residual", "source_image": source, "source_rect": rect,
@@ -174,14 +184,14 @@ class Builder:
         return asset
 
     def map_from_source(self, map_id, label, path, semantic, kind):
-        source_image = Image.open(self.pack / path).convert("RGBA")
+        source_image = self.open_image(path)
         original = np.array(source_image)
         assembled = np.zeros_like(original)
         coverage = np.zeros(original.shape[:2], dtype=bool)
         semantic_coverage = np.zeros(original.shape[:2], dtype=bool)
         placements = []
         for asset, x, y in semantic:
-            pixels = np.array(Image.open(self.pack / asset["image"]["path"]).convert("RGBA"))
+            pixels = np.array(self.open_image(asset["image"]["path"]))
             h, w = pixels.shape[:2]
             # Padding can extend past an atlas edge. Clip only the canvas-facing
             # view; retain the original PNG and original integer placement.
@@ -247,7 +257,7 @@ class Builder:
             metadata_path = str(Path(path).with_suffix(".json"))
             asset = {"schema_version": 1, "managed_by": MANAGER, "id": asset_id,
                 "name": f"Preview {original['label']} layer", "kind": "composition_layer",
-                "category": "composition", "tags": ["pocket-dungeon", "preview", "layer", original["id"]],
+                "category": "composition", "tags": [self.manifest.get("id", self.pack.name), "preview", "layer", original["id"]],
                 "image": self.image_info(path), "metadata_path": metadata_path,
                 "provenance": {"method": "existing", "source_image": "preview.png", "license_record": "README.md",
                     "notes": "Unmodified existing preview layer, as listed in original manifest.json."},
@@ -265,6 +275,32 @@ class Builder:
             "statistics": {"semantic_placement_count": 7, "residual_placement_count": 0},
             "notes": "Reuses all seven existing layer PNGs in original manifest order."})
 
+    def finalize_outputs(self):
+        from asset_attachment_tags import enrich_document, enrich_library, style_of
+        index = json.loads(self.outputs["reusable/index.json"])
+        enrich_library(self.pack, index)
+        physical = [asset for asset in index["assets"] if asset.get("views", {}).get("applicable")]
+        index.setdefault("statistics", {}).update({
+            "physical_reference_count": len(physical),
+            "canonical_physical_object_count": len({a.get("object_id", a["id"]) for a in physical}),
+            "canonical_physical_objects_missing_six_views": len({a.get("object_id", a["id"]) for a in physical if not a["views"].get("complete")})})
+        self.outputs["reusable/index.json"] = json_bytes(index)
+        by_id = {asset["id"]: asset for asset in index["assets"]}
+        for path, raw in list(self.outputs.items()):
+            if path.endswith(".json"):
+                self.outputs[path] = json_bytes(enrich_document(json.loads(raw), style_of(self.pack), by_id))
+        index = json.loads(self.outputs["reusable/index.json"])
+        recipe = index.get("procedural", {}).get("recipe")
+        if recipe and recipe in self.outputs:
+            index["procedural"]["recipe_sha256"] = file_hash(self.outputs[recipe])
+        if getattr(self, "readonly_views", False):
+            snapshots = getattr(self, "original_view_assets", {})
+            index["assets"] = [snapshots.get(asset["id"], asset) for asset in index["assets"]]
+            for asset in snapshots.values():
+                self.outputs.pop(asset["metadata_path"], None)
+        self.outputs["reusable/index.json"] = json_bytes(index)
+        return self.outputs
+
     def build(self):
         self.existing_components()
         for sheet, record in self.manifest["sheets"].items():
@@ -274,12 +310,14 @@ class Builder:
                     bounds = original["source"]["bounds"]
                     semantic.append((self.assets[original["id"]], bounds["x"]-4, bounds["y"]-4))
             self.map_from_source(f"atlas-{sheet}", f"{sheet.title()} source atlas", record["file"], semantic, "atlas")
+        from register_existing_derivatives import register_existing_derivatives
+        register_existing_derivatives(self)
         # Current extension manifests are authoritative for their own directories.
         # Updating a prior catalog entry is valid; two active extensions claiming
         # the same asset/object id is a collision, never last-writer-wins.
         extension_paths = sorted((self.pack / "reusable").glob("views-*/set-index.json"))
         scene_path = self.pack / "reusable/scene-assets/index.json"
-        if scene_path.exists():
+        if scene_path.exists() or "reusable/scene-assets/index.json" in self.outputs:
             extension_paths.append(scene_path)
         prefixes = tuple(path.parent.relative_to(self.pack).as_posix() + "/" for path in extension_paths)
         external_assets = {a["id"]: a for a in self.existing_index.get("assets", [])
@@ -293,7 +331,7 @@ class Builder:
         asset_owners, object_owners = {}, {}
         for extension_path in extension_paths:
             label = extension_path.relative_to(self.pack).as_posix()
-            extension = read_json(extension_path)
+            extension = self.read_record(extension_path)
             incoming_assets = unique_records(extension.get("assets", []), "id", label)
             incoming_sets = unique_records(extension.get("view_sets", []), "object_id", label)
             for asset_id, asset in incoming_assets.items():
@@ -308,9 +346,9 @@ class Builder:
                     raise ValueError(f"View set must declare exactly six principal keys: {object_id}")
                 object_owners[object_id] = label
                 view_sets[object_id] = group
-        scene = read_json(scene_path, {})
+        scene = self.read_record(scene_path, {})
         extras = read_json(self.pack / "reusable/semantic-placements.json", {"sources": {}})
-        for path in self.manifest["conceptFiles"]:
+        for path in self.manifest.get("conceptFiles", []):
             semantic = []
             stem = Path(path).stem
             declarations = list(extras.get("sources", {}).get(path, []))
@@ -326,9 +364,11 @@ class Builder:
                 external_assets[asset["id"]] = asset
                 semantic.append((asset, item["x"], item["y"]))
             self.map_from_source(f"concept-{stem}", f"{stem.title()} concept", path, semantic, "concept")
-        self.preview_map()
+        if self.manifest.get("preview", {}).get("layers"):
+            self.preview_map()
         for asset in self.residuals.values():
             self.metadata(asset)
+        self.original_view_assets = {asset_id: copy.deepcopy(asset) for asset_id, asset in external_assets.items() if asset["image"]["path"].startswith("reusable/views-")}
         for asset_id, asset in external_assets.items():
             if asset_id not in self.assets:
                 self.assets[asset_id] = asset
@@ -345,7 +385,12 @@ class Builder:
                 target = self.assets.get(target_id)
                 valid = target is not None and target.get("view") == view and target.get("object_id") == object_id
                 resolved[view] = {"status": target.get("provenance", {}).get("method", "generated") if valid else "missing", "asset_id": target_id if valid else None}
-            original["views"] = {"applicable": True, "complete": all(r["asset_id"] for r in resolved.values()), **resolved}
+            original["views"] = {"applicable": True, "complete": view_set_approved(view_set) and all(r["asset_id"] for r in resolved.values()), **resolved}
+            if not view_set_approved(view_set):
+                original["views"]["reason"] = "Principal views exist but the set remains unapproved or unfinished."
+            for qa_field in ("quality_status", "geometry_qa", "quality_review"):
+                if qa_field in view_set:
+                    original["views"][qa_field] = view_set[qa_field]
             self.metadata(original)
         own_map_ids = {m["id"] for m in self.maps}
         self.maps.extend(m for m in self.existing_index.get("maps", []) if m["id"] not in own_map_ids)
@@ -362,17 +407,26 @@ class Builder:
                 "preview_sha256": file_hash((self.pack / "reusable/procedural/sample.png").read_bytes())}
             procedural.pop("note", None)
         index = {**self.existing_index, "schema_version": 1, "base": "..",
-            "title": "Pocket Dungeon reusable asset library", "assets": list(self.assets.values()), "maps": self.maps,
+            "title": self.manifest.get("title", "Pocket Dungeon") + " reusable asset library", "assets": list(self.assets.values()), "maps": self.maps,
             "view_sets": list(view_sets.values()),
             "procedural": procedural,
             "statistics": {"existing_components_reused": len(self.manifest["assets"]),
-                "existing_component_pngs_modified": 0, "existing_preview_layers_reused": 7,
+                "existing_component_pngs_modified": 0, "existing_preview_layers_reused": len(self.manifest.get("preview", {}).get("layers", [])),
                 "unique_residual_patches": len(self.residuals), "residual_placements": sum(m["statistics"].get("residual_placement_count",0) for m in self.maps),
                 "map_count": len(self.maps), "asset_count": len(self.assets),
                 "physical_assets_missing_six_views": sum(a.get("views", {}).get("applicable", False) and not a["views"].get("complete", False) for a in self.assets.values())},
             "limitations": ["Physical views marked missing remain unfinished; never infer completion from PNG count.", "Residual patches preserve source images but are not seamless gameplay tiles.", "Newly designed unseen views are inferred artwork, not recoverable original pixels."]}
+        # Attachment rules enrich every canonical and generated asset identically.
+        try:
+            from asset_attachment_tags import enrich_library
+        except ImportError:
+            enrich_library = None
+        if enrich_library is not None:
+            enrich_library(self.pack, index)
+            for asset in index["assets"]:
+                self.outputs[asset["metadata_path"]] = json_bytes(asset)
         self.outputs["reusable/index.json"] = json_bytes(index)
-        return self.outputs
+        return self.finalize_outputs()
 
 
 def main():

@@ -30,6 +30,8 @@ def encoded(value):
 
 
 def plan(pack, selected_maps=None, include_raw=False):
+    folder = "pocket-dungeon" if pack.resolve() == DEFAULT_PACK.resolve() else "library"
+    repository_location = "AI-Art repository dungeon-crawler branch, " + str(pack).split("Web/wwwroot/assets/")[-1]
     original = read_json(pack / "reusable/index.json")
     index = copy.deepcopy(original)
     by_id = unique_records(original["assets"], "id", "source catalog assets")
@@ -58,6 +60,8 @@ def plan(pack, selected_maps=None, include_raw=False):
                         asset_ids.add(value["asset_id"])
                 if asset.get("object_id") in by_id:
                     asset_ids.add(asset["object_id"])
+                if asset.get("canonical_asset_id") in by_id:
+                    asset_ids.add(asset["canonical_asset_id"])
                 # Scene objects keep their original baked crop non-reusable;
                 # their clean generated siblings are linked by the view set.
                 group = groups.get(asset_id)
@@ -68,6 +72,7 @@ def plan(pack, selected_maps=None, include_raw=False):
                             if target not in by_id:
                                 raise ValueError(f"Missing view dependency: {asset_id} -> {target}")
                             asset_ids.add(target)
+            asset_ids.update(a["id"] for a in original["assets"] if a.get("canonical_asset_id") in asset_ids)
             if asset_ids == previous:
                 break
         index["assets"] = [a for a in original["assets"] if a["id"] in asset_ids]
@@ -127,7 +132,7 @@ def plan(pack, selected_maps=None, include_raw=False):
                 files.add(atlas)
             else:
                 external[atlas] = {"path": atlas, "sha256": actual_hash,
-                    "location": "AI-Art repository dungeon-crawler branch, pocket-dungeon pack root", "purpose": "Raw generated view provenance; not required for rendering exported PNGs"}
+                    "location": repository_location, "purpose": "Raw generated view provenance; not required for rendering exported PNGs"}
     for entry in index["maps"]:
         files.add(entry["file"])
         files.add(entry["source"])
@@ -138,7 +143,7 @@ def plan(pack, selected_maps=None, include_raw=False):
         files.add("reusable/README.md")
     legacy_manifest = pack / "manifest.json"
     external["manifest.json"] = {"path": "manifest.json", "sha256": hashlib.sha256(legacy_manifest.read_bytes()).hexdigest(),
-        "location": "AI-Art repository dungeon-crawler branch, pocket-dungeon pack root",
+        "location": repository_location,
         "purpose": "Legacy complete catalog references unrelated animations/contact sheets/ZIPs. Each exported PNG retains its own full extraction metadata; the legacy catalog is not needed to render this archive."}
     if not selected_maps:
         for pattern in ("reusable/views-*/set-index.json", "reusable/scene-assets/index.json", "reusable/procedural/*", "reusable/semantic-placements.json"):
@@ -160,18 +165,52 @@ def plan(pack, selected_maps=None, include_raw=False):
         "source_catalog_content_sha256": hashlib.sha256(encoded(catalog_content)).hexdigest(),
         "catalog_hash_definition": "SHA-256 of canonical indented JSON with trailing newline, excluding downloads to avoid archive hash cycles",
         "external_provenance_manifest": "reusable/archive-provenance.json"}
-    contents = {f"pocket-dungeon/{relative}": contained(pack,relative).read_bytes() for relative in sorted(files)}
-    contents["pocket-dungeon/reusable/index.json"] = encoded(index)
-    contents["pocket-dungeon/reusable/archive-provenance.json"] = encoded({"external_provenance": list(external.values())})
-    for filename in TOOLS:
+    localized_rules = None
+    registry_entry = None
+    if index.get("attachment_rules"):
+        rule_path = (pack / index["attachment_rules"]).resolve()
+        assets_root = next((p for p in [pack, *pack.parents] if p.name == "assets"), None)
+        if assets_root is None or not rule_path.is_relative_to(assets_root):
+            raise ValueError("Attachment rules must remain inside the repository assets root")
+        if not rule_path.is_file():
+            raise ValueError("Build central attachment-rules.json before packaging")
+        localized_rules = copy.deepcopy(read_json(rule_path))
+        registry = read_json(assets_root / "reusable-library.json")
+        entry = next((entry for entry in registry["libraries"] if (assets_root / entry["base"]).resolve() == pack.resolve()), None)
+        if entry is None:
+            raise ValueError("Pack is missing from the central library registry")
+        registry_entry = {**entry, "base": folder, "index": f"{folder}/reusable/index.json"}
+        qualified = {entry["id"] + "::" + asset_id for asset_id in asset_ids}
+        localized_rules["tiles"] = [tile for tile in localized_rules["tiles"] if tile["id"] in qualified]
+        included_tiles = {tile["id"] for tile in localized_rules["tiles"]}
+        wanted_groups = {a.get("attachment", {}).get("compatibility_group") for a in index["assets"]}
+        localized_rules["groups"] = [group for group in localized_rules["groups"] if group["id"] in wanted_groups]
+        for group in localized_rules["groups"]:
+            group["tile_ids"] = [tile for tile in group["tile_ids"] if tile in included_tiles]
+            if not group["tile_ids"]:
+                group["reason"] = "No compatible provider is included in this independent archive; consult the complete library for additional candidates."
+        localized_rules["scope"] = "Attachment candidates projected to assets in this independent archive. Editorial compatibility only."
+        index["attachment_rules"] = "reusable/attachment-rules.json"
+    contents = {f"{folder}/{relative}": contained(pack,relative).read_bytes() for relative in sorted(files)}
+    if localized_rules is not None:
+        contents[f"{folder}/reusable/attachment-rules.json"] = encoded(localized_rules)
+    if registry_entry is not None:
+        contents["reusable-library.json"] = encoded({"schema_version": 1, "tags": ["metadata-document", "library-registry"], "libraries": [registry_entry]})
+    contents[f"{folder}/reusable/index.json"] = encoded(index)
+    contents[f"{folder}/reusable/archive-provenance.json"] = encoded({"tags": ["metadata-document", "external-provenance"], "external_provenance": list(external.values())})
+    for filename in (*TOOLS, "build_reusable_library.py", "register_existing_derivatives.py", "asset_attachment_tags.py", "render_art_remix.py"):
+        if not (Path(__file__).resolve().parent / filename).is_file():
+            continue
         contents[filename] = (Path(__file__).resolve().parent / filename).read_bytes()
-    contents["READ-ME.txt"] = ("Pocket Dungeon reusable PNG assets and exact source reconstruction\n\n"
+    contents["READ-ME.txt"] = (original.get("title", "Reusable asset library") + " — PNG assets and exact source reconstruction\n\n"
         "Tested with Python 3.12. Install pinned versions: python -m pip install -r pocket-requirements.txt\n"
-        "List maps: python render_pocket_map.py --pack pocket-dungeon --list\n"
-        "Render: python render_pocket_map.py --pack pocket-dungeon --map MAP_ID --output recreated.png\n"
-        "Verify: python validate_pocket_reusable.py --pack pocket-dungeon --self-test\n"
+        f"List maps: python render_pocket_map.py --pack {folder} --list\n"
+        f"Render: python render_pocket_map.py --pack {folder} --map MAP_ID --output recreated.png\n"
+        f"Verify: python validate_pocket_reusable.py --pack {folder} --self-test\n"
         "Missing six views are reported honestly; --require-six-views enforces completeness.\n"
-        "All catalog paths resolve relative to pocket-dungeon/. PNG sidecars retain provenance.\n"
+        "Render an Art Lab schema2 remix from the complete checkout: python tools/render_art_remix.py --input remix.json --output remix.png\n"
+        "Detached archives require --art-commit with the recorded trusted source revision; mixed-library remixes need every named library.\n"
+        f"All catalog paths resolve relative to {folder}/. PNG sidecars retain provenance.\n"
         "Each ZIP is an independent collection: extract it into its own directory. Do not merge\n"
         "or overwrite subset reusable/index.json files. The Git checkout is the canonical full library.\n"
         "Reconstruction residuals are not procedural gameplay tiles. Inferred views are newly designed.\n"
@@ -180,7 +219,7 @@ def plan(pack, selected_maps=None, include_raw=False):
         "Build script is included as source. Rebuild the FULL repository checkout with its extension\n"
         "generators; a selected-map archive intentionally contains only its referenced dependencies.\n"
         "No new licence is granted; consult retained source attribution and repository records.\n").encode()
-    contents["archive-manifest.json"] = encoded({"schema_version": 1, "maps": [m["id"] for m in index["maps"]], "assets": len(index["assets"]), "external_provenance": list(external.values()), "files": [{"path": p, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()} for p,data in sorted(contents.items())], "note": "Lists every archive member except this self-describing manifest."})
+    contents["archive-manifest.json"] = encoded({"schema_version": 1, "tags": ["metadata-document", "archive-manifest"], "maps": [m["id"] for m in index["maps"]], "assets": len(index["assets"]), "external_provenance": list(external.values()), "files": [{"path": p, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()} for p,data in sorted(contents.items())], "note": "Lists every archive member except this self-describing manifest."})
     return contents
 
 
