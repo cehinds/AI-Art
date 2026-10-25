@@ -1,0 +1,89 @@
+{
+  "id": "broken-bridge.front",
+  "name": "Broken bridge front",
+  "kind": "sprite",
+  "tags": [
+    "biomes",
+    "bridge",
+    "broken",
+    "existing",
+    "front",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "pocket-dungeon",
+    "structure",
+    "structures"
+  ],
+  "object_id": "broken-bridge",
+  "view": "front",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/broken-bridge.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "ab7a285542242a5b970729eceda76f9657beb15d7d3b307ae101aca130a074fa",
+    "rgba_sha256": "63350e85c459576adaac3dee59fe3fc55d9a466032bea784001d5113d18c354b"
+  },
+  "metadata_path": "reusable/views-services/broken-bridge.front.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/broken-bridge.png",
+    "source_image_sha256": "3e3c117531773c29cfbfb6c05976434911ab943582d4e5098b0233b84a677126",
+    "generated_atlas": "reusable/views-services/atlas-structures-a.png",
+    "generated_atlas_sha256": "b6dd5359a06d8ccb552163cd48bcfd225cc05ce31ce1d9138b173517999b5390",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly stone-arch, sewer-wall, broken-bridge, prison-cage matching reference order. One complete centered object in each cell. Preserve the exact recognizable architecture, stone colors, proportions, cracks, bars and distinctive details. True orthographic directional views; top straight down, bottom underside, rear opposite front. Infer hidden surfaces consistently, keeping silhouette and construction coherent. No floor plane, shadow, scenery, labels, perspective, borders or grid marks. Crisp game pixel art, transparent background.",
+      "reference_images": [
+        "components/stone-arch.png",
+        "components/sewer-wall.png",
+        "components/broken-bridge.png",
+        "components/prison-cage.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        2,
+        0
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        41
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        33,
+        531,
+        240,
+        185
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8764940239043825,
+      "render_size_px": [
+        210,
+        162
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

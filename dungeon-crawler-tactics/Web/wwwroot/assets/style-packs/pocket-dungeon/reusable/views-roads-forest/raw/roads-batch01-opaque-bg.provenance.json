@@ -1,0 +1,170 @@
+{
+  "file": "reusable/views-roads-forest/raw/roads-batch01-opaque-bg.png",
+  "sha256": "1629435d7ec88904986a7108f4580cb4f3a4ebaaf954188bd065219cea58e57e",
+  "width": 1774,
+  "height": 887,
+  "grid": {
+    "columns": 6,
+    "rows": 3,
+    "order": [
+      "front",
+      "top",
+      "right",
+      "left",
+      "bottom",
+      "rear"
+    ]
+  },
+  "generation_parameters": {
+    "tool": "image_gen.imagegen",
+    "transparent_background": true,
+    "prompt": "Create a production pixel-art atlas from the three attached exact source asset references. TRANSPARENT BACKGROUND. Layout exactly 3 rows and SIX equal columns. Each row in reference order, one object identity per row: (1) dirt road endcap tile, (2) sloped dirt road tile, (3) cobblestone road curve tile. SIX columns precisely FRONT, TOP (overhead), RIGHT, LEFT, BOTTOM (underside), REAR. These are six orthographic principal views of the SAME physical terrain tile in each row, not variants. For tile assets render the same complete tile slab with a thin consistent dark stone/earth edge visible in front/right/left/rear/underside, and the matching walkable surface from above; preserve the source\u2019s exact ground material, border plants/stones and silhouette where applicable. Keep road shape and orientation consistent across all views. Isolated complete objects, generous transparent margins, equal common physical scale across views within each row, never clip. No text, labels, borders, scenery, shadows or extra objects. Crisp low-res pixel-art clusters, dark near-black green/brown outlines, warm readable highlights, consistent muted palette and style matching attached assets. No new environmental backdrop. Hidden surfaces inferred conservatively.",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-dirt-road-endcap.png",
+        "sha256": "63ee1d3d9a5ac11fa486e54da5787b938fcf95170abedaa0d07994353530a883"
+      },
+      {
+        "path": "components/roads-dirt-road-slope.png",
+        "sha256": "428f24b3228f63411b3a55ba51fa1cfbc144f8f4148854bac910c133d436c693"
+      },
+      {
+        "path": "components/roads-cobblestone-road-curve.png",
+        "sha256": "e9977ef2469c7177b83016480589d8e79076b64603ee0522eaee296b5f111725"
+      }
+    ]
+  },
+  "generated_at_utc": "2026-10-25T03:14:45.965603+00:00",
+  "objects": [
+    {
+      "object_id": "roads-dirt-road-endcap",
+      "row": 0,
+      "source_image": "components/roads-dirt-road-endcap.png",
+      "cell_bounds_px": [
+        [
+          0,
+          0,
+          296,
+          296
+        ],
+        [
+          296,
+          0,
+          591,
+          296
+        ],
+        [
+          591,
+          0,
+          887,
+          296
+        ],
+        [
+          887,
+          0,
+          1183,
+          296
+        ],
+        [
+          1183,
+          0,
+          1478,
+          296
+        ],
+        [
+          1478,
+          0,
+          1774,
+          296
+        ]
+      ]
+    },
+    {
+      "object_id": "roads-dirt-road-slope",
+      "row": 1,
+      "source_image": "components/roads-dirt-road-slope.png",
+      "cell_bounds_px": [
+        [
+          0,
+          296,
+          296,
+          591
+        ],
+        [
+          296,
+          296,
+          591,
+          591
+        ],
+        [
+          591,
+          296,
+          887,
+          591
+        ],
+        [
+          887,
+          296,
+          1183,
+          591
+        ],
+        [
+          1183,
+          296,
+          1478,
+          591
+        ],
+        [
+          1478,
+          296,
+          1774,
+          591
+        ]
+      ]
+    },
+    {
+      "object_id": "roads-cobblestone-road-curve",
+      "row": 2,
+      "source_image": "components/roads-cobblestone-road-curve.png",
+      "cell_bounds_px": [
+        [
+          0,
+          591,
+          296,
+          887
+        ],
+        [
+          296,
+          591,
+          591,
+          887
+        ],
+        [
+          591,
+          591,
+          887,
+          887
+        ],
+        [
+          887,
+          591,
+          1183,
+          887
+        ],
+        [
+          1183,
+          591,
+          1478,
+          887
+        ],
+        [
+          1478,
+          591,
+          1774,
+          887
+        ]
+      ]
+    }
+  ],
+  "generation_output_note": "The returned atlas had a fully opaque neutral checkerboard. The raw atlas is retained unchanged; the splitter removed only neutral background pixels connected to the full atlas boundary before silhouette segmentation."
+}

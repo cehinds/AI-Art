@@ -1,0 +1,89 @@
+{
+  "id": "moss-floor.right",
+  "name": "Moss floor right",
+  "kind": "tile",
+  "tags": [
+    "biomes",
+    "existing",
+    "floor",
+    "ground",
+    "inferred-view",
+    "isolated",
+    "moss",
+    "orthographic",
+    "pocket-dungeon",
+    "right",
+    "terrain"
+  ],
+  "object_id": "moss-floor",
+  "view": "right",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/moss-floor.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "c72e36100671528810cb8ea27418910077905dd275d392a2a801bd488be28a83",
+    "rgba_sha256": "e58f5104e7022155273fd219a7e5c6b203204f71870b518e70a6f617c2bcf659"
+  },
+  "metadata_path": "reusable/views-services/moss-floor.right.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/moss-floor.png",
+    "source_image_sha256": "3d43e2cd9475f403fa832a00a2184d7a4ffb58ebbfbd8ab7e202bb3dfb95731b",
+    "generated_atlas": "reusable/views-services/atlas-terrain-b.png",
+    "generated_atlas_sha256": "e3d381a133558885f64fab3d34995fe8a3a558992cdd155f50f568194071d796",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas for the four supplied terrain objects. Columns exactly front, top, right, left, bottom, rear. Rows exactly ice-patch, moss-floor, poison-puddle, cracked-stone-floor matching references. One complete centered object per cell, consistent footprint and same material/palette as its source. True orthographic views: top straight down, bottom straight up, rear opposite front. Preserve the original tile's recognizable surface pattern when seen from above; infer thickness/underside consistently. No scenery, ground plane, cast shadows, labels, perspective, border or grid marks. Crisp game pixel-art clusters. Transparent background.",
+      "reference_images": [
+        "components/ice-patch.png",
+        "components/moss-floor.png",
+        "components/poison-puddle.png",
+        "components/cracked-stone-floor.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        1,
+        2
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        98
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        540,
+        349,
+        213,
+        135
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.9401709401709402,
+      "render_size_px": [
+        200,
+        127
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

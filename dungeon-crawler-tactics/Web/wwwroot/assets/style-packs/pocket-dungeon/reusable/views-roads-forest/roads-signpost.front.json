@@ -1,0 +1,81 @@
+{
+  "id": "roads-signpost.front",
+  "name": "Signpost front",
+  "kind": "sprite",
+  "tags": [
+    "roads",
+    "front",
+    "orthographic",
+    "inferred-view"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/roads-signpost.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "0c37aef614a5a8c81745310601c0ca800f3e929dee1fc39a1883e3a6c102f282",
+    "rgba_sha256": "5a600c0a31abb4aea57ce40bf3803575ecd6d56225a5706d691ed730dc0a3f5b"
+  },
+  "object_id": "roads-signpost",
+  "view": "front",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/roads-signpost.png",
+    "source_image_sha256": "e4b3ff6cc7cc6377c273cdd2ff4971c84a547233fbc84d51b83423cefcc98b91",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-signpost.png",
+        "sha256": "e4b3ff6cc7cc6377c273cdd2ff4971c84a547233fbc84d51b83423cefcc98b91"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/roads-batch06.png",
+    "generated_atlas_sha256": "eace6e4e0b4526c8aeee42f97f9591aa5403f34ee245628272a183133402c3e3",
+    "crop_bounds_px": {
+      "logical_cell": [
+        0,
+        296,
+        296,
+        591
+      ],
+      "complete_component_bounds_atlas": [
+        20,
+        308,
+        309,
+        579
+      ],
+      "component_labels": [
+        {
+          "label": 8,
+          "pixels": 34647,
+          "bounds_atlas": [
+            20,
+            308,
+            309,
+            579
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.7534246575342466,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/roads-signpost.front.json"
+}

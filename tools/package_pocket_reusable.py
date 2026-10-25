@@ -1,0 +1,240 @@
+#!/usr/bin/env python3
+"""Export deterministic, self-contained Pocket Dungeon reconstruction archives.
+
+Default exports the whole catalog. Repeat --map ID to create smaller independent
+collections. --plan lists size/count without writing. Raw generation atlases are
+external provenance by default, recorded with their repository paths/hashes;
+--include-raw includes them. Archives larger than --max-mib fail without replacing
+an existing destination. Original sources used for pixel checks are included.
+"""
+from __future__ import annotations
+import argparse
+import sys
+import copy
+import hashlib
+import json
+import os
+import tempfile
+import zipfile
+from pathlib import Path
+
+sys.dont_write_bytecode = True
+
+from validate_pocket_reusable import DEFAULT_PACK, VIEWS, contained, image_info, read_json, unique_records, view_reference
+
+TOOLS = ("build_pocket_reusable.py", "validate_pocket_reusable.py", "render_pocket_map.py", "package_pocket_reusable.py", "export_pocket_collections.py", "pocket-requirements.txt")
+
+
+def encoded(value):
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
+
+
+def plan(pack, selected_maps=None, include_raw=False):
+    original = read_json(pack / "reusable/index.json")
+    index = copy.deepcopy(original)
+    by_id = unique_records(original["assets"], "id", "source catalog assets")
+    map_index = unique_records(original["maps"], "id", "source catalog maps")
+    groups = unique_records(original.get("view_sets", []), "object_id", "source catalog view sets")
+    for object_id, group in groups.items():
+        if set(group.get("views", {})) != set(VIEWS):
+            raise ValueError(f"View set must declare exactly six principal keys: {object_id}")
+    if selected_maps:
+        ids = set(selected_maps)
+        unknown = ids - set(map_index)
+        if unknown:
+            raise ValueError(f"Unknown map ids: {sorted(unknown)}")
+        index["maps"] = [m for m in original["maps"] if m["id"] in ids]
+        asset_ids = set()
+        for entry in index["maps"]:
+            asset_ids.update(layer["asset_id"] for layer in read_json(contained(pack, entry["file"]))["layers"])
+        # Include all view references reachable from selected components, so every
+        # per-item JSON remains valid without modification inside the archive.
+        while True:
+            previous = set(asset_ids)
+            for asset_id in list(asset_ids):
+                asset = by_id[asset_id]
+                for value in asset.get("views", {}).values():
+                    if isinstance(value, dict) and value.get("asset_id"):
+                        asset_ids.add(value["asset_id"])
+                if asset.get("object_id") in by_id:
+                    asset_ids.add(asset["object_id"])
+                # Scene objects keep their original baked crop non-reusable;
+                # their clean generated siblings are linked by the view set.
+                group = groups.get(asset_id)
+                if group:
+                    for reference in group["views"].values():
+                        target = view_reference(reference)
+                        if target:
+                            if target not in by_id:
+                                raise ValueError(f"Missing view dependency: {asset_id} -> {target}")
+                            asset_ids.add(target)
+            if asset_ids == previous:
+                break
+        index["assets"] = [a for a in original["assets"] if a["id"] in asset_ids]
+        index["view_sets"] = [v for v in groups.values() if v["object_id"] in asset_ids]
+        index["procedural"] = {"status": "not-in-this-collection", "note": "Map collection; use the complete catalog for procedural examples."}
+    else:
+        asset_ids = set(by_id)
+    files = set()
+    external = {}
+    provenance_hashes = {}
+    for asset in index["assets"]:
+        image_info(pack, asset["image"])
+        files.add(asset["image"]["path"])
+        metadata = asset.get("metadata_path", str(Path(asset["image"]["path"]).with_suffix(".json")))
+        if read_json(contained(pack, metadata)) != asset:
+            raise ValueError(f"Source sidecar/catalog mismatch: {asset['id']}")
+        files.add(metadata)
+        provenance = asset.get("provenance", {})
+        source = provenance.get("source_image")
+        if source and contained(pack, source).is_file():
+            expected = provenance.get("source_sha256") or provenance.get("source_image_sha256")
+            if expected:
+                if source not in provenance_hashes:
+                    provenance_hashes[source] = hashlib.sha256(contained(pack, source).read_bytes()).hexdigest()
+                if expected != provenance_hashes[source]:
+                    raise ValueError(f"Original source hash mismatch: {source}")
+            files.add(source)
+        elif source:
+            raise ValueError(f"Missing original provenance image: {source}")
+        for reference in provenance.get("referenced_source_images", []):
+            path = contained(pack, reference["path"])
+            if not path.is_file():
+                raise ValueError(f"Missing referenced generation source: {reference['path']}")
+            if reference.get("sha256") and hashlib.sha256(path.read_bytes()).hexdigest() != reference["sha256"]:
+                raise ValueError(f"Referenced source hash mismatch: {reference['path']}")
+            files.add(reference["path"])
+        for occurrence in provenance.get("occurrences", []):
+            occurrence_source = occurrence.get("source_image")
+            if occurrence_source and contained(pack, occurrence_source).is_file():
+                files.add(occurrence_source)
+            elif occurrence_source:
+                raise ValueError(f"Missing residual provenance source: {occurrence_source}")
+        for atlas_field in ("source_atlas", "generated_atlas"):
+            atlas = provenance.get(atlas_field)
+            if not atlas:
+                continue
+            path = contained(pack, atlas)
+            expected_hash = provenance.get(atlas_field + "_sha256")
+            if not path.is_file():
+                raise ValueError(f"Missing raw provenance atlas: {atlas}")
+            if atlas not in provenance_hashes:
+                provenance_hashes[atlas] = hashlib.sha256(path.read_bytes()).hexdigest()
+            actual_hash = provenance_hashes[atlas]
+            if expected_hash and expected_hash != actual_hash:
+                raise ValueError(f"Raw provenance atlas hash mismatch: {atlas}")
+            if include_raw:
+                files.add(atlas)
+            else:
+                external[atlas] = {"path": atlas, "sha256": actual_hash,
+                    "location": "AI-Art repository dungeon-crawler branch, pocket-dungeon pack root", "purpose": "Raw generated view provenance; not required for rendering exported PNGs"}
+    for entry in index["maps"]:
+        files.add(entry["file"])
+        files.add(entry["source"])
+    # Existing rebuild/source provenance is retained. Full export additionally
+    # retains supplementary generators' extension manifests and procedural demos.
+    files.add("README.md")
+    if (pack / "reusable/README.md").is_file():
+        files.add("reusable/README.md")
+    legacy_manifest = pack / "manifest.json"
+    external["manifest.json"] = {"path": "manifest.json", "sha256": hashlib.sha256(legacy_manifest.read_bytes()).hexdigest(),
+        "location": "AI-Art repository dungeon-crawler branch, pocket-dungeon pack root",
+        "purpose": "Legacy complete catalog references unrelated animations/contact sheets/ZIPs. Each exported PNG retains its own full extraction metadata; the legacy catalog is not needed to render this archive."}
+    if not selected_maps:
+        for pattern in ("reusable/views-*/set-index.json", "reusable/scene-assets/index.json", "reusable/procedural/*", "reusable/semantic-placements.json"):
+            files.update(p.relative_to(pack).as_posix() for p in pack.glob(pattern) if p.is_file())
+    index["statistics"] = {**index.get("statistics", {}), "asset_count": len(index["assets"]), "map_count": len(index["maps"])}
+    if selected_maps:
+        index["statistics"] = {
+            "asset_count": len(index["assets"]), "map_count": len(index["maps"]),
+            "existing_components_reused": sum(a["image"]["path"].startswith("components/") for a in index["assets"]),
+            "existing_component_pngs_modified": 0,
+            "existing_preview_layers_reused": sum(a["kind"] == "composition_layer" for a in index["assets"]),
+            "unique_residual_patches": sum(a["kind"] == "reconstruction_patch" and a.get("managed_by") == "pocket-reusable-v1" for a in index["assets"]),
+            "residual_placements": sum(m.get("statistics", {}).get("residual_placement_count", 0) for m in index["maps"]),
+            "physical_assets_missing_six_views": sum(a.get("views", {}).get("applicable", False) and not a["views"].get("complete", False) for a in index["assets"]),
+        }
+    index["downloads"] = []
+    catalog_content = {key: value for key, value in original.items() if key != "downloads"}
+    index["archive"] = {"scope": "selected-maps" if selected_maps else "full-catalog",
+        "source_catalog_content_sha256": hashlib.sha256(encoded(catalog_content)).hexdigest(),
+        "catalog_hash_definition": "SHA-256 of canonical indented JSON with trailing newline, excluding downloads to avoid archive hash cycles",
+        "external_provenance_manifest": "reusable/archive-provenance.json"}
+    contents = {f"pocket-dungeon/{relative}": contained(pack,relative).read_bytes() for relative in sorted(files)}
+    contents["pocket-dungeon/reusable/index.json"] = encoded(index)
+    contents["pocket-dungeon/reusable/archive-provenance.json"] = encoded({"external_provenance": list(external.values())})
+    for filename in TOOLS:
+        contents[filename] = (Path(__file__).resolve().parent / filename).read_bytes()
+    contents["READ-ME.txt"] = ("Pocket Dungeon reusable PNG assets and exact source reconstruction\n\n"
+        "Tested with Python 3.12. Install pinned versions: python -m pip install -r pocket-requirements.txt\n"
+        "List maps: python render_pocket_map.py --pack pocket-dungeon --list\n"
+        "Render: python render_pocket_map.py --pack pocket-dungeon --map MAP_ID --output recreated.png\n"
+        "Verify: python validate_pocket_reusable.py --pack pocket-dungeon --self-test\n"
+        "Missing six views are reported honestly; --require-six-views enforces completeness.\n"
+        "All catalog paths resolve relative to pocket-dungeon/. PNG sidecars retain provenance.\n"
+        "Each ZIP is an independent collection: extract it into its own directory. Do not merge\n"
+        "or overwrite subset reusable/index.json files. The Git checkout is the canonical full library.\n"
+        "Reconstruction residuals are not procedural gameplay tiles. Inferred views are newly designed.\n"
+        "Raw view generation atlases omitted from this archive are listed with repository locations\n"
+        "and hashes in archive-manifest.json; they are not required for PNG reuse or reconstruction.\n"
+        "Build script is included as source. Rebuild the FULL repository checkout with its extension\n"
+        "generators; a selected-map archive intentionally contains only its referenced dependencies.\n"
+        "No new licence is granted; consult retained source attribution and repository records.\n").encode()
+    contents["archive-manifest.json"] = encoded({"schema_version": 1, "maps": [m["id"] for m in index["maps"]], "assets": len(index["assets"]), "external_provenance": list(external.values()), "files": [{"path": p, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()} for p,data in sorted(contents.items())], "note": "Lists every archive member except this self-describing manifest."})
+    return contents
+
+
+def write_zip(output, contents, max_bytes):
+    if output.suffix.lower() != ".zip":
+        raise ValueError("Archive destination must use .zip")
+    if max_bytes <= 0:
+        raise ValueError("Archive size limit must be positive")
+    for name in contents:
+        if Path(name).is_absolute() or ".." in Path(name).parts:
+            raise ValueError(f"Unsafe archive member path: {name}")
+    output.parent.mkdir(parents=True,exist_ok=True)
+    handle, temporary = tempfile.mkstemp(prefix=".pocket-export-",suffix=".zip",dir=output.parent)
+    os.close(handle)
+    try:
+        with zipfile.ZipFile(temporary,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
+            for name,data in sorted(contents.items()):
+                info=zipfile.ZipInfo(name,date_time=(1980,1,1,0,0,0))
+                info.compress_type=zipfile.ZIP_DEFLATED
+                info.external_attr=0o100644 << 16
+                archive.writestr(info,data)
+        size=Path(temporary).stat().st_size
+        if size > max_bytes:
+            raise ValueError(f"Archive would be {size/1048576:.1f} MiB; limit is {max_bytes/1048576:.1f} MiB. Export smaller groups using repeated --map IDs.")
+        os.replace(temporary,output)
+        return size
+    finally:
+        if Path(temporary).exists():
+            Path(temporary).unlink()
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--pack",type=Path,default=DEFAULT_PACK)
+    parser.add_argument("--map",dest="maps",action="append",help="Include only this map and transitive dependencies; repeatable")
+    parser.add_argument("--output",type=Path)
+    parser.add_argument("--plan",action="store_true")
+    parser.add_argument("--include-raw",action="store_true")
+    parser.add_argument("--max-mib",type=float,default=95)
+    args=parser.parse_args()
+    try:
+        contents=plan(args.pack.resolve(),args.maps,args.include_raw)
+        result={"entries":len(contents),"uncompressed_mib":round(sum(map(len,contents.values()))/1048576,2),"maps":args.maps or "all"}
+        if not args.plan:
+            if not args.output:
+                parser.error("--output is required unless --plan is used")
+            result["compressed_mib"]=round(write_zip(args.output,contents,int(args.max_mib*1048576))/1048576,2)
+            result["output"]=str(args.output)
+            result["sha256"]=hashlib.sha256(args.output.read_bytes()).hexdigest()
+        print(json.dumps(result,indent=2))
+        return 0
+    except (OSError,ValueError,KeyError,TypeError) as exc:
+        parser.exit(2,f"package_pocket_reusable: {exc}\n")
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

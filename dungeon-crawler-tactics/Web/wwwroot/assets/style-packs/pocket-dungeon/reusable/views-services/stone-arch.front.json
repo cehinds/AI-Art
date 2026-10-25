@@ -1,0 +1,89 @@
+{
+  "id": "stone-arch.front",
+  "name": "Stone arch front",
+  "kind": "sprite",
+  "tags": [
+    "arch",
+    "biomes",
+    "existing",
+    "front",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "pocket-dungeon",
+    "stone",
+    "structure",
+    "structures"
+  ],
+  "object_id": "stone-arch",
+  "view": "front",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/stone-arch.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "ffc0046befd82879e9cdd5e4ce181740dae962caf1e86c90b9ba14f78a89f896",
+    "rgba_sha256": "018825316ab506260d194226ffbca0e48787fb2cce70189f5dee18675d15e464"
+  },
+  "metadata_path": "reusable/views-services/stone-arch.front.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/stone-arch.png",
+    "source_image_sha256": "ac304abea4a4144df230fa679b523d031f41b1a40d69fc8607cbc21674698a6c",
+    "generated_atlas": "reusable/views-services/atlas-structures-a.png",
+    "generated_atlas_sha256": "b6dd5359a06d8ccb552163cd48bcfd225cc05ce31ce1d9138b173517999b5390",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly stone-arch, sewer-wall, broken-bridge, prison-cage matching reference order. One complete centered object in each cell. Preserve the exact recognizable architecture, stone colors, proportions, cracks, bars and distinctive details. True orthographic directional views; top straight down, bottom underside, rear opposite front. Infer hidden surfaces consistently, keeping silhouette and construction coherent. No floor plane, shadow, scenery, labels, perspective, borders or grid marks. Crisp game pixel art, transparent background.",
+      "reference_images": [
+        "components/stone-arch.png",
+        "components/sewer-wall.png",
+        "components/broken-bridge.png",
+        "components/prison-cage.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        0,
+        0
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        1
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        33,
+        49,
+        240,
+        216
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.88,
+      "render_size_px": [
+        211,
+        190
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

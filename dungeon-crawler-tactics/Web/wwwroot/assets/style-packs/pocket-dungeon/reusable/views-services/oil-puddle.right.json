@@ -1,0 +1,88 @@
+{
+  "id": "oil-puddle.right",
+  "name": "Oil puddle right",
+  "kind": "tile",
+  "tags": [
+    "existing",
+    "inferred-view",
+    "isolated",
+    "oil",
+    "orthographic",
+    "pocket-dungeon",
+    "puddle",
+    "right",
+    "services",
+    "terrain"
+  ],
+  "object_id": "oil-puddle",
+  "view": "right",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/oil-puddle.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "0046e5aed81318619c660033efa7f00a0982dfc17a46c83cb59e495f6fd0c2de",
+    "rgba_sha256": "cdbffa858ebe0ba482faa76105299e61524eb549024da3f090c1c9b542a14aab"
+  },
+  "metadata_path": "reusable/views-services/oil-puddle.right.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/oil-puddle.png",
+    "source_image_sha256": "c88d59a0a91903fcb14c5b6253c0767a7bcc12a78d50eeb52fe32a8cdb16063b",
+    "generated_atlas": "reusable/views-services/atlas-terrain-a.png",
+    "generated_atlas_sha256": "0d608c041826aefe95207c88caf3ec7340a760c6951e35cfb20f31b9bcc222f9",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas for the four supplied dungeon terrain tiles. Columns exactly front, top, right, left, bottom, rear. Rows exactly sand-floor, lava-floor, water-puddle, oil-puddle matching references. Each cell one complete same tile/material, centered with consistent footprint. True orthographic views: front edge view, top straight down showing original tile pattern, right/left side, bottom underside, rear opposite front. Preserve each material and signature colors. No ground plane or shadows beyond the object, no scenery, labels, perspective, border, or cell marks. Crisp game pixel art. Infer hidden surfaces from each tile; transparent background.",
+      "reference_images": [
+        "components/sand-floor.png",
+        "components/lava-floor.png",
+        "components/water-puddle.png",
+        "components/oil-puddle.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        2
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        114
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        638,
+        761,
+        96,
+        230
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8208955223880597,
+      "render_size_px": [
+        79,
+        189
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

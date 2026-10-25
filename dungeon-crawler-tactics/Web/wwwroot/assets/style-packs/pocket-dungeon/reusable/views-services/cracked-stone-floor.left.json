@@ -1,0 +1,90 @@
+{
+  "id": "cracked-stone-floor.left",
+  "name": "Cracked stone floor left",
+  "kind": "tile",
+  "tags": [
+    "biomes",
+    "cracked",
+    "existing",
+    "floor",
+    "ground",
+    "inferred-view",
+    "isolated",
+    "left",
+    "orthographic",
+    "pocket-dungeon",
+    "stone",
+    "terrain"
+  ],
+  "object_id": "cracked-stone-floor",
+  "view": "left",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/cracked-stone-floor.left.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "2c5a9eedcc8f345095c73d8e7478dd50f52e1e121699856cf1b672ee5b808aaf",
+    "rgba_sha256": "f2182a40d6142bf74e8142c715e115d0d7b84ae13838b65797c3da543d8a5a27"
+  },
+  "metadata_path": "reusable/views-services/cracked-stone-floor.left.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/cracked-stone-floor.png",
+    "source_image_sha256": "073934a4cf8c8d57a99c256953d9b248b21afeefe60cd4ef42d4314bc2b01473",
+    "generated_atlas": "reusable/views-services/atlas-terrain-b.png",
+    "generated_atlas_sha256": "e3d381a133558885f64fab3d34995fe8a3a558992cdd155f50f568194071d796",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas for the four supplied terrain objects. Columns exactly front, top, right, left, bottom, rear. Rows exactly ice-patch, moss-floor, poison-puddle, cracked-stone-floor matching references. One complete centered object per cell, consistent footprint and same material/palette as its source. True orthographic views: top straight down, bottom straight up, rear opposite front. Preserve the original tile's recognizable surface pattern when seen from above; infer thickness/underside consistently. No scenery, ground plane, cast shadows, labels, perspective, border or grid marks. Crisp game pixel-art clusters. Transparent background.",
+      "reference_images": [
+        "components/ice-patch.png",
+        "components/moss-floor.png",
+        "components/poison-puddle.png",
+        "components/cracked-stone-floor.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        3
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        193
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        783,
+        819,
+        220,
+        124
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.9401709401709402,
+      "render_size_px": [
+        207,
+        117
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

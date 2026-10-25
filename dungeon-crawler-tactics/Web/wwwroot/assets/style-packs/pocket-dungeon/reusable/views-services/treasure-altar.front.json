@@ -1,0 +1,89 @@
+{
+  "id": "treasure-altar.front",
+  "name": "Treasure altar front",
+  "kind": "sprite",
+  "tags": [
+    "altar",
+    "biomes",
+    "existing",
+    "front",
+    "inferred-view",
+    "isolated",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "treasure"
+  ],
+  "object_id": "treasure-altar",
+  "view": "front",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/treasure-altar.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "3a0a1e87ee0856451eda1456a75213a013349cb4bc8a0228f023f6640d4c9154",
+    "rgba_sha256": "882c1a52116a161312a4636faa5566538b637e7ae752c8a902168b5235553d7a"
+  },
+  "metadata_path": "reusable/views-services/treasure-altar.front.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/treasure-altar.png",
+    "source_image_sha256": "56a6bdf78146086a27784a3696e359acb4505edb02866ccd7f8291aa81565dbc",
+    "generated_atlas": "reusable/views-services/atlas-biome-props.png",
+    "generated_atlas_sha256": "70221d93852424b749d1bfe0e09495abecc2e4c0aac8022f4688b99b537e2ef9",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly crystal-cluster, mushroom-cluster, waystone, treasure-altar matching reference order. Each cell one complete centered object. Keep exact source identity, shape, recognizable details, colors and proportions; consistent object between views. True orthographic views, top straight down and rear opposite front; infer hidden surfaces. No labels, scenery, ground plane, shadows, perspective, borders, grid marks. Crisp pixel art, transparent background.",
+      "reference_images": [
+        "components/crystal-cluster.png",
+        "components/mushroom-cluster.png",
+        "components/waystone.png",
+        "components/treasure-altar.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        0
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        159
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        12,
+        774,
+        260,
+        228
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8461538461538461,
+      "render_size_px": [
+        220,
+        193
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  }
+}

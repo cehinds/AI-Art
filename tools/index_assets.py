@@ -12,6 +12,8 @@ project = root / args.project
 files = []
 for folder in ['Web', 'Docs', 'UnityPackage', 'UnityProject', 'Wireframes']:
     for path in sorted((project / folder).rglob('*')):
+        if '__pycache__' in path.parts or path.suffix in {'.pyc', '.pyo'}:
+            continue
         if path.is_symlink():
             raise SystemExit(f'Symlinks are not assets: {path}')
         if path.is_file():
