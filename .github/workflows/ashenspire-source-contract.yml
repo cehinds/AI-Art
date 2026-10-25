@@ -1,0 +1,58 @@
+name: AshenSpire source contract
+
+on:
+  push:
+    branches: [ashenspire]
+    paths:
+      - 'checks/ashenspire-source-contract*'
+      - '.github/workflows/ashenspire-source-contract.yml'
+      - 'pose-studio/stances/**'
+      - 'pose-studio/renewal/**'
+      - 'common/assets-display/**'
+  pull_request:
+    branches: [ashenspire]
+    paths:
+      - 'checks/ashenspire-source-contract*'
+      - '.github/workflows/ashenspire-source-contract.yml'
+      - 'pose-studio/stances/**'
+      - 'pose-studio/renewal/**'
+      - 'common/assets-display/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ashenspire-source-contract-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sources:
+    if: github.repository == 'cehinds/AI-Art' && (github.ref == 'refs/heads/ashenspire' || github.base_ref == 'ashenspire')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /checks/ashenspire-source-contract*
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install the pinned WebP decoder
+        run: python -m pip install --disable-pip-version-check Pillow==12.3.0
+      - name: Test the verifier with synthetic source fixtures
+        run: node --test checks/ashenspire-source-contract.test.mjs
+      - name: Sparse checkout only the recorded production sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          node checks/ashenspire-source-contract.mjs --paths > "$RUNNER_TEMP/ashenspire-source-paths.txt"
+          git sparse-checkout add --stdin < "$RUNNER_TEMP/ashenspire-source-paths.txt"
+      - name: Verify actual HIGH and LITE source bytes
+        run: node checks/ashenspire-source-contract.mjs --root .
