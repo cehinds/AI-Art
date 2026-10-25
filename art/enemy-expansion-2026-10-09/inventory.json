@@ -1,0 +1,2810 @@
+{
+  "sourceCommit": "bcfa0eab3ef60681bb92106b9ada5480fd5ae602",
+  "roster": [
+    {
+      "id": "wanderingSoldier",
+      "equipmentPower": 0.2,
+      "size": "medium",
+      "name": "Wandering Soldier",
+      "hp": [
+        22,
+        26
+      ],
+      "poiseMax": 10,
+      "levelProfile": {
+        "min": 1,
+        "max": 4
+      },
+      "arcaneExposure": {
+        "mode": "configured",
+        "threshold": 8,
+        "buildupMultiplier": 1,
+        "resetMode": "zero",
+        "overflowPolicy": "discard",
+        "lockPolicy": "whileMagicVulnerable",
+        "onBreak": {
+          "status": "magicVulnerable",
+          "value": 25,
+          "duration": 2
+        }
+      },
+      "art": "⚔",
+      "moves": {
+        "slash": {
+          "intent": "attack",
+          "damage": 7,
+          "weight": 45,
+          "maxConsecutive": 2
+        },
+        "guard": {
+          "intent": "block",
+          "block": 6,
+          "weight": 30,
+          "maxConsecutive": 1
+        },
+        "warcry": {
+          "intent": "buff",
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ]
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Wandering Soldier",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/wanderingSoldier.webp",
+        "mobilePath": "assets-display/alternative/wanderingSoldier-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          68.4375,
+          2.1875,
+          346.5625,
+          314.375
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          219,
+          7,
+          1109,
+          1006
+        ]
+      }
+    },
+    {
+      "id": "blightHound",
+      "size": "small",
+      "tint": "var(--rot)",
+      "name": "Blight Hound",
+      "hp": [
+        12,
+        15
+      ],
+      "poiseMax": 6,
+      "levelProfile": {
+        "min": 1,
+        "max": 3
+      },
+      "art": "🐕",
+      "artFaces": "left",
+      "moves": {
+        "bite": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 60
+        },
+        "lunge": {
+          "intent": "attack",
+          "damage": 3,
+          "hits": 2,
+          "weight": 40
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Blight Hound",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/blightHound.webp",
+        "mobilePath": "assets-display/alternative/blightHound-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          33.75,
+          55.625,
+          467.1875,
+          283.125
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          108,
+          178,
+          1495,
+          906
+        ]
+      }
+    },
+    {
+      "id": "huskBrute",
+      "size": "medium",
+      "name": "Husk Brute",
+      "hp": [
+        30,
+        34
+      ],
+      "poiseMax": 16,
+      "levelProfile": {
+        "min": 2,
+        "max": 5
+      },
+      "art": "🪨",
+      "moves": {
+        "club": {
+          "intent": "attack",
+          "damage": 9,
+          "weight": 50
+        },
+        "bellow": {
+          "intent": "debuff",
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            },
+            {
+              "op": "addCard",
+              "target": "player",
+              "card": "slimed",
+              "pile": "discard"
+            }
+          ]
+        },
+        "brace": {
+          "intent": "block",
+          "block": 8,
+          "weight": 25,
+          "maxConsecutive": 1
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Husk Brute",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/huskBrute.webp",
+        "mobilePath": "assets-display/alternative/huskBrute-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          51.875,
+          6.875,
+          408.75,
+          311.875
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          166,
+          22,
+          1308,
+          998
+        ]
+      }
+    },
+    {
+      "id": "graveWisp",
+      "size": "small",
+      "tint": "var(--grace)",
+      "name": "Grave Wisp",
+      "hp": [
+        10,
+        12
+      ],
+      "poiseMax": 4,
+      "levelProfile": {
+        "min": 1,
+        "max": 4
+      },
+      "art": "👻",
+      "moves": {
+        "curse": {
+          "intent": "debuff",
+          "weight": 50,
+          "maxConsecutive": 2,
+          "effects": [
+            {
+              "op": "addCard",
+              "card": "dazed",
+              "pile": "draw",
+              "position": "random"
+            }
+          ]
+        },
+        "drain": {
+          "intent": "attack",
+          "damage": 4,
+          "weight": 50,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 4
+            }
+          ]
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Grave Wisp",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/graveWisp.webp",
+        "mobilePath": "assets-display/alternative/graveWisp-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          97.1875,
+          5.9375,
+          386.25,
+          310.9375
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          311,
+          19,
+          1236,
+          995
+        ]
+      }
+    },
+    {
+      "id": "wyrmAspirant",
+      "equipmentPower": 0.3,
+      "size": "large",
+      "tint": "var(--gold)",
+      "name": "Wyrm Aspirant",
+      "hp": [
+        68,
+        72
+      ],
+      "poiseMax": 24,
+      "levelProfile": {
+        "min": 4,
+        "max": 6
+      },
+      "art": "🐲",
+      "firstMove": "consecrate",
+      "moves": {
+        "consecrate": {
+          "intent": "buff",
+          "weight": 10,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 3
+            }
+          ]
+        },
+        "halberdSweep": {
+          "intent": "attack",
+          "damage": 11,
+          "weight": 50,
+          "maxConsecutive": 2
+        },
+        "tailSlam": {
+          "intent": "attack",
+          "damage": 7,
+          "weight": 30,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            }
+          ]
+        },
+        "goldenGuard": {
+          "intent": "block",
+          "block": 12,
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 4
+            }
+          ]
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Wyrm Aspirant",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/wyrmAspirant.webp",
+        "mobilePath": "assets-display/alternative/wyrmAspirant-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          33.75,
+          3.4375,
+          442.5,
+          317.1875
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          108,
+          11,
+          1416,
+          1015
+        ]
+      }
+    },
+    {
+      "id": "fellWarden",
+      "equipmentPower": 0.3,
+      "size": "large",
+      "tint": "var(--blood)",
+      "name": "The Fell Warden",
+      "hp": [
+        120,
+        120
+      ],
+      "poiseMax": 30,
+      "levelProfile": {
+        "min": 5,
+        "max": 7
+      },
+      "art": "👁",
+      "firstMove": "caneStrike",
+      "moves": {
+        "caneStrike": {
+          "intent": "attack",
+          "damage": 8,
+          "weight": 40,
+          "maxConsecutive": 2
+        },
+        "hammerToss": {
+          "intent": "attack",
+          "damage": 5,
+          "hits": 2,
+          "weight": 30,
+          "maxConsecutive": 2
+        },
+        "heldBlade": {
+          "intent": "attack",
+          "damage": 14,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 8
+            }
+          }
+        },
+        "twinDaggers": {
+          "intent": "attack",
+          "damage": 3,
+          "hits": 4,
+          "weight": 35,
+          "locked": true
+        }
+      },
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 50,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ],
+          "unlockMoves": [
+            "twinDaggers"
+          ]
+        }
+      ],
+      "act": 1,
+      "catalog": {
+        "name": "The Fell Warden",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/fellWarden.webp",
+        "mobilePath": "assets-display/alternative/fellWarden-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          129.6875,
+          0.625,
+          357.5,
+          305.9375
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          415,
+          2,
+          1144,
+          979
+        ]
+      }
+    },
+    {
+      "id": "lanternMoth",
+      "name": "Lantern Moth",
+      "size": "small",
+      "hp": [
+        14,
+        17
+      ],
+      "poiseMax": 5,
+      "levelProfile": {
+        "min": 2,
+        "max": 5
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "lanternDust": {
+          "intent": "debuff",
+          "weight": 35,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            }
+          ]
+        },
+        "wingSparks": {
+          "intent": "attack",
+          "damage": 2,
+          "weight": 65,
+          "hits": 3
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Lantern Moth",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/lanternMoth.webp",
+        "mobilePath": "assets-display/alternative/lanternMoth-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          17.8125,
+          5.625,
+          468.75,
+          311.25
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          57,
+          18,
+          1500,
+          996
+        ]
+      }
+    },
+    {
+      "id": "briarHermit",
+      "name": "Briar Hermit",
+      "size": "medium",
+      "hp": [
+        24,
+        28
+      ],
+      "poiseMax": 9,
+      "levelProfile": {
+        "min": 2,
+        "max": 5
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "rootShelter": {
+          "intent": "block",
+          "block": 7,
+          "weight": 30,
+          "maxConsecutive": 1
+        },
+        "briarCast": {
+          "intent": "attack",
+          "damage": 5,
+          "weight": 45,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 1
+            }
+          ]
+        },
+        "sapMend": {
+          "intent": "buff",
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 4
+            }
+          ]
+        }
+      },
+      "firstMove": "rootShelter",
+      "act": 1,
+      "catalog": {
+        "name": "Briar Hermit",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/briarHermit.webp",
+        "mobilePath": "assets-display/alternative/briarHermit-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          102.5,
+          3.4375,
+          376.5625,
+          315.625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          328,
+          11,
+          1205,
+          1010
+        ]
+      }
+    },
+    {
+      "id": "chainScavenger",
+      "name": "Chain Scavenger",
+      "size": "medium",
+      "hp": [
+        20,
+        24
+      ],
+      "poiseMax": 8,
+      "levelProfile": {
+        "min": 2,
+        "max": 5
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "hookCast": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 60
+        },
+        "chainSnare": {
+          "intent": "debuff",
+          "counterDamage": 6,
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            }
+          ]
+        },
+        "draggingBlow": {
+          "intent": "attack",
+          "damage": 12,
+          "weight": 20,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 3
+            }
+          }
+        }
+      },
+      "act": 1,
+      "catalog": {
+        "name": "Chain Scavenger",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/chainScavenger.webp",
+        "mobilePath": "assets-display/alternative/chainScavenger-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          87.5,
+          2.8125,
+          399.6875,
+          316.5625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          280,
+          9,
+          1279,
+          1013
+        ]
+      }
+    },
+    {
+      "id": "bellKeeper",
+      "name": "The Bell Keeper",
+      "size": "large",
+      "hp": [
+        116,
+        116
+      ],
+      "poiseMax": 25,
+      "levelProfile": {
+        "min": 5,
+        "max": 7
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "bronzeToll": {
+          "intent": "attack",
+          "damage": 19,
+          "weight": 35,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 6
+            }
+          }
+        },
+        "clapperSwing": {
+          "intent": "attack",
+          "damage": 9,
+          "weight": 45,
+          "maxConsecutive": 2
+        },
+        "muffledPrayer": {
+          "intent": "block",
+          "block": 9,
+          "weight": 20,
+          "maxConsecutive": 1
+        },
+        "crackedPeal": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 25,
+          "hits": 3,
+          "locked": true,
+          "maxConsecutive": 1
+        }
+      },
+      "firstMove": "bronzeToll",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 45,
+          "do": [],
+          "unlockMoves": [
+            "crackedPeal"
+          ]
+        }
+      ],
+      "act": 1,
+      "catalog": {
+        "name": "The Bell Keeper",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/bellKeeper.webp",
+        "mobilePath": "assets-display/alternative/bellKeeper-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          52.8125,
+          0.625,
+          428.4375,
+          314.0625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          169,
+          2,
+          1371,
+          1005
+        ]
+      }
+    },
+    {
+      "id": "thornMatriarch",
+      "name": "The Thorn Matriarch",
+      "size": "large",
+      "hp": [
+        110,
+        110
+      ],
+      "poiseMax": 22,
+      "levelProfile": {
+        "min": 5,
+        "max": 7
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "rootCrown": {
+          "intent": "block",
+          "block": 8,
+          "weight": 25,
+          "maxConsecutive": 1
+        },
+        "thornNeedles": {
+          "intent": "attack",
+          "damage": 4,
+          "weight": 45,
+          "hits": 3,
+          "maxConsecutive": 2
+        },
+        "entwiningRoots": {
+          "intent": "attack",
+          "damage": 15,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 4
+            }
+          },
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 2
+            }
+          ]
+        }
+      },
+      "firstMove": "rootCrown",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 40,
+          "do": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 12
+            },
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ]
+        }
+      ],
+      "act": 1,
+      "catalog": {
+        "name": "The Thorn Matriarch",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/thornMatriarch.webp",
+        "mobilePath": "assets-display/alternative/thornMatriarch-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          91.875,
+          2.8125,
+          383.75,
+          316.5625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          294,
+          9,
+          1228,
+          1013
+        ]
+      }
+    },
+    {
+      "id": "gildedKnight",
+      "equipmentPower": 0.3,
+      "size": "medium",
+      "tint": "var(--gold)",
+      "name": "Gilded Knight",
+      "hp": [
+        42,
+        46
+      ],
+      "poiseMax": 18,
+      "levelProfile": {
+        "min": 6,
+        "max": 9
+      },
+      "art": "♞",
+      "moves": {
+        "thrust": {
+          "intent": "attack",
+          "damage": 11,
+          "weight": 50,
+          "maxConsecutive": 2
+        },
+        "parry": {
+          "intent": "block",
+          "counterDamage": 6,
+          "block": 9,
+          "weight": 30,
+          "maxConsecutive": 1
+        },
+        "rally": {
+          "intent": "buff",
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ]
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Gilded Knight",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/gildedKnight.webp",
+        "mobilePath": "assets-display/alternative/gildedKnight-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          5.3125,
+          5.3125,
+          313.4375,
+          470
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          17,
+          17,
+          1003,
+          1504
+        ]
+      }
+    },
+    {
+      "id": "courtSurgeon",
+      "equipmentPower": 0.1,
+      "size": "medium",
+      "tint": "var(--grace)",
+      "name": "Court Surgeon",
+      "hp": [
+        30,
+        34
+      ],
+      "poiseMax": 10,
+      "levelProfile": {
+        "min": 6,
+        "max": 9
+      },
+      "art": "⚕",
+      "moves": {
+        "scalpel": {
+          "intent": "attack",
+          "damage": 7,
+          "weight": 40,
+          "effects": [
+            {
+              "op": "addCard",
+              "target": "player",
+              "card": "wound",
+              "pile": "discard"
+            }
+          ]
+        },
+        "sedate": {
+          "intent": "debuff",
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            }
+          ]
+        },
+        "stitch": {
+          "intent": "buff",
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 8
+            }
+          ]
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Court Surgeon",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/courtSurgeon.webp",
+        "mobilePath": "assets-display/alternative/courtSurgeon-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          47.8125,
+          8.125,
+          292.8125,
+          470.9375
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          153,
+          26,
+          937,
+          1507
+        ]
+      }
+    },
+    {
+      "id": "stitchedHound",
+      "size": "small",
+      "tint": "var(--blood)",
+      "name": "Stitched Hound",
+      "hp": [
+        24,
+        28
+      ],
+      "poiseMax": 8,
+      "levelProfile": {
+        "min": 6,
+        "max": 8
+      },
+      "art": "🐩",
+      "artFaces": "left",
+      "moves": {
+        "maul": {
+          "intent": "attack",
+          "damage": 4,
+          "hits": 2,
+          "weight": 60
+        },
+        "rend": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 40,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 2
+            }
+          ]
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Stitched Hound",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/stitchedHound.webp",
+        "mobilePath": "assets-display/alternative/stitchedHound-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          24.0625,
+          13.75,
+          467.8125,
+          308.4375
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          77,
+          44,
+          1497,
+          987
+        ]
+      }
+    },
+    {
+      "id": "courtMarionette",
+      "equipmentPower": 0.1,
+      "size": "small",
+      "tint": "var(--rot)",
+      "name": "Court Marionette",
+      "hp": [
+        16,
+        18
+      ],
+      "poiseMax": 6,
+      "levelProfile": {
+        "min": 6,
+        "max": 9
+      },
+      "art": "🪆",
+      "moves": {
+        "dart": {
+          "intent": "attack",
+          "damage": 4,
+          "hits": 2,
+          "weight": 50
+        },
+        "blowdart": {
+          "intent": "attack",
+          "damage": 3,
+          "weight": 50,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "crimsonBlight",
+              "stacks": 2
+            }
+          ]
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Court Marionette",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/courtMarionette.webp",
+        "mobilePath": "assets-display/alternative/courtMarionette-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          69.0625,
+          5,
+          273.125,
+          475
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          221,
+          16,
+          874,
+          1520
+        ]
+      }
+    },
+    {
+      "id": "livingArmor",
+      "equipmentPower": 0.4,
+      "size": "medium",
+      "tint": "var(--frost)",
+      "name": "Living Armor",
+      "hp": [
+        36,
+        40
+      ],
+      "poiseMax": 22,
+      "levelProfile": {
+        "min": 7,
+        "max": 10
+      },
+      "art": "🛡",
+      "moves": {
+        "slam": {
+          "intent": "attack",
+          "damage": 10,
+          "weight": 30
+        },
+        "fortify": {
+          "intent": "block",
+          "block": 12,
+          "weight": 25,
+          "maxConsecutive": 1
+        },
+        "crush": {
+          "intent": "attack",
+          "damage": 14,
+          "weight": 20,
+          "maxConsecutive": 1
+        },
+        "rimeCrush": {
+          "intent": "attack",
+          "damage": 8,
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frost",
+              "stacks": 3
+            }
+          ]
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Living Armor",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/livingArmor.webp",
+        "mobilePath": "assets-display/alternative/livingArmor-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          53.125,
+          3.125,
+          401.5625,
+          315
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          170,
+          10,
+          1285,
+          1008
+        ]
+      }
+    },
+    {
+      "id": "courtDuelist",
+      "equipmentPower": 0.25,
+      "size": "large",
+      "tint": "var(--frost)",
+      "name": "Duelist of the Court",
+      "hp": [
+        90,
+        96
+      ],
+      "poiseMax": 26,
+      "levelProfile": {
+        "min": 10,
+        "max": 11
+      },
+      "art": "🤺",
+      "firstMove": "enGarde",
+      "moves": {
+        "enGarde": {
+          "intent": "buff",
+          "weight": 10,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 3
+            }
+          ]
+        },
+        "flurry": {
+          "intent": "attack",
+          "damage": 5,
+          "hits": 3,
+          "weight": 40,
+          "maxConsecutive": 2
+        },
+        "lunge": {
+          "intent": "attack",
+          "damage": 14,
+          "weight": 30,
+          "maxConsecutive": 1
+        },
+        "riposte": {
+          "intent": "block",
+          "counterDamage": 6,
+          "block": 10,
+          "weight": 20,
+          "maxConsecutive": 1
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Duelist of the Court",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/courtDuelist.webp",
+        "mobilePath": "assets-display/alternative/courtDuelist-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          20.9375,
+          3.75,
+          451.875,
+          315
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          67,
+          12,
+          1446,
+          1008
+        ]
+      }
+    },
+    {
+      "id": "stitchedKing",
+      "equipmentPower": 0.25,
+      "size": "large",
+      "tint": "var(--gold)",
+      "name": "The Stitched King",
+      "hp": [
+        195,
+        195
+      ],
+      "poiseMax": 34,
+      "levelProfile": {
+        "min": 11,
+        "max": 12
+      },
+      "art": "👑",
+      "firstMove": "courtlyDecree",
+      "moves": {
+        "scepterBlow": {
+          "intent": "attack",
+          "damage": 11,
+          "weight": 40,
+          "maxConsecutive": 2
+        },
+        "graspingHands": {
+          "intent": "attack",
+          "damage": 5,
+          "hits": 3,
+          "weight": 30,
+          "maxConsecutive": 2
+        },
+        "courtlyDecree": {
+          "intent": "block",
+          "block": 15,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ]
+        },
+        "thousandHands": {
+          "intent": "attack",
+          "damage": 3,
+          "hits": 6,
+          "weight": 40,
+          "locked": true
+        }
+      },
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 50,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            }
+          ],
+          "unlockMoves": [
+            "thousandHands"
+          ]
+        }
+      ],
+      "act": 2,
+      "catalog": {
+        "name": "The Stitched King",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/stitchedKing.webp",
+        "mobilePath": "assets-display/alternative/stitchedKing-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          103.125,
+          2.8125,
+          397.5,
+          314.375
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          330,
+          9,
+          1272,
+          1006
+        ]
+      }
+    },
+    {
+      "id": "mirrorScribe",
+      "name": "Mirror Scribe",
+      "size": "medium",
+      "hp": [
+        28,
+        32
+      ],
+      "poiseMax": 8,
+      "levelProfile": {
+        "min": 7,
+        "max": 10
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "silverScript": {
+          "intent": "debuff",
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "addCard",
+              "card": "dazed",
+              "pile": "discard"
+            }
+          ]
+        },
+        "shardVolley": {
+          "intent": "attack",
+          "damage": 3,
+          "weight": 50,
+          "hits": 3
+        },
+        "polishedWard": {
+          "intent": "block",
+          "counterDamage": 6,
+          "block": 6,
+          "weight": 20,
+          "maxConsecutive": 1
+        }
+      },
+      "act": 2,
+      "catalog": {
+        "name": "Mirror Scribe",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/mirrorScribe.webp",
+        "mobilePath": "assets-display/alternative/mirrorScribe-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          153.4375,
+          3.4375,
+          328.75,
+          316.25
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          491,
+          11,
+          1052,
+          1012
+        ]
+      }
+    },
+    {
+      "id": "stitchCrab",
+      "name": "Stitch Crab",
+      "size": "small",
+      "hp": [
+        32,
+        36
+      ],
+      "poiseMax": 17,
+      "levelProfile": {
+        "min": 7,
+        "max": 10
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "shellFold": {
+          "intent": "block",
+          "block": 11,
+          "weight": 30,
+          "maxConsecutive": 1
+        },
+        "seamShears": {
+          "intent": "attack",
+          "damage": 4,
+          "weight": 45,
+          "hits": 2,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 1
+            }
+          ]
+        },
+        "scuttleRush": {
+          "intent": "attack",
+          "damage": 13,
+          "weight": 25,
+          "maxConsecutive": 1
+        }
+      },
+      "firstMove": "shellFold",
+      "act": 2,
+      "catalog": {
+        "name": "Stitch Crab",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/stitchCrab.webp",
+        "mobilePath": "assets-display/alternative/stitchCrab-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          12.5,
+          26.25,
+          465,
+          300.3125
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          40,
+          84,
+          1488,
+          961
+        ]
+      }
+    },
+    {
+      "id": "glassRegent",
+      "name": "The Glass Regent",
+      "size": "large",
+      "hp": [
+        180,
+        180
+      ],
+      "poiseMax": 26,
+      "levelProfile": {
+        "min": 11,
+        "max": 12
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "prismGuard": {
+          "intent": "block",
+          "block": 16,
+          "weight": 25,
+          "maxConsecutive": 1
+        },
+        "crystalRapier": {
+          "intent": "attack",
+          "damage": 15,
+          "weight": 45,
+          "maxConsecutive": 2
+        },
+        "splinterRain": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 30,
+          "hits": 3,
+          "maxConsecutive": 1
+        },
+        "shatteredCourt": {
+          "intent": "attack",
+          "damage": 7,
+          "weight": 35,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 0
+            }
+          },
+          "hits": 5,
+          "locked": true
+        }
+      },
+      "firstMove": "prismGuard",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 50,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 4
+            }
+          ],
+          "unlockMoves": [
+            "shatteredCourt"
+          ]
+        }
+      ],
+      "act": 2,
+      "catalog": {
+        "name": "The Glass Regent",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/glassRegent.webp",
+        "mobilePath": "assets-display/alternative/glassRegent-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          15.3125,
+          2.8125,
+          308.75,
+          477.1875
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          49,
+          9,
+          988,
+          1527
+        ]
+      }
+    },
+    {
+      "id": "marrowOrganist",
+      "name": "The Marrow Organist",
+      "size": "large",
+      "hp": [
+        190,
+        190
+      ],
+      "poiseMax": 30,
+      "levelProfile": {
+        "min": 11,
+        "max": 12
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "bonePrelude": {
+          "intent": "debuff",
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            }
+          ]
+        },
+        "ivoryKeys": {
+          "intent": "attack",
+          "damage": 8,
+          "weight": 40,
+          "hits": 3,
+          "maxConsecutive": 2
+        },
+        "funeralChord": {
+          "intent": "attack",
+          "damage": 28,
+          "weight": 25,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 5
+            }
+          }
+        },
+        "quietRefrain": {
+          "intent": "buff",
+          "weight": 15,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 7
+            }
+          ]
+        }
+      },
+      "firstMove": "bonePrelude",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 35,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 6
+            }
+          ]
+        }
+      ],
+      "act": 2,
+      "catalog": {
+        "name": "The Marrow Organist",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/marrowOrganist.webp",
+        "mobilePath": "assets-display/alternative/marrowOrganist-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          140.625,
+          2.1875,
+          357.5,
+          316.25
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          450,
+          7,
+          1144,
+          1012
+        ]
+      }
+    },
+    {
+      "id": "ashRevenant",
+      "equipmentPower": 0.15,
+      "size": "medium",
+      "tint": "var(--ember)",
+      "name": "Ash Revenant",
+      "hp": [
+        34,
+        38
+      ],
+      "poiseMax": 10,
+      "levelProfile": {
+        "min": 13,
+        "max": 16
+      },
+      "art": "🌋",
+      "moves": {
+        "cinderSlash": {
+          "intent": "attack",
+          "damage": 12,
+          "weight": 55,
+          "maxConsecutive": 2
+        },
+        "reform": {
+          "intent": "buff",
+          "weight": 45,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 6
+            },
+            {
+              "op": "block",
+              "target": "self",
+              "amount": 6
+            }
+          ]
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Ash Revenant",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/ashRevenant.webp",
+        "mobilePath": "assets-display/alternative/ashRevenant-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          90,
+          4.6875,
+          375.625,
+          315
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          288,
+          15,
+          1202,
+          1008
+        ]
+      }
+    },
+    {
+      "id": "emberStarvedPilgrim",
+      "size": "small",
+      "tint": "var(--grace)",
+      "name": "Ember-Starved Pilgrim",
+      "hp": [
+        28,
+        32
+      ],
+      "poiseMax": 8,
+      "levelProfile": {
+        "min": 13,
+        "max": 15
+      },
+      "art": "🧎",
+      "moves": {
+        "desperateClaw": {
+          "intent": "attack",
+          "damage": 9,
+          "weight": 60
+        },
+        "wail": {
+          "intent": "debuff",
+          "weight": 40,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "insanity",
+              "stacks": 3
+            }
+          ]
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Ember-Starved Pilgrim",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/emberStarvedPilgrim.webp",
+        "mobilePath": "assets-display/alternative/emberStarvedPilgrim-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          158.75,
+          4.6875,
+          348.4375,
+          312.1875
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          508,
+          15,
+          1115,
+          999
+        ]
+      }
+    },
+    {
+      "id": "valkyrieShade",
+      "equipmentPower": 0.25,
+      "size": "medium",
+      "tint": "var(--blood)",
+      "name": "Valkyrie Shade",
+      "hp": [
+        40,
+        44
+      ],
+      "poiseMax": 14,
+      "levelProfile": {
+        "min": 14,
+        "max": 17
+      },
+      "art": "🪶",
+      "moves": {
+        "spiralLance": {
+          "intent": "attack",
+          "damage": 5,
+          "hits": 2,
+          "weight": 50
+        },
+        "bloodFeather": {
+          "intent": "attack",
+          "damage": 5,
+          "weight": 50,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 3
+            }
+          ]
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Valkyrie Shade",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/valkyrieShade.webp",
+        "mobilePath": "assets-display/alternative/valkyrieShade-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          45.9375,
+          3.75,
+          393.4375,
+          314.0625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          147,
+          12,
+          1259,
+          1005
+        ]
+      }
+    },
+    {
+      "id": "charredColossus",
+      "size": "large",
+      "tint": "var(--ember)",
+      "name": "Charred Colossus",
+      "hp": [
+        55,
+        60
+      ],
+      "poiseMax": 30,
+      "levelProfile": {
+        "min": 15,
+        "max": 18
+      },
+      "arcaneExposure": {
+        "mode": "immune"
+      },
+      "damageResistanceBySchool": {
+        "magic": 10
+      },
+      "art": "🗿",
+      "moves": {
+        "smash": {
+          "intent": "attack",
+          "damage": 16,
+          "weight": 50,
+          "maxConsecutive": 2
+        },
+        "ashCloud": {
+          "intent": "debuff",
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 2
+            }
+          ]
+        },
+        "harden": {
+          "intent": "block",
+          "block": 14,
+          "weight": 25,
+          "maxConsecutive": 1
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Charred Colossus",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/charredColossus.webp",
+        "mobilePath": "assets-display/alternative/charredColossus-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          87.8125,
+          5.625,
+          395.625,
+          312.5
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          281,
+          18,
+          1266,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "wyrmLord",
+      "equipmentPower": 0.3,
+      "size": "large",
+      "tint": "var(--gold)",
+      "name": "Wyrm Lord",
+      "hp": [
+        130,
+        140
+      ],
+      "poiseMax": 30,
+      "levelProfile": {
+        "min": 18,
+        "max": 19
+      },
+      "art": "🐉",
+      "firstMove": "consecration",
+      "moves": {
+        "consecration": {
+          "intent": "buff",
+          "weight": 10,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 4
+            }
+          ]
+        },
+        "halberdReign": {
+          "intent": "attack",
+          "damage": 15,
+          "weight": 45,
+          "maxConsecutive": 2
+        },
+        "tailSweep": {
+          "intent": "attack",
+          "damage": 8,
+          "weight": 30,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "weak",
+              "stacks": 1
+            }
+          ]
+        },
+        "goldenBulwark": {
+          "intent": "block",
+          "block": 16,
+          "weight": 25,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 6
+            }
+          ]
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Wyrm Lord",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/wyrmLord.webp",
+        "mobilePath": "assets-display/alternative/wyrmLord-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          32.1875,
+          1.5625,
+          469.375,
+          316.25
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          103,
+          5,
+          1502,
+          1012
+        ]
+      }
+    },
+    {
+      "id": "blightedValkyrie",
+      "equipmentPower": 0.3,
+      "size": "large",
+      "tint": "var(--rot)",
+      "name": "The Blighted Valkyrie",
+      "hp": [
+        250,
+        250
+      ],
+      "poiseMax": 36,
+      "levelProfile": {
+        "min": 19,
+        "max": 20
+      },
+      "art": "🦋",
+      "firstMove": "spiralThrust",
+      "moves": {
+        "spiralThrust": {
+          "intent": "attack",
+          "damage": 12,
+          "weight": 35,
+          "maxConsecutive": 2,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 2
+            }
+          ]
+        },
+        "whirlwind": {
+          "intent": "attack",
+          "damage": 4,
+          "hits": 5,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "bleed",
+              "stacks": 2
+            }
+          ]
+        },
+        "rotWings": {
+          "intent": "block",
+          "block": 10,
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "crimsonBlight",
+              "stacks": 3
+            }
+          ]
+        },
+        "scarletDance": {
+          "intent": "attack",
+          "damage": 5,
+          "hits": 5,
+          "weight": 35,
+          "locked": true
+        }
+      },
+      "phases": [
+        {
+          "on": "damageDealt",
+          "once": false,
+          "if": {
+            "p": "eventSourceIsOwner"
+          },
+          "do": [
+            {
+              "op": "heal",
+              "target": "self",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "on": "hpBelowPct",
+          "pct": 50,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 3
+            },
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "crimsonBlight",
+              "stacks": 4
+            }
+          ],
+          "unlockMoves": [
+            "scarletDance"
+          ]
+        }
+      ],
+      "act": 3,
+      "catalog": {
+        "name": "The Blighted Valkyrie",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/blightedValkyrie.webp",
+        "mobilePath": "assets-display/alternative/blightedValkyrie-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          22.8125,
+          2.5,
+          460.9375,
+          315.3125
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          73,
+          8,
+          1475,
+          1009
+        ]
+      }
+    },
+    {
+      "id": "cinderMantis",
+      "name": "Cinder Mantis",
+      "size": "medium",
+      "hp": [
+        36,
+        40
+      ],
+      "poiseMax": 11,
+      "levelProfile": {
+        "min": 14,
+        "max": 17
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "scythePair": {
+          "intent": "attack",
+          "damage": 5,
+          "weight": 55,
+          "hits": 2
+        },
+        "emberPounce": {
+          "intent": "attack",
+          "damage": 18,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 2
+            }
+          }
+        },
+        "foldedBlades": {
+          "intent": "block",
+          "counterDamage": 6,
+          "block": 8,
+          "weight": 15,
+          "maxConsecutive": 1
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Cinder Mantis",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/cinderMantis.webp",
+        "mobilePath": "assets-display/alternative/cinderMantis-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          19.6875,
+          9.0625,
+          459.375,
+          312.8125
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          63,
+          29,
+          1470,
+          1001
+        ]
+      }
+    },
+    {
+      "id": "eclipseCantor",
+      "name": "Eclipse Cantor",
+      "size": "medium",
+      "hp": [
+        30,
+        34
+      ],
+      "poiseMax": 7,
+      "levelProfile": {
+        "min": 14,
+        "max": 17
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "darkHymn": {
+          "intent": "debuff",
+          "weight": 30,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "insanity",
+              "stacks": 3
+            }
+          ]
+        },
+        "lunarRay": {
+          "intent": "attack",
+          "damage": 11,
+          "weight": 50
+        },
+        "fadingEcho": {
+          "intent": "attack",
+          "damage": 6,
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "addCard",
+              "card": "dazed",
+              "pile": "discard"
+            }
+          ]
+        }
+      },
+      "act": 3,
+      "catalog": {
+        "name": "Eclipse Cantor",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/eclipseCantor.webp",
+        "mobilePath": "assets-display/alternative/eclipseCantor-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          29.6875,
+          2.1875,
+          313.75,
+          468.4375
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          95,
+          7,
+          1004,
+          1499
+        ]
+      }
+    },
+    {
+      "id": "furnaceSaint",
+      "name": "The Furnace Saint",
+      "size": "large",
+      "hp": [
+        260,
+        260
+      ],
+      "poiseMax": 40,
+      "levelProfile": {
+        "min": 19,
+        "max": 20
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "openFurnace": {
+          "intent": "attack",
+          "damage": 32,
+          "weight": 30,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 10
+            }
+          }
+        },
+        "censerSweep": {
+          "intent": "attack",
+          "damage": 22,
+          "weight": 45,
+          "maxConsecutive": 2
+        },
+        "coolingAsh": {
+          "intent": "block",
+          "block": 14,
+          "weight": 25,
+          "maxConsecutive": 1
+        }
+      },
+      "firstMove": "openFurnace",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 50,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 8
+            }
+          ]
+        }
+      ],
+      "act": 3,
+      "catalog": {
+        "name": "The Furnace Saint",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/furnaceSaint.webp",
+        "mobilePath": "assets-display/alternative/furnaceSaint-mobile.webp",
+        "size": [
+          320,
+          480
+        ],
+        "bounds": [
+          14.0625,
+          3.4375,
+          310.3125,
+          461.875
+        ],
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceBounds": [
+          45,
+          11,
+          993,
+          1478
+        ]
+      }
+    },
+    {
+      "id": "hollowAstronomer",
+      "name": "The Hollow Astronomer",
+      "size": "large",
+      "hp": [
+        225,
+        225
+      ],
+      "poiseMax": 25,
+      "levelProfile": {
+        "min": 19,
+        "max": 20
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "starChart": {
+          "intent": "debuff",
+          "weight": 20,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "addCard",
+              "card": "dazed",
+              "pile": "discard"
+            }
+          ]
+        },
+        "orbitalShards": {
+          "intent": "attack",
+          "damage": 8,
+          "weight": 45,
+          "hits": 4,
+          "maxConsecutive": 2
+        },
+        "totalEclipse": {
+          "intent": "attack",
+          "damage": 30,
+          "weight": 35,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 6
+            }
+          },
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "insanity",
+              "stacks": 3
+            }
+          ]
+        },
+        "fallingHeavens": {
+          "intent": "attack",
+          "damage": 10,
+          "weight": 30,
+          "hits": 3,
+          "locked": true,
+          "maxConsecutive": 1
+        }
+      },
+      "firstMove": "starChart",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 40,
+          "do": [],
+          "unlockMoves": [
+            "fallingHeavens"
+          ]
+        }
+      ],
+      "act": 3,
+      "catalog": {
+        "name": "The Hollow Astronomer",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/hollowAstronomer.webp",
+        "mobilePath": "assets-display/alternative/hollowAstronomer-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          109.0625,
+          3.4375,
+          382.8125,
+          316.5625
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          349,
+          11,
+          1225,
+          1013
+        ]
+      }
+    },
+    {
+      "id": "ashheartDragon",
+      "name": "The Ashheart Dragon",
+      "size": "large",
+      "hp": [
+        245,
+        245
+      ],
+      "poiseMax": 34,
+      "levelProfile": {
+        "min": 19,
+        "max": 20
+      },
+      "art": "◆",
+      "artFaces": "left",
+      "moves": {
+        "obsidianClaws": {
+          "intent": "attack",
+          "damage": 12,
+          "weight": 45,
+          "hits": 2,
+          "maxConsecutive": 2
+        },
+        "tailBastion": {
+          "intent": "block",
+          "block": 12,
+          "weight": 25,
+          "maxConsecutive": 1
+        },
+        "heartRumble": {
+          "intent": "buff",
+          "weight": 15,
+          "maxConsecutive": 1,
+          "effects": [
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 1
+            }
+          ]
+        },
+        "ashBreath": {
+          "intent": "attack",
+          "damage": 9,
+          "weight": 35,
+          "maxConsecutive": 1,
+          "delay": {
+            "turns": 1,
+            "whileCharging": {
+              "block": 5
+            }
+          },
+          "hits": 4,
+          "locked": true
+        }
+      },
+      "firstMove": "obsidianClaws",
+      "phases": [
+        {
+          "on": "hpBelowPct",
+          "pct": 60,
+          "do": [
+            {
+              "op": "applyStatus",
+              "target": "player",
+              "status": "frail",
+              "stacks": 1
+            },
+            {
+              "op": "applyStatus",
+              "target": "self",
+              "status": "strength",
+              "stacks": 2
+            }
+          ],
+          "unlockMoves": [
+            "ashBreath"
+          ]
+        }
+      ],
+      "act": 3,
+      "catalog": {
+        "name": "The Ashheart Dragon",
+        "family": "enemy",
+        "facing": "left",
+        "pose": "idle",
+        "path": "assets-display/alternative/ashheartDragon.webp",
+        "mobilePath": "assets-display/alternative/ashheartDragon-mobile.webp",
+        "size": [
+          480,
+          320
+        ],
+        "bounds": [
+          13.125,
+          5.9375,
+          475.3125,
+          314.6875
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceBounds": [
+          42,
+          19,
+          1521,
+          1007
+        ]
+      }
+    }
+  ],
+  "canonicalCount": 33,
+  "catalogCount": 33,
+  "missingFromCatalog": [],
+  "extraCatalog": []
+}
