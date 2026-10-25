@@ -1,0 +1,98 @@
+{
+  "id": "batch01",
+  "output": "Assets/Art/Production/Batch01",
+  "review": "Review/production",
+  "sheets": [
+    {
+      "source": "ArtSource/Batch01/terrain.png",
+      "group": "terrain",
+      "kind": "tile",
+      "columns": 4,
+      "rows": 4,
+      "target": [16, 16],
+      "names": ["path-nw", "path-n", "path-ne", "grass-a", "path-w", "path-center", "path-e", "grass-b", "path-sw", "path-s", "path-se", "water", "dungeon-floor", "town-cobble", "grass-flowers", "earth"]
+    },
+    {
+      "source": "ArtSource/Batch01/town-dungeon.png",
+      "group": "structures",
+      "kind": "tile",
+      "columns": 4,
+      "rows": 4,
+      "target": [16, 16],
+      "names": ["roof-nw", "roof-n", "roof-ne", "roof-fill", "roof-sw", "roof-s", "roof-se", "cream-wall", "door-closed", "door-open", "window", "chest-closed", "dungeon-wall", "torch", "chest-open", "stairs-down"]
+    },
+    {
+      "source": "ArtSource/Batch01/firion-walk.png",
+      "group": "firion",
+      "kind": "sprite",
+      "columns": 3,
+      "rows": 4,
+      "target": [16, 24],
+      "padding": 0,
+      "alphaThreshold": 128,
+      "directions": ["down", "left", "right", "up"],
+      "cellRects": [
+        {"left":0,"top":80,"width":362,"height":320},
+        {"left":362,"top":80,"width":362,"height":320},
+        {"left":724,"top":80,"width":362,"height":320},
+        {"left":0,"top":410,"width":362,"height":320},
+        {"left":362,"top":410,"width":362,"height":320},
+        {"left":724,"top":410,"width":362,"height":320},
+        {"left":0,"top":740,"width":362,"height":320},
+        {"left":362,"top":740,"width":362,"height":320},
+        {"left":724,"top":740,"width":362,"height":320},
+        {"left":0,"top":1070,"width":362,"height":330},
+        {"left":362,"top":1070,"width":362,"height":330},
+        {"left":724,"top":1070,"width":362,"height":330}
+      ],
+      "names": ["down-left-foot", "down-idle", "down-right-foot", "left-left-foot", "left-idle", "left-right-foot", "right-left-foot", "right-idle", "right-right-foot", "up-left-foot", "up-idle", "up-right-foot"]
+    }
+  ],
+  "requiredEdges": [
+    {"a": "terrain/path-nw", "aSide": "right", "b": "terrain/path-n", "bSide": "left"},
+    {"a": "terrain/path-n", "aSide": "right", "b": "terrain/path-ne", "bSide": "left"},
+    {"a": "terrain/path-w", "aSide": "right", "b": "terrain/path-center", "bSide": "left"},
+    {"a": "terrain/path-center", "aSide": "right", "b": "terrain/path-e", "bSide": "left"},
+    {"a": "terrain/path-sw", "aSide": "right", "b": "terrain/path-s", "bSide": "left"},
+    {"a": "terrain/path-s", "aSide": "right", "b": "terrain/path-se", "bSide": "left"},
+    {"a": "terrain/path-nw", "aSide": "bottom", "b": "terrain/path-w", "bSide": "top"},
+    {"a": "terrain/path-n", "aSide": "bottom", "b": "terrain/path-center", "bSide": "top"},
+    {"a": "terrain/path-ne", "aSide": "bottom", "b": "terrain/path-e", "bSide": "top"},
+    {"a": "terrain/path-w", "aSide": "bottom", "b": "terrain/path-sw", "bSide": "top"},
+    {"a": "terrain/path-center", "aSide": "bottom", "b": "terrain/path-s", "bSide": "top"},
+    {"a": "terrain/path-e", "aSide": "bottom", "b": "terrain/path-se", "bSide": "top"}
+  ],
+  "samples": [
+    {
+      "name": "hut-assembly",
+      "legend": {"g":"terrain/grass-a", "a":"structures/roof-nw", "b":"structures/roof-n", "c":"structures/roof-ne", "d":"structures/roof-sw", "e":"structures/roof-s", "f":"structures/roof-se", "w":"structures/cream-wall", "o":"structures/door-closed"},
+      "pattern": ["ggggg", "gabcg", "gdefg", "gwowg", "ggggg"]
+    },
+    {
+      "name": "town-dungeon-sample",
+      "legend": {"g":"terrain/grass-a", "p":"terrain/town-cobble", "a":"structures/roof-nw", "b":"structures/roof-n", "c":"structures/roof-ne", "d":"structures/roof-sw", "e":"structures/roof-s", "f":"structures/roof-se", "w":"structures/cream-wall", "o":"structures/door-closed", "#":"structures/dungeon-wall", ".":"terrain/dungeon-floor", "t":"structures/torch", "C":"structures/chest-closed", "O":"structures/chest-open", "s":"structures/stairs-down"},
+      "pattern": ["gggggg######", "gabcgg#....#", "gdefgg#t...#", "gwowgg#.C..#", "pppppp#...s#", "gggggg#.O..#", "gggggg#....#", "gggggg######"]
+    },
+    {
+      "name": "path-assembly",
+      "rows": [
+        ["terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-a"],
+        ["terrain/grass-a", "terrain/path-nw", "terrain/path-n", "terrain/path-ne", "terrain/grass-a"],
+        ["terrain/grass-a", "terrain/path-w", "terrain/path-center", "terrain/path-e", "terrain/grass-a"],
+        ["terrain/grass-a", "terrain/path-sw", "terrain/path-s", "terrain/path-se", "terrain/grass-a"],
+        ["terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-a"]
+      ]
+    },
+    {
+      "name": "repeat-materials",
+      "rows": [
+        ["terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-b", "terrain/grass-b", "terrain/grass-b"],
+        ["terrain/grass-a", "terrain/grass-a", "terrain/grass-a", "terrain/grass-b", "terrain/grass-b", "terrain/grass-b"],
+        ["terrain/water", "terrain/water", "terrain/water", "terrain/town-cobble", "terrain/town-cobble", "terrain/town-cobble"],
+        ["terrain/water", "terrain/water", "terrain/water", "terrain/town-cobble", "terrain/town-cobble", "terrain/town-cobble"],
+        ["terrain/dungeon-floor", "terrain/dungeon-floor", "terrain/dungeon-floor", "terrain/earth", "terrain/earth", "terrain/earth"],
+        ["terrain/dungeon-floor", "terrain/dungeon-floor", "terrain/dungeon-floor", "terrain/earth", "terrain/earth", "terrain/earth"]
+      ]
+    }
+  ]
+}

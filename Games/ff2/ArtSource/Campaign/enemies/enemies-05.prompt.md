@@ -1,0 +1,6 @@
+Create16 separate originalFFII battle enemy sprites in4columns4rows, same approved pixelstyle as reference. AllfaceRIGHT, crispGBApixelclusters, darknavy outlines,3shade ramps, isolated opaque foreground on TRULY TRANSPARENT background; absolutelynoglow, halos,backdrop,text,labels,grid. Keep largeemptygutters and allappendagesinsideeachcell. About48x48logicalpixel detail.
+Row1: Malboro (green tentacledplantbeast huge roundtoothedmouth); Malboro Terra (ochre-green variant samefamily); Great Malboro (darkpurple-green larger variant); Basilisk (tan reptilian quadrupedmanylegs withshortspines).
+Row2: Salamander (redorange firelizard longtail); Ice Lizard (icyblue lizard samebodyfamily); Eyemoeba (purple jellyamoeba withonehugeeye); Hecteyes (redpurple jellyamorphousbody studdedwithmanyeyes).
+Row3: Roundworm (blue giantsegmentedworm rearingwithroundtoothedmaw); Sand Worm (ochre giantworm samefamily); Abyss Worm (darkpurple giantworm samefamily); Green Slime (green acidic amorphous puddleblob).
+Row4: Yellow Jelly (golden yellowgelatinousblob); Red Mousse (redorange jellyblob); Black Flan (darkviolet gelatinousblob); Red Soul (red floatingflamelike spirit withsimpleface, solidsteppedpixels NOglow).
+Noemoji expressions, noextraneouscharacters. The transparentspace must remainempty.
