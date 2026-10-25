@@ -1,17 +1,54 @@
-# AI Art
+# AI Art catalog
 
-Shared game artwork maintained under human direction.
+The combined art library lives on `main` and `dev`. Each game keeps its own source branch, and the catalog preserves a byte-verified snapshot under `Games/<game>/`.
 
-Each game has its own branch:
+## Browse the galleries
 
-- `dungeon-crawler`
-- `ff2`
-- `ashenspire`
+- [All art, organized by asset type](https://cehinds.github.io/AI-Art/)
+- [Final Fantasy II](https://cehinds.github.io/AI-Art/games/ff2/)
+- [Dungeon Crawler](https://cehinds.github.io/AI-Art/games/dungeon-crawler/)
+- [AshenSpire](https://cehinds.github.io/AI-Art/games/ashenspire/)
+- [Dovakiin](https://cehinds.github.io/AI-Art/games/dovakiin/)
 
-The `main` branch is the repository index. Game branches keep their assets,
-authoring sources, manifests and attribution records together. Existing source
-and licence records must be preserved when assets are moved here; inclusion in
-this repository does not establish a new licence.
+Filter by tiles, weapons, characters, creatures, environments, props, effects, animations, UI and more. Search names and paths, select a game, and open an asset to see its original file, dimensions, hash and source commit. Production is the default collection; choose All collections to include concepts, source sheets, references, review images and archives. GIF details play the original animation. Large packages and non-image authoring files have direct original links.
 
-AshenSpire migration is in progress. Its game references will change only after
-the destination files and release checksums have been verified.
+The galleries use small previews. The complete original artwork, authoring files, manifests, attribution and provenance are stored in this repository. Previews may trim transparent padding for readability; originals are unchanged.
+
+## Branches and publishing
+
+- `ff2`, `dungeon-crawler`, `ashenspire`, and `Dovakiin`: game-specific source libraries.
+- `dev`: combined catalog development and verification.
+- `main`: combined published catalog. GitHub Actions builds and deploys the combined page and all game pages together.
+
+Both combined branches contain the full source snapshots. They do not replace the game branches. Each `Games/<game>/_source.json` records the exact upstream commit and file hashes. Existing source/licence records remain in their original relative paths. Inclusion here does not establish a new licence.
+
+## Build and verify locally
+
+Requires Node.js 22 or newer.
+
+```sh
+npm ci
+npm test
+npm run verify
+npm run build
+npm run serve
+```
+
+Open `http://127.0.0.1:4173/AI-Art/`. `_site/` contains the generated Pages site and is excluded from Git. Snapshot originals stay in `Games/`; the site serves previews and links to commit-pinned originals.
+
+## Refresh the collection
+
+Fetch the source branches, verify and commit your current snapshot first, then run the reviewed update:
+
+```sh
+git fetch origin
+npm run verify -- --committed
+npm run import -- --update
+npm test
+npm run verify
+npm run build
+```
+
+The importer refuses unrecorded files, local snapshot edits or an uncommitted previous snapshot. Updates retain old versions in Git history and record changed, added and removed upstream paths. Review the result on `dev` before promoting to `main`; only `main` publishes the site. Future game additions belong in `scripts/lib.mjs` and the page navigation.
+
+[Design reference and visual checks](docs/design/spec.md) · [Original repository index](docs/repository-index.md)

@@ -1,0 +1,105 @@
+name: release
+# Publishes release hd-assets-v<N>: three zips (hd-, light- and common-assets-v<N>.zip),
+# their sha256 files, art-manifest.json and CREDITS.md; the notes list the
+# three sha256s for the pin.
+#
+# WHEN IT RUNS, by the owner's ruling of 2026-09-26 ("release should run
+# without me asking"): on every push to main that changes what the pack holds
+# (hd/assets/, light/assets/, common/, art-manifest.json, the tools that decide
+# what a pack holds, or release.json), and by hand
+# (Actions → release → Run workflow). Nothing waits for approval.
+#
+# WHICH N. The next unused version: the larger of release.json's version and
+# (the newest hd-assets-v<N> tag + 1). So a merged art change never needs a
+# release.json bump first, and release.json still sets a floor when the owner
+# wants to skip ahead. A published tag is never overwritten.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hd/assets/**'
+      - 'light/assets/**'
+      - 'common/**'
+      - 'art-manifest.json'
+      - 'tools/pack.mjs'
+      - 'tools/zip.mjs'
+      - 'tools/manifest.mjs'
+      - 'tools/assetmime.mjs'
+      - 'release.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+# One release at a time, never cancelled once running. GitHub keeps one run
+# waiting per group, so in a burst of merges a waiting run can be replaced by a
+# newer one. Nothing is lost: each run packs main as it stands, so the newest
+# run ships every change merged before it.
+concurrency:
+  group: release
+  cancel-in-progress: false
+jobs:
+  release:
+    # Only what is merged to main is published.
+    if: github.ref == 'refs/heads/main'
+    environment: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Pick the next unused version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          floor="$(node -p "require('./release.json').version")"
+          # Tags as well as releases: a tag left behind by a deleted release
+          # must not be reused.
+          latest="$( { gh release list --limit 1000 --json tagName --jq '.[].tagName'; git ls-remote --tags --refs origin 'hd-assets-v*' | sed 's#.*refs/tags/##'; } \
+            | { grep -E '^hd-assets-v[0-9]+$' || true; } | sed 's/^hd-assets-v//' | sort -n | tail -1)"
+          latest="${latest:-0}"
+          next=$(( latest + 1 > floor ? latest + 1 : floor ))
+          echo "release.json floor: $floor; newest tag: v$latest (0 = none); publishing: v$next"
+          # The runner's copy only: the pack names the zips from it.
+          printf '{ "version": %s }\n' "$next" > release.json
+          echo "TAG=hd-assets-v$next" >> "$GITHUB_ENV"
+      - name: Verify, then pack
+        run: |
+          node --test tests/*.test.mjs
+          node tools/mobile-art.mjs --selftest
+          node tools/manifest.mjs --check
+          node tools/mobile-art.mjs --check
+          node tools/pack.mjs --check
+          node tools/pack.mjs
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::error::$TAG already exists; a published tag is never overwritten."
+            exit 1
+          fi
+          N="${TAG#hd-assets-v}"
+          files=()
+          pins=""
+          for zip in "hd-assets-v$N.zip" "light-assets-v$N.zip" "common-assets-v$N.zip"; do
+            test -s "dist/$zip" && test -s "dist/$zip.sha256" || { echo "::error::dist/$zip or its .sha256 is missing"; exit 1; }
+            files+=("dist/$zip" "dist/$zip.sha256")
+            pins+="$(cut -d' ' -f1 "dist/$zip.sha256")  $zip"$'\n'
+          done
+          # The credits travel with the art: the zips carry none of their own.
+          cp CREDITS.md dist/CREDITS.md
+          {
+            echo "AshenSpire's assets, packed from $GITHUB_SHA: the high tier (hd-assets-v$N.zip), the light tier (light-assets-v$N.zip) and the common pack (common-assets-v$N.zip: fonts, licenses/OFL.txt, music, map tiles), with art-manifest.json listing every id and CREDITS.md giving each asset's source and rights."
+            echo
+            echo "Pin it in AshenSpire's art-release.json (tag $TAG) with these sha256s:"
+            echo
+            echo '```'
+            printf '%s' "$pins"
+            echo '```'
+          } > dist/notes.md
+          gh release create "$TAG" \
+            "${files[@]}" dist/art-manifest.json dist/CREDITS.md \
+            --target "$GITHUB_SHA" --title "$TAG" \
+            --notes-file dist/notes.md

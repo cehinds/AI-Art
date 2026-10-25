@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse game artwork by type and game: tiles, weapons, characters, environments and more. Original files and provenance included.">
+  <meta name="color-scheme" content="light">
+  <title>__TITLE__ · AI Art</title>
+  <link rel="stylesheet" href="__BASE__style.css">
+  <script type="module" src="__BASE__app.js"></script>
+</head>
+<body data-base="__BASE__" data-game="__GAME__">
+  <a class="skip" href="#main">Skip to assets</a>
+  <header class="masthead">
+    <a class="brand" href="__BASE__">AI Art</a>
+    <nav aria-label="Game galleries">
+      <a data-nav="all" href="__BASE__">All assets</a>
+      <a data-nav="ff2" href="__BASE__games/ff2/">FFII</a>
+      <a data-nav="dungeon-crawler" href="__BASE__games/dungeon-crawler/">Dungeon Crawler</a>
+      <a data-nav="ashenspire" href="__BASE__games/ashenspire/">AshenSpire</a>
+      <a data-nav="dovakiin" href="__BASE__games/dovakiin/">Dovakiin</a>
+      <a href="https://github.com/cehinds/AI-Art" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+  <div class="workspace">
+    <aside class="type-rail" aria-label="Asset categories">
+      <h2>Asset type</h2>
+      <div id="types"></div>
+    </aside>
+    <main id="main">
+      <h1 id="title">All art assets</h1>
+      <p class="intro" id="intro">Browse artwork across every game.</p>
+      <form id="filters" class="toolbar" role="search">
+        <label class="search"><span class="sr-only">Search assets</span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg><input id="search" type="search" placeholder="Search assets…" autocomplete="off"></label>
+        <label><span class="sr-only">Game</span><select id="game" aria-label="Game"><option value="all">All games</option></select></label>
+        <label><span class="sr-only">Collection</span><select id="kind" aria-label="Collection"><option value="production">Production</option></select></label>
+        <label><span class="sr-only">Sort assets</span><select id="sort" aria-label="Sort assets"><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="size">Largest files</option></select></label>
+        <label class="mobile-type"><span>Asset type</span><select id="type-select" aria-label="Asset type"><option value="all">All types</option></select></label>
+      </form>
+      <div class="result-line"><h2 id="results-title">Assets</h2><span id="result-count" role="status" aria-live="polite">Loading the library…</span></div>
+      <div id="gallery" aria-busy="true"></div>
+      <div id="empty" class="empty" hidden><h2>No matching assets</h2><p id="empty-copy"></p><button id="reset" type="button">Reset filters</button></div>
+      <noscript><p>Enable JavaScript to search this catalog. All original files are also available in the <a href="https://github.com/cehinds/AI-Art/tree/main/Games">GitHub collection</a>.</p></noscript>
+      <nav class="pagination" aria-label="Result pages"><button id="previous" type="button" disabled>Previous</button><span id="page-label"></span><button id="next" type="button" disabled>Next</button></nav>
+      <footer><p>Original files, source records and attribution stay with each game. <a href="https://github.com/cehinds/AI-Art/tree/main/Games">Browse the collection on GitHub</a>.</p><p id="snapshot"></p></footer>
+    </main>
+  </div>
+  <dialog id="asset-dialog" aria-labelledby="asset-name">
+    <div class="dialog-head"><h2 id="asset-name"></h2><button id="close-dialog" type="button" aria-label="Close asset details"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div id="asset-preview" class="detail-preview"></div>
+    <p id="asset-context"></p>
+    <dl id="asset-metadata"></dl>
+    <div class="detail-actions"><a id="original-link" class="primary-link" target="_blank" rel="noopener">Open original</a><a id="source-link" target="_blank" rel="noopener">Source & provenance</a></div>
+    <p class="detail-note">Preview images may be resized. The original file retains its full resolution and existing rights.</p>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "mode": "Built-in image_gen",
+  "notes": "Base production prompts are in angle-direction.json plus prompts.json enemy adaptations. Earlier left-facing generations are superseded.",
+  "repairs": [
+    {
+      "enemy": "wanderingSoldier",
+      "poses": [
+        "sweep-02",
+        "block-01"
+      ],
+      "request": "Remove only detached stray sword fragment; preserve knight, held sword/shield, pose, scale, proportions, colors and true alpha."
+    },
+    {
+      "enemy": "glassRegent",
+      "request": "Keep 24 poses in same grid, remove gray matte halos and haze, crisp contained cyan effects, preserve opaque metallic armor and true alpha."
+    },
+    {
+      "enemy": "eclipseCantor",
+      "pose": "ranged-02",
+      "request": "Full-body front three-quarter screen-left physical silver needle release. Keep blue orb staff in left hand and both feet. Do not output standalone projectile."
+    },
+    {
+      "enemy": "stitchedKing",
+      "request": "Non-graphic, fully clothed bulky crowned warrior in stitched patchwork leather armor, dark cloth, red cape, broad iron cleaver, purple magic. Same 24-pose order. No exposed torso, gore or blood.",
+      "deviation": "Covered/armored treatment differs from canonical exposed stitched body. Canonical identity acceptance remains unresolved. Original reference-based image generation was rejected by image tool."
+    },
+    {
+      "enemy": "stitchedHound",
+      "pose": "idle",
+      "request": "Keep the candidate's front-three-quarter viewer-facing pose angled slightly screen-left, quadruped anatomy, silhouette, head angle, feet placement, armor layout, and curled tail. Repaint only the materials and color treatment to match the existing hound: darker matte charcoal iron, low-saturation tarnished copper seams, soft painterly shading and highlights, distinctly glowing red eyes, and subtle contained seam glow. Reduce bright orange shine, rim light, and outlines; preserve full paws and tail, clean true alpha, and no shadow/background.",
+      "promptText": "Use case: precise-object-edit\nAsset type: transparent Stitched Hound idle game sprite\nInput images: Image 1 is the front-three-quarter candidate and pose target. Image 2 is the existing idle palette/material reference. Image 3 is an existing attack frame palette and painterly-finish reference only.\nPrimary request: retain Image 1's exact front-three-quarter pose, quadruped anatomy, silhouette, head angle, feet placement, armor layout and curled tail. Repaint its materials and color treatment to match the original enemy set in Images 2 and 3: darker, matte charcoal iron; low-saturation tarnished copper/red seams; softer painterly shading and highlights. Keep only the eyes distinctly glowing red and keep seam glow subtle and contained to the seams. Reduce bright orange shine and orange outlines around the silhouette.\nSubject invariants: same four-legged Stitched Hound with pointed canine ears, red eyes, dark iron plate armor, copper stitched seams, armored legs, and raised curved armored tail. Preserve the camera and foreshortened chest-forward orientation toward the viewer with the head turned slightly screen-left.\nConstraints: change surface palette, material finish and lighting to match Images 2 and 3; preserve the current front-facing pose and recognizable armor identity. One full-body character only. Genuine transparent background with clean alpha, full paws and tail inside the canvas, no shadow or ground.\nAvoid: side-profile rotation, anatomy or equipment changes, extra limbs, cropped toes, bright orange glowing piping, bright orange rim light, color fringe outside the silhouette, background, labels, effects or text.",
+      "provenance": {
+        "tool": "built-in image_gen",
+        "pass": "palette refinement of the approved-pose candidate; preserves pose and anatomy",
+        "inputs": [
+          "D:/repos/.codex/outputs/enemy-stance-repair-2026-10-14/stitchedHound-idle-generated-v1.png (pose/anatomy target)",
+          "art/enemy-expansion-2026-10-09/front-sheets/stitchedHound.png, source atlas idle cell row 4 col 6 (canonical design identity)",
+          "hd/assets/enemy-poses/stitchedHound_idle.webp and hd/assets/enemy-poses/stitchedHound_attack.webp (palette/material references only)"
+        ],
+        "transparentBackground": true,
+        "rawOutput": "D:/repos/.codex/generated_images/01a12891-5f76-7dd0-9b09-637a7f591701/exec-4aa4260c-8718-44c3-87cd-95b8b5ae132a.png",
+        "rawSha256": "F9E8DCC7459FEB7FE2688439E7EBE13E0559AAA905E1EEBBA1905C3A0617EFB3",
+        "normalizedOverride": "overrides/stitchedHound/idle.png",
+        "normalizedSha256": "B962B02F85AE42C5A574A47B3DBEB12FFD39AEDBA24F310CF69CF02F4487C37D",
+        "canvas": [512, 512],
+        "paintedAlphaBounds": { "left": 92, "top": 137, "width": 328, "height": 343, "bottom": 480 },
+        "runtimeExports": {
+          "high": {
+            "path": "hd/assets/enemy-poses/expansion/stitchedHound/idle.webp",
+            "sha256": "12fc21c34a884469beb277cbef41be92e4ef2132cb1668c91c97cf26ac7b0d42",
+            "dimensions": [512, 512],
+            "alphaBoundsThreshold8": { "left": 92, "top": 137, "width": 329, "height": 343, "bottom": 480 },
+            "encoder": "sharp 0.35.5 / libwebp 1.6.0",
+            "options": { "quality": 90, "alphaQuality": 100, "effort": 0 }
+          },
+          "light": {
+            "path": "light/assets/enemy-poses/expansion/stitchedHound/idle.webp",
+            "sha256": "1da0f00263e3db632dfa211bb228bf9263cbba001d89eac378148d24886eb790",
+            "dimensions": [256, 256],
+            "encoder": "sharp 0.35.5 / libwebp 1.6.0 fallback; cwebp unavailable",
+            "options": { "resize": [256, 256], "fit": "fill", "quality": 12, "alphaQuality": 25, "effort": 6 },
+            "policyDigest": "6f209675cb2a75f6",
+            "validation": "tools/mobile-art.mjs --check passed; pixel quality remains visually reviewed separately"
+          }
+        },
+        "review": "generated-needs-review; coordinator visual review and desktop/phone renderer comparison passed; owner art acceptance remains pending"
+      }
+    }
+  ]
+}

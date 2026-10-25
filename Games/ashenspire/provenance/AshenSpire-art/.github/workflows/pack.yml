@@ -1,0 +1,29 @@
+name: pack
+# Every PR and every push to main: the tests pass, art-manifest.json matches the
+# trees, the light tier mirrors hd/assets/ at the policy's sizes, and the three
+# packs (high, light, common) are reproducible zips whose every entry matches
+# the manifest.
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: The zip format, the manifest and the packs catch their known-bads
+        run: node --test tests/*.test.mjs
+      - name: The light-tier check catches its known-bads
+        run: node tools/mobile-art.mjs --selftest
+      - name: art-manifest.json matches hd/assets/, light/assets/ and common/
+        run: node tools/manifest.mjs --check
+      - name: light/assets/ mirrors hd/assets/ at the policy's sizes, within budget
+        run: node tools/mobile-art.mjs --check
+      - name: The three packs are reproducible and every zip verifies against the manifest
+        run: node tools/pack.mjs --check
