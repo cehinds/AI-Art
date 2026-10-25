@@ -49,7 +49,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 
-/** The zip each pack is released as. The tag stays hd-assets-v<N> for all three. */
+/** Archive basenames stay unprefixed; release tags are ashenspire-hd-assets-v<N>. */
 export function zipName(pack, version) {
   const stem = { high: 'hd', light: 'light', common: 'common' }[pack];
   if (!stem) throw new Error(`pack: unknown pack ${JSON.stringify(pack)}`);

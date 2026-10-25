@@ -1,0 +1,163 @@
+name: AshenSpire art packs and releases
+on:
+  pull_request:
+    branches: [ashenspire]
+    paths:
+      - 'hd/**'
+      - 'light/**'
+      - 'common/**'
+      - 'tools/*.mjs'
+      - 'tests/*.test.mjs'
+      - 'art-manifest.json'
+      - 'release.json'
+      - 'CREDITS.md'
+      - 'provenance/AshenSpire/CREDITS.md'
+      - 'migration/ashenspire-v24-display-contract.json'
+      - '.github/workflows/ashenspire-art.yml'
+  push:
+    branches: [ashenspire]
+    paths:
+      - 'hd/**'
+      - 'light/**'
+      - 'common/**'
+      - 'tools/*.mjs'
+      - 'tests/*.test.mjs'
+      - 'art-manifest.json'
+      - 'release.json'
+      - 'CREDITS.md'
+      - 'provenance/AshenSpire/CREDITS.md'
+      - 'migration/ashenspire-v24-display-contract.json'
+      - '.github/workflows/ashenspire-art.yml'
+permissions:
+  contents: read
+concurrency:
+  group: ashenspire-art-${{ github.event.pull_request.number || 'release' }}
+  cancel-in-progress: false
+jobs:
+  verify-pr:
+    if: github.repository == 'cehinds/AI-Art' && github.event_name == 'pull_request' && github.base_ref == 'ashenspire'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/ashenspire-art.yml
+            /hd/assets/**
+            /light/assets/**
+            /light/.twin-sources.json
+            /common/**
+            /tools/*.mjs
+            /tests/*.test.mjs
+            /art-manifest.json
+            /release.json
+            /migration/ashenspire-v24-display-contract.json
+            /pose-studio/stances/class-smash/**/production.json
+            /pose-studio/stances/class-smash/**/provenance.json
+            /pose-studio/stances/class-smash/**/*.png
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Verify the three packs without publication
+        run: |
+          node --test tests/*.test.mjs
+          node tools/mobile-art.mjs --selftest
+          node tools/manifest.mjs --check
+          node tools/source-integrity.mjs
+          node tools/mobile-art.mjs --check
+          node tools/pack.mjs --check
+  release:
+    if: github.repository == 'cehinds/AI-Art' && github.event_name == 'push' && github.ref == 'refs/heads/ashenspire'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/ashenspire-art.yml
+            /hd/assets/**
+            /light/assets/**
+            /light/.twin-sources.json
+            /common/**
+            /tools/*.mjs
+            /tests/*.test.mjs
+            /art-manifest.json
+            /release.json
+            /CREDITS.md
+            /provenance/AshenSpire/CREDITS.md
+            /migration/ashenspire-v24-display-contract.json
+            /pose-studio/stances/class-smash/**/production.json
+            /pose-studio/stances/class-smash/**/provenance.json
+            /pose-studio/stances/class-smash/**/*.png
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Allocate an unused AshenSpire version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release list --limit 1000 --json tagName --jq '.[].tagName' > dist/release-tags.txt
+          git ls-remote --tags --refs origin 'ashenspire-hd-assets-v*' | awk '{sub("refs/tags/","",$2); print $2}' >> dist/release-tags.txt
+          next="$(node tools/ashenspire-release.mjs --allocate-version < dist/release-tags.txt)"
+          echo "VERSION=$next" >> "$GITHUB_ENV"
+          echo "TAG=ashenspire-hd-assets-v$next" >> "$GITHUB_ENV"
+      - name: Verify and build the immutable release artifacts
+        run: |
+          set -euo pipefail
+          node --test tests/*.test.mjs
+          node tools/mobile-art.mjs --selftest
+          node tools/manifest.mjs --check
+          node tools/source-integrity.mjs
+          node tools/ashenspire-release.mjs --verify-snapshot
+          node tools/mobile-art.mjs --check
+          node tools/pack.mjs --check
+          node tools/pack.mjs
+          node tools/ashenspire-release.mjs --verify-archives "$VERSION"
+          node tools/ashenspire-release.mjs --credits
+      - name: Publish only after every uploaded byte is verified
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # A normal immutable tag only. Never replace a release or move a tag.
+          existing="$(git ls-remote --tags --refs origin "refs/tags/$TAG")"
+          test -z "$existing" || { echo "::error::Scoped tag already exists"; exit 1; }
+          # Reserve a NEW lightweight ref only after all local artifact checks.
+          # POST fails on a race/existing ref; never patch, force or reuse it.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+            -f ref="refs/tags/$TAG" -f sha="$GITHUB_SHA" > dist/tag-reservation.json
+          node tools/ashenspire-release.mjs --verify-tag < dist/tag-reservation.json
+          files=()
+          for stem in hd light common; do
+            files+=("dist/$stem-assets-v$VERSION.zip" "dist/$stem-assets-v$VERSION.zip.sha256")
+          done
+          {
+            echo "AshenSpire art from immutable destination commit $GITHUB_SHA."
+            echo "Tag: $TAG; archive basenames remain unprefixed."
+            node tools/ashenspire-release.mjs --policy-note
+            echo "Current host is cehinds/AI-Art, branch ashenspire. Origins and the 675 display records are recorded in migration/ashenspire-v24-display-contract.json."
+            echo "CREDITS.md includes both preserved original ledgers and unresolved provenance; no artwork is relicensed."
+          } > dist/notes.md
+          gh release create "$TAG" --verify-tag --draft --target "$GITHUB_SHA" --title "$TAG" --notes-file dist/notes.md \
+            "${files[@]}" dist/art-manifest.json dist/CREDITS.md
+          gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" > dist/releases.json
+          id="$(node tools/ashenspire-release.mjs --verify-draft "$VERSION" < dist/releases.json)"
+          # Fail before publication if the reserved ref disappeared or changed,
+          # including replacement by an annotated tag. Never infer it from a draft.
+          gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > dist/tag.json
+          node tools/ashenspire-release.mjs --verify-tag < dist/tag.json
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$id" -F draft=false > dist/published.json
+          node tools/ashenspire-release.mjs --verify-published "$VERSION" < dist/published.json
+          gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > dist/tag.json
+          node tools/ashenspire-release.mjs --verify-tag < dist/tag.json

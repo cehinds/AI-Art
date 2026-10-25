@@ -1,0 +1,44 @@
+name: AshenSpire source integrity
+on:
+  push:
+    branches: [ashenspire]
+    paths:
+      - 'pose-studio/stances/class-smash/**'
+      - 'tools/source-integrity.mjs'
+      - 'tests/source-integrity.test.mjs'
+      - '.github/workflows/ashenspire-sources.yml'
+  pull_request:
+    branches: [ashenspire]
+    paths:
+      - 'pose-studio/stances/class-smash/**'
+      - 'tools/source-integrity.mjs'
+      - 'tests/source-integrity.test.mjs'
+      - '.github/workflows/ashenspire-sources.yml'
+permissions:
+  contents: read
+concurrency:
+  group: ashenspire-source-integrity-${{ github.event.pull_request.number || 'ashenspire' }}
+  cancel-in-progress: true
+jobs:
+  sources:
+    if: github.repository == 'cehinds/AI-Art' && (github.ref == 'refs/heads/ashenspire' || github.base_ref == 'ashenspire')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/source-integrity.mjs
+            /tests/source-integrity.test.mjs
+            /pose-studio/stances/class-smash/**/production.json
+            /pose-studio/stances/class-smash/**/provenance.json
+            /pose-studio/stances/class-smash/**/*.png
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check corruption cases and original source bytes
+        run: |
+          node --test tests/source-integrity.test.mjs
+          node tools/source-integrity.mjs

@@ -15,7 +15,8 @@
 // `light` and a `high` record: the light twin is generated from the high file
 // by tools/mobile-art.mjs. A COMMON ID (the fonts under assets/fonts/,
 // licenses/OFL.txt, music/manifest.json and music/**/*.mp3, map-detail/**/*.webp)
-// has one `common` record, the same file for every tier. Each record is
+// and assets-display/ raster exports have one common record, the same file for
+// every tier. Each record is
 // `{path, bytes, sha256}`, plus `width` and `height` for an art record whose
 // format carries them. A record's `path` is where the file sits in its zip.
 //
@@ -54,6 +55,8 @@ export const LIGHT_PREFIX = MOBILE_ASSET_DIR;
 /** Under assets/, the folder whose files are common ids, never art ids. */
 export const COMMON_ASSET_PREFIX = 'fonts/';
 export const LICENSE_ID = 'licenses/OFL.txt';
+/** Display IDs retain the game's existing namespace in the common pack. */
+export const isDisplayArtId = (id) => /^assets-display\/(?:(?:alternative|shared)\/(?:stances\/[a-z]+\/)?[A-Za-z0-9-]+\.webp|layered\/[A-Za-z0-9-]+\.webp|card-cutouts\/[A-Za-z0-9.]+\.png)$/.test(id);
 
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 const posix = (p) => p.split(/[\\/]/g).join('/');
@@ -176,6 +179,13 @@ export function fileRecord(abs, path) {
 /** A common record: path, bytes and sha256 only. */
 export function commonRecord(abs, path) {
   const buf = canonicalBytes(abs);
+  if (path.startsWith('assets-display/')) {
+    const size = dimensions(buf, extname(path));
+    const pngSignature = extname(path) !== '.png' || buf.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    if (!isDisplayArtId(path) || !pngSignature || !size || ![size.width, size.height].every((v) => Number.isSafeInteger(v) && v > 0)) {
+      throw new Error('invalid display image path or raster dimensions: ' + path);
+    }
+  }
   return { path, bytes: buf.length, sha256: sha256(buf) };
 }
 
@@ -195,7 +205,8 @@ export function commonFiles(root = ROOT) {
       || id === LICENSE_ID
       || id === 'music/manifest.json'
       || (id.startsWith('music/') && ext === '.mp3')
-      || (id.startsWith('map-detail/') && ext === '.webp');
+      || (id.startsWith('map-detail/') && ext === '.webp')
+      || isDisplayArtId(id);
     (ok ? files : strays).push(ok ? { id, abs } : `${COMMON_DIR}/${id}`);
   }
   return { files, strays };
@@ -209,6 +220,7 @@ export function commonFiles(root = ROOT) {
 export function commonConsistency(files) {
   const problems = [];
   const ids = new Set(files.map((f) => f.id));
+  if (ids.size !== files.length) problems.push('common pack contains duplicate IDs');
   if ([...ids].some((id) => id.startsWith(`assets/${COMMON_ASSET_PREFIX}`)) && !ids.has(LICENSE_ID)) {
     problems.push(`${COMMON_DIR}/${LICENSE_ID} is missing: the fonts (SIL OFL) must ship with their licence`);
   }
@@ -257,12 +269,16 @@ export function buildManifest(root = ROOT) {
     if (!assets[id].light) problems.push(`${id}: no light twin under ${LIGHT_DIR}/ (node tools/mobile-art.mjs)`);
   }
   const { files, strays } = commonFiles(root);
-  for (const s of strays) problems.push(`${s}: not a file the common pack carries (fonts, ${LICENSE_ID}, music/manifest.json, music/**/*.mp3, map-detail/**/*.webp)`);
+  for (const s of strays) problems.push(`${s}: not a file the common pack carries (fonts, ${LICENSE_ID}, music/manifest.json, music/**/*.mp3, map-detail/**/*.webp, assets-display/ images)`);
   for (const { id, abs } of files) {
     if (assets[id]) { problems.push(`${id}: both an art id and a common id`); continue; }
-    assets[id] = { common: commonRecord(abs, id) };
+    try { assets[id] = { common: commonRecord(abs, id) }; }
+    catch (error) { problems.push(id + ': ' + error.message); }
   }
   problems.push(...commonConsistency(files));
+  // Keep the historical serialized header unchanged: high/light ZIP payloads
+  // then remain byte-identical to v23. Current host and display provenance are
+  // recorded in migration/ashenspire-v24-display-contract.json and release notes.
   const manifest = {
     _: 'DERIVED — written by node tools/manifest.mjs --write in cehinds/AshenSpire-art, never by a hand. One entry per asset id (the runtime `assets/…` path, or a `common` pack path: fonts, licenses/OFL.txt, music/, map-detail/). Each record\'s path is where the file sits in its pack\'s zip.',
     schema: SCHEMA,
