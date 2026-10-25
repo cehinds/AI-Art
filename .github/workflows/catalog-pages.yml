@@ -21,6 +21,9 @@ jobs:
       - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 1
+          # Override checkout's implicit blob:none. This includes every supported
+          # original (the catalog reader limit is 512 MiB) in the initial fetch.
+          filter: blob:limit=1g
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /package.json
