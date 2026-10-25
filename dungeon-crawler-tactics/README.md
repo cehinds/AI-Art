@@ -34,3 +34,7 @@ This is an unofficial fan project. Location-specific artwork and layouts are ada
 Full floor components contain a completely opaque 128 × 128 material plane inside the shared transparent 256 × 256 sprite canvas. Their painted icon borders and faint alpha halos are excluded from the derived export. Repeating wall segments trim only the joining axis. Doors, props and partial terrain transitions retain their silhouettes.
 
 Each affected component records its reviewed `derived.sourceWindow`; full floors also record their source-sampled grout matte. Original source atlases remain unchanged. The game's `Tools/book_tile_geometry.py` implements this deterministic normalization, and `materialInset` on an authored asset can override the default 6.5% inset.
+
+## Tile edge tags
+
+All 2,232 Book Location component records have explicit `edges.north`, `edges.east`, `edges.south`, and `edges.west` tag arrays in their kit manifests and ZIPs. Each side has one `join.*` connector; matching opposite connectors join after rotation. Manual-review pieces and nonjoining overlays are marked explicitly. These tags describe visual connections, independently of collision and hazards. See the [authoring guide](https://github.com/cehinds/dungeon-crawler-tactics/blob/main/Docs/Tile-Edges.md) for custom connectors, rotation, validation, and the source inventory.
