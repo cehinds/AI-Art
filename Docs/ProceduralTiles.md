@@ -6,11 +6,44 @@ Run from the repository root:
 
 ```powershell
 node Tools/procedural-tiles/build.cjs
-node --test Tools/procedural-tiles/test.cjs
+node --test Tools/procedural-tiles/test.cjs Tools/procedural-tiles/terrain.test.cjs
 node Tools/procedural-tiles/check.cjs remaster:world-tiles.river-expansion02.river-ns south remaster:world-tiles.river-expansion02.river-ns
 ```
 
 Open [the local review](../Review/procedural-tiles/index.html) to inspect coverage, side tags and checked assembly evidence. Compiler inputs include manifest hashes; tests reject stale coverage after a manifest changes. The compiler writes an additive JSON sidecar and review files. It never edits existing PNGs, metadata or source manifests.
+
+## Semantic terrain intent: schema 2
+
+All 393 tiles also carry `terrain.primary`, searchable aliases and material tags, biome tags, usage, shape, topology, transition endpoints, and deterministic variant groups. These are additive classifications: they never broaden the existing family/layer/world-scale/socket guards or enable a blocked tile.
+
+`path`, `dirt-road` and `soil-path` identify the authored earth-path area kit. `grass` includes meadow turf, and `snow` includes compacted tundra snow. Domain material labels retain distinctions such as meadow turf versus compacted soil, forest-floor moss versus meadow, or snow versus frozen tundra earth. Blue frozen earth is **not** tagged as water. Doors, windows and other features retain separate variant groups and state tags.
+
+Topology and image selection are separate:
+
+- `area-corner16` uses four terrain vertices, with bits NW=1, NE=2, SE=4, SW=8. This is a 16-case corner model, **not** a complete 47-blob neighborhood set. Vertex mask 5 and mask 10 are different diagonal cases. Missing cases fail explicitly.
+- `route4` uses declared graph connections, with bits N=1, E=2, S=4, W=8. Adjacent parallel routes do not connect unless the graph declares an edge. A one-port end records both `opening` and the opposite sealed `cap` direction.
+- `fill` selects a homogeneous material role. `feature` does not imply connectivity or navigation.
+
+Batch01 `path-nw` is an **area outer corner**, not a one-cell road bend. The library does not supply a complete one-cell road-network kit: road endpoints, T-junctions and cross-junctions cannot be invented from its ninepatch names. The river kit has actual network ports, but only a north-opening source/end; other end directions and an isolated network pool remain gaps.
+
+`Tools/procedural-tiles/terrain.cjs` exports browser-safe `select`, `fieldIntent`, `routeGraph`, `generate`, `validate`, `coverage` and `transitionSupport`. It imports the existing matcher. Example:
+
+```javascript
+const terrain = require('./Tools/procedural-tiles/terrain.cjs');
+const result = terrain.generate(catalog, {
+  kind: 'demo', preset: 'path', seed: 20261025
+});
+// result: supported 9x7 wide path area with explicit grass exterior,
+// 63 actual tile IDs and 110 checked adjacent pairs.
+```
+
+The `grass` and `snow` presets produce separate homogeneous fields using actual existing variants. Explicit area intents accept a Boolean vertex grid; each cell's four vertices determine its mask. Explicit route intents accept path segments and optional exterior fill. Unsupported masks return `unsupported-topology` with `missingRequests` and **no fallback placements**. Images are selected only after the requested topology is known; a seeded weighted choice never substitutes a corner for a fill.
+
+[Terrain coverage](../Review/procedural-tiles/terrain-coverage.json) lists supported and missing masks/roles by terrain and family, plus authored transition pairs. Grass/soil and snow/frozen-earth pairs exist in specific kits. Their existence does not imply grass/snow transitions or arbitrary biome mixing. `transitionSupport(catalog, {from:'grass', to:'snow'})` reports the missing pair; generation cannot silently use unrelated art.
+
+The complete build reproduces three actual PNG proofs: [wide path](../Review/procedural-tiles/terrain-path.png), [grass field](../Review/procedural-tiles/terrain-grass.png) and [snow field](../Review/procedural-tiles/terrain-snow.png). Each has 63 cells and 110 logically compatible neighboring pairs. Native visual review found visible periodic texture and row seams in the original grass/snow artwork. Variant groups mean **the same topology only**, with `visualCompatibility: unreviewed`; they do not certify visually smooth or seamless mixing. No pixels were edited for this semantic pass.
+
+See [the reference research](ProceduralTerrainReferences.md) for the distinction between corner, edge and blob autotiles, terrain-connect versus explicit path networks, and source-backed design precedents. Those references informed the model; no external artwork was copied.
 
 ## What a match means
 

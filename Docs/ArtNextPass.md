@@ -8,7 +8,7 @@ The higher-resolution library is growing alongside the preserved first-pass Camp
 | --- | --- | --- |
 | 1 | Complete each higher-resolution battle set with idle, hit, critical, victory and KO states | Same costume, body scale and baseline as its attack/cast; readable transitions at native size |
 | 2 | Polish the new Maria, Guy and Leon candidate walks, then extend 64 px four-direction walks to the remaining party | Distinct opposite foot contacts, consistent direction, feet registration, map-scale preview; see ExplorationExpansion03.md |
-| 3 | Repair environment joins and supply missing edge/corner combinations | Actual exported tiles assembled into rooms, shore bends, paths and floor/wall transitions; no painted-over proof images |
+| 3 | Complete terrain and path pattern coverage, then repair visible joins | Explicit road ends, bends, T-junctions, crossings and isolated pieces; missing area corner masks; actual exported pixels assembled without painted-over seams. Use the procedural terrain coverage report to choose missing patterns. |
 | 4 | Build location-specific palettes and map assemblies | Original-game layout reference, collision and elevation review, door/stair connectivity, props and events |
 | 5 | Integrate and review in Unity | Licensed Editor import validation, generated clips, SpriteRenderer/Animator wiring, correct PPU, pixel-camera review and playback |
 
@@ -17,3 +17,5 @@ The small Campaign battle sheets already include individual idle, wind-up, attac
 Attack and cast timings are authored interpretations of readable JRPG action phases. They have not been measured from Pixel Remaster footage. Existing state IDs and source revisions remain preserved so future animation work can be added without renaming current assets.
 
 No task in this list implies that the full campaign, all equipment variants, all map tiles or every event animation is complete. Runtime review remains pending while Unity licensing is unavailable.
+
+Semantic terrain tags and compatibility rules are described in [ProceduralTiles.md](ProceduralTiles.md). The current dirt-path nine-patch is an area-boundary kit; its outer corners are not single-cell road bends. [Reference research](ProceduralTerrainReferences.md) explains the distinction between area terrains, route connections and visual transition artwork.

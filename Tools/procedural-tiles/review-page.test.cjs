@@ -5,6 +5,7 @@ const catalog=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../Assets/Ar
 test('offline page embeds the exact shared matcher and safe complete data',async()=>{
  const demo={seed:20261025,width:1,height:1,placements:[],checkedNeighborPairs:0};
  const html=await render(catalog,demo),matcher=fs.readFileSync(path.join(__dirname,'core.cjs'),'utf8');
+ const terrain=fs.readFileSync(path.join(__dirname,'terrain.cjs'),'utf8');assert.ok(html.includes(terrain));
  assert.ok(html.includes(matcher));assert.equal((html.match(/<script/g)||[]).length,3);
  assert.ok(!/fetch\s*\(|<script[^>]+src=/.test(html));
  const embedded=JSON.parse(html.match(/<script id="catalog-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
@@ -12,6 +13,9 @@ test('offline page embeds the exact shared matcher and safe complete data',async
  const script=html.match(/<script>\n([\s\S]*?)<\/script>/)[1];assert.doesNotThrow(()=>new vm.Script(script));
  assert.equal(JSON.parse(scriptJSON({text:'</script><script>bad</script>'})).text,'</script><script>bad</script>');
  assert.ok(!scriptJSON({text:'</script>'}).includes('<'));
+ assert.ok(!/__TERRAIN__|__TERRAIN_HASH__|__SEMANTIC_UI__/.test(html));
+ assert.match(html,/id="terrain"/);assert.match(html,/id="biome"/);assert.match(html,/id="role"/);assert.match(html,/id="export-terrain"/);
+ for(const href of ['terrain-path.png','terrain-grass.png','terrain-snow.png','terrain-examples.json','../../Docs/ProceduralTerrainReferences.md']){assert.ok(html.includes(`href="${href}"`));assert.ok(fs.existsSync(path.resolve(__dirname,'../../Review/procedural-tiles',href)),`Missing review link: ${href}`);}
 });
 test('seeded building assembly only uses pairs accepted by the shared matcher',()=>{
  const demo=buildingDemo(catalog);assert.ok(demo);assert.equal(demo.pixelSeamGuarantee,false);

@@ -6,10 +6,13 @@ const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const scriptJSON=value=>JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
 async function render(catalog,demo){
  const matcher=await fs.readFile(path.join(__dirname,'core.cjs'),'utf8');
+ const terrain=await fs.readFile(path.join(__dirname,'terrain.cjs'),'utf8');
+ const semanticUI=await fs.readFile(path.join(__dirname,'review.semantic-ui.js'),'utf8');
  if(/require\s*\(/.test(matcher)||/<\/script/i.test(matcher))throw Error('Shared matcher must remain browser-safe pure CJS');
+ if(/<\/script/i.test(terrain)||[...terrain.matchAll(/require\s*\(([^)]+)\)/g)].some(match=>!/^['"]\.\/core\.cjs['"]$/.test(match[1])))throw Error('Terrain module may only require the shared core matcher');
  const template=await fs.readFile(path.join(__dirname,'review.template.html'),'utf8');
- const values={__CATALOG__:scriptJSON(catalog),__SEEDED__:scriptJSON({...demo,building:buildingDemo(catalog,demo.seed)}),__MATCHER__:matcher,__MATCHER_HASH__:hash(matcher)};
- return template.replace(/__CATALOG__|__SEEDED__|__MATCHER__|__MATCHER_HASH__/g,token=>values[token]);
+ const values={__CATALOG__:scriptJSON(catalog),__SEEDED__:scriptJSON({...demo,building:buildingDemo(catalog,demo.seed)}),__MATCHER__:matcher,__MATCHER_HASH__:hash(matcher),__TERRAIN__:terrain,__TERRAIN_HASH__:hash(terrain),__SEMANTIC_UI__:semanticUI.replaceAll('__TERRAIN_HASH__',hash(terrain))};
+ return template.replace(/__CATALOG__|__SEEDED__|__MATCHER__|__MATCHER_HASH__|__TERRAIN__|__TERRAIN_HASH__|__SEMANTIC_UI__/g,token=>values[token]);
 }
 function buildingDemo(catalog,seed=20261025){
  const tiles=catalog.tiles.filter(tile=>tile.family==='stone-building-expansion04'&&tile.state==='modeled'),byName=new Map(tiles.map(tile=>[tile.id.split('.').at(-1),tile]));
@@ -38,5 +41,6 @@ async function write(catalog,demo){
  const folder=path.join(root,'Review/procedural-tiles');await fs.mkdir(folder,{recursive:true});
  await fs.writeFile(path.join(folder,'index.html'),await render(catalog,demo));
  const building=buildingDemo(catalog,demo.seed);if(building)await fs.writeFile(path.join(folder,'seeded-building-demo.json'),JSON.stringify(building,null,2)+'\n');
+ const terrain=require('./terrain.cjs');for(const preset of ['path','grass','snow']){const generated=terrain.generate(catalog,{kind:'demo',preset,seed:demo.seed});await fs.writeFile(path.join(folder,`seeded-${preset}-terrain-demo.json`),JSON.stringify(generated,null,2)+'\n');}
 }
 module.exports={render,write,scriptJSON,buildingDemo};
