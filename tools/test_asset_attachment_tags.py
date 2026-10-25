@@ -38,6 +38,19 @@ class AttachmentRulesTests(unittest.TestCase):
         self.assertFalse(rules.matches(lava['tags'],boat['attachment']['requires']))
         self.assertEqual(lava['attachment']['provides'],['surface:lava'])
 
+    def test_source_map_reference_does_not_require_a_world_support_tile(self):
+        doc = {'maps': [{'id': 'atlas-safe-room', 'kind': 'atlas',
+                         'file': 'reusable/maps/atlas-safe-room.json',
+                         'source': 'reusable/sources/safe-room.png'}]}
+        rules.enrich_document(doc, 'gameplay')
+        ref = doc['maps'][0]
+        self.assertEqual(ref['attachment']['space'], 'reconstruction')
+        self.assertFalse(any(ref['attachment']['requires'].values()))
+        self.assertNotIn('attachment:floor', ref['tags'])
+        before = copy.deepcopy(doc)
+        rules.enrich_document(doc, 'gameplay')
+        self.assertEqual(doc, before)
+
     def test_portable_items_and_actors_use_appropriate_additional_supports(self):
         table=self.asset('wooden-table');stairs=self.asset('stone-stairs',kind='tile',category='stairs',procedural={'walkable':True})
         potion=self.asset('healing-potion',category='consumable');actor=self.asset('hero',category='actor');bed=self.asset('wooden-bed')

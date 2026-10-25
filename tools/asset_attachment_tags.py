@@ -57,7 +57,9 @@ def classify(asset, style):
     kind = asset.get('kind', '')
     procedural = asset.get('procedural', {})
     role_hint = procedural.get('role', asset.get('role', category))
-    patch = kind in ('reconstruction_patch', 'composition_layer') or ('residual' in t and asset.get('reusable') is False)
+    map_reference = (kind in ('atlas', 'concept', 'reconstruction')
+                     and str(asset.get('file', '')).endswith('.json') and 'source' in asset)
+    patch = map_reference or kind in ('reconstruction_patch', 'composition_layer') or ('residual' in t and asset.get('reusable') is False)
     physical = bool(asset.get('views', {}).get('applicable')) or kind in ('tile', 'terrain_tile') or role_hint in ('ground', 'floor', 'wall', 'door', 'stairs', 'terrain')
     ui = kind in ('ui', 'ui_region', 'interface', 'icon', 'portrait') or category in ('ui', 'interface', 'menu') or (not physical and bool(t & {'tooltip', 'hotbar', 'hud', 'button', 'screen', 'portrait', 'badge', 'dialog', 'widget', 'panel'}))
     # An authored screen crop is always screen-space even when its name mentions
@@ -84,6 +86,8 @@ def classify(asset, style):
     requires = {'any': [], 'all': [], 'none': []}
     if patch:
         space, role, reason = 'reconstruction', 'reconstruction', 'Baked source or residual crop: exact reconstruction only; no procedural attachment claim.'
+        if map_reference:
+            reason = 'Source reconstruction map reference; its JSON defines placements. No world support tile applies to the map document.'
     elif ui:
         space, role, reason = 'screen', 'screen', 'Screen-space composition only; world tile attachment does not apply.'
         requires['all'] = ['surface:screen']
