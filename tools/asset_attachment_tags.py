@@ -380,8 +380,24 @@ def apply(root=DEFAULT_ASSETS, check=False):
         by_pack.append((pack, by_id))
     # Enrich original manifests, atlases, maps and JSON sidecars, including assets
     # outside registered reusable packs. Never reinterpret gameplay properties.
+    preserved_generation_documents = 0
     for path in sorted(root.rglob('*.json')):
         if path in planned or '__pycache__' in path.parts:continue
+        # Generation receipts, recipes, candidate manifests and snapshots pin
+        # one another's exact bytes. They are evidence, not catalog assets.
+        # Current asset sidecars (including nested ones) are already planned
+        # above; keep enriching worker indexes, but preserve other documents
+        # in the generation workspaces instead of invalidating their hashes.
+        parts = path.relative_to(root).parts
+        in_generation_workspace = any(
+            part == 'reusable' and parts[i + 1].startswith('views-')
+            for i, part in enumerate(parts[:-1]))
+        is_worker_index = (path.name == 'set-index.json'
+                           and path.parent.name.startswith('views-')
+                           and path.parent.parent.name == 'reusable')
+        if in_generation_workspace and not is_worker_index:
+            preserved_generation_documents += 1
+            continue
         doc = json.loads(path.read_text())
         local = next((items for pack, items in by_pack if path.is_relative_to(pack)), {})
         style = next((style_of(pack) for pack, items in by_pack if path.is_relative_to(pack)), 'gameplay')
@@ -423,6 +439,7 @@ def apply(root=DEFAULT_ASSETS, check=False):
                 path.parent.mkdir(parents=True, exist_ok=True);path.write_text(text)
     if check and changed:raise ValueError(f'Attachment metadata is stale in {len(changed)} JSON files; first: {changed[:8]}')
     return {'assets': asset_count, 'json_documents': len(planned), 'changed': len(changed), 'groups': len(groups), 'tile_providers': len(tile_ids),
+        'preserved_generation_documents': preserved_generation_documents,
         'empty_groups_with_explicit_reason': sum(not g['tile_ids'] for g in central['groups'])}
 
 

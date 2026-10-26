@@ -1,5 +1,6 @@
 """Semantic attachment regressions: grounded surface distinctions and safe metadata."""
 import copy
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -10,6 +11,38 @@ import asset_attachment_tags as rules
 
 
 class AttachmentRulesTests(unittest.TestCase):
+    def test_generation_recipe_hashes_survive_asset_tagging(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'assets';pack=root/'book-tiles/pocket-dungeon'
+            workspace=pack/'reusable/views-additional'
+            raw=workspace/'raw/candidates';raw.mkdir(parents=True)
+            leaf={'id':'stone-floor.front','object_id':'stone-floor','view':'front',
+                  'kind':'tile','category':'ground','tags':[],
+                  'image':{'path':'reusable/views-additional/images/stone-floor.front.png'},
+                  'metadata_path':'reusable/views-additional/images/stone-floor.front.json'}
+            index={'assets':[leaf]}
+            (pack/'reusable/index.json').write_text(json.dumps(index))
+            (workspace/'set-index.json').write_text(json.dumps(index))
+            (root/'reusable-library.json').write_text(json.dumps({'libraries':[{
+                'id':'pocket-books','base':'book-tiles/pocket-dungeon',
+                'index':'book-tiles/pocket-dungeon/reusable/index.json'}]}))
+            recipe=b'{"source": "raw.png", "crop": [1, 2, 3, 4]}\n'
+            digest=hashlib.sha256(recipe).hexdigest()
+            evidence={raw/'normalization-recipe.json':recipe,
+                      raw/'candidate-index.json':json.dumps({'recipe_sha256':digest}).encode(),
+                      workspace/'replay-baseline.json':b'{"snapshot_sha256":"frozen"}\n'}
+            for path,data in evidence.items():path.write_bytes(data)
+            result=rules.apply(root)
+            self.assertEqual(result['preserved_generation_documents'],3)
+            for path,data in evidence.items():self.assertEqual(path.read_bytes(),data)
+            self.assertEqual(hashlib.sha256((raw/'normalization-recipe.json').read_bytes()).hexdigest(),
+                             json.loads((raw/'candidate-index.json').read_text())['recipe_sha256'])
+            for path in (pack/leaf['metadata_path'],workspace/'set-index.json'):
+                data=json.loads(path.read_text());asset=data['assets'][0] if 'assets' in data else data
+                self.assertIn('surface:floor',asset['tags'])
+                self.assertIn('attachment',asset)
+            self.assertEqual(rules.apply(root,check=True)['changed'],0)
+
     def asset(self, ident, **extra):
         value={'id':ident,'kind':'sprite','category':'prop','tags':[],**extra}
         index={'assets':[value]};rules.enrich_library(Path('/fixture/assets/style-packs/pocket-dungeon'),index)
