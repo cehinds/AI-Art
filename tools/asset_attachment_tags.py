@@ -51,6 +51,20 @@ def group_id(style, requires):
     return f'{style}--attachment-{digest}'
 
 
+def supporting_furniture(asset):
+    """An object noun supplies support; a prop's location/modifier does not."""
+    furniture = {'table', 'desk', 'workbench', 'counter', 'altar'}
+    role = asset.get('procedural', {}).get('role', asset.get('role', asset.get('category')))
+    if role in furniture:
+        return True
+    subject = str(asset.get('name') or asset.get('label') or asset.get('id', '')).lower()
+    subject = re.sub(r'[-_]+', ' ', subject)
+    subject = re.sub(r'\s+(?:front|top|right|left|bottom|rear)$', '', subject)
+    head = re.split(r'\b(?:on|with|beside|at|in|under)\b', subject, maxsplit=1)[0]
+    words = re.findall(r'[a-z0-9]+', head)
+    return bool(words and words[-1] in furniture)
+
+
 def classify(asset, style):
     t = tokens(asset)
     # Library/location prefixes describe the setting, not the support surface:
@@ -68,6 +82,8 @@ def classify(asset, style):
     kind = asset.get('kind', '')
     procedural = asset.get('procedural', {})
     role_hint = procedural.get('role', asset.get('role', category))
+    wall_mounted = 'wallmounted' in t or {'wall', 'mounted'} <= t
+    tabletop_provider = supporting_furniture(asset)
     map_reference = (kind in ('atlas', 'concept', 'reconstruction')
                      and str(asset.get('file', '')).endswith('.json') and 'source' in asset)
     patch = map_reference or kind in ('reconstruction_patch', 'composition_layer') or ('residual' in t and asset.get('reusable') is False)
@@ -79,7 +95,7 @@ def classify(asset, style):
     provider = False
     if not patch and not ui:
         floor = role_hint in ('ground', 'floor') or kind in ('terrain_tile', 'tile') and bool(t & {'floor', 'ground', 'surface', 'paving', 'cobblestone', 'cobbles'})
-        mounted = bool(t & {'torch', 'sconce', 'lamp', 'lantern', 'banner', 'sign', 'decoration', 'painting', 'clock', 'control'})
+        mounted = wall_mounted or bool(t & {'torch', 'sconce', 'lamp', 'lantern', 'banner', 'sign', 'decoration', 'painting', 'clock', 'control'})
         wall = (role_hint == 'wall' or 'wall' in t) and not mounted
         if floor:
             provider = True
@@ -92,7 +108,7 @@ def classify(asset, style):
             provider = True; offered.append('surface:stairs')
         if 'ceiling' in t and not t & {'lamp', 'lantern', 'chandelier', 'hanging', 'pendant'}:
             provider = True; offered.append('surface:ceiling')
-        if t & {'table', 'tabletop', 'desk', 'workbench', 'counter', 'altar'}:
+        if tabletop_provider:
             provider = True; offered.append('surface:tabletop')
     requires = {'any': [], 'all': [], 'none': []}
     if patch:
@@ -110,11 +126,11 @@ def classify(asset, style):
             reason = 'Base surface provider; authored layout defines support and adjacency. No parent tile required.'
         else:
             target = 'floor'
-            if 'wallmounted' in t or {'wall', 'mounted'} <= t:target = 'wall'
+            if wall_mounted:target = 'wall'
             elif t & {'hanging', 'chandelier', 'pendant'} or 'ceiling' in t and bool(t & {'lamp','lantern'}):target = 'ceiling'
             elif t & {'sconce', 'banner', 'walltorch', 'wallmounted'} or 'wall' in t and bool(t & {'torch', 'lamp', 'sign', 'decoration', 'lantern', 'control', 'painting', 'clock'}):target = 'wall'
             elif t & {'boat', 'raft', 'aquatic', 'fish'}:target = 'water'
-            elif t & {'tabletop', 'cutlery', 'plate', 'goblet'}:target = 'tabletop'
+            elif not tabletop_provider and t & {'tabletop', 'cutlery', 'plate', 'goblet'}:target = 'tabletop'
             elif t & {'door', 'doorway', 'gateway'} and 'surface:doorway' not in offered:target = 'doorway'
             requires['any'] = [f'surface:{target}']
             if target == 'floor':
@@ -279,17 +295,45 @@ def central_rules(libraries):
     tiles, groups = [], {}
     for entry, pack, path, index in libraries:
         style = style_of(pack)
+        by_id = {asset['id']: asset for asset in index['assets']}
+        providers = {}
         for asset in index['assets']:
             a = asset['attachment']
             # Only canonical source assets advertise tile targets; six views and
             # normalized variants resolve to that same canonical provider.
             canonical = asset.get('canonical_asset_id') or asset.get('object_id')
             if a['space'] == 'world' and a['provides'] and (not canonical or canonical == asset['id']) and asset.get('view') in ('source', None):
-                tiles.append({'id': entry['id'] + '::' + asset['id'], 'library_id': entry['id'], 'asset_id': asset['id'],
-                    'style': style, 'tags': asset['tags'], 'provides': a['provides']})
+                providers[asset['id']] = {'id': entry['id'] + '::' + asset['id'], 'library_id': entry['id'], 'asset_id': asset['id'],
+                    'style': style, 'tags': asset['tags'], 'provides': a['provides']}
             group = a['compatibility_group']
             if group is not None:
                 groups.setdefault(group, {'id': group, 'style': style, 'requires': a['requires'], 'tile_ids': []})
+        # Baked primary crops are reconstruction references, never usable
+        # supports. A reviewed clean FRONT can represent their physical parent.
+        # Reuse the portable contract's actual-file/source/six-view verification;
+        # worker completion flags alone are not independent approval.
+        if index.get('view_review'):
+            from view_review_contract import load_review
+            report = load_review(pack, index)
+            approved = {record['object_id'] for record in report['sets'] if record.get('complete') is True}
+            for group in index.get('view_sets', []):
+                oid = group['object_id']
+                parent = by_id.get(oid, {})
+                if oid not in approved or oid in providers or parent.get('attachment', {}).get('space') != 'reconstruction':
+                    continue
+                reference = group.get('views', {}).get('front')
+                leaf_id = reference.get('asset_id') if isinstance(reference, dict) else reference
+                leaf = by_id.get(leaf_id, {})
+                attachment = leaf.get('attachment', {})
+                if (leaf.get('object_id') != oid or leaf.get('view') != 'front'
+                        or leaf.get('reusable') is False or leaf.get('kind') in ('reconstruction_patch', 'composition_layer')
+                        or not leaf.get('image', {}).get('path')
+                        or attachment.get('space') != 'world' or not attachment.get('provides')):
+                    continue
+                providers[oid] = {'id': entry['id'] + '::' + oid, 'library_id': entry['id'],
+                    'asset_id': leaf_id, 'canonical_asset_id': oid, 'representative_view': 'front',
+                    'style': style, 'tags': leaf['tags'], 'provides': attachment['provides']}
+        tiles.extend(providers.values())
     for group in groups.values():
         candidates = {t['id'] for t in tiles if matches(set(t['tags']) | set(t['provides']), group['requires'])}
         # Requirements are shared by many assets. Excluding every group member

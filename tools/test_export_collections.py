@@ -113,15 +113,21 @@ class CollectionTests(unittest.TestCase):
         (pack / 'manifest.json').write_text('{}')
         (root / 'reusable-library.json').write_bytes(encoded({'libraries': [
             {'id': 'fixture', 'base': 'style-packs/fixture', 'index': 'style-packs/fixture/reusable/index.json'}]}))
-        rule = {'tiles': [{'id': 'fixture::floor-a'}, {'id': 'fixture::floor-b'}],
-                'groups': [{'id': 'floor-support', 'tile_ids': ['fixture::floor-a', 'fixture::floor-b'],
-                            'preferred_tile_ids': ['fixture::floor-a', 'fixture::floor-b']}]}
+        rule = {'tiles': [{'id': 'fixture::floor-a'}, {'id': 'fixture::floor-b'},
+                          {'id': 'fixture::crate', 'asset_id': 'floor-b', 'canonical_asset_id': 'crate'}],
+                'groups': [{'id': 'floor-support', 'tile_ids': ['fixture::floor-a', 'fixture::floor-b', 'fixture::crate'],
+                            'preferred_tile_ids': ['fixture::floor-a', 'fixture::floor-b', 'fixture::crate']}]}
         (root / 'attachment-rules.json').write_bytes(encoded(rule))
         contents = package_plan(pack, ['room'])
         portable = json.loads(contents['library/reusable/attachment-rules.json'])
         self.assertEqual(portable['groups'][0]['tile_ids'], ['fixture::floor-a'])
         self.assertEqual(portable['groups'][0]['preferred_tile_ids'], ['fixture::floor-a'])
         self.assertNotIn('library/floor-b.png', contents)
+        # Canonical parent is included, but its clean representative is not:
+        # remove that candidate and every reference instead of a dangling leaf.
+        self.assertNotIn('fixture::crate', [tile['id'] for tile in portable['tiles']])
+        complete = json.loads(package_plan(pack)['library/reusable/attachment-rules.json'])
+        self.assertIn('fixture::crate', [tile['id'] for tile in complete['tiles']])
 
     def test_tampered_archive_rejected_before_validation(self):
         output = self.make_archive(tamper=True)

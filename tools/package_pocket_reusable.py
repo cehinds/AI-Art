@@ -193,7 +193,9 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
             raise ValueError("Pack is missing from the central library registry")
         registry_entry = {**entry, "base": folder, "index": f"{folder}/reusable/index.json"}
         qualified = {entry["id"] + "::" + asset_id for asset_id in asset_ids}
-        localized_rules["tiles"] = [tile for tile in localized_rules["tiles"] if tile["id"] in qualified]
+        localized_rules["tiles"] = [tile for tile in localized_rules["tiles"]
+                                    if tile["id"] in qualified
+                                    and tile.get("asset_id", tile["id"].split("::", 1)[-1]) in asset_ids]
         included_tiles = {tile["id"] for tile in localized_rules["tiles"]}
         wanted_groups = {a.get("attachment", {}).get("compatibility_group") for a in index["assets"]}
         localized_rules["groups"] = [group for group in localized_rules["groups"] if group["id"] in wanted_groups]

@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from zipfile import ZipFile
+from PIL import Image
 import asset_attachment_tags as rules
 
 
@@ -42,8 +43,86 @@ class AttachmentRulesTests(unittest.TestCase):
         tool=self.asset('house-crafting-hanging-implement',tags=['wall-mounted'])
         self.assertEqual(tool['attachment']['requires']['any'],['surface:wall'])
         self.assertNotIn('attachment:ceiling',tool['tags'])
+        self.assertEqual(tool['attachment']['role'],'object')
+        self.assertEqual(tool['attachment']['provides'],[])
         lantern=self.asset('hanging-lantern')
         self.assertEqual(lantern['attachment']['requires']['any'],['surface:ceiling'])
+
+    def test_wall_fixtures_never_advertise_structural_wall(self):
+        for name in ('Framed wall picture','Gold wall curtain rod','Hanging metal tool'):
+            with self.subTest(name=name):
+                obj=self.asset('fixture',name=name,tags=['wall-mounted'])
+                self.assertEqual(obj['attachment']['requires']['any'],['surface:wall'])
+                self.assertEqual(obj['attachment']['provides'],[])
+        wall=self.asset('wall-shell',category='wall')
+        self.assertEqual(wall['attachment']['provides'],['surface:wall'])
+
+    def test_support_furniture_noun_not_location_or_modifier(self):
+        for name in ('Desk candle','Tabletop monitor','Book on desk','Single tabletop candlestick',
+                     'Jar on workbench','Gold vessel beside table'):
+            with self.subTest(name=name):
+                obj=self.asset('small-prop',name=name,tags=['tabletop'])
+                self.assertEqual(obj['attachment']['role'],'object')
+                self.assertEqual(obj['attachment']['provides'],[])
+                self.assertEqual(obj['attachment']['requires']['any'],['surface:tabletop'])
+        for name in ('Table with books','Wooden workbench','Small side table Front','Desk with monitor'):
+            with self.subTest(name=name):
+                obj=self.asset('furniture',name=name)
+                self.assertEqual(obj['attachment']['provides'],['surface:tabletop'])
+                self.assertEqual(obj['attachment']['requires']['any'],['surface:floor'])
+
+    def reviewed_table_proxy(self,pack,approved=True):
+        from view_review_contract import file_evidence,canonical_primary,statistics,reference,encoded,VIEWS
+        (pack/'reusable').mkdir(parents=True)
+        assets=[]
+        for view in ('source',*VIEWS):
+            ident='scene-table' if view=='source' else 'scene-table.'+view
+            filename=ident+'.png';Image.new('RGBA',(3,3),(40,50,60,255)).save(pack/filename)
+            image={**file_evidence(pack,filename),'width':3,'height':3}
+            assets.append({'id':ident,'object_id':'scene-table','name':'Wooden table',
+                'kind':'reconstruction_patch' if view=='source' else 'sprite','category':'prop',
+                'view':view,'reusable':view!='source','tags':[],
+                'views':{'applicable':True,'complete':approved},'image':image,
+                'provenance':{'source_image':'scene-table.png'}})
+        group={'object_id':'scene-table','complete':approved,
+               'views':{v:'scene-table.'+v for v in VIEWS}}
+        index={'assets':assets,'view_sets':[group]};rules.enrich_library(pack,index)
+        source=file_evidence(pack,'scene-table.png')
+        record={'object_id':'scene-table','complete':approved,'status':'passed' if approved else 'needs-correction',
+            'source':source,'primary_source':canonical_primary(pack,'scene-table',{a['id']:a for a in assets},group),
+            'views':{v:{'asset_id':'scene-table.'+v,**file_evidence(pack,'scene-table.'+v+'.png')} for v in VIEWS},
+            'review':{'reviewer':'page_inventory','status':'pass','reviewed_at':'2026-10-26T00:00:00+00:00',
+                      'source_evidence':{'method':'direct-reviewed-source','reviewed_reference':source}}}
+        report={'schema_version':1,'path_base':'library-root','scope':'reusable-gameplay',
+                'sets':[record],'statistics':statistics([record])}
+        (pack/'reusable/view-review.json').write_bytes(encoded(report));index['view_review']=reference(report)
+        return index
+
+    def test_proxy_provider_requires_current_independent_source_and_six_review(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pack=Path(tmp)/'assets/reusable-gameplay';index=self.reviewed_table_proxy(pack)
+            library=({'id':'gameplay'},pack,pack/'reusable/index.json',index)
+            central=rules.central_rules([library]);self.assertEqual(len(central['tiles']),1)
+            tile=central['tiles'][0]
+            self.assertEqual((tile['id'],tile['asset_id'],tile['canonical_asset_id']),
+                             ('gameplay::scene-table','scene-table.front','scene-table'))
+            self.assertNotIn('reconstruction',tile['tags'])
+            # Canonical ID lets source and all six views exclude only themselves.
+            self.assertEqual(tile['id'],'gameplay::'+index['assets'][1]['object_id'])
+            unreviewed=copy.deepcopy(index);unreviewed.pop('view_review')
+            self.assertEqual(rules.central_rules([({**library[0]},pack,library[2],unreviewed)])['tiles'],[])
+            Image.new('RGBA',(3,3),(1,2,3,255)).save(pack/'scene-table.right.png')
+            with self.assertRaisesRegex(ValueError,'Stale view-review file hash'):
+                rules.central_rules([library])
+
+    def test_unapproved_or_orphan_proxy_never_becomes_provider(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pack=Path(tmp)/'assets/reusable-gameplay';index=self.reviewed_table_proxy(pack,False)
+            self.assertEqual(rules.central_rules([({'id':'gameplay'},pack,pack/'index.json',index)])['tiles'],[])
+            other=Path(tmp)/'other/assets/reusable-gameplay';index=self.reviewed_table_proxy(other)
+            index['view_sets'][0]['views']['front']='scene-table.rear'
+            with self.assertRaisesRegex(ValueError,'View-review leaf differs'):
+                rules.central_rules([({'id':'gameplay'},other,other/'index.json',index)])
 
     def test_location_names_do_not_turn_solid_supports_into_water(self):
         crate=self.asset('crate')
