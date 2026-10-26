@@ -510,7 +510,7 @@
       "object_id": "concepts-progression-safe-room-crafting-workbench",
       "physical": true,
       "decision": "new-proxy",
-      "reason": "Distinct source design lacks a matching clean existing object; requires newly isolated proxy with inferred hidden surfaces.",
+      "reason": "Distinct source design lacks a matching clean existing object; requires newly isolated proxy with inferred hidden surfaces. Wall-mounted enclosed lantern in the baked crop is separate context; clean workbench excludes it.",
       "source": {
         "path": "concepts/progression-safe-room.png",
         "rect": [
@@ -8701,6 +8701,27 @@
       "category": "prop",
       "carried_by_asset_id": "concepts-boss-swine-concept-ally-right",
       "orientation_status": "perspective observed; precise 3D roll unresolved"
+    },
+    "gameplay:concepts-progression-safe-room-crafting-wall-lantern": {
+      "object_id": "concepts-progression-safe-room-crafting-wall-lantern",
+      "physical": true,
+      "decision": "new-proxy",
+      "reason": "Independent full-scene and canonical lighting audit found no matching enclosed gold wall lantern among fifteen existing lighting sources. Separate wall-mounted fixture; not part of the clean workbench. Hidden sides/mounting details require an explicitly inferred transparent proxy.",
+      "source": {
+        "path": "concepts/progression-safe-room.png",
+        "rect": [
+          781,
+          484,
+          28,
+          68
+        ]
+      },
+      "category": "fixture",
+      "tags": [
+        "wall-mounted",
+        "fixture",
+        "lantern"
+      ]
     }
   },
   "new_objects": [
@@ -11399,6 +11420,30 @@
       },
       "source_crop_path": "/workspace/scratch/scene-proxy-references/gameplay/concepts-boss-swine-concept-loose-metal-brace.png",
       "reference_isolation": "Baked native scene rectangle, not a clean sprite. Ally hand and floor are occluders/context; isolate only the metal brace and infer hidden surfaces.",
+      "decision": "new-proxy"
+    },
+    {
+      "style": "gameplay",
+      "library_id": "gameplay",
+      "object_id": "concepts-progression-safe-room-crafting-wall-lantern",
+      "name": "Crafting wall-mounted enclosed gold lantern",
+      "category": "fixture",
+      "tags": [
+        "wall-mounted",
+        "fixture",
+        "lantern"
+      ],
+      "source": {
+        "path": "concepts/progression-safe-room.png",
+        "rect": [
+          781,
+          484,
+          28,
+          68
+        ]
+      },
+      "source_crop_path": "dungeon-crawler-tactics/Web/wwwroot/assets/reusable-gameplay/reusable/native/concepts-progression-safe-room-crafting-wall-lantern.png",
+      "reference_isolation": "Baked native scene rectangle with wall glow, not a clean sprite. Isolate the enclosed gold lantern and dark crown wall mount; exclude bench/wall background. Hidden surfaces are inferred. Keep wall-mounted attachment.",
       "decision": "new-proxy"
     }
   ]
