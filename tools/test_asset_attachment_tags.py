@@ -38,6 +38,13 @@ class AttachmentRulesTests(unittest.TestCase):
         self.assertFalse(rules.matches(lava['tags'],boat['attachment']['requires']))
         self.assertEqual(lava['attachment']['provides'],['surface:lava'])
 
+    def test_authored_wall_mount_takes_precedence_over_hanging_name(self):
+        tool=self.asset('house-crafting-hanging-implement',tags=['wall-mounted'])
+        self.assertEqual(tool['attachment']['requires']['any'],['surface:wall'])
+        self.assertNotIn('attachment:ceiling',tool['tags'])
+        lantern=self.asset('hanging-lantern')
+        self.assertEqual(lantern['attachment']['requires']['any'],['surface:ceiling'])
+
     def test_location_names_do_not_turn_solid_supports_into_water(self):
         crate=self.asset('crate')
         for name in ('Palace paving floor','Wet palace paving floor','Riverbank stone floor',

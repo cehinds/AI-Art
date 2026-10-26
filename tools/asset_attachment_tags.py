@@ -110,7 +110,8 @@ def classify(asset, style):
             reason = 'Base surface provider; authored layout defines support and adjacency. No parent tile required.'
         else:
             target = 'floor'
-            if t & {'hanging', 'chandelier', 'pendant'} or 'ceiling' in t and bool(t & {'lamp','lantern'}):target = 'ceiling'
+            if 'wallmounted' in t or {'wall', 'mounted'} <= t:target = 'wall'
+            elif t & {'hanging', 'chandelier', 'pendant'} or 'ceiling' in t and bool(t & {'lamp','lantern'}):target = 'ceiling'
             elif t & {'sconce', 'banner', 'walltorch', 'wallmounted'} or 'wall' in t and bool(t & {'torch', 'lamp', 'sign', 'decoration', 'lantern', 'control', 'painting', 'clock'}):target = 'wall'
             elif t & {'boat', 'raft', 'aquatic', 'fish'}:target = 'water'
             elif t & {'tabletop', 'cutlery', 'plate', 'goblet'}:target = 'tabletop'
