@@ -1,4 +1,4 @@
-"""Hash-bound release exceptions for four actual image-tool blocks, never approval."""
+"""Hash-bound release exceptions for recorded actual image-tool blocks, never approval."""
 import copy
 import hashlib
 import json
@@ -10,6 +10,8 @@ TARGETS = {
     ('style-packs/ink-and-lanterns', 'arsenal-throwing-knives'): {'top', 'bottom'},
     ('style-packs/ink-and-lanterns', 'iron-sword'): {'top'},
     ('style-packs/ink-and-lanterns', 'arsenal-hand-axe'): {'top', 'bottom'},
+    **{('style-packs/ink-and-lanterns', f'attacks-carl-kick-{n:02}'): {'bottom'} for n in (1, 2, 3)},
+    ('reusable-gameplay', 'directional--brittany'): {'bottom'},
 }
 REQUESTS = {
     ('style-packs/pocket-dungeon', 'arsenal-throwing-knives'): {'0c226e2d-cd63-496f-bb15-9fc716cc748e'},
@@ -17,7 +19,46 @@ REQUESTS = {
         '5ed245c2-e22c-4424-bc70-1c146108f233', 'f6dfbdee-2580-4cc9-ba75-3c77137ba1da'},
     ('style-packs/ink-and-lanterns', 'iron-sword'): {'2124307c-f6dc-4115-a081-ba6896c34e23'},
     ('style-packs/ink-and-lanterns', 'arsenal-hand-axe'): {'6f909dfb-288d-48b8-8b33-21709d8b2c45'},
+    **{('style-packs/ink-and-lanterns', f'attacks-carl-kick-{n:02}'): {'82d28979-b9cf-4e35-9dfa-10a41dea122c'} for n in (1, 2, 3)},
+    ('reusable-gameplay', 'directional--brittany'): {
+        'c12e81c5-1da1-414a-ac63-33ebbd91930a', '9597774b-4897-42f0-96e9-c8ed4964018c',
+        '07c74a96-f5d7-4b2b-ad21-d4e49996f319'},
 }
+CARL_BATCH = {f'attacks-carl-kick-{n:02}' for n in (1, 2, 3)}
+
+
+def receipt_facts(tool, scope, oid, binding):
+    """Interpret known receipts without rewriting their returned fields."""
+    if scope == 'style-packs/ink-and-lanterns' and oid in CARL_BATCH:
+        members = tool.get('object_ids', [])
+        valid = (isinstance(members, list) and len(members) == len(CARL_BATCH)
+                 and set(members) == CARL_BATCH and tool.get('status') == 'rejected'
+                 and tool.get('affected_views') == ['BOTTOM']
+                 and tool.get('error_code') == 'moderation_blocked'
+                 and tool.get('moderation_stage') == 'output'
+                 and tool.get('moderation_categories') == ['other'])
+        return valid, {'bottom'}, {tool.get('request_id')}
+    if (scope, oid) == ('reusable-gameplay', 'directional--brittany'):
+        failures = tool.get('failed_imagegen_requests', [])
+        candidate = tool.get('allowed_but_rejected_candidate', {})
+        source = binding['primary_source']
+        valid = (tool.get('object_id') == oid and tool.get('status') == 'blocked'
+                 and tool.get('blocked_view') == 'bottom' and tool.get('complete') is False
+                 and len(failures) == 3
+                 and all(r.get('result') == 'blocked' and r.get('stage') == 'output'
+                         and r.get('categories') in (['sexual'], ['other']) for r in failures)
+                 and tool.get('canonical_source') == {'path': source['path'], 'sha256': source['sha256']}
+                 and tool.get('current_view_sha256') == {v: info['sha256'] for v, info in binding['views'].items()}
+                 and candidate.get('installed_view') == binding['views']['bottom']['path']
+                 and candidate.get('installed_view_sha256') == binding['views']['bottom']['sha256'])
+        return valid, {'bottom'}, {r.get('request_id') for r in failures}
+    views = tool.get('affected_views', tool.get('requested_views', tool.get('views', [])))
+    requests = {r.get('request_id') for r in tool.get('rejection_requests', [])}
+    if tool.get('request_id'):
+        requests.add(tool['request_id'])
+    valid = (tool.get('status') == 'blocked' and tool.get('object_id') == oid
+             and isinstance(views, list) and len(views) == len(set(views)))
+    return valid, set(views), requests
 
 
 def encoded(value):
@@ -116,13 +157,8 @@ def load_blocks(pack, index):
         tool = json.loads(evidence_raw)
         if evidence_raw != encoded(tool):
             raise ValueError('Generation-block evidence must be tag-normalized before pinning: ' + oid)
-        tool_views = tool.get('affected_views', tool.get('requested_views', tool.get('views', [])))
-        request_ids = {r.get('request_id') for r in tool.get('rejection_requests', [])}
-        if tool.get('request_id'):
-            request_ids.add(tool['request_id'])
-        if (tool.get('status') != 'blocked' or tool.get('object_id') != oid
-                or not isinstance(tool_views, list) or len(tool_views) != len(set(tool_views))
-                or set(tool_views) != set(affected)
+        valid_receipt, tool_views, request_ids = receipt_facts(tool, scope, oid, row)
+        if (not valid_receipt or tool_views != set(affected)
                 or request_ids != REQUESTS[(scope, oid)]):
             raise ValueError('Missing actual image-tool block evidence: ' + oid)
         dependencies = {f['path']: f for f in row.get('supporting_files', [])}
@@ -130,6 +166,16 @@ def load_blocks(pack, index):
             check(info)
         if tool.get('prompt_path') and tool['prompt_path'] not in dependencies:
             raise ValueError('Missing portable generation-block prompt: ' + oid)
+        for field in ('source_contact_sheet', 'input_contact_sheet'):
+            if tool.get(field) and tool[field] not in dependencies:
+                raise ValueError('Missing portable generation-block input contact: ' + oid)
+        candidate = tool.get('allowed_but_rejected_candidate', {})
+        if candidate:
+            info = dependencies.get(candidate.get('raw_atlas'), {})
+            if not info or info.get('sha256') != candidate.get('raw_atlas_sha256'):
+                raise ValueError('Missing portable rejected-candidate raw evidence: ' + oid)
+        # Historical absolute session review-contact citations are archival.
+        # The portable canonical partial review below remains authoritative.
         review = row.get('unaffected_review', {})
         unaffected = set(VIEWS) - set(affected)
         if (review.get('status') != 'independent-partial-review'

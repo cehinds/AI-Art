@@ -334,6 +334,86 @@ class RecordedBlockTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Stale generation-block evidence'):
             reviews.attach_review(self.pack, self.index)
 
+    def retarget(self, oid, scope):
+        self.scope = scope; self.block_report['scope'] = scope
+        for asset in self.index['assets']:
+            if asset['id'] == 'iron-sword':
+                asset['id'] = oid
+            elif asset.get('object_id') == 'iron-sword':
+                asset['object_id'] = oid; asset['id'] = oid + '.' + asset['view']
+        group = self.index['view_sets'][0]; group['object_id'] = oid
+        group['views'] = {v: oid + '.' + v for v in reviews.VIEWS}
+        parent = self.index['assets'][0]
+        for v in reviews.VIEWS: parent['views'][v]['asset_id'] = oid + '.' + v
+        row = self.rows[0]; row['object_id'] = oid; row['primary_source']['asset_id'] = oid
+        for v in reviews.VIEWS: row['views'][v]['asset_id'] = oid + '.' + v
+        row['review']['affected_views'] = ['bottom']
+        self.block.update(object_id=oid, affected_views=['bottom'], primary_source=row['primary_source'],
+                          views=copy.deepcopy(row['views']))
+        partial = self.block['unaffected_review']
+        partial['approved_views'] = [v for v in reviews.VIEWS if v != 'bottom']
+        partial['views'] = {v: copy.deepcopy(row['views'][v]) for v in partial['approved_views']}
+
+    def write_receipt(self, value):
+        path = self.pack / 'blocked.json'; path.write_bytes(blocks.encoded(value))
+        self.block['evidence']['sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.publish()
+
+    def test_exact_carl_batch_receipt_and_unaffected_holds(self):
+        self.retarget('attacks-carl-kick-03', 'style-packs/ink-and-lanterns')
+        receipt = {'object_ids': sorted(blocks.CARL_BATCH), 'status': 'rejected', 'affected_views': ['BOTTOM'],
+                   'request_id': '82d28979-b9cf-4e35-9dfa-10a41dea122c', 'error_code': 'moderation_blocked',
+                   'moderation_stage': 'output', 'moderation_categories': ['other']}
+        self.write_receipt(receipt)
+        validate(self.pack, True, True)
+        self.rows[0]['review']['affected_views'] = ['right', 'left', 'bottom']; self.publish()
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            validate(self.pack, True, True)
+        receipt['object_ids'].pop(); self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+
+    def test_carl_input_contact_and_prompt_must_travel(self):
+        self.retarget('attacks-carl-kick-01', 'style-packs/ink-and-lanterns')
+        receipt = {'object_ids': sorted(blocks.CARL_BATCH), 'status': 'rejected', 'affected_views': ['BOTTOM'],
+                   'request_id': '82d28979-b9cf-4e35-9dfa-10a41dea122c', 'error_code': 'moderation_blocked',
+                   'moderation_stage': 'output', 'moderation_categories': ['other'],
+                   'prompt_path': 'prompt.txt', 'source_contact_sheet': 'input.png'}
+        (self.pack / 'prompt.txt').write_text('Exact retained prompt')
+        Image.new('RGBA', (2, 2), (1, 2, 3, 255)).save(self.pack / 'input.png')
+        self.block['supporting_files'] = [{'path': 'prompt.txt', 'sha256': hashlib.sha256((self.pack/'prompt.txt').read_bytes()).hexdigest()}]
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'input contact'):
+            blocks.load_blocks(self.pack, self.index)
+        self.block['supporting_files'].append({'path': 'input.png', 'sha256': hashlib.sha256((self.pack/'input.png').read_bytes()).hexdigest()})
+        self.publish(); contents = plan(self.pack, [], selected_assets=['attacks-carl-kick-01.front'])
+        self.assertIn('library/input.png', contents); self.assertIn('library/prompt.txt', contents)
+        self.assertEqual(json.loads(contents['library/blocked.json'])['affected_views'], ['BOTTOM'])
+
+    def test_brittany_failure_list_excludes_allowed_but_invalid_candidate(self):
+        self.retarget('directional--brittany', 'reusable-gameplay')
+        Image.new('RGBA', (2, 2), (5, 6, 7, 255)).save(self.pack / 'candidate.png')
+        raw_sha = hashlib.sha256((self.pack / 'candidate.png').read_bytes()).hexdigest()
+        receipt = {'object_id': 'directional--brittany', 'status': 'blocked', 'blocked_view': 'bottom', 'complete': False,
+            'canonical_source': {'path': 'iron-sword.png', 'sha256': self.block['primary_source']['sha256']},
+            'current_view_sha256': {v: i['sha256'] for v, i in self.block['views'].items()},
+            'failed_imagegen_requests': [{'request_id': ident, 'stage': 'output', 'categories': ['sexual'], 'result': 'blocked'}
+                for ident in sorted(blocks.REQUESTS[('reusable-gameplay', 'directional--brittany')])],
+            'allowed_but_rejected_candidate': {'request_id': 'allowed-not-a-block', 'raw_atlas': 'candidate.png',
+                'raw_atlas_sha256': raw_sha, 'installed_view': self.block['views']['bottom']['path'],
+                'installed_view_sha256': self.block['views']['bottom']['sha256'], 'review_contact': '/historical/session.json'}}
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'rejected-candidate raw'):
+            blocks.load_blocks(self.pack, self.index)
+        self.block['supporting_files'] = [{'path': 'candidate.png', 'sha256': raw_sha}]
+        self.publish(); validate(self.pack, True, True)
+        contents = plan(self.pack, [], selected_assets=['directional--brittany.front'])
+        self.assertIn('library/candidate.png', contents)
+        receipt['failed_imagegen_requests'] = [{'request_id': 'allowed-not-a-block', 'result': 'blocked'}]
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+
 
 if __name__ == '__main__':
     unittest.main()
