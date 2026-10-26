@@ -199,6 +199,8 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
         localized_rules["groups"] = [group for group in localized_rules["groups"] if group["id"] in wanted_groups]
         for group in localized_rules["groups"]:
             group["tile_ids"] = [tile for tile in group["tile_ids"] if tile in included_tiles]
+            group["preferred_tile_ids"] = [tile for tile in group.get("preferred_tile_ids", [])
+                                           if tile in group["tile_ids"]]
             if not group["tile_ids"]:
                 group["reason"] = "No compatible provider is included in this independent archive; consult the complete library for additional candidates."
         localized_rules["scope"] = "Attachment candidates projected to assets in this independent archive. Editorial compatibility only."

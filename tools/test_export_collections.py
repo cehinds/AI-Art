@@ -6,9 +6,11 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 import zipfile
+from PIL import Image
 
 import export_pocket_collections as exporter
 from package_pocket_reusable import encoded
+from package_pocket_reusable import plan as package_plan
 
 
 class CollectionTests(unittest.TestCase):
@@ -90,6 +92,36 @@ class CollectionTests(unittest.TestCase):
         with patch.object(exporter, 'validate', return_value={'ok': True}) as validate:
             self.assertEqual(exporter.verify_archive(output, work), {'ok': True})
             validate.assert_called_once_with(work / 'library', require_views=True)
+
+    def test_portable_attachment_preferences_only_reference_included_tiles(self):
+        root = Path(self.temp.name) / 'assets'
+        pack = root / 'style-packs/fixture'
+        (pack / 'reusable').mkdir(parents=True)
+        records = []
+        for ident in ('floor-a', 'floor-b', 'crate'):
+            Image.new('RGBA', (4, 4), (20, 30, 40, 255)).save(pack / (ident+'.png'))
+            record = {'id': ident, 'kind': 'sprite',
+                      'image': {'path': ident+'.png', 'width': 4, 'height': 4},
+                      'attachment': {'compatibility_group': 'floor-support' if ident == 'crate' else None}}
+            records.append(record)
+            (pack / (ident+'.json')).write_bytes(encoded(record))
+        index = {'assets': records, 'view_sets': [], 'attachment_rules': '../../attachment-rules.json',
+                 'maps': [{'id': 'room', 'file': 'room.json', 'source': 'floor-a.png'}]}
+        (pack / 'reusable/index.json').write_bytes(encoded(index))
+        (pack / 'room.json').write_bytes(encoded({'layers': [{'asset_id': 'crate'}, {'asset_id': 'floor-a'}]}))
+        (pack / 'README.md').write_text('Fixture')
+        (pack / 'manifest.json').write_text('{}')
+        (root / 'reusable-library.json').write_bytes(encoded({'libraries': [
+            {'id': 'fixture', 'base': 'style-packs/fixture', 'index': 'style-packs/fixture/reusable/index.json'}]}))
+        rule = {'tiles': [{'id': 'fixture::floor-a'}, {'id': 'fixture::floor-b'}],
+                'groups': [{'id': 'floor-support', 'tile_ids': ['fixture::floor-a', 'fixture::floor-b'],
+                            'preferred_tile_ids': ['fixture::floor-a', 'fixture::floor-b']}]}
+        (root / 'attachment-rules.json').write_bytes(encoded(rule))
+        contents = package_plan(pack, ['room'])
+        portable = json.loads(contents['library/reusable/attachment-rules.json'])
+        self.assertEqual(portable['groups'][0]['tile_ids'], ['fixture::floor-a'])
+        self.assertEqual(portable['groups'][0]['preferred_tile_ids'], ['fixture::floor-a'])
+        self.assertNotIn('library/floor-b.png', contents)
 
     def test_tampered_archive_rejected_before_validation(self):
         output = self.make_archive(tamper=True)
