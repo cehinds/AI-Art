@@ -171,6 +171,18 @@ class PublishedReviewTests(unittest.TestCase):
                 self.assertEqual(report['statistics']['approved_sets'],0 if selected else 1)
                 legacy_report=contract.load_review(root/'library',catalog,True,legacy=True)
                 self.assertEqual(legacy_report['statistics']['approved_sets'],0 if selected else 1)
+        # An unmapped component can be shipped explicitly. Selecting one view
+        # closes over its canonical object, all six siblings and review evidence.
+        contents=plan(self.pack,[],selected_assets=['crate.front'])
+        catalog=json.loads(contents['library/reusable/index.json'])
+        self.assertEqual(catalog['maps'],[])
+        self.assertEqual({a['id'] for a in catalog['assets']},
+                         {'crate', *('crate.'+view for view in merge.VIEWS)})
+        self.assertIn('library/evidence/reviewed-copy.png',contents)
+        with self.assertRaisesRegex(ValueError,'Unknown asset ids'):
+            plan(self.pack,[],selected_assets=['absent'])
+        with self.assertRaisesRegex(ValueError,'must select maps or assets'):
+            plan(self.pack,[])
 
 
 if __name__=='__main__':

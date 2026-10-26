@@ -29,11 +29,11 @@ def encoded(value):
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
 
 
-def plan(pack, selected_maps=None, include_raw=False):
+def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
     folder = "pocket-dungeon" if pack.resolve() == DEFAULT_PACK.resolve() else "library"
     repository_location = "AI-Art repository dungeon-crawler branch, " + str(pack).split("Web/wwwroot/assets/")[-1]
     original = read_json(pack / "reusable/index.json")
-    from view_review_contract import load_review, project, expected_objects, reference
+    from view_review_contract import load_review, project, expected_objects, reference as review_reference
     review_report = load_review(pack, original)
     legacy_review_report = load_review(pack, original, legacy=True)
     index = copy.deepcopy(original)
@@ -43,13 +43,19 @@ def plan(pack, selected_maps=None, include_raw=False):
     for object_id, group in groups.items():
         if set(group.get("views", {})) != set(VIEWS):
             raise ValueError(f"View set must declare exactly six principal keys: {object_id}")
-    if selected_maps:
-        ids = set(selected_maps)
+    subset = selected_maps is not None or selected_assets is not None
+    if subset:
+        ids = set(selected_maps or [])
         unknown = ids - set(map_index)
         if unknown:
             raise ValueError(f"Unknown map ids: {sorted(unknown)}")
         index["maps"] = [m for m in original["maps"] if m["id"] in ids]
-        asset_ids = set()
+        asset_ids = set(selected_assets or [])
+        unknown_assets = asset_ids - set(by_id)
+        if unknown_assets:
+            raise ValueError(f"Unknown asset ids: {sorted(unknown_assets)}")
+        if not ids and not asset_ids:
+            raise ValueError("A collection must select maps or assets")
         for entry in index["maps"]:
             asset_ids.update(layer["asset_id"] for layer in read_json(contained(pack, entry["file"]))["layers"])
         # Include all view references reachable from selected components, so every
@@ -148,11 +154,11 @@ def plan(pack, selected_maps=None, include_raw=False):
     external["manifest.json"] = {"path": "manifest.json", "sha256": hashlib.sha256(legacy_manifest.read_bytes()).hexdigest(),
         "location": repository_location,
         "purpose": "Legacy complete catalog references unrelated animations/contact sheets/ZIPs. Each exported PNG retains its own full extraction metadata; the legacy catalog is not needed to render this archive."}
-    if not selected_maps:
+    if not subset:
         for pattern in ("reusable/views-*/set-index.json", "reusable/scene-assets/index.json", "reusable/procedural/*", "reusable/semantic-placements.json"):
             files.update(p.relative_to(pack).as_posix() for p in pack.glob(pattern) if p.is_file())
     index["statistics"] = {**index.get("statistics", {}), "asset_count": len(index["assets"]), "map_count": len(index["maps"])}
-    if selected_maps:
+    if subset:
         index["statistics"] = {
             "asset_count": len(index["assets"]), "map_count": len(index["maps"]),
             "existing_components_reused": sum(a["image"]["path"].startswith("components/") for a in index["assets"]),
@@ -164,7 +170,7 @@ def plan(pack, selected_maps=None, include_raw=False):
         }
     index["downloads"] = []
     catalog_content = {key: value for key, value in original.items() if key != "downloads"}
-    index["archive"] = {"scope": "selected-maps" if selected_maps else "full-catalog",
+    index["archive"] = {"scope": "selected-maps-and-assets" if subset else "full-catalog",
         "source_catalog_content_sha256": hashlib.sha256(encoded(catalog_content)).hexdigest(),
         "catalog_hash_definition": "SHA-256 of canonical indented JSON with trailing newline, excluding downloads to avoid archive hash cycles",
         "external_provenance_manifest": "reusable/archive-provenance.json"}
@@ -197,11 +203,11 @@ def plan(pack, selected_maps=None, include_raw=False):
     contents = {f"{folder}/{relative}": contained(pack,relative).read_bytes() for relative in sorted(files)}
     if review_report is not None:
         review_report = project(review_report, expected_objects(index))
-        index['view_review'] = reference(review_report)
+        index['view_review'] = review_reference(review_report)
         contents[f"{folder}/reusable/view-review.json"] = encoded(review_report)
     if legacy_review_report is not None:
         legacy_review_report = project(legacy_review_report, expected_objects(index))
-        index['legacy_view_review'] = reference(legacy_review_report, legacy=True)
+        index['legacy_view_review'] = review_reference(legacy_review_report, legacy=True)
         contents[f"{folder}/reusable/legacy-view-review.json"] = encoded(legacy_review_report)
     # Portable approval evidence closes over the actual reviewed crop, which may
     # be an exactly pixel-equivalent PNG copy outside normal catalog assets.
@@ -274,14 +280,15 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--pack",type=Path,default=DEFAULT_PACK)
     parser.add_argument("--map",dest="maps",action="append",help="Include only this map and transitive dependencies; repeatable")
+    parser.add_argument("--asset",dest="assets",action="append",help="Include this asset and its dependencies; repeatable")
     parser.add_argument("--output",type=Path)
     parser.add_argument("--plan",action="store_true")
     parser.add_argument("--include-raw",action="store_true")
     parser.add_argument("--max-mib",type=float,default=95)
     args=parser.parse_args()
     try:
-        contents=plan(args.pack.resolve(),args.maps,args.include_raw)
-        result={"entries":len(contents),"uncompressed_mib":round(sum(map(len,contents.values()))/1048576,2),"maps":args.maps or "all"}
+        contents=plan(args.pack.resolve(),args.maps,args.include_raw,args.assets)
+        result={"entries":len(contents),"uncompressed_mib":round(sum(map(len,contents.values()))/1048576,2),"maps":args.maps if args.maps is not None else ([] if args.assets else "all"),"assets":args.assets or []}
         if not args.plan:
             if not args.output:
                 parser.error("--output is required unless --plan is used")

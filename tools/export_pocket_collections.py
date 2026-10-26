@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""Validate and export six independent Pocket Dungeon download collections.
+"""Validate and export independent asset-library download collections.
 
 Each archive carries its own dependency-closed subset index. Extract collections
 separately; never merge subset index.json files. The Git checkout is canonical.
-All six archives are staged and independently validated before index.downloads is
+All archives are staged and independently validated before index.downloads is
 updated. Run only after view generation and the catalog rebuild have completed.
+The default plan is Pocket Dungeon's six collections. Other libraries require a
+JSON --collections-plan with schema_version: 1 and collections containing id,
+label, maps, and optional assets (for components not referenced by source maps).
 """
 from __future__ import annotations
 import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -35,13 +39,56 @@ def catalog_hash(index):
     return hashlib.sha256(encoded({key: value for key, value in index.items() if key != "downloads"})).hexdigest()
 
 
-def check_coverage(index):
+def collection_records(document=None):
+    if document is None:
+        return [{"id": key, "label": label, "maps": list(maps), "assets": []}
+                for key, label, maps in COLLECTIONS]
+    if not isinstance(document, dict) or document.get("schema_version") != 1:
+        raise ValueError("Collection plan must have schema_version 1")
+    records = document.get("collections")
+    if not isinstance(records, list) or not records:
+        raise ValueError("Collection plan must contain a nonempty collections list")
+    seen = set()
+    for record in records:
+        if not isinstance(record, dict):
+            raise ValueError("Each collection must be an object")
+        key = record.get("id")
+        if not isinstance(key, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", key) or key in seen:
+            raise ValueError(f"Invalid or duplicate collection id: {key}")
+        seen.add(key)
+        if not isinstance(record.get("label"), str) or not record["label"].strip():
+            raise ValueError(f"Collection needs a label: {key}")
+        for field in ("maps", "assets"):
+            values = record.get(field, [])
+            if not isinstance(values, list) or any(not isinstance(v, str) or not v for v in values):
+                raise ValueError(f"Collection {key}: {field} must be a list of ids")
+            if len(set(values)) != len(values):
+                raise ValueError(f"Collection {key}: duplicate {field}")
+        if not record.get("maps") and not record.get("assets"):
+            raise ValueError(f"Empty collection: {key}")
+    return [{"id": r["id"], "label": r["label"], "maps": r.get("maps", []),
+             "assets": r.get("assets", [])} for r in records]
+
+
+def check_coverage(index, collections=None):
+    collections = collection_records() if collections is None else collections
     expected = set(unique_records(index["maps"], "id", "catalog maps"))
-    assigned = [map_id for _, _, maps in COLLECTIONS for map_id in maps]
+    assigned = [map_id for record in collections for map_id in record["maps"]]
     if len(assigned) != len(set(assigned)):
         raise ValueError("A reconstruction map is assigned to multiple collections")
     if expected != set(assigned):
         raise ValueError(f"Collection coverage mismatch: missing={sorted(expected-set(assigned))}, unknown={sorted(set(assigned)-expected)}")
+    assets = set(unique_records(index["assets"], "id", "catalog assets"))
+    unknown = {a for r in collections for a in r.get("assets", [])} - assets
+    if unknown:
+        raise ValueError(f"Unknown collection assets: {sorted(unknown)}")
+
+
+def archive_catalog(contents):
+    candidates = [name for name in ("pocket-dungeon/reusable/index.json", "library/reusable/index.json") if name in contents]
+    if len(candidates) != 1:
+        raise ValueError("Archive must contain exactly one supported library catalog")
+    return candidates[0]
 
 
 def verify_archive(path, work):
@@ -61,28 +108,37 @@ def verify_archive(path, work):
         file = work / item["path"]
         if file.stat().st_size != item["size"] or hashlib.sha256(file.read_bytes()).hexdigest() != item["sha256"]:
             raise ValueError(f"Archive integrity mismatch: {path.name}/{item['path']}")
-    return validate(work / "pocket-dungeon", require_views=True)
+    catalog = archive_catalog(actual)
+    return validate(work / Path(catalog).parts[0], require_views=True)
 
 
-def export(pack, max_mib=95, dry_run=False):
+def export(pack, max_mib=95, dry_run=False, collections_plan=None):
     index_path = pack / "reusable/index.json"
     original = read_json(index_path)
-    check_coverage(original)
+    if collections_plan is None and pack.resolve() != DEFAULT_PACK.resolve():
+        raise ValueError("Other libraries require an explicit --collections-plan JSON")
+    collections = collection_records(collections_plan)
+    check_coverage(original, collections)
     baseline = catalog_hash(original)
     validation = validate(pack, require_views=True)
     if dry_run:
         return {"status": "validated-plan", "catalog_content_sha256": baseline,
                 "maps": validation["maps_pixel_exact"],
-                "collections": [{"id": key, "label": label, "maps": list(maps)} for key, label, maps in COLLECTIONS]}
+                "collections": collections}
     downloads = []
     destination = pack / "reusable/downloads"
     destination.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".pocket-export-", dir=destination) as temporary:
         staging = Path(temporary)
-        for key, label, maps in COLLECTIONS:
+        covered_assets = set()
+        prefix = "pocket" if pack.resolve() == DEFAULT_PACK.resolve() else pack.name
+        for record in collections:
+            key, label, maps = record["id"], record["label"], record["maps"]
             print(f"Building and validating {key} ({len(maps)} maps)", flush=True)
-            contents = plan(pack, list(maps))
-            archive_name = f"pocket-{key}.zip"
+            contents = plan(pack, list(maps), selected_assets=record["assets"])
+            subset = json.loads(contents[archive_catalog(contents)])
+            covered_assets.update(a["id"] for a in subset["assets"])
+            archive_name = f"{prefix}-{key}.zip"
             archive = staging / archive_name
             byte_count = write_zip(archive, contents, int(max_mib * 1048576))
             with tempfile.TemporaryDirectory(prefix="pocket-unpack-") as extracted:
@@ -90,9 +146,12 @@ def export(pack, max_mib=95, dry_run=False):
             relative = f"reusable/downloads/{archive_name}"
             downloads.append({"id": key, "label": label, "path": relative, "file": relative,
                 "bytes": byte_count, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
-                "maps": list(maps), "asset_count": result["assets_checked"],
+                "maps": list(maps), "assets": record["assets"], "asset_count": result["assets_checked"],
                 "pixel_exact_maps": result["maps_pixel_exact"],
                 "description": "Independent collection; extract separately. Do not merge subset indexes."})
+        expected_assets = {a["id"] for a in original["assets"]}
+        if covered_assets != expected_assets:
+            raise ValueError(f"Collection asset coverage mismatch: missing={sorted(expected_assets-covered_assets)}, unknown={sorted(covered_assets-expected_assets)}")
         current = read_json(index_path)
         if catalog_hash(current) != baseline:
             raise ValueError("Catalog changed during export; staged downloads were not published")
@@ -114,9 +173,11 @@ def main():
     parser.add_argument("--pack", type=Path, default=DEFAULT_PACK)
     parser.add_argument("--max-mib", type=float, default=95)
     parser.add_argument("--plan", action="store_true", help="Validate the full library and show collection coverage without writing")
+    parser.add_argument("--collections-plan", type=Path, help="JSON collection definitions for this library")
     args = parser.parse_args()
     try:
-        print(json.dumps(export(args.pack.resolve(), args.max_mib, args.plan), indent=2))
+        document = read_json(args.collections_plan) if args.collections_plan else None
+        print(json.dumps(export(args.pack.resolve(), args.max_mib, args.plan, document), indent=2))
         return 0
     except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile) as exc:
         parser.exit(2, f"export_pocket_collections: {exc}\n")
