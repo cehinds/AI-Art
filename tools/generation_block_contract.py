@@ -12,6 +12,7 @@ TARGETS = {
     ('style-packs/ink-and-lanterns', 'arsenal-hand-axe'): {'top', 'bottom'},
     **{('style-packs/ink-and-lanterns', f'attacks-carl-kick-{n:02}'): {'bottom'} for n in (1, 2, 3)},
     ('reusable-gameplay', 'directional--brittany'): {'bottom'},
+    ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'front', 'top', 'right', 'left', 'bottom', 'rear'},
 }
 REQUESTS = {
     ('style-packs/pocket-dungeon', 'arsenal-throwing-knives'): {'0c226e2d-cd63-496f-bb15-9fc716cc748e'},
@@ -23,12 +24,22 @@ REQUESTS = {
     ('reusable-gameplay', 'directional--brittany'): {
         'c12e81c5-1da1-414a-ac63-33ebbd91930a', '9597774b-4897-42f0-96e9-c8ed4964018c',
         '07c74a96-f5d7-4b2b-ad21-d4e49996f319'},
+    ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'01e77624-66e2-4803-a093-773861a20e76'},
 }
 CARL_BATCH = {f'attacks-carl-kick-{n:02}' for n in (1, 2, 3)}
 
 
 def receipt_facts(tool, scope, oid, binding):
     """Interpret known receipts without rewriting their returned fields."""
+    if (scope, oid) == ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'):
+        views = tool.get('affected_views', [])
+        valid = (tool.get('object_id') == oid and tool.get('status') == 'rejected'
+                 and isinstance(views, list) and len(views) == 6
+                 and set(views) == {'FRONT', 'TOP', 'RIGHT', 'LEFT', 'BOTTOM', 'REAR'}
+                 and tool.get('error_code') == 'moderation_blocked'
+                 and tool.get('moderation_stage') == 'input'
+                 and tool.get('moderation_categories') == ['violence'])
+        return valid, {v.lower() for v in views}, {tool.get('request_id')}
     if scope == 'style-packs/ink-and-lanterns' and oid in CARL_BATCH:
         members = tool.get('object_ids', [])
         valid = (isinstance(members, list) and len(members) == len(CARL_BATCH)

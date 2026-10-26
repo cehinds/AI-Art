@@ -414,6 +414,28 @@ class RecordedBlockTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'actual image-tool'):
             blocks.load_blocks(self.pack, self.index)
 
+    def test_all_six_known_block_remains_six_unapproved_references(self):
+        self.retarget('arsenal-recurve-bow', 'style-packs/ink-and-lanterns')
+        self.block['affected_views'] = list(reviews.VIEWS)
+        self.rows[0]['review']['affected_views'] = list(reviews.VIEWS)
+        self.block['unaffected_review'].update(approved_views=[], views={})
+        receipt = {'object_id': 'arsenal-recurve-bow', 'status': 'rejected',
+            'affected_views': [v.upper() for v in reviews.VIEWS],
+            'request_id': '01e77624-66e2-4803-a093-773861a20e76',
+            'error_code': 'moderation_blocked', 'moderation_stage': 'input',
+            'moderation_categories': ['violence']}
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            validate(self.pack, True)
+        result = validate(self.pack, True, True)
+        self.assertEqual(result['recorded_blocked_view_count'], 6)
+        self.assertEqual(result['independent_view_review']['approved_sets'], 1)
+        self.assertFalse(self.rows[0]['complete'])
+        self.assertEqual(self.block['unaffected_review']['approved_views'], [])
+        receipt['moderation_stage'] = 'output'; self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+
 
 if __name__ == '__main__':
     unittest.main()
