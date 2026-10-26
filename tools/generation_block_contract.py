@@ -13,6 +13,7 @@ TARGETS = {
     **{('style-packs/ink-and-lanterns', f'attacks-carl-kick-{n:02}'): {'bottom'} for n in (1, 2, 3)},
     ('reusable-gameplay', 'directional--brittany'): {'bottom'},
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'front', 'top', 'right', 'left', 'bottom', 'rear'},
+    ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'top'},
 }
 REQUESTS = {
     ('style-packs/pocket-dungeon', 'arsenal-throwing-knives'): {'0c226e2d-cd63-496f-bb15-9fc716cc748e'},
@@ -25,12 +26,18 @@ REQUESTS = {
         'c12e81c5-1da1-414a-ac63-33ebbd91930a', '9597774b-4897-42f0-96e9-c8ed4964018c',
         '07c74a96-f5d7-4b2b-ad21-d4e49996f319'},
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'01e77624-66e2-4803-a093-773861a20e76'},
+    ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'b859fd7b-afb2-4fc1-8f03-baba15f4951e'},
 }
 CARL_BATCH = {f'attacks-carl-kick-{n:02}' for n in (1, 2, 3)}
 
 
 def receipt_facts(tool, scope, oid, binding):
     """Interpret known receipts without rewriting their returned fields."""
+    if (scope, oid) == ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'):
+        valid = (tool.get('object_id') == oid and tool.get('status') == 'blocked'
+                 and tool.get('direction') == 'top' and tool.get('code') == 'moderation_blocked'
+                 and tool.get('moderation_stage') == 'input' and tool.get('category') == 'violence')
+        return valid, {'top'}, {tool.get('request_id')}
     if (scope, oid) == ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'):
         views = tool.get('affected_views', [])
         valid = (tool.get('object_id') == oid and tool.get('status') == 'rejected'

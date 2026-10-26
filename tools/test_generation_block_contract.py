@@ -436,6 +436,26 @@ class RecordedBlockTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'actual image-tool'):
             blocks.load_blocks(self.pack, self.index)
 
+    def test_exact_bomb_direction_receipt_preserves_five_approved_views(self):
+        self.retarget('bubble-airship-bomb-rack', 'book-tiles/dungeon-after-dark')
+        self.block['affected_views'] = ['top']; self.rows[0]['review']['affected_views'] = ['top']
+        partial = self.block['unaffected_review']
+        partial['approved_views'] = [v for v in reviews.VIEWS if v != 'top']
+        partial['views'] = {v: copy.deepcopy(self.block['views'][v]) for v in partial['approved_views']}
+        receipt = {'object_id': 'bubble-airship-bomb-rack', 'direction': 'top', 'status': 'blocked',
+                   'source_tool': 'image_gen.imagegen', 'code': 'moderation_blocked',
+                   'moderation_stage': 'input', 'category': 'violence',
+                   'request_id': 'b859fd7b-afb2-4fc1-8f03-baba15f4951e'}
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            validate(self.pack, True)
+        self.assertEqual(validate(self.pack, True, True)['recorded_blocked_view_count'], 1)
+        contents = plan(self.pack, [], selected_assets=['bubble-airship-bomb-rack.front'])
+        self.assertEqual(json.loads(contents['library/blocked.json'])['direction'], 'top')
+        receipt['direction'] = 'bottom'; self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+
 
 if __name__ == '__main__':
     unittest.main()
