@@ -11307,12 +11307,12 @@
         },
         {
           "id": "concepts-boss-swine-concept-ally-center",
-          "label": "Ally center",
+          "label": "Yellow-band worker positioning steel frame",
           "rect": [
-            579,
-            506,
-            123,
-            128
+            576,
+            503,
+            190,
+            134
           ],
           "kind": "reconstruction_patch",
           "category": "actor",
@@ -11320,19 +11320,21 @@
           "physical": false,
           "tags": [
             "actor",
+            "baked-scene",
+            "construction-frame",
             "native-source-crop",
-            "baked-scene"
+            "steel-brace"
           ],
-          "notes": "Native source rectangle; preserves authored RGBA. Scene lighting/background are baked; this is a labeled reconstruction crop, not an isolated clean object."
+          "notes": "Worker positions a bolted steel brace/open frame with paired rails and a visible round hole; not a closed crate. Expanded crop retains the full carried/positioned part. Native source pixels preserve baked scene context; clean views must isolate only the named subject."
         },
         {
           "id": "concepts-boss-swine-concept-ally-right",
-          "label": "Ally right",
+          "label": "Pink-headband worker carrying steel brace",
           "rect": [
-            899,
-            422,
-            110,
-            148
+            822,
+            420,
+            191,
+            154
           ],
           "kind": "reconstruction_patch",
           "category": "actor",
@@ -11340,10 +11342,14 @@
           "physical": false,
           "tags": [
             "actor",
+            "baked-scene",
+            "carried-steel-brace",
+            "construction-frame",
             "native-source-crop",
-            "baked-scene"
+            "steel-brace",
+            "worker"
           ],
-          "notes": "Native source rectangle; preserves authored RGBA. Scene lighting/background are baked; this is a labeled reconstruction crop, not an isolated clean object."
+          "notes": "Worker carries the paired bolted steel rails/open frame in both hands; scene wooden posts below are not part of the carried frame or actor. Not a firearm. Native source pixels preserve baked scene context; clean views must isolate only the named subject."
         },
         {
           "id": "concepts-boss-swine-concept-table",
@@ -11530,12 +11536,12 @@
         },
         {
           "id": "concepts-boss-swine-concept-loose-metal-brace",
-          "label": "Loose metal barricade brace",
+          "label": "Bolted steel brace and open construction frame",
           "rect": [
             639,
-            550,
+            542,
             126,
-            87
+            95
           ],
           "kind": "reconstruction_patch",
           "category": "prop",
@@ -11544,11 +11550,38 @@
           "tags": [
             "baked-scene",
             "construction-component",
+            "construction-frame",
             "metal",
             "native-source-crop",
-            "prop"
+            "prop",
+            "steel-brace"
           ],
-          "notes": "Native source rectangle preserves authored RGBA. The loose metal reinforcement is partly occluded by an ally hand; this exact crop is reconstruction-only. Clean principal views infer hidden surfaces."
+          "notes": "Separate physical construction frame occurrence beside the yellow-band worker. Native crop includes the raised rear tab, paired bolted rails, reinforced ends and round hole. Worker hand/scene context can occlude parts; clean hidden views are inferred. Native source pixels preserve baked scene context; clean views must isolate only the named subject."
+        },
+        {
+          "id": "concepts-boss-swine-concept-held-brace-right",
+          "label": "Steel frame held by pink-headband worker",
+          "rect": [
+            825,
+            454,
+            110,
+            64
+          ],
+          "kind": "reconstruction_patch",
+          "category": "prop",
+          "physical": true,
+          "reusable": false,
+          "object_id": "concepts-boss-swine-concept-loose-metal-brace",
+          "canonical_asset_id": "concepts-boss-swine-concept-loose-metal-brace",
+          "tags": [
+            "prop",
+            "steel-brace",
+            "construction-frame",
+            "carried-object",
+            "native-source-crop",
+            "baked-scene"
+          ],
+          "notes": "Visually reviewed repeated construction-frame design: paired rails, reinforced ends and round hole. This is the pink worker-held occurrence; perspective differs, so exact three-dimensional roll is not asserted. Exclude scene wooden supports from the clean physical frame. Native crop preserves hand/background occlusion."
         }
       ]
     },

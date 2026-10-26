@@ -1057,49 +1057,55 @@
       "object_id": "concepts-boss-swine-concept-ally-center",
       "physical": true,
       "decision": "new-proxy",
-      "reason": "Distinct source design lacks a matching clean existing object; requires newly isolated proxy with inferred hidden surfaces.",
+      "reason": "Worker positions a bolted steel brace/open frame with paired rails and a visible round hole; not a closed crate. Expanded crop retains the full carried/positioned part.",
       "source": {
         "path": "concepts/boss-swine-concept.png",
         "rect": [
-          579,
-          506,
-          123,
-          128
+          576,
+          503,
+          190,
+          134
         ]
       },
       "category": "actor",
       "source_correction": {
         "rect": [
-          579,
-          506,
-          123,
-          128
-        ]
-      }
+          576,
+          503,
+          190,
+          134
+        ],
+        "label": "Yellow-band worker positioning steel frame",
+        "reason": "Worker positions a bolted steel brace/open frame with paired rails and a visible round hole; not a closed crate. Expanded crop retains the full carried/positioned part."
+      },
+      "carried_or_positioned_asset_id": "concepts-boss-swine-concept-loose-metal-brace"
     },
     "gameplay:concepts-boss-swine-concept-ally-right": {
       "object_id": "concepts-boss-swine-concept-ally-right",
       "physical": true,
       "decision": "new-proxy",
-      "reason": "Distinct source design lacks a matching clean existing object; requires newly isolated proxy with inferred hidden surfaces.",
+      "reason": "Worker carries the paired bolted steel rails/open frame in both hands; scene wooden posts below are not part of the carried frame or actor. Not a firearm.",
       "source": {
         "path": "concepts/boss-swine-concept.png",
         "rect": [
-          899,
-          422,
-          110,
-          148
+          822,
+          420,
+          191,
+          154
         ]
       },
       "category": "actor",
       "source_correction": {
         "rect": [
-          899,
-          422,
-          110,
-          148
-        ]
-      }
+          822,
+          420,
+          191,
+          154
+        ],
+        "label": "Pink-headband worker carrying steel brace",
+        "reason": "Worker carries the paired bolted steel rails/open frame in both hands; scene wooden posts below are not part of the carried frame or actor. Not a firearm."
+      },
+      "carried_or_positioned_asset_id": "concepts-boss-swine-concept-loose-metal-brace"
     },
     "gameplay:concepts-boss-swine-concept-table": {
       "object_id": "concepts-boss-swine-concept-table",
@@ -3825,17 +3831,27 @@
       "object_id": "concepts-boss-swine-concept-loose-metal-brace",
       "physical": true,
       "decision": "new-proxy",
-      "reason": "Distinct loose metal reinforcement component in front of the wheeled barricade; source reviewed separately from the barrier and ally.",
+      "reason": "Separate physical construction frame occurrence beside the yellow-band worker. Native crop includes the raised rear tab, paired bolted rails, reinforced ends and round hole. Worker hand/scene context can occlude parts; clean hidden views are inferred.",
       "source": {
         "path": "concepts/boss-swine-concept.png",
         "rect": [
           639,
-          550,
+          542,
           126,
-          87
+          95
         ]
       },
-      "category": "prop"
+      "category": "prop",
+      "source_correction": {
+        "rect": [
+          639,
+          542,
+          126,
+          95
+        ],
+        "label": "Bolted steel brace and open construction frame",
+        "reason": "Separate physical construction frame occurrence beside the yellow-band worker. Native crop includes the raised rear tab, paired bolted rails, reinforced ends and round hole. Worker hand/scene context can occlude parts; clean hidden views are inferred."
+      }
     },
     "gameplay:house-bedroom--floor-shell": {
       "object_id": "house-bedroom--floor-shell",
@@ -8546,6 +8562,24 @@
       "review_status": "source-decomposition-reviewed",
       "canonical_state": null,
       "interpretation_confidence": "reviewed"
+    },
+    "gameplay:concepts-boss-swine-concept-held-brace-right": {
+      "object_id": "concepts-boss-swine-concept-loose-metal-brace",
+      "physical": true,
+      "decision": "same-scene-object",
+      "reason": "Visually reviewed repeated construction-frame design: paired rails, reinforced ends and round hole. This is the pink worker-held occurrence; perspective differs, so exact three-dimensional roll is not asserted. Exclude scene wooden supports from the clean physical frame. Native crop preserves hand/background occlusion.",
+      "source": {
+        "path": "concepts/boss-swine-concept.png",
+        "rect": [
+          825,
+          454,
+          110,
+          64
+        ]
+      },
+      "category": "prop",
+      "carried_by_asset_id": "concepts-boss-swine-concept-ally-right",
+      "orientation_status": "perspective observed; precise 3D roll unresolved"
     }
   },
   "new_objects": [
