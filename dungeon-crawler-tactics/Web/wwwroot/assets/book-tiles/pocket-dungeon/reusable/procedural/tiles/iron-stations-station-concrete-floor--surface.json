@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-stations-station-concrete-floor--surface",
+  "name": "Station Concrete floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "iron-stations",
+    "material:iron",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-stations-station-concrete-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "bc941c1e8f7d950f2c40da274e7fc4399a38225d95fde5749f4ae815c75a0fed",
+    "rgba_sha256": "f9aaa0c157666215cf8bdbf82b597775b952ebce252b26b7ad13b518c294f760"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-stations-station-concrete-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-stations-station-concrete-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-stations/components/iron-stations-station-concrete-floor.png",
+    "source_sha256": "16928d2da5aad02321fa8d917a1ec1c0dc3aef4e8b0b6bcf8596c24f75628a9f",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "iron-stations-station-concrete-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-stations-station-concrete-floor"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-river-palace-paving-floor--surface",
+  "name": "Palace paving floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hazard:water",
+    "hunting-river",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-river-palace-paving-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a0cb7e7f85a8f8b801320752afa3ac611ea970d5d1f1a9831f079b8b6bb64ac5",
+    "rgba_sha256": "8f57fc5c33a8cab568c9f730025ed30d2a47e45572cb608e53da53f324e4551c"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-river-palace-paving-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-river-palace-paving-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-river/components/hunting-river-palace-paving-floor.png",
+    "source_sha256": "2955dc17feedbe0944951014d93c907697930538eb7711624ddcf4fd7bb14400",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "hunting-river-palace-paving-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:water",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-river-palace-paving-floor"
+  }
+}

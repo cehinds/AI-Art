@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-cemetery-flagstone-edge-transition--surface",
+  "name": "Cemetery Flagstone edge transition (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-edge-transition--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "888684ccfee0c0994a87d0d65c87b927c5b3bae9029b10d53beef5f585093708",
+    "rgba_sha256": "0256ce3805ec7c57f5f1e600086bda7dc38a8a29690cbb94b0e6f137f972f6ce"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-edge-transition--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-cemetery-cemetery-flagstone-edge-transition",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-edge-transition.png",
+    "source_sha256": "58c0cc26fb941f92970869aa80f69b3446b4cf2b2f8021a2c5b83f7eafd8db6e",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-cemetery-cemetery-flagstone-edge-transition"
+  }
+}

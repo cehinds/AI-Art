@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "batch_id": "signal-mast-plans-v5",
+  "object_id": "iron-tracks-rail-signal-mast",
+  "views": [
+    "top",
+    "bottom"
+  ],
+  "status": "request-prepared",
+  "contact_path": "raw/candidates/signal-mast-plans-v3/source-and-horizontal-elevations.png",
+  "contact_sha256": "bdac0092f4ac5b9201c4652175d02a70449ee79d7e27e1a140664a198dd8b42c",
+  "source_path": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
+  "source_sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5",
+  "current_live_hashes": {
+    "front": "9751b97d5068320986f5fdafc87a13a7459b06330c44fa47aa4f0ecf052537e4",
+    "top": "ca375419fbdc47c36497da5906dc05c063e466d9ad4192a2bd4aca02419a3723",
+    "right": "6a35723b4fd723f3c13692cfcbd87c695563faf77bfc1145c8d9de21a9664173",
+    "left": "abd2475e693b42fcb20978c2e80315489f5fe235fc1bbce897a472d627c9baec",
+    "bottom": "4c931575612ea7186fcf1c8470e95e734776369ab01bc3586dc079e7047178b9",
+    "rear": "6d950a0562969a2b5e2be373cf7bf9c35429abdc7baec863b581830ee8e5fd99"
+  },
+  "geometry_material_inputs": [
+    {
+      "label": "canonical source",
+      "path": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
+      "sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5"
+    },
+    {
+      "label": "accepted FRONT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.front.png",
+      "sha256": "9751b97d5068320986f5fdafc87a13a7459b06330c44fa47aa4f0ecf052537e4"
+    },
+    {
+      "label": "accepted RIGHT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.right.png",
+      "sha256": "6a35723b4fd723f3c13692cfcbd87c695563faf77bfc1145c8d9de21a9664173"
+    },
+    {
+      "label": "accepted LEFT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.left.png",
+      "sha256": "abd2475e693b42fcb20978c2e80315489f5fe235fc1bbce897a472d627c9baec"
+    },
+    {
+      "label": "accepted REAR",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.rear.png",
+      "sha256": "6d950a0562969a2b5e2be373cf7bf9c35429abdc7baec863b581830ee8e5fd99"
+    }
+  ],
+  "prompt": "Create a transparent-background pixel-art atlas with TWO square orthographic views, TOP and BOTTOM, for the exact Iron Tracks railway signal mast in the attached contact (native component and accepted FRONT/RIGHT/LEFT/REAR). Preserve identity, count, color, position and steel details. The prior candidate was rejected because both horizontal plans showed broad forward-facing red/green lens disks. This correction must show only thin edge-on lens rims, never a round lens face.\n\nUse a strict orthographic camera aligned with world Z. FRONT means camera from -Y looking toward +Y; TOP means camera from +Z looking vertically down. The lamps' colored lenses face FRONT in the vertical XZ plane. From TOP that vertical lens plane collapses to a narrow edge: show at most a 2-3 pixel red rim at the forward Y edge of the upper lamp roof, not a red disk. From BOTTOM show the lower lamp's dark underside; green appears only as a narrow edge accent at most, never a green disk. Do not tilt the camera toward FRONT.\n\nThe upper red lamp and lower green lamp occupy the same XY and stack on Z. TOP contains just the upper lamp's dark steel roof footprint at the left, one pole-cap circle near center-right, and two small ladder rail feet farther right. BOTTOM contains one dark steel lamp-underbody footprint at that same left location, one compact pole/baseplate footprint under the center-right pole, and only two ladder-foot ends farther right. Do not put two lamps along Y. Never draw a shaft, upright ladder, complete rung ladder, front-facing signal, red/green circular face, tall silhouette, or perspective.\n\nLay components on one horizontal X axis: lamp left, pole center-right, ladder feet right. Keep total X span about half the 256px target canvas and match the accepted FRONT overall width; keep Y depth shallow. Crisp pixel-art clusters, transparent background, source-faithful dark steel and gray; no labels, grid, shadows, detached guide marks or clipping. Top and bottom orientations share the same XY axes.",
+  "prior_attempt": {
+    "batch_id": "signal-mast-plans-v4",
+    "atlas_path": "raw/candidates/signal-mast-plans-v4/generated-atlas.png",
+    "atlas_sha256": "11c2506ee2d2e010ed24c5e0c6e82f29ce81b78474f12378b64d2173449872ed",
+    "disposition": "self-rejected: plan cells still show broad forward red/green lens faces instead of an edge-on rim/underside; horizontal XY layout is correct"
+  },
+  "rejection_review": {
+    "reason": "Broad forward lens faces violate true +Z/-Z orthographic plan projection",
+    "next_attempt_requires": "lens faces edge-on, only roof/underside footprints; no colored circular face"
+  }
+}

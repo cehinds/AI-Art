@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-cemetery-flagstone-floor--surface",
+  "name": "Cemetery Flagstone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "4f59279749b196b5d1da3ff76c5bd15ac9a3e909a293a0778a615240267a02de",
+    "rgba_sha256": "a982429b6c2f0703993038a85f0ad6f42bc6f41398b57c2fd38072f74cbb6704"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-cemetery-cemetery-flagstone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-floor.png",
+    "source_sha256": "8fc7d36482b8d3c0008df2f1a141755ecd17368ef946002b29c5aa041cbd93a2",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "ghost-cemetery-cemetery-flagstone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-cemetery-cemetery-flagstone-floor"
+  }
+}

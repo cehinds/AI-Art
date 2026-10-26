@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-tracks-rail-straight-northeast-southwest--surface",
+  "name": "Rail straight northeast southwest (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "iron-tracks",
+    "material:iron",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-tracks-rail-straight-northeast-southwest--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "96d0cf8ec69c26650b1b7872784a522f07f0d3d648bbdcd95f23807ec088a40e",
+    "rgba_sha256": "8b50f44ae5bb3a5a0f99dad614181d45d4a3fafbbda94e00c62c70cf522bc87d"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-tracks-rail-straight-northeast-southwest--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-tracks-rail-straight-northeast-southwest",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-tracks/components/iron-tracks-rail-straight-northeast-southwest.png",
+    "source_sha256": "e05e050193a6cdea6c966b16c20353854cb7b9c7da31e5fdec3caf3bae00f69b",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "iron-tracks-rail-straight-northeast-southwest",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-tracks-rail-straight-northeast-southwest"
+  }
+}

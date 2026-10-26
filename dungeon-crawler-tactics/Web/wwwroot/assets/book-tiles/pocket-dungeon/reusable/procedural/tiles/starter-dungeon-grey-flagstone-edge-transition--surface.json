@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "starter-dungeon-grey-flagstone-edge-transition--surface",
+  "name": "Grey Flagstone edge transition (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "starter-dungeon",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/starter-dungeon-grey-flagstone-edge-transition--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "e2f0dde6ef80008e33092db53cc90115fa3509b7ad73b56ca5405761cb8d971b",
+    "rgba_sha256": "7c0117abc8aa92d9be391f9d00d507da055b286f741b9161e8d3da7c44a632b3"
+  },
+  "metadata_path": "reusable/procedural/tiles/starter-dungeon-grey-flagstone-edge-transition--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "starter-dungeon-grey-flagstone-edge-transition",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "starter-dungeon/components/starter-dungeon-grey-flagstone-edge-transition.png",
+    "source_sha256": "3419a1733e1cb2522b5188220e3d3ee15df0625824a2e4af80754d5e69eb2dbd",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "starter-dungeon-grey-flagstone-edge-transition",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "starter-dungeon-grey-flagstone-edge-transition"
+  }
+}

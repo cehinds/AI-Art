@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "personal-space-warm-wood-plank-floor--surface",
+  "name": "Warm Wood Plank floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "material:wood",
+    "personal-space",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/personal-space-warm-wood-plank-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a9be0c20a1a5fffdd545617a6221d264537d8fae1f339ced3180c166d4da931b",
+    "rgba_sha256": "bc386f04ee2d737d9392b5744a715efcbee6a636208271543d4a48975681399a"
+  },
+  "metadata_path": "reusable/procedural/tiles/personal-space-warm-wood-plank-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "personal-space-warm-wood-plank-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "personal-space/components/personal-space-warm-wood-plank-floor.png",
+    "source_sha256": "a613c12e610d83003be57e2b837c9386443ddd3a8678cbc6a677d413a15cbebd",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "personal-space-warm-wood-plank-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:wood",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "personal-space-warm-wood-plank-floor"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "race-circuits-race-asphalt-corner-transition--surface",
+  "name": "Race Asphalt corner transition (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "race-circuits",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/race-circuits-race-asphalt-corner-transition--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9f81d86bb83247170e5ca6169d6bcf861168cd7ecc8375c996ae5fd65faa499b",
+    "rgba_sha256": "4376e0d3da0b3e5858a8d5bec540f75e4cbc368797661008ab7a6c3965b76dad"
+  },
+  "metadata_path": "reusable/procedural/tiles/race-circuits-race-asphalt-corner-transition--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "race-circuits-race-asphalt-corner-transition",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "race-circuits/components/race-circuits-race-asphalt-corner-transition.png",
+    "source_sha256": "02e8023d9ce551e1a66e0640468a320e31f3b44c8c7018d93a7ae16c47af2f78",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "race-circuits-race-asphalt-corner-transition",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "race-circuits-race-asphalt-corner-transition"
+  }
+}

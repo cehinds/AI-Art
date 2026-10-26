@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-river-riverbank-corner--surface",
+  "name": "Riverbank corner (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hazard:water",
+    "hunting-river",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-river-riverbank-corner--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9418cb6ff65b010c03c32d59845bc862a190e7029444f8058fc7b671bb7396f0",
+    "rgba_sha256": "3e1f328dfe9769e09c9fe95fccb8c70250cfd56d3b901a26ebb4850795a64974"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-river-riverbank-corner--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-river-riverbank-corner",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-river/components/hunting-river-riverbank-corner.png",
+    "source_sha256": "db100bec9ecac4aff2523850a6eeb60fc1c691c94b3daf4e65089a5c3741d2ad",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "hunting-river-riverbank-corner",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:water",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-river-riverbank-corner"
+  }
+}

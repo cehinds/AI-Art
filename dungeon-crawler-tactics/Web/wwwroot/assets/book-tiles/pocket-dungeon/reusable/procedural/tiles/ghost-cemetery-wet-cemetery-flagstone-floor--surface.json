@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-wet-cemetery-flagstone-floor--surface",
+  "name": "Wet cemetery flagstone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-cemetery-wet-cemetery-flagstone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "48ead4a3478811d5ef04c563406b3dbe5c5667d67676668438c0fc906f1b18f0",
+    "rgba_sha256": "2a3896650b294569b35fec13ae1a7be8189e6de5a53dc471f885912b59ed68f3"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-cemetery-wet-cemetery-flagstone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-cemetery-wet-cemetery-flagstone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-cemetery/components/ghost-cemetery-wet-cemetery-flagstone-floor.png",
+    "source_sha256": "4aa0c1f4826771a66f3a56584520ce9c1e69fe3c3f9a245a5c2942fc543a5599",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-cemetery-wet-cemetery-flagstone-floor"
+  }
+}

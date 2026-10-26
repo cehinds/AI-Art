@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import hashlib,importlib.util,json
+from pathlib import Path
+ROOT=Path('/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/pocket-dungeon');OUT=ROOT/'reusable/views-additional';B=OUT/'raw/candidates/iron-tunnel-bottom-v2';OID='iron-tracks-tunnel-stone-open-doorway';VIEW='bottom'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+req=json.loads((OUT/'raw/candidates/iron-tunnel-bottom-v2-request.json').read_text());recipe=json.loads((B/'recipe.json').read_text());src=ROOT/req['source_path'];target=OUT/f'{OID}.{VIEW}.png';candidate=OUT/recipe['candidate_path'];raw=ROOT/recipe['raw_atlas_path']
+for p,h,label in [(src,req['source_sha256'],'source'),(target,req['current_bottom_sha256'],'current bottom'),(candidate,recipe['candidate_sha256'],'candidate'),(raw,recipe['raw_atlas_sha256'],'raw atlas')]:
+ if not p.is_file() or sha(p)!=h:raise RuntimeError(f'{label} hash mismatch')
+idxp=OUT/'set-index.json';corrp=OUT/'corrections.json';idx=json.loads(idxp.read_text());corr=json.loads(corrp.read_text())
+prov={'method':'generated','source_image':req['source_path'],'source_sha256':req['source_sha256'],'generated_atlas':recipe['raw_atlas_path'],'generated_atlas_sha256':recipe['raw_atlas_sha256'],'generation_request':str((OUT/'raw/candidates/iron-tunnel-bottom-v2-request.json').relative_to(ROOT)),'generation_request_sha256':recipe['generation_request_sha256'],'prompt':recipe['prompt'],'output_binding':{'path':req['output_path'],'sha256':req['output_sha256']},'candidate_recipe':str((B/'recipe.json').relative_to(OUT)),'candidate_recipe_sha256':sha(B/'recipe.json'),'normalization':recipe['normalization'],'reference_inputs':[{'path':req['geometry_reference_path'],'sha256':req['geometry_reference_sha256']}],'anchor_px':[128,248],'notes':'Root-scoped-accepted shallow underside matching accepted TOP footprint; whole-set independent review pending.'}
+op={'type':'install-view-candidate','object_id':OID,'view':VIEW,'before_sha256':req['current_bottom_sha256'],'candidate_path':str(candidate.relative_to(OUT)),'candidate_sha256':recipe['candidate_sha256'],'canonical_source_image':req['source_path'],'canonical_source_sha256':req['source_sha256'],'donor_object_id':OID,'donor_view':'top','donor_image_path':str(raw.relative_to(OUT)),'donor_image_sha256':recipe['raw_atlas_sha256'],'transform':{'method':'imagegen-edit-of-accepted-top-plan','uniform_scale':recipe['normalization']['scale'],'resampling':'NEAREST'},'reason':'Install root-scoped-accepted Iron Tracks tunnel doorway BOTTOM candidate.','provenance':prov}
+backup=OUT/'raw/targeted-repairs/reviewed-snapshots/20261026';backup.mkdir(parents=True,exist_ok=True);snap=backup/f'{OID}.{VIEW}.accepted-v2.png'
+if not snap.exists():snap.write_bytes(candidate.read_bytes())
+if sha(snap)!=recipe['candidate_sha256']:raise RuntimeError('snapshot mismatch')
+spec=importlib.util.spec_from_file_location('pocket_view_fixes',OUT/'apply_deterministic_view_fixes.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod);result=mod.apply(op,idx,backup)
+if not any(x.get('type')==op['type'] and x.get('object_id')==OID and x.get('view')==VIEW and x.get('candidate_sha256')==recipe['candidate_sha256'] for x in corr['operations']):corr['operations'].append(op)
+s=next(z for z in idx['view_sets'] if z['object_id']==OID);s['complete']=False;s['geometry_qa']='pending-review';s['qa_replay_gate']={'status':'pending-review','reason':'Bottom candidate installed; whole-set current-source review pending.','proof_reviewed_at':None}
+tmp=idxp.with_suffix('.json.tmp');tmp.write_text(json.dumps(idx,indent=2)+'\n');tmp.replace(idxp);corrp.write_text(json.dumps(corr,indent=2)+'\n');print(json.dumps(result,indent=2))

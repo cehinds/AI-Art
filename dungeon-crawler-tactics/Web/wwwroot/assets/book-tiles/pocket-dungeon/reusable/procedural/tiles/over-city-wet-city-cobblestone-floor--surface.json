@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "over-city-wet-city-cobblestone-floor--surface",
+  "name": "Wet city cobblestone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:city",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "over-city",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/over-city-wet-city-cobblestone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "436c7ad5cf79bca7f6037362212a39070feaebadb7fd72f54a24fc7a7c7e324e",
+    "rgba_sha256": "fda6710b8feea027915e6e83de01c89d76c7144d517b6070859a43874b34e766"
+  },
+  "metadata_path": "reusable/procedural/tiles/over-city-wet-city-cobblestone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "over-city-wet-city-cobblestone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "over-city/components/over-city-wet-city-cobblestone-floor.png",
+    "source_sha256": "785ed236b31a7d4724b8480e98e620412f59bd05c72a0b03db5de516620c722e",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "over-city-wet-city-cobblestone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "over-city-wet-city-cobblestone-floor"
+  }
+}

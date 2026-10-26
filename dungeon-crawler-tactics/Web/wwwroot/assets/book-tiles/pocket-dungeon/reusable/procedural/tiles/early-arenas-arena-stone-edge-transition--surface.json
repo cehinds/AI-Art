@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-arena-stone-edge-transition--surface",
+  "name": "Arena Stone edge transition (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "early-arenas",
+    "environment:dungeon",
+    "ground",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/early-arenas-arena-stone-edge-transition--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "2bf3cc2ec3fa9189fbd936a7beb67eb25487645fe882d20f58ba3aa7af4d889f",
+    "rgba_sha256": "3611219129f9e063706d47927cb1ec8864514084be616f24a2ed00b505a08c36"
+  },
+  "metadata_path": "reusable/procedural/tiles/early-arenas-arena-stone-edge-transition--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "early-arenas-arena-stone-edge-transition",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "early-arenas/components/early-arenas-arena-stone-edge-transition.png",
+    "source_sha256": "039919a47c1e6888aeb663709a65c3e35003731b56913f0e5ac73558ede63acb",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "early-arenas-arena-stone-edge-transition",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:stone",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "early-arenas-arena-stone-edge-transition"
+  }
+}

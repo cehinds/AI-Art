@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-river-riverbank-stone-floor--surface",
+  "name": "Riverbank stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hazard:water",
+    "hunting-river",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-river-riverbank-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9ab298feae7c61b0e421ed4e68b13897581c78146f8fe689fbca60052141d736",
+    "rgba_sha256": "9d5a798369bc00b42a78e1027c2ffbc24e3e86c0c6f633831131a45fc8ef634a"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-river-riverbank-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-river-riverbank-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-river/components/hunting-river-riverbank-stone-floor.png",
+    "source_sha256": "15c57aedacbcc5ac6125919ed2ea1d213821a3b60f5b824e3fd9bc82c3294147",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "hunting-river-riverbank-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:water",
+    "material:stone",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-river-riverbank-stone-floor"
+  }
+}

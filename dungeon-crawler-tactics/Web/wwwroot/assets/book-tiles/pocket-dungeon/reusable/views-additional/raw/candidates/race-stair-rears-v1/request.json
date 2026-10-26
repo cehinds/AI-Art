@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "batch_id": "race-stair-rears-v1",
+  "objects": {
+    "race-circuits-race-asphalt-stairs-up": {
+      "source_path": "race-circuits/components/race-circuits-race-asphalt-stairs-up.png",
+      "source_sha256": "5a5f9025a3a445b84cd18c01ad74ab41fd8c773275fe63e240bc2413429dce73",
+      "views": {
+        "front": "ba37d2565c3bd5f95f60243a79eab30feea92fb2baaa5c39a15d9a05fc53fe77",
+        "top": "7cb3c528d522bde45de711e2151b5aabe0bb56dbda1b88d2967e7594f97ea93c",
+        "right": "61f74d622fca5c58f31b375eed3270a19fc204e963f898a01b17ab0497254269",
+        "left": "2ffbdde53c2dbb1b16d32f21016b572eede43ad6cf4304d67870d52daf93996f",
+        "bottom": "d63d91046226fa206a49444ac4ed82a9c2d5761f4d759c23f7e1c0cf02319f97",
+        "rear": "199b730d1d62c93406b0ef831af164171f3a4f848b01b725a7e70d67e70d5c60"
+      }
+    },
+    "race-circuits-race-asphalt-stairs-down": {
+      "source_path": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
+      "source_sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694",
+      "views": {
+        "front": "98284030c145dbcefc9dba33a80d4d45f27b8df14cdd5dbaf30f4a86ff2dfac1",
+        "top": "3554df0efa6148ef4ba5df22e3990225aebd80ba26a803368014a78f51597625",
+        "right": "907e4ea6ca0a424e1a16184168cf1ba258a5e2e736d682655bfbcd9591975a30",
+        "left": "95dd159ab4fd0c3d8fc2a03b406c6142a8f7b0533d493766ac661ec45a5910f2",
+        "bottom": "c32796f06f1d0c139159df071cd9f2c2f92069d5ff08c35537724db42662cb4a",
+        "rear": "f734ff2dbf8d0277361bdaadd820aef2fd05fe863ce5584dabe90694e6fab874"
+      }
+    }
+  },
+  "views": [
+    "rear",
+    "rear"
+  ],
+  "status": "self-rejected-dimensions",
+  "contact_path": "raw/candidates/race-stair-rears-v1/source-current-six-pair.png",
+  "contact_sha256": "4292c9a4147fd4e0d258202b18423a4a356edcf73d5234943a2c4da2c3d33e48",
+  "prompt": "Create a transparent-background pixel-art atlas with exactly TWO square orthographic REAR elevations side-by-side, in this order: Race Asphalt Stairs UP, then Race Asphalt Stairs DOWN. The reference contact has one labeled row per exact source asset and its current accepted FRONT/TOP/RIGHT/LEFT/BOTTOM views. Preserve each target's own source materials, full flight width, top landing, side rails, support posts and direction (do not swap up/down). Camera from directly behind along the stair length looking toward the top landing. This is a true end elevation, not a side profile.\n\nEach REAR view must show a broad full-width, approximately rectangular opaque dark asphalt/steel support or back panel immediately under the TOP landing, with TWO back corner posts rising to the same height. Keep the overall rear silhouette height and X width matched to the accepted FRONT view. The long axis stair slope and forward treads are occluded from this rear camera. Do NOT repeat the sloped side profile, do NOT draw stair treads receding toward camera, do NOT show a trapezoid/wedge, and do not create posts at different heights. The underside construction should read as a closed back/support face with source dark asphalt and steel/gray side rails, consistent with the already accepted opaque BOTTOM plans. Keep source object count and silhouette, crisp pixel-art clusters, transparent background, no labels, shadows, perspective, clipping or detached guide marks.",
+  "output_binding": {
+    "path": "raw/candidates/race-stair-rears-v1/generated-atlas.png",
+    "sha256": "469c6e8169df2cf76d639f0466facb0f927ba639842ac16edbd274ab0ffb3f7f",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "output_hint": "/workspace/generated_images/exec-6acd138c-78b1-40a2-8247-c090edcc6d16.png"
+  },
+  "self_review": {
+    "reason": "The two generated REAR backs have raw main bounds 695x413 and normalize to roughly 210x125, while accepted FRONT bounds are about 210x178. Content is broadly correct, but rear silhouette is too short; regenerate taller before review."
+  }
+}

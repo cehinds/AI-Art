@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "race-circuits-garage-concrete-floor--surface",
+  "name": "Garage concrete floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "race-circuits",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/race-circuits-garage-concrete-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "f21f99fdb07eb5ec7f7959d9f59476cd5bca64965486cb064204bb11f34b928e",
+    "rgba_sha256": "ed301a7c976507829d0e6a48d31ccc4f773b91e156ebda88e2cbdb0c8611d372"
+  },
+  "metadata_path": "reusable/procedural/tiles/race-circuits-garage-concrete-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "race-circuits-garage-concrete-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "race-circuits/components/race-circuits-garage-concrete-floor.png",
+    "source_sha256": "94b0ec325469928e4b9c45216a3e2e6e6a89d35a43ccf24abf01a218c0e74788",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "race-circuits-garage-concrete-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "race-circuits-garage-concrete-floor"
+  }
+}

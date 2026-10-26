@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "batch_id": "signal-mast-plans-v5",
+  "object_id": "iron-tracks-rail-signal-mast",
+  "source_path": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
+  "source_sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5",
+  "source_contact_path": "raw/candidates/signal-mast-plans-v3/source-and-horizontal-elevations.png",
+  "source_contact_sha256": "bdac0092f4ac5b9201c4652175d02a70449ee79d7e27e1a140664a198dd8b42c",
+  "raw_atlas_path": "raw/candidates/signal-mast-plans-v5/generated-atlas.png",
+  "raw_atlas_sha256": "f8a8cd21c8017a7febae8456b1458ec239b7971c91b616f3033595111e78effc",
+  "raw_atlas_dimensions": [
+    1774,
+    887
+  ],
+  "output_hint": "/workspace/generated_images/exec-a79bf58e-ec0c-453d-aa75-0a9f3887a4fb.png",
+  "prompt": "Create a transparent-background pixel-art atlas with TWO square orthographic views, TOP and BOTTOM, for the exact Iron Tracks railway signal mast in the attached contact (native component and accepted FRONT/RIGHT/LEFT/REAR). Preserve identity, count, color, position and steel details. The prior candidate was rejected because both horizontal plans showed broad forward-facing red/green lens disks. This correction must show only thin edge-on lens rims, never a round lens face.\n\nUse a strict orthographic camera aligned with world Z. FRONT means camera from -Y looking toward +Y; TOP means camera from +Z looking vertically down. The lamps' colored lenses face FRONT in the vertical XZ plane. From TOP that vertical lens plane collapses to a narrow edge: show at most a 2-3 pixel red rim at the forward Y edge of the upper lamp roof, not a red disk. From BOTTOM show the lower lamp's dark underside; green appears only as a narrow edge accent at most, never a green disk. Do not tilt the camera toward FRONT.\n\nThe upper red lamp and lower green lamp occupy the same XY and stack on Z. TOP contains just the upper lamp's dark steel roof footprint at the left, one pole-cap circle near center-right, and two small ladder rail feet farther right. BOTTOM contains one dark steel lamp-underbody footprint at that same left location, one compact pole/baseplate footprint under the center-right pole, and only two ladder-foot ends farther right. Do not put two lamps along Y. Never draw a shaft, upright ladder, complete rung ladder, front-facing signal, red/green circular face, tall silhouette, or perspective.\n\nLay components on one horizontal X axis: lamp left, pole center-right, ladder feet right. Keep total X span about half the 256px target canvas and match the accepted FRONT overall width; keep Y depth shallow. Crisp pixel-art clusters, transparent background, source-faithful dark steel and gray; no labels, grid, shadows, detached guide marks or clipping. Top and bottom orientations share the same XY axes.",
+  "views": [
+    {
+      "view": "top",
+      "candidate_path": "raw/candidates/signal-mast-plans-v5/top.candidate.png",
+      "sha256": "79bde34d8961d4b46404a987e42021146e1be6e5dd8ced70b92d2d0c97bbc733",
+      "bbox_atlas_global": [
+        618,
+        181,
+        1165,
+        440
+      ],
+      "main_component_pixels": 77069,
+      "detached_component_count": 1,
+      "uniform_scale": 0.21572212065813529,
+      "render_size": [
+        118,
+        56
+      ],
+      "resampling": "NEAREST",
+      "canvas_anchor": "centered plan footprint"
+    },
+    {
+      "view": "bottom",
+      "candidate_path": "raw/candidates/signal-mast-plans-v5/bottom.candidate.png",
+      "sha256": "a561793d896c26a980accd4d4825d4340bc1a806b997ef4e7849965c1cce414a",
+      "bbox_atlas_global": [
+        618,
+        507,
+        1165,
+        767
+      ],
+      "main_component_pixels": 77772,
+      "detached_component_count": 0,
+      "uniform_scale": 0.21572212065813529,
+      "render_size": [
+        118,
+        56
+      ],
+      "resampling": "NEAREST",
+      "canvas_anchor": "centered plan footprint"
+    }
+  ],
+  "contact_path": "raw/candidates/signal-mast-plans-v5/source-plus-six-candidates.png",
+  "contact_sha256": "26611db28381d34503030dad1411783fdebda17562211077fe417043dfba3b75",
+  "current_live_hashes": {
+    "front": "9751b97d5068320986f5fdafc87a13a7459b06330c44fa47aa4f0ecf052537e4",
+    "top": "ca375419fbdc47c36497da5906dc05c063e466d9ad4192a2bd4aca02419a3723",
+    "right": "6a35723b4fd723f3c13692cfcbd87c695563faf77bfc1145c8d9de21a9664173",
+    "left": "abd2475e693b42fcb20978c2e80315489f5fe235fc1bbce897a472d627c9baec",
+    "bottom": "4c931575612ea7186fcf1c8470e95e734776369ab01bc3586dc079e7047178b9",
+    "rear": "6d950a0562969a2b5e2be373cf7bf9c35429abdc7baec863b581830ee8e5fd99"
+  },
+  "extraction_method": "full image atlas split into two explicitly recorded row bands; within each view, retain largest connected alpha component as one joined signal assembly; discard detached alpha islands",
+  "normalization": "isotropic width fit to accepted FRONT bbox width 118px; centered in 256x256; NEAREST"
+}

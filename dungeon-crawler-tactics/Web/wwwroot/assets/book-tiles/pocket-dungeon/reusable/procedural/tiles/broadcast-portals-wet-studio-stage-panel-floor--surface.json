@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "broadcast-portals-wet-studio-stage-panel-floor--surface",
+  "name": "Wet studio stage panel floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "broadcast-portals",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/broadcast-portals-wet-studio-stage-panel-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "8e1db26900fa5d0767efa48a9bea28ac0e7eb8e6d0ebc74465f0c9217cf5e203",
+    "rgba_sha256": "8af724e7537c8748cee7521a5f4072c8ddb3683d97325beed161ccbf5c555553"
+  },
+  "metadata_path": "reusable/procedural/tiles/broadcast-portals-wet-studio-stage-panel-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "broadcast-portals-wet-studio-stage-panel-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "broadcast-portals/components/broadcast-portals-wet-studio-stage-panel-floor.png",
+    "source_sha256": "fe24c6b24460f2a8c828125e9540d09290ea46b26569b7a9f9e75fb2e8225b9a",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "broadcast-portals-wet-studio-stage-panel-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "broadcast-portals-wet-studio-stage-panel-floor"
+  }
+}

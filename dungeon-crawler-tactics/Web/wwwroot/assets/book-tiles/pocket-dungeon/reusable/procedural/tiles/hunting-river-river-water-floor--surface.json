@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-river-river-water-floor--surface",
+  "name": "River water floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hazard:water",
+    "hunting-river",
+    "material:water",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-river-river-water-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9eb7d7bec4f0f23e0f2a359bd9c888067298c035cc6cd552a93c577f0384de0b",
+    "rgba_sha256": "0d3b7835287a61fb5c95ee560abb573415717c6b47c5be08fafc4f3c645439f6"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-river-river-water-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-river-river-water-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-river/components/hunting-river-river-water-floor.png",
+    "source_sha256": "1e9d646ca3a2d5fa0aa2cc88f34a7fb66e5ba86d78daffb3f440a2d5dc06abe9",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "hunting-river-river-water-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:water",
+    "material:water",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:water"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-river-river-water-floor"
+  }
+}

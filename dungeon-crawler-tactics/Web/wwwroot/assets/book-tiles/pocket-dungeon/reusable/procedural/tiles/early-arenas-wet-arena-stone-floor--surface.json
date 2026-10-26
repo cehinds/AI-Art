@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-wet-arena-stone-floor--surface",
+  "name": "Wet arena stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "early-arenas",
+    "environment:dungeon",
+    "ground",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/early-arenas-wet-arena-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "94f603e4a44061b6caaca01ed06e3cc6c9bf7aaf5c38af49b898aa0cd789576c",
+    "rgba_sha256": "7faf2a3842b117db4559977f3329fa6ba3bfdc89c611ddedaf46350d8d976b41"
+  },
+  "metadata_path": "reusable/procedural/tiles/early-arenas-wet-arena-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "early-arenas-wet-arena-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "early-arenas/components/early-arenas-wet-arena-stone-floor.png",
+    "source_sha256": "27c7c7ceba7ce50ac77165ce20d6bfd2976771f5ce8af2530f02a615eb4beb62",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "early-arenas-wet-arena-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:stone",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "early-arenas-wet-arena-stone-floor"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "object_id": "bubble-desert-adobe-desert-plaster-open-doorway",
+  "status": "staged-awaiting-root-review",
+  "target_source_path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-open-doorway.png",
+  "target_source_sha256": "cfcefcb9c9d2de2a092a9a80a1ec86e55525ecb6fff3c6b616f9f5097c9892f1",
+  "generated_atlas": "reusable/views-additional/raw/candidates/desert-doorway-open-v4/raw-atlas.png",
+  "generated_atlas_sha256": "8055b3cc750211fa98fff8286eb04c48c91f18233309315a9c1aeefe1d107e42",
+  "generation_request": "reusable/views-additional/raw/candidates/desert-doorway-open-v4/request.json",
+  "output_binding": "/workspace/generated_images/exec-5b48094f-84a5-4de7-87a5-f2b1de95972b.png",
+  "geometry_frame_donors": [
+    {
+      "path": "reusable/views-additional/raw/candidates/desert-doorway-plans-rear-v1/bubble-desert-adobe-desert-plaster-open-doorway.top.candidate.png",
+      "sha256": "5bc3b45e282ae88caebb3bf4188c89cca78f55e4a1e2d440d85649885e00731b",
+      "role": "accepted generated TOP thin-frame template"
+    },
+    {
+      "path": "reusable/views-additional/raw/candidates/desert-doorway-plans-rear-v1/bubble-desert-adobe-desert-plaster-open-doorway.bottom.candidate.png",
+      "sha256": "f050774bfd1e9657451a4444191f7169882088ab0bdb4e163f0db711ca55d94c",
+      "role": "accepted generated BOTTOM thin-frame template"
+    }
+  ],
+  "prop_extractions": {
+    "top_mouth": {
+      "cell": 0,
+      "region_bbox": [
+        82,
+        520,
+        190,
+        610
+      ],
+      "mask_bbox_in_region": [
+        0,
+        0,
+        108,
+        90
+      ],
+      "selected_component_area": 7168,
+      "mask": "color-class mask (orange/red clay + near-black center), fill enclosed holes, 2px dilation to retain outline",
+      "render_size": [
+        42,
+        35
+      ],
+      "resampling": "NEAREST"
+    },
+    "bottom_base": {
+      "cell": 1,
+      "region_bbox": [
+        75,
+        535,
+        150,
+        620
+      ],
+      "mask_bbox_in_region": [
+        0,
+        0,
+        75,
+        85
+      ],
+      "selected_component_area": 5526,
+      "mask": "color-class mask (orange/red clay + near-black center), fill enclosed holes, 2px dilation to retain outline",
+      "render_size": [
+        42,
+        48
+      ],
+      "resampling": "NEAREST"
+    },
+    "top_curtain_edge": {
+      "cell": 0,
+      "region_bbox": [
+        180,
+        560,
+        550,
+        635
+      ],
+      "mask_bbox_in_region": [
+        0,
+        0,
+        344,
+        75
+      ],
+      "component_area": 10552,
+      "mask": "red fabric hue threshold +1px outline dilation",
+      "render_size": [
+        112,
+        24
+      ],
+      "resampling": "NEAREST"
+    },
+    "bottom_curtain_edge": {
+      "cell": 1,
+      "region_bbox": [
+        180,
+        565,
+        550,
+        635
+      ],
+      "mask_bbox_in_region": [
+        31,
+        3,
+        334,
+        43
+      ],
+      "component_area": 8768,
+      "mask": "red fabric hue threshold +1px outline dilation",
+      "render_size": [
+        112,
+        15
+      ],
+      "resampling": "NEAREST"
+    }
+  },
+  "composite_ops": [
+    "reuse v1 thin-frame/threshold exact candidate as base",
+    "extract v4 separate pot mouth/base pixels by hue mask and enclosed-hole fill; use NEAREST 42px, place protruding front-left beyond post cap",
+    "extract v4 thin red curtain edge/lower edge by hue mask; use NEAREST 112px and place across doorway plane"
+  ],
+  "candidates": {
+    "top": {
+      "path": "reusable/views-additional/raw/candidates/desert-doorway-open-v5/open-doorway.top.candidate.png",
+      "sha256": "4bf711bfdfac245d6251ff2dc1474357e43f78d3239e70969293a5d94f2219ff",
+      "alpha_bbox": [
+        3,
+        185,
+        233,
+        248
+      ],
+      "dimensions": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "bottom": {
+      "path": "reusable/views-additional/raw/candidates/desert-doorway-open-v5/open-doorway.bottom.candidate.png",
+      "sha256": "2a72199b08d61b995b6e9a5e769e05497410303de4101f5657747a4c15ac643a",
+      "alpha_bbox": [
+        3,
+        190,
+        233,
+        255
+      ],
+      "dimensions": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ]
+    }
+  },
+  "contact_path": "reusable/views-additional/raw/candidates/desert-doorway-open-v5/candidate-top-bottom-source-plus-six.png",
+  "contact_sha256": "e39f8607f9eb15fb9017680fcf6c6552e11975822c4e5376e87059995b0c6197",
+  "note": "Pot footprints now sit outside and partially overlap the front-left post footprint, matching source relation. Only TOP/BOTTOM are candidates; current REAR needs separate opposite-curtain correction."
+}

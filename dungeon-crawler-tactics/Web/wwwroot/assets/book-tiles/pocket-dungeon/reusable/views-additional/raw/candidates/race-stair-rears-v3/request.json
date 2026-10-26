@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "batch_id": "race-stair-rears-v3",
+  "objects": {
+    "race-circuits-race-asphalt-stairs-up": {
+      "source_path": "race-circuits/components/race-circuits-race-asphalt-stairs-up.png",
+      "source_sha256": "5a5f9025a3a445b84cd18c01ad74ab41fd8c773275fe63e240bc2413429dce73"
+    },
+    "race-circuits-race-asphalt-stairs-down": {
+      "source_path": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
+      "source_sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694"
+    }
+  },
+  "current_live_hashes": {
+    "race-circuits-race-asphalt-stairs-up": {
+      "front": "ba37d2565c3bd5f95f60243a79eab30feea92fb2baaa5c39a15d9a05fc53fe77",
+      "top": "7cb3c528d522bde45de711e2151b5aabe0bb56dbda1b88d2967e7594f97ea93c",
+      "right": "61f74d622fca5c58f31b375eed3270a19fc204e963f898a01b17ab0497254269",
+      "left": "2ffbdde53c2dbb1b16d32f21016b572eede43ad6cf4304d67870d52daf93996f",
+      "bottom": "d63d91046226fa206a49444ac4ed82a9c2d5761f4d759c23f7e1c0cf02319f97",
+      "rear": "199b730d1d62c93406b0ef831af164171f3a4f848b01b725a7e70d67e70d5c60"
+    },
+    "race-circuits-race-asphalt-stairs-down": {
+      "front": "98284030c145dbcefc9dba33a80d4d45f27b8df14cdd5dbaf30f4a86ff2dfac1",
+      "top": "3554df0efa6148ef4ba5df22e3990225aebd80ba26a803368014a78f51597625",
+      "right": "907e4ea6ca0a424e1a16184168cf1ba258a5e2e736d682655bfbcd9591975a30",
+      "left": "95dd159ab4fd0c3d8fc2a03b406c6142a8f7b0533d493766ac661ec45a5910f2",
+      "bottom": "c32796f06f1d0c139159df071cd9f2c2f92069d5ff08c35537724db42662cb4a",
+      "rear": "f734ff2dbf8d0277361bdaadd820aef2fd05fe863ce5584dabe90694e6fab874"
+    }
+  },
+  "views": [
+    "rear",
+    "rear"
+  ],
+  "status": "request-prepared",
+  "contact_path": "raw/candidates/race-stair-rears-v1/source-current-six-pair.png",
+  "contact_sha256": "4292c9a4147fd4e0d258202b18423a4a356edcf73d5234943a2c4da2c3d33e48",
+  "prior_attempts": [
+    {
+      "path": "raw/candidates/race-stair-rears-v1/generated-atlas.png",
+      "sha256": "469c6e8169df2cf76d639f0466facb0f927ba639842ac16edbd274ab0ffb3f7f",
+      "disposition": "self-rejected: candidate rear bounds normalize to about 210x125, shorter than accepted FRONT 210x178"
+    },
+    {
+      "path": "raw/candidates/race-stair-rears-v2/generated-atlas.png",
+      "sha256": "7bce6f321cc4e03c986be69cd060132a3b172f6db97f7d2ce625dd279a362726",
+      "disposition": "self-rejected: candidate rear bounds normalize to about 210x118, shorter than accepted FRONT 210x178"
+    }
+  ],
+  "prompt": "Generate exactly TWO transparent-background orthographic REAR elevations in a two-cell atlas: UP stairs first, DOWN stairs second. Keep each object\u2019s own source identity and current accepted FRONT/TOP/RIGHT/LEFT/BOTTOM. The accepted FRONT silhouette defines total proportions: normalized bounds about 210px wide by 178px high. Your v1/v2 attempts were only about 210x120 after normalization; this is too short. Draw the REAR with the same full-height silhouette as FRONT, using a taller opaque support/back panel and full-height paired corner posts. This is a geometry generation; do not stretch the old artwork or widen the object.\n\nCamera is straight behind the stair flight, horizontal and orthographic. From this viewpoint, the forward treads are occluded. The back view is a closed, broad dark asphalt/steel rectangle about 210px wide by 178px high, bottom aligned at y=248, framed by two gray steel corner posts that both reach the same top height. The landing appears only as a thin narrow horizontal top edge. There must be no receding wedge and no parallel tread pattern. Preserve the rail caps and source hardware at the top/outer posts. For the DOWN source, preserve its own small source-specific red side sliver if it is visible from rear; do not transfer it to UP. Crisp pixel-art clusters, transparent background, no labels, no shadows, stray guides, or clipping.",
+  "output_binding": {
+    "path": "raw/candidates/race-stair-rears-v3/generated-atlas.png",
+    "sha256": "d3982e2ad82ab7605b2265127df889d7209072e816eb36d2dbc54bd0acaf5514",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "output_hint": "/workspace/generated_images/exec-9fbdcc6c-8574-4d7a-93c2-d940b13fd281.png"
+  }
+}
