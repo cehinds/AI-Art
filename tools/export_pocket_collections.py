@@ -22,8 +22,8 @@ import zipfile
 
 sys.dont_write_bytecode = True
 
-from package_pocket_reusable import encoded, plan, write_zip
-from validate_pocket_reusable import DEFAULT_PACK, read_json, unique_records, validate
+from package_pocket_reusable import asset_dependencies, encoded, plan, write_zip
+from validate_pocket_reusable import DEFAULT_PACK, contained, read_json, unique_records, validate
 
 COLLECTIONS = (
     ("scenes", "Concept scenes and layered preview", ("concept-original", "concept-new", "concept-combat", "preview")),
@@ -89,6 +89,51 @@ def archive_catalog(contents):
     if len(candidates) != 1:
         raise ValueError("Archive must contain exactly one supported library catalog")
     return candidates[0]
+
+
+def create_collection_plan(pack, maps_per_collection=4):
+    """Draft map batches plus dependency-closed batches of unmapped assets.
+
+    This inventories metadata only. Export still enforces current independent
+    reviews, pixel-exact maps, ZIP size, hashes, and complete asset coverage.
+    """
+    if maps_per_collection < 1:
+        raise ValueError("maps-per-collection must be positive")
+    index = read_json(pack / 'reusable/index.json')
+    maps = list(unique_records(index['maps'], 'id', 'catalog maps').values())
+    all_assets = set(unique_records(index['assets'], 'id', 'catalog assets'))
+    covered = set()
+    collections = []
+    for start in range(0, len(maps), maps_per_collection):
+        batch = maps[start:start+maps_per_collection]
+        selected = {layer['asset_id'] for entry in batch
+                    for layer in read_json(contained(pack, entry['file']))['layers']}
+        covered.update(asset_dependencies(index, selected))
+        number = len(collections) + 1
+        collections.append({'id': f'maps-{number:03}', 'label': f'Reconstructions {number}',
+                            'maps': [m['id'] for m in batch], 'assets': []})
+    remaining = all_assets - covered
+    number = 0
+    while remaining:
+        seeds = []
+        # Each seed can pull in a whole six-view object; avoid repeating seeds
+        # already brought in by a sibling/canonical dependency.
+        for _ in range(24):
+            if not remaining:
+                break
+            seed = min(remaining)
+            seeds.append(seed)
+            remaining.difference_update(asset_dependencies(index, [seed]))
+        number += 1
+        collections.append({'id': f'assets-{number:03}', 'label': f'Additional assets {number}',
+                            'maps': [], 'assets': seeds})
+    document = {'schema_version': 1, 'tags': ['metadata-document', 'download-collection-plan'],
+                'source_catalog_content_sha256': catalog_hash(index),
+                'status': 'unvalidated-plan',
+                'note': 'Regenerate after catalog changes. Export verifies content and size; split oversized collections.',
+                'collections': collections}
+    check_coverage(index, collection_records(document))
+    return document
 
 
 def verify_archive(path, work):
@@ -174,8 +219,18 @@ def main():
     parser.add_argument("--max-mib", type=float, default=95)
     parser.add_argument("--plan", action="store_true", help="Validate the full library and show collection coverage without writing")
     parser.add_argument("--collections-plan", type=Path, help="JSON collection definitions for this library")
+    parser.add_argument("--write-collections-plan", type=Path, help="Write a draft JSON plan without exporting or approving artwork")
+    parser.add_argument("--maps-per-collection", type=int, default=4, help="Maximum maps per generated draft collection")
     args = parser.parse_args()
     try:
+        if args.write_collections_plan:
+            if args.collections_plan or args.plan:
+                raise ValueError("--write-collections-plan cannot be combined with --collections-plan or --plan")
+            document = create_collection_plan(args.pack.resolve(), args.maps_per_collection)
+            args.write_collections_plan.write_bytes(encoded(document))
+            print(json.dumps({'status': 'unvalidated-plan', 'path': str(args.write_collections_plan),
+                              'collections': len(document['collections'])}, indent=2))
+            return 0
         document = read_json(args.collections_plan) if args.collections_plan else None
         print(json.dumps(export(args.pack.resolve(), args.max_mib, args.plan, document), indent=2))
         return 0

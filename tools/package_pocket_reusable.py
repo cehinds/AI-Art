@@ -29,6 +29,34 @@ def encoded(value):
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
 
 
+def asset_dependencies(index, selected):
+    """Close a selection over canonical objects, their views and companions."""
+    by_id = unique_records(index["assets"], "id", "source catalog assets")
+    groups = unique_records(index.get("view_sets", []), "object_id", "source catalog view sets")
+    asset_ids = set(selected)
+    unknown = asset_ids - set(by_id)
+    if unknown:
+        raise ValueError(f"Unknown asset ids: {sorted(unknown)}")
+    while True:
+        previous = set(asset_ids)
+        for asset_id in list(asset_ids):
+            asset = by_id[asset_id]
+            targets = [value["asset_id"] for value in asset.get("views", {}).values()
+                       if isinstance(value, dict) and value.get("asset_id")]
+            targets.extend(asset[field] for field in ("object_id", "canonical_asset_id")
+                           if asset.get(field) in by_id)
+            group = groups.get(asset_id)
+            if group:
+                targets.extend(filter(None, (view_reference(value) for value in group["views"].values())))
+            for target in targets:
+                if target not in by_id:
+                    raise ValueError(f"Missing view dependency: {asset_id} -> {target}")
+                asset_ids.add(target)
+        asset_ids.update(a["id"] for a in index["assets"] if a.get("canonical_asset_id") in asset_ids)
+        if asset_ids == previous:
+            return asset_ids
+
+
 def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
     folder = "pocket-dungeon" if pack.resolve() == DEFAULT_PACK.resolve() else "library"
     repository_location = "AI-Art repository dungeon-crawler branch, " + str(pack).split("Web/wwwroot/assets/")[-1]
@@ -58,32 +86,7 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
             raise ValueError("A collection must select maps or assets")
         for entry in index["maps"]:
             asset_ids.update(layer["asset_id"] for layer in read_json(contained(pack, entry["file"]))["layers"])
-        # Include all view references reachable from selected components, so every
-        # per-item JSON remains valid without modification inside the archive.
-        while True:
-            previous = set(asset_ids)
-            for asset_id in list(asset_ids):
-                asset = by_id[asset_id]
-                for value in asset.get("views", {}).values():
-                    if isinstance(value, dict) and value.get("asset_id"):
-                        asset_ids.add(value["asset_id"])
-                if asset.get("object_id") in by_id:
-                    asset_ids.add(asset["object_id"])
-                if asset.get("canonical_asset_id") in by_id:
-                    asset_ids.add(asset["canonical_asset_id"])
-                # Scene objects keep their original baked crop non-reusable;
-                # their clean generated siblings are linked by the view set.
-                group = groups.get(asset_id)
-                if group:
-                    for reference in group["views"].values():
-                        target = view_reference(reference)
-                        if target:
-                            if target not in by_id:
-                                raise ValueError(f"Missing view dependency: {asset_id} -> {target}")
-                            asset_ids.add(target)
-            asset_ids.update(a["id"] for a in original["assets"] if a.get("canonical_asset_id") in asset_ids)
-            if asset_ids == previous:
-                break
+        asset_ids = asset_dependencies(original, asset_ids)
         index["assets"] = [a for a in original["assets"] if a["id"] in asset_ids]
         index["view_sets"] = [v for v in groups.values() if v["object_id"] in asset_ids]
         index["procedural"] = {"status": "not-in-this-collection", "note": "Map collection; use the complete catalog for procedural examples."}

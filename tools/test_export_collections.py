@@ -50,6 +50,24 @@ class CollectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'coverage mismatch'):
             exporter.check_coverage(self.index, [{'id': 'props', 'maps': [], 'assets': ['crate']}])
 
+    def test_draft_plan_includes_unmapped_assets_and_closes_dependencies(self):
+        self.index['maps'][0]['file'] = 'room.json'
+        (self.pack / 'room.json').write_bytes(encoded({'layers': [{'asset_id': 'floor'}]}))
+        self.index['assets'].extend([
+            {'id': 'crate.front', 'object_id': 'crate'},
+            {'id': 'clean-crate', 'canonical_asset_id': 'crate'}])
+        self.index['view_sets'] = [{'object_id': 'crate', 'views': {'front': 'crate.front'}}]
+        self.path.write_bytes(encoded(self.index))
+        document = exporter.create_collection_plan(self.pack, 1)
+        self.assertEqual(document['status'], 'unvalidated-plan')
+        self.assertEqual(len(document['collections']), 2)
+        props = document['collections'][1]
+        self.assertEqual(len(props['assets']), 1)
+        self.assertEqual(exporter.asset_dependencies(self.index, props['assets']),
+                         {'crate', 'crate.front', 'clean-crate'})
+        with self.assertRaisesRegex(ValueError, 'positive'):
+            exporter.create_collection_plan(self.pack, 0)
+
     def test_archive_requires_one_known_root(self):
         for paths in ([], ['library/reusable/index.json', 'pocket-dungeon/reusable/index.json']):
             with self.assertRaises(ValueError):
