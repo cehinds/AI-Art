@@ -59,13 +59,14 @@ class AttachmentRulesTests(unittest.TestCase):
 
     def test_support_furniture_noun_not_location_or_modifier(self):
         for name in ('Desk candle','Tabletop monitor','Book on desk','Single tabletop candlestick',
-                     'Jar on workbench','Gold vessel beside table'):
+                     'Jar on workbench','Gold vessel beside table','Desk candle and books'):
             with self.subTest(name=name):
                 obj=self.asset('small-prop',name=name,tags=['tabletop'])
                 self.assertEqual(obj['attachment']['role'],'object')
                 self.assertEqual(obj['attachment']['provides'],[])
                 self.assertEqual(obj['attachment']['requires']['any'],['surface:tabletop'])
-        for name in ('Table with books','Wooden workbench','Small side table Front','Desk with monitor'):
+        for name in ('Table with books','Wooden workbench','Small side table Front','Desk with monitor',
+                     'Guide desk and chairs'):
             with self.subTest(name=name):
                 obj=self.asset('furniture',name=name)
                 self.assertEqual(obj['attachment']['provides'],['surface:tabletop'])

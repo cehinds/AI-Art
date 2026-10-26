@@ -61,8 +61,13 @@ def supporting_furniture(asset):
     subject = re.sub(r'[-_]+', ' ', subject)
     subject = re.sub(r'\s+(?:front|top|right|left|bottom|rear)$', '', subject)
     head = re.split(r'\b(?:on|with|beside|at|in|under)\b', subject, maxsplit=1)[0]
-    words = re.findall(r'[a-z0-9]+', head)
-    return bool(words and words[-1] in furniture)
+    # Grouped furniture retains its support surface ("desk and chairs"),
+    # while each coordinated noun still excludes modifiers ("desk candle").
+    for subject in re.split(r'\band\b|&', head):
+        words = re.findall(r'[a-z0-9]+', subject)
+        if words and words[-1] in furniture:
+            return True
+    return False
 
 
 def classify(asset, style):
