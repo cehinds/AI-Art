@@ -155,6 +155,8 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
     files.add("README.md")
     if (pack / "reusable/README.md").is_file():
         files.add("reusable/README.md")
+    if (pack / "reusable/library-guide.json").is_file():
+        files.add("reusable/library-guide.json")
     legacy_manifest = pack / "manifest.json"
     external["manifest.json"] = {"path": "manifest.json", "sha256": hashlib.sha256(legacy_manifest.read_bytes()).hexdigest(),
         "location": repository_location,
@@ -242,24 +244,34 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
         if not (Path(__file__).resolve().parent / filename).is_file():
             continue
         contents[filename] = (Path(__file__).resolve().parent / filename).read_bytes()
-    contents["READ-ME.txt"] = (original.get("title", "Reusable asset library") + " — PNG assets and exact source reconstruction\n\n"
-        "Tested with Python 3.12. Install pinned versions: python -m pip install -r pocket-requirements.txt\n"
-        f"List maps: python render_pocket_map.py --pack {folder} --list\n"
-        f"Render: python render_pocket_map.py --pack {folder} --map MAP_ID --output recreated.png\n"
-        f"Verify: python validate_pocket_reusable.py --pack {folder} --self-test\n"
-        "Missing six views are reported honestly; --require-six-views enforces completeness.\n"
-        "Only --allow-recorded-generation-blocks opts into a packaged hash-bound tool-block policy; blocked views remain incomplete/unapproved.\n"
-        "Render an Art Lab schema2 remix from the complete checkout: python tools/render_art_remix.py --input remix.json --output remix.png\n"
-        "Detached archives require --art-commit with the recorded trusted source revision; mixed-library remixes need every named library.\n"
-        f"All catalog paths resolve relative to {folder}/. PNG sidecars retain provenance.\n"
-        "Each ZIP is an independent collection: extract it into its own directory. Do not merge\n"
-        "or overwrite subset reusable/index.json files. The Git checkout is the canonical full library.\n"
-        "Reconstruction residuals are not procedural gameplay tiles. Inferred views are newly designed.\n"
-        "Raw view generation atlases omitted from this archive are listed with repository locations\n"
-        "and hashes in archive-manifest.json; they are not required for PNG reuse or reconstruction.\n"
-        "Build script is included as source. Rebuild the FULL repository checkout with its extension\n"
-        "generators; a selected-map archive intentionally contains only its referenced dependencies.\n"
-        "No new licence is granted; consult retained source attribution and repository records.\n").encode()
+    contents["usage.json"] = encoded({
+        "schema_version": 1,
+        "tags": ["metadata-document", "archive-usage", "reconstruction-instructions"],
+        "title": original.get("title", "Reusable asset library"),
+        "catalog_root": folder + "/",
+        "runtime": {"python": "3.12", "requirements": "pocket-requirements.txt"},
+        "commands": {
+            "install": ["python", "-m", "pip", "install", "-r", "pocket-requirements.txt"],
+            "list_maps": ["python", "render_pocket_map.py", "--pack", folder, "--list"],
+            "render_map": ["python", "render_pocket_map.py", "--pack", folder, "--map", "MAP_ID", "--output", "recreated.png"],
+            "verify": ["python", "validate_pocket_reusable.py", "--pack", folder, "--self-test"],
+            "render_remix_from_checkout": ["python", "tools/render_art_remix.py", "--input", "remix.json", "--output", "remix.png"]
+        },
+        "view_validation": {
+            "completeness_option": "--require-six-views",
+            "recorded_block_option": "--allow-recorded-generation-blocks",
+            "blocked_views_remain_incomplete": True
+        },
+        "instructions": [
+            "Extract each independent collection into its own directory; do not overwrite subset reusable/index.json files with other collections.",
+            "Catalog paths resolve relative to catalog_root; PNG sidecars retain provenance.",
+            "The Git checkout is the canonical full library. Rebuild it with its extension generators; selected-map archives include only referenced dependencies.",
+            "Detached remix rendering requires --art-commit with the recorded trusted revision; mixed-library remixes need every named library.",
+            "Reconstruction residuals are not procedural gameplay tiles. Inferred views are newly designed.",
+            "Omitted raw generation atlases have repository locations and hashes in archive-manifest.json; they are not required for PNG reuse or reconstruction.",
+            "No new licence is granted; consult retained source attribution and repository records."
+        ]
+    })
     contents["archive-manifest.json"] = encoded({"schema_version": 1, "tags": ["metadata-document", "archive-manifest"], "maps": [m["id"] for m in index["maps"]], "assets": len(index["assets"]), "external_provenance": list(external.values()), "files": [{"path": p, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()} for p,data in sorted(contents.items())], "note": "Lists every archive member except this self-describing manifest."})
     return contents
 

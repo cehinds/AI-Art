@@ -122,6 +122,10 @@ class LibraryTests(unittest.TestCase):
             for path,raw in b.outputs.items():
                 destination=root/path;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_bytes(raw)
             contents=plan(root,['source'])
+            usage=json.loads(contents['usage.json'])
+            self.assertEqual(usage['catalog_root'],'library/')
+            self.assertIn('render_pocket_map.py',usage['commands']['render_map'])
+            self.assertNotIn('READ-ME.txt',contents)
             exported=json.loads(contents['library/reusable/index.json'])
             self.assertTrue({'native','normalized','surface'} <= {a['id'] for a in exported['assets']})
             for a in exported['assets']:

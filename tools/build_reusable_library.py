@@ -84,7 +84,7 @@ class BookBuilder(Builder):
                 'notes':'Native crop plus residual map reconstructs atlas; normalized exports are separate reusable gameplay assets.'})
         unique_records(self.normalized,'id','book normalized components')
         self.outputs['manifest.json']=json_bytes(self.manifest)
-        self.outputs['README.md']=('Book location reuse library\n\nExisting normalized components are reused unchanged. Native crops and 64px residuals reconstruct the source atlases exactly. Generated hidden views are inferred designs. Floor tiles are modeled surfaces, not evidence of original unseen geometry.\n').encode()
+        self.outputs['reusable/library-guide.json']=json_bytes({'schema_version':1,'tags':['metadata-document','library-guide'],'title':'Book location reuse library','notes':['Existing normalized components are reused unchanged.','Native crops and 64px residuals reconstruct the source atlases exactly.','Generated hidden views are inferred designs.','Floor tiles are modeled surfaces, not evidence of original unseen geometry.']})
 
     def add_procedural(self):
         import random
@@ -370,7 +370,7 @@ class GameplayBuilder(Builder):
                 'reason':'Existing room-kit concept tile has identical dimensions and RGBA to the dungeon-stone tile. Reuse its physical views.'}
 
         self.outputs['manifest.json']=json_bytes(self.manifest)
-        self.outputs['README.md']=b'Gameplay reuse library\n\nSources are unmodified copies of repository originals. Native crops preserve pixels; residuals are reconstruction-only. Existing animation poses are distinct from inferred principal views.\n'
+        self.outputs['reusable/library-guide.json']=json_bytes({'schema_version':1,'tags':['metadata-document','library-guide'],'title':'Gameplay reuse library','notes':['Sources are unmodified copies of repository originals.','Native crops preserve pixels; residuals are reconstruction-only.','Existing animation poses are distinct from inferred principal views.']})
 
     def automatic_regions(self, relative, image):
         directory=relative.split('/')[0];name=Path(relative).stem;identity=relative[:-4].replace('/','--')
