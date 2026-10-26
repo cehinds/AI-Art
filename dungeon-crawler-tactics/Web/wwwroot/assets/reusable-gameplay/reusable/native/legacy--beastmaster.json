@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--beastmaster",
+  "name": "beastmaster",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "beastmaster",
+    "beastmaster.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--beastmaster.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+    "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+  },
+  "metadata_path": "reusable/native/legacy--beastmaster.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--beastmaster",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/beastmaster.png",
+    "source_sha256": "13d6256e85667d1c24968ce06483aee380bcf0fe34263ae4548caf94f8f5bd29",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--beastmaster",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

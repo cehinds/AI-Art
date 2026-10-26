@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-broken-wall",
+  "name": "Broken wall",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-broken-wall.png",
+    "width": 350,
+    "height": 362,
+    "sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3",
+    "rgba_sha256": "2f4b5a76d740c3f05b902dee0302a0bcee0c0a9ecf235e21bd5291e5d519231d"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-broken-wall.json",
+  "anchor_px": [
+    175.0,
+    362
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-broken-wall",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      1087,
+      362,
+      350,
+      362
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-broken-wall.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

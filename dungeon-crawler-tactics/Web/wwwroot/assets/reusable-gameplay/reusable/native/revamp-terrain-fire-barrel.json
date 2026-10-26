@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-fire-barrel",
+  "name": "Fire barrel",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-fire-barrel.png",
+    "width": 361,
+    "height": 328,
+    "sha256": "d19efd17855a48a7b4ebec20f603118b8684d5aba0a655a64b6b8ffe66e47985",
+    "rgba_sha256": "ae22bcef335d4a80c8371ea689b992d06e510f5456a924e81d75de3a1f84a913"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-fire-barrel.json",
+  "anchor_px": [
+    180.5,
+    328
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-fire-barrel",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      363,
+      724,
+      361,
+      328
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-fire-barrel.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

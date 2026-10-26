@@ -1,0 +1,16 @@
+"""Rebuild the corrected red-mat overhead pattern from its retained edit result."""
+from pathlib import Path
+import hashlib,json,struct,shutil
+import numpy as np
+from PIL import Image
+OUT=Path(__file__).resolve().parent;PACK=OUT.parents[1];OID='menu-concepts-safe-room-services--training-red-mat';raw_rel='reusable/views-additional/raw/training-red-mat-top-pattern-atlas.png';raw=PACK/raw_rel;im=Image.open(raw).convert('RGBA');a=np.asarray(im);mask=a[:,:,3]>=245;ys,xs=np.where(mask);bounds=[int(xs.min()),int(ys.min()),int(xs.max()+1),int(ys.max()+1)];crop=im.crop(bounds);local=np.asarray(crop).copy();local[:,:,3]=(local[:,:,3]>=245).astype('uint8')*255;crop=Image.fromarray(local,'RGBA');
+# Match accepted TOP width while preserving aspect ratio and shared [128,128] anchor.
+old_path=OUT/f'{OID}.top.png';old=Image.open(old_path).convert('RGBA');old_box=old.getchannel('A').getbbox();target_w=old_box[2]-old_box[0];scale=target_w/crop.width;nw=target_w;nh=round(crop.height*scale);crop=crop.resize((nw,nh),Image.Resampling.NEAREST);frame=Image.new('RGBA',(256,256));offset=(128-nw//2,128-nh//2);frame.alpha_composite(crop,offset)
+idxp=OUT/'set-index.json';idx=json.loads(idxp.read_text());assets={x['id']:x for x in idx['assets']};aid=f'{OID}.top';meta=assets[aid];dest=PACK/meta['image']['path'];oldbytes=dest.read_bytes();oldhash=hashlib.sha256(oldbytes).hexdigest();backup=OUT/'raw'/'callback-inputs';backup.mkdir(parents=True,exist_ok=True);bp=backup/f'{aid}.before-pattern-fix.png';
+if not bp.exists():shutil.copy2(dest,bp)
+frame.save(dest,optimize=True);meta['image']['sha256']=hashlib.sha256(dest.read_bytes()).hexdigest();meta['image']['rgba_sha256']=hashlib.sha256(struct.pack('>II',256,256)+frame.tobytes()).hexdigest();meta['provenance'].update({'source_atlas':raw_rel,'source_atlas_sha256':hashlib.sha256(raw.read_bytes()).hexdigest(),'generation_recipe':'reusable/views-additional/raw/training-red-mat-top-pattern.recipe.json','notes':'Inferred orthographic overhead view with source-matched red parallel stripe motif; hidden details remain inferred.','crop_bounds_px':{'alpha_threshold':245,'alpha_bounds_global':bounds,'resized_bounds_px':[nw,nh],'canvas_offset_px':list(offset),'uniform_scale':scale,'target_width_px':target_w}});(OUT/f'{aid}.json').write_text(json.dumps(meta,indent=2)+'\n')
+for i,x in enumerate(idx['assets']):
+ if x['id'] in assets:idx['assets'][i]=assets[x['id']]
+for g in idx['view_sets']:
+ if g['object_id']==OID:g['complete']=False;g['notes']='Red mat overhead pattern corrected; fresh independent source+six review required.';g['geometry_qa']={'status':'pending-review','views':['top'],'notes':'Pattern aligned to canonical red mat; top footprint aspect retained and source palette preserved.','atlas_self_inspected':True}
+idxp.write_text(json.dumps(idx,indent=2)+'\n');(OUT/'raw'/'training-red-mat-top-pattern.recipe.json').write_text(json.dumps({'raw_atlas':raw_rel,'view':'top','alpha_threshold':245,'crop_bounds_px':bounds,'target_width_px':target_w,'resized_bounds_px':[nw,nh],'canvas_offset_px':offset,'uniform_scale':scale,'input_sha256':oldhash},indent=2)+'\n');print(json.dumps({'old_sha256':oldhash,'new_sha256':meta['image']['sha256'],'bounds':bounds,'dimensions':[nw,nh],'scale':scale}))

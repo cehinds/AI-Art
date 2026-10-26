@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-cryomancer",
+  "label": "Cryomancer source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/cryomancer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "fb9499b8638fa5bb0ce825242b6301b49fc4db72eec5d07dc9fd4822c0b6086d",
+    "rgba_sha256": "8441aff4620872180dd6e1e879ab1d029d3cdec3772ca2e569b73db3f7e76d04"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--cryomancer",
+      "path": "reusable/native/legacy--cryomancer.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "8441aff4620872180dd6e1e879ab1d029d3cdec3772ca2e569b73db3f7e76d04",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 8128,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 8128,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

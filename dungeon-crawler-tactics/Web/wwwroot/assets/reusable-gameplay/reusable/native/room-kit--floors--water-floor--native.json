@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--floors--water-floor--native",
+  "name": "water-floor native source",
+  "kind": "sprite",
+  "category": "source-variant",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:water",
+    "role:object",
+    "room-kit",
+    "style:gameplay",
+    "terrain-atlas",
+    "water-floor"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--floors--water-floor--native.png",
+    "width": 347,
+    "height": 211,
+    "sha256": "e76db6c35e906ac282d411f71a498e3d0db22877d7bb535f980e6c6dfc6dd227",
+    "rgba_sha256": "f1ec686ab724dbf888a26c02e6d72a890326a66a659ca1aa10f85a135f575774"
+  },
+  "metadata_path": "reusable/native/room-kit--floors--water-floor--native.json",
+  "anchor_px": [
+    173.5,
+    211
+  ],
+  "view": "native-pose",
+  "object_id": "room-kit--floors--water-floor--native",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/source/terrain-atlas.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      733,
+      97,
+      347,
+      211
+    ],
+    "mask": null,
+    "notes": "Exact native source window; normalized companion is the canonical gameplay object."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "room-kit--floors--water-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:water",
+    "role:object",
+    "style:gameplay",
+    "water-floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "room-kit--floors--water-floor"
+  }
+}

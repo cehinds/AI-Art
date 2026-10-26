@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--walls--wall-nw",
+  "name": "wall nw",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:provider",
+    "room-kit",
+    "style:gameplay",
+    "surface:wall",
+    "wall-nw"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--walls--wall-nw.png",
+    "width": 80,
+    "height": 86,
+    "sha256": "32e9d810c57c9a41713cb0b1bdc01ab7916878df29a00b5f9595e13c7db4a99c",
+    "rgba_sha256": "156f6b74512a02040df4636e3954fb23a3419fb76f6c828594a8d86787dc1372"
+  },
+  "metadata_path": "reusable/native/room-kit--walls--wall-nw.json",
+  "anchor_px": [
+    40.0,
+    86
+  ],
+  "view": "source",
+  "object_id": "room-kit--walls--wall-nw",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/walls/wall-nw.png",
+    "source_sha256": "0167f990ea5d68e41132e56035f4b8c6a1f01fc48ea36524e9da9a691e85e9c9",
+    "source_rect": [
+      0,
+      0,
+      80,
+      86
+    ],
+    "mask": null,
+    "notes": "Lossless native-pixel extraction."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-nw.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "front",
+        "right",
+        "left",
+        "rear",
+        "top",
+        "bottom"
+      ],
+      "notes": "NW wall changed from duplicate long-X to long-Y; source-plus-six review pending.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

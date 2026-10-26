@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--alchemist",
+  "name": "alchemist",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "alchemist",
+    "alchemist.png",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--alchemist.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "4f0d703d207a63ae154e22d584a9af831655f57816d9a53ae7374f6b32bea230",
+    "rgba_sha256": "ed584058225477a833caccfda34f6897037a2d236c2fe571d5fd2f35b18c1bab"
+  },
+  "metadata_path": "reusable/native/legacy--alchemist.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--alchemist",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/alchemist.png",
+    "source_sha256": "85aee5d090b0a49f30c3471d57f00e6ecdaae122db226a5db137cb81fac681dd",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--alchemist.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--alchemist",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--props--stairs",
+  "name": "stairs",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:provider",
+    "room-kit",
+    "stairs",
+    "style:gameplay",
+    "surface:stairs"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--props--stairs.png",
+    "width": 100,
+    "height": 98,
+    "sha256": "7864f1cb2a7e0e1a6118ec3bf390a82bf466d6090d21bc5ddaaa388bb2a58e03",
+    "rgba_sha256": "e3bf25b1d00946679b1fbc0326602fbd880f304344be3dafa0c48915b334aea8"
+  },
+  "metadata_path": "reusable/native/room-kit--props--stairs.json",
+  "anchor_px": [
+    50.0,
+    98
+  ],
+  "view": "source",
+  "object_id": "room-kit--props--stairs",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/props/stairs.png",
+    "source_sha256": "5c4b1f0296dd7fa62e68c243b561b7e8ae4e5fd8cfe08574af18a2e1051be4cd",
+    "source_rect": [
+      0,
+      0,
+      100,
+      98
+    ],
+    "mask": null,
+    "notes": "Lossless native-pixel extraction."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "room-kit--props--stairs.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "rear"
+      ],
+      "notes": "Rear stair correction generated and locally inspected; awaiting independent review.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:stairs"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

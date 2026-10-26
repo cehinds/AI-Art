@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--cleric",
+  "name": "cleric",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "cleric",
+    "cleric.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--cleric.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "dad9f1913d1f539c99c8a0c0032c2d846c0c271b8e5449cc2e5230299536e8cd",
+    "rgba_sha256": "b43cf2394f4cdc04713f36df16412a6724232f431aa5818eb99a06603c320b50"
+  },
+  "metadata_path": "reusable/native/legacy--cleric.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--cleric",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/cleric.png",
+    "source_sha256": "c784054e8b602c7a6c61f86a2f14e376a79390c6231b18986e71b8c17c5239c3",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--cleric.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--cleric",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--boss",
+  "name": "boss",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "boss",
+    "boss.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--boss.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a36474e3aadbfca78f3cee0467bc9548898c2a998fef0176988b8bf791a263cc",
+    "rgba_sha256": "9547e7eeca21e3b144456c3e061ee103bb16d5edc5b85e3b461ef7566acc3f57"
+  },
+  "metadata_path": "reusable/native/legacy--boss.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--boss",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/boss.png",
+    "source_sha256": "3ed7dd05ea6d300f60472b3972bbaf6fd7fdaa24ee7b987daef1f4907a58e1a1",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--boss",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

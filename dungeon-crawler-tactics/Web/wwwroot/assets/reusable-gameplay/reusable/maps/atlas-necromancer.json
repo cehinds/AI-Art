@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-necromancer",
+  "label": "Necromancer source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/necromancer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "18e1fe7bbf014f15c8ce733fec30b9282c1f6529dd924809bef7f33c71bb6194",
+    "rgba_sha256": "c281257caa7193e9eb16d1a52c9b23a072bf4f94ebaa9138ccf9c0cec95e1955"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--necromancer",
+      "path": "reusable/native/legacy--necromancer.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "c281257caa7193e9eb16d1a52c9b23a072bf4f94ebaa9138ccf9c0cec95e1955",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 8080,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 8080,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

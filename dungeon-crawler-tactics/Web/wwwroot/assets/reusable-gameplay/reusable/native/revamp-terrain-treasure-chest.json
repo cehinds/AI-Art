@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-treasure-chest",
+  "name": "Treasure chest",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-treasure-chest.png",
+    "width": 315,
+    "height": 340,
+    "sha256": "9c7f9fdcf4e0bc6f748a00050e442c3d2bae4c61209a0d3e51f52484cc807131",
+    "rgba_sha256": "4f59ee3c63f99833f3e37a59dd01bd3cae0f0b6fba42de4b1fec922d8246bc5f"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-treasure-chest.json",
+  "anchor_px": [
+    157.5,
+    340
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-treasure-chest",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      749,
+      724,
+      315,
+      340
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-treasure-chest.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

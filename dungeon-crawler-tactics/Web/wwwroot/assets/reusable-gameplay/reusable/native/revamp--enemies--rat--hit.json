@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp--enemies--rat--hit",
+  "name": "Rat Hit",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "actor",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/revamp--enemies--rat--hit.png",
+    "width": 322,
+    "height": 236,
+    "sha256": "e47de947658e6dd98d6d403e51897a13193f682e25fbb1d5f3f0ee20f310fa01",
+    "rgba_sha256": "7683e9d482835ba810be34f9657fc9a9424478d98804e530148f9fdb43de9451"
+  },
+  "metadata_path": "reusable/native/revamp--enemies--rat--hit.json",
+  "anchor_px": [
+    161.0,
+    236
+  ],
+  "view": "source",
+  "object_id": "revamp--enemies--rat--hit",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/enemies.png",
+    "source_sha256": "90e2123790f0c019bf9a0fc8d8ed4472068823c56f06dddc0cd583ed0f92b6b9",
+    "source_rect": [
+      1086,
+      112,
+      322,
+      236
+    ],
+    "mask": null,
+    "notes": "Exact native bounds from authored runtime frame manifest; transparent source RGBA retained, including poses spanning nominal grid cells."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--rat--hit.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Camera columns remapped to principal directions and hit FRONT corrected; all six directions require fresh independent review.",
+      "atlas_self_inspected": true
+    }
+  },
+  "canonical_asset_id": "revamp--enemies--rat--hit",
+  "pose": "hit",
+  "character_id": "revamp--enemies--rat",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-crate",
+  "name": "Crate",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-crate.png",
+    "width": 303,
+    "height": 362,
+    "sha256": "298060f4a738250620f6d79dc07da132f4b519e0046b2337e54b04b29e31b32f",
+    "rgba_sha256": "6205a75e9cc977772fa67337a380270e7cb3dc0525a6298240abe1a2b63db991"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-crate.json",
+  "anchor_px": [
+    151.5,
+    362
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-crate",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      59,
+      724,
+      303,
+      362
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-crate.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

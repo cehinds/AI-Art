@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--bard",
+  "name": "bard",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "bard",
+    "bard.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--bard.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "99eafc7bc2430d71220ffb432787971a59db41b21f0805b529bbd010ce062aa8",
+    "rgba_sha256": "39939c8fb8dbc7d7688910ace016d08cb8e0e8a064f39dac1060edbeab0a0c4c"
+  },
+  "metadata_path": "reusable/native/legacy--bard.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--bard",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bard.png",
+    "source_sha256": "26efc4e2c411042b8525d3fabca649096e792383568790d457f88a5d6be944c6",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--bard.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--bard",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

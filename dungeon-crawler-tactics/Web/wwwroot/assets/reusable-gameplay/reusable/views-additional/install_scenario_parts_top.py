@@ -1,0 +1,19 @@
+"""Install one upper-disc orthographic plan for the vertically stacked rack."""
+from pathlib import Path
+import hashlib,json,struct
+import numpy as np
+from PIL import Image
+from scipy import ndimage
+HERE=Path(__file__).resolve().parent;PACK=HERE.parents[1];INDEX=HERE/'set-index.json';OID='scenario-props--parts';ATLAS_REL='reusable/views-additional/raw/scenario-parts-single-disc-top-atlas-v3.png';REQ='exec-ced8c03b-10d8-45c2-9507-d1dcd6e717f7';TH=245
+def sha(b):return hashlib.sha256(b).hexdigest()
+def file_sha(p):return sha(p.read_bytes())
+def rgba(im):return sha(struct.pack('>II',*im.size)+im.convert('RGBA').tobytes())
+idx=json.loads(INDEX.read_text());assets={a['id']:a for a in idx['assets']};top=Image.open(PACK/assets[f'{OID}.top']['image']['path']).convert('RGBA').getchannel('A').getbbox();target_x=top[2]-top[0]
+atlasp=PACK/ATLAS_REL;atlas=Image.open(atlasp).convert('RGBA');a=np.asarray(atlas);labels,_=ndimage.label(a[:,:,3]>=TH,np.ones((3,3),dtype=np.uint8));counts=np.bincount(labels.ravel());counts[0]=0;lab=int(counts.argmax());ys,xs=np.where(labels==lab);bounds=[int(xs.min()),int(ys.min()),int(xs.max()+1),int(ys.max()+1)];mask=labels[bounds[1]:bounds[3],bounds[0]:bounds[2]]==lab;piece=atlas.crop(tuple(bounds));piece.putalpha(Image.fromarray((mask*255).astype(np.uint8)));scale=target_x/piece.width;size=(target_x,max(1,round(piece.height*scale)));piece=piece.resize(size,Image.Resampling.NEAREST)
+crop_rel='reusable/views-additional/raw/scenario-parts-single-disc-top-projection.png';crop=PACK/crop_rel;piece.save(crop,optimize=True);offset=(128-size[0]//2,128-size[1]//2);frame=Image.new('RGBA',(256,256));frame.alpha_composite(piece,offset)
+aid=f'{OID}.top';meta=json.loads((PACK/assets[aid]['metadata_path']).read_text());out=PACK/meta['image']['path'];frame.save(out,optimize=True);recipe_rel='reusable/views-additional/raw/scenario-parts-single-disc-top.recipe.json';note='Generated orthographic TOP projection of the source rack. Its two discs are stacked vertically at the same plan position, so the upper dark iron disc occludes the lower disc; the pair of rails remains in the surrounding footprint. Inferred hidden construction is not recovered pixels.'
+meta['image']['sha256']=file_sha(out);meta['image']['rgba_sha256']=rgba(frame);p=meta['provenance'];p.update({'method':'generated','source_image':'reusable/native/scenario-props--parts.png','source_atlas':ATLAS_REL,'source_atlas_sha256':file_sha(atlasp),'generation_request_id':REQ,'generation_recipe':recipe_rel,'source_crop_path':crop_rel,'source_crop_sha256':file_sha(crop),'crop_bounds_px':{'selection_mode':'global_alpha_component','alpha_threshold':TH,'global_component_label':lab,'alpha_bounds_global':bounds,'uniform_scale':scale,'resized_bounds_px':list(size),'canvas_offset_px':list(offset),'anchor_px':[128,128]},'notes':note})
+recipe={'operation':'extract-global-alpha-component-and-uniform-fit','request_id':REQ,'input_atlas':ATLAS_REL,'input_sha256':file_sha(atlasp),'alpha_threshold':TH,'global_component_label':lab,'component_bounds_px':bounds,'uniform_scale':scale,'target_width_from_existing_top_px':target_x,'resized_bounds_px':list(size),'canvas_offset_px':list(offset),'anchor_px':[128,128],'output_crop':crop_rel,'output_id':aid,'notes':note};(PACK/recipe_rel).write_text(json.dumps(recipe,indent=2)+'\n');(PACK/meta['metadata_path']).write_text(json.dumps(meta,indent=2)+'\n');assets[aid]=meta
+for g in idx['view_sets']:
+ if g['object_id']==OID:g['complete']=False;g['geometry_qa']={'status':'pending-review','views':['top'],'atlas_self_inspected':True,'notes':'Single aligned upper-disc plan awaits independent source+six review.'};g['notes']='Targeted TOP correction; other five projections preserved.'
+idx['assets']=[assets[a['id']] for a in idx['assets']];INDEX.write_text(json.dumps(idx,indent=2)+'\n');print(json.dumps({'target_x':target_x,'bounds':bounds,'size':size,'scale':scale,'sha256':meta['image']['sha256']},indent=2))

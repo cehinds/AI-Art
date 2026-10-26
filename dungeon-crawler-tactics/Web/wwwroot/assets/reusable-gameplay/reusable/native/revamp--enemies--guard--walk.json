@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp--enemies--guard--walk",
+  "name": "Guard Walk",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "actor",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/revamp--enemies--guard--walk.png",
+    "width": 220,
+    "height": 237,
+    "sha256": "7f2e0e4371d7d33ec745166da9347b62b825a97943dbecc37aecd80b5395cf65",
+    "rgba_sha256": "a9197b263b74fb9ff429245c3a851478b83e6f5546cb5a54ddbc960709b0c690"
+  },
+  "metadata_path": "reusable/native/revamp--enemies--guard--walk.json",
+  "anchor_px": [
+    110.0,
+    237
+  ],
+  "view": "source",
+  "object_id": "revamp--enemies--guard--walk",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/enemies.png",
+    "source_sha256": "90e2123790f0c019bf9a0fc8d8ed4472068823c56f06dddc0cd583ed0f92b6b9",
+    "source_rect": [
+      427,
+      432,
+      220,
+      237
+    ],
+    "mask": null,
+    "notes": "Exact native bounds from authored runtime frame manifest; transparent source RGBA retained, including poses spanning nominal grid cells."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp--enemies--guard--walk.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "canonical_asset_id": "revamp--enemies--guard--walk",
+  "pose": "walk",
+  "character_id": "revamp--enemies--guard",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

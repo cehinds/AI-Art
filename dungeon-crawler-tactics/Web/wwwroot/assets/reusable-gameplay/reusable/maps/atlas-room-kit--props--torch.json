@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-room-kit--props--torch",
+  "label": "Room-Kit--Props--Torch source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/room-kit/props/torch.png",
+    "width": 36,
+    "height": 78,
+    "sha256": "851ce652c0872520c515a27eb21a7fefd19b636ec44fe2d60822213502b6c881",
+    "rgba_sha256": "0a1865c989f2441587b5f5e32ec87bc89329de95dfd05682e761212a98d44f1d"
+  },
+  "canvas": {
+    "width": 36,
+    "height": 78,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "residual-ec709f40517a40f85138",
+      "path": "reusable/residuals/ec709f40517a40f85138.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 0
+    },
+    {
+      "asset_id": "residual-76543609904bac581f26",
+      "path": "reusable/residuals/76543609904bac581f26.png",
+      "x": 0,
+      "y": 64,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 1
+    },
+    {
+      "asset_id": "room-kit--props--torch",
+      "path": "reusable/native/room-kit--props--torch.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 2
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "0a1865c989f2441587b5f5e32ec87bc89329de95dfd05682e761212a98d44f1d",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 2,
+    "semantic_visible_pixel_count": 1149,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 1149,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

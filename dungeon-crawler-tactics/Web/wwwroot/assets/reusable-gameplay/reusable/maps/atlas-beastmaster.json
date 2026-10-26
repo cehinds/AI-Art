@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-beastmaster",
+  "label": "Beastmaster source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/beastmaster.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "13d6256e85667d1c24968ce06483aee380bcf0fe34263ae4548caf94f8f5bd29",
+    "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--beastmaster",
+      "path": "reusable/native/legacy--beastmaster.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 7760,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 7760,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

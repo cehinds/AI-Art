@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--walls--wall-ne--native",
+  "name": "wall-ne native source",
+  "kind": "sprite",
+  "category": "source-variant",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:provider",
+    "room-kit",
+    "structural-atlas",
+    "style:gameplay",
+    "surface:wall",
+    "wall-ne"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--walls--wall-ne--native.png",
+    "width": 260,
+    "height": 281,
+    "sha256": "27823342584d584b0a4829365c17cccf967e202baa53b5e2b437fc68bd27b40c",
+    "rgba_sha256": "2091242522db7798d7dca625fe37166748871e1b350d8afcf0a0c91de0e4ccfc"
+  },
+  "metadata_path": "reusable/native/room-kit--walls--wall-ne--native.json",
+  "anchor_px": [
+    130.0,
+    281
+  ],
+  "view": "native-pose",
+  "object_id": "room-kit--walls--wall-ne--native",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/source/structural-atlas.png",
+    "source_sha256": "dcf4622cc960e80aac66b4d372a13f5009747c5299c3d942ade16107ba3b3f5a",
+    "source_rect": [
+      94,
+      5,
+      260,
+      281
+    ],
+    "mask": null,
+    "notes": "Exact native source window; normalized companion is the canonical gameplay object."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "room-kit--walls--wall-ne",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall",
+    "wall-ne"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "room-kit--walls--wall-ne"
+  }
+}

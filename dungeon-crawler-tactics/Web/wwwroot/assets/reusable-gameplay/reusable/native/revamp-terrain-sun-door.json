@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-sun-door",
+  "name": "Sun door",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:doorway",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-sun-door.png",
+    "width": 324,
+    "height": 346,
+    "sha256": "3ad85618300ac90dce263e6b033601bb102add51e538f9478ce0ea07ed572504",
+    "rgba_sha256": "8c3fca51d3a04a76a7f4d58ccbeb2ba897b81acdafd06d59aa682c66f2d44617"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-sun-door.json",
+  "anchor_px": [
+    162.0,
+    346
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-sun-door",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      1097,
+      724,
+      324,
+      346
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:doorway"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

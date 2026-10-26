@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--brawler",
+  "name": "brawler",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "brawler",
+    "brawler.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--brawler.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "46bf71764f0de6a97d3f5289d4a01032f748e56d0632472a6a19e781094f07f4",
+    "rgba_sha256": "b73b5ca98619884f236df75fbf6eab14b83da8cd61a3e7dd7b5f377d27234814"
+  },
+  "metadata_path": "reusable/native/legacy--brawler.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--brawler",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/brawler.png",
+    "source_sha256": "87ea970feb276a86992dfc3ab97b521bfcdaaf23dab70c55c90d78ec0c385a9c",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--brawler.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--brawler",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

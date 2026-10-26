@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-wall-corner",
+  "name": "Wall corner",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-wall-corner.png",
+    "width": 362,
+    "height": 362,
+    "sha256": "03742a666e36ff6e04b3aa37b87b1cdc4384062bec1025a998f48f5823e47a20",
+    "rgba_sha256": "140e9c693f72ca8cede0620642f6de50052f81c3ffeeb7c60fb8b09f3eaf9283"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-wall-corner.json",
+  "anchor_px": [
+    181.0,
+    362
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-wall-corner",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      0,
+      362,
+      362,
+      362
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

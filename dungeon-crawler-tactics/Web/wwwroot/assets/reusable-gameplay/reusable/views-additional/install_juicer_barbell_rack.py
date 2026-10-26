@@ -1,0 +1,25 @@
+"""Install a one-barbell, two-support six-view assembly from a retained atlas."""
+from pathlib import Path
+import hashlib,json,struct
+from PIL import Image
+import numpy as np
+from scipy import ndimage
+HERE=Path(__file__).resolve().parent;PACK=HERE.parents[1];INDEX=HERE/'set-index.json';RAW=HERE/'raw'
+OBJECT='concepts-boss-juicer-concept-barbell-rack';ATLAS_REL='reusable/views-additional/raw/juicer-single-barbell-rack-atlas.png';ATLAS=PACK/ATLAS_REL;REF_PATH=Path('/tmp/juicer-rack-source-context.png');REF_REL='reusable/views-additional/raw/juicer-rack-source-context-reference.png';REQUEST='exec-005409ba-04b1-42e9-85cc-83a66ec60090';VIEWS=('front','top','right','left','bottom','rear');THRESHOLD=245
+
+def sha(b):return hashlib.sha256(b).hexdigest()
+def rgba(im):return sha(struct.pack('>II',im.width,im.height)+im.convert('RGBA').tobytes())
+idx=json.loads(INDEX.read_text());assets={a['id']:a for a in idx['assets']};atlas=Image.open(ATLAS).convert('RGBA');arr=np.asarray(atlas);H,W=arr.shape[:2];assert (W,H)==(2172,724);labs,n=ndimage.label(arr[:,:,3]>=THRESHOLD,np.ones((3,3),dtype=np.uint8));front_x0=0;front_x1=round(W/6);local=labs[:,front_x0:front_x1];cnt=np.bincount(local.ravel());cnt[0]=0;ll=int(cnt.argmax());ys,xs=np.where(local==ll);front_h=int(ys.max()-ys.min()+1);front_w=int(xs.max()-xs.min()+1);scale=191/front_w
+REF_REL_PATH=PACK/REF_REL;REF_REL_PATH.write_bytes(REF_PATH.read_bytes());ref_sha=sha(REF_PATH.read_bytes());summary={}
+for col,view in enumerate(VIEWS):
+ x0=round(col*W/6);x1=round((col+1)*W/6);region=labs[:,x0:x1];cnt=np.bincount(region.ravel());cnt[0]=0;local_label=int(cnt.argmax());ys0,xs0=np.where(region==local_label);sx=int(xs0[len(xs0)//2]+x0);sy=int(ys0[len(ys0)//2]);label=int(labs[sy,sx]);ys,xs=np.where(labs==label);bounds=[int(xs.min()),int(ys.min()),int(xs.max()+1),int(ys.max()+1)];mask=labs[bounds[1]:bounds[3],bounds[0]:bounds[2]]==label
+ piece=atlas.crop(tuple(bounds));piece.putalpha(Image.fromarray((mask*255).astype('uint8')));w=max(1,round(piece.width*scale));h=max(1,round(piece.height*scale));piece=piece.resize((w,h),Image.Resampling.NEAREST);offset=(128-w//2,128-h//2);frame=Image.new('RGBA',(256,256));frame.alpha_composite(piece,offset)
+ aid=f'{OBJECT}.{view}';meta=json.loads((PACK/assets[aid]['metadata_path']).read_text());out=PACK/meta['image']['path'];frame.save(out,optimize=True);encoded=out.read_bytes();meta['image']['sha256']=sha(encoded);meta['image']['rgba_sha256']=rgba(frame);meta['name']=f'Single Loaded Barbell Stand {view.title()}'
+ native='reusable/native/'+OBJECT+'.png';native_sha=sha((PACK/native).read_bytes());crop_rel=f'reusable/views-additional/raw/juicer-barbell-{view}-component.png';crop=PACK/crop_rel;piece.save(crop,optimize=True);recipe_rel=f'reusable/views-additional/raw/juicer-barbell-{view}.recipe.json'
+ notes=f'Inferred orthographic {view} of the canonical single loaded barbell on one low rectangular base with exactly two short support posts. One bar only; no second tier. Hidden construction is illustrative, not recovered pixels.'
+ pr=meta['provenance'];pr.update({'method':'generated','source_image':native,'native_front':native,'native_front_sha256':native_sha,'reference_source_image':REF_REL,'reference_source_sha256':ref_sha,'source_atlas':ATLAS_REL,'source_atlas_sha256':sha(ATLAS.read_bytes()),'generation_recipe':recipe_rel,'source_crop_path':crop_rel,'source_crop_sha256':sha(crop.read_bytes()),'notes':notes,'crop_bounds_px':{'selection_mode':'largest_component_alpha_ge_245','nominal_cell':{'column':col,'row':0,'bounds':[x0,0,x1,H]},'alpha_bounds_global':bounds,'component_labels':[label],'resized_bounds_px':[w,h],'canvas_offset_px':list(offset),'shared_scale':scale,'anchor_px':[128,128]}})
+ recipe={'operation':'largest-global-component-per-view-cell-uniform-nearest-fit','request_id':REQUEST,'input_atlas':ATLAS_REL,'input_sha256':sha(ATLAS.read_bytes()),'alpha_threshold':THRESHOLD,'view':view,'nominal_cell':[x0,0,x1,H],'global_component_label':label,'component_bounds_px':bounds,'common_scale':scale,'target_size_px':[w,h],'canvas_offset_px':list(offset),'anchor_px':[128,128],'reference_source_image':REF_REL,'reference_source_sha256':ref_sha,'output_crop':crop_rel,'output_id':aid,'notes':notes}
+ (PACK/recipe_rel).write_text(json.dumps(recipe,indent=2)+'\n');(PACK/meta['metadata_path']).write_text(json.dumps(meta,indent=2)+'\n');assets[aid]=meta;summary[view]={'bounds':bounds,'size':[w,h],'bbox':frame.getchannel('A').getbbox(),'sha256':meta['image']['sha256']}
+for g in idx['view_sets']:
+ if g['object_id']==OBJECT:g['complete']=False;g['geometry_qa']={'status':'pending-review','views':list(VIEWS),'notes':'Single-barbell identity and low two-post support assembly regenerated; awaiting independent review.','atlas_self_inspected':True};g['notes']='Source-faithful single-loaded-barbell assembly awaits review.'
+idx['assets']=[assets[a['id']] for a in idx['assets']];INDEX.write_text(json.dumps(idx,indent=2)+'\n');print(json.dumps({'object_id':OBJECT,'common_scale':scale,'source_context_sha256':ref_sha,'views':summary},indent=2))

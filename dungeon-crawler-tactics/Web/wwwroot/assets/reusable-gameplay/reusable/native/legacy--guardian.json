@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--guardian",
+  "name": "guardian",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "guardian",
+    "guardian.png",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--guardian.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "79a9bf70adc6f0951354a35b668925a2adcba8d540fb92b2cd8392007407e88b",
+    "rgba_sha256": "b5fda88efd5a7c200c68802b9cd388a2520eef2a4b4346b45f219989adbf5dd1"
+  },
+  "metadata_path": "reusable/native/legacy--guardian.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--guardian",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/guardian.png",
+    "source_sha256": "5b0ac268fcd389507b257cc66b9af18e55a95cd524a285bd47c85fc7112975b4",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--guardian.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--guardian",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

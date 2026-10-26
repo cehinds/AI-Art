@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "concepts-tile-authoring-wall-northwest-palette-tile",
+  "name": "Wall northwest palette tile",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/concepts-tile-authoring-wall-northwest-palette-tile.png",
+    "width": 98,
+    "height": 91,
+    "sha256": "f3da4a9e5a6fff92b5fecb8bc4939fcbdcb20ca153747a53abd63fc575222299",
+    "rgba_sha256": "9594eb4d0174cb48121bbe9b96aa23a73d6f77e996218dbc853f9bde750948e5"
+  },
+  "metadata_path": "reusable/native/concepts-tile-authoring-wall-northwest-palette-tile.json",
+  "anchor_px": [
+    49.0,
+    91
+  ],
+  "view": "source",
+  "object_id": "concepts-tile-authoring-wall-northwest-palette-tile",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/concepts/tile-authoring.png",
+    "source_sha256": "b67d93f26a736f09c30de7254b1b86e2ca7be853eb3cca20f6382c833d4b2907",
+    "source_rect": [
+      259,
+      143,
+      98,
+      91
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect or non-physical source region; no independent physical principal views."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

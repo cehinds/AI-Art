@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "house-donut--floor-shell",
+  "name": "Wood floor and stone plinth context",
+  "kind": "reconstruction_patch",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "donut",
+    "environment:unspecified",
+    "gameplay",
+    "house",
+    "material:stone",
+    "material:wood",
+    "native-source-crop",
+    "physical-reference",
+    "role:reconstruction",
+    "service-room",
+    "structure",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/house-donut--floor-shell.png",
+    "width": 364,
+    "height": 226,
+    "sha256": "399f219726ee62e9d9778397ba812c57fe37575b5d2ff77f4d4c5f8220c771c0",
+    "rgba_sha256": "1e07b75bb40a87f035d6e72cc06844c54f5ddfb494e44dc3948dd98d2634523c"
+  },
+  "metadata_path": "reusable/native/house-donut--floor-shell.json",
+  "anchor_px": [
+    182.0,
+    226
+  ],
+  "view": "source",
+  "object_id": "house-bedroom--floor-shell",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/house/donut.png",
+    "source_sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab",
+    "source_rect": [
+      12,
+      166,
+      364,
+      226
+    ],
+    "mask": null,
+    "notes": "Partially occluded structural reference, NOT a clean empty wall/floor crop. Preserve foreground occluders in native evidence; infer clean geometry only with explicit metadata. Shared house-shell family is a proposal, not an existing exact asset. Reuse ONE shared floor and ONE shared wall design, not 24 separate clean shells. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "house-bedroom--floor-shell.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Six inferred orthographic views generated from canonical house crop; independent source-plus-six geometry review pending.",
+      "atlas_self_inspected": true
+    }
+  },
+  "canonical_asset_id": "house-bedroom--floor-shell",
+  "association": {
+    "object_id": "house-bedroom--floor-shell",
+    "physical": true,
+    "decision": "shared-inferred-design",
+    "reason": "Partially occluded structural reference, NOT a clean empty wall/floor crop. Preserve foreground occluders in native evidence; infer clean geometry only with explicit metadata. Shared house-shell family is a proposal, not an existing exact asset. Reuse ONE shared floor and ONE shared wall design, not 24 separate clean shells. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+    "source": {
+      "path": "house/donut.png",
+      "rect": [
+        12,
+        166,
+        364,
+        226
+      ],
+      "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+    },
+    "category": "structure",
+    "review_status": "source-decomposition-reviewed",
+    "canonical_state": null,
+    "interpretation_confidence": "reviewed",
+    "shared_design": {
+      "id": "house-shared-floor",
+      "label": "House menu wooden floor and stone plinth",
+      "primary_occurrence": "house-bedroom--floor-shell",
+      "physical": true,
+      "new_canonical_required": true,
+      "notes": "One common square art-floor/plinth design across eight menu illustrations. Not collision/walkability data. Baked lights/occluders remain per-source context."
+    },
+    "occurrence_orientation": "floor: horizontal square plane",
+    "orientation_relative_to_canonical_deg": 0,
+    "orientation_note": "Physical design orientation only; the lossless native source crop stays unrotated in its reconstruction map."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:stone",
+    "material:wood",
+    "role:reconstruction",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

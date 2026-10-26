@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-directional--louis-portrait",
+  "label": "Directional--Louis-Portrait source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/directional/louis-portrait.png",
+    "width": 128,
+    "height": 144,
+    "sha256": "c77c8e6201987b82955392354151b6b94f38db18b618c9fc1f13ebc2ff1be1ba",
+    "rgba_sha256": "21c1f579736e77d03313b9c43ca972181c6a8f9a2a27cdf385d0d1ab81896a09"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 144,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "residual-fa99e38250f9f7ac4531",
+      "path": "reusable/residuals/fa99e38250f9f7ac4531.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 0
+    },
+    {
+      "asset_id": "residual-42296379379c6f5540b2",
+      "path": "reusable/residuals/42296379379c6f5540b2.png",
+      "x": 64,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 1
+    },
+    {
+      "asset_id": "residual-14a8712ce62a32ccbde6",
+      "path": "reusable/residuals/14a8712ce62a32ccbde6.png",
+      "x": 0,
+      "y": 64,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 2
+    },
+    {
+      "asset_id": "residual-b75406c71ea9ab6aa155",
+      "path": "reusable/residuals/b75406c71ea9ab6aa155.png",
+      "x": 64,
+      "y": 64,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 3
+    },
+    {
+      "asset_id": "directional--louis-portrait",
+      "path": "reusable/native/directional--louis-portrait.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 4
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "21c1f579736e77d03313b9c43ca972181c6a8f9a2a27cdf385d0d1ab81896a09",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 4,
+    "semantic_visible_pixel_count": 3271,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 3271,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

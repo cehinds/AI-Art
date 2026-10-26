@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-moss-wall",
+  "name": "Moss wall",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:moss",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-moss-wall.png",
+    "width": 347,
+    "height": 362,
+    "sha256": "7fa045bbca22dd712b55b52d39c0cdd469a67e65302b5c520777d9d786bb8b92",
+    "rgba_sha256": "85f7997e5dad0f7faa6760a7cc20f4920f41dc098ef66ab3df6ba896ed43e136"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-moss-wall.json",
+  "anchor_px": [
+    173.5,
+    362
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-moss-wall",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      367,
+      362,
+      347,
+      362
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-moss-wall.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "independently-reviewed-pass",
+      "views": [
+        "front",
+        "top",
+        "right",
+        "left",
+        "bottom",
+        "rear"
+      ],
+      "notes": "Independent source-plus-six review passed exact current image hashes.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:moss",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

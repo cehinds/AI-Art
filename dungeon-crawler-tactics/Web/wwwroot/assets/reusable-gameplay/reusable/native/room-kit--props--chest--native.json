@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--props--chest--native",
+  "name": "chest native source",
+  "kind": "sprite",
+  "category": "source-variant",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "chest",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "room-kit",
+    "style:gameplay",
+    "terrain-atlas"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--props--chest--native.png",
+    "width": 234,
+    "height": 222,
+    "sha256": "e0833c3090ff70e56607ecba100c504e51fc3374983543bb2a6ccfc9e11fb46a",
+    "rgba_sha256": "8a66a98b67e19f36f40a5f4bdf2f313b829459b302cb4a971a62b858c6760587"
+  },
+  "metadata_path": "reusable/native/room-kit--props--chest--native.json",
+  "anchor_px": [
+    117.0,
+    222
+  ],
+  "view": "native-pose",
+  "object_id": "room-kit--props--chest--native",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/source/terrain-atlas.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      782,
+      822,
+      234,
+      222
+    ],
+    "mask": null,
+    "notes": "Exact native source window; normalized companion is the canonical gameplay object."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "room-kit--props--chest",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "chest",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "room-kit--props--chest"
+  }
+}

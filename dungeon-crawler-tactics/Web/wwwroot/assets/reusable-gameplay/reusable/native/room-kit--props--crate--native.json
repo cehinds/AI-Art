@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--props--crate--native",
+  "name": "crate native source",
+  "kind": "sprite",
+  "category": "source-variant",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "crate",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "room-kit",
+    "style:gameplay",
+    "terrain-atlas"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--props--crate--native.png",
+    "width": 224,
+    "height": 248,
+    "sha256": "bea4367126a26fdde731ddb0d5afd4cff4ef02022fa160ec32f29ec483ca8ce2",
+    "rgba_sha256": "a03b63928b10b6f79bee253c3a477c38504e7fea020bd2d189a6940cce08662c"
+  },
+  "metadata_path": "reusable/native/room-kit--props--crate--native.json",
+  "anchor_px": [
+    112.0,
+    248
+  ],
+  "view": "native-pose",
+  "object_id": "room-kit--props--crate--native",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/source/terrain-atlas.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      69,
+      794,
+      224,
+      248
+    ],
+    "mask": null,
+    "notes": "Exact native source window; normalized companion is the canonical gameplay object."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "room-kit--props--crate",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "crate",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "room-kit--props--crate"
+  }
+}

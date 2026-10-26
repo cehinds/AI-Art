@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--concept--stone-d",
+  "name": "stone d",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:stone",
+    "role:object",
+    "room-kit",
+    "stone-d",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--concept--stone-d.png",
+    "width": 132,
+    "height": 68,
+    "sha256": "5666e765caed3dc939f7259335c99521f375f422c23d383ae9599c59a5303506",
+    "rgba_sha256": "2d66e4bbd250c0c9723aae1cccf568ca7b4340690596a42be2b3716cc34b3e5e"
+  },
+  "metadata_path": "reusable/native/room-kit--concept--stone-d.json",
+  "anchor_px": [
+    66.0,
+    68
+  ],
+  "view": "source",
+  "object_id": "dungeon-stone--stone-d",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/concept/stone-d.png",
+    "source_sha256": "2ddbb32159865bd7551907541155ba44fcdf26caa5c29e031899fd1354110fed",
+    "source_rect": [
+      0,
+      0,
+      132,
+      68
+    ],
+    "mask": null,
+    "notes": "Lossless native-pixel extraction."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "dungeon-stone--stone-d.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "top",
+        "bottom"
+      ],
+      "atlas_self_inspected": true,
+      "notes": "Uniform XY plan calibration; awaiting independent review."
+    }
+  },
+  "canonical_asset_id": "dungeon-stone--stone-d",
+  "deduplication": {
+    "method": "exact-rgba",
+    "canonical_asset_id": "dungeon-stone--stone-d",
+    "reason": "Existing room-kit concept tile has identical dimensions and RGBA to the dungeon-stone tile. Reuse its physical views."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:stone",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

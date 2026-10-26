@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "room-kit--walls--wall-corner",
+  "name": "wall corner",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:provider",
+    "room-kit",
+    "style:gameplay",
+    "surface:wall",
+    "wall-corner"
+  ],
+  "image": {
+    "path": "reusable/native/room-kit--walls--wall-corner.png",
+    "width": 132,
+    "height": 103,
+    "sha256": "d854062be32344fb287ce1b2f5b0f49f3fcbec397e2aae0667c990db05b0d08b",
+    "rgba_sha256": "1c74823fdbe1f659905e7caab6243a43c0eb941f4290ab615a1d0d4b07f26fc5"
+  },
+  "metadata_path": "reusable/native/room-kit--walls--wall-corner.json",
+  "anchor_px": [
+    66.0,
+    103
+  ],
+  "view": "source",
+  "object_id": "room-kit--walls--wall-corner",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/room-kit/walls/wall-corner.png",
+    "source_sha256": "26f13d8fa952594c10984ac63dd9654c50732099e907c321c2cbefac2aa0ea46",
+    "source_rect": [
+      0,
+      0,
+      132,
+      103
+    ],
+    "mask": null,
+    "notes": "Lossless native-pixel extraction."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "room-kit--walls--wall-corner.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "pending-review",
+      "views": [
+        "top",
+        "bottom"
+      ],
+      "notes": "Isotropic plan scale calibrated against current-hash source review and accepted elevation span; awaiting fresh review.",
+      "atlas_self_inspected": true
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}
