@@ -1,0 +1,18 @@
+{
+  "raw_atlas": "reusable/views-additional/raw/world-pilot-strict-four-atlas.png",
+  "grid": {"columns": 6, "rows": 4},
+  "alpha_threshold": 245,
+  "min_component_ratio": 0.02,
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "transparent_background": true,
+    "prompt_file": "reusable/views-additional/raw/world-pilot-strict-four-atlas.generation.json",
+    "source_images": ["components/stone-floor.png", "components/water-floor.png", "components/wall-back.png", "components/wall-side.png"]
+  },
+  "objects": [
+    {"row": 0, "id": "stone-floor", "name": "Stone floor", "kind": "tile", "tags": ["terrain", "world"], "source_image": "components/stone-floor.png", "status": "accepted"},
+    {"row": 1, "id": "water-floor", "name": "Water floor", "kind": "tile", "tags": ["terrain", "world"], "source_image": "components/water-floor.png", "status": "accepted"},
+    {"row": 2, "id": "wall-back", "name": "Back wall", "kind": "sprite", "tags": ["structure", "world"], "source_image": "components/wall-back.png", "status": "accepted"},
+    {"row": 3, "id": "wall-side", "name": "Side wall", "kind": "sprite", "tags": ["structure", "world"], "source_image": "components/wall-side.png", "status": "rejected"}
+  ]
+}

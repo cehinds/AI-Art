@@ -3,25 +3,36 @@
   "name": "Heavy crossbow Rear",
   "kind": "arsenal",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "arsenal",
+    "attachment-tagged",
+    "attachment:screen",
+    "crossbow",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "heavy",
+    "material:unspecified",
     "orthographic",
-    "arsenal"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/arsenal-heavy-crossbow.rear.png",
     "width": 256,
     "height": 256,
-    "sha256": "8bb6bbbb4f21a27d06d72860f353b6a72dfd67f73c6c607e404d21eb63109c92",
-    "rgba_sha256": "48398bbb3dd0f50f7ef648c98afcf4ac52740926b4196fce915b493ccf8f284b"
+    "sha256": "2a83e74ca4161f63cd1c6ae09e8091c145255cbb60f2c1b57dc5777de73bbcd3",
+    "rgba_sha256": "fe9a6f47b7756761f7b53baa8d2993b7fd81b81698adba7b994263e92135510c"
   },
   "object_id": "arsenal-heavy-crossbow",
   "view": "rear",
   "provenance": {
     "method": "generated",
     "source_image": "components/arsenal-heavy-crossbow.png",
-    "generated_atlas": "reusable/views-equipment/raw/arsenal-heavycrossbow-sling-throwingknives.png",
-    "generated_atlas_sha256": "60cf4fcb582fe4645876b3699a4b9508f59cd22823a4f170de2c23d66c7f1c00",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/legacy-dynamite-crossbow-v1.png",
+    "generated_atlas_sha256": "d61e9eb6cd5715f0c8eb669fc855cacb8a432ba8ef1c4f0ab996728a338a1df8",
     "source_rect": {
       "cell": [
         1478,
@@ -45,23 +56,78 @@
       "discarded_tiny_islands": 0
     },
     "normalization": {
-      "scale": 0.7157894736842105,
-      "offset_px": [
-        30,
-        46
+      "alpha_threshold": 245,
+      "component_policy": "whole-atlas CC selected by row/column cell centroid; full component bounds retained",
+      "component_group": [
+        {
+          "label": 116,
+          "area": 20759,
+          "bbox": [
+            1829,
+            444,
+            2150,
+            606
+          ]
+        }
       ],
-      "resampling": "nearest",
-      "frame_size": [
+      "shared_scale": 0.58,
+      "render_size": [
+        186,
+        94
+      ],
+      "canvas": [
         256,
         256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
       ]
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Source-faithful inferred orthographic view for fantasy inventory sprite, not recovered pixels.",
+    "generation_request": "reusable/views-equipment/raw/targeted-repairs/legacy-dynamite-crossbow-v1.json",
+    "source_sha256": "80eee358441c44d25bc845377621e708790ac1d7951f74a20627a9057e8319d4"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/arsenal-heavy-crossbow.rear.json"
+  "metadata_path": "reusable/views-equipment/images/arsenal-heavy-crossbow.rear.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "crossbow",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "heavy",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "arsenal-heavy-crossbow"
+  },
+  "geometry_qa": {
+    "status": "pending-review",
+    "reason": "Targeted source-faithful orthographic correction installed; root current-hash review pending."
+  }
 }

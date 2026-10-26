@@ -6,12 +6,19 @@
   "kind": "tile",
   "category": "terrain",
   "tags": [
+    "attachment-tagged",
     "biomes",
+    "environment:dungeon",
     "existing",
     "floor",
     "ground",
+    "hazard:lava",
     "lava",
+    "material:lava",
     "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:lava",
     "terrain"
   ],
   "image": {
@@ -115,5 +122,31 @@
       "status": "generated",
       "asset_id": "lava-floor.rear"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:lava",
+    "material:lava",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:lava"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:lava"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
   }
 }

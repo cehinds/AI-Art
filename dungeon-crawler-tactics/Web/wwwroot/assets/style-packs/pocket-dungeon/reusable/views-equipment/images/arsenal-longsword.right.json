@@ -3,49 +3,52 @@
   "name": "Longsword Right",
   "kind": "arsenal",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "arsenal",
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "longsword",
+    "material:unspecified",
     "orthographic",
-    "arsenal"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/arsenal-longsword.right.png",
     "width": 256,
     "height": 256,
-    "sha256": "61292f950b7bbe30b9d39d99839e88b1cdd2a54a910118bd97b634f7cca82100",
-    "rgba_sha256": "fb96432af347a81579343ba64cfff3dbca85eabc687b7266241f9f0f1079234c"
+    "sha256": "d95e76936b3e407914f3c9e3691df10c4fa08d40f6b11d7444bf9d7409614532",
+    "rgba_sha256": "106fd7db0e1d3f20fb43adf923a912a05bb22043ae079840ffb03129830f6f8d"
   },
   "object_id": "arsenal-longsword",
   "view": "right",
   "provenance": {
     "method": "generated",
     "source_image": "components/arsenal-longsword.png",
-    "generated_atlas": "reusable/views-equipment/raw/arsenal-dagger-rapier-longsword.png",
-    "generated_atlas_sha256": "4ea37b7e988bfb8f9742fd55c325105da24aad50d707d79501c188b89c0ec1b5",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/arsenal-longsword.right.atlas.png",
+    "generated_atlas_sha256": "6c4545d769ba3161f93e800276a4ab4d34e46e517cab0cd8b6d2f2277b0a916f",
     "source_rect": {
-      "cell": [
-        591,
-        591,
-        296,
-        296
-      ],
       "alpha_bounds": [
-        741,
-        591,
-        60,
-        284
+        0,
+        0,
+        67,
+        244
       ],
-      "component_count": 1,
-      "component_areas": [
-        11631
+      "source_size": [
+        67,
+        244
       ],
-      "components_outside_cell": [],
-      "discarded_tiny_islands": 0
+      "source_cell": "col=2,row=1"
     },
     "normalization": {
-      "scale": 0.7183098591549296,
+      "scale": 0.8360655737704918,
       "offset_px": [
-        106,
+        100,
         26
       ],
       "resampling": "nearest",
@@ -55,11 +58,42 @@
       ]
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Targeted right orthographic projection from retained 6x3 generated atlas, extracted by full alpha component; accepted directions retained. Awaiting independent current-hash QA.",
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/arsenal-longsword.right.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/arsenal-longsword.right.json"
+  "metadata_path": "reusable/views-equipment/images/arsenal-longsword.right.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "longsword",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "arsenal-longsword"
+  }
 }

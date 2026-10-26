@@ -3,9 +3,20 @@
   "name": "Wood plank floor Right",
   "kind": "tile",
   "tags": [
-    "terrain",
+    "attachment-tagged",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "floor",
+    "ground",
+    "material:wood",
+    "pocket-dungeon",
     "right",
-    "expansion"
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "terrain",
+    "wood"
   ],
   "object_id": "wood-floor",
   "view": "right",
@@ -13,18 +24,18 @@
     "path": "reusable/views-core/wood-floor.right.png",
     "width": 256,
     "height": 256,
-    "sha256": "05b10cc96c46a1215561aad2038ba157b0a6db05c2a82368f46645308618d206",
-    "rgba_sha256": "6dab70b17527ecdae170ddc88794fc2a2343b6c58e65f1784346c5a29a009ee4"
+    "sha256": "3c9c1979b0cef2138bb46e6b411053a9efbff0074e3bb69d9cd76f0ff04d70a9",
+    "rgba_sha256": "f9349ef9639db1c37519d8c3fc817b066f348965143a5e8c015af7ce2baf81b5"
   },
   "metadata_path": "reusable/views-core/wood-floor.right.json",
   "anchor_px": [
     128,
-    128
+    248
   ],
   "provenance": {
     "method": "generated",
     "source_image": "components/wood-floor.png",
-    "notes": "inferred orthographic view, not recovered pixels",
+    "notes": "Replaced wrong elevation with continuous thin horizontal side of orange wood-plank tile; no added metal tray or bolts.",
     "source_atlas": "reusable/views-core/raw/world-expansion-wall-woodfloor-atlas.png",
     "source_atlas_sha256": "594f0004ca2cb4e8dd07102b17bb956711bfb0e0c2cecb5173504e5b0afc70b4",
     "crop_bounds_px": {
@@ -56,6 +67,72 @@
         86
       ],
       "shared_scale": 1.0
+    },
+    "generated_atlas": "reusable/views-core/raw/targeted-repairs/wood-floor.right.atlas.png",
+    "generated_atlas_sha256": "f66942eb000a36daf6b8ea6d5bb793e6467c64fca7f72f2a98f542ace9d74240",
+    "source_cell": "4x1 column mapped to right",
+    "repair_recipe": "reusable/views-core/raw/targeted-repairs/wood-floor.right.json",
+    "normalization": {
+      "source_alpha_bounds": [
+        0,
+        0,
+        490,
+        88
+      ],
+      "source_size": [
+        490,
+        88
+      ],
+      "alpha_threshold": 32,
+      "scale": 0.4163265306122449,
+      "render_size_px": [
+        204,
+        37
+      ],
+      "offset_px": [
+        26,
+        211
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "existing",
+    "floor",
+    "ground",
+    "material:wood",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "wood"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "wood-floor"
   }
 }

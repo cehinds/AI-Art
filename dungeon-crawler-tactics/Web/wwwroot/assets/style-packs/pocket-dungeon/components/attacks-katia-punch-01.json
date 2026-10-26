@@ -9,11 +9,17 @@
     "01",
     "actor",
     "actors",
+    "attachment-tagged",
+    "attachment:floor",
     "attacks",
+    "environment:dungeon",
     "existing",
     "katia",
+    "material:unspecified",
     "pocket-dungeon",
-    "punch"
+    "punch",
+    "role:object",
+    "style:pocket-dungeon"
   ],
   "image": {
     "path": "components/attacks-katia-punch-01.png",
@@ -120,5 +126,38 @@
       "status": "generated",
       "asset_id": "attacks-katia-punch-01.rear"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

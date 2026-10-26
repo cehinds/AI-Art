@@ -3,9 +3,16 @@
   "name": "Items Frame Outline",
   "kind": "ui_region",
   "tags": [
+    "attachment-tagged",
+    "attachment:screen",
     "combat",
+    "environment:unspecified",
+    "material:unspecified",
     "native-pixels",
+    "role:screen",
     "screen-space",
+    "style:pocket-dungeon",
+    "surface:screen",
     "transparent-extraction"
   ],
   "image": {
@@ -40,5 +47,33 @@
     "reason": "screen-space UI element"
   },
   "reusable": true,
-  "limitations": "Only retained source pixels are copied; removed background is transparent. No hidden pixels are invented."
+  "limitations": "Only retained source pixels are copied; removed background is transparent. No hidden pixels are invented.",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "surface:screen"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [
+      "surface:screen"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply."
+  }
 }

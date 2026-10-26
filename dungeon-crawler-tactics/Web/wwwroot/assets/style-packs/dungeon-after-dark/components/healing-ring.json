@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "healing-ring",
+  "name": "Healing ring",
+  "kind": "effect",
+  "category": "effect",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "effect",
+    "effects",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "healing",
+    "material:unspecified",
+    "ring",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "components/healing-ring.png",
+    "width": 256,
+    "height": 215,
+    "sha256": "6a5ecde0727f5a7af913527841f1938faf164265c558f833a9f0605a083fa534",
+    "rgba_sha256": "f8acf29f1c90aa2ef92b4306b0ae928b9055d494439d66ed02a44f73b7ad878f"
+  },
+  "metadata_path": "components/healing-ring.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/expansion.png",
+    "source_sha256": "95e954878f6ebfd0019c53448b658e3cbe13de8e248b2f524e3e474eec19866f",
+    "source_rect": [
+      1028,
+      772,
+      248,
+      207
+    ],
+    "extraction": {
+      "sheet": "expansion",
+      "cell": {
+        "column": 4,
+        "row": 3,
+        "index": 22
+      },
+      "bounds": {
+        "x": 1028,
+        "y": 772,
+        "width": 248,
+        "height": 207
+      },
+      "region": [
+        1026,
+        770,
+        1278,
+        981
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1157,
+            783
+          ],
+          [
+            1115,
+            774
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    128.0,
+    107.5
+  ],
+  "object_id": "healing-ring",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

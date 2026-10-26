@@ -3,63 +3,98 @@
   "name": "Dagger Bottom",
   "kind": "arsenal",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "arsenal",
+    "attachment-tagged",
+    "attachment:screen",
+    "dagger",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "material:unspecified",
     "orthographic",
-    "arsenal"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/arsenal-dagger.bottom.png",
     "width": 256,
     "height": 256,
-    "sha256": "74cfffaebac710df25d92cb6af769d90cc834bc7cb90c801e1d1d76ac96341a5",
-    "rgba_sha256": "8af9a2a50d08f1a94ad03a8a98696d0c75fc50d5cb80fd50bd5c60f670d16049"
+    "sha256": "61dfc86a284704280b75f34cf06c196346d19d8e34a1d8ce2c93a9db953ff6b2",
+    "rgba_sha256": "88f45ec801a3dc2bfdc685fc7c14d2f1271de5da4f3656ac6e8765055603641c"
   },
   "object_id": "arsenal-dagger",
   "view": "bottom",
   "provenance": {
     "method": "generated",
     "source_image": "components/arsenal-dagger.png",
-    "generated_atlas": "reusable/views-equipment/raw/arsenal-dagger-rapier-longsword.png",
-    "generated_atlas_sha256": "4ea37b7e988bfb8f9742fd55c325105da24aad50d707d79501c188b89c0ec1b5",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/arsenal-dagger.bottom.atlas.png",
+    "generated_atlas_sha256": "2965d22ce808b1aabb627ac799501d6e833ef93cd16268ae9445e84630e506c2",
     "source_rect": {
-      "cell": [
-        1183,
-        0,
-        295,
-        296
-      ],
       "alpha_bounds": [
-        1218,
-        42,
-        152,
-        217
+        0,
+        0,
+        256,
+        101
       ],
-      "component_count": 1,
-      "component_areas": [
-        15434
+      "source_size": [
+        256,
+        101
       ],
-      "components_outside_cell": [],
-      "discarded_tiny_islands": 0
+      "source_cell": "col=1,row=0"
     },
     "normalization": {
-      "scale": 0.7611940298507462,
+      "scale": 0.41796875,
       "offset_px": [
-        70,
-        45
+        74,
+        107
       ],
       "resampling": "nearest",
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "target_width_px": 107
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Uniformly scaled plan to match front guard/head width 107px; geometry/material preserved. Awaiting independent review.",
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/arsenal-dagger.bottom.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/arsenal-dagger.bottom.json"
+  "metadata_path": "reusable/views-equipment/images/arsenal-dagger.bottom.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "dagger",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "arsenal-dagger"
+  }
 }

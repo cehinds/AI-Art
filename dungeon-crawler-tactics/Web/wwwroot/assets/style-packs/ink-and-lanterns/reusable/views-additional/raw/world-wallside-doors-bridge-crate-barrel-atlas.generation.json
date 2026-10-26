@@ -1,0 +1,17 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "grid": {"columns": 6, "rows": 6},
+  "views": ["front", "top", "right", "left", "bottom", "rear"],
+  "objects": ["wall-side", "door-open", "door-closed", "bridge", "crate", "barrel"],
+  "source_images": [
+    "components/wall-side.png",
+    "components/door-open.png",
+    "components/door-closed.png",
+    "components/bridge.png",
+    "components/crate.png",
+    "components/barrel.png"
+  ],
+  "reference_contact_sheet": "six source component images in row-major order; see source_images",
+  "prompt": "Create a transparent production sprite atlas with EXACTLY 6 equal columns x 6 equal rows. The attached source contact sheet contains six objects in row-major order: top row wall-side, open arched doorway, closed arched doorway; bottom row wooden bridge, wooden crate, red metal barrel. Output atlas rows in that same exact order. Each row has six views, columns left to right: FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. All views are true axis-aligned orthographic projections. Absolutely no perspective, no isometric, no 3/4 view, no tilted camera. Elevations must have horizontal/vertical edges, without foreshortening. Each view has only its respective surface: top view is directly overhead, bottom is directly underneath. Row1 wall-side: front and rear show the full long wall face, not a narrow pillar; right/left show only the short wall end; top is a long rectangle. Row2 open doorway: front/rear are straight elevations of same rounded stone arch opening, no door. Row3 closed doorway: same arch geometry as row2 with closed wood leaf; front has iron ring handle, rear shows plain back of door with brace straps and NO ring handle. Row4 bridge: same plank bridge, front/rear are its narrow ends, right/left are its full long sides, top is planks overhead, bottom is supporting beams. Row5 crate: same cubic crossed-plank wood crate; front has X brace, rear has plain horizontal boards, sides have distinct bracing; top and bottom show their actual planks. Row6 upright red iron barrel with two hoops and pale flame emblem ONLY on front; rear plain red iron, side elevations plain curved cylinder, top overhead circular lid. Preserve object identity, dimensions and materials in all six views; infer unseen details conservatively. Match the source contact sheet's painted gouache and fine dark ink outline style. Center each isolated object with margin. No background, cast shadows, words, labels, dividers, overlap or cropping. Use high resolution and make all 36 views visibly distinct."
+}

@@ -3,17 +3,28 @@
   "name": "Charm bracelet Right",
   "kind": "sprite",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "attachment-tagged",
+    "attachment:screen",
+    "bracelet",
+    "charm",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "gear",
+    "material:unspecified",
     "orthographic",
-    "gear"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-gear-armor/images/gear-charm-bracelet.right.png",
     "width": 256,
     "height": 256,
-    "sha256": "91e0f09fe3f76594c1571ea5397224759c324dbeeb94a73cd7653b4ee9d800d5",
-    "rgba_sha256": "7ba48a3169a25d493ee86d40c3a80247e3f42c3cac040333e8d381e4d0994489"
+    "sha256": "2aa1515ade82a0068d260b44c85421a768bb453ca9207adf12236a495ccb4cd0",
+    "rgba_sha256": "81ee55559a75f1272a3203ea0c4e2ec1719409c08fef7941ae420c594ca56497"
   },
   "object_id": "gear-charm-bracelet",
   "view": "right",
@@ -21,39 +32,71 @@
     "method": "generated",
     "source_image": "components/gear-charm-bracelet.png",
     "source_sha256": "3c608bcf8e254794f6a7443ecf50b9968ed2c3107a1854e8ee2724f8f5e69f1b",
-    "generated_atlas": "reusable/views-gear-armor/raw/gear-gems-book.png",
-    "generated_atlas_sha256": "2a955f9c15378b3d9705d5aaca80e9239499b3de6eef95ee67db8f947de94f03",
+    "generated_atlas": "reusable/views-gear-armor/raw/targeted-repairs/gear-charm-bracelet.right.atlas.png",
+    "generated_atlas_sha256": "380e3e35937e7a12ae7cfbae9f2c5c92960163e8b130b96d88dfd6e0ee0864d6",
     "source_rect": {
-      "cell_px": [
-        512,
-        512,
-        768,
-        768
+      "alpha_bounds": [
+        0,
+        0,
+        233,
+        37
       ],
-      "alpha_component_bounds_atlas_px": [
-        572,
-        519,
-        715,
-        727
-      ]
+      "source_size": [
+        233,
+        37
+      ],
+      "source_cell": "col=2,row=0; object component assigned by full-atlas centroid and complete bbox"
     },
     "normalization": {
-      "scale": 0.7727272727272727,
+      "scale": 0.8755364806866953,
       "offset_px": [
-        73,
-        47
+        26,
+        112
       ],
       "resampling": "nearest",
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "target_width_px": null
     },
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Reconstructed as one coherent source-faithful lying-flat XY pose after earlier upright projections failed geometry QA. Previous six PNGs are retained under raw/targeted-repairs/gear-charm-bracelet-flat-basis-v2. Generated orthographic view, not recovered pixels.",
+    "repair_recipe": "reusable/views-gear-armor/raw/targeted-repairs/gear-charm-bracelet.right.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-gear-armor/images/gear-charm-bracelet.right.json"
+  "metadata_path": "reusable/views-gear-armor/images/gear-charm-bracelet.right.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "bracelet",
+    "charm",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-charm-bracelet"
+  }
 }

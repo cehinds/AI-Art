@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "wall-side",
+  "name": "Side wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "role:provider",
+    "side",
+    "structure",
+    "structures",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "wall",
+    "world"
+  ],
+  "image": {
+    "path": "components/wall-side.png",
+    "width": 177,
+    "height": 240,
+    "sha256": "055b998f4d3d6f3460cf52577be1e8f277a6c8b96d9857021f43fbb6171a233b",
+    "rgba_sha256": "2d70b70ddf863700191c121bb730274006d6c5fc9da482aae5908bf6753ba57c"
+  },
+  "metadata_path": "components/wall-side.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/world.png",
+    "source_sha256": "717ba76c24b76264dd4b93ddc2d2afa13547c6c7376e189af589f0e2ddabf872",
+    "source_rect": [
+      814,
+      30,
+      169,
+      232
+    ],
+    "extraction": {
+      "sheet": "world",
+      "cell": {
+        "column": 3,
+        "row": 0,
+        "index": 3
+      },
+      "bounds": {
+        "x": 814,
+        "y": 30,
+        "width": 169,
+        "height": 232
+      },
+      "region": [
+        814,
+        30,
+        983,
+        262
+      ]
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    88.5,
+    236
+  ],
+  "object_id": "wall-side",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "wall-side.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "wall-side.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "wall-side.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "wall-side.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "wall-side.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "wall-side.rear"
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

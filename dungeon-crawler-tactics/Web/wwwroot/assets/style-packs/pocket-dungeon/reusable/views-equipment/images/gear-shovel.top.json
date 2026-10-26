@@ -3,63 +3,98 @@
   "name": "Shovel Top",
   "kind": "gear",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "gear",
+    "material:unspecified",
     "orthographic",
-    "gear"
+    "pocket-dungeon",
+    "role:screen",
+    "shovel",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/gear-shovel.top.png",
     "width": 256,
     "height": 256,
-    "sha256": "32c8c20b3947e118d5285d72018805c5645b81792de0da6f537bf66209ca9b38",
-    "rgba_sha256": "266b4516306545e85e8523bbee9a28030c457ae4619190250a1dd8f87a78e331"
+    "sha256": "28bed8413edc38f57a99255942aac387530bda4e27848c0eba58d4c589d434ad",
+    "rgba_sha256": "56322446eaf82ece1effe30da5641395cf319c14a685a54e4f4ccb948d840ed6"
   },
   "object_id": "gear-shovel",
   "view": "top",
   "provenance": {
     "method": "generated",
     "source_image": "components/gear-shovel.png",
-    "generated_atlas": "reusable/views-equipment/raw/gear-second-tools.png",
-    "generated_atlas_sha256": "c6a2b848464ffacb0858a42bc3500d2bb2c464bcead5ea488a1915cbecf68750",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/gear-shovel.top.atlas.png",
+    "generated_atlas_sha256": "9a0c434f6425db3c7ac0c81ca3a0b2f6d9f8109d427020b46d086a741ef281d7",
     "source_rect": {
-      "cell": [
-        296,
-        0,
-        295,
-        296
-      ],
       "alpha_bounds": [
-        397,
-        93,
-        137,
-        189
+        0,
+        0,
+        358,
+        82
       ],
-      "component_count": 1,
-      "component_areas": [
-        19092
+      "source_size": [
+        358,
+        82
       ],
-      "components_outside_cell": [],
-      "discarded_tiny_islands": 0
+      "source_cell": "column=2,row=0"
     },
     "normalization": {
-      "scale": 0.6710526315789473,
+      "scale": 0.23743016759776536,
       "offset_px": [
-        82,
-        64
+        85,
+        118
       ],
       "resampling": "nearest",
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "target_width_px": 85
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Cleaned low-alpha atlas haze, retained the coherent thin horizontal axial head/shaft-cap geometry; no shaft/prong/blade length.",
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/gear-shovel.top.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/gear-shovel.top.json"
+  "metadata_path": "reusable/views-equipment/images/gear-shovel.top.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "material:unspecified",
+    "role:screen",
+    "shovel",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-shovel"
+  }
 }

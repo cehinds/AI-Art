@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "poison-puddle",
+  "name": "Poison puddle",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "poison",
+    "puddle",
+    "role:object",
+    "services",
+    "style:dungeon-after-dark",
+    "terrain"
+  ],
+  "image": {
+    "path": "components/poison-puddle.png",
+    "width": 260,
+    "height": 195,
+    "sha256": "ff6e3e72e7b1a58320733358b53127b93070762b3595e1adc64cd4e0e48211a3",
+    "rgba_sha256": "5d46c88af5809db647a73744d4fbf36e20395dfafa01b1ba81365a997f9c29a4"
+  },
+  "metadata_path": "components/poison-puddle.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/services.png",
+    "source_sha256": "f76c1c497b8e82bc6ac04126082cd9bf6cb0aabc417b2079f3289ef40786b22f",
+    "source_rect": [
+      775,
+      812,
+      252,
+      187
+    ],
+    "extraction": {
+      "sheet": "services",
+      "cell": {
+        "column": 3,
+        "row": 3,
+        "index": 21
+      },
+      "bounds": {
+        "x": 775,
+        "y": 812,
+        "width": 252,
+        "height": 187
+      },
+      "region": [
+        773,
+        810,
+        1029,
+        1001
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            853,
+            814
+          ],
+          [
+            899,
+            837
+          ],
+          [
+            798,
+            853
+          ],
+          [
+            1015,
+            897
+          ],
+          [
+            783,
+            927
+          ],
+          [
+            827,
+            935
+          ],
+          [
+            993,
+            957
+          ],
+          [
+            816,
+            959
+          ],
+          [
+            842,
+            961
+          ],
+          [
+            983,
+            971
+          ],
+          [
+            1004,
+            973
+          ],
+          [
+            853,
+            980
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    130.0,
+    97.5
+  ],
+  "object_id": "poison-puddle",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "sewer-wall",
+  "name": "Sewer wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "biomes",
+    "environment:sewer",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "sewer",
+    "structure",
+    "structures",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "wall"
+  ],
+  "image": {
+    "path": "components/sewer-wall.png",
+    "width": 366,
+    "height": 290,
+    "sha256": "246f00157ee6cf2b6c91d9707cd6fbb7c18bc686c0c3c52c6ca0ba17aaa4f8cf",
+    "rgba_sha256": "0e953d8715fa11ffd4aaef4b85ff246994eb3d254e0a5499e30c8a79b83636c1"
+  },
+  "metadata_path": "components/sewer-wall.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/biomes.png",
+    "source_sha256": "02493892660c1fc8cee526ebc780a6f8ec86ff8b1e92f83bd928decbf2eadc18",
+    "source_rect": [
+      16,
+      346,
+      358,
+      282
+    ],
+    "extraction": {
+      "sheet": "biomes",
+      "cell": {
+        "column": 0,
+        "row": 1,
+        "index": 4
+      },
+      "bounds": {
+        "x": 16,
+        "y": 346,
+        "width": 358,
+        "height": 282
+      },
+      "region": [
+        14,
+        344,
+        376,
+        630
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            71,
+            348
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    183.0,
+    286
+  ],
+  "object_id": "sewer-wall",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:sewer",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

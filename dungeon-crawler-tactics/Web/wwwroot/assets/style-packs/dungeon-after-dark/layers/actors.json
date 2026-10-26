@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "preview-layer-actors",
+  "name": "Preview Actors layer",
+  "kind": "composition_layer",
+  "category": "composition",
+  "tags": [
+    "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "layer",
+    "material:unspecified",
+    "preview",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "layers/actors.png",
+    "width": 1200,
+    "height": 900,
+    "sha256": "637b020a4ebfab31933418e360cfb80adcd6d2065eb3fb4ba4b2a9d7ac672d8d",
+    "rgba_sha256": "50e592312ade8ffc573c99a2d302d0e1b39cb2cf7599d94a556cdb64a2a635a6"
+  },
+  "metadata_path": "layers/actors.json",
+  "provenance": {
+    "method": "existing",
+    "source_image": "preview.png",
+    "license_record": "README.md",
+    "notes": "Unmodified existing preview layer, as listed in original manifest.json."
+  },
+  "anchor_px": [
+    0,
+    0
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Illustrative full-canvas layer."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

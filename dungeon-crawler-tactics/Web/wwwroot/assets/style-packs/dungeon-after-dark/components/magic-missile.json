@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "magic-missile",
+  "name": "Magic Missile effect",
+  "kind": "effect",
+  "category": "effect",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "effect",
+    "effects",
+    "environment:dungeon",
+    "existing",
+    "magic",
+    "material:unspecified",
+    "missile",
+    "role:object",
+    "style:dungeon-after-dark",
+    "world"
+  ],
+  "image": {
+    "path": "components/magic-missile.png",
+    "width": 195,
+    "height": 116,
+    "sha256": "e154412cf41d00cb49f6c6bc5ad625d05e63f20f933da073ff5d9897b4765007",
+    "rgba_sha256": "92c23ce6ffad1f32ce3fb7d088f1fbfe267d16cb30001ba2343b428e929902b4"
+  },
+  "metadata_path": "components/magic-missile.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/world.png",
+    "source_sha256": "717ba76c24b76264dd4b93ddc2d2afa13547c6c7376e189af589f0e2ddabf872",
+    "source_rect": [
+      1336,
+      818,
+      187,
+      108
+    ],
+    "extraction": {
+      "sheet": "world",
+      "cell": {
+        "column": 5,
+        "row": 3,
+        "index": 23
+      },
+      "bounds": {
+        "x": 1336,
+        "y": 818,
+        "width": 187,
+        "height": 108
+      },
+      "region": [
+        1270,
+        770,
+        1536,
+        1024
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1445,
+            869
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    97.5,
+    58.0
+  ],
+  "object_id": "magic-missile",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

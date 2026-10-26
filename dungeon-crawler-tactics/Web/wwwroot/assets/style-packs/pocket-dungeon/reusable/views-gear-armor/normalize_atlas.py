@@ -49,4 +49,6 @@ def main():
   sets.append({'object_id':oid,'views':refs,'complete':True,'notes':'Generated six-view orthographic set; inferred hidden surfaces.'})
  idx=OUT/'set-index.json'; data=json.loads(idx.read_text()) if idx.exists() else {'assets':[],'view_sets':[]}; merged_assets={m['id']:m for m in data['assets']}; merged_assets.update({m['id']:m for m in assets}); data['assets']=list(merged_assets.values()); merged={s['object_id']:s for s in data['view_sets']}; merged.update({s['object_id']:s for s in sets}); data['view_sets']=list(merged.values()); tmp=idx.with_suffix('.json.tmp'); tmp.write_text(json.dumps(data,indent=2)+'\n'); tmp.replace(idx)
  print(json.dumps({'objects':[o[0] for o in objs],'views':len(assets),'atlas_sha256':rawsha,'scales':recipes}))
+ from apply_targeted_repairs import apply_all
+ apply_all()
 if __name__=='__main__': main()

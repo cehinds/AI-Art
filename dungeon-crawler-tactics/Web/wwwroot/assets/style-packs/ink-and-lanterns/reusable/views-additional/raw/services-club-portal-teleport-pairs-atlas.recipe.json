@@ -1,0 +1,98 @@
+{
+  "raw_atlas": "reusable/views-additional/raw/services-club-portal-teleport-pairs-atlas.png",
+  "grid": {
+    "columns": 6,
+    "rows": 6
+  },
+  "alpha_threshold": 245,
+  "min_component_ratio": 0.02,
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "transparent_background": true,
+    "prompt_file": "reusable/views-additional/raw/services-club-portal-teleport-pairs-atlas.generation.json",
+    "source_images": [
+      "components/club-door-closed.png",
+      "components/club-door-open.png",
+      "components/portal-inactive.png",
+      "components/portal-active.png",
+      "components/teleport-pad-inactive.png",
+      "components/teleport-pad-active.png"
+    ]
+  },
+  "objects": [
+    {
+      "row": 0,
+      "id": "club-door-closed",
+      "name": "Club entrance \u2014 closed",
+      "kind": "sprite",
+      "tags": [
+        "structure",
+        "structures"
+      ],
+      "source_image": "components/club-door-closed.png",
+      "status": "accepted"
+    },
+    {
+      "row": 1,
+      "id": "club-door-open",
+      "name": "Club entrance \u2014 open",
+      "kind": "sprite",
+      "tags": [
+        "structure",
+        "structures"
+      ],
+      "source_image": "components/club-door-open.png",
+      "status": "accepted"
+    },
+    {
+      "row": 2,
+      "id": "portal-inactive",
+      "name": "Stone portal \u2014 inactive",
+      "kind": "sprite",
+      "tags": [
+        "structure",
+        "structures"
+      ],
+      "source_image": "components/portal-inactive.png",
+      "status": "accepted"
+    },
+    {
+      "row": 3,
+      "id": "portal-active",
+      "name": "Stone portal \u2014 active",
+      "kind": "sprite",
+      "tags": [
+        "structure",
+        "structures"
+      ],
+      "source_image": "components/portal-active.png",
+      "status": "accepted"
+    },
+    {
+      "row": 4,
+      "id": "teleport-pad-inactive",
+      "name": "Teleport pad \u2014 inactive",
+      "kind": "tile",
+      "tags": [
+        "terrain",
+        "terrain"
+      ],
+      "source_image": "components/teleport-pad-inactive.png",
+      "status": "rejected",
+      "reason": "Side views overlapped across columns; regenerated separately in services-teleport-pads-orthographic-correction-atlas."
+    },
+    {
+      "row": 5,
+      "id": "teleport-pad-active",
+      "name": "Teleport pad \u2014 active",
+      "kind": "tile",
+      "tags": [
+        "terrain",
+        "terrain"
+      ],
+      "source_image": "components/teleport-pad-active.png",
+      "status": "rejected",
+      "reason": "Side views overlapped across columns; regenerated separately in services-teleport-pads-orthographic-correction-atlas."
+    }
+  ]
+}

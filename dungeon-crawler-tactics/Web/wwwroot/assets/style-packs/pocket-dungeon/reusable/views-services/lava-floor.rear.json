@@ -3,16 +3,23 @@
   "name": "Lava floor rear",
   "kind": "tile",
   "tags": [
+    "attachment-tagged",
     "biomes",
+    "environment:dungeon",
     "existing",
     "floor",
     "ground",
+    "hazard:lava",
     "inferred-view",
     "isolated",
     "lava",
+    "material:lava",
     "orthographic",
     "pocket-dungeon",
     "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:lava",
     "terrain"
   ],
   "object_id": "lava-floor",
@@ -22,8 +29,8 @@
     "path": "reusable/views-services/lava-floor.rear.png",
     "width": 256,
     "height": 256,
-    "sha256": "7ee8e00673d9b37d665bf6af690d648c1f703f3111282dd97852d168fd5e72f4",
-    "rgba_sha256": "0fc8169c78f9fb2c027f39776c6a9b51175100e263c987cf9afbcfd18adc0c49"
+    "sha256": "d9469af77d8ff5c0f247cc6b08572e29c457b6b75b0ca77cfe0d88c2fa4e3702",
+    "rgba_sha256": "d306c130a9649415da38cd2dcc0efd83c604b747b6352017c0a31eece9fd4858"
   },
   "metadata_path": "reusable/views-services/lava-floor.rear.json",
   "anchor_px": [
@@ -39,8 +46,8 @@
     "method": "generated",
     "source_image": "components/lava-floor.png",
     "source_image_sha256": "d1d75e92b376431bc2ea869c20d0d6cae979f2b5b5f58abfee0a8e1369c26d8d",
-    "generated_atlas": "reusable/views-services/atlas-terrain-a.png",
-    "generated_atlas_sha256": "0d608c041826aefe95207c88caf3ec7340a760c6951e35cfb20f31b9bcc222f9",
+    "generated_atlas": "reusable/views-services/raw/targeted-repairs/lava-floor.rear.atlas.png",
+    "generated_atlas_sha256": "de3e89e93aa16865898c3c84108f80cfb59fe6302124729b8a8c7d5dec8b1d45",
     "generation_parameters": {
       "tool": "image_gen.imagegen",
       "transparent_background": true,
@@ -53,26 +60,25 @@
       ]
     },
     "normalization": {
-      "cell_centroid_assignment": [
-        1,
-        5
+      "source_alpha_bounds": [
+        0,
+        0,
+        394,
+        75
       ],
-      "alpha_threshold": 245,
-      "component_labels": [
-        47
+      "source_size": [
+        394,
+        75
       ],
-      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
-      "cell_rect": [
-        1252,
-        338,
-        264,
-        136
-      ],
-      "atlas_edge_touch": false,
-      "shared_scale": 0.8301886792452831,
+      "alpha_threshold": 32,
+      "scale": 0.5177664974619289,
       "render_size_px": [
-        219,
-        113
+        204,
+        39
+      ],
+      "offset_px": [
+        26,
+        209
       ],
       "canvas": [
         256,
@@ -84,6 +90,35 @@
         248
       ]
     },
-    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+    "notes": "Replaced wrong elevation with material-specific horizontal thin slab edge; accepted TOP and BOTTOM preserved.",
+    "source_cell": "4x2 row/column mapped lava-floor.rear",
+    "repair_recipe": "reusable/views-services/raw/targeted-repairs/lava-floor.rear.json"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "hazard:lava",
+    "material:lava",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:lava"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:lava"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "lava-floor"
   }
 }

@@ -3,11 +3,17 @@
   "name": "New Turnstile bottom",
   "kind": "sprite",
   "tags": [
-    "scene-object",
-    "isolated",
-    "orthographic",
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "environment:unspecified",
     "inferred-view",
-    "bottom"
+    "isolated",
+    "material:unspecified",
+    "orthographic",
+    "role:object",
+    "scene-object",
+    "style:pocket-dungeon"
   ],
   "object_id": "new-turnstile-scene-patch",
   "view": "bottom",
@@ -75,5 +81,39 @@
       ]
     },
     "notes": "Generated isolation and inferred hidden surfaces. Not exact recovered pixels, not source geometry. Soft alpha haze removed by deterministic threshold."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "new-turnstile-scene-patch"
   }
 }

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "teleport-pad-inactive",
+  "name": "Teleport pad — inactive",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "inactive",
+    "material:unspecified",
+    "pad",
+    "role:object",
+    "services",
+    "style:dungeon-after-dark",
+    "teleport",
+    "terrain"
+  ],
+  "image": {
+    "path": "components/teleport-pad-inactive.png",
+    "width": 254,
+    "height": 160,
+    "sha256": "18c75b58f1fa0c2b7678abd1bfa19a73122c91621ad60a7352a52b854d2e742b",
+    "rgba_sha256": "76440a487ab222ceb2a33d915c260390059ddbaf6e51f28f01b3332464800e01"
+  },
+  "metadata_path": "components/teleport-pad-inactive.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/services.png",
+    "source_sha256": "f76c1c497b8e82bc6ac04126082cd9bf6cb0aabc417b2079f3289ef40786b22f",
+    "source_rect": [
+      515,
+      634,
+      246,
+      152
+    ],
+    "extraction": {
+      "sheet": "services",
+      "cell": {
+        "column": 2,
+        "row": 2,
+        "index": 14
+      },
+      "bounds": {
+        "x": 515,
+        "y": 634,
+        "width": 246,
+        "height": 152
+      },
+      "region": [
+        513,
+        632,
+        763,
+        788
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            624,
+            636
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    127.0,
+    80.0
+  ],
+  "object_id": "teleport-pad-inactive",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

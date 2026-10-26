@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "wall-corner",
+  "name": "Corner wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "corner",
+    "environment:unspecified",
+    "existing",
+    "expansion",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "structure",
+    "structures",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "wall"
+  ],
+  "image": {
+    "path": "components/wall-corner.png",
+    "width": 270,
+    "height": 245,
+    "sha256": "7d596ccc9f0932aa1ad6ae63e07435072a2d278a66f2c023e29bea6402869898",
+    "rgba_sha256": "321d1ca66aa69a528fb038b9dc9d12b2ba7cd6d6992e9920efd0951556b24590"
+  },
+  "metadata_path": "components/wall-corner.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/expansion.png",
+    "source_sha256": "e4e0949800a2f8b9950bc310ddfad287ea79f84e23a1ac3a14b6a7e3e905092e",
+    "source_rect": [
+      273,
+      29,
+      262,
+      237
+    ],
+    "extraction": {
+      "sheet": "expansion",
+      "cell": {
+        "column": 1,
+        "row": 0,
+        "index": 1
+      },
+      "bounds": {
+        "x": 273,
+        "y": 29,
+        "width": 262,
+        "height": 237
+      },
+      "region": [
+        271,
+        27,
+        537,
+        268
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            339,
+            31
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    135.0,
+    241
+  ],
+  "object_id": "wall-corner",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "wall-corner.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "wall-corner.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "wall-corner.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "wall-corner.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "wall-corner.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "wall-corner.rear"
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

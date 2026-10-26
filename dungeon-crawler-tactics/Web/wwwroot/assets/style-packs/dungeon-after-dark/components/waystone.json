@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "waystone",
+  "name": "Waystone",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "biomes",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "prop",
+    "props",
+    "role:object",
+    "style:dungeon-after-dark",
+    "waystone"
+  ],
+  "image": {
+    "path": "components/waystone.png",
+    "width": 295,
+    "height": 348,
+    "sha256": "8f34488cc85a3f76f7a9e73146288037612730d74ae7393b6c429abfdb80105a",
+    "rgba_sha256": "67d2f87176210f23a7a9e3b5fa6e9ff00aaf45626639626cef10b7825d91b64c"
+  },
+  "metadata_path": "components/waystone.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/biomes.png",
+    "source_sha256": "8ff833e879194eccef82d2e8ea4ca7e33ca4e07ab9779576f8a972d473cdf2db",
+    "source_rect": [
+      1217,
+      649,
+      287,
+      340
+    ],
+    "extraction": {
+      "sheet": "biomes",
+      "cell": {
+        "column": 3,
+        "row": 2,
+        "index": 11
+      },
+      "bounds": {
+        "x": 1217,
+        "y": 649,
+        "width": 287,
+        "height": 340
+      },
+      "region": [
+        1215,
+        647,
+        1506,
+        991
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1384,
+            651
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    147.5,
+    344
+  ],
+  "object_id": "waystone",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

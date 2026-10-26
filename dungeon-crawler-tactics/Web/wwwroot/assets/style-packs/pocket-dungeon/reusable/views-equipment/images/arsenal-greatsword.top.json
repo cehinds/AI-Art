@@ -3,65 +3,98 @@
   "name": "Greatsword Top",
   "kind": "arsenal",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "arsenal",
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "greatsword",
+    "material:unspecified",
     "orthographic",
-    "arsenal"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/arsenal-greatsword.top.png",
     "width": 256,
     "height": 256,
-    "sha256": "5a08c44bd57e0d45e83084972f7cffde7bed268282b871fa6ae618a0a51d4ed2",
-    "rgba_sha256": "b752dab630bf09e9f0fb9ec8ee5498b4cb06be6a437b77af4984905288ef9a52"
+    "sha256": "90604de9d518bcc4977c2c436c85ca1b95cd43d3d591195cd8bbd5b09a9bd1d8",
+    "rgba_sha256": "a1e047b6d329bc40fe66426610fd63822efaa1dc2c45e13274908f81070eedb1"
   },
   "object_id": "arsenal-greatsword",
   "view": "top",
   "provenance": {
     "method": "generated",
     "source_image": "components/arsenal-greatsword.png",
-    "generated_atlas": "reusable/views-equipment/raw/arsenal-greatsword-scimitar-katana.png",
-    "generated_atlas_sha256": "2f3661fb6dd32c6081312d14d5a5ead8d5dbfebe338b438faa89fb03e39b4367",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/arsenal-greatsword.top.atlas.png",
+    "generated_atlas_sha256": "20acb2d2b19d0f23b9ee67b619d4a3b8104fb23138c4e5bd569a3f0dd72fdaff",
     "source_rect": {
-      "cell": [
-        296,
-        0,
-        295,
-        296
-      ],
       "alpha_bounds": [
-        389,
-        18,
-        61,
-        289
+        0,
+        0,
+        138,
+        69
       ],
-      "component_count": 1,
-      "component_areas": [
-        9666
+      "source_size": [
+        138,
+        69
       ],
-      "components_outside_cell": [
-        2
-      ],
-      "discarded_tiny_islands": 0
+      "source_cell": "col=1,row=0"
     },
     "normalization": {
-      "scale": 0.6375,
+      "scale": 0.5434782608695652,
       "offset_px": [
-        108,
-        36
+        90,
+        109
       ],
       "resampling": "nearest",
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "target_width_px": 75
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Targeted top view; plans calibrated to source front guard/head width 75px, side views edge-on. Other accepted directions retained; awaiting independent QA.",
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/arsenal-greatsword.top.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/arsenal-greatsword.top.json"
+  "metadata_path": "reusable/views-equipment/images/arsenal-greatsword.top.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "greatsword",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "arsenal-greatsword"
+  }
 }

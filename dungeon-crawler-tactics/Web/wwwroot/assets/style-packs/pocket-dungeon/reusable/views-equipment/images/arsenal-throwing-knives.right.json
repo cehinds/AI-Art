@@ -3,69 +3,110 @@
   "name": "Throwing knives Right",
   "kind": "arsenal",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "arsenal",
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "knives",
+    "material:unspecified",
     "orthographic",
-    "arsenal"
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "throwing",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/arsenal-throwing-knives.right.png",
     "width": 256,
     "height": 256,
-    "sha256": "264eaea726cc1053ee9426a1c74feebe11742ed6ec36e85e9ad56b588f3ae577",
-    "rgba_sha256": "57158976515ab0984f4b0baef5f1bc2140d4fb2e602f8c52f6ffc893a1047138"
+    "sha256": "d7bb4e4c93dd148f4bdea6e8fbc22a9a04d082ed407ff69bd5792063ef946696",
+    "rgba_sha256": "2e3a9de9130465a070d9830b03b7ae6030414f8f14bc0e8d5124c558c447daf2"
   },
   "object_id": "arsenal-throwing-knives",
   "view": "right",
   "provenance": {
     "method": "generated",
     "source_image": "components/arsenal-throwing-knives.png",
-    "generated_atlas": "reusable/views-equipment/raw/arsenal-heavycrossbow-sling-throwingknives.png",
-    "generated_atlas_sha256": "60cf4fcb582fe4645876b3699a4b9508f59cd22823a4f170de2c23d66c7f1c00",
+    "generated_atlas": "reusable/views-equipment/raw/targeted-repairs/arsenal-throwing-knives.right.atlas.png",
+    "generated_atlas_sha256": "2f52a6f17db32cb212f57023f468e3a75abc01b449682451c7373ac7ac4827c9",
     "source_rect": {
-      "cell": [
-        591,
-        591,
-        296,
-        296
-      ],
       "alpha_bounds": [
-        648,
-        587,
-        188,
-        262
+        0,
+        0,
+        543,
+        724
       ],
-      "component_count": 3,
-      "component_areas": [
-        11028,
-        11085,
-        10858
+      "source_size": [
+        543,
+        724
       ],
-      "components_outside_cell": [
-        28,
-        29,
-        30
-      ],
-      "discarded_tiny_islands": 0
+      "source_cell": "column=1,row=0"
     },
     "normalization": {
-      "scale": 0.758364312267658,
+      "scale": 0.281767955801105,
       "offset_px": [
-        56,
-        28
+        51,
+        26
       ],
-      "resampling": "nearest",
+      "resampling": "NEAREST",
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "target_width_px": null,
+      "uniform_scale": 1.9320388349514563,
+      "anchor_px": [
+        128,
+        228
+      ],
+      "operation": "scale complete retained side silhouette uniformly to FRONT/REAR height; no shape edits"
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Replaced full broad-face repetition with narrow edge profile for all three parallel items; other views left untouched.",
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/arsenal-throwing-knives.right.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/arsenal-throwing-knives.right.json"
+  "metadata_path": "reusable/views-equipment/images/arsenal-throwing-knives.right.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "knives",
+    "material:unspecified",
+    "role:screen",
+    "style:pocket-dungeon",
+    "throwing",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "arsenal-throwing-knives"
+  },
+  "geometry_qa": {
+    "status": "pending-review",
+    "reason": "Uniform nearest-neighbor scale to match FRONT/REAR Z; root current-hash review pending."
+  }
 }

@@ -6,13 +6,19 @@
   "kind": "sprite",
   "category": "structure",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
     "bridge",
+    "environment:dungeon",
     "existing",
+    "material:wood",
     "pocket-dungeon",
     "roads",
+    "role:object",
     "straight",
     "structure",
     "structures",
+    "style:pocket-dungeon",
     "wood"
   ],
   "image": {
@@ -116,5 +122,38 @@
       "status": "generated",
       "asset_id": "roads-wood-bridge-straight.rear"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:wood",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

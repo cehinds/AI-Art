@@ -3,52 +3,52 @@
   "name": "Pickaxe Bottom",
   "kind": "gear",
   "tags": [
-    "pocket-dungeon",
-    "six-view",
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "gear",
+    "material:unspecified",
     "orthographic",
-    "gear"
+    "pickaxe",
+    "pocket-dungeon",
+    "role:screen",
+    "six-view",
+    "style:pocket-dungeon",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-equipment/images/gear-pickaxe.bottom.png",
     "width": 256,
     "height": 256,
-    "sha256": "1a5f1159090305b249a6b57feaf0c9ef4e8642275e2dd2320ebc0f0d9c398fea",
-    "rgba_sha256": "a0c4397636cfc7d33b1b1c95caae658f28e273b6bcb5ade5fe0bf6dc609595ba"
+    "sha256": "cfa473479273e5f9a36cb02b09bed74ec479fb5a697f1accb9cdb2275cb6fa0d",
+    "rgba_sha256": "903807a1cf75f0ea2d910442cb02777b15cc794e8a9ecd222bd06acdd8eac903"
   },
   "object_id": "gear-pickaxe",
   "view": "bottom",
   "provenance": {
-    "method": "generated",
+    "method": "derived-transformation",
     "source_image": "components/gear-pickaxe.png",
     "generated_atlas": "reusable/views-equipment/raw/gear-first-tools.png",
     "generated_atlas_sha256": "74e232e0640fb8e8e84d0341fd051510a2b26f84e8c3a3f91025ac628505a828",
     "source_rect": {
-      "cell": [
-        1183,
-        591,
-        295,
-        296
-      ],
       "alpha_bounds": [
-        1257,
-        588,
-        78,
-        264
+        101,
+        39,
+        154,
+        217
       ],
-      "component_count": 1,
-      "component_areas": [
-        12335
-      ],
-      "components_outside_cell": [
-        27
-      ],
-      "discarded_tiny_islands": 0
+      "source_size": [
+        256,
+        256
+      ]
     },
     "normalization": {
-      "scale": 0.6732673267326733,
+      "scale": 1.146067415730337,
       "offset_px": [
-        101,
-        39
+        26,
+        97
       ],
       "resampling": "nearest",
       "frame_size": [
@@ -57,11 +57,52 @@
       ]
     },
     "rebuild_command": "python3 reusable/views-equipment/build_all.py",
-    "notes": "Generated orthographic view; unseen surfaces conservatively inferred, not recovered pixels."
+    "notes": "Rotate the underside head footprint 90 degrees to match accepted top/front world X-span; underside cap texture retained. Awaiting independent current-hash QA.",
+    "repair_source": "reusable/views-equipment/raw/targeted-repairs/gear-pickaxe.bottom.before-rotation.png",
+    "repair_source_sha256": "1a5f1159090305b249a6b57feaf0c9ef4e8642275e2dd2320ebc0f0d9c398fea",
+    "transformation": {
+      "rotation_degrees_ccw": 90,
+      "resampling": "nearest",
+      "offset_px": [
+        26,
+        97
+      ]
+    },
+    "repair_recipe": "reusable/views-equipment/raw/targeted-repairs/gear-pickaxe.bottom.json"
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-equipment/images/gear-pickaxe.bottom.json"
+  "metadata_path": "reusable/views-equipment/images/gear-pickaxe.bottom.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:dungeon",
+    "equipment",
+    "existing",
+    "material:unspecified",
+    "pickaxe",
+    "role:screen",
+    "style:pocket-dungeon",
+    "ui"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-pickaxe"
+  }
 }

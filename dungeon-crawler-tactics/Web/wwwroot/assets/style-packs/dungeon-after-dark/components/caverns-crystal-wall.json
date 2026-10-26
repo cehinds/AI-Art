@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "caverns-crystal-wall",
+  "name": "Crystal wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "caverns",
+    "crystal",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:crystal",
+    "role:provider",
+    "structure",
+    "structures",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "wall"
+  ],
+  "image": {
+    "path": "components/caverns-crystal-wall.png",
+    "width": 212,
+    "height": 241,
+    "sha256": "81f6b02fc0442d451a1944055ead0790b958b5fff734d6fe21bcc83ce9d98fcc",
+    "rgba_sha256": "42fa364bb4e9946560b568c38192e6033f7175f4b6475ad9492614567470baa2"
+  },
+  "metadata_path": "components/caverns-crystal-wall.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/caverns.png",
+    "source_sha256": "470ea915f391606dae8acfef37e56f9c3b1a4e056f18b2cdc56987f613e8bc3a",
+    "source_rect": [
+      795,
+      257,
+      204,
+      233
+    ],
+    "extraction": {
+      "sheet": "caverns",
+      "cell": {
+        "column": 3,
+        "row": 1,
+        "index": 9
+      },
+      "bounds": {
+        "x": 795,
+        "y": 257,
+        "width": 204,
+        "height": 233
+      },
+      "region": [
+        793,
+        255,
+        1001,
+        492
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            843,
+            259
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    106.0,
+    237
+  ],
+  "object_id": "caverns-crystal-wall",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:crystal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

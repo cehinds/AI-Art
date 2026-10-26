@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "selection-tile",
+  "name": "Selected tile marker",
+  "kind": "effect",
+  "category": "effect",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "effect",
+    "effects",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "role:object",
+    "selection",
+    "style:dungeon-after-dark",
+    "tile",
+    "ui"
+  ],
+  "image": {
+    "path": "components/selection-tile.png",
+    "width": 353,
+    "height": 206,
+    "sha256": "63f3b0b764bc40a42571705ced6a0c308d3f5607200d07843fcfca51dbd7b7f5",
+    "rgba_sha256": "0eebc933f4259985e9f97262080ff9ce294438f06c683975078ac70f11418201"
+  },
+  "metadata_path": "components/selection-tile.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/ui.png",
+    "source_sha256": "7ab492c0765616bb559eda9d46ba33c1d7ccff8501f5bdc1e1844aab8ddd649c",
+    "source_rect": [
+      743,
+      814,
+      345,
+      198
+    ],
+    "extraction": {
+      "sheet": "ui",
+      "cell": {
+        "column": 2,
+        "row": 2,
+        "index": 10
+      },
+      "bounds": {
+        "x": 743,
+        "y": 814,
+        "width": 345,
+        "height": 198
+      },
+      "region": [
+        737,
+        808,
+        1094,
+        1018
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1039,
+            917
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    176.5,
+    103.0
+  ],
+  "object_id": "selection-tile",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

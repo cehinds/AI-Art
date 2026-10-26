@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "wall-side",
+  "name": "Side wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "side",
+    "structure",
+    "structures",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "wall",
+    "world"
+  ],
+  "image": {
+    "path": "components/wall-side.png",
+    "width": 226,
+    "height": 233,
+    "sha256": "3ea135a07fa62bf8260c421362c82c37d21b574d0925aca8805ee278cecce8da",
+    "rgba_sha256": "b2afb1fc013cfc87cd3bba7e363488ec31fc6cdde26d0b84be71298b5fafddc0"
+  },
+  "metadata_path": "components/wall-side.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/world.png",
+    "source_sha256": "a5b44638cb2b550df33ffc39ba95a21daabf56ab73b058c3560cce09edcd8929",
+    "source_rect": [
+      788,
+      46,
+      218,
+      225
+    ],
+    "extraction": {
+      "sheet": "world",
+      "cell": {
+        "column": 3,
+        "row": 0,
+        "index": 3
+      },
+      "bounds": {
+        "x": 788,
+        "y": 46,
+        "width": 218,
+        "height": 225
+      },
+      "region": [
+        788,
+        46,
+        1006,
+        271
+      ]
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    113.0,
+    229
+  ],
+  "object_id": "wall-side",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "wall-side.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "wall-side.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "wall-side.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "wall-side.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "wall-side.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "wall-side.rear"
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

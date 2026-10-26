@@ -22,3 +22,5 @@ for sequence, label in [('carl-kick','Carl kick'),('donut-cast','Princess Donut 
 if __name__ == '__main__':
     for raw, objects, kind in BATCHES:
         process(raw, objects, kind)
+    from apply_targeted_repairs import apply_all
+    apply_all()

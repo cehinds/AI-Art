@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "spike-trap",
+  "name": "Raised spike trap",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "material:unspecified",
+    "prop",
+    "props",
+    "role:object",
+    "spike",
+    "style:dungeon-after-dark",
+    "trap"
+  ],
+  "image": {
+    "path": "components/spike-trap.png",
+    "width": 260,
+    "height": 218,
+    "sha256": "d3487d977caea29554a39d7685a19c78086ee6af3a15b86170ff9628fdc28152",
+    "rgba_sha256": "9ad32360269d9fb635ec181e762167a344992ee9f1c08d16696eda3c087b56e8"
+  },
+  "metadata_path": "components/spike-trap.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/expansion.png",
+    "source_sha256": "95e954878f6ebfd0019c53448b658e3cbe13de8e248b2f524e3e474eec19866f",
+    "source_rect": [
+      1026,
+      44,
+      252,
+      210
+    ],
+    "extraction": {
+      "sheet": "expansion",
+      "cell": {
+        "column": 4,
+        "row": 0,
+        "index": 4
+      },
+      "bounds": {
+        "x": 1026,
+        "y": 44,
+        "width": 252,
+        "height": 210
+      },
+      "region": [
+        1024,
+        42,
+        1280,
+        256
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1152,
+            46
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    130.0,
+    214
+  ],
+  "object_id": "spike-trap",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

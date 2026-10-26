@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "highlands-snow-cliff-wall",
+  "name": "Snow cliff wall",
+  "kind": "sprite",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "cliff",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "highlands",
+    "material:snow",
+    "role:provider",
+    "snow",
+    "structure",
+    "structures",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "wall"
+  ],
+  "image": {
+    "path": "components/highlands-snow-cliff-wall.png",
+    "width": 237,
+    "height": 236,
+    "sha256": "62888fcf4ea7ebac1c29e09b6f95275d20a8d3e76958649a9769257823353741",
+    "rgba_sha256": "10a04ad8d74ca8bc6c853df56d5dbe8d281ed02081bbfb5b1841a0e8dc25e1b7"
+  },
+  "metadata_path": "components/highlands-snow-cliff-wall.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/highlands.png",
+    "source_sha256": "ecbf87cc220e1ce6e4bf04765db3ac1b997c23944b94c2719012c21fb5b283d2",
+    "source_rect": [
+      276,
+      268,
+      229,
+      228
+    ],
+    "extraction": {
+      "sheet": "highlands",
+      "cell": {
+        "column": 1,
+        "row": 1,
+        "index": 7
+      },
+      "bounds": {
+        "x": 276,
+        "y": 268,
+        "width": 229,
+        "height": 228
+      },
+      "region": [
+        274,
+        266,
+        507,
+        498
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            391,
+            270
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    118.5,
+    232
+  ],
+  "object_id": "highlands-snow-cliff-wall",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": true,
+    "complete": false,
+    "front": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "top": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "right": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "left": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "bottom": {
+      "status": "missing",
+      "asset_id": null
+    },
+    "rear": {
+      "status": "missing",
+      "asset_id": null
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:snow",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}
