@@ -154,10 +154,18 @@ def enrich_library(pack, index):
     style = style_of(pack)
     assets = index.get('assets', [])
     by_id = {a['id']: a for a in assets}
+    # View generators can copy source tags without copying their ownership list.
+    # Keep inherited generated roles replaceable when a clean world-space view
+    # is derived from a reconstruction-only crop.
+    inherited_generated = {a['id']: set(a.get('attachment_generated_tags', [])) for a in assets}
     for asset in assets:
+        previous = set(asset.get('attachment_generated_tags', []))
+        if asset.get('view') not in ('source', None):
+            parent_id = asset.get('canonical_asset_id') or asset.get('object_id')
+            previous.update(inherited_generated.get(parent_id, set()) & set(asset.get('tags', [])))
+        asset['attachment_generated_tags'] = sorted(previous)
         tags, attachment = classify(asset, style)
         # Preserve all existing authored tags. Replace only our previous output.
-        previous = set(asset.get('attachment_generated_tags', []))
         old = [v for v in asset.get('tags', []) if isinstance(v, str) and v not in previous]
         asset['tags'] = sorted(set(old + tags))
         asset['attachment_generated_tags'] = sorted(set(tags) - set(old))

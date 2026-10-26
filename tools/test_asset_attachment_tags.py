@@ -133,6 +133,23 @@ class AttachmentRulesTests(unittest.TestCase):
         self.assertEqual(proxy['attachment']['space'],'world');self.assertIn('attachment:floor',proxy['tags']);self.assertEqual(proxy['attachment']['inferred_proxy_for'],'scene-chest')
         first=copy.deepcopy(index);rules.enrich_library(pack,index);self.assertEqual(first,index)
 
+    def test_copied_source_tags_do_not_mark_clean_views_as_reconstruction(self):
+        pack=Path('/fixture/assets/reusable-gameplay')
+        parent={'id':'house-bed','name':'Wooden bed','kind':'reconstruction_patch',
+                'category':'prop','reusable':False,'view':'source','tags':['bedroom']}
+        index={'assets':[parent]};rules.enrich_library(pack,index)
+        # Actual generators copy tags, but do not copy attachment_generated_tags.
+        child={'id':'house-bed.front','kind':'sprite','category':'prop',
+               'reusable':True,'object_id':'house-bed','view':'front',
+               'tags':parent['tags']+['inferred-view','material:obsidian']}
+        index['assets'].append(child);rules.enrich_library(pack,index)
+        self.assertEqual(child['attachment']['space'],'world')
+        self.assertEqual(child['attachment']['requires']['any'],['surface:floor'])
+        self.assertEqual([t for t in child['tags'] if t.startswith('role:')],['role:object'])
+        self.assertIn('bedroom',child['tags']);self.assertIn('material:obsidian',child['tags'])
+        self.assertEqual(parent['attachment']['space'],'reconstruction')
+        first=copy.deepcopy(index);rules.enrich_library(pack,index);self.assertEqual(first,index)
+
     def test_central_references_self_exclusion_missing_reason_and_idempotence(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/'assets';pack=root/'style-packs/pocket-dungeon';(pack/'reusable').mkdir(parents=True)
