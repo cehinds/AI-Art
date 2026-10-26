@@ -14,6 +14,339 @@ from package_pocket_reusable import plan, write_zip
 from export_pocket_collections import verify_archive, export
 
 
+# Exact retained receipt schemas and prompt text; no live art files required by these fixtures.
+ACTUAL_SIEGE_RECEIPT = {'schema_version': 1,
+ 'requests': [{'schema_version': 1,
+               'candidate_only': True,
+               'object_id': 'faction-battlefield-siege-engine-emplacement',
+               'direction': 'rear',
+               'status': 'blocked',
+               'request_id': 'bd9ae23c-f368-4a9f-902d-d042760e6646',
+               'stage': 'input',
+               'category': 'violence',
+               'error': 'Image-generation safety system returned HTTP 400 moderation_blocked; do '
+                        'not retry this same request or an equivalent substitute.',
+               'prompt': 'Create only the REAR end projection of this same horizontal wooden '
+                         'ballista. Keep the long bolt axis world Y; this opposite camera sees '
+                         'only the small axial bolt tail/end at center, not a long bolt. The '
+                         'transverse bow limbs span horizontally across image and the low deck '
+                         'edge/supports match the accepted RIGHT/LEFT side height. Preserve source '
+                         'wood, dark rope and iron details. True flat orthographic end elevation, '
+                         'not an oblique or top view, transparent 256x256 centered canvas, no '
+                         'extra features or background.',
+               'referenced_image_paths': ['/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/core-dark-next-six-props-20261026/raw/current-snapshots/faction-battlefield-siege-engine-emplacement.source.png',
+                                          '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/core-dark-next-six-props-20261026/raw/current-snapshots/faction-battlefield-siege-engine-emplacement.left.png'],
+               'reference_hashes': {'source': '0f777554c6f5cbdd110b0b42dc6195b3a34a63319afec55526ae54500ad6f0d1',
+                                    'left': '36d2ced7eac7da5af4457204b71771f122ba968cfecb476040928749701fb168'},
+               'affected_view_unresolved': True}]}
+ACTUAL_WORKTOP_RECEIPT = {'schema_version': 1,
+ 'record_type': 'safety-blocked image-generation batch; do not retry any listed directions',
+ 'created_utc': '2026-10-26',
+ 'batch_label': 'root-dark-worktops6 initial four-direction imagegen batch',
+ 'blocking_tool_request_id': '19523388-b475-449a-a092-52307d277980',
+ 'request_id_association': 'One of the four concurrent calls returned this error; the executor did '
+                           'not identify which call. Treat all four requested directions as '
+                           'blocked and unavailable.',
+ 'blocked_batch_targets': [{'local_request_label': 'imagegen-goblin-workbench-top-batch01',
+                            'object_id': 'industry-menagerie-goblin-workbench',
+                            'direction': 'top',
+                            'prompt': 'Isolated transparent TRUE OVERHEAD TOP orthographic '
+                                      'projection of the exact goblin work cart/workbench in the '
+                                      'supplied source. Camera looks straight down at the '
+                                      'rectangular wooden tabletop, cart rails and wheel '
+                                      'footprints. Show tools as short end-on tips and containers '
+                                      'as circular/open caps; show only the folded edge of the red '
+                                      'apron along the near/front side, never a hanging frontal '
+                                      'cloth. Include the source-specific bottles, tools, small '
+                                      'brass fittings, and four wheel locations. Do not draw '
+                                      'cabinet fronts, vertical bottle bodies, or a front '
+                                      'elevation laid flat. Preserve source palette, count and top '
+                                      'footprint from accepted view. No perspective, no text, no '
+                                      'frame, one view, transparent background.',
+                            'reference_image_paths': ['/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/industry-menagerie/components/industry-menagerie-goblin-workbench.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-goblin-workbench.front.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-goblin-workbench.top.png'],
+                            'expected_candidate': 'raw/root-dark-worktops6-20261026/industry-menagerie-goblin-workbench.top.png',
+                            'tool_request_id': None,
+                            'tool_request_id_status': 'No per-call ID returned; one concurrent '
+                                                      'call in this batch returned the safety '
+                                                      'error below, exact blocked target is '
+                                                      'unknown.',
+                            'prompt_sha256': '3abae1ec30015f060ad0f90dae59f5f3e9dd16461a8effa289e406d38869c3c1',
+                            'candidate_status': 'blocked-batch',
+                            'candidate_file_saved': False},
+                           {'local_request_label': 'imagegen-cannon-top-batch01',
+                            'object_id': 'industry-menagerie-improvised-cannon-emplacement',
+                            'direction': 'top',
+                            'prompt': 'Isolated transparent TRUE OVERHEAD TOP orthographic '
+                                      'projection of the exact improvised cannon emplacement in '
+                                      'supplied source. The long cannon tube runs horizontally '
+                                      'along world-X, muzzle points to screen RIGHT as in accepted '
+                                      'FRONT. Camera directly above: depict the tube as a long '
+                                      'horizontal metal barrel with round muzzle opening at the '
+                                      "right end, the source's dark iron cannon body, scattered "
+                                      'stone/ammunition crowns in their actual source positions, '
+                                      'and platform footprint. No upright frontal faces laid flat, '
+                                      'no hanging red cloth face, no 90-degree reorientation. '
+                                      'Match accepted top-scale footprint, preserve source feature '
+                                      'count/colors. No perspective, no text/frame/other views, '
+                                      'transparent background.',
+                            'reference_image_paths': ['/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/industry-menagerie/components/industry-menagerie-improvised-cannon-emplacement.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-improvised-cannon-emplacement.front.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-improvised-cannon-emplacement.top.png'],
+                            'expected_candidate': 'raw/root-dark-worktops6-20261026/industry-menagerie-improvised-cannon-emplacement.top.png',
+                            'tool_request_id': None,
+                            'tool_request_id_status': 'No per-call ID returned; one concurrent '
+                                                      'call in this batch returned the safety '
+                                                      'error below, exact blocked target is '
+                                                      'unknown.',
+                            'prompt_sha256': '30ec8b3b1a11c761ab4e48bda065bd449e9616944d967d0bc288e600fe7a389e',
+                            'candidate_status': 'blocked-batch',
+                            'candidate_file_saved': False},
+                           {'local_request_label': 'imagegen-cannon-rear-batch01',
+                            'object_id': 'industry-menagerie-improvised-cannon-emplacement',
+                            'direction': 'rear',
+                            'prompt': 'Isolated transparent TRUE REAR orthographic broadside '
+                                      'elevation of the exact improvised cannon emplacement. This '
+                                      'is the opposite horizontal side view of the accepted FRONT, '
+                                      'NOT an end-on muzzle view. Keep the barrel horizontal along '
+                                      'world-X; from behind the fixed muzzle landmarks reverse so '
+                                      'the muzzle is at screen LEFT at the edge, and preserve the '
+                                      'dark iron body, source orange-brown masonry, scattered '
+                                      'ammunition/stone shapes and red cloth only in its occluded '
+                                      'original position. Level rectangular broadside profile, '
+                                      'same overall height/width as FRONT, no 90-degree turn, no '
+                                      'visible circular muzzle facing camera, no isometric '
+                                      'perspective, no extra hardware/text/frame/other views. '
+                                      'Transparent background.',
+                            'reference_image_paths': ['/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/industry-menagerie/components/industry-menagerie-improvised-cannon-emplacement.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-improvised-cannon-emplacement.front.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-improvised-cannon-emplacement.top.png'],
+                            'expected_candidate': 'raw/root-dark-worktops6-20261026/industry-menagerie-improvised-cannon-emplacement.rear.png',
+                            'tool_request_id': None,
+                            'tool_request_id_status': 'No per-call ID returned; one concurrent '
+                                                      'call in this batch returned the safety '
+                                                      'error below, exact blocked target is '
+                                                      'unknown.',
+                            'prompt_sha256': '0c531a5d34b6e0929b0e4952b23bb4ddb03bd9988ad8e3aaf49b83971e6f2993',
+                            'candidate_status': 'blocked-batch',
+                            'candidate_file_saved': False},
+                           {'local_request_label': 'imagegen-cage-top-batch01',
+                            'object_id': 'industry-menagerie-kennel-cage-section',
+                            'direction': 'top',
+                            'prompt': 'Isolated transparent TRUE OVERHEAD TOP orthographic '
+                                      'projection of the exact open kennel cage in the supplied '
+                                      'source. Show the rectangular perimeter rails and corner '
+                                      'posts from above, upright vertical bars reduced to thin '
+                                      'parallel lines/edge-on bars and small post caps, with open '
+                                      'interior visible. Keep the source bowl at its existing '
+                                      'FRONT-LEFT corner as located in accepted TOP; retain the '
+                                      'small red marking only as a narrow edge detail where '
+                                      'physically attached. This is an open cage, not a solid '
+                                      'sealed roof, no full frontal vertical slats laid flat and '
+                                      'no broad solid panel. Match accepted footprint and source '
+                                      'dark iron palette. Direct overhead, no '
+                                      'perspective/text/frame/other views, transparent background.',
+                            'reference_image_paths': ['/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/industry-menagerie/components/industry-menagerie-kennel-cage-section.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-kennel-cage-section.front.png',
+                                                      '/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/images/industry-menagerie-kennel-cage-section.top.png'],
+                            'expected_candidate': 'raw/root-dark-worktops6-20261026/industry-menagerie-kennel-cage-section.top.png',
+                            'tool_request_id': None,
+                            'tool_request_id_status': 'No per-call ID returned; one concurrent '
+                                                      'call in this batch returned the safety '
+                                                      'error below, exact blocked target is '
+                                                      'unknown.',
+                            'prompt_sha256': 'c53ef5604dc5c3213ee6775a870d25f98beee2fb435da19664635e8a28c47668',
+                            'candidate_status': 'blocked-batch',
+                            'candidate_file_saved': False}],
+ 'exact_error_response': {'status_code': 400,
+                          'type': 'image_generation_user_error',
+                          'code': 'moderation_blocked',
+                          'moderation_stage': 'input',
+                          'safety_violations': ['violence'],
+                          'request_id': '19523388-b475-449a-a092-52307d277980',
+                          'exact_message': 'Your request was rejected by the safety system. If you '
+                                           'believe this is an error, contact us at '
+                                           'help.openai.com and include the request ID '
+                                           '19523388-b475-449a-a092-52307d277980. '
+                                           'safety_violations=[violence].'},
+ 'second_attempts_before_root_stop': [{'local_request_label': 'imagegen-goblin-workbench-top-fixtures-retry-attempt',
+                                       'object_id': 'industry-menagerie-goblin-workbench',
+                                       'direction': 'top',
+                                       'prompt_path': 'reusable/views-additional/prompts/root-dark-worktops6-20261026/goblin-workbench-top.txt',
+                                       'prompt_sha256': '78f91e7dd398af2b22adc22e4c9878c14af8d7f02ff7778886099bd08a8dcf9f',
+                                       'status': 'imagegen call issued, execution aborted by Root '
+                                                 'after ~17 seconds before any response '
+                                                 'mapping/raw PNG was saved; do not retry; '
+                                                 'included direction was already safety-blocked in '
+                                                 'batch01'},
+                                      {'local_request_label': 'imagegen-cage-top-fixtures-retry-attempt',
+                                       'object_id': 'industry-menagerie-kennel-cage-section',
+                                       'direction': 'top',
+                                       'prompt_path': 'reusable/views-additional/prompts/root-dark-worktops6-20261026/cage-top.txt',
+                                       'prompt_sha256': '549bf933deddc3b8e4772c67960f39b646b8a2962dd6bbeb26cd82817a7b7a2b',
+                                       'status': 'imagegen call issued, execution aborted by Root '
+                                                 'after ~17 seconds before any response '
+                                                 'mapping/raw PNG was saved; do not retry; '
+                                                 'included direction was already safety-blocked in '
+                                                 'batch01'}],
+ 'production_write_status': 'No set-index, sidecar, or image PNG was written for any of the four '
+                            'affected targets. No raw output path was returned or bound to the '
+                            'attempted calls.',
+ 'retry_status_note': 'Two additional prompt files/calls for Goblin TOP and Cage TOP were started '
+                      'in a later exec and interrupted by Root after about 17 seconds. No returned '
+                      'tool response or raw image was saved; these do not authorize further retry.',
+ 'requested_batch_scope': [{'object_id': 'industry-menagerie-goblin-workbench', 'direction': 'top'},
+                           {'object_id': 'industry-menagerie-improvised-cannon-emplacement',
+                            'direction': 'top'},
+                           {'object_id': 'industry-menagerie-improvised-cannon-emplacement',
+                            'direction': 'rear'},
+                           {'object_id': 'industry-menagerie-kennel-cage-section',
+                            'direction': 'top'}]}
+ACTUAL_INTERRUPTED_PROMPTS = {'reusable/views-additional/prompts/root-dark-worktops6-20261026/goblin-workbench-top.txt': 'Isolated '
+                                                                                            'transparent '
+                                                                                            'TRUE '
+                                                                                            'OVERHEAD '
+                                                                                            'TOP '
+                                                                                            'orthographic '
+                                                                                            'projection '
+                                                                                            'of '
+                                                                                            'the '
+                                                                                            'exact '
+                                                                                            'goblin '
+                                                                                            'work '
+                                                                                            'cart/workbench '
+                                                                                            'in '
+                                                                                            'supplied '
+                                                                                            'source. '
+                                                                                            'Camera '
+                                                                                            'looks '
+                                                                                            'straight '
+                                                                                            'down '
+                                                                                            'at '
+                                                                                            'rectangular '
+                                                                                            'wooden '
+                                                                                            'tabletop, '
+                                                                                            'cart '
+                                                                                            'rails '
+                                                                                            'and '
+                                                                                            'wheel '
+                                                                                            'footprints. '
+                                                                                            'Show '
+                                                                                            'tools '
+                                                                                            'as '
+                                                                                            'short '
+                                                                                            'end-on '
+                                                                                            'tips '
+                                                                                            'and '
+                                                                                            'containers '
+                                                                                            'as '
+                                                                                            'circular/open '
+                                                                                            'caps; '
+                                                                                            'show '
+                                                                                            'only '
+                                                                                            'folded '
+                                                                                            'edge '
+                                                                                            'of '
+                                                                                            'the '
+                                                                                            'red '
+                                                                                            'apron '
+                                                                                            'along '
+                                                                                            'near/front '
+                                                                                            'side, '
+                                                                                            'never '
+                                                                                            'hanging '
+                                                                                            'frontal '
+                                                                                            'cloth. '
+                                                                                            'Include '
+                                                                                            'source-specific '
+                                                                                            'bottles, '
+                                                                                            'tools, '
+                                                                                            'small '
+                                                                                            'brass '
+                                                                                            'fittings, '
+                                                                                            'four '
+                                                                                            'wheel '
+                                                                                            'locations. '
+                                                                                            'Do '
+                                                                                            'not '
+                                                                                            'draw '
+                                                                                            'cabinet '
+                                                                                            'fronts, '
+                                                                                            'vertical '
+                                                                                            'bottle '
+                                                                                            'bodies, '
+                                                                                            'or a '
+                                                                                            'front '
+                                                                                            'elevation '
+                                                                                            'laid '
+                                                                                            'flat. '
+                                                                                            'Preserve '
+                                                                                            'source '
+                                                                                            'palette, '
+                                                                                            'count '
+                                                                                            'and '
+                                                                                            'top '
+                                                                                            'footprint '
+                                                                                            'from '
+                                                                                            'accepted '
+                                                                                            'view. '
+                                                                                            'No '
+                                                                                            'perspective, '
+                                                                                            'no '
+                                                                                            'text, '
+                                                                                            'no '
+                                                                                            'frame, '
+                                                                                            'one '
+                                                                                            'view, '
+                                                                                            'transparent '
+                                                                                            'background.\n',
+ 'reusable/views-additional/prompts/root-dark-worktops6-20261026/cage-top.txt': 'Isolated '
+                                                                                'transparent TRUE '
+                                                                                'OVERHEAD TOP '
+                                                                                'orthographic '
+                                                                                'projection of the '
+                                                                                'exact open kennel '
+                                                                                'cage in source. '
+                                                                                'Show rectangular '
+                                                                                'perimeter rails '
+                                                                                'and corner posts '
+                                                                                'from above, '
+                                                                                'upright vertical '
+                                                                                'bars reduced to '
+                                                                                'thin parallel '
+                                                                                'lines and small '
+                                                                                'post caps, with '
+                                                                                'open interior '
+                                                                                'visible. Keep '
+                                                                                'source bowl at '
+                                                                                'existing '
+                                                                                'FRONT-LEFT corner '
+                                                                                'as located in '
+                                                                                'accepted TOP; '
+                                                                                'retain small red '
+                                                                                'marking only as a '
+                                                                                'narrow edge '
+                                                                                'detail where '
+                                                                                'physically '
+                                                                                'attached. This is '
+                                                                                'an open cage, not '
+                                                                                'a solid sealed '
+                                                                                'roof, no full '
+                                                                                'frontal vertical '
+                                                                                'slats laid flat '
+                                                                                'and no broad '
+                                                                                'solid panel. '
+                                                                                'Match accepted '
+                                                                                'footprint and '
+                                                                                'source dark iron '
+                                                                                'palette. Direct '
+                                                                                'overhead, no '
+                                                                                'perspective/text/frame/other '
+                                                                                'views, '
+                                                                                'transparent '
+                                                                                'background.\n'}
+
 class RecordedBlockTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -494,6 +827,159 @@ class RecordedBlockTests(unittest.TestCase):
         self.publish()
         with self.assertRaisesRegex(ValueError, 'prompt copy content differs'):
             blocks.load_blocks(self.pack, self.index)
+
+    def set_blocked_views(self, affected):
+        self.block['affected_views'] = list(affected)
+        self.rows[0]['review']['affected_views'] = list(affected)
+        partial = self.block['unaffected_review']
+        partial['approved_views'] = [v for v in reviews.VIEWS if v not in affected]
+        partial['views'] = {v: copy.deepcopy(self.block['views'][v]) for v in partial['approved_views']}
+
+    def siege_fixture(self):
+        oid = blocks.SIEGE[1]
+        self.retarget(oid, blocks.SIEGE[0]); self.set_blocked_views(['rear'])
+        receipt = copy.deepcopy(ACTUAL_SIEGE_RECEIPT)
+        request = receipt['requests'][0]
+        self.block['supporting_files'] = []
+        for role, rel in blocks.siege_reference_paths(oid).items():
+            source = self.block['primary_source']['path'] if role == 'source' else self.block['views']['left']['path']
+            path = self.pack / rel; path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((self.pack/source).read_bytes())
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            request['reference_hashes'][role] = digest
+            self.block['supporting_files'].append({'path': rel, 'sha256': digest})
+        self.write_receipt(receipt)
+        return receipt
+
+    def shared_batch_fixture(self, oid='industry-menagerie-goblin-workbench'):
+        self.retarget(oid, 'book-tiles/dungeon-after-dark')
+        self.set_blocked_views([v for v in reviews.VIEWS if v in blocks.TARGETS[(self.scope, oid)]])
+        self.block['reason'] = blocks.BATCH_REASON
+        receipt = copy.deepcopy(ACTUAL_WORKTOP_RECEIPT)
+        files = {}
+        for other, _ in blocks.WORKTOP_PROMPTS:
+            for number, rel in enumerate(blocks.worktop_reference_paths(other)):
+                if rel in files:
+                    continue
+                path = self.pack / rel; path.parent.mkdir(parents=True, exist_ok=True)
+                if other == oid:
+                    src = [self.block['primary_source'], self.block['views']['front'], self.block['views']['top']][number]
+                    path.write_bytes((self.pack/src['path']).read_bytes())
+                else:
+                    Image.new('RGBA', (8, 8), (20+number, 40, 60, 255)).save(path)
+                files[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+        for rel, text in ACTUAL_INTERRUPTED_PROMPTS.items():
+            path = self.pack / rel; path.parent.mkdir(parents=True, exist_ok=True); path.write_text(text)
+            files[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.block['supporting_files'] = [{'path': rel, 'sha256': digest} for rel, digest in sorted(files.items())]
+        self.write_receipt(receipt)
+        return receipt
+
+    def test_siege_wrapped_actual_receipt_strict_and_opt_in_zip(self):
+        self.siege_fixture()
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            validate(self.pack, True)
+        result = validate(self.pack, True, True)
+        self.assertEqual(result['recorded_blocked_view_count'], 1)
+        self.assertEqual(self.block['affected_views'], ['rear'])
+        self.assertEqual(len(self.block['unaffected_review']['approved_views']), 5)
+        self.assertFalse(self.index['view_sets'][0]['complete'])
+        contents = plan(self.pack, [], selected_assets=[blocks.SIEGE[1]+'.front'])
+        for info in self.block['supporting_files']:
+            self.assertIn('library/'+info['path'], contents)
+        self.assertEqual(json.loads(contents['library/blocked.json'])['requests'][0]['direction'], 'rear')
+        archive = Path(self.temp.name)/'siege.zip'; write_zip(archive, contents, 1000000)
+        verify_archive(archive, Path(self.temp.name)/'siege-explicit', allow_recorded_blocks=True)
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            verify_archive(archive, Path(self.temp.name)/'siege-strict')
+
+    def test_siege_receipt_source_and_exact_failure_fields_cannot_be_rebound(self):
+        original = self.siege_fixture()
+        cases = [('object_id', 'other'), ('direction', 'front'), ('status', 'success'),
+                 ('stage', 'output'), ('category', 'other'), ('error', 'unrelated failure'), ('prompt', 'changed prompt'),
+                 ('request_id', 'invented-request-id')]
+        for field, value in cases:
+            with self.subTest(field=field):
+                receipt = copy.deepcopy(original); receipt['requests'][0][field] = value; self.write_receipt(receipt)
+                with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+                    blocks.load_blocks(self.pack, self.index)
+        receipt = copy.deepcopy(original); receipt['requests'][0]['reference_hashes']['source'] = '0'*64
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+        receipt = copy.deepcopy(original); receipt['requests'].append(copy.deepcopy(receipt['requests'][0]))
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+        self.write_receipt(original); self.block['supporting_files'].pop(); self.publish()
+        with self.assertRaisesRegex(ValueError, 'portable recorded-batch input'):
+            blocks.load_blocks(self.pack, self.index)
+
+    def test_shared_batch_is_unattributed_and_retains_complete_four_request_evidence(self):
+        self.shared_batch_fixture()
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            validate(self.pack, True)
+        result = validate(self.pack, True, True)
+        self.assertEqual(result['recorded_blocked_view_count'], 1)
+        self.assertFalse(self.index['view_sets'][0]['complete'])
+        contents = plan(self.pack, [], selected_assets=['industry-menagerie-goblin-workbench.front'])
+        copied = json.loads(contents['library/blocked.json'])
+        self.assertEqual(len(copied['blocked_batch_targets']), 4)
+        self.assertTrue(all(row['tool_request_id'] is None for row in copied['blocked_batch_targets']))
+        report = json.loads(contents['library/'+blocks.PATH])
+        self.assertEqual(report['records'][0]['reason'], 'batch rejection; individual request attribution unavailable')
+        for info in self.block['supporting_files']:
+            self.assertIn('library/'+info['path'], contents)
+        archive = Path(self.temp.name)/'shared.zip'; write_zip(archive, contents, 1000000)
+        verify_archive(archive, Path(self.temp.name)/'shared-explicit', allow_recorded_blocks=True)
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            verify_archive(archive, Path(self.temp.name)/'shared-strict')
+
+    def test_shared_cannon_has_exactly_two_unavailable_directions(self):
+        self.shared_batch_fixture('industry-menagerie-improvised-cannon-emplacement')
+        result = validate(self.pack, True, True)
+        self.assertEqual(result['recorded_blocked_view_count'], 2)
+        self.assertEqual(set(self.block['affected_views']), {'top', 'rear'})
+        self.assertEqual(len(self.block['unaffected_review']['approved_views']), 4)
+        self.block['affected_views'].append('front'); self.publish()
+        with self.assertRaisesRegex(ValueError, 'Unlisted'):
+            blocks.load_blocks(self.pack, self.index)
+
+    def test_shared_batch_target_prompt_error_and_attribution_tampering_rejected(self):
+        original = self.shared_batch_fixture()
+        for case in ('target', 'duplicate', 'prompt', 'prompt-digest', 'error', 'attributed', 'association', 'scope'):
+            with self.subTest(case=case):
+                receipt = copy.deepcopy(original)
+                if case == 'target': receipt['blocked_batch_targets'][0]['object_id'] = 'other'
+                elif case == 'duplicate': receipt['blocked_batch_targets'][0] = copy.deepcopy(receipt['blocked_batch_targets'][1])
+                elif case == 'prompt':
+                    receipt['blocked_batch_targets'][0]['prompt'] += ' changed'
+                    receipt['blocked_batch_targets'][0]['prompt_sha256'] = hashlib.sha256(receipt['blocked_batch_targets'][0]['prompt'].encode()).hexdigest()
+                elif case == 'prompt-digest': receipt['blocked_batch_targets'][0]['prompt_sha256'] = '0'*64
+                elif case == 'error': receipt['exact_error_response']['moderation_stage'] = 'output'
+                elif case == 'attributed': receipt['blocked_batch_targets'][0]['tool_request_id'] = blocks.WORKTOP_BATCH_ID
+                elif case == 'association': receipt['request_id_association'] = 'Each request was individually rejected'
+                elif case == 'scope': receipt['requested_batch_scope'].pop()
+                self.write_receipt(receipt)
+                with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+                    blocks.load_blocks(self.pack, self.index)
+        self.write_receipt(original); self.block['reason'] = 'individually rejected'; self.publish()
+        with self.assertRaisesRegex(ValueError, 'actual image-tool'):
+            blocks.load_blocks(self.pack, self.index)
+
+    def test_shared_batch_other_object_inputs_and_interrupted_prompts_must_travel(self):
+        self.shared_batch_fixture()
+        files = copy.deepcopy(self.block['supporting_files'])
+        for path in (blocks.worktop_reference_paths('industry-menagerie-kennel-cage-section')[0],
+                     next(iter(blocks.INTERRUPTED_BATCH_PROMPTS))):
+            with self.subTest(path=path):
+                self.block['supporting_files'] = [f for f in files if f['path'] != path]; self.publish()
+                with self.assertRaisesRegex(ValueError, 'portable recorded-batch input'):
+                    blocks.load_blocks(self.pack, self.index)
+        self.block['supporting_files'] = files; self.publish()
+        self.rows[0]['review']['affected_views'] = ['front', 'top']; self.publish()
+        with self.assertRaises(ValueError):
+            validate(self.pack, True, True)
 
 
 if __name__ == '__main__':

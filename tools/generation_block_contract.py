@@ -15,6 +15,10 @@ TARGETS = {
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'front', 'top', 'right', 'left', 'bottom', 'rear'},
     ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'top'},
     ('style-packs/ink-and-lanterns', 'arsenal-spear'): {'top', 'bottom'},
+    ('book-tiles/dungeon-after-dark', 'faction-battlefield-siege-engine-emplacement'): {'rear'},
+    ('book-tiles/dungeon-after-dark', 'industry-menagerie-goblin-workbench'): {'top'},
+    ('book-tiles/dungeon-after-dark', 'industry-menagerie-improvised-cannon-emplacement'): {'top', 'rear'},
+    ('book-tiles/dungeon-after-dark', 'industry-menagerie-kennel-cage-section'): {'top'},
 }
 REQUESTS = {
     ('style-packs/pocket-dungeon', 'arsenal-throwing-knives'): {'0c226e2d-cd63-496f-bb15-9fc716cc748e'},
@@ -29,12 +33,156 @@ REQUESTS = {
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'01e77624-66e2-4803-a093-773861a20e76'},
     ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'b859fd7b-afb2-4fc1-8f03-baba15f4951e'},
     ('style-packs/ink-and-lanterns', 'arsenal-spear'): {'665246dd-074d-429b-b12d-516f5b70df9f'},
+    ('book-tiles/dungeon-after-dark', 'faction-battlefield-siege-engine-emplacement'): {'bd9ae23c-f368-4a9f-902d-d042760e6646'},
+    **{('book-tiles/dungeon-after-dark', oid): {'19523388-b475-449a-a092-52307d277980'} for oid in (
+        'industry-menagerie-goblin-workbench', 'industry-menagerie-improvised-cannon-emplacement',
+        'industry-menagerie-kennel-cage-section')},
 }
 CARL_BATCH = {f'attacks-carl-kick-{n:02}' for n in (1, 2, 3)}
+SIEGE = ('book-tiles/dungeon-after-dark', 'faction-battlefield-siege-engine-emplacement')
+SIEGE_ERROR = ('Image-generation safety system returned HTTP 400 moderation_blocked; '
+               'do not retry this same request or an equivalent substitute.')
+SIEGE_PROMPT_SHA256 = '966f78c8bd683b5d0e86d9f9678ae882f5945833d3f8eb3e7dc9a9653496fc8f'
+WORKTOP_BATCH_ID = '19523388-b475-449a-a092-52307d277980'
+BATCH_REASON = 'batch rejection; individual request attribution unavailable'
+# These are the four actual concurrent requests, not four attributed rejections.
+WORKTOP_PROMPTS = {
+    ('industry-menagerie-goblin-workbench', 'top'): '3abae1ec30015f060ad0f90dae59f5f3e9dd16461a8effa289e406d38869c3c1',
+    ('industry-menagerie-improvised-cannon-emplacement', 'top'): '30ec8b3b1a11c761ab4e48bda065bd449e9616944d967d0bc288e600fe7a389e',
+    ('industry-menagerie-improvised-cannon-emplacement', 'rear'): '0c531a5d34b6e0929b0e4952b23bb4ddb03bd9988ad8e3aaf49b83971e6f2993',
+    ('industry-menagerie-kennel-cage-section', 'top'): 'c53ef5604dc5c3213ee6775a870d25f98beee2fb435da19664635e8a28c47668',
+}
+INTERRUPTED_BATCH_PROMPTS = {
+    'reusable/views-additional/prompts/root-dark-worktops6-20261026/goblin-workbench-top.txt':
+        '78f91e7dd398af2b22adc22e4c9878c14af8d7f02ff7778886099bd08a8dcf9f',
+    'reusable/views-additional/prompts/root-dark-worktops6-20261026/cage-top.txt':
+        '549bf933deddc3b8e4772c67960f39b646b8a2962dd6bbeb26cd82817a7b7a2b',
+}
+INTERRUPTED_BATCH_STATUS = ('imagegen call issued, execution aborted by Root after ~17 seconds before any response '
+    'mapping/raw PNG was saved; do not retry; included direction was already safety-blocked in batch01')
+
+
+def worktop_target(scope, oid):
+    return scope == 'book-tiles/dungeon-after-dark' and any(o == oid for o, _ in WORKTOP_PROMPTS)
+
+
+def siege_reference_paths(oid):
+    prefix = 'reusable/views-additional/candidates/core-dark-next-six-props-20261026/raw/current-snapshots/'
+    return {role: prefix + oid + '.' + role + '.png' for role in ('source', 'left')}
+
+
+def worktop_reference_paths(oid):
+    return ['industry-menagerie/components/' + oid + '.png',
+            'reusable/views-additional/images/' + oid + '.front.png',
+            'reusable/views-additional/images/' + oid + '.top.png']
+
+
+def historical_reference_matches(value, relative):
+    """Match an archival receipt citation; never open its absolute session path."""
+    return isinstance(value, str) and (value == relative or value.endswith('/' + relative))
+
+
+def additional_receipt_support(tool, scope, oid, binding):
+    """Known portable input files required by the two retained Dark receipts.
+
+    Values are receipt/canonical hashes where available. None means the raw
+    receipt did not report a digest; the frozen supporting_files binding must
+    still pin and validate the file. No absolute historical path is opened.
+    """
+    if (scope, oid) == SIEGE:
+        request = tool['requests'][0]
+        return {path: request['reference_hashes'][role]
+                for role, path in siege_reference_paths(oid).items()}
+    if worktop_target(scope, oid):
+        required = {}
+        for target_oid, _ in WORKTOP_PROMPTS:
+            paths = worktop_reference_paths(target_oid)
+            required.update({path: None for path in paths})
+            if target_oid == oid:
+                required.update({path: info['sha256'] for path, info in zip(paths,
+                    (binding['primary_source'], binding['views']['front'], binding['views']['top']))})
+        required.update(INTERRUPTED_BATCH_PROMPTS)
+        return required
+    return {}
 
 
 def receipt_facts(tool, scope, oid, binding):
     """Interpret known receipts without rewriting their returned fields."""
+    if not isinstance(tool, dict):
+        return False, set(), set()
+    if (scope, oid) == SIEGE:
+        requests = tool.get('requests', [])
+        request = requests[0] if isinstance(requests, list) and len(requests) == 1 else {}
+        request = request if isinstance(request, dict) else {}
+        refs = request.get('referenced_image_paths', [])
+        paths = siege_reference_paths(oid)
+        hashes = request.get('reference_hashes', {})
+        valid = (request.get('object_id') == oid and request.get('direction') == 'rear'
+                 and request.get('status') == 'blocked' and request.get('stage') == 'input'
+                 and request.get('category') == 'violence' and request.get('error') == SIEGE_ERROR
+                 and request.get('candidate_only') is True and request.get('affected_view_unresolved') is True
+                 and isinstance(request.get('prompt'), str)
+                 and hashlib.sha256(request['prompt'].encode()).hexdigest() == SIEGE_PROMPT_SHA256
+                 and isinstance(hashes, dict) and set(hashes) == {'source', 'left'}
+                 and hashes.get('source') == binding['primary_source']['sha256']
+                 and isinstance(hashes.get('left'), str) and len(hashes['left']) == 64
+                 and isinstance(refs, list) and len(refs) == 2
+                 and all(historical_reference_matches(value, paths[role])
+                         for value, role in zip(refs, ('source', 'left'))))
+        return valid, {'rear'}, {request.get('request_id')}
+    if worktop_target(scope, oid):
+        targets = tool.get('blocked_batch_targets', [])
+        scope_rows = tool.get('requested_batch_scope', [])
+        error = tool.get('exact_error_response', {})
+        actual = [(r.get('object_id'), r.get('direction')) for r in targets if isinstance(r, dict)
+                  and isinstance(r.get('object_id'), str) and isinstance(r.get('direction'), str)] if isinstance(targets, list) else []
+        declared = [(r.get('object_id'), r.get('direction')) for r in scope_rows if isinstance(r, dict)
+                    and isinstance(r.get('object_id'), str) and isinstance(r.get('direction'), str)] if isinstance(scope_rows, list) else []
+        valid = (isinstance(targets, list) and len(targets) == 4 and len(actual) == 4
+                 and set(actual) == set(WORKTOP_PROMPTS) and len(set(actual)) == 4
+                 and isinstance(scope_rows, list) and len(scope_rows) == 4
+                 and len(declared) == 4 and set(declared) == set(WORKTOP_PROMPTS)
+                 and tool.get('blocking_tool_request_id') == WORKTOP_BATCH_ID
+                 and tool.get('record_type') == 'safety-blocked image-generation batch; do not retry any listed directions'
+                 and tool.get('request_id_association') == 'One of the four concurrent calls returned this error; the executor did not identify which call. Treat all four requested directions as blocked and unavailable.'
+                 and error == {'status_code': 400, 'type': 'image_generation_user_error',
+                     'code': 'moderation_blocked', 'moderation_stage': 'input',
+                     'safety_violations': ['violence'], 'request_id': WORKTOP_BATCH_ID,
+                     'exact_message': 'Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ' + WORKTOP_BATCH_ID + '. safety_violations=[violence].'}
+                 and binding.get('reason') == BATCH_REASON)
+        for row in targets if isinstance(targets, list) else []:
+            if not isinstance(row, dict):
+                valid = False
+                continue
+            key = (row.get('object_id'), row.get('direction'))
+            prompt = row.get('prompt')
+            refs = row.get('reference_image_paths', [])
+            expected = worktop_reference_paths(row.get('object_id') if isinstance(row.get('object_id'), str) else '')
+            valid = valid and (all(isinstance(v, str) for v in key) and key in WORKTOP_PROMPTS
+                and isinstance(prompt, str) and hashlib.sha256(prompt.encode()).hexdigest() == WORKTOP_PROMPTS.get(key)
+                and row.get('prompt_sha256') == WORKTOP_PROMPTS.get(key)
+                and row.get('tool_request_id') is None and row.get('candidate_status') == 'blocked-batch'
+                and row.get('candidate_file_saved') is False
+                and row.get('tool_request_id_status') == 'No per-call ID returned; one concurrent call in this batch returned the safety error below, exact blocked target is unknown.'
+                and isinstance(refs, list) and len(refs) == 3
+                and all(historical_reference_matches(value, relative) for value, relative in zip(refs, expected)))
+        attempts = tool.get('second_attempts_before_root_stop', [])
+        valid = valid and isinstance(attempts, list) and len(attempts) == 2
+        seen_prompts = set()
+        for attempt in attempts if isinstance(attempts, list) else []:
+            if not isinstance(attempt, dict):
+                valid = False
+                continue
+            path = attempt.get('prompt_path')
+            valid = valid and (isinstance(path, str) and path in INTERRUPTED_BATCH_PROMPTS
+                and attempt.get('prompt_sha256') == INTERRUPTED_BATCH_PROMPTS.get(path)
+                and attempt.get('status') == INTERRUPTED_BATCH_STATUS
+                and attempt.get('direction') == 'top'
+                and attempt.get('object_id') in {'industry-menagerie-goblin-workbench', 'industry-menagerie-kennel-cage-section'})
+            if isinstance(path, str):
+                seen_prompts.add(path)
+        valid = valid and seen_prompts == set(INTERRUPTED_BATCH_PROMPTS)
+        return valid, TARGETS[(scope, oid)], {tool.get('blocking_tool_request_id')}
     if (scope, oid) == ('style-packs/ink-and-lanterns', 'arsenal-spear'):
         valid = (tool.get('object_id') == oid and tool.get('target_views') == ['top', 'bottom']
                  and tool.get('affected_views') == ['top', 'bottom']
@@ -197,6 +345,9 @@ def load_blocks(pack, index):
         dependencies = {f['path']: f for f in row.get('supporting_files', [])}
         for info in dependencies.values():
             check(info)
+        for path, expected in additional_receipt_support(tool, scope, oid, row).items():
+            if path not in dependencies or (expected and dependencies[path].get('sha256') != expected):
+                raise ValueError('Missing or changed portable recorded-batch input: ' + path)
         if tool.get('prompt_path') and tool['prompt_path'] not in dependencies:
             raise ValueError('Missing portable generation-block prompt: ' + oid)
         for field in ('source_contact_sheet', 'input_contact_sheet'):
