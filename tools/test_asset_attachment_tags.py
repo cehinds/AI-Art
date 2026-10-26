@@ -38,6 +38,24 @@ class AttachmentRulesTests(unittest.TestCase):
         self.assertFalse(rules.matches(lava['tags'],boat['attachment']['requires']))
         self.assertEqual(lava['attachment']['provides'],['surface:lava'])
 
+    def test_location_names_do_not_turn_solid_supports_into_water(self):
+        crate=self.asset('crate')
+        for name in ('Palace paving floor','Wet palace paving floor','Riverbank stone floor',
+                     'River palace stone floor','River bridge floor'):
+            with self.subTest(name=name):
+                floor=self.asset('hunting-river-'+name.lower().replace(' ','-'),
+                                 name=name,kind='tile',category='ground',tags=['hunting-river'])
+                self.assertEqual(floor['attachment']['provides'],['surface:floor'])
+                self.assertNotIn('hazard:water',floor['tags'])
+                self.assertTrue(rules.matches(floor['tags'],crate['attachment']['requires']))
+        water=self.asset('hunting-river-river-water-floor',name='River water floor',kind='tile',category='ground')
+        self.assertEqual(water['attachment']['provides'],['surface:water'])
+        self.assertFalse(rules.matches(water['tags'],crate['attachment']['requires']))
+        wall=self.asset('hunting-river-river-palace-wall',name='River palace wall',category='wall')
+        self.assertNotIn('hazard:water',wall['tags'])
+        self.assertNotIn('hazard:water',self.asset('water-bottle')['tags'])
+        self.assertNotIn('hazard:pit',self.asset('pit-boss',category='actor')['tags'])
+
     def test_source_map_reference_does_not_require_a_world_support_tile(self):
         doc = {'maps': [{'id': 'atlas-safe-room', 'kind': 'atlas',
                          'file': 'reusable/maps/atlas-safe-room.json',

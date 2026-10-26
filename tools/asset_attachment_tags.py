@@ -53,6 +53,17 @@ def group_id(style, requires):
 
 def classify(asset, style):
     t = tokens(asset)
+    # Library/location prefixes describe the setting, not the support surface:
+    # a Palace paving floor in hunting-river is still solid ground. Prefer the
+    # authored object name for liquid/hazard inference; keep full tokens for
+    # environmental search tags and existing attachment role classification.
+    subject = asset.get('name') or asset.get('label') or asset.get('id', '')
+    surface_words = set(re.findall(r'[a-z0-9]+', str(subject).lower()))
+    solid_water_crossing = bool(surface_words & {'bridge', 'dock', 'pier', 'jetty', 'riverbank', 'bank'})
+    explicit_water = bool(surface_words & {'water', 'pool', 'flooded', 'liquid'})
+    named_waterway = bool(surface_words & {'river', 'canal'}) and not surface_words & {
+        'stone', 'paving', 'pavement', 'cobblestone', 'palace', 'wall', 'stairs'}
+    water_surface = (explicit_water or named_waterway) and not solid_water_crossing
     category = asset.get('category', '')
     kind = asset.get('kind', '')
     procedural = asset.get('procedural', {})
@@ -72,7 +83,7 @@ def classify(asset, style):
         wall = (role_hint == 'wall' or 'wall' in t) and not mounted
         if floor:
             provider = True
-            offered.append('surface:lava' if 'lava' in t else 'surface:water' if t & {'water', 'pool', 'river', 'canal', 'flooded', 'liquid'} else 'surface:floor')
+            offered.append('surface:lava' if 'lava' in surface_words else 'surface:water' if water_surface else 'surface:floor')
         if wall:
             provider = True; offered.append('surface:wall')
         if t & {'doorway', 'threshold'} or 'door' in t and bool(t & {'frame', 'opening'}):
@@ -124,10 +135,10 @@ def classify(asset, style):
     if not any(v.startswith('material:') for v in generated | authored):generated.add('material:unspecified')
     generated.update(offered)
     generated.update('attachment:' + v.split(':', 1)[1] for v in requires['any'] + requires['all'] if v.startswith('surface:'))
-    if t & {'water', 'flooded', 'pool', 'river', 'canal'}:generated.add('hazard:water')
-    if 'lava' in t:generated.add('hazard:lava')
+    if 'surface:water' in offered:generated.add('hazard:water')
+    if 'surface:lava' in offered:generated.add('hazard:lava')
     for hazard in ('void', 'pit', 'chasm'):
-        if hazard in t:generated.add('hazard:' + hazard)
+        if hazard in surface_words and provider:generated.add('hazard:' + hazard)
     walkable = procedural.get('walkable', asset.get('walkable'))
     if isinstance(walkable, bool):generated.add('walkability:' + ('allowed' if walkable else 'blocked'))
     return sorted(generated), {'schema_version': 1, 'authority': AUTHORITY, 'space': space, 'role': role,
