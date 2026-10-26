@@ -14,6 +14,7 @@ TARGETS = {
     ('reusable-gameplay', 'directional--brittany'): {'bottom'},
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'front', 'top', 'right', 'left', 'bottom', 'rear'},
     ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'top'},
+    ('style-packs/ink-and-lanterns', 'arsenal-spear'): {'top', 'bottom'},
 }
 REQUESTS = {
     ('style-packs/pocket-dungeon', 'arsenal-throwing-knives'): {'0c226e2d-cd63-496f-bb15-9fc716cc748e'},
@@ -27,12 +28,26 @@ REQUESTS = {
         '07c74a96-f5d7-4b2b-ad21-d4e49996f319'},
     ('style-packs/ink-and-lanterns', 'arsenal-recurve-bow'): {'01e77624-66e2-4803-a093-773861a20e76'},
     ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'): {'b859fd7b-afb2-4fc1-8f03-baba15f4951e'},
+    ('style-packs/ink-and-lanterns', 'arsenal-spear'): {'665246dd-074d-429b-b12d-516f5b70df9f'},
 }
 CARL_BATCH = {f'attacks-carl-kick-{n:02}' for n in (1, 2, 3)}
 
 
 def receipt_facts(tool, scope, oid, binding):
     """Interpret known receipts without rewriting their returned fields."""
+    if (scope, oid) == ('style-packs/ink-and-lanterns', 'arsenal-spear'):
+        valid = (tool.get('object_id') == oid and tool.get('target_views') == ['top', 'bottom']
+                 and tool.get('affected_views') == ['top', 'bottom']
+                 and tool.get('status') == 'blocked-by-imagegen-input-moderation'
+                 and tool.get('moderation_stage') == 'input' and tool.get('categories') == ['violence']
+                 and tool.get('tool_error', {}).get('code') == 'moderation_blocked'
+                 and tool.get('source_image') == binding['primary_source']['path']
+                 and tool.get('installed') is False and tool.get('raw_atlas') is None
+                 and all(isinstance(tool.get(k), str) and tool[k] for k in
+                         ('prompt_path', 'source_contact_sheet', 'prompt_copy_path', 'evidence_path'))
+                 and isinstance(tool.get('geometry_guide'), list) and len(tool['geometry_guide']) == 2
+                 and all(isinstance(p, str) and p for p in tool['geometry_guide']))
+        return valid, {'top', 'bottom'}, {tool.get('request_id')}
     if (scope, oid) == ('book-tiles/dungeon-after-dark', 'bubble-airship-bomb-rack'):
         valid = (tool.get('object_id') == oid and tool.get('status') == 'blocked'
                  and tool.get('direction') == 'top' and tool.get('code') == 'moderation_blocked'
@@ -187,6 +202,32 @@ def load_blocks(pack, index):
         for field in ('source_contact_sheet', 'input_contact_sheet'):
             if tool.get(field) and tool[field] not in dependencies:
                 raise ValueError('Missing portable generation-block input contact: ' + oid)
+        for guide in tool.get('geometry_guide', []):
+            if guide not in dependencies:
+                raise ValueError('Missing portable generation-block geometry guide: ' + oid)
+        if tool.get('prompt_sha256'):
+            if dependencies.get(tool.get('prompt_path'), {}).get('sha256') != tool['prompt_sha256']:
+                raise ValueError('Generation-block prompt hash disagrees with receipt: ' + oid)
+        if tool.get('prompt_copy_path'):
+            info = dependencies.get(tool['prompt_copy_path'])
+            if not info:
+                raise ValueError('Missing portable generation-block prompt copy: ' + oid)
+            prompt_copy = json.loads(contained(pack, info['path']).read_bytes())
+            if (prompt_copy.get('prompt_path') != tool.get('prompt_path')
+                    or prompt_copy.get('prompt_sha256') != tool.get('prompt_sha256')
+                    or hashlib.sha256(prompt_copy.get('prompt', '').encode()).hexdigest() != tool.get('prompt_sha256')):
+                raise ValueError('Generation-block prompt copy content differs: ' + oid)
+        if tool.get('evidence_path'):
+            info = dependencies.get(tool['evidence_path'])
+            if not info:
+                raise ValueError('Missing portable generation-block request copy: ' + oid)
+            request = json.loads(contained(pack, info['path']).read_bytes())
+            for field in ('object_id', 'target_views', 'request_id', 'status', 'tool_error', 'source_image', 'geometry_guide'):
+                if request.get(field) != tool.get(field):
+                    raise ValueError('Generation-block request copy content differs: ' + oid)
+        # Embedded hashes of original JSON copies remain archival receipt
+        # values. Current supporting_files hashes bind tag-normalized copies;
+        # their request/prompt contents are additionally checked above.
         candidate = tool.get('allowed_but_rejected_candidate', {})
         if candidate:
             info = dependencies.get(candidate.get('raw_atlas'), {})

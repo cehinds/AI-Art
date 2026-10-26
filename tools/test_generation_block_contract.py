@@ -456,6 +456,45 @@ class RecordedBlockTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'actual image-tool'):
             blocks.load_blocks(self.pack, self.index)
 
+    def test_spear_target_views_and_portable_request_prompt_and_guides(self):
+        self.retarget('arsenal-spear', 'style-packs/ink-and-lanterns')
+        self.block['affected_views'] = ['top', 'bottom']; self.rows[0]['review']['affected_views'] = ['top', 'bottom']
+        partial = self.block['unaffected_review']
+        partial['approved_views'] = [v for v in reviews.VIEWS if v not in {'top', 'bottom'}]
+        partial['views'] = {v: copy.deepcopy(self.block['views'][v]) for v in partial['approved_views']}
+        prompt = 'Exact retained source-bound request'
+        (self.pack/'prompt.txt').write_text(prompt); prompt_sha = hashlib.sha256(prompt.encode()).hexdigest()
+        for name in ('input.png', 'guide-top.png', 'guide-bottom.png'):
+            Image.new('RGBA', (2, 2), (7, 8, 9, 255)).save(self.pack/name)
+        request = {'object_id': 'arsenal-spear', 'target_views': ['top', 'bottom'],
+            'affected_views': ['top', 'bottom'], 'status': 'blocked-by-imagegen-input-moderation',
+            'request_id': '665246dd-074d-429b-b12d-516f5b70df9f', 'moderation_stage': 'input',
+            'categories': ['violence'], 'tool_error': {'code': 'moderation_blocked'},
+            'source_image': 'iron-sword.png', 'raw_atlas': None, 'installed': False,
+            'prompt_path': 'prompt.txt', 'source_contact_sheet': 'input.png',
+            'geometry_guide': ['guide-top.png', 'guide-bottom.png']}
+        (self.pack/'request.json').write_bytes(blocks.encoded(request))
+        (self.pack/'prompt.json').write_bytes(blocks.encoded({'prompt_path': 'prompt.txt',
+            'prompt_sha256': prompt_sha, 'prompt': prompt}))
+        receipt = {**request, 'prompt_sha256': prompt_sha, 'evidence_path': 'request.json',
+                   'prompt_copy_path': 'prompt.json', 'prompt_copy_sha256': 'a'*64}
+        self.write_receipt(receipt)
+        with self.assertRaisesRegex(ValueError, 'portable generation-block'):
+            blocks.load_blocks(self.pack, self.index)
+        self.block['supporting_files'] = [{'path': name, 'sha256': hashlib.sha256((self.pack/name).read_bytes()).hexdigest()}
+            for name in ('prompt.txt', 'input.png', 'guide-top.png', 'guide-bottom.png', 'request.json', 'prompt.json')]
+        self.publish(); validate(self.pack, True, True)
+        contents = plan(self.pack, [], selected_assets=['arsenal-spear.front'])
+        self.assertIn('library/request.json', contents); self.assertIn('library/guide-bottom.png', contents)
+        # The old embedded JSON-copy hash is archival; current policy pins the
+        # normalized JSON bytes and verifies exact prompt/request contents.
+        bad = json.loads((self.pack/'prompt.json').read_bytes()); bad['prompt'] = 'changed'
+        (self.pack/'prompt.json').write_bytes(blocks.encoded(bad))
+        self.block['supporting_files'][-1]['sha256'] = hashlib.sha256((self.pack/'prompt.json').read_bytes()).hexdigest()
+        self.publish()
+        with self.assertRaisesRegex(ValueError, 'prompt copy content differs'):
+            blocks.load_blocks(self.pack, self.index)
+
 
 if __name__ == '__main__':
     unittest.main()
