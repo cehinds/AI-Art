@@ -3,17 +3,51 @@
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
 from build_pocket_reusable import Builder, image_bytes, json_bytes
-from build_reusable_library import BookBuilder, region_asset, registry
+from build_reusable_library import BookBuilder, GameplayBuilder, region_asset, registry
 from package_pocket_reusable import plan
-from validate_pocket_reusable import validate, view_set_approved, check_asset_geometry
+from validate_pocket_reusable import validate, view_set_approved, check_asset_geometry, render
 from render_art_remix import render as render_remix, eligible
 from asset_attachment_tags import enrich_library
 
 
 class LibraryTests(unittest.TestCase):
+    def test_composition_reference_does_not_replace_decomposed_map(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);assets=root/'assets';(root/'tools').mkdir()
+            for folder in ('dungeon-stone','room-kit/concept'):
+                (assets/folder).mkdir(parents=True)
+                for suffix in 'abcd':
+                    Image.new('RGBA',(2,2),(40,50,60,255)).save(assets/folder/f'stone-{suffix}.png')
+            (assets/'house').mkdir()
+            source=Image.new('RGBA',(20,20),(30,40,50,255))
+            source.putpixel((0,0),(13,27,39,0))
+            source.save(assets/'house/carl.png')
+            regions=[{'id':'house--carl','label':'Room illustration','rect':[0,0,20,20],
+                      'kind':'composition','physical':False,'reusable':False,'reconstruction_placement':False},
+                     {'id':'house--carl--furnishing','label':'Furnishing occurrence','rect':[5,5,8,8],
+                      'kind':'reconstruction_patch','physical':True,'reusable':False}]
+            (root/'tools/all_asset_scene_regions.json').write_text(json.dumps(
+                {'sources':[{'path':'house/carl.png','regions':regions}]}))
+            with patch('build_reusable_library.ROOT',root),patch('build_reusable_library.ASSETS',assets):
+                b=GameplayBuilder();outputs=b.build()
+            index=json.loads(outputs['reusable/index.json'])
+            entries={a['id']:a for a in index['assets']}
+            room_map=next(m for m in index['maps'] if m['id']=='atlas-house--carl')
+            document=json.loads(outputs[room_map['file']])
+            placed={layer['asset_id'] for layer in document['layers']}
+            self.assertNotIn('house--carl',placed)
+            self.assertIn('house--carl--furnishing',placed)
+            self.assertFalse(entries['house--carl']['views']['applicable'])
+            self.assertFalse(entries['house--carl']['reconstruction']['placement'])
+            for relative,raw in outputs.items():
+                destination=b.pack/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_bytes(raw)
+            recreated=render(b.pack,document,entries)
+            self.assertEqual(recreated.tobytes(),source.tobytes())
+
     def test_book_sample_preserves_edges_and_excludes_manual_transitions(self):
         with tempfile.TemporaryDirectory() as directory:
             b=self.fixture(Path(directory));b.normalized=[]

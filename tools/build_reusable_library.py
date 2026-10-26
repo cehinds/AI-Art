@@ -277,6 +277,11 @@ def region_asset(builder, source_path, region, style):
     for field in ('pose','source_direction','character_id'):
         if field in region:asset[field]=region[field]
     if region.get('association'):asset['association']=region['association']
+    if region.get('reconstruction_placement') is False:
+        if physical or region.get('reusable',True):
+            raise ValueError('Unplaced composition references must be nonphysical and nonreusable: '+region['id'])
+        asset['reconstruction']={'placement':False,
+            'reason':'Composition reference only. Individual occurrence crops and explicit residuals reconstruct this source.'}
     return asset
 
 
@@ -346,7 +351,8 @@ class GameplayBuilder(Builder):
                     region=apply_association(region,'gameplay')
                     asset=region_asset(self,source_path,region,'gameplay');self.semantic.append(asset)
                     x,y,w,h=region['rect']
-                    self.manifest['assets'].append({'id':asset['id'],'source':{'sheet':sheet,'bounds':{'x':x+4,'y':y+4,'width':w,'height':h}}})
+                    if region.get('reconstruction_placement',True):
+                        self.manifest['assets'].append({'id':asset['id'],'source':{'sheet':sheet,'bounds':{'x':x+4,'y':y+4,'width':w,'height':h}}})
                 self.coverage.append({'source':source_path,'original_source':relative,'native_asset_count':len(regions),
                     'physical_object_count':sum(x.get('physical',False) for x in regions),
                     'status':'semantic-regions' if regions else ('derived-diagnostic-preview' if Path(relative).stem in ('projection-comparison','contact-sheet','roster-contact') else 'source-only-awaiting-review'),
