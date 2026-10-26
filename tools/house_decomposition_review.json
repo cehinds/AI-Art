@@ -1,0 +1,4406 @@
+{
+  "schema_version": 1,
+  "status": "source-decomposition-reviewed",
+  "tags": [
+    "metadata-document",
+    "source-decomposition",
+    "house",
+    "review"
+  ],
+  "inventory_sha256": "a9ddff226baf24c0748f997f0896d1b5c9952eccce4e0272d5f99478f41bc22e",
+  "semantics": {
+    "whole_rooms": "Menu-service illustrations, not canonical building layouts or collision tiles (house/README.md). Preserve as reconstruction compositions; do not require atomic room principal sets.",
+    "native_crops": "Exact unaltered crop bytes in review artifacts. Most include baked room context/occlusion and are not clean reusable silhouettes.",
+    "clean_parts": "Reuse verified canonical object views where design matches. Any unmatched inferred clean physical part needs its own principal set, source crop/context and explicit inference metadata.",
+    "lighting": "Baked torch glow/shadows remain reconstruction context; no invented physical lighting objects.",
+    "contents": "Filled shelves/bed assemblies remain useful assemblies, with distinct loose props/nested references separately listed. Tiny indistinguishable book spines are not fabricated as new objects.",
+    "existing_matches": "confirmed-design is visual identity, not a claim of pixel identity or current approved view status. Interpretive existing labels remain explicitly qualified."
+  },
+  "statistics": {
+    "source_images": 8,
+    "native_occurrences": 196,
+    "new_canonical_physical_objects": 82,
+    "existing_canonical_objects_reused": 62,
+    "unresolved_source_details": 2
+  },
+  "retired_whole_room_view_object_ids": [
+    "house--bedroom",
+    "house--carl",
+    "house--crafting",
+    "house--donut",
+    "house--katia",
+    "house--mongo",
+    "house--social",
+    "house--training"
+  ],
+  "new_canonical_objects": [
+    {
+      "id": "house-bedroom--floor-shell",
+      "label": "Wood floor and stone plinth context",
+      "source": "house/bedroom.png",
+      "rect": [
+        12,
+        166,
+        364,
+        226
+      ],
+      "category": "structure",
+      "notes": "Partially occluded structural reference, NOT a clean empty wall/floor crop. Preserve foreground occluders in native evidence; infer clean geometry only with explicit metadata. Shared house-shell family is a proposal, not an existing exact asset. Reuse ONE shared floor and ONE shared wall design, not 24 separate clean shells. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-shared-floor",
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--left-wall-shell",
+      "label": "Left/northwest stone-and-wood wall context",
+      "source": "house/bedroom.png",
+      "rect": [
+        12,
+        15,
+        191,
+        258
+      ],
+      "category": "structure",
+      "notes": "Partially occluded structural reference, NOT a clean empty wall/floor crop. Preserve foreground occluders in native evidence; infer clean geometry only with explicit metadata. Shared house-shell family is a proposal, not an existing exact asset. Reuse ONE shared floor and ONE shared wall design, not 24 separate clean shells. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-shared-wall",
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bed",
+      "label": "Gold-quilt wooden bed",
+      "source": "house/bedroom.png",
+      "rect": [
+        88,
+        145,
+        173,
+        154
+      ],
+      "category": "prop",
+      "notes": "Front frame partly occluded by blue trunk; preserve separate pillow/linen as optional nested pieces. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--pillow",
+      "label": "White bed pillow",
+      "source": "house/bedroom.png",
+      "rect": [
+        109,
+        168,
+        67,
+        43
+      ],
+      "category": "prop",
+      "notes": "Nested bed item; lower white fold is linen, not a second pillow. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-white-pillow",
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--left-table-candle",
+      "label": "Single tabletop candlestick",
+      "source": "house/bedroom.png",
+      "rect": [
+        64,
+        182,
+        23,
+        38
+      ],
+      "category": "prop",
+      "notes": "Gold holder/white wax; distinct from wall-mounted torch behind it. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-brass-table-candle",
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--left-book-stack",
+      "label": "Closed books on left nightstand",
+      "source": "house/bedroom.png",
+      "rect": [
+        67,
+        202,
+        30,
+        18
+      ],
+      "category": "prop",
+      "notes": "Overlapped by candlestick; visible covers/pages only. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-bedside-book-stack",
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--right-candles",
+      "label": "Three-candle holder on rear cabinet",
+      "source": "house/bedroom.png",
+      "rect": [
+        181,
+        123,
+        36,
+        45
+      ],
+      "category": "prop",
+      "notes": "Three visible wax candles on one branching holder; source assembly retained. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--wall-picture",
+      "label": "Framed landscape/map",
+      "source": "house/bedroom.png",
+      "rect": [
+        85,
+        105,
+        51,
+        62
+      ],
+      "category": "prop",
+      "notes": "Wall fixture, slight isometric slant; frame and artwork remain one item. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bookcase",
+      "label": "Tall filled bookcase",
+      "source": "house/bedroom.png",
+      "rect": [
+        223,
+        118,
+        99,
+        132
+      ],
+      "category": "prop",
+      "notes": "Three book rows and bottom drawers; related crafting bookcase has different case/shelf layout. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bookcase-left-plant",
+      "label": "Small plant in brown pot on bookcase",
+      "source": "house/bedroom.png",
+      "rect": [
+        225,
+        91,
+        26,
+        38
+      ],
+      "category": "prop",
+      "notes": "One of two distinct pots. Foliage overlaps neighboring pink-pot plant; native evidence is not a clean alpha silhouette. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bookcase-top-books",
+      "label": "Small open storage box with books",
+      "source": "house/bedroom.png",
+      "rect": [
+        265,
+        110,
+        29,
+        39
+      ],
+      "category": "prop",
+      "notes": "Single small storage-box-with-contents assembly. Red/pale/green books partly visible; do not invent a second independently complete object from the ambiguous low-resolution bundle. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bookcase-right-planter",
+      "label": "Small dark planter on bookcase",
+      "source": "house/bedroom.png",
+      "rect": [
+        285,
+        121,
+        35,
+        37
+      ],
+      "category": "prop",
+      "notes": "Small green sprig and dark pot, not the neighboring book stack. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--floor-plant",
+      "label": "Round wooden-tub floor plant",
+      "source": "house/bedroom.png",
+      "rect": [
+        296,
+        211,
+        64,
+        66
+      ],
+      "category": "prop",
+      "notes": "Broad short foliage; do not alias to taller Carl palm solely by category. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--foot-trunk",
+      "label": "Blue-banded wooden foot trunk",
+      "source": "house/bedroom.png",
+      "rect": [
+        198,
+        238,
+        82,
+        78
+      ],
+      "category": "prop",
+      "notes": "Distinct flat-topped wood trunk with blue/steel straps. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--orange-rug",
+      "label": "Orange geometric floor rug",
+      "source": "house/bedroom.png",
+      "rect": [
+        76,
+        256,
+        125,
+        69
+      ],
+      "category": "prop",
+      "notes": "Same orange/gold bordered geometric rug family; exact occurrence pixels/shading remain separate. Pattern is related, not proven identical; keep a distinct occurrence/material variant unless root confirms full identity. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-bedroom--bookcase-middle-plant",
+      "label": "Larger plant in pink pot on bookcase",
+      "source": "house/bedroom.png",
+      "rect": [
+        237,
+        86,
+        35,
+        49
+      ],
+      "category": "prop",
+      "notes": "Second distinct plant/pink pot. Keep separate from brown-pot occurrence despite overlapping leaves. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-carl--rear-book-stack",
+      "label": "Pale books on rear cabinet",
+      "source": "house/carl.png",
+      "rect": [
+        206,
+        142,
+        42,
+        29
+      ],
+      "category": "prop",
+      "notes": "Loose books, not part of cabinet structure. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-carl--backpack",
+      "label": "Brown leather floor backpack",
+      "source": "house/carl.png",
+      "rect": [
+        256,
+        255,
+        63,
+        63
+      ],
+      "category": "prop",
+      "notes": "Clearly rounded pack with flap/straps; distinct from small dark wall object. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-carl--rolled-map",
+      "label": "Hanging parchment/map between rods",
+      "source": "house/carl.png",
+      "rect": [
+        109,
+        94,
+        58,
+        50
+      ],
+      "category": "prop",
+      "notes": "Horizontal scroll rods and aged tan map. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-carl--framed-green-picture",
+      "label": "Green framed wall picture",
+      "source": "house/carl.png",
+      "rect": [
+        224,
+        86,
+        44,
+        64
+      ],
+      "category": "prop",
+      "notes": "Picture/map foliage, not a window; exact depicted subject uncertain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--bookcase-plant",
+      "label": "Purple-pot plant on bookcase",
+      "source": "house/crafting.png",
+      "rect": [
+        77,
+        99,
+        35,
+        43
+      ],
+      "category": "prop",
+      "notes": "Tightened to purple pot/its foliage; separate small gold pot/plant is next occurrence. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--bookcase-gold-jar",
+      "label": "Small plant in gold pot on bookcase",
+      "source": "house/crafting.png",
+      "rect": [
+        110,
+        104,
+        20,
+        31
+      ],
+      "category": "prop",
+      "notes": "Crop review shows foliage above gold pot, not a bare jar. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--bookcase-storage-jar",
+      "label": "Lidded storage jar on bookcase",
+      "source": "house/crafting.png",
+      "rect": [
+        128,
+        96,
+        23,
+        37
+      ],
+      "category": "prop",
+      "notes": "Tall wrapped/lidded vessel; exact material uncertain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--rear-white-jar",
+      "label": "White metal/ceramic jar",
+      "source": "house/crafting.png",
+      "rect": [
+        182,
+        117,
+        24,
+        30
+      ],
+      "category": "prop",
+      "notes": "Short lidded jar on rear cabinet. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--rear-gold-pot",
+      "label": "Small gold lidded pot",
+      "source": "house/crafting.png",
+      "rect": [
+        195,
+        130,
+        21,
+        25
+      ],
+      "category": "prop",
+      "notes": "Loose golden vessel/stack; label intentionally conservative. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--hanging-tool-1",
+      "label": "Hanging pointed trowel",
+      "source": "house/crafting.png",
+      "rect": [
+        213,
+        80,
+        17,
+        53
+      ],
+      "category": "prop",
+      "notes": "Child of tool rack; broad pointed silver blade on short handle. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--hanging-tool-2",
+      "label": "Hanging hammer-like tool",
+      "source": "house/crafting.png",
+      "rect": [
+        233,
+        88,
+        18,
+        57
+      ],
+      "category": "prop",
+      "notes": "Child of tool rack; exact tool subtype should be reviewed from crop. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--hanging-tool-3",
+      "label": "Hanging long narrow blade",
+      "source": "house/crafting.png",
+      "rect": [
+        250,
+        96,
+        15,
+        60
+      ],
+      "category": "prop",
+      "notes": "Child of tool rack; blade/shaft partly overlaps rack. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--hanging-tool-4",
+      "label": "Hanging narrow metal tool",
+      "source": "house/crafting.png",
+      "rect": [
+        267,
+        107,
+        15,
+        51
+      ],
+      "category": "prop",
+      "notes": "Child of tool rack; uncertain wrench/chisel identity, do not invent subtype. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--hanging-tool-5",
+      "label": "Hanging far-right metal tool",
+      "source": "house/crafting.png",
+      "rect": [
+        282,
+        116,
+        13,
+        46
+      ],
+      "category": "prop",
+      "notes": "Child of tool rack, partly behind banner edge. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--green-banner",
+      "label": "Green crossed-tools wall banner",
+      "source": "house/crafting.png",
+      "rect": [
+        306,
+        98,
+        49,
+        110
+      ],
+      "category": "prop",
+      "notes": "Complete cloth/rod fixture, distinct from the tools themselves. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--small-brass-vessel",
+      "label": "Small brass vessel on bench",
+      "source": "house/crafting.png",
+      "rect": [
+        210,
+        159,
+        19,
+        25
+      ],
+      "category": "prop",
+      "notes": "Loose tabletop pot, not part of table. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--small-gold-dish",
+      "label": "Small gold dish on bench",
+      "source": "house/crafting.png",
+      "rect": [
+        249,
+        176,
+        17,
+        19
+      ],
+      "category": "prop",
+      "notes": "Loose dish/coinlike object; exact use unknown. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--front-gold-dish",
+      "label": "Gold dish at near bench edge",
+      "source": "house/crafting.png",
+      "rect": [
+        279,
+        207,
+        22,
+        20
+      ],
+      "category": "prop",
+      "notes": "Small foreground vessel on table. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--underbench-wood-container",
+      "label": "Wooden storage container",
+      "source": "house/crafting.png",
+      "rect": [
+        291,
+        245,
+        36,
+        44
+      ],
+      "category": "prop",
+      "notes": "Low crate/bin below table; red books sit above/behind it. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--red-books",
+      "label": "Red books on storage container",
+      "source": "house/crafting.png",
+      "rect": [
+        296,
+        231,
+        29,
+        28
+      ],
+      "category": "prop",
+      "notes": "Loose book stack, not cabinet structure. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--front-dark-chest",
+      "label": "Small front dark chest",
+      "source": "house/crafting.png",
+      "rect": [
+        245,
+        289,
+        34,
+        43
+      ],
+      "category": "prop",
+      "notes": "Dark strapped container next to wood crate; distinct from crate. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-crafting--left-candle-pedestal",
+      "label": "Wooden candle pedestal",
+      "source": "house/crafting.png",
+      "rect": [
+        48,
+        207,
+        31,
+        58
+      ],
+      "category": "prop",
+      "notes": "Small wooden stand, candle fixture separately inventoried. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--pink-bolster-left",
+      "label": "Left pink cylindrical bolster",
+      "source": "house/donut.png",
+      "rect": [
+        146,
+        183,
+        34,
+        41
+      ],
+      "category": "prop",
+      "notes": "First of two visible overlapping matching bolsters; backdrop/neighbor retained only as native context. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-donut-pink-bolster",
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--canopy-rod-left",
+      "label": "Gold left-wall curtain rod",
+      "source": "house/donut.png",
+      "rect": [
+        87,
+        76,
+        109,
+        59
+      ],
+      "category": "prop",
+      "notes": "Gold rosette rod is a distinct new subpart. Existing whole canopy assembly provides design reference, not a direct rod-view alias. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-donut-canopy-rod-long",
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--right-curtain-rod",
+      "label": "Gold right-wall curtain rod",
+      "source": "house/donut.png",
+      "rect": [
+        269,
+        99,
+        60,
+        33
+      ],
+      "category": "prop",
+      "notes": "Separate rod segment behind curtain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--crown-banner",
+      "label": "Purple crown wall banner",
+      "source": "house/donut.png",
+      "rect": [
+        210,
+        85,
+        56,
+        109
+      ],
+      "category": "prop",
+      "notes": "Whole cloth/rod fixture; crown emblem below is a reusable decoration child. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--left-pedestal",
+      "label": "Pale stone left pedestal",
+      "source": "house/donut.png",
+      "rect": [
+        51,
+        223,
+        48,
+        60
+      ],
+      "category": "prop",
+      "notes": "Distinct pale stone stand under green candles. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--green-candles",
+      "label": "Green candles on pale pedestal",
+      "source": "house/donut.png",
+      "rect": [
+        65,
+        198,
+        29,
+        36
+      ],
+      "category": "prop",
+      "notes": "Small green wax/vessel group with flames; not a leafy plant. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--pink-footstool",
+      "label": "Pink upholstered footstool",
+      "source": "house/donut.png",
+      "rect": [
+        108,
+        274,
+        46,
+        38
+      ],
+      "category": "prop",
+      "notes": "Small low rectangular cushion with gold wooden legs; not existing round plant stand. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--rectangular-rug",
+      "label": "Large purple/gold bed rug",
+      "source": "house/donut.png",
+      "rect": [
+        80,
+        258,
+        183,
+        82
+      ],
+      "category": "prop",
+      "notes": "Separate rectangular rug beneath bed and footstool; large portions occluded. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-donut--right-flower-pot",
+      "label": "Pink flowering plant in round pot",
+      "source": "house/donut.png",
+      "rect": [
+        291,
+        187,
+        54,
+        65
+      ],
+      "category": "prop",
+      "notes": "Different flowering design from existing leafy Donut right-plant; do not alias just by plant category. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--top-box-left",
+      "label": "Brown box on wardrobe",
+      "source": "house/katia.png",
+      "rect": [
+        210,
+        116,
+        40,
+        30
+      ],
+      "category": "prop",
+      "notes": "Small loose rectangular lidded box; partly behind cabinet cornice. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--top-box-back",
+      "label": "Gold box at wardrobe rear",
+      "source": "house/katia.png",
+      "rect": [
+        222,
+        95,
+        31,
+        39
+      ],
+      "category": "prop",
+      "notes": "Tall gold/wood box, separate from nearer brown case. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--top-red-bundle",
+      "label": "Red books/accessory bundle",
+      "source": "house/katia.png",
+      "rect": [
+        254,
+        112,
+        34,
+        40
+      ],
+      "category": "prop",
+      "notes": "Red laced/bound articles; precise books-versus-accessories interpretation uncertain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--left-plant",
+      "label": "Small plant in brown pot",
+      "source": "house/katia.png",
+      "rect": [
+        150,
+        153,
+        38,
+        43
+      ],
+      "category": "prop",
+      "notes": "Small succulent-like plant, not taller right palm. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--left-plant-pedestal",
+      "label": "Gray plant pedestal",
+      "source": "house/katia.png",
+      "rect": [
+        150,
+        184,
+        40,
+        42
+      ],
+      "category": "prop",
+      "notes": "Stone/wood pedestal under small plant; separate from plant. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--right-palm",
+      "label": "Palm in pale/pink pot",
+      "source": "house/katia.png",
+      "rect": [
+        277,
+        143,
+        43,
+        90
+      ],
+      "category": "prop",
+      "notes": "Tall leaves and thin trunk; distinguish from planter/hamper below. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--wall-banner",
+      "label": "Magenta/gold wall banner",
+      "source": "house/katia.png",
+      "rect": [
+        56,
+        109,
+        49,
+        82
+      ],
+      "category": "prop",
+      "notes": "Partially hidden behind mirror; source does not reveal complete lower edge. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--left-candelabrum",
+      "label": "Gold vanity candle holder",
+      "source": "house/katia.png",
+      "rect": [
+        49,
+        192,
+        28,
+        47
+      ],
+      "category": "prop",
+      "notes": "Branched gold candlestick on small side table, not wall torch. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--small-side-table",
+      "label": "Small left vanity side table",
+      "source": "house/katia.png",
+      "rect": [
+        47,
+        236,
+        51,
+        47
+      ],
+      "category": "prop",
+      "notes": "Separate short square table at vanity left. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--vanity-gold-vessel",
+      "label": "Gold vessel beside mirror",
+      "source": "house/katia.png",
+      "rect": [
+        87,
+        213,
+        16,
+        23
+      ],
+      "category": "prop",
+      "notes": "Small gold bottle/cup, partly obscured by mirror base. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-katia--vanity-dish",
+      "label": "Small pale vanity dish",
+      "source": "house/katia.png",
+      "rect": [
+        110,
+        219,
+        23,
+        13
+      ],
+      "category": "prop",
+      "notes": "Loose dish/comb-like accessory, exact use unclear. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--nest",
+      "label": "Empty straw nest",
+      "source": "house/mongo.png",
+      "rect": [
+        126,
+        160,
+        171,
+        116
+      ],
+      "category": "prop",
+      "notes": "Same straw-ring construction, but HOUSE nest is EMPTY while existing primary shows eggs. Reuse structure only as an explicit empty-state variant; do not add absent eggs. CURRENT existing front PNG verified to contain two eggs. House empty nest MUST receive distinct empty-state identity/clean subpart; do not alias occupied views. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": "empty"
+    },
+    {
+      "id": "house-mongo--rear-plant",
+      "label": "Rear leafy plant",
+      "source": "house/mongo.png",
+      "rect": [
+        142,
+        91,
+        56,
+        87
+      ],
+      "category": "prop",
+      "notes": "Separate back-corner plant behind nest. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--right-rear-plant",
+      "label": "Right rear leafy plant",
+      "source": "house/mongo.png",
+      "rect": [
+        259,
+        129,
+        53,
+        89
+      ],
+      "category": "prop",
+      "notes": "Partly occluded by nest and banner. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--front-left-plant",
+      "label": "Small front-left floor plant",
+      "source": "house/mongo.png",
+      "rect": [
+        45,
+        187,
+        45,
+        76
+      ],
+      "category": "prop",
+      "notes": "Distinct small plant in upright wooden tub. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--left-straw-bundle",
+      "label": "Small tied straw bundle",
+      "source": "house/mongo.png",
+      "rect": [
+        79,
+        190,
+        55,
+        61
+      ],
+      "category": "prop",
+      "notes": "Separate roughly round hay bundle, not an egg. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--right-hay-bale",
+      "label": "Rectangular hay bale",
+      "source": "house/mongo.png",
+      "rect": [
+        219,
+        245,
+        80,
+        67
+      ],
+      "category": "prop",
+      "notes": "Separate elongated bound hay bale at nest right. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--small-chest",
+      "label": "Small brown floor chest",
+      "source": "house/mongo.png",
+      "rect": [
+        272,
+        281,
+        38,
+        37
+      ],
+      "category": "prop",
+      "notes": "Separate small strapped wood box beside hay bale. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-mongo--wall-banner",
+      "label": "Green/gold wall banner",
+      "source": "house/mongo.png",
+      "rect": [
+        248,
+        90,
+        44,
+        79
+      ],
+      "category": "prop",
+      "notes": "Gold symbol on hanging green cloth, partly covered by plant. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--right-desk-device",
+      "label": "Small blue desk device",
+      "source": "house/social.png",
+      "rect": [
+        223,
+        162,
+        19,
+        11
+      ],
+      "category": "prop",
+      "notes": "Mouse/controller-like blue rectangle; exact interface device uncertain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--desk-left-candle",
+      "label": "Left desk candle",
+      "source": "house/social.png",
+      "rect": [
+        141,
+        147,
+        13,
+        27
+      ],
+      "category": "prop",
+      "notes": "Small upright desk candlestick. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": "house-social-desk-candle",
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--left-pink-cushion",
+      "label": "Pink cushion on left chair",
+      "source": "house/social.png",
+      "rect": [
+        98,
+        226,
+        38,
+        24
+      ],
+      "category": "prop",
+      "notes": "Loose pillow, partly behind green arm. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--right-tan-cushion",
+      "label": "Tan cushion on right chair",
+      "source": "house/social.png",
+      "rect": [
+        259,
+        229,
+        29,
+        22
+      ],
+      "category": "prop",
+      "notes": "Loose pale cushion on chair seat. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--left-shelf-top-items",
+      "label": "Blue/gold objects on left shelf",
+      "source": "house/social.png",
+      "rect": [
+        48,
+        159,
+        31,
+        23
+      ],
+      "category": "prop",
+      "notes": "Small loose books/vessels; partially overlapped, subtype uncertain. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--right-side-stool",
+      "label": "Small right side stool",
+      "source": "house/social.png",
+      "rect": [
+        324,
+        263,
+        37,
+        37
+      ],
+      "category": "prop",
+      "notes": "Square wooden stand under cup. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-social--right-blue-cup",
+      "label": "Blue cup on right stool",
+      "source": "house/social.png",
+      "rect": [
+        330,
+        236,
+        25,
+        36
+      ],
+      "category": "prop",
+      "notes": "Separate blue cup/goblet with red straw/stirrer. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--polearm-left",
+      "label": "Left hanging poleaxe",
+      "source": "house/training.png",
+      "rect": [
+        65,
+        128,
+        22,
+        93
+      ],
+      "category": "prop",
+      "notes": "Broad silver poleaxe head and full visible gold shaft. Expanded right blade edge; neighboring slim staff is a separate occurrence. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--polearm-right",
+      "label": "Long silver-bladed polearm",
+      "source": "house/training.png",
+      "rect": [
+        83,
+        130,
+        19,
+        68
+      ],
+      "category": "prop",
+      "notes": "Full pointed silver blade; lower handle occluded by dummy arm/body. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--sword-2",
+      "label": "Hanging sword 2",
+      "source": "house/training.png",
+      "rect": [
+        113,
+        94,
+        18,
+        83
+      ],
+      "category": "prop",
+      "notes": "Long silver blade and dark/gold hilt. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--sword-3",
+      "label": "Hanging sword 3",
+      "source": "house/training.png",
+      "rect": [
+        133,
+        85,
+        18,
+        76
+      ],
+      "category": "prop",
+      "notes": "Separate long blade. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--sword-4",
+      "label": "Hanging sword 4",
+      "source": "house/training.png",
+      "rect": [
+        149,
+        77,
+        18,
+        81
+      ],
+      "category": "prop",
+      "notes": "Narrow long silver blade. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--sword-5",
+      "label": "Hanging sword 5",
+      "source": "house/training.png",
+      "rect": [
+        166,
+        75,
+        19,
+        82
+      ],
+      "category": "prop",
+      "notes": "Far-right hanging blade, partly behind banner rod. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--left-metal-crate",
+      "label": "Left metal storage crate",
+      "source": "house/training.png",
+      "rect": [
+        45,
+        214,
+        54,
+        46
+      ],
+      "category": "prop",
+      "notes": "Distinct cube under polearms; related canonical metal-chest design not confidently identical. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--right-gray-blocks",
+      "label": "Gray storage blocks/work pedestal",
+      "source": "house/training.png",
+      "rect": [
+        243,
+        165,
+        52,
+        64
+      ],
+      "category": "prop",
+      "notes": "Stacked gray box/pedestal surfaces; do not invent a new anvil without source evidence. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    },
+    {
+      "id": "house-training--short-staff",
+      "label": "Short wooden staff with silver cap",
+      "source": "house/training.png",
+      "rect": [
+        56,
+        158,
+        15,
+        72
+      ],
+      "category": "prop",
+      "notes": "Separate thin capped shaft left of poleaxe; lower end partly occluded by storage box. Native occurrence retains baked context and occlusion. Hidden geometry, if produced, is an inferred design.",
+      "shared_design_id": null,
+      "canonical_state": null
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "house-bedroom--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bed",
+      "object_id": "house-bedroom--bed",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          88,
+          145,
+          173,
+          154
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--pillow",
+      "object_id": "house-bedroom--pillow",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          109,
+          168,
+          67,
+          43
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--left-cabinet",
+      "object_id": "menu-concepts-safe-room-services--carl-left-bedside-cabinet",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          40,
+          199,
+          64,
+          77
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--right-cabinet",
+      "object_id": "menu-concepts-safe-room-services--carl-right-bedside-cabinet",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          173,
+          155,
+          52,
+          52
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--left-table-candle",
+      "object_id": "house-bedroom--left-table-candle",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          64,
+          182,
+          23,
+          38
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--left-book-stack",
+      "object_id": "house-bedroom--left-book-stack",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          67,
+          202,
+          30,
+          18
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--right-candles",
+      "object_id": "house-bedroom--right-candles",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          181,
+          123,
+          36,
+          45
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--wall-picture",
+      "object_id": "house-bedroom--wall-picture",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          85,
+          105,
+          51,
+          62
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bookcase",
+      "object_id": "house-bedroom--bookcase",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          223,
+          118,
+          99,
+          132
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bookcase-left-plant",
+      "object_id": "house-bedroom--bookcase-left-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          225,
+          91,
+          26,
+          38
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bookcase-top-books",
+      "object_id": "house-bedroom--bookcase-top-books",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          265,
+          110,
+          29,
+          39
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bookcase-right-planter",
+      "object_id": "house-bedroom--bookcase-right-planter",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          285,
+          121,
+          35,
+          37
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--floor-plant",
+      "object_id": "house-bedroom--floor-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          296,
+          211,
+          64,
+          66
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--foot-trunk",
+      "object_id": "house-bedroom--foot-trunk",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          198,
+          238,
+          82,
+          78
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--orange-rug",
+      "object_id": "house-bedroom--orange-rug",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          76,
+          256,
+          125,
+          69
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          52,
+          153,
+          26,
+          51
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          171,
+          82,
+          27,
+          53
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--wall-torch-3",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          316,
+          169,
+          28,
+          51
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-bedroom--bookcase-middle-plant",
+      "object_id": "house-bedroom--bookcase-middle-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/bedroom.png",
+        "rect": [
+          237,
+          86,
+          35,
+          49
+        ],
+        "sha256": "62a33b2455c8b610af139a7a7886dc935d127d440d7aedb5ee1ce470464bfc29"
+      }
+    },
+    {
+      "id": "house-carl--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--bed",
+      "object_id": "menu-concepts-safe-room-services--carl-bed",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          92,
+          129,
+          202,
+          177
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--pillow",
+      "object_id": "house-bedroom--pillow",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          115,
+          164,
+          70,
+          45
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--left-cabinet",
+      "object_id": "menu-concepts-safe-room-services--carl-left-bedside-cabinet",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          48,
+          200,
+          71,
+          80
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--rear-cabinet",
+      "object_id": "menu-concepts-safe-room-services--carl-right-bedside-cabinet",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          192,
+          151,
+          66,
+          61
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--right-cabinet",
+      "object_id": "menu-concepts-safe-room-services--carl-wardrobe",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          260,
+          165,
+          61,
+          62
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--table-candle",
+      "object_id": "house-bedroom--left-table-candle",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          68,
+          189,
+          22,
+          32
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--left-book-stack",
+      "object_id": "house-bedroom--left-book-stack",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          81,
+          204,
+          30,
+          20
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--rear-book-stack",
+      "object_id": "house-carl--rear-book-stack",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          206,
+          142,
+          42,
+          29
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--right-plant",
+      "object_id": "menu-concepts-safe-room-services--carl-potted-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          261,
+          97,
+          63,
+          86
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--dark-open-container",
+      "object_id": "menu-concepts-safe-room-services--carl-boots",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          307,
+          201,
+          41,
+          44
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--backpack",
+      "object_id": "house-carl--backpack",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          256,
+          255,
+          63,
+          63
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--orange-rug",
+      "object_id": "menu-concepts-safe-room-services--carl-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          94,
+          263,
+          136,
+          71
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--rolled-map",
+      "object_id": "house-carl--rolled-map",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          109,
+          94,
+          58,
+          50
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--framed-green-picture",
+      "object_id": "house-carl--framed-green-picture",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          224,
+          86,
+          44,
+          64
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          54,
+          150,
+          27,
+          57
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-carl--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/carl.png",
+        "rect": [
+          184,
+          95,
+          28,
+          54
+        ],
+        "sha256": "fb650620b6a3032b9a06b8d629aa59052a21c57d3f91acb0a6b475ee66535176"
+      }
+    },
+    {
+      "id": "house-crafting--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--workbench",
+      "object_id": "menu-concepts-safe-room-services--crafting-workbench",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          190,
+          164,
+          139,
+          117
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--bookcase",
+      "object_id": "menu-concepts-safe-room-services--crafting-bookcase",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          72,
+          116,
+          91,
+          98
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--bookcase-plant",
+      "object_id": "house-crafting--bookcase-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          77,
+          99,
+          35,
+          43
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--bookcase-gold-jar",
+      "object_id": "house-crafting--bookcase-gold-jar",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          110,
+          104,
+          20,
+          31
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--bookcase-storage-jar",
+      "object_id": "house-crafting--bookcase-storage-jar",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          128,
+          96,
+          23,
+          37
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--rear-cabinet",
+      "object_id": "menu-concepts-safe-room-services--crafting-small-left-cabinet",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          169,
+          136,
+          57,
+          66
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--rear-white-jar",
+      "object_id": "house-crafting--rear-white-jar",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          182,
+          117,
+          24,
+          30
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--rear-gold-pot",
+      "object_id": "house-crafting--rear-gold-pot",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          195,
+          130,
+          21,
+          25
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--tool-rack",
+      "object_id": "menu-concepts-safe-room-services--crafting-tool-rack",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          212,
+          61,
+          87,
+          101
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--hanging-tool-1",
+      "object_id": "house-crafting--hanging-tool-1",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          213,
+          80,
+          17,
+          53
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--hanging-tool-2",
+      "object_id": "house-crafting--hanging-tool-2",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          233,
+          88,
+          18,
+          57
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--hanging-tool-3",
+      "object_id": "house-crafting--hanging-tool-3",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          250,
+          96,
+          15,
+          60
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--hanging-tool-4",
+      "object_id": "house-crafting--hanging-tool-4",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          267,
+          107,
+          15,
+          51
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--hanging-tool-5",
+      "object_id": "house-crafting--hanging-tool-5",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          282,
+          116,
+          13,
+          46
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--green-banner",
+      "object_id": "house-crafting--green-banner",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          306,
+          98,
+          49,
+          110
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--anvil",
+      "object_id": "menu-concepts-safe-room-services--crafting-anvil",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          75,
+          200,
+          62,
+          86
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--round-stool",
+      "object_id": "menu-concepts-safe-room-services--crafting-wooden-stool",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          171,
+          186,
+          34,
+          54
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--purple-bottle-left",
+      "object_id": "menu-concepts-safe-room-services--crafting-blue-bottle",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          225,
+          150,
+          19,
+          34
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--dark-metal-vessel",
+      "object_id": "menu-concepts-safe-room-services--crafting-copper-pot",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          243,
+          147,
+          22,
+          40
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--pink-round-flask",
+      "object_id": "menu-concepts-safe-room-services--crafting-purple-flask",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          266,
+          167,
+          23,
+          38
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--green-round-flask",
+      "object_id": "menu-concepts-safe-room-services--crafting-green-round-bottle",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          284,
+          176,
+          24,
+          38
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--small-brass-vessel",
+      "object_id": "house-crafting--small-brass-vessel",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          210,
+          159,
+          19,
+          25
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--small-gold-dish",
+      "object_id": "house-crafting--small-gold-dish",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          249,
+          176,
+          17,
+          19
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--front-gold-dish",
+      "object_id": "house-crafting--front-gold-dish",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          279,
+          207,
+          22,
+          20
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--underbench-dark-unit",
+      "object_id": "menu-concepts-safe-room-services--crafting-bench-vise",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          222,
+          215,
+          35,
+          41
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--underbench-metal-box",
+      "object_id": "menu-concepts-safe-room-services--crafting-small-trunk",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          257,
+          239,
+          27,
+          43
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--underbench-wood-container",
+      "object_id": "house-crafting--underbench-wood-container",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          291,
+          245,
+          36,
+          44
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--red-books",
+      "object_id": "house-crafting--red-books",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          296,
+          231,
+          29,
+          28
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--floor-plant",
+      "object_id": "menu-concepts-safe-room-services--crafting-potted-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          326,
+          216,
+          43,
+          68
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--front-wood-crate",
+      "object_id": "menu-concepts-safe-room-services--crafting-floor-crate",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          207,
+          307,
+          47,
+          40
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--front-dark-chest",
+      "object_id": "house-crafting--front-dark-chest",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          245,
+          289,
+          34,
+          43
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--rug",
+      "object_id": "menu-concepts-safe-room-services--crafting-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          121,
+          243,
+          139,
+          84
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--left-candle-pedestal",
+      "object_id": "house-crafting--left-candle-pedestal",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          48,
+          207,
+          31,
+          58
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--left-candle",
+      "object_id": "menu-concepts-safe-room-services--crafting-front-candle",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          48,
+          177,
+          29,
+          40
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-crafting--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/crafting.png",
+        "rect": [
+          162,
+          85,
+          25,
+          54
+        ],
+        "sha256": "2ff40e7b76f2e8595ac9a003b8436a3d599d97552b5ed950fbe06684938a10d2"
+      }
+    },
+    {
+      "id": "house-donut--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--royal-bed",
+      "object_id": "menu-concepts-safe-room-services--donut-royal-bed",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          114,
+          166,
+          141,
+          122
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--pink-bolster-left",
+      "object_id": "house-donut--pink-bolster-left",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          146,
+          183,
+          34,
+          41
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--canopy-rod-left",
+      "object_id": "house-donut--canopy-rod-left",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          87,
+          76,
+          109,
+          59
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--left-curtain",
+      "object_id": "menu-concepts-safe-room-services--donut-left-curtain",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          89,
+          123,
+          60,
+          127
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--corner-curtain",
+      "object_id": "menu-concepts-safe-room-services--donut-left-curtain",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          140,
+          91,
+          59,
+          102
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--right-curtain",
+      "object_id": "menu-concepts-safe-room-services--donut-left-curtain",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          273,
+          108,
+          50,
+          104
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--right-curtain-rod",
+      "object_id": "house-donut--right-curtain-rod",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          269,
+          99,
+          60,
+          33
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--crown-banner",
+      "object_id": "house-donut--crown-banner",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          210,
+          85,
+          56,
+          109
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--crown-emblem",
+      "object_id": "menu-concepts-safe-room-services--donut-crown-wall-emblem",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          217,
+          127,
+          35,
+          49
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--bedside-cabinet",
+      "object_id": "menu-concepts-safe-room-services--donut-bedside-table",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          252,
+          183,
+          45,
+          69
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--bedside-candles",
+      "object_id": "menu-concepts-safe-room-services--donut-bedside-candles",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          257,
+          157,
+          31,
+          43
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--left-pedestal",
+      "object_id": "house-donut--left-pedestal",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          51,
+          223,
+          48,
+          60
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--green-candles",
+      "object_id": "house-donut--green-candles",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          65,
+          198,
+          29,
+          36
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--pink-footstool",
+      "object_id": "house-donut--pink-footstool",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          108,
+          274,
+          46,
+          38
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--flower-rug",
+      "object_id": "menu-concepts-safe-room-services--donut-flower-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          203,
+          254,
+          107,
+          61
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--rectangular-rug",
+      "object_id": "house-donut--rectangular-rug",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          80,
+          258,
+          183,
+          82
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--right-flower-pot",
+      "object_id": "house-donut--right-flower-pot",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          291,
+          187,
+          54,
+          65
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--right-plant-stand",
+      "object_id": "menu-concepts-safe-room-services--donut-round-stool",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          290,
+          236,
+          53,
+          46
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          51,
+          153,
+          27,
+          53
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          182,
+          110,
+          22,
+          47
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--wall-torch-3",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          325,
+          169,
+          26,
+          49
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-donut--pink-bolster-right",
+      "object_id": "house-donut--pink-bolster-left",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/donut.png",
+        "rect": [
+          172,
+          175,
+          35,
+          42
+        ],
+        "sha256": "f8220086852df368c577e189ea328616119049ae386724aa78f4d5d50f3703ab"
+      }
+    },
+    {
+      "id": "house-katia--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--mirror",
+      "object_id": "menu-concepts-safe-room-services--katia-vanity-mirror",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          81,
+          115,
+          65,
+          113
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--vanity",
+      "object_id": "menu-concepts-safe-room-services--katia-vanity-desk",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          66,
+          207,
+          95,
+          66
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--vanity-stool",
+      "object_id": "menu-concepts-safe-room-services--katia-vanity-stool",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          146,
+          225,
+          52,
+          65
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--wardrobe",
+      "object_id": "menu-concepts-safe-room-services--katia-wardrobe",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          188,
+          124,
+          99,
+          147
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--top-box-left",
+      "object_id": "house-katia--top-box-left",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          210,
+          116,
+          40,
+          30
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--top-box-back",
+      "object_id": "house-katia--top-box-back",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          222,
+          95,
+          31,
+          39
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--top-red-bundle",
+      "object_id": "house-katia--top-red-bundle",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          254,
+          112,
+          34,
+          40
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--rug",
+      "object_id": "menu-concepts-safe-room-services--katia-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          92,
+          252,
+          186,
+          91
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--left-plant",
+      "object_id": "house-katia--left-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          150,
+          153,
+          38,
+          43
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--left-plant-pedestal",
+      "object_id": "house-katia--left-plant-pedestal",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          150,
+          184,
+          40,
+          42
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--right-palm",
+      "object_id": "house-katia--right-palm",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          277,
+          143,
+          43,
+          90
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--pink-hamper",
+      "object_id": "menu-concepts-safe-room-services--katia-laundry-hamper",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          277,
+          222,
+          57,
+          58
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--wall-banner",
+      "object_id": "house-katia--wall-banner",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          56,
+          109,
+          49,
+          82
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--left-candelabrum",
+      "object_id": "house-katia--left-candelabrum",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          49,
+          192,
+          28,
+          47
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--small-side-table",
+      "object_id": "house-katia--small-side-table",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          47,
+          236,
+          51,
+          47
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--perfume-vessel",
+      "object_id": "menu-concepts-safe-room-services--katia-perfume-vessel",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          65,
+          225,
+          18,
+          23
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--vanity-gold-vessel",
+      "object_id": "house-katia--vanity-gold-vessel",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          87,
+          213,
+          16,
+          23
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--vanity-dish",
+      "object_id": "house-katia--vanity-dish",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          110,
+          219,
+          23,
+          13
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          158,
+          102,
+          26,
+          54
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-katia--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/katia.png",
+        "rect": [
+          319,
+          148,
+          28,
+          54
+        ],
+        "sha256": "20f497461ef8c7ef5fd78a0f61aa888049c8faef9a1c7cc309a114a2a15c66e4"
+      }
+    },
+    {
+      "id": "house-mongo--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--nest",
+      "object_id": "house-mongo--nest",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          126,
+          160,
+          171,
+          116
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--left-large-plant",
+      "object_id": "menu-concepts-safe-room-services--mongo-left-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          76,
+          106,
+          71,
+          97
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--rear-plant",
+      "object_id": "house-mongo--rear-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          142,
+          91,
+          56,
+          87
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--right-rear-plant",
+      "object_id": "house-mongo--right-rear-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          259,
+          129,
+          53,
+          89
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--front-right-plant",
+      "object_id": "menu-concepts-safe-room-services--mongo-right-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          289,
+          207,
+          66,
+          83
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--front-left-plant",
+      "object_id": "house-mongo--front-left-plant",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          45,
+          187,
+          45,
+          76
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--left-straw-bundle",
+      "object_id": "house-mongo--left-straw-bundle",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          79,
+          190,
+          55,
+          61
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--right-hay-bale",
+      "object_id": "house-mongo--right-hay-bale",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          219,
+          245,
+          80,
+          67
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--green-rug",
+      "object_id": "menu-concepts-safe-room-services--mongo-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          78,
+          242,
+          151,
+          88
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--small-chest",
+      "object_id": "house-mongo--small-chest",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          272,
+          281,
+          38,
+          37
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--wall-banner",
+      "object_id": "house-mongo--wall-banner",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          248,
+          90,
+          44,
+          79
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          201,
+          99,
+          25,
+          53
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-mongo--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/mongo.png",
+        "rect": [
+          309,
+          147,
+          28,
+          55
+        ],
+        "sha256": "e446459457989f1e9b37995984f8beabe0a09ded8744dee4cd2c7c9f0a11388e"
+      }
+    },
+    {
+      "id": "house-social--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--screen",
+      "object_id": "menu-concepts-safe-room-services--social-screen-monitor",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          148,
+          94,
+          100,
+          75
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--screen-interface",
+      "object_id": "house-social--screen-interface",
+      "physical": false,
+      "decision": "screen-space-ui",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          155,
+          103,
+          83,
+          47
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--computer-desk",
+      "object_id": "menu-concepts-safe-room-services--social-screen-desk",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          134,
+          160,
+          132,
+          44
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--keyboard",
+      "object_id": "menu-concepts-safe-room-services--social-keyboard",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          176,
+          161,
+          41,
+          12
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-desk-device",
+      "object_id": "house-social--right-desk-device",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          223,
+          162,
+          19,
+          11
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--desk-left-candle",
+      "object_id": "house-social--desk-left-candle",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          141,
+          147,
+          13,
+          27
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--desk-right-candle",
+      "object_id": "house-social--desk-left-candle",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          248,
+          147,
+          13,
+          27
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--desk-stool",
+      "object_id": "menu-concepts-safe-room-services--social-stool",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          174,
+          185,
+          51,
+          28
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-armchair",
+      "object_id": "menu-concepts-safe-room-services--social-left-armchair",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          43,
+          199,
+          102,
+          92
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-armchair",
+      "object_id": "menu-concepts-safe-room-services--social-left-armchair",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          254,
+          205,
+          94,
+          88
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-pink-cushion",
+      "object_id": "house-social--left-pink-cushion",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          98,
+          226,
+          38,
+          24
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-tan-cushion",
+      "object_id": "house-social--right-tan-cushion",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          259,
+          229,
+          29,
+          22
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--coffee-table",
+      "object_id": "menu-concepts-safe-room-services--social-coffee-table",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          145,
+          247,
+          106,
+          66
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--table-candle",
+      "object_id": "menu-concepts-safe-room-services--social-table-candle",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          168,
+          223,
+          22,
+          41
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--table-tray",
+      "object_id": "menu-concepts-safe-room-services--social-table-tray",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          191,
+          221,
+          39,
+          43
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--large-rug",
+      "object_id": "menu-concepts-safe-room-services--social-rug",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          93,
+          203,
+          212,
+          141
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-tall-plant",
+      "object_id": "menu-concepts-safe-room-services--social-left-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          92,
+          93,
+          53,
+          109
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-tall-plant",
+      "object_id": "menu-concepts-safe-room-services--social-right-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          254,
+          88,
+          60,
+          114
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-small-plant",
+      "object_id": "menu-concepts-safe-room-services--social-small-potted-plant",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          304,
+          167,
+          36,
+          52
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-side-bookshelf",
+      "object_id": "menu-concepts-safe-room-services--social-left-wall-bookshelf",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          43,
+          168,
+          44,
+          63
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--left-shelf-top-items",
+      "object_id": "house-social--left-shelf-top-items",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          48,
+          159,
+          31,
+          23
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-side-stool",
+      "object_id": "house-social--right-side-stool",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          324,
+          263,
+          37,
+          37
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--right-blue-cup",
+      "object_id": "house-social--right-blue-cup",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          330,
+          236,
+          25,
+          36
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          67,
+          101,
+          26,
+          55
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-social--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/social.png",
+        "rect": [
+          318,
+          105,
+          28,
+          55
+        ],
+        "sha256": "9d0ddee5d2b1113ca7b4a5d14b3c9ef622a54d370820367d7d0160e244304c0f"
+      }
+    },
+    {
+      "id": "house-training--floor-shell",
+      "object_id": "house-bedroom--floor-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          12,
+          166,
+          364,
+          226
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--left-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          12,
+          15,
+          191,
+          258
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--right-wall-shell",
+      "object_id": "house-bedroom--left-wall-shell",
+      "physical": true,
+      "decision": "shared-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          188,
+          15,
+          189,
+          258
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--dummy",
+      "object_id": "menu-concepts-safe-room-services--training-dummy",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          87,
+          152,
+          88,
+          138
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--weapon-rack",
+      "object_id": "menu-concepts-safe-room-services--training-wall-weapon-rack",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          57,
+          79,
+          129,
+          151
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--polearm-left",
+      "object_id": "house-training--polearm-left",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          65,
+          128,
+          22,
+          93
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--polearm-right",
+      "object_id": "house-training--polearm-right",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          83,
+          130,
+          19,
+          68
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--sword-1",
+      "object_id": "house-training--sword-1",
+      "physical": false,
+      "decision": "unresolved-source-detail",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          98,
+          104,
+          13,
+          84
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--sword-2",
+      "object_id": "house-training--sword-2",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          113,
+          94,
+          18,
+          83
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--sword-3",
+      "object_id": "house-training--sword-3",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          133,
+          85,
+          18,
+          76
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--sword-4",
+      "object_id": "house-training--sword-4",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          149,
+          77,
+          18,
+          81
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--sword-5",
+      "object_id": "house-training--sword-5",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          166,
+          75,
+          19,
+          82
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--red-banner",
+      "object_id": "menu-concepts-safe-room-services--training-banner",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          177,
+          108,
+          53,
+          107
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--blue-mat",
+      "object_id": "menu-concepts-safe-room-services--training-blue-mat",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          185,
+          224,
+          160,
+          88
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--red-mat",
+      "object_id": "menu-concepts-safe-room-services--training-red-mat",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          114,
+          276,
+          129,
+          73
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--left-metal-crate",
+      "object_id": "house-training--left-metal-crate",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          45,
+          214,
+          54,
+          46
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--center-metal-crate",
+      "object_id": "menu-concepts-safe-room-services--training-gray-crate",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          158,
+          206,
+          47,
+          49
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--small-floor-weight",
+      "object_id": "house-training--small-floor-weight",
+      "physical": false,
+      "decision": "unresolved-source-detail",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          157,
+          223,
+          18,
+          24
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--right-gray-blocks",
+      "object_id": "house-training--right-gray-blocks",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          243,
+          165,
+          52,
+          64
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--right-wood-crate",
+      "object_id": "menu-concepts-safe-room-services--training-wood-crate",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          290,
+          188,
+          36,
+          68
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--far-right-stand",
+      "object_id": "menu-concepts-safe-room-services--training-wood-crate",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          324,
+          204,
+          35,
+          61
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--wall-bookcase",
+      "object_id": "menu-concepts-safe-room-services--training-bookcase",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          266,
+          97,
+          61,
+          83
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--wall-torch-1",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          230,
+          92,
+          28,
+          59
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--wall-torch-2",
+      "object_id": "menu-concepts-safe-room-services--carl-left-wall-torch",
+      "physical": true,
+      "decision": "existing-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          324,
+          151,
+          29,
+          58
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    },
+    {
+      "id": "house-training--short-staff",
+      "object_id": "house-training--short-staff",
+      "physical": true,
+      "decision": "new-inferred-design",
+      "source": {
+        "path": "house/training.png",
+        "rect": [
+          56,
+          158,
+          15,
+          72
+        ],
+        "sha256": "effc033a57bbe12a2b6b3954307db252ee4af0ce0330a787c3bff67f0ded5cfe"
+      }
+    }
+  ]
+}
