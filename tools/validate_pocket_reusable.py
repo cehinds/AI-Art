@@ -238,13 +238,18 @@ def validate_procedural(pack, settings, assets):
         "differing_pixels": 0, "rgba_sha256": digest(canvas), "limitations": recipe["limitations"]}
 
 
-def validate(pack, require_views=False):
+def validate(pack, require_views=False, allow_recorded_blocks=False):
     index = read_json(pack / "reusable/index.json")
+    from generation_block_contract import load_blocks, records as block_records
+    block_report = load_blocks(pack, index)
+    blocks = block_records(block_report) if allow_recorded_blocks else {}
     from view_review_contract import load_review, POLICY
     review_report = load_review(pack, index,
-        required=require_views and index.get('view_review_policy') == POLICY)
+        required=require_views and index.get('view_review_policy') == POLICY,
+        allow_recorded_blocks=allow_recorded_blocks)
     legacy_review_report = load_review(pack, index, legacy=True,
-        required=require_views and index.get('legacy_view_review_policy') == POLICY)
+        required=require_views and index.get('legacy_view_review_policy') == POLICY,
+        allow_recorded_blocks=allow_recorded_blocks)
     assets = {}
     provenance_record = index.get("archive", {}).get("external_provenance_manifest")
     external_provenance = {}
@@ -358,7 +363,7 @@ def validate(pack, require_views=False):
     view_aliases = []
     for object_id, group in view_sets.items():
         hashes = {}
-        scales = []
+        scales = {}
         if object_id not in assets:
             raise ValueError(f"View set lacks its source object: {object_id}")
         for view in VIEWS:
@@ -375,8 +380,42 @@ def validate(pack, require_views=False):
                 if scale is None and isinstance(provenance.get("crop_bounds_px"), dict):
                     scale = provenance["crop_bounds_px"].get("shared_scale")
                 if scale is not None:
-                    scales.append(float(scale))
-        if scales and max(scales) - min(scales) > 1e-9:
+                    effective = float(scale)
+                    if not math.isfinite(effective) or effective <= 0:
+                        raise ValueError(f'Invalid normalization factor: {object_id}/{view}')
+                    crop = provenance.get('crop_bounds_px', {})
+                    requested = normalization.get('requested_shared_scale', crop.get('requested_shared_scale'))
+                    compared = effective
+                    if requested is not None:
+                        compared = float(requested)
+                        if not math.isfinite(compared) or compared <= 0:
+                            raise ValueError(f'Invalid requested normalization factor: {object_id}/{view}')
+                        bounds = crop.get('alpha_bounds_global', [])
+                        resized = crop.get('resized_bounds_px', [])
+                        projection = float(normalization.get('projection_scale', crop.get('projection_scale', 1)))
+                        rendered_factor = effective * projection
+                        if not math.isfinite(rendered_factor) or rendered_factor <= 0:
+                            raise ValueError(f'Invalid projection normalization factor: {object_id}/{view}')
+                        if (len(bounds) != 4 or len(resized) != 2
+                                or not all(isinstance(n, int) and not isinstance(n, bool) and n > 0 for n in resized)
+                                or bounds[2] <= bounds[0] or bounds[3] <= bounds[1]
+                                or any(abs(round(length * rendered_factor) - actual) > 1
+                                       for length, actual in zip((bounds[2]-bounds[0], bounds[3]-bounds[1]), resized))):
+                            raise ValueError(f'Effective normalization factor disagrees with resized crop: {object_id}/{view}')
+                    # Raw resize factors are comparable only for the same
+                    # normalization input. A later isolated repair atlas may
+                    # have a different pixel resolution and valid own factor.
+                    atlas = provenance.get('generated_atlas') or provenance.get('source_atlas')
+                    basis = ('legacy-unqualified',)
+                    if atlas:
+                        raw = contained(pack, atlas)
+                        raw_hash = (hashlib.sha256(raw.read_bytes()).hexdigest() if raw.is_file()
+                                    else external_provenance.get(atlas, {}).get('sha256'))
+                        if not raw_hash:
+                            raise ValueError(f'Unverified normalization input: {object_id}/{view}')
+                        basis = (atlas, raw_hash)
+                    scales.setdefault(basis, []).append(compared)
+        if any(max(values) - min(values) > 1e-9 for values in scales.values()):
             raise ValueError(f"Principal views use inconsistent normalization scales: {object_id}")
         absent = [view for view in VIEWS if not view_reference(group["views"][view])]
         if (absent or not view_set_approved(group)) and not any(item["id"] == object_id for item in missing_views):
@@ -444,13 +483,18 @@ def validate(pack, require_views=False):
             "map_sha256": hashlib.sha256(contained(pack, entry["file"]).read_bytes()).hexdigest(),
             "rgba_sha256": digest(reconstructed), "differing_pixels": different,
             "semantic_placements": semantic_count, "residual_placements": residual_count})
-    if require_views and missing_views:
-        raise ValueError(f"{len(missing_views)} physical assets still lack six principal views")
+    unexpected_missing = [item for item in missing_views
+        if assets.get(item['id'], {}).get('object_id', item['id']) not in blocks]
+    if require_views and unexpected_missing:
+        raise ValueError(f"{len(unexpected_missing)} physical assets still lack six principal views")
     undeclared_aliases = [finding for finding in view_aliases if not finding["declared_symmetry"]]
     if undeclared_aliases:
         warnings.append(f"{len(undeclared_aliases)} principal-view pixel aliases require symmetry review.")
-        if require_views:
-            raise ValueError(f"Undeclared identical principal views: {undeclared_aliases}")
+        unexpected_aliases = [finding for finding in undeclared_aliases if not any(
+            set(alias) == set(finding['views']) for alias in
+            blocks.get(finding['object_id'], {}).get('blocked_pixel_aliases', []))]
+        if require_views and unexpected_aliases:
+            raise ValueError(f"Undeclared identical principal views: {unexpected_aliases}")
     if boundary_findings:
         warnings.append(f"{len(boundary_findings)} generated views touch frame boundaries; review clipping.")
     procedural = validate_procedural(pack, index.get("procedural", {}), assets)
@@ -461,6 +505,12 @@ def validate(pack, require_views=False):
         "duplicate_pixel_groups": duplicate_groups, "missing_six_view_count": len(missing_views),
         "view_pixel_aliases": view_aliases, "view_boundary_findings": boundary_findings,
         "missing_six_views": missing_views, "warnings": warnings,
+        "release_validation": "validated-with-recorded-generation-blocks" if blocks else "no-recorded-block-exceptions-used",
+        "recorded_generation_blocks": [{"object_id": oid, "affected_views": row['affected_views'],
+            "status": row['status'], "complete": False} for oid, row in sorted(blocks.items())],
+        "recorded_blocked_set_count": len(blocks),
+        "recorded_blocked_view_count": sum(len(row['affected_views']) for row in blocks.values()),
+        "unexpected_incomplete_count": len(unexpected_missing),
         "limitations": "Pixel fidelity and metadata validity do not certify inferred hidden surfaces or procedural seam quality."}
 
 
@@ -579,9 +629,11 @@ def main():
     parser.add_argument("--report",type=Path)
     parser.add_argument("--self-test",action="store_true")
     parser.add_argument("--require-six-views",action="store_true")
+    parser.add_argument("--allow-recorded-generation-blocks",action="store_true",
+        help="Opt into exact hash-bound image-tool release blocks; does not approve affected views")
     args=parser.parse_args()
     tests=self_test() if args.self_test else []
-    result=validate(args.pack.resolve(),args.require_six_views)
+    result=validate(args.pack.resolve(),args.require_six_views,args.allow_recorded_generation_blocks)
     result["renderer_self_tests"]=tests
     if args.report:
         args.report.parent.mkdir(parents=True,exist_ok=True)

@@ -61,6 +61,8 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
     folder = "pocket-dungeon" if pack.resolve() == DEFAULT_PACK.resolve() else "library"
     repository_location = "AI-Art repository dungeon-crawler branch, " + str(pack).split("Web/wwwroot/assets/")[-1]
     original = read_json(pack / "reusable/index.json")
+    from generation_block_contract import load_blocks, project as project_blocks, reference as block_reference, evidence_files
+    block_report = load_blocks(pack, original)
     from view_review_contract import load_review, project, expected_objects, reference as review_reference
     review_report = load_review(pack, original)
     legacy_review_report = load_review(pack, original, legacy=True)
@@ -216,6 +218,12 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
         legacy_review_report = project(legacy_review_report, expected_objects(index))
         index['legacy_view_review'] = review_reference(legacy_review_report, legacy=True)
         contents[f"{folder}/reusable/legacy-view-review.json"] = encoded(legacy_review_report)
+    if block_report is not None:
+        block_report = project_blocks(block_report, expected_objects(index))
+        index['generation_blocks'] = block_reference(block_report)
+        contents[f"{folder}/reusable/generation-blocks.json"] = encoded(block_report)
+        for info in evidence_files(block_report):
+            contents[f"{folder}/{info['path']}"] = contained(pack, info['path']).read_bytes()
     # Portable approval evidence closes over the actual reviewed crop, which may
     # be an exactly pixel-equivalent PNG copy outside normal catalog assets.
     for report in (review_report, legacy_review_report):
@@ -230,7 +238,7 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
         contents["reusable-library.json"] = encoded({"schema_version": 1, "tags": ["metadata-document", "library-registry"], "libraries": [registry_entry]})
     contents[f"{folder}/reusable/index.json"] = encoded(index)
     contents[f"{folder}/reusable/archive-provenance.json"] = encoded({"tags": ["metadata-document", "external-provenance"], "external_provenance": list(external.values())})
-    for filename in (*TOOLS, "build_reusable_library.py", "register_existing_derivatives.py", "asset_attachment_tags.py", "render_art_remix.py", "view_review_contract.py", "merge_view_reviews.py", "legacy_view_review_targets.json"):
+    for filename in (*TOOLS, "build_reusable_library.py", "register_existing_derivatives.py", "asset_attachment_tags.py", "render_art_remix.py", "view_review_contract.py", "generation_block_contract.py", "merge_view_reviews.py", "legacy_view_review_targets.json"):
         if not (Path(__file__).resolve().parent / filename).is_file():
             continue
         contents[filename] = (Path(__file__).resolve().parent / filename).read_bytes()
@@ -240,6 +248,7 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
         f"Render: python render_pocket_map.py --pack {folder} --map MAP_ID --output recreated.png\n"
         f"Verify: python validate_pocket_reusable.py --pack {folder} --self-test\n"
         "Missing six views are reported honestly; --require-six-views enforces completeness.\n"
+        "Only --allow-recorded-generation-blocks opts into a packaged hash-bound tool-block policy; blocked views remain incomplete/unapproved.\n"
         "Render an Art Lab schema2 remix from the complete checkout: python tools/render_art_remix.py --input remix.json --output remix.png\n"
         "Detached archives require --art-commit with the recorded trusted source revision; mixed-library remixes need every named library.\n"
         f"All catalog paths resolve relative to {folder}/. PNG sidecars retain provenance.\n"

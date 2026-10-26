@@ -82,7 +82,7 @@ def project(report, object_ids):
     return result
 
 
-def load_review(pack, index, required=False, legacy=False):
+def load_review(pack, index, required=False, legacy=False, allow_recorded_blocks=False):
     """Validate the report against the exported catalog and actual PNG bytes."""
     from validate_pocket_reusable import contained, unique_records, view_reference
     ref = index.get('legacy_view_review' if legacy else 'view_review')
@@ -96,6 +96,11 @@ def load_review(pack, index, required=False, legacy=False):
     report = json.loads(raw)
     if report.get('schema_version') != 1 or report.get('path_base') != 'library-root':
         raise ValueError('Unsupported view-review JSON contract')
+    from generation_block_contract import load_blocks, records as block_records
+    blocks_report = load_blocks(pack, index) if allow_recorded_blocks else None
+    if blocks_report and blocks_report['scope'] != report.get('scope'):
+        raise ValueError('Generation-block scope differs from independent review')
+    blocks = block_records(blocks_report)
     records = unique_records(report['sets'], 'object_id', 'independent view reviews')
     expected = expected_objects(index)
     if legacy:
@@ -174,7 +179,20 @@ def load_review(pack, index, required=False, legacy=False):
                 if not re.fullmatch('[0-9a-f]{64}', proof.get('capture_manifest_sha256', '')):
                     raise ValueError('Missing verified capture manifest digest: ' + oid)
         elif required:
-            raise ValueError('Independent six-view review incomplete: ' + oid)
+            block = blocks.get(oid)
+            review = record.get('review') or {}
+            from merge_view_reviews import FAILURES, reviewer_allowed, timestamp
+            affected = review.get('affected_views', [])
+            if (not block or record.get('primary_source') != block['primary_source']
+                    or record.get('views') != block['views']
+                    or record.get('status') != 'needs-correction'
+                    or review.get('status') not in FAILURES
+                    or not reviewer_allowed(review.get('reviewer'), report.get('scope'))
+                    or timestamp(review.get('reviewed_at')) is None
+                    or not isinstance(affected, list) or not affected
+                    or len(affected) != len(set(affected))
+                    or not set(affected) <= set(block['affected_views'])):
+                raise ValueError('Independent six-view review incomplete: ' + oid)
     return report
 
 
@@ -191,4 +209,6 @@ def attach_review(pack, index, legacy=False):
         load_review(pack, index, legacy=legacy)
     else:
         index.pop(field, None)
+    from generation_block_contract import attach_blocks
+    attach_blocks(pack, index)
     return index

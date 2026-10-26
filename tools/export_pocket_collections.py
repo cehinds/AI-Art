@@ -136,7 +136,7 @@ def create_collection_plan(pack, maps_per_collection=4):
     return document
 
 
-def verify_archive(path, work):
+def verify_archive(path, work, allow_recorded_blocks=False):
     with zipfile.ZipFile(path) as archive:
         if archive.testzip() is not None:
             raise ValueError(f"ZIP CRC check failed: {path.name}")
@@ -154,10 +154,11 @@ def verify_archive(path, work):
         if file.stat().st_size != item["size"] or hashlib.sha256(file.read_bytes()).hexdigest() != item["sha256"]:
             raise ValueError(f"Archive integrity mismatch: {path.name}/{item['path']}")
     catalog = archive_catalog(actual)
-    return validate(work / Path(catalog).parts[0], require_views=True)
+    options = {'allow_recorded_blocks': True} if allow_recorded_blocks else {}
+    return validate(work / Path(catalog).parts[0], require_views=True, **options)
 
 
-def export(pack, max_mib=95, dry_run=False, collections_plan=None):
+def export(pack, max_mib=95, dry_run=False, collections_plan=None, allow_recorded_blocks=False):
     index_path = pack / "reusable/index.json"
     original = read_json(index_path)
     if collections_plan is None and pack.resolve() != DEFAULT_PACK.resolve():
@@ -165,9 +166,10 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None):
     collections = collection_records(collections_plan)
     check_coverage(original, collections)
     baseline = catalog_hash(original)
-    validation = validate(pack, require_views=True)
+    validation = validate(pack, require_views=True, allow_recorded_blocks=allow_recorded_blocks)
     if dry_run:
-        return {"status": "validated-plan", "catalog_content_sha256": baseline,
+        return {"status": "validated-plan-with-recorded-generation-blocks" if validation.get('recorded_blocked_set_count', 0) else "validated-plan", "catalog_content_sha256": baseline,
+                "recorded_generation_blocks": validation.get('recorded_generation_blocks', []),
                 "maps": validation["maps_pixel_exact"],
                 "collections": collections}
     downloads = []
@@ -187,12 +189,13 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None):
             archive = staging / archive_name
             byte_count = write_zip(archive, contents, int(max_mib * 1048576))
             with tempfile.TemporaryDirectory(prefix="pocket-unpack-") as extracted:
-                result = verify_archive(archive, Path(extracted))
+                result = verify_archive(archive, Path(extracted), allow_recorded_blocks)
             relative = f"reusable/downloads/{archive_name}"
             downloads.append({"id": key, "label": label, "path": relative, "file": relative,
                 "bytes": byte_count, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
                 "maps": list(maps), "assets": record["assets"], "asset_count": result["assets_checked"],
                 "pixel_exact_maps": result["maps_pixel_exact"],
+                "recorded_generation_blocks": result.get('recorded_generation_blocks', []),
                 "description": "Independent collection; extract separately. Do not merge subset indexes."})
         expected_assets = {a["id"] for a in original["assets"]}
         if covered_assets != expected_assets:
@@ -201,7 +204,7 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None):
         if catalog_hash(current) != baseline:
             raise ValueError("Catalog changed during export; staged downloads were not published")
         # Detect edits to source PNGs that occurred without rebuilding the catalog.
-        validate(pack, require_views=True)
+        validate(pack, require_views=True, allow_recorded_blocks=allow_recorded_blocks)
         for item in downloads:
             name = Path(item["path"]).name
             os.replace(staging / name, destination / name)
@@ -209,7 +212,8 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None):
         temporary_index = staging / "index.json"
         temporary_index.write_bytes(encoded(current))
         os.replace(temporary_index, index_path)
-    return {"status": "exported-and-validated", "catalog_content_sha256": baseline,
+    return {"status": "exported-and-validated-with-recorded-generation-blocks" if validation.get('recorded_blocked_set_count', 0) else "exported-and-validated", "catalog_content_sha256": baseline,
+            "recorded_generation_blocks": validation.get('recorded_generation_blocks', []),
             "maps": validation["maps_pixel_exact"], "downloads": downloads}
 
 
@@ -218,6 +222,8 @@ def main():
     parser.add_argument("--pack", type=Path, default=DEFAULT_PACK)
     parser.add_argument("--max-mib", type=float, default=95)
     parser.add_argument("--plan", action="store_true", help="Validate the full library and show collection coverage without writing")
+    parser.add_argument("--allow-recorded-generation-blocks", action="store_true",
+                        help="Allow only packaged hash-bound tool blocks; affected views remain unapproved")
     parser.add_argument("--collections-plan", type=Path, help="JSON collection definitions for this library")
     parser.add_argument("--write-collections-plan", type=Path, help="Write a draft JSON plan without exporting or approving artwork")
     parser.add_argument("--maps-per-collection", type=int, default=4, help="Maximum maps per generated draft collection")
@@ -232,7 +238,8 @@ def main():
                               'collections': len(document['collections'])}, indent=2))
             return 0
         document = read_json(args.collections_plan) if args.collections_plan else None
-        print(json.dumps(export(args.pack.resolve(), args.max_mib, args.plan, document), indent=2))
+        print(json.dumps(export(args.pack.resolve(), args.max_mib, args.plan, document,
+                                args.allow_recorded_generation_blocks), indent=2))
         return 0
     except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile) as exc:
         parser.exit(2, f"export_pocket_collections: {exc}\n")
