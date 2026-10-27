@@ -25,6 +25,120 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def replay_single_view_atlas_cell(meta: dict, recipe_data: dict, recipe_path: Path,
+                                  atlas: Image.Image, atlas_rel: str, atlas_hash: str):
+    """Replay the explicit per-view generated-atlas crop/resize recipe.
+
+    This handler is intentionally limited to the v1 recipe emitted for the
+    floor-hatch R/L correction. Unlike the legacy component-mask renderer, the
+    source alpha inside the recorded component bbox is preserved as-is.
+    """
+    if recipe_data.get("method") != "single-view-atlas-cell-isotropic-normalization":
+        return None
+    provenance = meta.get("provenance", {})
+    if provenance.get("generation_recipe") != recipe_path.relative_to(PACK).as_posix():
+        raise RuntimeError(f"{meta['id']}: single-view recipe path differs from provenance")
+    recipe_sha = sha256_bytes(recipe_path.read_bytes())
+    expected_recipe_sha = provenance.get("generation_recipe_sha256")
+    if expected_recipe_sha and recipe_sha != expected_recipe_sha:
+        raise RuntimeError(f"{meta['id']}: single-view normalization recipe hash mismatch")
+    if (recipe_data.get("object_id") != meta.get("object_id")
+            or provenance.get("source_atlas") != atlas_rel
+            or recipe_data.get("generated_atlas_path") != atlas_rel
+            or recipe_data.get("generated_atlas_sha256") != atlas_hash
+            or provenance.get("source_atlas_sha256") != atlas_hash):
+        raise RuntimeError(f"{meta['id']}: single-view atlas/object binding mismatch")
+    source_path = provenance.get("source_image")
+    source_rows = [item for item in recipe_data.get("input_references", [])
+                   if item.get("path") == source_path and item.get("role") == "native source identity and handle location"]
+    if len(source_rows) != 1:
+        raise RuntimeError(f"{meta['id']}: single-view canonical source path mismatch")
+    source = source_rows[0]
+    source_file = PACK / source_path
+    if not source_file.is_file() or sha256_bytes(source_file.read_bytes()) != source.get("sha256"):
+        raise RuntimeError(f"{meta['id']}: single-view canonical source hash mismatch")
+    if (provenance.get("source_sha256") or provenance.get("source_image_sha256")) not in (None, source.get("sha256")):
+        raise RuntimeError(f"{meta['id']}: single-view canonical source hash differs from provenance")
+    request_path = recipe_data.get("generation_request_path")
+    request_hash = recipe_data.get("generation_request_sha256")
+    if (request_path != provenance.get("generation_request")
+            or request_hash != provenance.get("generation_request_sha256")):
+        raise RuntimeError(f"{meta['id']}: single-view generation-request binding mismatch")
+    request_file = PACK / request_path
+    if not request_file.is_file() or sha256_bytes(request_file.read_bytes()) != request_hash:
+        raise RuntimeError(f"{meta['id']}: single-view generation request hash mismatch")
+
+    view = meta.get("view")
+    rows = [row for row in recipe_data.get("views", [])
+            if row.get("object_id") == meta.get("object_id") and row.get("view") == view]
+    if len(rows) != 1:
+        raise RuntimeError(f"{meta['id']}: single-view recipe row missing or ambiguous")
+    row = rows[0]
+    crop_meta = provenance.get("crop_bounds_px", {})
+    normalization = provenance.get("normalization", {})
+    nominal = crop_meta.get("nominal_cell", {})
+    if (row.get("atlas_path") != atlas_rel or row.get("atlas_sha256") != atlas_hash
+            or nominal.get("bounds") != row.get("cell_xyxy")
+            or crop_meta.get("alpha_bounds_global") != row.get("component_bounds_xyxy")
+            or crop_meta.get("resized_bounds_px") != row.get("resized_dimensions_px")
+            or crop_meta.get("canvas_offset_px") != row.get("canvas_offset_px")
+            or crop_meta.get("alpha_threshold") != row.get("alpha_threshold")
+            or crop_meta.get("shared_scale") != row.get("uniform_scale")
+            or normalization.get("uniform_scale") != row.get("uniform_scale")
+            or normalization.get("resized_dimensions_px") != row.get("resized_dimensions_px")
+            or normalization.get("canvas_offset_px") != row.get("canvas_offset_px")
+            or normalization.get("canvas_size_px") != row.get("canvas_size_px")):
+        raise RuntimeError(f"{meta['id']}: sidecar crop/scale fields disagree with single-view recipe")
+
+    x0, y0, x1, y1 = [int(v) for v in row["component_bounds_xyxy"]]
+    cx0, cy0, cx1, cy1 = [int(v) for v in row["cell_xyxy"]]
+    if (x0 < cx0 or y0 < cy0 or x1 > cx1 or y1 > cy1
+            or x1 <= x0 or y1 <= y0 or cx1 > atlas.width or cy1 > atlas.height):
+        raise RuntimeError(f"{meta['id']}: single-view crop/cell bounds are invalid")
+    scale = float(row["uniform_scale"])
+    if not np.isfinite(scale) or scale <= 0:
+        raise RuntimeError(f"{meta['id']}: invalid single-view scale")
+    piece = atlas.crop((x0, y0, x1, y1))
+    expected_dimensions = [max(1, round(piece.width * scale)), max(1, round(piece.height * scale))]
+    if expected_dimensions != row.get("resized_dimensions_px"):
+        raise RuntimeError(f"{meta['id']}: single-view isotropic scale arithmetic mismatch")
+    if row.get("resampling") != "nearest-neighbor":
+        raise RuntimeError(f"{meta['id']}: unsupported single-view resampling method")
+    piece = piece.resize(tuple(expected_dimensions), Image.Resampling.NEAREST)
+    canvas_size = tuple(int(v) for v in row["canvas_size_px"])
+    canvas = Image.new("RGBA", canvas_size, (0, 0, 0, 0))
+    canvas.alpha_composite(piece, tuple(int(v) for v in row["canvas_offset_px"]))
+    rgba_sha = sha256_bytes(struct.pack(">II", *canvas.size) + canvas.tobytes())
+    if rgba_sha != row.get("candidate_rgba_sha256") or rgba_sha != meta.get("image", {}).get("rgba_sha256"):
+        raise RuntimeError(f"{meta['id']}: single-view exact PNG/RGBA output mismatch")
+    encoded = None
+    encoding = None
+    # The recipe predates an explicit PNG encoder field. Resolve only among
+    # Pillow's bounded optimize/compression settings and require an exact
+    # candidate SHA; never accept RGBA-only equality or a fallback.
+    for optimize in (False, True):
+        for compression in range(10):
+            buffer = BytesIO()
+            canvas.save(buffer, format="PNG", optimize=optimize, compress_level=compression)
+            candidate = buffer.getvalue()
+            candidate_sha = sha256_bytes(candidate)
+            if candidate_sha == row.get("candidate_sha256") == meta.get("image", {}).get("sha256"):
+                encoded = candidate
+                encoding = {"optimize": optimize, "compress_level": compression}
+                break
+        if encoded is not None:
+            break
+    if encoded is None:
+        raise RuntimeError(f"{meta['id']}: single-view exact PNG encoder match not found")
+    return canvas, encoded, {"asset_id": meta["id"], "method": recipe_data["method"],
+        "recipe_path": provenance["generation_recipe"], "recipe_sha256": recipe_sha,
+        "source_atlas": atlas_rel, "source_atlas_sha256": atlas_hash,
+        "cell_xyxy": row["cell_xyxy"], "crop_bounds_xyxy": row["component_bounds_xyxy"],
+        "alpha_threshold": row["alpha_threshold"], "uniform_scale": scale,
+        "resized_dimensions_px": expected_dimensions, "canvas_offset_px": row["canvas_offset_px"],
+        "png_sha256": candidate_sha, "rgba_sha256": rgba_sha, "png_encoding": encoding}
+
+
 def main() -> None:
     catalog = json.loads(INDEX.read_text())
     atlas_cache = {}
@@ -107,6 +221,13 @@ def main() -> None:
         x, y, c, d = values
         bbox_options = [("xyxy", x, y, c, d), ("xywh", x, y, x + c, y + d)]
         recipe_data = json.loads(recipe_path.read_text())
+        single_view_result = replay_single_view_atlas_cell(
+            meta, recipe_data, recipe_path, atlas, atlas_rel, atlas_hash)
+        if single_view_result is not None:
+            frame, encoded, resolution = single_view_result
+            outputs.append((PACK / meta["image"]["path"], encoded))
+            coordinate_resolutions.append(resolution)
+            continue
         threshold = int(recipe_data.get("alpha_threshold", 245))
         cell_options = [("global8", None, None, None, None)]
         nominal = crop_meta.get("nominal_cell", {}).get("bounds")

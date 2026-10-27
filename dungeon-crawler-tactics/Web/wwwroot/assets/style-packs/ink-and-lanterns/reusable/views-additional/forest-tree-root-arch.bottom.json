@@ -6,9 +6,11 @@
     "arch",
     "attachment-tagged",
     "attachment:floor",
+    "bottom",
     "environment:forest",
     "existing",
     "forest",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "role:object",
@@ -16,9 +18,7 @@
     "structure",
     "structures",
     "style:ink-and-lanterns",
-    "tree",
-    "inferred-view",
-    "bottom"
+    "tree"
   ],
   "object_id": "forest-tree-root-arch",
   "view": "bottom",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.8221343873517787,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "forest-tree-root-arch",
+        "view": "bottom",
+        "source_path": "components/forest-tree-root-arch.png",
+        "source_sha256": "8d1f19b4eafe12868c70018e31c59d5ad39b03bdae124e2e5d2b19e4801fd2a4",
+        "atlas_path": "reusable/views-additional/raw/root-forest-structures-repair-batch-001-atlas.png",
+        "atlas_sha256": "f5080c869eed08585bb1a0703ec4a4bb6333c0dd66da09b07d37db2af338c5af",
+        "active_output_sha256": "15ccfc66d2eccfb55878ec14a392b3da80e734e7052033dc40da57e08d8ff1f0",
+        "active_output_rgba_sha256": "4806a20acb074932a6f7c1cf297a641ab2cc8e6b87639532fda582e1fe5f7b01",
+        "crop_bounds_xyxy": [
+          1178,
+          110,
+          1431,
+          201
+        ],
+        "resized_dimensions_px": [
+          208,
+          75
+        ],
+        "scale": 0.8221343873517787,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.8221343873517787
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:forest",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-tree-root-arch"
   }
 }

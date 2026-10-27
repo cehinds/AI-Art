@@ -8,16 +8,16 @@
     "environment:unspecified",
     "existing",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "material:snow",
+    "rear",
     "role:object",
     "slope",
     "snow",
     "structure",
     "structures",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "rear"
+    "style:ink-and-lanterns"
   ],
   "object_id": "highlands-snow-slope",
   "view": "rear",
@@ -73,6 +73,74 @@
       ],
       "shared_scale": 0.7675276752767528,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-snow-slope",
+        "view": "rear",
+        "source_path": "components/highlands-snow-slope.png",
+        "source_sha256": "e123bb28d67f3aefb16c9434b71c2460b6d1ee47ade9cc042e2a8b749c073631",
+        "atlas_path": "reusable/views-additional/raw/root-highlands-batch-004-atlas.png",
+        "atlas_sha256": "1577438feff61132716d0061e71885f9f395b509107a592fd868e91b34ab3b50",
+        "active_output_sha256": "01bbd8b5fb5f848199e9d6fa04fe74df1269fd21554106815c0ac56fb924ce9b",
+        "active_output_rgba_sha256": "d628c265ae3e225836161ff6a8401c9b5c34f465b1b848264e31968752aeb65d",
+        "crop_bounds_xyxy": [
+          1251,
+          307,
+          1522,
+          500
+        ],
+        "resized_dimensions_px": [
+          208,
+          148
+        ],
+        "scale": 0.7675276752767528,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.7675276752767528
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:snow",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "highlands-snow-slope"
   }
 }

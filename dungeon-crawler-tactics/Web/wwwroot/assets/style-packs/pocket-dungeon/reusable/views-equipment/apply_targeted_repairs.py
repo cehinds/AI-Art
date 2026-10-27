@@ -43,6 +43,10 @@ def apply_all():
     assets={a['id']:a for a in index['assets']}
     for recipe_path in sorted(recipes.glob('*.json')):
         recipe=json.loads(recipe_path.read_text())
+        # This directory also stores append-only audit and generation records.
+        # Replay only complete per-leaf transformation recipes.
+        if not all(k in recipe for k in ('object_id','view','input_image','input_sha256')):
+            continue
         oid,view=recipe['object_id'],recipe['view']; aid=f'{oid}.{view}'
         raw=(ROOT/recipe['input_image']).resolve()
         if not raw.is_file() or sha(raw)!=recipe['input_sha256']:

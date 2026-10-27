@@ -8,7 +8,9 @@
     "environment:forest",
     "existing",
     "forest",
+    "front",
     "grass",
+    "inferred-view",
     "ink-and-lanterns",
     "material:grass",
     "patch",
@@ -16,9 +18,7 @@
     "props",
     "role:object",
     "style:ink-and-lanterns",
-    "tall",
-    "inferred-view",
-    "front"
+    "tall"
   ],
   "object_id": "forest-tall-grass-patch",
   "view": "front",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.34608985024958405,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "forest-tall-grass-patch",
+        "view": "front",
+        "source_path": "components/forest-tall-grass-patch.png",
+        "source_sha256": "8816a6d91ce6e91fc6a8d02df1d65c6271d929dd8ce6b08498c9fb4f2a156e6c",
+        "atlas_path": "reusable/views-additional/raw/root-forest-grass-elevations-correction-atlas.png",
+        "atlas_sha256": "9c2831d3579062a564a36f2dc2d109f830f99e47c55217306eb22b66ceac1974",
+        "active_output_sha256": "d3b1f9dae7b138a181b53750b734d315c70e5c4fc6374b83ef06ecce45db2586",
+        "active_output_rgba_sha256": "2aa22f7331a2f0ff969e9b18930a1a2961dcbe29e64635a42243482cabf7cb99",
+        "crop_bounds_xyxy": [
+          33,
+          80,
+          539,
+          663
+        ],
+        "resized_dimensions_px": [
+          175,
+          202
+        ],
+        "scale": 0.34608985024958405,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.34608985024958405
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:forest",
+    "material:grass",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-tall-grass-patch"
   }
 }

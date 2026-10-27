@@ -3,12 +3,17 @@
   "name": "Chest Scene Patch Left",
   "kind": "sprite",
   "tags": [
-    "scene-proxy",
-    "ink-and-lanterns",
-    "prop",
-    "style:ink-and-lanterns",
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
     "inferred-view",
-    "left"
+    "ink-and-lanterns",
+    "left",
+    "material:unspecified",
+    "prop",
+    "role:object",
+    "scene-proxy",
+    "style:ink-and-lanterns"
   ],
   "object_id": "concept-original--chest-scene-patch",
   "view": "left",
@@ -70,6 +75,74 @@
         60
       ],
       "shared_scale": 0.6208955223880597
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "concept-original--chest-scene-patch",
+        "view": "left",
+        "source_path": "reusable/views-additional/raw/scene-proxy-crops/concept-original--chest-scene-patch.png",
+        "source_sha256": "a881ee849836400583c4c77225e1eaa1dbbe4e0856f7b1357d554fd5f3248afa",
+        "atlas_path": "reusable/views-additional/raw/root-ink-repair-batch-002-atlas.png",
+        "atlas_sha256": "be254252f5c2beafb73f76c28e666c89320efff2d17d1fca9c05219f6c83a470",
+        "active_output_sha256": "e76b55ca67febc19385bc9dd49f21154265ab2bd3a67aede9aedd3d88fab7e96",
+        "active_output_rgba_sha256": "c7d6f9cde21ec166661cf80886f35e2f62f8f0681ba7f78b362da1bf2f64a822",
+        "crop_bounds_xyxy": [
+          56,
+          501,
+          391,
+          720
+        ],
+        "resized_dimensions_px": [
+          208,
+          136
+        ],
+        "scale": 0.6208955223880597,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.6208955223880597
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concept-original--chest-scene-patch"
   }
 }

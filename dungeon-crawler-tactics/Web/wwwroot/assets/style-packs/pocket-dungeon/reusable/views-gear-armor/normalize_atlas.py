@@ -23,24 +23,27 @@ def components(im,rows):
    groups[row,col].extend(comp)
  return groups
 def main():
- ap=argparse.ArgumentParser(); ap.add_argument('atlas',type=Path); ap.add_argument('--batch',required=True); ap.add_argument('--objects',required=True,help='id|name|kind tuples separated by comma')
+ ap=argparse.ArgumentParser(); ap.add_argument('atlas',type=Path); ap.add_argument('--batch',required=True); ap.add_argument('--objects',required=True,help='id|name|kind tuples separated by comma'); ap.add_argument('--grid-rows',type=int,default=0,help='actual source atlas row count'); ap.add_argument('--object-rows',help='source row for each requested object, comma-separated')
  a=ap.parse_args(); atlas=a.atlas.resolve(); im=Image.open(atlas).convert('RGBA'); w,h=im.size; objs=[x.split('|') for x in a.objects.split(',')]
  if len(objs) not in (2,3,4) or any(len(x)!=3 for x in objs): raise ValueError('requires 2, 3, or 4 id|name|kind rows')
- expected_ratio=6/len(objs)
+ grid_rows=a.grid_rows or len(objs); object_rows=[int(x) for x in a.object_rows.split(',')] if a.object_rows else list(range(len(objs)))
+ if len(object_rows)!=len(objs) or len(set(object_rows))!=len(object_rows) or min(object_rows)<0 or max(object_rows)>=grid_rows: raise ValueError(f'invalid object row mapping {object_rows} for {grid_rows} rows')
+ expected_ratio=6/grid_rows
  if w<1200 or h<400 or abs((w/h)-expected_ratio)>0.3: raise ValueError(f'unexpected atlas geometry {im.size}')
- raw=OUT/'raw'/f'{a.batch}.png'; raw.write_bytes(atlas.read_bytes()); rawsha=sha(raw); groups=components(im,len(objs)); sourcepix=im.load(); cells=[]
- for ri,obj in enumerate(objs):
+ raw=OUT/'raw'/f'{a.batch}.png'; raw.write_bytes(atlas.read_bytes()); rawsha=sha(raw); groups=components(im,grid_rows); sourcepix=im.load(); cells=[]
+ for oi,obj in enumerate(objs):
+  source_row=object_rows[oi]
   for ci,view in enumerate(VIEWS):
-   ids=groups[(ri,ci)]
+   ids=groups[(source_row,ci)]
    if not ids: raise ValueError(f'empty centroid slot {ri},{ci} {obj[0]} {view}')
    xs=[z%w for z in ids]; ys=[z//w for z in ids]; bb=(max(0,min(xs)-2),max(0,min(ys)-2),min(w,max(xs)+3),min(h,max(ys)+3))
    crop=Image.new('RGBA',(bb[2]-bb[0],bb[3]-bb[1]),(0,0,0,0)); cp=crop.load()
    for z in ids: cp[z%w-bb[0],z//w-bb[1]]=sourcepix[z%w,z//w]
-   slot=(round(ci*w/6),round(ri*h/len(objs)),round((ci+1)*w/6),round((ri+1)*h/len(objs)))
-   cells.append((ri,ci,obj,view,slot,bb,crop))
+   slot=(round(ci*w/6),round(source_row*h/grid_rows),round((ci+1)*w/6),round((source_row+1)*h/grid_rows))
+   cells.append((oi,ci,obj,view,slot,bb,crop))
  assets=[]; sets=[]; recipes={}
  for ri,obj in enumerate(objs):
-  oid,name,kind=obj; group=[c for c in cells if c[0]==ri]; maxdim=max(max(c[6].size) for c in group); scale=204/maxdim; refs={}; recipes[oid]={'scale':scale,'max_source_dimension':maxdim}
+  oid,name,kind=obj; group=[c for c in cells if c[0]==ri]; maxdim=max(max(c[6].size) for c in group); scale=204/maxdim; refs={}; recipes[oid]={'scale':scale,'max_source_dimension':maxdim,'source_row':object_rows[ri]}
   for _,ci,_,view,slot,bb,crop in group:
    nw=max(1,round(crop.width*scale)); nh=max(1,round(crop.height*scale)); crop=crop.resize((nw,nh),Image.Resampling.NEAREST); canvas=Image.new('RGBA',(256,256),(0,0,0,0)); ox=(256-nw)//2; oy=(256-nh)//2; canvas.alpha_composite(crop,(ox,oy))
    aid=oid+'.'+view; ip=OUT/'images'/f'{aid}.png'; mp=ip.with_suffix('.json'); canvas.save(ip,optimize=True); sha_png=sha(ip); sha_rgba=hashlib.sha256(struct.pack('>II',256,256)+canvas.tobytes()).hexdigest(); source=f'components/{oid}.png'

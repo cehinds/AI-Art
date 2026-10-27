@@ -3,9 +3,20 @@
   "name": "Notice board Top",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "board",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "notice",
     "prop",
     "props",
-    "inferred-view",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns",
     "top"
   ],
   "object_id": "notice-board",
@@ -59,7 +70,8 @@
         112
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.17479300827966882
+      "shared_scale": 0.17479300827966882,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/notice-board-top-v1.txt",
     "prompt_sha256": "d487fa3b348f5f461d7c3dd7d3511646d59f2233ab4925feb94133c3666237a8",
@@ -72,5 +84,44 @@
     "source_contact_sheet_sha256": "4c3161bbc650b6d808fa0b9d7d0562f90d14fb59123e02ecc5e17d256461a9d0",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-notice-board-top-geometry-guide.png",
     "geometry_guide_sha256": "8de6d407fd07a8598063d8b5234b6ba1c11ce2257d784a7dd37ec80fa18548a4"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "board",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "notice",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "notice-board"
   }
 }

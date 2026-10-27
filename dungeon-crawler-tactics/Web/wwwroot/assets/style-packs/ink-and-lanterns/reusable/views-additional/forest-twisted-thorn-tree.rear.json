@@ -8,17 +8,17 @@
     "environment:forest",
     "existing",
     "forest",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "prop",
     "props",
+    "rear",
     "role:object",
     "style:ink-and-lanterns",
     "thorn",
     "tree",
-    "twisted",
-    "inferred-view",
-    "rear"
+    "twisted"
   ],
   "object_id": "forest-twisted-thorn-tree",
   "view": "rear",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.9541284403669725,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "forest-twisted-thorn-tree",
+        "view": "rear",
+        "source_path": "components/forest-twisted-thorn-tree.png",
+        "source_sha256": "c304ca2a35a410bf3dadbbbe80861024280ebedd66b4dd306b90496268a9c941",
+        "atlas_path": "reusable/views-additional/raw/root-forest-repair-batch-001-atlas.png",
+        "atlas_sha256": "ef7375ff47cf5204af99b19049ee9bb117566d771867fbf49f6d305552b47edf",
+        "active_output_sha256": "ef137da8f03c9fb44344e5be9d98bb4634458a1498e4393479335eab6b6ce085",
+        "active_output_rgba_sha256": "422baab5da85abec8487e0f50bdadcd8c272b4a57e4d48542ca3296960f17ad1",
+        "crop_bounds_xyxy": [
+          1141,
+          17,
+          1315,
+          235
+        ],
+        "resized_dimensions_px": [
+          166,
+          208
+        ],
+        "scale": 0.9541284403669725,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.9541284403669725
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:forest",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-twisted-thorn-tree"
   }
 }

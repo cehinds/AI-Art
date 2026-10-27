@@ -3,10 +3,21 @@
   "name": "Broken bridge Bottom",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "biomes",
+    "bottom",
+    "bridge",
+    "broken",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
     "structure",
     "structures",
-    "inferred-view",
-    "bottom"
+    "style:ink-and-lanterns"
   ],
   "object_id": "broken-bridge",
   "view": "bottom",
@@ -61,7 +72,8 @@
         72
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.19586614173228348
+      "shared_scale": 0.19586614173228348,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/broken-bridge-bottom-v2.txt",
     "prompt_sha256": "dda3fa94f1393d47c7618f2331dbb4d80be3a976fb5401a4b55c9de5d3361401",
@@ -73,5 +85,44 @@
     "source_contact_sheet_sha256": "40416cda32bb65ab7fe7f314e98901c3e16f58a61daeb2861065ae930081193c",
     "geometry_guide": "reusable/views-additional/broken-bridge.top.png",
     "geometry_guide_sha256": "4c4735cb74c53fc39f61a9822304c432c7f4507e3c04cad2934243124d9e8b0c"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "biomes",
+    "bridge",
+    "broken",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "broken-bridge"
   }
 }

@@ -3,10 +3,20 @@
   "name": "Watchtower Bottom",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "settlements",
     "structure",
     "structures",
-    "inferred-view",
-    "bottom"
+    "style:ink-and-lanterns",
+    "watchtower"
   ],
   "object_id": "settlements-watchtower",
   "view": "bottom",
@@ -59,7 +69,8 @@
         88
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.1239067055393586
+      "shared_scale": 0.1239067055393586,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/settlements-watchtower-bottom-v1.txt",
     "prompt_sha256": "e3b7217e21ddd2deca45a3953b99ad0403f33eb603d6511f1a21232e64eba3a1",
@@ -71,5 +82,43 @@
     "source_contact_sheet_sha256": "a7702d637551d332b79d4ccaa8b177f90cbfad9e785452093e220cd7f5891ddd",
     "geometry_guide": null,
     "geometry_guide_sha256": null
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "settlements",
+    "style:ink-and-lanterns",
+    "watchtower"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "settlements-watchtower"
   }
 }

@@ -9,17 +9,17 @@
     "corner",
     "environment:city",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
+    "right",
     "role:provider",
     "settlements",
     "structure",
     "structures",
     "style:ink-and-lanterns",
     "surface:wall",
-    "wall",
-    "inferred-view",
-    "right"
+    "wall"
   ],
   "object_id": "settlements-city-wall-corner",
   "view": "right",
@@ -72,7 +72,8 @@
         70
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.30052724077328646
+      "shared_scale": 0.30052724077328646,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/city-wall-corner-elevations-v1.txt",
     "prompt_sha256": "dd7ed5bb3cb16c82465ccbc4fcd1e99dcadb68c9cbfe3a3cb2f5db1a96eada2f",
@@ -84,6 +85,77 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/city-wall-corner-source-six-before.png",
     "source_contact_sheet_sha256": "bfac8cad8d8f87c66e49bd7f829dbb79cdb1a487161f7bf3119d44aef358298f",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/book061-outer-corner-geometry-guide.png",
-    "geometry_guide_sha256": "b19c0f0c0027c0d9c3a37ae4d2083e9611cf0763a8b00785f4f0582f0f3900c0"
+    "geometry_guide_sha256": "b19c0f0c0027c0d9c3a37ae4d2083e9611cf0763a8b00785f4f0582f0f3900c0",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "settlements-city-wall-corner",
+        "view": "right",
+        "source_path": "components/settlements-city-wall-corner.png",
+        "source_sha256": "cdc9eef4e6a4e6e71837f10b06ee9aa3cdd2072261fe9cab5ff71cb1d497d11f",
+        "atlas_path": "reusable/views-additional/raw/city-wall-corner-elevations-v1.png",
+        "atlas_sha256": "c8aab68205db59d22bcc72949a62a9b433ad8a0971144ddbe607c2f547693b1a",
+        "active_output_sha256": "b726491ee31921dddaa27a25e59a2e6c73e624cf618f9c27e4e621512d9402dc",
+        "active_output_rgba_sha256": "fc63d72aa71530fadf56efe97a8221d8e8118d1c8e9e52832842125a6e1ab792",
+        "crop_bounds_xyxy": [
+          145,
+          549,
+          714,
+          934
+        ],
+        "resized_dimensions_px": [
+          171,
+          116
+        ],
+        "scale": 0.30052724077328646,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.30052724077328646
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "settlements-city-wall-corner"
   }
 }

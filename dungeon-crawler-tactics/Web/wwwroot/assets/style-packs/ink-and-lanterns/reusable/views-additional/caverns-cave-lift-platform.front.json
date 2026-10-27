@@ -9,6 +9,8 @@
     "caverns",
     "environment:unspecified",
     "existing",
+    "front",
+    "inferred-view",
     "ink-and-lanterns",
     "lift",
     "material:unspecified",
@@ -16,9 +18,7 @@
     "role:object",
     "structure",
     "structures",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "front"
+    "style:ink-and-lanterns"
   ],
   "object_id": "caverns-cave-lift-platform",
   "view": "front",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.896551724137931,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "caverns-cave-lift-platform",
+        "view": "front",
+        "source_path": "components/caverns-cave-lift-platform.png",
+        "source_sha256": "d7e735843a2f35c7b7dd47990d8d0d02fbde4658041cc98502713e1c35233cf2",
+        "atlas_path": "reusable/views-additional/raw/root-caverns-batch-002-atlas-b.png",
+        "atlas_sha256": "67cc3b032f3f2430f7d190bff86c4acb2f21be4cc26544f2c491ee5dcc401cf4",
+        "active_output_sha256": "a36886c0a061290238b1cbc0f9ae5d622e714f5f7ecccb6144c05e6ec6840572",
+        "active_output_rgba_sha256": "3e19b29c900a21f41b01213dc5d9b064535078bef217b9085553b90f482c0005",
+        "crop_bounds_xyxy": [
+          48,
+          314,
+          272,
+          546
+        ],
+        "resized_dimensions_px": [
+          201,
+          208
+        ],
+        "scale": 0.896551724137931,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.896551724137931
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "caverns-cave-lift-platform"
   }
 }

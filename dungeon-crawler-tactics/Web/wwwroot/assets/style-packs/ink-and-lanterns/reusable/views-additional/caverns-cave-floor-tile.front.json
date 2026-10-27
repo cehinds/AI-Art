@@ -9,16 +9,16 @@
     "environment:unspecified",
     "existing",
     "floor",
+    "front",
     "ground",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "role:provider",
     "style:ink-and-lanterns",
     "surface:floor",
     "terrain",
-    "tile",
-    "inferred-view",
-    "front"
+    "tile"
   ],
   "object_id": "caverns-cave-floor-tile",
   "view": "front",
@@ -73,6 +73,66 @@
         115
       ],
       "shared_scale": 0.23008849557522124
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "caverns-cave-floor-tile",
+        "view": "front",
+        "source_path": "components/caverns-cave-floor-tile.png",
+        "source_sha256": "7b2ce7718fa2e236d6318560c2fa69da7512f2eeda4e17bc2a79ba5247e1778e",
+        "atlas_path": "reusable/views-additional/raw/caverns-cave-floor-front-rear-generated.png",
+        "atlas_sha256": "5c8cdef3859e096adf6b9d6519959ebeabcb1a9d5588a0f6f942e3c75da3051c",
+        "active_output_sha256": "098f468e26a7f0f8826a9c6865c7ff8aa1712616105a576aebbd6afb9f630a5b",
+        "active_output_rgba_sha256": "02aa369ce6784019f5b809f1f1599751ce6f42039914177240a88cd1b546df72",
+        "crop_bounds_xyxy": [
+          113,
+          315,
+          1017,
+          427
+        ],
+        "resized_dimensions_px": [
+          208,
+          26
+        ],
+        "scale": 0.23008849557522124,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.23008849557522124
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "caverns-cave-floor-tile"
   }
 }

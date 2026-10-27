@@ -1,6 +1,6 @@
 {
   "id": "attacks-katia-punch-05.front",
-  "name": "Katia shapeshift punch \u00b7 frame 5 Front",
+  "name": "Katia shapeshift punch · frame 5 Front",
   "kind": "sprite",
   "tags": [
     "05",
@@ -8,17 +8,18 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "environment:unspecified",
     "existing",
+    "front",
+    "inferred-view",
     "ink-and-lanterns",
     "katia",
     "material:unspecified",
     "punch",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "front"
+    "style:ink-and-lanterns"
   ],
   "object_id": "attacks-katia-punch-05",
   "view": "front",
@@ -37,7 +38,7 @@
   "provenance": {
     "method": "generated",
     "source_image": "components/attacks-katia-punch-05.png",
-    "notes": "Generated inferred orthographic head-on FRONT views for distinct frames 04\u201306. Native source and accepted five-view context preserve pose identity. Raw atlas retained, transparent cell components isolated and normalized isotropically with NEAREST to 256 canvas. Hidden details inferred.",
+    "notes": "Generated inferred orthographic head-on FRONT views for distinct frames 04–06. Native source and accepted five-view context preserve pose identity. Raw atlas retained, transparent cell components isolated and normalized isotropically with NEAREST to 256 canvas. Hidden details inferred.",
     "source_atlas": "reusable/views-additional/raw/katia-punch-04-06-front-v1.png",
     "source_atlas_sha256": "0240ff853f57a3a48238f77193ac55f414b0e7a0f88afb5e9cf4be943a99adfa",
     "generation_recipe": "reusable/views-additional/raw/katia-punch-04-06-front-v1.recipe.json",
@@ -71,7 +72,8 @@
         48
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.3516483516483517
+      "shared_scale": 0.3516483516483517,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/katia-punch-04-06-front-v1.txt",
     "prompt_sha256": "5daf9b3ec52e2a8748b2dcccf8e69cb5c91ce52b499d7a78ccf115bdc845c9e5",
@@ -86,5 +88,41 @@
     "source_contact_sheet_sha256": "b6c7e28d2b9a8cb6172ea18de16a273c6a4713c1fa19c8f42f8cae1fa2bf5d22",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/katia-approved-head-on-front-examples.png",
     "geometry_guide_sha256": "435693c565e4542e1cabf32952507ed86064fd4c2db92a9f55760625a682232a"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "attacks-katia-punch-05"
   }
 }

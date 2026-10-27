@@ -3,9 +3,20 @@
   "name": "City gatehouse Top",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "city",
+    "environment:city",
+    "existing",
+    "gatehouse",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "settlements",
     "structure",
     "structures",
-    "inferred-view",
+    "style:ink-and-lanterns",
     "top"
   ],
   "object_id": "settlements-city-gatehouse",
@@ -58,6 +69,79 @@
         80
       ],
       "shared_scale": 0.7849056603773585
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "settlements-city-gatehouse",
+        "view": "top",
+        "source_path": "components/settlements-city-gatehouse.png",
+        "source_sha256": "5dd35a8868f219dcf09b0a3ba854253f0b2ab8842cbc3298dbb234c6c4559e74",
+        "atlas_path": "reusable/views-additional/raw/settlements-market-fountain-well-gates-watchtower-atlas.png",
+        "atlas_sha256": "7c9a860d3c207d2d4c17a62a99c0464e28b10db498009b88a0d0088e5af9ba76",
+        "active_output_sha256": "a290a9c8165b75c1610f127cd2fd0c1c82611cc55e58721bc156857fcc3e020b",
+        "active_output_rgba_sha256": "a9314b5250281461238d3040741c89409a797733d6c971be85cac2e2cf499bfa",
+        "crop_bounds_xyxy": [
+          290,
+          690,
+          546,
+          812
+        ],
+        "resized_dimensions_px": [
+          201,
+          96
+        ],
+        "scale": 0.7849056603773585,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.7849056603773585
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "city",
+    "environment:city",
+    "existing",
+    "gatehouse",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "settlements",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "settlements-city-gatehouse"
   }
 }

@@ -1,6 +1,6 @@
 {
   "id": "attacks-carl-kick-03.rear",
-  "name": "Carl barefoot kick \u00b7 frame 3 Rear",
+  "name": "Carl barefoot kick · frame 3 Rear",
   "kind": "sprite",
   "tags": [
     "03",
@@ -8,17 +8,18 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
     "kick",
     "material:unspecified",
+    "rear",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "rear"
+    "style:ink-and-lanterns"
   ],
   "object_id": "attacks-carl-kick-03",
   "view": "rear",
@@ -71,5 +72,41 @@
       ],
       "shared_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "attacks-carl-kick-03"
   }
 }

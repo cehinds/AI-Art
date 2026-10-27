@@ -10,16 +10,16 @@
     "ground",
     "hazard:lava",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "lava",
     "material:lava",
+    "rear",
     "role:provider",
     "stream",
     "style:ink-and-lanterns",
     "surface:lava",
-    "terrain",
-    "inferred-view",
-    "rear"
+    "terrain"
   ],
   "object_id": "highlands-lava-stream-curve",
   "view": "rear",
@@ -75,6 +75,67 @@
       ],
       "shared_scale": 0.5591397849462365,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-lava-stream-curve",
+        "view": "rear",
+        "source_path": "components/highlands-lava-stream-curve.png",
+        "source_sha256": "24465a3f50d2eb3d15b7193962ead96faa7471293ccd7d1f37fab57ab60584d8",
+        "atlas_path": "reusable/views-additional/raw/root-ink22-highlands-corrections-atlas.png",
+        "atlas_sha256": "8f97d6a27cc0221640454729a805bce3bdc7f58c61d852768da6987c846844b3",
+        "active_output_sha256": "0fae61e1a99b1cf829ea8007de43afa1567133bbff0253a680f58d4c51172678",
+        "active_output_rgba_sha256": "d30440eb1986db5f84369aab125fc015f446cb738ecda82d3d6d07f10206ce8e",
+        "crop_bounds_xyxy": [
+          574,
+          1298,
+          946,
+          1391
+        ],
+        "resized_dimensions_px": [
+          208,
+          52
+        ],
+        "scale": 0.5591397849462365,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.5591397849462365
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "hazard:lava",
+    "material:lava",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:lava"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:lava"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "highlands-lava-stream-curve"
   }
 }

@@ -3,9 +3,19 @@
   "name": "Ice patch Top",
   "kind": "tile",
   "tags": [
-    "terrain",
-    "terrain",
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "ice",
     "inferred-view",
+    "ink-and-lanterns",
+    "material:ice",
+    "patch",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns",
+    "terrain",
     "top"
   ],
   "object_id": "ice-patch",
@@ -71,7 +81,8 @@
         62
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.25753424657534246
+      "shared_scale": 0.25753424657534246,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/ice-patch-plans-v1.txt",
     "prompt_sha256": "b8dbd0fe9642c27134a350354c351396ca9ea05b8c5bd92f543afedf350a1f5d",
@@ -81,6 +92,79 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/ink-ice-source-six-before.png",
     "source_contact_sheet_sha256": "b2d3910d02f0bc4f65bcdc5f8e9851750d620521bea939f29d6ea49afef146cf",
     "geometry_guide": null,
-    "geometry_guide_sha256": null
+    "geometry_guide_sha256": null,
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "ice-patch",
+        "view": "top",
+        "source_path": "components/ice-patch.png",
+        "source_sha256": "b61275aa358b794272142fdc0c9a7499eb05412a4ff4f4bc52eed583edebb282",
+        "atlas_path": "reusable/views-additional/raw/ice-patch-plans-v1.png",
+        "atlas_sha256": "e4441b9a832a4bb5661140c8e50c81604383c923dcfe5dd393fce7908b7bd5a1",
+        "active_output_sha256": "dd8bf0536fe687a04bd90d10b64b9f00529ea1bfe7974d87b206550343f5a425",
+        "active_output_rgba_sha256": "a4fa5e0537bdbb00eae560f6c989b639dc15b076ba9fe47672e78e6e5b8d72e0",
+        "crop_bounds_xyxy": [
+          235,
+          120,
+          965,
+          630
+        ],
+        "resized_dimensions_px": [
+          188,
+          131
+        ],
+        "scale": 0.25753424657534246,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.25753424657534246
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "ice",
+    "ink-and-lanterns",
+    "material:ice",
+    "patch",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ice-patch"
   }
 }

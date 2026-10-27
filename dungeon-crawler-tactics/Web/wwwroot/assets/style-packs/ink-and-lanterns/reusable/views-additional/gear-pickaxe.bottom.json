@@ -3,10 +3,20 @@
   "name": "Pickaxe Bottom",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "bottom",
+    "environment:unspecified",
     "equipment",
-    "ui",
+    "existing",
+    "gear",
     "inferred-view",
-    "bottom"
+    "ink-and-lanterns",
+    "material:unspecified",
+    "pickaxe",
+    "role:screen",
+    "style:ink-and-lanterns",
+    "ui"
   ],
   "object_id": "gear-pickaxe",
   "view": "bottom",
@@ -59,7 +69,8 @@
         105
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.24615384615384617
+      "shared_scale": 0.24615384615384617,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/gear-pickaxe-endplans-v1.txt",
     "prompt_sha256": "e7200a466df40aab85c19095b8f344251945984a2d906de9477f8237287f15fb",
@@ -69,6 +80,70 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/ink-pickaxe-source-six-before.png",
     "source_contact_sheet_sha256": "928733848eaeb5250b12c0416a674385b5af075f5ca9ffd76360b583ae97d468",
     "geometry_guide": null,
-    "geometry_guide_sha256": null
+    "geometry_guide_sha256": null,
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "gear-pickaxe",
+        "view": "bottom",
+        "source_path": "components/gear-pickaxe.png",
+        "source_sha256": "7874b4849f6a16475f34976ae8d6aff7295f075340ebdeb3d7c16a721875f036",
+        "atlas_path": "reusable/views-additional/raw/gear-pickaxe-endplans-v1.png",
+        "atlas_sha256": "02461183ead882199148d4db522e2d783cd0c5abe6d03b4cfbe369aa300018b4",
+        "active_output_sha256": "bb7750f9b2c4d718605b8c847764e61c9631800fa4f7d0da8001a135314a3de2",
+        "active_output_rgba_sha256": "1ba44f087c24b4d534caef27ac740282d6f73d5ae18a26ddffdd7264718e3def",
+        "crop_bounds_xyxy": [
+          1205,
+          267,
+          2050,
+          453
+        ],
+        "resized_dimensions_px": [
+          208,
+          46
+        ],
+        "scale": 0.24615384615384617,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.24615384615384617
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "environment:unspecified",
+    "existing",
+    "gear",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "pickaxe",
+    "role:screen",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-pickaxe"
   }
 }

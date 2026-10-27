@@ -1,6 +1,6 @@
 {
   "id": "attacks-carl-kick-04.bottom",
-  "name": "Carl barefoot kick \u00b7 frame 4 Bottom",
+  "name": "Carl barefoot kick · frame 4 Bottom",
   "kind": "sprite",
   "tags": [
     "04",
@@ -8,17 +8,18 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
+    "bottom",
     "carl",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
     "kick",
     "material:unspecified",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "bottom"
+    "style:ink-and-lanterns"
   ],
   "object_id": "attacks-carl-kick-04",
   "view": "bottom",
@@ -37,7 +38,7 @@
   "provenance": {
     "method": "generated",
     "source_image": "components/attacks-carl-kick-04.png",
-    "notes": "Generated inferred BOTTOM views for Carl kick04, kick05 and kick06. Root accepted candidate pose content as illustrative underside projections; alpha threshold/component extraction removes the broad translucent halo. Row boundaries follow observed full connected silhouettes to avoid clipping: row04 extends to y545, row05 y545\u20131065, row06 y1065\u20131536. Scale calibrated isotropically per object to the accepted TOP maximum extent; output stays pending scale and current-hash review, not strict CAD projection.",
+    "notes": "Generated inferred BOTTOM views for Carl kick04, kick05 and kick06. Root accepted candidate pose content as illustrative underside projections; alpha threshold/component extraction removes the broad translucent halo. Row boundaries follow observed full connected silhouettes to avoid clipping: row04 extends to y545, row05 y545–1065, row06 y1065–1536. Scale calibrated isotropically per object to the accepted TOP maximum extent; output stays pending scale and current-hash review, not strict CAD projection.",
     "source_atlas": "reusable/views-additional/raw/carl-kicks-04-06-bottom-v2.png",
     "source_atlas_sha256": "f9ecdd0cbbdfb9c3cb93fc76e37b6c1e4a1b681f78f5827c34c0975b0dc10246",
     "generation_recipe": "reusable/views-additional/raw/carl-kicks-04-06-bottom-v2.recipe.json",
@@ -71,7 +72,8 @@
         52
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.33659491193737767
+      "shared_scale": 0.33659491193737767,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/carl-kicks-04-06-bottom-v2.txt",
     "prompt_sha256": "d1d43cbc92905451465846132f88e418d1a5b49b2314e86ad977a9bd1282afe9",
@@ -86,5 +88,41 @@
     "source_contact_sheet_sha256": "ff5aaaf0c74807232d37ce78ac5edc720f6df06a43802ca510e514228945781e",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/katia-punch-05-approved-bottom.png",
     "geometry_guide_sha256": "d792eba3a4b947486686cb9244dfe146a5f4dc8d8b3792c26370f6d5177080c6"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "attacks-carl-kick-04"
   }
 }

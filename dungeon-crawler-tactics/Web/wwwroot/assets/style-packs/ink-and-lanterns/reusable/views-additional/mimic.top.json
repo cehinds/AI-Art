@@ -5,7 +5,18 @@
   "tags": [
     "actor",
     "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "existing",
+    "expansion",
     "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "mimic",
+    "role:object",
+    "style:ink-and-lanterns",
     "top"
   ],
   "object_id": "mimic",
@@ -59,7 +70,8 @@
         24
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.19348837209302325
+      "shared_scale": 0.19348837209302325,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/mimic-open-tongue-top-v3.txt",
     "prompt_sha256": "8512f864576af4daeeecc71f1c9d385eeeb6f37b6e33b67f55760c19c2055de5",
@@ -72,5 +84,45 @@
     "source_contact_sheet_sha256": "d25abbc73c89a59897ce236f575b06a994cc573ee91a8a81b1d6d18bf4a2cf3d",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/ink-open-chest-overhead-geometry-guide.png",
     "geometry_guide_sha256": "9d7da2c0ac9cb150740eedeecd3ced09bcf1b8523c5b7e27a9a5691b5255aeff"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "existing",
+    "expansion",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "mimic",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "mimic"
   }
 }

@@ -9,16 +9,16 @@
     "corner",
     "environment:volcanic",
     "existing",
+    "front",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "role:object",
     "structure",
     "structures",
     "style:ink-and-lanterns",
-    "volcanic",
-    "inferred-view",
-    "front"
+    "volcanic"
   ],
   "object_id": "highlands-volcanic-cliff-corner",
   "view": "front",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.35135135135135137,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-volcanic-cliff-corner",
+        "view": "front",
+        "source_path": "components/highlands-volcanic-cliff-corner.png",
+        "source_sha256": "a5c9261d9fc21382486a3816f5dfcde0027067a88f0874f928871eb02f51c1c2",
+        "atlas_path": "reusable/views-additional/raw/root-highlands-volcanic-corner-elevations-v2.png",
+        "atlas_sha256": "9c923e3992e07bfa3d3d74768d622c0a0359c31501335bbbcef6b44b189b0b25",
+        "active_output_sha256": "f8efc4775be90a6d6d72021c5a55eb9c7cee9dcce76e3d5a62531e6ebdc1581a",
+        "active_output_rgba_sha256": "b73463d3a242916c4a3d94bd5163804d93227af6cfb63f284f2d0771465722f4",
+        "crop_bounds_xyxy": [
+          48,
+          174,
+          640,
+          503
+        ],
+        "resized_dimensions_px": [
+          208,
+          116
+        ],
+        "scale": 0.35135135135135137,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.35135135135135137
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:volcanic",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "highlands-volcanic-cliff-corner"
   }
 }

@@ -1,6 +1,6 @@
 {
   "id": "attacks-katia-punch-01.front",
-  "name": "Katia shapeshift punch \u00b7 frame 1 Front",
+  "name": "Katia shapeshift punch · frame 1 Front",
   "kind": "sprite",
   "tags": [
     "01",
@@ -8,17 +8,18 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "environment:unspecified",
     "existing",
+    "front",
+    "inferred-view",
     "ink-and-lanterns",
     "katia",
     "material:unspecified",
     "punch",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "front"
+    "style:ink-and-lanterns"
   ],
   "object_id": "attacks-katia-punch-01",
   "view": "front",
@@ -71,7 +72,8 @@
         45
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.2162516382699869
+      "shared_scale": 0.2162516382699869,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/katia-punch-01-front-asymmetry-v2.txt",
     "prompt_sha256": "13e078d399d61c4fe3ef9d91ded9bbcfc3287d7d6028329d4716b046f24df90e",
@@ -84,5 +86,41 @@
     "source_contact_sheet_sha256": "fa75d33655e8036a4a564ee454eafd76abbd9d820cd4f8e661960be3cc0dba48",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/katia-punch-01-03-source-five-refs.png",
     "geometry_guide_sha256": "fa75d33655e8036a4a564ee454eafd76abbd9d820cd4f8e661960be3cc0dba48"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "attacks-katia-punch-01"
   }
 }

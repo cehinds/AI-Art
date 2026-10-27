@@ -5,8 +5,19 @@
   "tags": [
     "actor",
     "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "existing",
     "inferred-view",
-    "rear"
+    "ink-and-lanterns",
+    "material:unspecified",
+    "mongo",
+    "rear",
+    "role:object",
+    "style:ink-and-lanterns",
+    "world"
   ],
   "object_id": "mongo",
   "view": "rear",
@@ -59,7 +70,8 @@
         75
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.23853211009174313
+      "shared_scale": 0.23853211009174313,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/mongo-front-rear-body-scale-v3.txt",
     "prompt_sha256": "540f7f94508bc78018c6fa07e6213e0fee2d968a7addb737a13df9c5bc3ace80",
@@ -70,6 +82,80 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/mongo-source-four-fixed-pose-reference.png",
     "source_contact_sheet_sha256": "9429145ec0a9ef625b9a36f5b869a42dbf7efb6a523cbc206a023c07b8f223ad",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/mongo-source-four-fixed-pose-reference.png",
-    "geometry_guide_sha256": "9429145ec0a9ef625b9a36f5b869a42dbf7efb6a523cbc206a023c07b8f223ad"
+    "geometry_guide_sha256": "9429145ec0a9ef625b9a36f5b869a42dbf7efb6a523cbc206a023c07b8f223ad",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "mongo",
+        "view": "rear",
+        "source_path": "components/mongo.png",
+        "source_sha256": "ef49e7b233afb5d5e2370779adcf7d94b92fe34dc578073568d6b542d5582318",
+        "atlas_path": "reusable/views-additional/raw/mongo-front-rear-body-scale-v3.png",
+        "atlas_sha256": "d4cdd6e16f24849c93a6739158ea47b86ed76f222816051273869c81312a9676",
+        "active_output_sha256": "5b3ac200e7aad9433196b389aa15c3c27232e3c9ffa2de2d6630d7f312481b2d",
+        "active_output_rgba_sha256": "8909545740222f7217344d1a6a65438f009a9978f5275898962a45b6b14a6be5",
+        "crop_bounds_xyxy": [
+          891,
+          241,
+          1763,
+          687
+        ],
+        "resized_dimensions_px": [
+          208,
+          106
+        ],
+        "scale": 0.23853211009174313,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.23853211009174313
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "mongo",
+    "role:object",
+    "style:ink-and-lanterns",
+    "world"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "mongo"
   }
 }

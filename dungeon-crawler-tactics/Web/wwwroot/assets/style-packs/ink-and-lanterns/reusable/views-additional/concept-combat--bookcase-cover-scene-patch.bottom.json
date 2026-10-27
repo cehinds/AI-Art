@@ -3,12 +3,17 @@
   "name": "Bookcase Cover Scene Patch Bottom",
   "kind": "sprite",
   "tags": [
-    "scene-proxy",
-    "ink-and-lanterns",
-    "prop",
-    "style:ink-and-lanterns",
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "environment:unspecified",
     "inferred-view",
-    "bottom"
+    "ink-and-lanterns",
+    "material:unspecified",
+    "prop",
+    "role:object",
+    "scene-proxy",
+    "style:ink-and-lanterns"
   ],
   "object_id": "concept-combat--bookcase-cover-scene-patch",
   "view": "bottom",
@@ -68,5 +73,39 @@
       ],
       "shared_scale": 0.9411764705882353
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concept-combat--bookcase-cover-scene-patch"
   }
 }

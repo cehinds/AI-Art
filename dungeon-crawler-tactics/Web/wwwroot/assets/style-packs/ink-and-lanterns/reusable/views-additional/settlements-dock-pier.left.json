@@ -8,16 +8,16 @@
     "dock",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
+    "left",
     "material:unspecified",
     "pier",
     "role:object",
     "settlements",
     "structure",
     "structures",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "left"
+    "style:ink-and-lanterns"
   ],
   "object_id": "settlements-dock-pier",
   "view": "left",
@@ -70,7 +70,8 @@
         79
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.2009273570324575
+      "shared_scale": 0.2009273570324575,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/dock-pier-right-left-end-v1.txt",
     "prompt_sha256": "4709511d04792928800b0e445a993ce6149a9d3084dbfcc0d053dd23672fe78b",
@@ -83,6 +84,74 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/dock-pier-source-six-before.png",
     "source_contact_sheet_sha256": "6e580974c10b08e04d0a5e4decdbc93d2eb036b027a6c4cf3082fa08ba0cee4b",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-dock-pier-end-right-guide.png",
-    "geometry_guide_sha256": "6485e1eed7afd76381e79564f10eec5a9517d6efe367edb4920f5b373e1070a1"
+    "geometry_guide_sha256": "6485e1eed7afd76381e79564f10eec5a9517d6efe367edb4920f5b373e1070a1",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "settlements-dock-pier",
+        "view": "left",
+        "source_path": "components/settlements-dock-pier.png",
+        "source_sha256": "143d3c34c44ff0181201248db0efd7897c8708fa9581ad5827cbb3938c721a65",
+        "atlas_path": "reusable/views-additional/raw/dock-pier-right-left-end-v1.png",
+        "atlas_sha256": "1a69d94c4e2002aa7070625f4ee9689dfb2e43771f3a95567182a772cd951312",
+        "active_output_sha256": "68ac2b438122dc9bb59e246ae4ffdd740a89632d1d0bda083c5c5febf86c592e",
+        "active_output_rgba_sha256": "02882fc75a60c1082f2fb6206195b897e31efdd051f0ca5b9c5eb5d90be13a7c",
+        "crop_bounds_xyxy": [
+          980,
+          193,
+          1627,
+          674
+        ],
+        "resized_dimensions_px": [
+          130,
+          97
+        ],
+        "scale": 0.2009273570324575,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.2009273570324575
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "settlements-dock-pier"
   }
 }

@@ -1,6 +1,6 @@
 {
   "id": "attacks-carl-kick-03.right",
-  "name": "Carl barefoot kick \u00b7 frame 3 Right",
+  "name": "Carl barefoot kick · frame 3 Right",
   "kind": "sprite",
   "tags": [
     "03",
@@ -8,17 +8,18 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
     "kick",
     "material:unspecified",
+    "right",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "right"
+    "style:ink-and-lanterns"
   ],
   "object_id": "attacks-carl-kick-03",
   "view": "right",
@@ -71,7 +72,8 @@
         44
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.21548387096774194
+      "shared_scale": 0.21548387096774194,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/carl-kick-03-sides-v3.txt",
     "prompt_sha256": "cd7a560a293bd24aaf1a741bd73020d24e46b8b8cb0802a937d762d488df10ff",
@@ -84,5 +86,41 @@
     "source_contact_sheet_sha256": "5443963d9187330beb6e67f532f1d2ff36cab1bf9c754ee8b4c48285f5cff269",
     "geometry_guide": "reusable/views-additional/attacks-carl-kick-03.top.png",
     "geometry_guide_sha256": "f712b8df82a8cb6d316e1d17e4f7c72655d4da793330d2f533b3be80592f1725"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "attacks-carl-kick-03"
   }
 }

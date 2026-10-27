@@ -1,12 +1,24 @@
 {
   "id": "floor-hatch-closed.left",
-  "name": "Floor hatch \u2014 closed Left",
+  "name": "Floor hatch — closed Left",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "closed",
+    "environment:unspecified",
+    "existing",
+    "floor",
+    "hatch",
+    "inferred-view",
+    "ink-and-lanterns",
+    "left",
+    "material:unspecified",
+    "role:object",
     "structure",
     "structures",
-    "inferred-view",
-    "left"
+    "style:ink-and-lanterns",
+    "supplies"
   ],
   "object_id": "floor-hatch-closed",
   "view": "left",
@@ -14,8 +26,8 @@
     "path": "reusable/views-additional/floor-hatch-closed.left.png",
     "width": 256,
     "height": 256,
-    "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df",
-    "rgba_sha256": "a097e468ceab5373e5e47a59350ca280886e327aee311d065f6b584994a39801"
+    "sha256": "d6514f1fff6010ae85151ba65d92547a26e42901e422620896615ac7708e312e",
+    "rgba_sha256": "0a0a3ef77b2cb4452471cd7b6ff9bb720bbaea012dfb3b4f29c1bb374b993713"
   },
   "metadata_path": "reusable/views-additional/floor-hatch-closed.left.json",
   "anchor_px": [
@@ -25,39 +37,113 @@
   "provenance": {
     "method": "generated",
     "source_image": "components/floor-hatch-closed.png",
-    "notes": "inferred orthographic view, not recovered pixels",
-    "source_atlas": "reusable/views-additional/raw/supplies-iron-gate-hatch-ladder-rope-bridge-atlas.png",
-    "source_atlas_sha256": "331c791c60c06a7ca9e834947944a9c3ea374e5477a9d235b9c0aff91b5d06b2",
-    "generation_recipe": "reusable/views-additional/raw/supplies-iron-gate-hatch-ladder-rope-bridge-atlas.recipe.json",
+    "notes": "Inferred orthographic side profile; not recovered pixels. Corrected lifting-ring end position from the source TOP: RIGHT ring toward screen-left, LEFT ring toward screen-right.",
+    "source_atlas": "reusable/views-additional/raw/floor-hatch-closed-right-left-ring-end-edit-v5.png",
+    "source_atlas_sha256": "96418e22626aacd4c122ad6dbd618bbd6da69fe9337f8445edd85a7dc3e69873",
+    "generation_recipe": "reusable/views-additional/raw/floor-hatch-closed-right-left-ring-end-v5-normalization.recipe.json",
+    "generation_recipe_sha256": "044e569cf47f3e33ef30cf8490666166b8336315b730b9b6ceb4b97da8b3fc6e",
+    "generation_request": "reusable/views-additional/raw/floor-hatch-closed-right-left-ring-end-edit-v5.request.json",
+    "generation_request_sha256": "4f41698d55bd0663e00303b1e482812a834dfd7b0a3bc09fdba61c0dde234e8c",
+    "generated_contact": "reusable/views-additional/raw/floor-hatch-closed-right-left-ring-end-v5-source-plus-six-contact.png",
+    "generated_contact_sha256": "deea232de566422f8d149e19fe96ad7a2bb28e7cdd0f2ff5bf115139dae697ae",
     "crop_bounds_px": {
       "nominal_cell": {
-        "column": 3,
-        "row": 3,
+        "column": 1,
+        "row": 0,
         "bounds": [
-          642,
-          612,
-          857,
-          816
+          1086,
+          0,
+          2172,
+          724
         ]
       },
       "alpha_bounds_global": [
-        663,
-        693,
-        803,
-        733
+        1245,
+        267,
+        1978,
+        438
       ],
       "component_labels": [
-        185
+        1
       ],
       "resized_bounds_px": [
-        140,
-        40
+        164,
+        38
       ],
       "canvas_offset_px": [
-        58,
-        108
+        46,
+        109
       ],
-      "shared_scale": 1.0
+      "shared_scale": 0.22373806275579808,
+      "alpha_threshold": 16,
+      "resampling": "nearest-neighbor"
+    },
+    "generation_output": {
+      "path": "reusable/views-additional/raw/floor-hatch-closed-right-left-ring-end-edit-v5.png",
+      "sha256": "96418e22626aacd4c122ad6dbd618bbd6da69fe9337f8445edd85a7dc3e69873",
+      "view_cell_xyxy": [
+        1086,
+        0,
+        2172,
+        724
+      ]
+    },
+    "normalization": {
+      "method": "per-view isotropic scale to source-plan XY extent",
+      "uniform_scale": 0.22373806275579808,
+      "resized_dimensions_px": [
+        164,
+        38
+      ],
+      "canvas_size_px": [
+        256,
+        256
+      ],
+      "canvas_offset_px": [
+        46,
+        109
+      ],
+      "resampling": "nearest-neighbor"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "closed",
+    "environment:unspecified",
+    "existing",
+    "floor",
+    "hatch",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns",
+    "supplies"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "floor-hatch-closed"
   }
 }

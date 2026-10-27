@@ -1,5 +1,7 @@
 """Rebuild all retained generated six-view atlases offline from this pack's raw/ files."""
 from build_batch import process
+from pathlib import Path
+OUT=Path(__file__).resolve().parent
 
 BATCHES = [
     ('raw/arsenal-dagger-rapier-longsword.png', [('arsenal-dagger','Dagger'),('arsenal-rapier','Rapier'),('arsenal-longsword','Longsword')], 'arsenal'),
@@ -24,3 +26,7 @@ if __name__ == '__main__':
         process(raw, objects, kind)
     from apply_targeted_repairs import apply_all
     apply_all()
+    legacy_installer = OUT / "raw" / "targeted-repairs" / "install-legacy-dynamite-crossbow-v1.py"
+    if legacy_installer.is_file():
+        import subprocess, sys
+        subprocess.run([sys.executable, str(legacy_installer), "--replay-from-base"], cwd=OUT.parents[1], check=True)

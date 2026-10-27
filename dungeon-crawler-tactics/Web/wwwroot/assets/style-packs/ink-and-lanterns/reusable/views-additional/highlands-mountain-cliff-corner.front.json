@@ -9,16 +9,16 @@
     "corner",
     "environment:unspecified",
     "existing",
+    "front",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "mountain",
     "role:object",
     "structure",
     "structures",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "front"
+    "style:ink-and-lanterns"
   ],
   "object_id": "highlands-mountain-cliff-corner",
   "view": "front",
@@ -73,6 +73,74 @@
         48
       ],
       "shared_scale": 0.35374149659863946
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-mountain-cliff-corner",
+        "view": "front",
+        "source_path": "components/highlands-mountain-cliff-corner.png",
+        "source_sha256": "74379c54267520d29a6f0052dbafabc1b57f7ec3ad7a0d0843db48195fa695df",
+        "atlas_path": "reusable/views-additional/raw/root-highlands-cliff-corner-elevations-atlas.png",
+        "atlas_sha256": "3e49d5fef54521a6c369081906d7f8e91e9703cea7c674d61727082b1ff73de6",
+        "active_output_sha256": "2974091f116d13c2301621e37982848e8fefbb2597f6c5325ca23afb655e4f1e",
+        "active_output_rgba_sha256": "346ab98f19483ec6c6f8382fb0799c6488da532c78095ac1a9364e75df8bab42",
+        "crop_bounds_xyxy": [
+          114,
+          141,
+          702,
+          594
+        ],
+        "resized_dimensions_px": [
+          208,
+          160
+        ],
+        "scale": 0.35374149659863946,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.35374149659863946
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "highlands-mountain-cliff-corner"
   }
 }

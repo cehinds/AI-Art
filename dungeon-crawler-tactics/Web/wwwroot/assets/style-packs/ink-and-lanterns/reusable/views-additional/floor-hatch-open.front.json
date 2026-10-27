@@ -1,12 +1,24 @@
 {
   "id": "floor-hatch-open.front",
-  "name": "Floor hatch \u2014 open Front",
+  "name": "Floor hatch — open Front",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "floor",
+    "front",
+    "hatch",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "open",
+    "role:object",
     "structure",
     "structures",
-    "inferred-view",
-    "front"
+    "style:ink-and-lanterns",
+    "supplies"
   ],
   "object_id": "floor-hatch-open",
   "view": "front",
@@ -59,7 +71,8 @@
         67
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.2570694087403599
+      "shared_scale": 0.2570694087403599,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/floor-hatch-open-fr-repair-v2.txt",
     "prompt_sha256": "c11c42a40b7179e08e98766ddf54f76cd2279696b94f0be3635638d40210ed6c",
@@ -71,6 +84,80 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/ink-floor-hatch-open-source-six-before.png",
     "source_contact_sheet_sha256": "8389b586b1a2374da74135b5026ca15e608951fbc8a7091417e6025b666cc5b5",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-floor-hatch-open.front.png",
-    "geometry_guide_sha256": "13001338c6c26fc4179f1e004a94cf6dff8b2cadacd9be2093549535d3f4d16b"
+    "geometry_guide_sha256": "13001338c6c26fc4179f1e004a94cf6dff8b2cadacd9be2093549535d3f4d16b",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "floor-hatch-open",
+        "view": "front",
+        "source_path": "components/floor-hatch-open.png",
+        "source_sha256": "16c3800e8df94f830fd60bbe9b5bb866043fb3fa980259a4d6c53311e74840f1",
+        "atlas_path": "reusable/views-additional/raw/floor-hatch-open-fr-repair-v2.png",
+        "atlas_sha256": "2cafab7858c1502afbdf0612dd8c6bf05be0cc3be7d3a6dc5c918ea0ebb604f8",
+        "active_output_sha256": "bfb6f712fcc61970ba3a70cfb965a86eee529fd7adcc9bd3dcdd8c9c4ac289db",
+        "active_output_rgba_sha256": "a230177f3f41fb74f00c1ec9dfeb8f908c2aed0fba4335ed82cdb400c6ae969e",
+        "crop_bounds_xyxy": [
+          55,
+          222,
+          833,
+          698
+        ],
+        "resized_dimensions_px": [
+          200,
+          122
+        ],
+        "scale": 0.2570694087403599,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.2570694087403599
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "floor",
+    "hatch",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "open",
+    "role:object",
+    "style:ink-and-lanterns",
+    "supplies"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "floor-hatch-open"
   }
 }

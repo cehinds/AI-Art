@@ -5,8 +5,20 @@
   "tags": [
     "actor",
     "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "bottom",
+    "environment:unspecified",
+    "existing",
+    "expansion",
     "inferred-view",
-    "bottom"
+    "ink-and-lanterns",
+    "material:unspecified",
+    "rat",
+    "role:object",
+    "scout",
+    "style:ink-and-lanterns"
   ],
   "object_id": "rat-scout",
   "view": "bottom",
@@ -59,7 +71,8 @@
         51
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.2243211334120425
+      "shared_scale": 0.2243211334120425,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/rat-undersides-v1.txt",
     "prompt_sha256": "9cf8244429383f87114e1c8e465c7c17661bd95a776a1b994188029e40db48ab",
@@ -73,5 +86,46 @@
     "source_contact_sheet_sha256": "aafe8a93d254ec1b0e966f2035355899126b139d9f659c7f5b84727ec3c48b65",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/rat-scout-source-five-reference.png",
     "geometry_guide_sha256": "b298df592b059970b76d6b935013e9fdba052427399f81981cd775d0a0678cb4"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "existing",
+    "expansion",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "rat",
+    "role:object",
+    "scout",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "rat-scout"
   }
 }

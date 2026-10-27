@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "request_id": "floor-hatch-closed-right-left-end-ring-correction-v1",
+  "object_id": "floor-hatch-closed",
+  "views": [
+    "right",
+    "left"
+  ],
+  "created_at_utc": "2026-10-27T00:40:00Z",
+  "prompt": "Create a transparent-background, pixel-art contact atlas with EXACTLY TWO separate orthographic view sprites, arranged LEFT-TO-RIGHT in a 2-column by 1-row grid with wide transparent gutters. They are two views of the same closed square iron floor hatch shown in the native source and current source-plus-six reference. Draw only the sprites, no words, labels, borders, checkerboards, shadows, or extra objects. The current FRONT and REAR views are thin horizontal metal-frame profiles and must remain unchanged. The current RIGHT/LEFT profiles incorrectly put the lifting ring at the center of both short perpendicular profiles. Correct only that placement and keep the same flat side-edge silhouette, frame height, length, pixel-art palette, dark iron rim, rivets, and copper-brown metal details. RIGHT column (left cell): show the ring's small edge-on loop at the SCREEN-LEFT END of the horizontal profile, because the lifting ring is near the FRONT edge in the top view. LEFT column (right cell): show the ring's small edge-on loop at the SCREEN-RIGHT END of the horizontal profile, because this is the opposite camera. Keep the rest of each side profile as a continuous low iron frame edge with no broad hatch top plane visible. Both views must have matching height and body length, with only the ring end position reversed. Exact level axis-aligned orthographic cameras, no perspective or isometric angle, transparent outside the two isolated narrow profiles. Preserve the source hatch's dark iron and warm rivet palette; do not add wood or change the object state.",
+  "reference_inputs": [
+    {
+      "path": "components/floor-hatch-closed.png",
+      "sha256": "29f4f8e8c7fb358b2985ce53a17cea54c90dd07c5a32428043d8a7f8b2f92cfc",
+      "role": "canonical native source for iron hatch identity and handle placement"
+    },
+    {
+      "path": "reusable/views-additional/raw/floor-hatch-closed-right-left-current-source-six-reference.png",
+      "sha256": "e20504b6b16936c312d677bd633b66cf38948099a2504892413bd2be53ac0848",
+      "role": "current source-plus-six orthographic context; only right/left are targeted"
+    }
+  ],
+  "current_views": {
+    "front": {
+      "path": "reusable/views-additional/floor-hatch-closed.front.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "top": {
+      "path": "reusable/views-additional/floor-hatch-closed.top.png",
+      "sha256": "d7f170465ac550401b395f2254d0143f30161323fd62be86d4ecf3c99280aebb"
+    },
+    "right": {
+      "path": "reusable/views-additional/floor-hatch-closed.right.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "left": {
+      "path": "reusable/views-additional/floor-hatch-closed.left.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    },
+    "bottom": {
+      "path": "reusable/views-additional/floor-hatch-closed.bottom.png",
+      "sha256": "08f8e7102e0c201692860e5170338fc12840d1d42d60625311bf80e68fa620aa"
+    },
+    "rear": {
+      "path": "reusable/views-additional/floor-hatch-closed.rear.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    }
+  },
+  "preserve_views": [
+    "front",
+    "top",
+    "bottom",
+    "rear"
+  ],
+  "target_layout": {
+    "columns": 2,
+    "rows": 1,
+    "column_order": [
+      "right",
+      "left"
+    ],
+    "transparent_gutters": true
+  },
+  "status": "request-recorded-before-imagegen"
+}

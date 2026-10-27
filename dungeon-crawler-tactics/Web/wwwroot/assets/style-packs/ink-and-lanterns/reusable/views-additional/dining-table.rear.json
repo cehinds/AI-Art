@@ -3,10 +3,22 @@
   "name": "Dining table Rear",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dining",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
     "prop",
     "props",
-    "inferred-view",
-    "rear"
+    "rear",
+    "role:provider",
+    "services",
+    "style:ink-and-lanterns",
+    "surface:tabletop",
+    "table"
   ],
   "object_id": "dining-table",
   "view": "rear",
@@ -59,5 +71,47 @@
       ],
       "shared_scale": 0.985781990521327
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dining",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "services",
+    "style:ink-and-lanterns",
+    "surface:tabletop",
+    "table"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:tabletop"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "dining-table"
   }
 }

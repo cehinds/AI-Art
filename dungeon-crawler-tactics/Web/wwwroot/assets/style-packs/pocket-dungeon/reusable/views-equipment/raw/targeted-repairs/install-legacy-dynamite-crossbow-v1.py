@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Install only source-faithful corrected projections for two legacy items."""
 from pathlib import Path
-import json,hashlib,struct
+import argparse,json,hashlib,struct
 import numpy as np
 from PIL import Image
 from scipy import ndimage
 PACK=Path(__file__).resolve().parents[4];VD=PACK/'reusable/views-equipment';R=json.loads((VD/'raw/targeted-repairs/legacy-dynamite-crossbow-v1-install.json').read_text());ap=PACK/R['atlas'];atlas=Image.open(ap).convert('RGBA');ah=hashlib.sha256(ap.read_bytes()).hexdigest()
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--replay-from-base',action='store_true',help='replay atlas corrections after base normalization; source/atlas hashes remain strict')
+args=parser.parse_args()
 if ah!=R['atlas_sha256']:raise SystemExit('atlas SHA mismatch')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def rgba(im):return hashlib.sha256(struct.pack('>II',*im.size)+im.convert('RGBA').tobytes()).hexdigest()
@@ -16,7 +18,8 @@ for oid,proof in R['objects'].items():
   p=VD/'images'/f'{oid}.{v}.png';md=json.loads((p.with_suffix('.json')).read_text());installed=md.get('provenance',{}).get('generated_atlas_sha256')==ah
   if installed:
    if sha(p)!=md['image']['sha256']:raise SystemExit(f'installed bytes changed {oid}.{v}')
-  elif sha(p)!=h:raise SystemExit(f'current root hash guard failed {oid}.{v}')
+  elif not args.replay_from_base and sha(p)!=h:raise SystemExit(f'current root hash guard failed {oid}.{v}')
+  elif args.replay_from_base and (md.get('id')!=f'{oid}.{v}' or md.get('object_id')!=oid or md.get('view')!=v):raise SystemExit(f'base leaf identity mismatch {oid}.{v}')
 for c in R['cells']:
  oid,row,col,v,scale=c['object_id'],c['row'],c['col'],c['view'],c['scale'];targetx=[192,528,900,1273,1633,1980][col];targety=[219,522][row];best=None
  for lab,sl in enumerate(ndimage.find_objects(labels),1):

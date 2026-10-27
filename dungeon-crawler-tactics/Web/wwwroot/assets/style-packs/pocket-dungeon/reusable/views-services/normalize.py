@@ -86,9 +86,20 @@ def main_component_group(im, row, col, rows):
 def main():
     batches = json.loads(MANIFEST.read_text())
     assets, sets = [], []
-    created = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     for batch in batches:
         raw = OUT / batch["raw"]
+        # Replays should preserve the captured generation timestamp for the
+        # atlas metadata sidecar. The atlas pixels/prompt are immutable inputs;
+        # replacing that timestamp with wall-clock time creates meaningless
+        # non-deterministic metadata drift on every replay.
+        atlas_meta_path = raw.with_suffix(".json")
+        if atlas_meta_path.is_file():
+            previous = json.loads(atlas_meta_path.read_text())
+            created = previous.get("provenance", {}).get("generated_at")
+        else:
+            created = None
+        if not created:
+            created = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
         atlas = Image.open(raw).convert("RGBA")
         if atlas.width % 6 or atlas.height % len(batch["objects"]):
             raise ValueError(f"atlas dimensions do not match 6 x object rows: {raw.name} {atlas.size}")

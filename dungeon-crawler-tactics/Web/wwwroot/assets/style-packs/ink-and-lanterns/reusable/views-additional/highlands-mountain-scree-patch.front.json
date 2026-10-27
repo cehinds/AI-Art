@@ -6,8 +6,10 @@
     "attachment-tagged",
     "environment:unspecified",
     "existing",
+    "front",
     "ground",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "mountain",
@@ -16,9 +18,7 @@
     "scree",
     "style:ink-and-lanterns",
     "surface:floor",
-    "terrain",
-    "inferred-view",
-    "front"
+    "terrain"
   ],
   "object_id": "highlands-mountain-scree-patch",
   "view": "front",
@@ -74,6 +74,66 @@
       ],
       "shared_scale": 0.4531590413943355,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-mountain-scree-patch",
+        "view": "front",
+        "source_path": "components/highlands-mountain-scree-patch.png",
+        "source_sha256": "f57ff05fe955781e66f28a2c1db816b0c7cf91c62cf85ccc3e52a6ad22230073",
+        "atlas_path": "reusable/views-additional/raw/root-highlands-repair-batch-003-atlas.png",
+        "atlas_sha256": "e6615ce234e6b5332e049bf7a03dce160beb52c9ccf6b5ebfc0a0dbeda9166fc",
+        "active_output_sha256": "42125bc80676d5e7c20f76ccb4964a93fba20f4df4b3f2d73a54b7dca12952e2",
+        "active_output_rgba_sha256": "da6be66a0141dee74bb17e39dd201ed72516f042651e89ada3b7dee0af42233d",
+        "crop_bounds_xyxy": [
+          1118,
+          407,
+          1577,
+          531
+        ],
+        "resized_dimensions_px": [
+          208,
+          56
+        ],
+        "scale": 0.4531590413943355,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.4531590413943355
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "highlands-mountain-scree-patch"
   }
 }

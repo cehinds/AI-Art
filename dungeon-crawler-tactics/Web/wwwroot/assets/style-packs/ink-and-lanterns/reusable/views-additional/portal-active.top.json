@@ -1,11 +1,22 @@
 {
   "id": "portal-active.top",
-  "name": "Stone portal \u2014 active Top",
+  "name": "Stone portal — active Top",
   "kind": "sprite",
   "tags": [
+    "active",
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:stone",
+    "portal",
+    "role:object",
+    "services",
     "structure",
     "structures",
-    "inferred-view",
+    "style:ink-and-lanterns",
     "top"
   ],
   "object_id": "portal-active",
@@ -59,7 +70,8 @@
         99
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.3257328990228013
+      "shared_scale": 0.3257328990228013,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/portal-plans-v2.txt",
     "prompt_sha256": "1aaed0f72ebe147bef8b96ce2ae8992eeefbbb6ec75f4846017db12ea3621e97",
@@ -71,6 +83,79 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/ink-portals-source-six-before.png",
     "source_contact_sheet_sha256": "0c20653105ef3b02be3184f7d1e41fec41a611e4d1c77c75114cd0f352432f2b",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-approved-portal-plans-geometry-guide.jpg",
-    "geometry_guide_sha256": "86239fe3affe9e432fe919e15b269cd9b5b2f50df47fb8ccadfc101ad75bba64"
+    "geometry_guide_sha256": "86239fe3affe9e432fe919e15b269cd9b5b2f50df47fb8ccadfc101ad75bba64",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "portal-active",
+        "view": "top",
+        "source_path": "components/portal-active.png",
+        "source_sha256": "c847e000b332a8486b646a19d53d6e76a98bc156b086fde5171b16474f58b93a",
+        "atlas_path": "reusable/views-additional/raw/portal-plans-geometry-guided-v2.png",
+        "atlas_sha256": "814771446716d52b6a621b8716a47b4f4906c8574c4477ccf62e6568066038df",
+        "active_output_sha256": "b3afcb108755a936e4958b3af57fd25bc8b04144066de4b11ae406953d5bba1f",
+        "active_output_rgba_sha256": "a77758f27f0e9476c4b3429f3146cd78370a1927bfffc94c0ba8070bc8ef71d6",
+        "crop_bounds_xyxy": [
+          152,
+          572,
+          766,
+          746
+        ],
+        "resized_dimensions_px": [
+          200,
+          57
+        ],
+        "scale": 0.3257328990228013,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.3257328990228013
+    }
+  },
+  "attachment_generated_tags": [
+    "active",
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:stone",
+    "portal",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "portal-active"
   }
 }

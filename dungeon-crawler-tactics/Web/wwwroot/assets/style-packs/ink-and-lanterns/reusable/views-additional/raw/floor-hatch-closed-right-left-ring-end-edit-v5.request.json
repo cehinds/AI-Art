@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "request_id": "floor-hatch-closed-right-left-ring-end-edit-v5",
+  "created_at_utc": "2026-10-27T01:12:00Z",
+  "object_id": "floor-hatch-closed",
+  "directions": [
+    "right",
+    "left"
+  ],
+  "prompt": "Edit the two existing 256x256 view cells shown side by side in the primary image. The left cell is RIGHT, the right cell is LEFT. Preserve each cell canvas size, exact existing profile length, frame height, end plates, rivets, colors, pixel style, and all framing. Change only the location of the small lifting ring along the top of the horizontal iron edge: in RIGHT move the existing ring from center to near the screen-left/front end; in LEFT move it from center to near the screen-right/front-reversed end. Keep the low folded edge-on loop silhouette small, exactly like the current loop; do not draw a large oval or full ring face. Keep all other visible pixels and transparent pixels unchanged where possible. This is a small same-object feature relocation, not a redraw. The native source and TOP reference show the handle near the FRONT edge; opposite side cameras place it at opposite ends. Output only the same two side-profile sprites on transparent background, same approximate 141x41 visible proportions, no text, no background, no borders, no extra views or objects.",
+  "reference_inputs": [
+    {
+      "path": "components/floor-hatch-closed.png",
+      "sha256": "29f4f8e8c7fb358b2985ce53a17cea54c90dd07c5a32428043d8a7f8b2f92cfc",
+      "role": "native source identity and handle location"
+    },
+    {
+      "path": "reusable/views-additional/floor-hatch-closed.top.png",
+      "sha256": "d7f170465ac550401b395f2254d0143f30161323fd62be86d4ecf3c99280aebb",
+      "role": "top plan locates lifting ring near front edge"
+    },
+    {
+      "path": "reusable/views-additional/raw/floor-hatch-closed-current-right-left-pixel-pair-v1.png",
+      "sha256": "d34f9caa1915521508634ebc0a02f30a6b68ff47747104a088a3f9aec9fbc2f5",
+      "role": "exact current side PNGs side-by-side; primary edit target"
+    },
+    {
+      "path": "reusable/views-additional/raw/floor-hatch-closed-right-left-current-source-six-reference.png",
+      "sha256": "e20504b6b16936c312d677bd633b66cf38948099a2504892413bd2be53ac0848",
+      "role": "current source-plus-six camera layout context"
+    }
+  ],
+  "current_views": {
+    "front": {
+      "path": "reusable/views-additional/floor-hatch-closed.front.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "top": {
+      "path": "reusable/views-additional/floor-hatch-closed.top.png",
+      "sha256": "d7f170465ac550401b395f2254d0143f30161323fd62be86d4ecf3c99280aebb"
+    },
+    "right": {
+      "path": "reusable/views-additional/floor-hatch-closed.right.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "left": {
+      "path": "reusable/views-additional/floor-hatch-closed.left.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    },
+    "bottom": {
+      "path": "reusable/views-additional/floor-hatch-closed.bottom.png",
+      "sha256": "08f8e7102e0c201692860e5170338fc12840d1d42d60625311bf80e68fa620aa"
+    },
+    "rear": {
+      "path": "reusable/views-additional/floor-hatch-closed.rear.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    }
+  },
+  "preserve_views": [
+    "front",
+    "top",
+    "bottom",
+    "rear"
+  ],
+  "target_layout": {
+    "columns": 2,
+    "rows": 1,
+    "order": [
+      "right",
+      "left"
+    ],
+    "base_pair_exact_pixels": true
+  },
+  "status": "request-recorded-before-imagegen"
+}

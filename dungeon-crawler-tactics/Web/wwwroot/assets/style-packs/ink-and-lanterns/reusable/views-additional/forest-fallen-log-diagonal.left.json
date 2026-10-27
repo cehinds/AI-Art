@@ -10,15 +10,15 @@
     "existing",
     "fallen",
     "forest",
+    "inferred-view",
     "ink-and-lanterns",
+    "left",
     "log",
     "material:unspecified",
     "prop",
     "props",
     "role:object",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "left"
+    "style:ink-and-lanterns"
   ],
   "object_id": "forest-fallen-log-diagonal",
   "view": "left",
@@ -74,6 +74,74 @@
       ],
       "shared_scale": 0.7878787878787878,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "forest-fallen-log-diagonal",
+        "view": "left",
+        "source_path": "components/forest-fallen-log-diagonal.png",
+        "source_sha256": "459630be97cb5a7e3cc5ee12cc1c2b12b9cf68a8a5eb6ae853ddf29815b60e68",
+        "atlas_path": "reusable/views-additional/raw/root-forest-log-hut-shrine-batch-002-atlas.png",
+        "atlas_sha256": "92738e9327e477638c414658d9bf8d9000c14097381f8bdee3b7b020f287f0b8",
+        "active_output_sha256": "b8ed1ccbb0facf97767b7a5056d4f6c962467a3b41226f9ffc835e0463dd5fe8",
+        "active_output_rgba_sha256": "2f136b0e4f0e6d0cd6e9652da1888443be87931327520e9e6c9401f7278bce76",
+        "crop_bounds_xyxy": [
+          898,
+          112,
+          1162,
+          221
+        ],
+        "resized_dimensions_px": [
+          208,
+          86
+        ],
+        "scale": 0.7878787878787878,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.7878787878787878
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:forest",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-fallen-log-diagonal"
   }
 }

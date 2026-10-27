@@ -7,10 +7,11 @@
     "edge",
     "environment:unspecified",
     "existing",
+    "front",
     "ground",
     "hazard:lava",
-    "hazard:water",
     "highlands",
+    "inferred-view",
     "ink-and-lanterns",
     "lava",
     "material:lava",
@@ -18,9 +19,7 @@
     "role:provider",
     "style:ink-and-lanterns",
     "surface:lava",
-    "terrain",
-    "inferred-view",
-    "front"
+    "terrain"
   ],
   "object_id": "highlands-lava-pool-edge",
   "view": "front",
@@ -76,6 +75,67 @@
       ],
       "shared_scale": 0.5416666666666666,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "highlands-lava-pool-edge",
+        "view": "front",
+        "source_path": "components/highlands-lava-pool-edge.png",
+        "source_sha256": "9c43277ad65d53cc87d5ab520c572f548091000bb0ed793e38590c618d7c8bce",
+        "atlas_path": "reusable/views-additional/raw/root-ink22-highlands-corrections-atlas.png",
+        "atlas_sha256": "8f97d6a27cc0221640454729a805bce3bdc7f58c61d852768da6987c846844b3",
+        "active_output_sha256": "29dee8435714424a0800dea5f3dc128b06b1dcd5a6915b12b126b96be5c96e74",
+        "active_output_rgba_sha256": "5b1dd192956967d41371188a1ff77e08cd55088fe835198b408704cc3822bc24",
+        "crop_bounds_xyxy": [
+          84,
+          617,
+          468,
+          705
+        ],
+        "resized_dimensions_px": [
+          208,
+          48
+        ],
+        "scale": 0.5416666666666666,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.5416666666666666
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "hazard:lava",
+    "material:lava",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:lava"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:lava"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "highlands-lava-pool-edge"
   }
 }

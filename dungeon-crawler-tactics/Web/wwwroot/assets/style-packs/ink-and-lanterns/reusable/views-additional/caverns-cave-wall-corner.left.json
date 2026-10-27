@@ -10,16 +10,16 @@
     "corner",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
+    "left",
     "material:unspecified",
     "role:provider",
     "structure",
     "structures",
     "style:ink-and-lanterns",
     "surface:wall",
-    "wall",
-    "inferred-view",
-    "left"
+    "wall"
   ],
   "object_id": "caverns-cave-wall-corner",
   "view": "left",
@@ -78,6 +78,53 @@
     },
     "replay_source": "reusable/views-additional/raw/caverns-cave-wall-corner.left.approved-replay.png",
     "replay_source_sha256": "e51c5028531b7b15dbfb79712e068c6eb28013c2b053007c8c54f443982918ab",
-    "replay_derivation": "Approved rendered view was copied losslessly to a distinct retained raw replay artifact. Its legacy multi-stage scale calibration cannot be reconstructed byte-for-byte from the older crop parameters; exact PNG and canonical RGBA hashes are validated before replay. The replay source is separate from the output path."
+    "replay_derivation": "Approved rendered view was copied losslessly to a distinct retained raw replay artifact. Its legacy multi-stage scale calibration cannot be reconstructed byte-for-byte from the older crop parameters; exact PNG and canonical RGBA hashes are validated before replay. The replay source is separate from the output path.",
+    "normalization": {
+      "retained_snapshot_evidence": {
+        "schema_version": 1,
+        "method": "verified-retained-snapshot-v1",
+        "manifest_path": "reusable/views-additional/raw/retained-snapshot-scale-evidence-v1.json",
+        "manifest_sha256": "c05fdecd23bdd80e2bd1b419a7e2c8d7fcd85371a29e70bc6bfd867ef84823de",
+        "object_id": "caverns-cave-wall-corner",
+        "view": "left"
+      }
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "caverns-cave-wall-corner"
   }
 }

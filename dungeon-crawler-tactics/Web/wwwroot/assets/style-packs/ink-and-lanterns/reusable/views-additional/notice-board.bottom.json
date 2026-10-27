@@ -3,10 +3,21 @@
   "name": "Notice board Bottom",
   "kind": "sprite",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "board",
+    "bottom",
+    "environment:unspecified",
+    "existing",
+    "inferred-view",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "notice",
     "prop",
     "props",
-    "inferred-view",
-    "bottom"
+    "role:object",
+    "services",
+    "style:ink-and-lanterns"
   ],
   "object_id": "notice-board",
   "view": "bottom",
@@ -59,7 +70,8 @@
         114
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.21252796420581654
+      "shared_scale": 0.21252796420581654,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/notice-board-bottom-v1.txt",
     "prompt_sha256": "e9990e83ed0706d3cf5dd87fc95e30d880ce2d1943a1feff65e46c7b1cd2a81f",
@@ -72,5 +84,44 @@
     "source_contact_sheet_sha256": "152f9ffdd269dfea0bebf576bd8facdd3003eafcfbff6be0b5747f2b58ba6682",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-notice-board-bottom-geometry-guide.png",
     "geometry_guide_sha256": "4e75fd1785872aba7d5811dc6d8de01be06796a5ecc34cb935191f5bc05b5e59"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "board",
+    "environment:unspecified",
+    "existing",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "notice",
+    "role:object",
+    "services",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "notice-board"
   }
 }

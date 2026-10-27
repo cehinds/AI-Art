@@ -10,6 +10,8 @@
     "corner",
     "environment:unspecified",
     "existing",
+    "front",
+    "inferred-view",
     "ink-and-lanterns",
     "material:unspecified",
     "role:provider",
@@ -17,9 +19,7 @@
     "structures",
     "style:ink-and-lanterns",
     "surface:wall",
-    "wall",
-    "inferred-view",
-    "front"
+    "wall"
   ],
   "object_id": "caverns-cave-wall-corner",
   "view": "front",
@@ -74,6 +74,77 @@
         37
       ],
       "shared_scale": 0.3961904761904762
+    },
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "caverns-cave-wall-corner",
+        "view": "front",
+        "source_path": "components/caverns-cave-wall-corner.png",
+        "source_sha256": "c0a9069a5934581936c8b32f319226ad7c13d1835f29ac225254a5282d0907ef",
+        "atlas_path": "reusable/views-additional/raw/caverns-cave-wall-corner-four-elevations-atlas.png",
+        "atlas_sha256": "1b58fd20e8f92cb0ad8cc2f0bcd32462534a1f09c56c903f3e191e04859d86fb",
+        "active_output_sha256": "05620fb01bd200d8489ec1127de7d44f4550ab9fcf9645de1c990b36690106e8",
+        "active_output_rgba_sha256": "28c9992f58461ad54b9e8607fca0114520517b55ee7ff5fb7da0b189e33256ec",
+        "crop_bounds_xyxy": [
+          38,
+          133,
+          563,
+          596
+        ],
+        "resized_dimensions_px": [
+          208,
+          183
+        ],
+        "scale": 0.3961904761904762,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.3961904761904762
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "caverns-cave-wall-corner"
   }
 }

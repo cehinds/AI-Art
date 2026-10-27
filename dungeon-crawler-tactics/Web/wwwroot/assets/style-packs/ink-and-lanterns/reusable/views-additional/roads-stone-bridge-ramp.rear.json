@@ -8,17 +8,17 @@
     "bridge",
     "environment:unspecified",
     "existing",
+    "inferred-view",
     "ink-and-lanterns",
     "material:stone",
     "ramp",
+    "rear",
     "roads",
     "role:object",
     "stone",
     "structure",
     "structures",
-    "style:ink-and-lanterns",
-    "inferred-view",
-    "rear"
+    "style:ink-and-lanterns"
   ],
   "object_id": "roads-stone-bridge-ramp",
   "view": "rear",
@@ -71,7 +71,8 @@
         48
       ],
       "isotropic_calibration": 1.0,
-      "shared_scale": 0.28081123244929795
+      "shared_scale": 0.28081123244929795,
+      "coordinate_format": "xywh"
     },
     "prompt_path": "reusable/views-additional/prompts/stone-ramp-bottom-rear-v1.txt",
     "prompt_sha256": "0f297183deee53671be161d75de2e890f0a564bd03ab039f208e14cf301f7335",
@@ -84,6 +85,74 @@
     "source_contact_sheet": "reusable/views-additional/raw/review-contacts/stone-ramp-source-six-before.png",
     "source_contact_sheet_sha256": "071b1ac064b90797f992f8c74789370df19fbe79c1f13b4687d4b49255d9a28e",
     "geometry_guide": "reusable/views-additional/raw/review-contacts/dad-stone-ramp-bottom-guide.png",
-    "geometry_guide_sha256": "e1418d36d9521fbf43f79604c02349188de8d4ed32d45c3967088548cbcaa82e"
+    "geometry_guide_sha256": "e1418d36d9521fbf43f79604c02349188de8d4ed32d45c3967088548cbcaa82e",
+    "normalization": {
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "roads-stone-bridge-ramp",
+        "view": "rear",
+        "source_path": "components/roads-stone-bridge-ramp.png",
+        "source_sha256": "e4c781584ab0f255c63c1332e001765b4d1409ff576aecc9b275b493a9b64f04",
+        "atlas_path": "reusable/views-additional/raw/stone-ramp-bottom-rear-v1.png",
+        "atlas_sha256": "862dacc6fc65fef4cbdb6e8d5a89fc83c1cebd82c0ef1171dfb8165167950eda",
+        "active_output_sha256": "f7529adea361eef79d743177fd8ce7dd32ff3e89913d27ec1fe05549d2f42f87",
+        "active_output_rgba_sha256": "d90813e9fac90810de53dcc5037ab7fea01261fa0632e3904f6bb44db198f7d7",
+        "crop_bounds_xyxy": [
+          124,
+          1061,
+          765,
+          1630
+        ],
+        "resized_dimensions_px": [
+          180,
+          160
+        ],
+        "scale": 0.28081123244929795,
+        "projection_scale": 1.0,
+        "recipe_path": "reusable/views-additional/raw/per-view-isotropic-scale-evidence-v1.json",
+        "recipe_sha256": "b6fe5e95eb4cde0f9454e42ddbd3e6edf104740f5dda60604bbdd0b1e5fc7bd2",
+        "integer_rounding_model": "round-after-combined-scale",
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/build_all_coordinate_resolution.json",
+        "execution_report_sha256": "24336404f8a303441e9c8a1bc09b7869536a7591689c9d3c3868fa6f6f8d6458"
+      },
+      "scale": 0.28081123244929795
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:stone",
+    "role:object",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "roads-stone-bridge-ramp"
   }
 }
