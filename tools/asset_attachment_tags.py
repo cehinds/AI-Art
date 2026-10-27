@@ -388,14 +388,18 @@ def apply(root=DEFAULT_ASSETS, check=False):
         # Current asset sidecars (including nested ones) are already planned
         # above; keep enriching worker indexes, but preserve other documents
         # in the generation workspaces instead of invalidating their hashes.
+        # Release evidence and portable replay receipts have the same byte-bound
+        # contract, even though they live outside individual library packs.
         parts = path.relative_to(root).parts
+        is_release_evidence = (parts[0] in ('replay-inputs', 'release-evidence')
+                               or parts == ('release-validation.json',))
         in_generation_workspace = any(
             part == 'reusable' and parts[i + 1].startswith('views-')
             for i, part in enumerate(parts[:-1]))
         is_worker_index = (path.name == 'set-index.json'
                            and path.parent.name.startswith('views-')
                            and path.parent.parent.name == 'reusable')
-        if in_generation_workspace and not is_worker_index:
+        if is_release_evidence or (in_generation_workspace and not is_worker_index):
             preserved_generation_documents += 1
             continue
         doc = json.loads(path.read_text())

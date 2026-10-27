@@ -11,6 +11,32 @@ import asset_attachment_tags as rules
 
 
 class AttachmentRulesTests(unittest.TestCase):
+    def test_hash_bound_release_and_replay_evidence_remains_byte_exact(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'assets';pack=root/'style-packs/pocket-dungeon'
+            (pack/'reusable').mkdir(parents=True)
+            asset={'id':'floor','kind':'tile','category':'ground','tags':[],
+                   'image':{'path':'floor.png'},'metadata_path':'floor.json'}
+            (pack/'reusable/index.json').write_text(json.dumps({'assets':[asset]}))
+            (root/'reusable-library.json').write_text(json.dumps({'libraries':[{
+                'id':'pocket','base':'style-packs/pocket-dungeon',
+                'index':'style-packs/pocket-dungeon/reusable/index.json'}]}))
+            snapshot=b'{ "id": "frozen-floor", "image": "frozen.png" }\n'
+            digest=hashlib.sha256(snapshot).hexdigest()
+            evidence={root/'replay-inputs/receipts/pocket/frozen-receipt.json':snapshot,
+                      root/'replay-inputs/runbook.json':b'{ "libraries": [] }\n',
+                      root/'release-evidence/source-integrity.json':json.dumps({'receipt_sha256':digest}).encode(),
+                      root/'release-validation.json':json.dumps({'receipt_sha256':digest}).encode()}
+            for path,data in evidence.items():path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
+            normal=root/'release-evidence-example/manifest.json';normal.parent.mkdir();normal.write_text('{"id":"normal","file":"normal.png"}')
+            result=rules.apply(root)
+            self.assertEqual(result['preserved_generation_documents'],4)
+            for path,data in evidence.items():self.assertEqual(path.read_bytes(),data)
+            self.assertEqual(hashlib.sha256((root/'replay-inputs/receipts/pocket/frozen-receipt.json').read_bytes()).hexdigest(),json.loads((root/'release-validation.json').read_text())['receipt_sha256'])
+            self.assertIn('surface:floor',json.loads((pack/'floor.json').read_text())['tags'])
+            self.assertIn('attachment',json.loads(normal.read_text()))
+            self.assertEqual(rules.apply(root,check=True)['changed'],0)
+
     def test_procedural_recipe_hash_includes_final_json_tags(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / 'assets'
