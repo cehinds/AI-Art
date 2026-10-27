@@ -17,6 +17,7 @@ import os
 import tempfile
 import zipfile
 from pathlib import Path
+from PIL import Image
 
 sys.dont_write_bytecode = True
 
@@ -27,6 +28,24 @@ TOOLS = ("build_pocket_reusable.py", "validate_pocket_reusable.py", "render_pock
 
 def encoded(value):
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
+
+
+def raster_provenance_references(provenance):
+    """Raw generation images and explicit crop-coordinate images, not outputs."""
+    refs = [(provenance[field], provenance.get(field + '_sha256'))
+            for field in ('source_atlas', 'generated_atlas', 'source_rect_image', 'replay_source', 'source_crop_path')
+            if provenance.get(field)]
+    # source_crop_path uses a historical hash-field spelling.
+    if provenance.get('source_crop_path'):
+        refs[-1] = (provenance['source_crop_path'], provenance.get('source_crop_sha256'))
+    adapter = provenance.get('normalization_adapter')
+    if isinstance(adapter, dict) and adapter.get('extractor_atlas'):
+        refs.append((adapter['extractor_atlas'], adapter.get('extractor_sha256')))
+    for key in ('axis_remap', 'symmetric_projection_derivation'):
+        derivation = provenance.get(key)
+        if isinstance(derivation, dict) and derivation.get('source_path'):
+            refs.append((derivation['source_path'], derivation.get('source_sha256')))
+    return refs
 
 
 def asset_dependencies(index, selected):
@@ -97,6 +116,34 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
     files = set()
     external = {}
     provenance_hashes = {}
+    provenance_sizes = {}
+    evidence_seen = set()
+
+    def retain_evidence(relative, expected_hash):
+        path = contained(pack, relative)
+        if not path.is_file():
+            raise ValueError(f'Missing normalization evidence recipe: {relative}')
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != expected_hash:
+            raise ValueError(f'Normalization evidence recipe hash mismatch: {relative}')
+        files.add(relative)
+        if relative in evidence_seen or path.suffix != '.json':
+            return
+        evidence_seen.add(relative)
+        # Follow only validator-consumed proof links. Generation atlas and
+        # candidate lineage remains separately declared external provenance.
+        def visit(value):
+            if isinstance(value, dict):
+                for stem in ('original_recipe', 'execution_report', 'output_report', 'source_recipe', 'review_record'):
+                    if value.get(stem + '_path'):
+                        retain_evidence(value[stem + '_path'], value.get(stem + '_sha256'))
+                for child in value.values():
+                    visit(child)
+            elif isinstance(value, list):
+                for child in value:
+                    visit(child)
+        visit(json.loads(raw))
+
     for asset in index["assets"]:
         image_info(pack, asset["image"])
         files.add(asset["image"]["path"])
@@ -105,17 +152,43 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
             raise ValueError(f"Source sidecar/catalog mismatch: {asset['id']}")
         files.add(metadata)
         provenance = asset.get("provenance", {})
-        source = provenance.get("source_image")
-        if source and contained(pack, source).is_file():
-            expected = provenance.get("source_sha256") or provenance.get("source_image_sha256")
-            if expected:
-                if source not in provenance_hashes:
-                    provenance_hashes[source] = hashlib.sha256(contained(pack, source).read_bytes()).hexdigest()
-                if expected != provenance_hashes[source]:
-                    raise ValueError(f"Original source hash mismatch: {source}")
-            files.add(source)
-        elif source:
-            raise ValueError(f"Missing original provenance image: {source}")
+        normalization = provenance.get('normalization', {})
+        for evidence_field in ('scale_evidence', 'calibration_evidence'):
+            evidence = normalization.get(evidence_field) if isinstance(normalization, dict) else None
+            if not isinstance(evidence, dict):
+                continue
+            references = [('recipe_path', 'recipe_sha256')]
+            if evidence_field == 'calibration_evidence':
+                references.append(('review_record_path', 'review_record_sha256'))
+                if evidence.get('source_recipe_path'):
+                    references.append(('source_recipe_path', 'source_recipe_sha256'))
+            for path_field, hash_field in references:
+                retain_evidence(evidence.get(path_field), evidence.get(hash_field))
+        snapshot_evidence = normalization.get('retained_snapshot_evidence') if isinstance(normalization, dict) else None
+        if isinstance(snapshot_evidence, dict):
+            manifest_path = snapshot_evidence.get('manifest_path')
+            retain_evidence(manifest_path, snapshot_evidence.get('manifest_sha256'))
+            rows = read_json(contained(pack, manifest_path)).get('records', [])
+            matching = [row for row in rows if row.get('object_id') == asset.get('object_id')
+                        and row.get('view') == asset.get('view')]
+            if len(matching) != 1:
+                raise ValueError(f'Missing or ambiguous retained-snapshot row: {asset["id"]}')
+            row = matching[0]
+            retain_evidence(row.get('snapshot_path'), row.get('snapshot_sha256'))
+        for source_field in ('source_image', 'source_scene'):
+            source = provenance.get(source_field)
+            if source and contained(pack, source).is_file():
+                expected = provenance.get(source_field + '_sha256')
+                if source_field == 'source_image':
+                    expected = provenance.get('source_sha256') or expected
+                if expected:
+                    if source not in provenance_hashes:
+                        provenance_hashes[source] = hashlib.sha256(contained(pack, source).read_bytes()).hexdigest()
+                    if expected != provenance_hashes[source]:
+                        raise ValueError(f"Original source hash mismatch: {source}")
+                files.add(source)
+            elif source:
+                raise ValueError(f"Missing original provenance image: {source}")
         for reference in provenance.get("referenced_source_images", []):
             path = contained(pack, reference["path"])
             if not path.is_file():
@@ -129,12 +202,8 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
                 files.add(occurrence_source)
             elif occurrence_source:
                 raise ValueError(f"Missing residual provenance source: {occurrence_source}")
-        for atlas_field in ("source_atlas", "generated_atlas"):
-            atlas = provenance.get(atlas_field)
-            if not atlas:
-                continue
+        for atlas, expected_hash in raster_provenance_references(provenance):
             path = contained(pack, atlas)
-            expected_hash = provenance.get(atlas_field + "_sha256")
             if not path.is_file():
                 raise ValueError(f"Missing raw provenance atlas: {atlas}")
             if atlas not in provenance_hashes:
@@ -142,10 +211,13 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
             actual_hash = provenance_hashes[atlas]
             if expected_hash and expected_hash != actual_hash:
                 raise ValueError(f"Raw provenance atlas hash mismatch: {atlas}")
+            if atlas not in provenance_sizes:
+                with Image.open(path) as raster:
+                    provenance_sizes[atlas] = list(raster.size)
             if include_raw:
                 files.add(atlas)
             else:
-                external[atlas] = {"path": atlas, "sha256": actual_hash,
+                external[atlas] = {"path": atlas, "sha256": actual_hash, "size_px": provenance_sizes[atlas],
                     "location": repository_location, "purpose": "Raw generated view provenance; not required for rendering exported PNGs"}
     for entry in index["maps"]:
         files.add(entry["file"])

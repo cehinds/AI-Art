@@ -42,6 +42,16 @@ def digest(image):
     return hashlib.sha256(struct.pack(">II", rgba.width, rgba.height) + rgba.tobytes()).hexdigest()
 
 
+def file_sha256(path, verified=None):
+    path = Path(path)
+    if verified is not None and path.as_posix() in verified:
+        return verified[path.as_posix()]
+    value = hashlib.sha256(path.read_bytes()).hexdigest()
+    if verified is not None:
+        verified[path.as_posix()] = value
+    return value
+
+
 def read_json(path):
     return json.loads(path.read_text())
 
@@ -72,7 +82,598 @@ def check_rectangle(rectangle, size, label, xywh=False):
         raise ValueError(f"Rectangle outside image: {label}: {rectangle} within {size}")
 
 
-def check_asset_geometry(pack, asset, image, source_sizes):
+def crop_alpha_bounds_xyxy(crop, label):
+    """Return recorded alpha bounds as XYXY, honoring an explicit encoding.
+
+    Historical crop records without a format declaration use XYXY. XYWH is
+    accepted only when explicitly declared (or when the field name itself is
+    alpha_bounds_global_xywh); this keeps legacy records stable and prevents
+    guessing based on whether one interpretation happens to fit an atlas.
+    """
+    if "alpha_bounds_global_xywh" in crop:
+        bounds = crop["alpha_bounds_global_xywh"]
+        declared = crop.get("coordinate_format", "xywh")
+        if declared != "xywh":
+            raise ValueError(f"Conflicting alpha-bounds field and coordinate format: {label}")
+        if (not isinstance(bounds, (list, tuple)) or len(bounds) != 4
+                or not all(isinstance(value, (int, float)) for value in bounds)):
+            raise ValueError(f"Malformed alpha bounds: {label}")
+        x, y, width, height = bounds
+        return [x, y, x + width, y + height]
+    bounds = crop.get("alpha_bounds_global")
+    if bounds is None:
+        return None
+    coordinate_format = crop.get("coordinate_format", "xyxy")
+    if coordinate_format not in {"xyxy", "xywh"}:
+        raise ValueError(f"Unknown alpha-bounds coordinate format for {label}: {coordinate_format!r}")
+    if coordinate_format == "xywh":
+        if (not isinstance(bounds, (list, tuple)) or len(bounds) != 4
+                or not all(isinstance(value, (int, float)) for value in bounds)):
+            raise ValueError(f"Malformed alpha bounds: {label}")
+        x, y, width, height = bounds
+        return [x, y, x + width, y + height]
+    return bounds
+
+
+def validate_normalization_records(records, source_size, label):
+    """Validate the historical list-form candidate normalization manifest.
+
+    This is evidence about earlier candidates, not the active output transform;
+    candidate files may have been pruned after the generated atlas and emitted
+    PNG were retained. Bounds and scale arithmetic remain checkable here.
+    """
+    if not isinstance(records, list):
+        raise ValueError(f"Malformed normalization history: {label}")
+    for number, record in enumerate(records):
+        item_label = f"{label}/normalization[{number}]"
+        if not isinstance(record, dict):
+            raise ValueError(f"Malformed normalization history record: {item_label}")
+        view = record.get("view")
+        if view not in VIEWS:
+            raise ValueError(f"Unknown normalization history view: {item_label}")
+        check_rectangle(record.get("raw_bbox"), source_size, f"{item_label}/raw_bbox")
+        raw_dimensions = record.get("raw_dimensions")
+        render_size = record.get("render_size")
+        for name, dimensions in (("raw_dimensions", raw_dimensions), ("render_size", render_size)):
+            if (not isinstance(dimensions, list) or len(dimensions) != 2
+                    or not all(isinstance(value, int) and not isinstance(value, bool) and value > 0
+                               for value in dimensions)):
+                raise ValueError(f"Malformed {name}: {item_label}")
+        bbox = record["raw_bbox"]
+        if raw_dimensions != [bbox[2] - bbox[0], bbox[3] - bbox[1]]:
+            raise ValueError(f"Normalization raw dimensions disagree with bounds: {item_label}")
+        scale = record.get("uniform_scale")
+        if not isinstance(scale, (int, float)) or not math.isfinite(scale) or scale <= 0:
+            raise ValueError(f"Malformed historical uniform scale: {item_label}")
+        if any(abs(round(length * scale) - actual) > 1
+               for length, actual in zip(raw_dimensions, render_size)):
+            raise ValueError(f"Historical normalization scale disagrees with render size: {item_label}")
+        threshold = record.get("threshold_alpha")
+        if not isinstance(threshold, int) or isinstance(threshold, bool) or not 0 <= threshold <= 255:
+            raise ValueError(f"Malformed historical alpha threshold: {item_label}")
+        anchor = record.get("anchor_px")
+        if (not isinstance(anchor, list) or len(anchor) != 2
+                or not all(isinstance(value, int) and not isinstance(value, bool) for value in anchor)):
+            raise ValueError(f"Malformed historical anchor: {item_label}")
+        candidate_path = record.get("candidate_path")
+        candidate_hash = record.get("candidate_sha256")
+        if not isinstance(candidate_path, str) or not candidate_path:
+            raise ValueError(f"Missing historical candidate path: {item_label}")
+        if (not isinstance(candidate_hash, str) or len(candidate_hash) != 64
+                or any(character not in "0123456789abcdef" for character in candidate_hash.lower())):
+            raise ValueError(f"Malformed historical candidate hash: {item_label}")
+
+
+def normalization_parameters(provenance, label):
+    value = provenance.get("normalization", {})
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, list):
+        # The list form is a historical per-candidate record, validated against
+        # the source atlas separately; it is not an active parameter mapping.
+        return {}
+    raise ValueError(f"Malformed normalization metadata: {label}")
+
+
+def normalization_input_group(pack, provenance, external_provenance, label):
+    normalization = provenance.get("normalization", {})
+    if not isinstance(normalization, dict) or "input_group" not in normalization:
+        return None
+    group = normalization["input_group"]
+    required = {"schema_version", "method", "recipe_id", "source_atlas", "source_atlas_sha256",
+        "cell_grid", "alpha_threshold_exclusive", "component_connectivity", "minimum_component_area_px",
+        "edge_touch_margin_px", "component_selection", "cell_calibration", "shared_scale_formula", "resampling"}
+    if not isinstance(group, dict) or set(group) != required:
+        raise ValueError(f"Malformed normalization input_group schema: {label}")
+    if (group["schema_version"] != 1
+            or group["method"] != "process_object_local_cells_shared_scale"
+            or group["recipe_id"] != "object-local-cell-alpha-components-shared-scale-v1"):
+        raise ValueError(f"Unsupported normalization input_group method: {label}")
+    atlas = provenance.get("generated_atlas") or provenance.get("source_atlas")
+    if atlas != group["source_atlas"]:
+        raise ValueError(f"Normalization input_group atlas does not match provenance: {label}")
+    expected_hash = provenance.get("generated_atlas_sha256") or provenance.get("source_atlas_sha256")
+    if expected_hash != group["source_atlas_sha256"]:
+        raise ValueError(f"Normalization input_group atlas hash does not match provenance: {label}")
+    atlas_path = contained(pack, atlas)
+    actual_hash = (hashlib.sha256(atlas_path.read_bytes()).hexdigest() if atlas_path.is_file()
+                   else external_provenance.get(atlas, {}).get("sha256"))
+    if actual_hash != group["source_atlas_sha256"]:
+        raise ValueError(f"Unverified normalization input_group atlas: {label}")
+    calibration = provenance.get("source_cell_calibration")
+    if calibration != group["cell_calibration"]:
+        raise ValueError(f"Normalization input_group calibration does not match provenance: {label}")
+    grid = group["cell_grid"]
+    if (not isinstance(grid, dict) or set(grid) != {"columns", "rows", "row_index", "cell_size_px"}
+            or grid["columns"] != 6 or grid["rows"] != 6 or grid["row_index"] not in {2, 3}
+            or grid["cell_size_px"] != [256, 171]):
+        raise ValueError(f"Unsupported normalization input_group cell grid: {label}")
+    if (group["alpha_threshold_exclusive"] != 32 or group["component_connectivity"] != 4
+            or group["minimum_component_area_px"] != 24 or group["edge_touch_margin_px"] != 1
+            or group["component_selection"] != "non-edge-touching-at-least-1-percent-largest-fallback-largest"
+            or group["cell_calibration"] != [1.0, 1.0]
+            or group["shared_scale_formula"] != "204/max-width-or-height-of-all-six-extracted-cells-after-calibration"
+            or group["resampling"] != "nearest"):
+        raise ValueError(f"Unsupported normalization input_group parameters: {label}")
+    # Full canonical contents form the comparison cohort. Per-set row_index is
+    # stable across views; per-view cell column is intentionally absent.
+    return ("declared-input-group", json.dumps(group, sort_keys=True, separators=(",", ":")))
+
+
+def _matching_report_rows(document, asset):
+    asset_id, object_id, view = asset.get("id"), asset.get("object_id"), asset.get("view")
+    found = []
+    def walk(node):
+        if isinstance(node, dict):
+            direct_id = node.get("asset_id", node.get("id"))
+            identity_match = direct_id == asset_id or (node.get("object_id") == object_id
+                and node.get("view", node.get("direction")) == view)
+            has_report_fields = any(key in node for key in (
+                "source_atlas", "source_atlas_sha256", "png_sha256", "output_sha256",
+                "rgba_sha256", "decoded_crop_xyxy", "decoded_bounds_xyxy"))
+            if identity_match and has_report_fields:
+                found.append(node)
+                return
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+    walk(document)
+    return found
+
+
+def _check_hash_bound_report(pack, path_field, hash_field, expected_path, expected_hash,
+                             verified_provenance, label):
+    path = contained(pack, expected_path)
+    if not path.is_file() or file_sha256(path, verified_provenance) != expected_hash:
+        raise ValueError(f"Normalization execution report hash mismatch: {label}/{path_field}")
+    return read_json(path)
+
+
+def _check_executed_replay_binding(pack, evidence, asset, verified_provenance, label):
+    report = _check_hash_bound_report(pack, "execution_report_path", "execution_report_sha256",
+        evidence["execution_report_path"], evidence["execution_report_sha256"], verified_provenance, label)
+    if report.get("failures") not in (None, []):
+        raise ValueError(f"Normalization execution report contains failures: {label}")
+    if all(key in report for key in ("processed", "expected", "count")) and not (
+            report["processed"] == report["expected"] == report["count"]):
+        raise ValueError(f"Normalization execution report is incomplete: {label}")
+    rows = _matching_report_rows(report, asset)
+    if len(rows) != 1:
+        raise ValueError(f"Normalization execution report row missing or ambiguous: {label}")
+    row = rows[0]
+    checks = (("source_atlas", evidence["atlas_path"]),
+              ("source_atlas_sha256", evidence["atlas_sha256"]))
+    for key, expected in checks:
+        if key in row and row[key] != expected:
+            raise ValueError(f"Normalization execution report {key} mismatch: {label}")
+    if row.get("source_atlas") is None or row.get("source_atlas_sha256") is None:
+        raise ValueError(f"Normalization execution report lacks atlas binding: {label}")
+    crop = row.get("decoded_crop_xyxy", row.get("decoded_bounds_xyxy", row.get("crop_bounds_xyxy")))
+    if crop is not None and crop != evidence["crop_bounds_xyxy"]:
+        raise ValueError(f"Normalization execution report crop mismatch: {label}")
+    output_sha = row.get("png_sha256", row.get("output_sha256", row.get("active_output_sha256")))
+    output_rgba = row.get("rgba_sha256", row.get("active_output_rgba_sha256"))
+    if evidence.get("output_report_path"):
+        output_report = _check_hash_bound_report(pack, "output_report_path", "output_report_sha256",
+            evidence["output_report_path"], evidence["output_report_sha256"], verified_provenance, label)
+        output_rows = _matching_report_rows(output_report, asset)
+        if len(output_rows) != 1:
+            raise ValueError(f"Normalization output report row missing or ambiguous: {label}")
+        output_row = output_rows[0]
+        output_sha = output_row.get("sha256", output_row.get("png_sha256", output_row.get("output_sha256")))
+        output_rgba = output_row.get("rgba_sha256", output_row.get("active_output_rgba_sha256"))
+    if output_sha != evidence["active_output_sha256"] or output_rgba != evidence["active_output_rgba_sha256"]:
+        raise ValueError(f"Normalization execution report output hash mismatch: {label}")
+
+
+def affine_calibration_basis(pack, asset, provenance, normalization, label, verified_provenance=None,
+                             external_provenance=None):
+    """Check an explicitly reviewed affine projection, never infer one.
+
+    This is reserved for reviewed orthographic illustrations whose end and side
+    axes were intentionally fitted independently. It verifies a hash-bound
+    recipe row and current output/source/atlas bindings, then checks the exact
+    per-axis resize arithmetic. Legacy assets remain in the strict shared-scale
+    cohort unless this complete evidence object is present.
+    """
+    evidence = normalization.get("calibration_evidence")
+    if evidence is None:
+        return None
+    fields = {"schema_version", "method", "recipe_path", "recipe_sha256", "object_id", "view",
+        "source_path", "source_sha256", "atlas_path", "atlas_sha256", "active_output_sha256",
+        "active_output_rgba_sha256", "crop_bounds_xyxy", "resized_dimensions_px", "scale_x", "scale_y",
+        "target_dimensions_px", "review_record_path", "review_record_sha256", "review_status"}
+    optional = {"source_recipe_path", "source_recipe_sha256", "final_uniform_scale",
+        "final_canvas_bounds_xyxy", "purpose"}
+    if (not isinstance(evidence, dict) or not fields.issubset(evidence)
+            or set(evidence) - fields - optional):
+        raise ValueError(f"Malformed affine calibration evidence: {label}")
+    if (evidence["schema_version"] != 1 or evidence["method"] != "reviewed-axis-affine-v1"
+            or evidence["object_id"] != asset.get("object_id") or evidence["view"] != asset.get("view")
+            or evidence["review_status"] != "approved"):
+        raise ValueError(f"Affine calibration evidence is not an approved asset/view match: {label}")
+    recipe_path = contained(pack, evidence["recipe_path"])
+    if not recipe_path.is_file() or file_sha256(recipe_path, verified_provenance) != evidence["recipe_sha256"]:
+        raise ValueError(f"Unverified affine calibration recipe: {label}")
+    recipe = read_json(recipe_path)
+    review_path = contained(pack, evidence["review_record_path"])
+    if (not review_path.is_file()
+            or file_sha256(review_path, verified_provenance) != evidence["review_record_sha256"]):
+        raise ValueError(f"Unverified affine calibration review record: {label}")
+    if "source_recipe_path" in evidence or "source_recipe_sha256" in evidence:
+        source_recipe_path = evidence.get("source_recipe_path")
+        source_recipe_hash = evidence.get("source_recipe_sha256")
+        if not isinstance(source_recipe_path, str) or not isinstance(source_recipe_hash, str):
+            raise ValueError(f"Malformed affine source recipe reference: {label}")
+        source_recipe_file = contained(pack, source_recipe_path)
+        if (not source_recipe_file.is_file()
+                or file_sha256(source_recipe_file, verified_provenance) != source_recipe_hash):
+            raise ValueError(f"Affine source recipe hash mismatch: {label}")
+    matching = []
+    def visit(node):
+        if isinstance(node, dict):
+            if (node.get("object_id", node.get("id")) == evidence["object_id"]
+                    and node.get("view", node.get("direction")) == evidence["view"]):
+                matching.append(node)
+            for child in node.values():
+                visit(child)
+        elif isinstance(node, list):
+            for child in node:
+                visit(child)
+    visit(recipe)
+    if len(matching) != 1:
+        raise ValueError(f"Affine calibration recipe row is missing or ambiguous: {label}")
+    row = matching[0]
+    source_path = provenance.get("source_rect_image") or provenance.get("source_image")
+    source_hash = (provenance.get("source_rect_image_sha256") if provenance.get("source_rect_image")
+                   else provenance.get("source_sha256") or provenance.get("source_image_sha256"))
+    atlas_path = provenance.get("generated_atlas") or provenance.get("source_atlas")
+    atlas_hash = provenance.get("generated_atlas_sha256") or provenance.get("source_atlas_sha256")
+    output_hash = asset.get("image", {}).get("sha256")
+    if (evidence["source_path"] != source_path
+            or (source_hash is not None and evidence["source_sha256"] != source_hash)
+            or evidence["atlas_path"] != atlas_path or evidence["atlas_sha256"] != atlas_hash
+            or evidence["active_output_sha256"] != output_hash):
+        raise ValueError(f"Affine calibration source/output binding mismatch: {label}")
+    for path_key, hash_key in (("source_path", "source_sha256"), ("atlas_path", "atlas_sha256")):
+        ref = evidence[path_key]
+        local = contained(pack, ref)
+        external = None if local.is_file() else (external_provenance or {}).get(ref)
+        actual = file_sha256(local, verified_provenance) if local.is_file() else external.get("sha256") if external else None
+        if actual != evidence[hash_key]:
+            raise ValueError(f"Unverified affine calibration {path_key}: {label}")
+    output_path = contained(pack, asset["image"]["path"])
+    if not output_path.is_file() or file_sha256(output_path, verified_provenance) != output_hash:
+        raise ValueError(f"Unverified affine calibration output: {label}")
+    with Image.open(output_path) as out:
+        if digest(out) != evidence["active_output_rgba_sha256"]:
+            raise ValueError(f"Affine calibration output RGBA mismatch: {label}")
+    crop = provenance.get("crop_bounds_px", {})
+    bounds = (normalization.get("component_bounds_xyxy_px")
+        or normalization.get("alpha_component_bounds_atlas_px")
+        or crop_alpha_bounds_xyxy(crop, label))
+    if bounds is None:
+        bounds = row.get("crop_bounds_xyxy")
+    if bounds != evidence["crop_bounds_xyxy"]:
+        raise ValueError(f"Affine calibration crop binding mismatch: {label}")
+    resized = normalization.get("resized_dimensions_px", crop.get("resized_bounds_px"))
+    if resized is None:
+        resized = row.get("resized_dimensions_px")
+    if resized != evidence["resized_dimensions_px"]:
+        raise ValueError(f"Affine calibration target dimensions mismatch: {label}")
+    sx, sy = evidence["scale_x"], evidence["scale_y"]
+    if (not all(isinstance(x, (int, float)) and math.isfinite(x) and x > 0 for x in (sx, sy))
+            or sx == sy):
+        raise ValueError(f"Affine calibration must declare finite distinct axis factors: {label}")
+    source_calibration = provenance.get("source_cell_calibration")
+    if source_calibration != [sx, sy]:
+        raise ValueError(f"Affine calibration disagrees with source cell calibration: {label}")
+    dimensions = [bounds[2]-bounds[0], bounds[3]-bounds[1]]
+    if any(not isinstance(x, int) or isinstance(x, bool) or x <= 0 for x in dimensions):
+        raise ValueError(f"Affine calibration has malformed source crop dimensions: {label}")
+    if (abs(round(dimensions[0]*sx)-resized[0]) > 1
+            or abs(round(dimensions[1]*sy)-resized[1]) > 1):
+        raise ValueError(f"Affine calibration factors disagree with target dimensions: {label}")
+    if ("final_uniform_scale" in evidence
+            and evidence["final_uniform_scale"] != normalization.get("scale")):
+        raise ValueError(f"Affine final uniform scale disagrees with normalization: {label}")
+    if "final_uniform_scale" in evidence and any(
+            abs(round(length * evidence["final_uniform_scale"]) - target) > 1
+            for length, target in zip(resized, evidence["target_dimensions_px"])):
+        raise ValueError(f"Affine final uniform scale disagrees with target dimensions: {label}")
+    if "final_canvas_bounds_xyxy" in evidence:
+        final_bounds = evidence["final_canvas_bounds_xyxy"]
+        if ([final_bounds[2]-final_bounds[0], final_bounds[3]-final_bounds[1]]
+                != evidence["target_dimensions_px"]):
+            raise ValueError(f"Affine final canvas bounds disagree with target dimensions: {label}")
+        actual_bbox = Image.open(output_path).getchannel("A").getbbox()
+        if actual_bbox != tuple(final_bounds):
+            raise ValueError(f"Affine final canvas bounds disagree with active output: {label}")
+    if ("final_canvas_bounds_xyxy" in evidence
+            and (not isinstance(evidence["final_canvas_bounds_xyxy"], list)
+                 or len(evidence["final_canvas_bounds_xyxy"]) != 4)):
+        raise ValueError(f"Malformed affine final canvas bounds: {label}")
+    if "purpose" in evidence and (not isinstance(evidence["purpose"], str) or not evidence["purpose"].strip()):
+        raise ValueError(f"Missing affine calibration purpose: {label}")
+    for key in fields - {"schema_version", "method", "recipe_path", "recipe_sha256",
+                         "review_record_path", "review_record_sha256", "review_status"}:
+        if key in row and row[key] != evidence[key]:
+            raise ValueError(f"Affine calibration recipe row disagrees on {key}: {label}")
+    return ("reviewed-axis-affine", evidence["recipe_sha256"], evidence["object_id"], evidence["view"])
+
+
+def retained_snapshot_basis(pack, asset, normalization, label, verified_provenance=None):
+    """Bind an irrecoverable historical render to a distinct lossless snapshot."""
+    evidence = normalization.get("retained_snapshot_evidence")
+    if evidence is None:
+        return None
+    required = {"schema_version", "method", "manifest_path", "manifest_sha256", "object_id", "view"}
+    if not isinstance(evidence, dict) or set(evidence) != required:
+        raise ValueError(f"Malformed retained-snapshot evidence: {label}")
+    if (evidence["schema_version"] != 1 or evidence["method"] != "verified-retained-snapshot-v1"
+            or evidence["object_id"] != asset.get("object_id") or evidence["view"] != asset.get("view")):
+        raise ValueError(f"Retained-snapshot identity mismatch: {label}")
+    manifest_path = contained(pack, evidence["manifest_path"])
+    if (not manifest_path.is_file()
+            or file_sha256(manifest_path, verified_provenance) != evidence["manifest_sha256"]):
+        raise ValueError(f"Retained-snapshot manifest hash mismatch: {label}")
+    manifest = read_json(manifest_path)
+    rows = manifest.get("records")
+    if not isinstance(rows, list):
+        raise ValueError(f"Malformed retained-snapshot manifest records: {label}")
+    matches = [row for row in rows if row.get("object_id") == evidence["object_id"]
+               and row.get("view") == evidence["view"]]
+    if len(matches) != 1:
+        raise ValueError(f"Retained-snapshot row missing or ambiguous: {label}")
+    row = matches[0]
+    output = asset.get("image", {})
+    output_path = output.get("path")
+    if (row.get("active_output_path") != output_path
+            or row.get("active_output_sha256") != output.get("sha256")):
+        raise ValueError(f"Retained-snapshot active output binding mismatch: {label}")
+    live_path = contained(pack, output_path)
+    if not live_path.is_file() or file_sha256(live_path, verified_provenance) != output.get("sha256"):
+        raise ValueError(f"Retained-snapshot live PNG hash mismatch: {label}")
+    with Image.open(live_path) as live:
+        live_size, live_rgba = live.size, digest(live)
+    if row.get("active_output_rgba_sha256") != live_rgba:
+        raise ValueError(f"Retained-snapshot live RGBA mismatch: {label}")
+    snapshot_rel = row.get("snapshot_path")
+    if not isinstance(snapshot_rel, str) or snapshot_rel == output_path:
+        raise ValueError(f"Retained-snapshot input must be distinct from active output: {label}")
+    snapshot_path = contained(pack, snapshot_rel)
+    if not snapshot_path.is_file() or file_sha256(snapshot_path, verified_provenance) != row.get("snapshot_sha256"):
+        raise ValueError(f"Retained-snapshot input hash mismatch: {label}")
+    with Image.open(snapshot_path) as snapshot:
+        if (snapshot.size != live_size or row.get("dimensions_px") != list(live_size)
+                or digest(snapshot) != live_rgba or row.get("snapshot_rgba_sha256") != live_rgba):
+            raise ValueError(f"Retained-snapshot input differs from active output: {label}")
+    if not isinstance(row.get("claim"), str) or not row["claim"].strip() \
+            or not isinstance(row.get("existing_explanation"), str) or not row["existing_explanation"].strip():
+        raise ValueError(f"Retained-snapshot provenance explanation is missing: {label}")
+    return ("verified-retained-snapshot", evidence["manifest_sha256"], evidence["object_id"], evidence["view"])
+
+
+def per_view_normalization_basis(pack, asset, provenance, normalization, label, verified_provenance=None,
+                                 external_provenance=None):
+    policy = normalization.get("scale_policy")
+    if policy is None:
+        return None
+    if policy != "per-view-uniform":
+        raise ValueError(f"Unsupported normalization scale policy: {label}")
+    evidence = normalization.get("scale_evidence")
+    expected_fields = {"schema_version", "method", "recipe_path", "recipe_sha256", "object_id", "view",
+        "source_path", "source_sha256", "atlas_path", "atlas_sha256", "active_output_sha256",
+        "active_output_rgba_sha256", "crop_bounds_xyxy", "resized_dimensions_px", "scale", "projection_scale"}
+    optional_fields = {"replay_status", "verification_basis", "rounding_model", "integer_rounding_model",
+        "execution_report_path", "execution_report_sha256", "output_report_path", "output_report_sha256",
+        "review_record_path", "review_record_sha256", "orientation_correction_degrees"}
+    if (not isinstance(evidence, dict) or not expected_fields.issubset(evidence)
+            or set(evidence) - expected_fields - optional_fields):
+        raise ValueError(f"Malformed per-view normalization evidence: {label}")
+    if (evidence["schema_version"] != 1 or evidence["method"] not in {
+                "verified-per-view-isotropic-v1", "reviewed-current-output-isotropic-v1"}
+            or evidence["object_id"] != asset.get("object_id")
+            or evidence["view"] != asset.get("view")):
+        raise ValueError(f"Per-view normalization identity mismatch: {label}")
+    if (evidence["method"] == "reviewed-current-output-isotropic-v1"
+            and evidence.get("replay_status") != "not-replayed"):
+        raise ValueError(f"Unclear non-replayed scale evidence status: {label}")
+    verification_basis = evidence.get("verification_basis")
+    if verification_basis not in {"executed-replay", "producer-recorded-output", "reviewed-current-output"}:
+        raise ValueError(f"Unsupported per-view verification basis: {label}")
+    if (evidence["method"] == "reviewed-current-output-isotropic-v1"
+            and verification_basis != "reviewed-current-output"):
+        raise ValueError(f"Reviewed current output has conflicting verification basis: {label}")
+    recipe_path = contained(pack, evidence["recipe_path"])
+    if not recipe_path.is_file():
+        raise ValueError(f"Missing per-view normalization recipe: {label}")
+    if file_sha256(recipe_path, verified_provenance) != evidence["recipe_sha256"]:
+        raise ValueError(f"Per-view normalization recipe hash mismatch: {label}")
+    recipe = read_json(recipe_path)
+    source_path = provenance.get("source_rect_image") or provenance.get("source_image")
+    source_hash = (provenance.get("source_rect_image_sha256") if provenance.get("source_rect_image")
+                   else provenance.get("source_sha256") or provenance.get("source_image_sha256"))
+    # Some historical style records name a local source image but omit its
+    # hash from provenance. Accept the evidence hash only after independently
+    # hashing that contained source file below.
+    if source_hash is None and evidence.get("source_path") == source_path:
+        source_hash = evidence.get("source_sha256")
+    crop = provenance.get("crop_bounds_px", {})
+    scale = normalization.get("scale", normalization.get("shared_scale",
+        normalization.get("shared_scale_per_object", crop.get("shared_scale"))))
+    if not isinstance(scale, (int, float)) or not math.isfinite(scale) or scale <= 0:
+        raise ValueError(f"Malformed per-view normalization scale: {label}")
+    output_hash = asset.get("image", {}).get("sha256")
+    if (evidence["source_path"] != source_path or evidence["source_sha256"] != source_hash
+            or evidence["active_output_sha256"] != output_hash):
+        raise ValueError(f"Per-view normalization source/output binding mismatch: {label}")
+    source_file = contained(pack, source_path)
+    external_source = None if source_file.is_file() else (external_provenance or {}).get(source_path)
+    actual_source_hash = (file_sha256(source_file, verified_provenance) if source_file.is_file()
+                          else external_source.get("sha256") if external_source else None)
+    if actual_source_hash != source_hash:
+        raise ValueError(f"Unverified per-view normalization source: {label}")
+    image_path = contained(pack, asset["image"]["path"])
+    if not image_path.is_file() or file_sha256(image_path, verified_provenance) != output_hash:
+        raise ValueError(f"Unverified per-view normalization output: {label}")
+    with Image.open(image_path) as active_image:
+        if digest(active_image) != evidence["active_output_rgba_sha256"]:
+            raise ValueError(f"Per-view normalization RGBA binding mismatch: {label}")
+    atlas_path = evidence["atlas_path"]
+    atlas_hash = evidence["atlas_sha256"]
+    provenance_atlas = provenance.get("generated_atlas") or provenance.get("source_atlas")
+    provenance_atlas_hash = provenance.get("generated_atlas_sha256") or provenance.get("source_atlas_sha256")
+    if atlas_path != provenance_atlas or atlas_hash != provenance_atlas_hash:
+        raise ValueError(f"Per-view normalization atlas binding mismatch: {label}")
+    atlas_file = contained(pack, atlas_path)
+    actual_atlas_hash = (file_sha256(atlas_file, verified_provenance) if atlas_file.is_file()
+                         else (external_provenance or {}).get(atlas_path, {}).get("sha256"))
+    if actual_atlas_hash != atlas_hash:
+        raise ValueError(f"Unverified per-view normalization atlas: {label}")
+    # Find exactly one scale row for this object/view in the immutable recipe.
+    # Prior-view guard hashes are deliberately not treated as emitted outputs.
+    recipe_rows = []
+    def visit(node):
+        if isinstance(node, dict):
+            identity = node.get("object_id", node.get("id"))
+            direction = node.get("view", node.get("direction"))
+            if identity == evidence["object_id"] and direction == evidence["view"]:
+                recipe_rows.append(node)
+            for child in node.values():
+                visit(child)
+        elif isinstance(node, list):
+            for child in node:
+                visit(child)
+    visit(recipe)
+    if len(recipe_rows) != 1 or recipe_rows[0].get("scale") != scale:
+        raise ValueError(f"Per-view normalization scale is not bound by the recipe: {label}")
+    row = recipe_rows[0]
+    required_row_fields = {"scale", "source_path", "source_sha256", "atlas_path", "atlas_sha256",
+        "active_output_sha256", "active_output_rgba_sha256", "crop_bounds_xyxy",
+        "resized_dimensions_px", "projection_scale"}
+    if not required_row_fields.issubset(row):
+        raise ValueError(f"Per-view normalization evidence row lacks active bindings: {label}")
+    if row.get("verification_basis") != verification_basis:
+        raise ValueError(f"Per-view evidence row verification basis mismatch: {label}")
+    if verification_basis == "reviewed-current-output":
+        if (evidence.get("replay_status") != "not-replayed" or row.get("replay_status") != "not-replayed"):
+            raise ValueError(f"Reviewed current output must be explicitly marked not replayed: {label}")
+        review_path = evidence.get("review_record_path")
+        review_hash = evidence.get("review_record_sha256")
+        if (not isinstance(review_path, str) or not isinstance(review_hash, str)
+                or row.get("review_record_path") != review_path or row.get("review_record_sha256") != review_hash):
+            raise ValueError(f"Reviewed current output lacks immutable review binding: {label}")
+        review_file = contained(pack, review_path)
+        if not review_file.is_file() or file_sha256(review_file, verified_provenance) != review_hash:
+            raise ValueError(f"Reviewed current output review hash mismatch: {label}")
+    elif verification_basis == "producer-recorded-output":
+        original_recipe_path = row.get("original_recipe_path")
+        original_recipe_hash = row.get("original_recipe_sha256")
+        if (not isinstance(original_recipe_path, str) or not isinstance(original_recipe_hash, str)
+                or row.get("original_recipe_output_match") is not True
+                or row.get("original_recipe_output_sha256") != evidence["active_output_sha256"]):
+            raise ValueError(f"Verified per-view evidence lacks exact original recipe output binding: {label}")
+        original_path = contained(pack, original_recipe_path)
+        if (not original_path.is_file()
+                or file_sha256(original_path, verified_provenance) != original_recipe_hash):
+            raise ValueError(f"Verified per-view original recipe hash mismatch: {label}")
+    else:
+        if (not isinstance(evidence.get("execution_report_path"), str)
+                or not isinstance(evidence.get("execution_report_sha256"), str)
+                or row.get("execution_report_path") != evidence["execution_report_path"]
+                or row.get("execution_report_sha256") != evidence["execution_report_sha256"]):
+            raise ValueError(f"Executed per-view output lacks replay report binding: {label}")
+        if (row.get("output_report_path") != evidence.get("output_report_path")
+                or row.get("output_report_sha256") != evidence.get("output_report_sha256")):
+            raise ValueError(f"Executed per-view output report binding mismatch: {label}")
+        _check_executed_replay_binding(pack, evidence, asset, verified_provenance, label)
+    # Some normalizers record the active isolated component bounds under
+    # normalization rather than the older atlas-cell crop record. Prefer those
+    # explicit component fields; otherwise use the active crop bounds. A recipe
+    # row may be the source only when it declares bounds under a recognized key.
+    bounds = None
+    for key in ("component_bounds_xyxy_px", "alpha_component_bounds_atlas_px"):
+        value = normalization.get(key)
+        if value is not None:
+            bounds = value
+            break
+    if bounds is None:
+        bounds = crop_alpha_bounds_xyxy(crop, label)
+    row_bounds = row.get("crop_bounds_xyxy", row.get("component_bounds_xyxy_px"))
+    if row_bounds is None and isinstance(row.get("crop_bounds_px"), dict):
+        row_bounds = crop_alpha_bounds_xyxy(row["crop_bounds_px"], f"{label}/recipe-row")
+    if bounds is None:
+        bounds = row_bounds
+    if bounds is None or bounds != evidence["crop_bounds_xyxy"]:
+        raise ValueError(f"Per-view normalization crop binding mismatch: {label}")
+    if row_bounds is not None and row_bounds != bounds:
+        raise ValueError(f"Per-view normalization recipe crop mismatch: {label}")
+    # Normalized evidence manifests duplicate the exact active bindings into
+    # their unique row. When a legacy producer recipe itself is used directly,
+    # it may only contain the scale cell; its hash still binds that historical
+    # recipe while active image/crop facts are checked against the sidecar.
+    for key in ("source_path", "source_sha256", "atlas_path", "atlas_sha256",
+                "active_output_sha256", "active_output_rgba_sha256", "crop_bounds_xyxy",
+                "resized_dimensions_px", "projection_scale", "verification_basis",
+                "execution_report_path", "execution_report_sha256", "output_report_path",
+                "output_report_sha256", "review_record_path", "review_record_sha256",
+                "orientation_correction_degrees"):
+        if key in row and row[key] != evidence[key]:
+            raise ValueError(f"Per-view normalization recipe row disagrees on {key}: {label}")
+    crop = provenance.get("crop_bounds_px", {})
+    resized = normalization.get("resized_dimensions_px", crop.get("resized_bounds_px"))
+    if resized is None:
+        resized = row.get("resized_dimensions_px")
+    projection = evidence["projection_scale"]
+    if (evidence["scale"] != scale or evidence["resized_dimensions_px"] != resized):
+        raise ValueError(f"Per-view normalization dimensions/scale binding mismatch: {label}")
+    orientation = evidence.get("orientation_correction_degrees", crop.get("orientation_correction_degrees", 0))
+    if orientation not in {0, 90, 180, 270}:
+        raise ValueError(f"Unsupported per-view orientation correction: {label}")
+    if (not isinstance(resized, list) or len(resized) != 2
+            or not all(isinstance(value, int) and not isinstance(value, bool) and value > 0 for value in resized)
+            or bounds is None or projection <= 0 or not math.isfinite(projection)):
+        raise ValueError(f"Per-view normalization scale is not isotropic or disagrees with rendered dimensions: {label}")
+    projected = [round(length * scale * projection)
+        for length in (bounds[2]-bounds[0], bounds[3]-bounds[1])]
+    if orientation in {90, 270}:
+        projected.reverse()
+    if any(abs(actual - expected) > 1 for actual, expected in zip(projected, resized)):
+        raise ValueError(f"Per-view normalization scale is not isotropic or disagrees with rendered dimensions: {label}")
+    if "orientation_correction_degrees" in evidence and orientation in {90, 270}:
+        actual_box = Image.open(image_path).getchannel("A").getbbox()
+        if (actual_box is None or [actual_box[2]-actual_box[0], actual_box[3]-actual_box[1]]
+                != resized):
+            raise ValueError(f"Per-view quarter-turn dimensions disagree with active PNG: {label}")
+    return ("verified-per-view-scale", evidence["recipe_sha256"], evidence["object_id"], evidence["view"])
+
+
+def check_asset_geometry(pack, asset, image, source_sizes, external_provenance=None, verified_provenance=None):
+    external_provenance = external_provenance or {}
+    verified_provenance = verified_provenance if verified_provenance is not None else {}
     anchor = asset.get("anchor_px")
     if isinstance(anchor, dict):
         anchor = [anchor.get("x"), anchor.get("y")]
@@ -86,38 +687,156 @@ def check_asset_geometry(pack, asset, image, source_sizes):
         if (not isinstance(calibration, list) or len(calibration) != 2
                 or not all(isinstance(value, (int, float)) and math.isfinite(value) and value > 0 for value in calibration)):
             raise ValueError(f"Malformed source cell calibration: {asset['id']}")
-        if not math.isclose(calibration[0], calibration[1], rel_tol=1e-9, abs_tol=1e-12):
+        normalization_meta = provenance.get("normalization", {})
+        affine_declared = (isinstance(normalization_meta, dict)
+            and isinstance(normalization_meta.get("calibration_evidence"), dict)
+            and normalization_meta["calibration_evidence"].get("method") == "reviewed-axis-affine-v1")
+        if (not math.isclose(calibration[0], calibration[1], rel_tol=1e-9, abs_tol=1e-12)
+                and not affine_declared):
             raise ValueError(f"Anisotropic principal-view normalization: {asset['id']}")
     source = provenance.get("source_image")
     rectangle = provenance.get("source_rect")
-    if isinstance(rectangle, list) and source and contained(pack, source).is_file():
-        if source not in source_sizes:
-            with Image.open(contained(pack, source)) as source_image:
-                source_sizes[source] = source_image.size
-        check_rectangle(rectangle, source_sizes[source], f"{asset['id']}/source_rect", xywh=True)
+    if rectangle is not None:
+        explicit_rectangle_source = provenance.get("source_rect_image")
+        if explicit_rectangle_source:
+            rectangle_source = explicit_rectangle_source
+        elif isinstance(rectangle, list):
+            # In ordinary extraction records source_rect is relative to the
+            # source scene when present; source_image may be a tight crop.
+            rectangle_source = provenance.get("source_scene") or source
+        elif isinstance(rectangle, dict):
+            # Legacy generated-view records historically stored source_rect
+            # coordinates against their generated/source atlas.
+            rectangle_source = provenance.get("generated_atlas") or provenance.get("source_atlas")
+        else:
+            raise ValueError(f"Malformed source_rect: {asset['id']}")
+        if not rectangle_source:
+            raise ValueError(f"Missing source image for source_rect: {asset['id']}")
+        rectangle_path = contained(pack, rectangle_source)
+        external_rectangle = None if rectangle_path.is_file() else external_provenance.get(rectangle_source)
+        if not rectangle_path.is_file() and external_rectangle is None:
+            raise ValueError(f"Missing source_rect image: {asset['id']}: {rectangle_source}")
+        expected_rectangle_hash = provenance.get("source_rect_image_sha256")
+        if expected_rectangle_hash is None and isinstance(rectangle, dict):
+            expected_rectangle_hash = rectangle.get("source_sha256")
+        if expected_rectangle_hash is None:
+            expected_rectangle_hash = (
+                provenance.get("source_scene_sha256") if rectangle_source == provenance.get("source_scene") else
+                provenance.get("source_sha256") if rectangle_source == provenance.get("source_image") else
+                provenance.get("generated_atlas_sha256") if rectangle_source == provenance.get("generated_atlas") else
+                provenance.get("source_atlas_sha256") if rectangle_source == provenance.get("source_atlas") else None)
+        actual_rectangle_hash = (file_sha256(rectangle_path, verified_provenance)
+            if rectangle_path.is_file() else external_rectangle.get("sha256"))
+        if expected_rectangle_hash is not None and actual_rectangle_hash != expected_rectangle_hash:
+            raise ValueError(f"source_rect image hash mismatch: {asset['id']}")
+        if not rectangle_path.is_file() and (not expected_rectangle_hash or actual_rectangle_hash != expected_rectangle_hash):
+            raise ValueError(f"Unverified external source_rect image: {asset['id']}")
+        if rectangle_path.is_file():
+            if rectangle_source not in source_sizes:
+                with Image.open(rectangle_path) as source_image:
+                    source_sizes[rectangle_source] = source_image.size
+            size = source_sizes[rectangle_source]
+        else:
+            size = external_rectangle.get("size_px")
+            if (not isinstance(size, list) or len(size) != 2
+                    or not all(isinstance(value, int) and not isinstance(value, bool) and value > 0 for value in size)):
+                raise ValueError(f"Missing source_rect image dimensions: {asset['id']}")
+            declared_size = provenance.get("source_rect_image_size")
+            if declared_size is None and isinstance(rectangle, dict):
+                declared_size = rectangle.get("source_size")
+            if declared_size is not None and declared_size != size:
+                raise ValueError(f"External source_rect dimensions disagree with metadata: {asset['id']}")
+        if isinstance(rectangle, list):
+            coordinate_format = provenance.get("source_rect_coordinate_format", "xywh")
+            if coordinate_format not in {"xyxy", "xywh"}:
+                raise ValueError(f"Unknown source_rect coordinate format: {asset['id']}")
+            check_rectangle(rectangle, size, f"{asset['id']}/source_rect", xywh=coordinate_format == "xywh")
+        else:
+            if rectangle.get("source_size") and rectangle["source_size"] != list(size):
+                raise ValueError(f"source_rect dimensions do not match bound image: {asset['id']}")
+            coordinate_format = rectangle.get("coordinate_format",
+                provenance.get("source_rect_coordinate_format", "xywh"))
+            if coordinate_format not in {"xyxy", "xywh"}:
+                raise ValueError(f"Unknown source_rect coordinate format: {asset['id']}")
+            for key in ("alpha_bounds", "cell"):
+                if rectangle.get(key):
+                    formats = rectangle.get("coordinate_formats", {})
+                    if not isinstance(formats, dict) or any(name not in {"alpha_bounds", "cell"}
+                            or coordinate_format not in {"xyxy", "xywh"}
+                            for name, coordinate_format in formats.items()):
+                        raise ValueError(f"Malformed source_rect coordinate_formats: {asset['id']}")
+                    member_format = formats.get(key, coordinate_format)
+                    if member_format not in {"xyxy", "xywh"}:
+                        raise ValueError(f"Unknown source_rect coordinate format: {asset['id']}/{key}")
+                    check_rectangle(rectangle[key], size, f"{asset['id']}/source_rect/{key}",
+                        xywh=member_format == "xywh")
+            for key in ("alpha_component_bounds_atlas_px", "cell_px"):
+                if rectangle.get(key):
+                    check_rectangle(rectangle[key], size, f"{asset['id']}/source_rect/{key}")
     atlas = provenance.get("source_atlas") or provenance.get("generated_atlas")
-    if atlas and contained(pack, atlas).is_file():
-        if atlas not in source_sizes:
-            with Image.open(contained(pack, atlas)) as source_image:
-                source_sizes[atlas] = source_image.size
-        size = source_sizes[atlas]
-        normalization = provenance.get("normalization", {})
+    if atlas:
+        atlas_path = contained(pack, atlas)
+        external_atlas = None if atlas_path.is_file() else external_provenance.get(atlas)
+        if not atlas_path.is_file() and external_atlas is None:
+            raise ValueError(f"Missing undeclared provenance atlas: {asset['id']}: {atlas}")
+        expected_atlas_hash = provenance.get("generated_atlas_sha256") if atlas == provenance.get("generated_atlas") else provenance.get("source_atlas_sha256")
+        actual_atlas_hash = (file_sha256(atlas_path, verified_provenance)
+            if atlas_path.is_file() else external_atlas.get("sha256"))
+        if expected_atlas_hash and expected_atlas_hash != actual_atlas_hash:
+            raise ValueError(f"Provenance hash mismatch: {atlas}")
+        if atlas_path.is_file():
+            if atlas not in source_sizes:
+                with Image.open(atlas_path) as source_image:
+                    source_sizes[atlas] = source_image.size
+            size = source_sizes[atlas]
+        else:
+            size = external_atlas.get("size_px")
+            if (not isinstance(size, list) or len(size) != 2
+                    or not all(isinstance(value, int) and not isinstance(value, bool) and value > 0 for value in size)):
+                raise ValueError(f"Missing provenance atlas dimensions: {asset['id']}")
+        adapter = provenance.get("normalization_adapter")
+        alpha_bounds_size = size
+        if isinstance(adapter, dict) and "extractor_atlas" in adapter:
+            extractor = adapter.get("extractor_atlas")
+            extractor_hash = adapter.get("extractor_sha256")
+            if not isinstance(extractor, str) or not isinstance(extractor_hash, str):
+                raise ValueError(f"Incomplete normalization adapter source: {asset['id']}")
+            extractor_path = contained(pack, extractor)
+            external_extractor = None if extractor_path.is_file() else external_provenance.get(extractor)
+            if not extractor_path.is_file() and external_extractor is None:
+                raise ValueError(f"Missing normalization adapter atlas: {asset['id']}")
+            actual_extractor_hash = (file_sha256(extractor_path, verified_provenance)
+                if extractor_path.is_file() else external_extractor.get("sha256"))
+            if actual_extractor_hash != extractor_hash:
+                raise ValueError(f"Normalization adapter atlas hash mismatch: {asset['id']}")
+            if extractor_path.is_file():
+                if extractor not in source_sizes:
+                    with Image.open(extractor_path) as source_image:
+                        source_sizes[extractor] = source_image.size
+                alpha_bounds_size = source_sizes[extractor]
+            else:
+                size_px = external_extractor.get("size_px")
+                if (not isinstance(size_px, list) or len(size_px) != 2
+                        or not all(isinstance(value, int) and not isinstance(value, bool) and value > 0 for value in size_px)):
+                    raise ValueError(f"Missing normalization adapter dimensions: {asset['id']}")
+                alpha_bounds_size = size_px
+        normalization_record = provenance.get("normalization", {})
+        normalization = normalization_record if isinstance(normalization_record, dict) else {}
         crop = provenance.get("crop_bounds_px", {})
         if normalization.get("cell_rect"):
             check_rectangle(normalization["cell_rect"], size, f"{asset['id']}/cell_rect", xywh=True)
-        if isinstance(rectangle, dict):
-            for key in ("alpha_bounds", "cell"):
-                if rectangle.get(key):
-                    check_rectangle(rectangle[key], size, f"{asset['id']}/{key}", xywh=True)
-            for key in ("alpha_component_bounds_atlas_px", "cell_px"):
-                if rectangle.get(key):
-                    check_rectangle(rectangle[key], size, f"{asset['id']}/{key}")
-        if isinstance(crop, dict) and crop.get("alpha_bounds_global"):
-            check_rectangle(crop["alpha_bounds_global"], size, f"{asset['id']}/alpha_bounds_global")
+        if isinstance(crop, dict):
+            alpha_bounds = crop_alpha_bounds_xyxy(crop, f"{asset['id']}/alpha_bounds_global")
+            if alpha_bounds is not None:
+                check_rectangle(alpha_bounds, alpha_bounds_size, f"{asset['id']}/alpha_bounds_global")
         for component in normalization.get("component_groups", []):
             if component.get("bbox"):
                 check_rectangle(component["bbox"], size, f"{asset['id']}/component bbox")
-    normalization = provenance.get("normalization", {})
+        if isinstance(normalization_record, list):
+            validate_normalization_records(normalization_record, size, asset["id"])
+        elif not isinstance(normalization_record, dict):
+            raise ValueError(f"Malformed normalization metadata: {asset['id']}")
+    normalization = normalization_parameters(provenance, asset["id"])
     for key in ("frame_size", "canvas", "canvas_px"):
         if key in normalization and tuple(normalization[key]) != image.size:
             raise ValueError(f"Normalization {key} does not match PNG: {asset['id']}")
@@ -279,7 +998,9 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
             raise ValueError(f"Missing name/tags: {asset_id}")
         if not asset.get("provenance", {}).get("method"):
             raise ValueError(f"Missing provenance: {asset_id}")
-        for field, hash_field in (("source_image", "source_sha256"), ("source_atlas", "source_atlas_sha256"), ("generated_atlas", "generated_atlas_sha256")):
+        for field, hash_field in (("source_image", "source_sha256"), ("source_scene", "source_scene_sha256"),
+                                  ("source_rect_image", "source_rect_image_sha256"),
+                                  ("source_atlas", "source_atlas_sha256"), ("generated_atlas", "generated_atlas_sha256")):
             reference = asset["provenance"].get(field)
             if not reference:
                 continue
@@ -309,7 +1030,7 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
                 if verified_provenance[reference] != source["sha256"]:
                     raise ValueError(f"Referenced generation source hash mismatch: {reference}")
         image = image_info(pack, asset["image"])
-        bbox = check_asset_geometry(pack, asset, image, source_sizes)
+        bbox = check_asset_geometry(pack, asset, image, source_sizes, external_provenance, verified_provenance)
         if asset.get("view") in VIEWS:
             if bbox and (bbox[0] == 0 or bbox[1] == 0 or bbox[2] == image.width or bbox[3] == image.height):
                 boundary_findings.append({"id": asset_id, "alpha_bounds": bbox, "reason": "Visible alpha touches frame boundary; review for clipped geometry."})
@@ -361,6 +1082,7 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
                     if target.get("object_id") != asset.get("object_id", asset["id"]):
                         raise ValueError(f"Principal-view reference changes object identity: {asset['id']} -> {ref}")
     view_aliases = []
+    affine_calibrations = []
     for object_id, group in view_sets.items():
         hashes = {}
         scales = {}
@@ -375,7 +1097,7 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
                     raise ValueError(f"View child belongs to the wrong object or direction: {object_id}/{view}")
                 hashes.setdefault(visible_hashes[ref], []).append(view)
                 provenance = assets[ref]["provenance"]
-                normalization = provenance.get("normalization", {})
+                normalization = normalization_parameters(provenance, f"{object_id}/{view}")
                 scale = normalization.get("scale", normalization.get("shared_scale", normalization.get("shared_scale_per_object")))
                 if scale is None and isinstance(provenance.get("crop_bounds_px"), dict):
                     scale = provenance["crop_bounds_px"].get("shared_scale")
@@ -390,8 +1112,10 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
                         compared = float(requested)
                         if not math.isfinite(compared) or compared <= 0:
                             raise ValueError(f'Invalid requested normalization factor: {object_id}/{view}')
-                        bounds = crop.get('alpha_bounds_global', [])
-                        resized = crop.get('resized_bounds_px', [])
+                        bounds = (normalization.get("component_bounds_xyxy_px")
+                            or normalization.get("alpha_component_bounds_atlas_px")
+                            or crop_alpha_bounds_xyxy(crop, f"{object_id}/{view}") or [])
+                        resized = normalization.get("resized_dimensions_px", crop.get('resized_bounds_px', []))
                         projection = float(normalization.get('projection_scale', crop.get('projection_scale', 1)))
                         rendered_factor = effective * projection
                         if not math.isfinite(rendered_factor) or rendered_factor <= 0:
@@ -405,15 +1129,42 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
                     # Raw resize factors are comparable only for the same
                     # normalization input. A later isolated repair atlas may
                     # have a different pixel resolution and valid own factor.
-                    atlas = provenance.get('generated_atlas') or provenance.get('source_atlas')
-                    basis = ('legacy-unqualified',)
-                    if atlas:
-                        raw = contained(pack, atlas)
-                        raw_hash = (hashlib.sha256(raw.read_bytes()).hexdigest() if raw.is_file()
-                                    else external_provenance.get(atlas, {}).get('sha256'))
-                        if not raw_hash:
-                            raise ValueError(f'Unverified normalization input: {object_id}/{view}')
-                        basis = (atlas, raw_hash)
+                    label = f"{object_id}/{view}"
+                    basis = per_view_normalization_basis(pack, assets[ref], provenance, normalization,
+                        label, verified_provenance, external_provenance)
+                    if basis is None:
+                        basis = affine_calibration_basis(pack, assets[ref], provenance, normalization,
+                            label, verified_provenance, external_provenance)
+                        if basis is not None:
+                            calibration = normalization["calibration_evidence"]
+                            affine_calibrations.append({"object_id": object_id, "view": view,
+                                "method": basis[0], "recipe_sha256": basis[1],
+                                "scale_x": calibration["scale_x"], "scale_y": calibration["scale_y"],
+                                "target_dimensions_px": calibration["target_dimensions_px"],
+                                "review_status": calibration["review_status"]})
+                    if basis is None:
+                        basis = retained_snapshot_basis(pack, assets[ref], normalization,
+                            label, verified_provenance)
+                    if basis is None:
+                        basis = normalization_input_group(pack, provenance, external_provenance, label)
+                    if basis is None:
+                        rect_image = provenance.get("source_rect_image")
+                        if rect_image:
+                            rect_hash = provenance.get("source_rect_image_sha256")
+                            rect_path = contained(pack, rect_image)
+                            if not rect_hash or not rect_path.is_file() or file_sha256(rect_path, verified_provenance) != rect_hash:
+                                raise ValueError(f"Unverified normalization source rectangle: {label}")
+                            basis = ("source-rect-image", rect_image, rect_hash)
+                        else:
+                            atlas = provenance.get('generated_atlas') or provenance.get('source_atlas')
+                            basis = ('legacy-unqualified',)
+                            if atlas:
+                                raw = contained(pack, atlas)
+                                raw_hash = (file_sha256(raw, verified_provenance) if raw.is_file()
+                                            else external_provenance.get(atlas, {}).get('sha256'))
+                                if not raw_hash:
+                                    raise ValueError(f'Unverified normalization input: {object_id}/{view}')
+                                basis = (atlas, raw_hash)
                     scales.setdefault(basis, []).append(compared)
         if any(max(values) - min(values) > 1e-9 for values in scales.values()):
             raise ValueError(f"Principal views use inconsistent normalization scales: {object_id}")
@@ -504,6 +1255,7 @@ def validate(pack, require_views=False, allow_recorded_blocks=False):
         "maps_pixel_exact": len(results), "maps": results,
         "duplicate_pixel_groups": duplicate_groups, "missing_six_view_count": len(missing_views),
         "view_pixel_aliases": view_aliases, "view_boundary_findings": boundary_findings,
+        "reviewed_affine_calibrations": affine_calibrations,
         "missing_six_views": missing_views, "warnings": warnings,
         "release_validation": "validated-with-recorded-generation-blocks" if blocks else "no-recorded-block-exceptions-used",
         "recorded_generation_blocks": [{"object_id": oid, "affected_views": row['affected_views'],

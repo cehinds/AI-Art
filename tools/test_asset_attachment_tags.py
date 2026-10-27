@@ -11,6 +11,57 @@ import asset_attachment_tags as rules
 
 
 class AttachmentRulesTests(unittest.TestCase):
+    def test_procedural_recipe_hash_includes_final_json_tags(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'assets'
+            pack = root / 'style-packs/pocket-dungeon'
+            (pack / 'reusable/procedural').mkdir(parents=True)
+            recipe = pack / 'reusable/procedural/sample.json'
+            recipe.write_text('{"cells": []}')
+            index = {'assets': [], 'procedural': {'recipe': 'reusable/procedural/sample.json',
+                      'recipe_sha256': hashlib.sha256(recipe.read_bytes()).hexdigest()}}
+            index_path = pack / 'reusable/index.json'
+            index_path.write_text(json.dumps(index))
+            (root / 'reusable-library.json').write_text(json.dumps({'libraries': [{
+                'id': 'pocket', 'base': 'style-packs/pocket-dungeon',
+                'index': 'style-packs/pocket-dungeon/reusable/index.json'}]}))
+            rules.apply(root)
+            tagged = json.loads(index_path.read_text())
+            self.assertEqual(tagged['procedural']['recipe_sha256'], hashlib.sha256(recipe.read_bytes()).hexdigest())
+            self.assertNotEqual(tagged['procedural']['recipe_sha256'], index['procedural']['recipe_sha256'])
+            self.assertEqual(rules.apply(root, check=True)['changed'], 0)
+
+    def test_shared_style_catalog_uses_each_library_asset_tags(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'assets'
+            libraries, sections = [], []
+            for style, kind, category in [('pocket-dungeon', 'tile', 'ground'),
+                                           ('ink-and-lanterns', 'ui', 'interface')]:
+                base = 'style-packs/' + style
+                pack = root / base
+                (pack / 'reusable').mkdir(parents=True)
+                asset = {'id': 'stone-floor', 'kind': kind, 'category': category,
+                         'tags': [], 'image': {'path': 'stone-floor.png'},
+                         'metadata_path': 'stone-floor.json'}
+                (pack / 'reusable/index.json').write_text(json.dumps({'assets': [asset]}))
+                libraries.append({'id': style, 'base': base, 'index': base + '/reusable/index.json'})
+                sections.append({'id': style, 'assets': [{'id': 'stone-floor', 'label': 'Stone floor',
+                                                         'sourceBox': [1, 2, 3, 4]}]})
+            (root / 'reusable-library.json').write_text(json.dumps({'libraries': libraries}))
+            catalog_path = root / 'style-packs/catalog.json'
+            catalog_path.write_text(json.dumps({'styles': sections}))
+            rules.apply(root)
+            catalog = json.loads(catalog_path.read_text())
+            for section in catalog['styles']:
+                sidecar = json.loads((root / 'style-packs' / section['id'] / 'stone-floor.json').read_text())
+                for field in ('tags', 'attachment', 'attachment_generated_tags'):
+                    self.assertEqual(section['assets'][0][field], sidecar[field])
+                self.assertNotIn('style:gameplay', section['assets'][0]['tags'])
+                self.assertEqual(section['assets'][0]['sourceBox'], [1, 2, 3, 4])
+            self.assertEqual(catalog['styles'][0]['assets'][0]['attachment']['space'], 'world')
+            self.assertEqual(catalog['styles'][1]['assets'][0]['attachment']['space'], 'screen')
+            self.assertEqual(rules.apply(root, check=True)['changed'], 0)
+
     def test_generation_recipe_hashes_survive_asset_tagging(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/'assets';pack=root/'book-tiles/pocket-dungeon'

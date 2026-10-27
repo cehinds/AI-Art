@@ -401,7 +401,18 @@ def apply(root=DEFAULT_ASSETS, check=False):
         doc = json.loads(path.read_text())
         local = next((items for pack, items in by_pack if path.is_relative_to(pack)), {})
         style = next((style_of(pack) for pack, items in by_pack if path.is_relative_to(pack)), 'gameplay')
-        planned[path] = enrich_document(doc, style, local)
+        if path == root / 'style-packs/catalog.json':
+            # The shared catalog lives above each pack. Resolve its style
+            # sections separately so duplicate asset IDs inherit their own
+            # library's authoritative tags and attachment rules.
+            for section in doc.get('styles', []):
+                section_pack = root / 'style-packs' / section['id']
+                section_assets = next((items for pack, items in by_pack if pack == section_pack), {})
+                enrich_document(section, style_of(section_pack), section_assets)
+            doc['tags'] = sorted(set(doc.get('tags', [])) | {'attachment-tagged', 'metadata-document'})
+            planned[path] = doc
+        else:
+            planned[path] = enrich_document(doc, style, local)
     # Anonymous legacy frames and original manifests may introduce additional
     # requirement combinations. Every JSON group reference must still resolve.
     def ensure_groups(value):
@@ -424,6 +435,17 @@ def apply(root=DEFAULT_ASSETS, check=False):
             for item in value:ensure_groups(item)
     for doc in planned.values():ensure_groups(doc)
     central['groups'] = [groups[k] for k in sorted(groups)]
+    # The procedural recipe is itself a tagged JSON document. Bind the catalog
+    # to its final serialized bytes, including those tags, rather than retaining
+    # the pre-enrichment digest emitted by the scene builder.
+    for entry, pack, index_path, index in libraries:
+        procedural = index.get('procedural', {})
+        if procedural.get('recipe'):
+            recipe = (pack / procedural['recipe']).resolve()
+            if not recipe.is_relative_to(pack.resolve()):
+                raise ValueError('Procedural recipe escapes its library')
+            raw = encoded(planned[recipe]).encode() if recipe in planned else recipe.read_bytes()
+            procedural['recipe_sha256'] = hashlib.sha256(raw).hexdigest()
     # Qualified references and rule groups must resolve deterministically.
     tile_ids = {t['id'] for t in central['tiles']}
     assert len(tile_ids) == len(central['tiles'])

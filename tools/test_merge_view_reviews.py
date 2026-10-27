@@ -62,6 +62,17 @@ class ApprovalTests(unittest.TestCase):
         self.review['view_reviews'] = {v: {'status': 'pass'} for v in merge.VIEWS}
         self.assertFalse(self.result()['complete'])
 
+    def test_principal_direction_case_is_normalized_without_approving_rejection(self):
+        self.review.update(status='needs-correction', affected_views=['TOP', 'Bottom'])
+        result = self.result()
+        self.assertEqual(result['review']['affected_views'], ['top', 'bottom'])
+        self.assertFalse(result['complete'])
+        self.assertEqual(self.review['affected_views'], ['TOP', 'Bottom'])
+
+    def test_direction_normalization_preserves_invalid_values_for_strict_rejection(self):
+        self.assertEqual(merge.normalize_affected_views(['TOP', 'top', 'northeast', None]),
+                         ['top', 'top', 'northeast', None])
+
     def test_latest_decisive_review_wins_pending_does_not_override(self):
         pending = {**self.review, 'status': 'pending', 'reviewed_at': '2026-10-25T13:00:00+00:00'}
         rejected = {**self.review, 'status': 'issues', 'reviewed_at': '2026-10-25T11:00:00+00:00'}

@@ -33,6 +33,14 @@ def encode(value):
     return json.dumps(value, indent=2, ensure_ascii=False) + '\n'
 
 
+def normalize_affected_views(values):
+    """Serialize known principal names consistently without hiding bad input."""
+    if not isinstance(values, list):
+        return values
+    return [value.lower() if isinstance(value, str) and value.lower() in VIEWS else value
+            for value in values]
+
+
 def contained(root, relative):
     if not isinstance(relative, str) or Path(relative).is_absolute() or '..' in Path(relative).parts:
         raise ValueError(f'Unsafe relative path: {relative!r}')
@@ -183,7 +191,7 @@ def review_set(pack, object_id, group, assets, reviews, scope=None):
     result['complete'] = not rejected
     result['review'] = {'reviewer': reviewer, 'reviewed_at': record['reviewed_at'],
                         'status': record['status'], 'notes': record.get('notes', []),
-                        'affected_views': record.get('affected_views', [])}
+                        'affected_views': normalize_affected_views(record.get('affected_views', []))}
     if proof:result['review']['source_evidence'] = proof
     return result
 
