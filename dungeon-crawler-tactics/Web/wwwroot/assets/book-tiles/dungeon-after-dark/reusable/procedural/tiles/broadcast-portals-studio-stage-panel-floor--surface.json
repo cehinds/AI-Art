@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "broadcast-portals-studio-stage-panel-floor--surface",
+  "name": "Studio Stage Panel floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "broadcast-portals",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/broadcast-portals-studio-stage-panel-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5e21f38d2e388c78f58ae917342fb0e05605ce8b2cb484fe2cf0269c08910d5a",
+    "rgba_sha256": "2354e63bf29d1db8049d91bb133edaf051d053d304f78038d65607c344abf3aa"
+  },
+  "metadata_path": "reusable/procedural/tiles/broadcast-portals-studio-stage-panel-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "broadcast-portals-studio-stage-panel-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "broadcast-portals/components/broadcast-portals-studio-stage-panel-floor.png",
+    "source_sha256": "336efd5c2ad7c55b2872973a2c94e981c605371e70f2092d7241b6548f12709d",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "east": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "south": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "west": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ]
+  },
+  "canonical_asset_id": "broadcast-portals-studio-stage-panel-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "broadcast-portals-studio-stage-panel-floor"
+  }
+}

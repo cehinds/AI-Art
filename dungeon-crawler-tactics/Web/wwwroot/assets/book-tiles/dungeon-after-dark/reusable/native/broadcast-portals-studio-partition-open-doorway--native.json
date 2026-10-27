@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "broadcast-portals-studio-partition-open-doorway--native",
+  "name": "Studio Partition open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "broadcast-portals",
+    "door",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/broadcast-portals-studio-partition-open-doorway--native.png",
+    "width": 222,
+    "height": 194,
+    "sha256": "574eaa5f2c2a61bf31ad0acf24f799f4ca431526c9b747e455e4e105553453b2",
+    "rgba_sha256": "171fcfd41e3edc5a7820e93225ef7e29f0ce69c6c34c12a04b6c1e6c7e693b7f"
+  },
+  "metadata_path": "reusable/native/broadcast-portals-studio-partition-open-doorway--native.json",
+  "anchor_px": [
+    111.0,
+    194
+  ],
+  "object_id": "broadcast-portals-studio-partition-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/broadcast-portals.png",
+    "source_sha256": "e28e1aa2cafeb4f905a7df4a36d7dd805b18b146d7fd2bf77b125d6e73bb1ef5",
+    "source_rect": [
+      39,
+      501,
+      222,
+      194
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "broadcast-portals-studio-partition-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "broadcast-portals-studio-partition-open-doorway"
+  }
+}

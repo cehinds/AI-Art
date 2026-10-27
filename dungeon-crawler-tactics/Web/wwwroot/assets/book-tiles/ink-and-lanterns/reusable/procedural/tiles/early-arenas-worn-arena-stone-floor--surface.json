@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-worn-arena-stone-floor--surface",
+  "name": "Worn arena stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "early-arenas",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/early-arenas-worn-arena-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "ce17531ac452718dfba80b4520faf82ec2deb5ea0a280c3c35db2f5f3d79d014",
+    "rgba_sha256": "d75a0a8d5594f65d2348024d9f76ae1ae77dae284f84be64bf127826526e302a"
+  },
+  "metadata_path": "reusable/procedural/tiles/early-arenas-worn-arena-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "early-arenas-worn-arena-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "early-arenas/components/early-arenas-worn-arena-stone-floor.png",
+    "source_sha256": "ddd71ee8ab1c3650ae9446f529c0b83fe195a8809a8a79a00a66f7e731cd9443",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "east": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "south": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "west": [
+      "join.floor",
+      "visual.early-arenas"
+    ]
+  },
+  "canonical_asset_id": "early-arenas-worn-arena-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "early-arenas-worn-arena-stone-floor"
+  }
+}

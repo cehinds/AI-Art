@@ -1,0 +1,20 @@
+from pathlib import Path
+import json,hashlib
+from PIL import Image,ImageDraw
+import numpy as np
+from scipy.ndimage import label,find_objects
+b=Path(__file__).resolve().parent;root=b.parents[3];sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();guard=json.loads((b/'inputs/source-current-guards.json').read_text())['objects'][2];oid=guard['object_id'];raw=b/'raw/surface-v3.png';im=Image.open(raw).convert('RGBA');lab,n=label(np.array(im.getchannel('A'))>=64,np.ones((3,3)));cc=[]
+for idx,sl in enumerate(find_objects(lab),1):
+ if sl and (lab[sl]==idx).sum()>1000:cc.append((sl[0].start,sl[1].start,idx,[sl[1].start,sl[0].start,sl[1].stop,sl[0].stop]))
+cc.sort(key=lambda x:x[1]);assert len(cc)==2;rows=[];inputs=[]
+for v,a in [('source',guard['source']),*guard['views'].items()]:
+ p=b/'inputs'/f'{oid}.{v}.png';assert sha(p)==a['sha256'];inputs.append({'path':str(p.relative_to(root)),'sha256':sha(p)})
+for view,component,target_axis,target in [('top',0,'width',135),('bottom',1,'width',135)]:
+ _,_,idx,box=cc[component];crop=im.crop(box);alpha=np.array(crop.getchannel('A'));crop.putalpha(Image.fromarray(np.where(lab[box[1]:box[3],box[0]:box[2]]==idx,alpha,0).astype('uint8')));scale=target/(crop.height if target_axis=='height' else crop.width);size=[round(crop.width*scale),round(crop.height*scale)];offset=[(256-size[0])//2,(256-size[1])//2];crop=crop.resize(size,Image.Resampling.NEAREST);out=Image.new('RGBA',(256,256));out.alpha_composite(crop,offset);p=b/'images'/f'{oid}.{view}.candidate-v1.png';out.save(p)
+ rows.append({'object_id':oid,'view':view,'source':guard['source'],'base_views':guard['views'],'candidate':{'path':str(p.relative_to(root)),'sha256':sha(p)},'raw':{'path':str(raw.relative_to(root)),'sha256':sha(raw)},'prompt':{'path':str((b/'raw/surface-v3.prompt.txt').relative_to(root)),'sha256':sha(b/'raw/surface-v3.prompt.txt')},'response':{'path':str((b/'raw/surface-v3-response.json').relative_to(root)),'sha256':sha(b/'raw/surface-v3-response.json')},'geometry_guide':{'path':str((b/'inputs/surface-stone-footprint-guide-v3.png').relative_to(root)),'sha256':sha(b/'inputs/surface-stone-footprint-guide-v3.png')},'recipe':{'alpha_threshold':64,'connectivity':8,'component_bbox_xyxy':box,'component_area':int((lab==idx).sum()),'alpha_mask':'retain original alpha only inside selected component, no dilation','uniform_scale':scale,'resized_wh':size,'offset_xy':offset,'canvas':[256,256],'resampler':'NEAREST'},'inference':'Source-matched mottled gray stone cap and inferred underside, width135 and depth~74 matching retained FRONT X135 and side Y72–78; no frontal brick strip in XY.'})
+c=Image.new('RGB',(1600,230*2),'#ddd');dr=ImageDraw.Draw(c)
+for row,x in enumerate(rows):
+ dr.text((0,row*230),oid+' '+x['view'].upper(),fill='black')
+ for col,v in enumerate(['source','front','top','right','left','bottom','rear','candidate']):
+  p=root/x['candidate']['path'] if col==7 else b/'inputs'/f'{oid}.{v}.png';a=Image.open(p).convert('RGBA');a.thumbnail((190,190),Image.Resampling.NEAREST);c.paste(a,(col*200+(200-a.width)//2,row*230+20),a);dr.text((col*200+3,row*230+210),v,fill='black')
+p=b/'surface-source-current-candidate-v3.png';c.save(p);m={'scope':'book-tiles/ink-and-lanterns','candidate_only':True,'candidate_owner':'page_inventory','reviewer':'root','installer':'views_ink_books','sets':rows,'immutable_inputs':inputs,'input_guard':{'path':str((b/'inputs/source-current-guards.json').relative_to(root)),'sha256':sha(b/'inputs/source-current-guards.json')},'script':{'path':str(Path(__file__).relative_to(root)),'sha256':sha(Path(__file__))},'contact':{'path':str(p.relative_to(root)),'sha256':sha(p)},'diagnostics':['caps-v1 Surface2 rejected: wrong shallow aspect.','caps-v2 Surface2 rejected: still too shallowY; final surface-v3 uses exact1.8:1 guide footprint.'],'requirements':['Preserve all four accepted elevations; source/current-six checks before install.','Use retained raw/prompt/guide/immutable input lineage; source canonical remains identity authority.']};(b/'surface-candidate-manifest-v3.json').write_text(json.dumps(m,indent=2)+'\n');print('surface contact',sha(p))

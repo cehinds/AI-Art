@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-stations-wet-station-concrete-floor--surface",
+  "name": "Wet station concrete floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "iron-stations",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-stations-wet-station-concrete-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "57d63ff995a053c0b5bd1740308ef158f7c9a95a1d3df4055bcb8d29a70be6da",
+    "rgba_sha256": "5460477b596dbd2e451aefa2f36e55d5c3e6fa991b7cc89ba6318be44b021f4d"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-stations-wet-station-concrete-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-stations-wet-station-concrete-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-stations/components/iron-stations-wet-station-concrete-floor.png",
+    "source_sha256": "686cf1681d137a331c406b1e4bd1ad099cb25821e22f1687cfc099227115bd17",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-stations"
+    ]
+  },
+  "canonical_asset_id": "iron-stations-wet-station-concrete-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-stations-wet-station-concrete-floor"
+  }
+}

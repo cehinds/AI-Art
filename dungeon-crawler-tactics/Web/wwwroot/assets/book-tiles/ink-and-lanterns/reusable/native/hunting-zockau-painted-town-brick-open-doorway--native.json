@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-zockau-painted-town-brick-open-doorway--native",
+  "name": "Painted Town Brick open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:unspecified",
+    "hunting-zockau",
+    "ink-and-lanterns",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/hunting-zockau-painted-town-brick-open-doorway--native.png",
+    "width": 228,
+    "height": 208,
+    "sha256": "e398f2f5fe20a15ce069827b408dd5aaa5593db34dc7088545f1abcd1833d21b",
+    "rgba_sha256": "367fe3b650b957f6598c60ba86fae380b7af47f2969193e0206789a33e54052e"
+  },
+  "metadata_path": "reusable/native/hunting-zockau-painted-town-brick-open-doorway--native.json",
+  "anchor_px": [
+    114.0,
+    208
+  ],
+  "object_id": "hunting-zockau-painted-town-brick-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/hunting-zockau.png",
+    "source_sha256": "84c41b02517ca9f7a118075ad5789addf37ee8a11893ef49d9c0899e9c68c5bc",
+    "source_rect": [
+      44,
+      478,
+      228,
+      208
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "hunting-zockau-painted-town-brick-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "hunting-zockau-painted-town-brick-open-doorway"
+  }
+}

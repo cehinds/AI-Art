@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "great-race-transition-glass-maze-floor--surface",
+  "name": "Glass maze floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "great-race-transition",
+    "ground",
+    "ink-and-lanterns",
+    "material:glass",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/great-race-transition-glass-maze-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "25d9f646749235c1b4dbf831aed323efbd91feb10175832afa8e30ee7e41a6ed",
+    "rgba_sha256": "7cc7e0ca0819e4c521f024615854d96556096487bedfbb6e270e212a5c98fe3d"
+  },
+  "metadata_path": "reusable/procedural/tiles/great-race-transition-glass-maze-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "great-race-transition-glass-maze-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "great-race-transition/components/great-race-transition-glass-maze-floor.png",
+    "source_sha256": "00a8ef4dee464c231c182e0460f0e8f522b975e3a7fa20aa1856e330a1f2d100",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "east": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "south": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "west": [
+      "join.floor",
+      "visual.great-race-transition"
+    ]
+  },
+  "canonical_asset_id": "great-race-transition-glass-maze-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:glass",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "great-race-transition-glass-maze-floor"
+  }
+}

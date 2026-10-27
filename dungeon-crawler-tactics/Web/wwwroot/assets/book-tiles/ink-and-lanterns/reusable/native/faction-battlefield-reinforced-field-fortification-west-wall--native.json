@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "faction-battlefield-reinforced-field-fortification-west-wall--native",
+  "name": "Reinforced Field Fortification west wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:unspecified",
+    "faction-battlefield",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/faction-battlefield-reinforced-field-fortification-west-wall--native.png",
+    "width": 71,
+    "height": 195,
+    "sha256": "e71b0a9cbc496c296424e36c62a54fd39aaaee26f46247f78c94d1c26d2eca24",
+    "rgba_sha256": "c74af37d2615466ec5c7c39b61362daea756ac749d780835220a291d4d7937f2"
+  },
+  "metadata_path": "reusable/native/faction-battlefield-reinforced-field-fortification-west-wall--native.json",
+  "anchor_px": [
+    35.5,
+    195
+  ],
+  "object_id": "faction-battlefield-reinforced-field-fortification-west-wall",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/faction-battlefield.png",
+    "source_sha256": "e07e987ac18c5c72932c2df9e5cb5112356f628bdbfda436871c4680ef3a9ade",
+    "source_rect": [
+      393,
+      268,
+      71,
+      195
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
+  },
+  "canonical_asset_id": "faction-battlefield-reinforced-field-fortification-west-wall",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-battlefield-reinforced-field-fortification-west-wall"
+  }
+}

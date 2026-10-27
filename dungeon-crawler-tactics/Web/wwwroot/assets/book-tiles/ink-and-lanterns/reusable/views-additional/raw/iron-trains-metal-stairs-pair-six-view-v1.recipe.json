@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-direct-source-six-view-per-row",
+  "request_id": "iron-trains-metal-stairs-pair-six-view-v1",
+  "raw_atlas": "reusable/views-additional/raw/iron-trains-metal-stairs-pair-six-view-v1.png",
+  "atlas": "iron-trains-metal-stairs-pair-six-view-v1.png",
+  "atlas_sha256": "78aa6f2cec9927917d114c719fa225d2746b2f06773d84e01a8f040a60ba958e",
+  "grid": {
+    "columns": 6,
+    "rows": 2
+  },
+  "views": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "objects": [
+    {
+      "row": 0,
+      "id": "iron-trains-railcar-metal-stairs-up",
+      "name": "Railcar metal stairs up",
+      "kind": "stair",
+      "tags": [
+        "iron-trains",
+        "stair"
+      ],
+      "source_image": "iron-trains/components/iron-trains-railcar-metal-stairs-up.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "stairs"
+      }
+    },
+    {
+      "row": 1,
+      "id": "iron-trains-railcar-metal-stairs-down",
+      "name": "Railcar metal stairs down",
+      "kind": "stair",
+      "tags": [
+        "iron-trains",
+        "stair"
+      ],
+      "source_image": "iron-trains/components/iron-trains-railcar-metal-stairs-down.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "stairs"
+      }
+    }
+  ],
+  "source_images": [
+    "iron-trains/components/iron-trains-railcar-metal-stairs-up.png",
+    "iron-trains/components/iron-trains-railcar-metal-stairs-down.png"
+  ],
+  "source_image_sha256": [
+    "0d930d6330282cacc7b21c203a3e1e55f69c0cf5af057c6e00ee0256eba37ccd",
+    "ca13ff2d63dd0fcb941a6d3751104eda3432eaf69421c309081681dfa63d21e1"
+  ],
+  "prompt": "Make a transparent-background pixel-art atlas with exactly two rows and six square cells per row. Each row shows one source object in six axis-aligned orthographic directions ordered FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. Row 1 must be the iron-trains metal stairs-up tile from reference 1, row 2 the stairs-down tile from reference 2. Preserve their distinct steel stair shape, direction, dark riveted metal, yellow/orange safety stripes and floor landing. Each projection must be the same physical object from another fixed world axis; do not rotate the object between views. TOP is overhead footprint and stair tread layout; BOTTOM is the underside of the opaque metal structure with matching footprint, not repeated upper treads; FRONT/REAR show low horizontal stair-edge profiles; RIGHT/LEFT show side elevation with consistent height and correct up/down slope. One complete object centered per cell with transparent gutters, no labels, no grid, no extra props, no background, no clipping, no isometric or perspective views. Match the source palette and identity exactly; no object swaps or unrelated details."
+}

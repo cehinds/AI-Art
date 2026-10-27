@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-tracks-rail-straight-northwest-southeast--surface",
+  "name": "Rail straight northwest southeast (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "iron-tracks",
+    "material:iron",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-tracks-rail-straight-northwest-southeast--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "444330dec4571734f444deaa462fb3c4e9d79358dff6a7893ac50d0141564f26",
+    "rgba_sha256": "53a7c5be53ecf259c0fa77d0223f53308fe1792ef6b8b6b843573c6882231506"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-tracks-rail-straight-northwest-southeast--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-tracks-rail-straight-northwest-southeast",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-tracks/components/iron-tracks-rail-straight-northwest-southeast.png",
+    "source_sha256": "98263f5eaa5f93bb90b5375a374e89219e6f3bd70e147f54285bd55bca8b5550",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-tracks"
+    ]
+  },
+  "canonical_asset_id": "iron-tracks-rail-straight-northwest-southeast",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:iron",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-tracks-rail-straight-northwest-southeast"
+  }
+}

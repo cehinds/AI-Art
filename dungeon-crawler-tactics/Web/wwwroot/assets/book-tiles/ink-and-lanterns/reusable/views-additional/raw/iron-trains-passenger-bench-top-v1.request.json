@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "object_id": "iron-trains-passenger-bench",
+  "view": "top",
+  "status": "rejected-candidate",
+  "prompt": "Edit/create only the TOP orthographic view of the source Iron Trains passenger bench. True vertical overhead camera looking down. Show the horizontal seat plank(s), the bench full left-to-right plan footprint, supports and feet as small footprint shapes, and the tall backrest only as a thin narrow strip along the rear edge. Do NOT show the broad vertical backrest face, front-facing slats, or perspective. Preserve the actual iron dark metal and worn wood colors, number of seat slats, leg/support count and relative positions from the source. The sole reference is the canonical source-plus-six contact; use its SOURCE cell for exact identity/material and the existing views only for context, with the existing top specifically incorrect. Transparent background, full silhouette, centered on 256\u00d7256 canvas, no crop, no added props. This is an inferred orthographic view, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/qa-iron-trains-passenger-bench-current-source-six-pre-repair.png",
+      "sha256": "440abb16b6a8f669eb63519dff6355947a3e83c6e40c38dcec11d5cd150c7e00",
+      "role": "canonical source is embedded in first cell; all six current views for context"
+    }
+  ],
+  "geometry_constraints": [
+    "orthographic vertical camera",
+    "show horizontal seat plan and narrow rear backrest edge",
+    "never show broad upright backrest face",
+    "preserve seat/support counts and spacing",
+    "preserve all other five directions"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/iron-trains-passenger-bench-top-v1-atlas.png",
+  "generated_atlas_sha256": "459f06a921c276105d250645ed7c69b1dc7195ab2f693b08c422053c1d5ab075",
+  "generation_call_id": "exec-530e85a2-0551-40b0-9422-ef055f5aa659",
+  "rejection_reason": "candidate keeps full broad backrest boards in the TOP projection"
+}

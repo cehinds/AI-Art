@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-desert-sand-dune-mound--native",
+  "name": "Sand dune mound (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "bubble-desert",
+    "dungeon-after-dark",
+    "environment:desert",
+    "environment:dungeon",
+    "material:sand",
+    "prop",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-desert-sand-dune-mound--native.png",
+    "width": 224,
+    "height": 208,
+    "sha256": "b0a5e82c053fef6202ba39947c49fef76e7623884acdfffb5e280ee92bc63f75",
+    "rgba_sha256": "5e9d5719da31e36667ce7429eabbf818d7e39afe70ed49b23cdaac85774893fc"
+  },
+  "metadata_path": "reusable/native/bubble-desert-sand-dune-mound--native.json",
+  "anchor_px": [
+    112.0,
+    208
+  ],
+  "object_id": "bubble-desert-sand-dune-mound",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-desert.png",
+    "source_sha256": "5159d51c03e999cdfe16b14c05d0f537bccc3ad3da30bf048cd3d4e7de72a33a",
+    "source_rect": [
+      781,
+      747,
+      224,
+      208
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "bubble-desert-sand-dune-mound",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:desert",
+    "environment:dungeon",
+    "material:sand",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-desert-sand-dune-mound"
+  }
+}

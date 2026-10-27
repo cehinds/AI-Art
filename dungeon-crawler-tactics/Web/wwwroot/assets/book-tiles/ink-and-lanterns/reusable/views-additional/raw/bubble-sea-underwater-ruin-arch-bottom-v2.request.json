@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-sea-underwater-ruin-arch",
+  "view": "bottom",
+  "status": "rejected-after-self-qa",
+  "prompt": "Edit this accepted TOP plan of the mossy coral-stone ruin arch into its BOTTOM view while preserving the exact U-shaped plan silhouette and dimensions. Keep the same width-to-depth ratio, same two near feet, two side arms, and same large empty central opening. This is a strict camera directly underneath looking up along the vertical axis; no upright frontal arch silhouette, no perspective, no rotation. Repaint the U-shaped masonry ring as a plain rough gray-green stone underside with believable block seams, muted moss at edges, and NO flowers or leaves. Do not fill or bridge the central opening. Preserve the full footprint and all four arms of the top plan; only change the visible surfaces to plausible plain underside stone. Transparent 256x256 background. Inferred bottom view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/bubble-sea-underwater-ruin-arch.top.png",
+      "sha256": "1bae23f05a090a779d54ea43c02d7a2598dbffba245b7a699ca1c45919d88e9d",
+      "role": "accepted plan silhouette and exact footprint authority"
+    },
+    {
+      "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
+      "sha256": "574d01bdd6c00ffd92b624fb6d57b943c4f224d80e8a89b0390853a9df6046b8",
+      "role": "canonical stone/moss material and object identity"
+    }
+  ],
+  "geometry_constraints": [
+    "retain accepted TOP U-shaped footprint exactly",
+    "same plan width/depth and central open gap",
+    "plain stone underside without flora",
+    "strict downward bottom camera, not frontal arch"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-sea-underwater-ruin-arch-bottom-v2-atlas.png",
+  "generated_atlas_sha256": "322f8ab8d480f4d9472e63646094bf166de6a06e4265240ecf6a261d23f92070",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Although it preserved an open center, it again produced a portrait U-shaped frontal arch instead of the accepted horizontal plan orientation; not installed."
+}

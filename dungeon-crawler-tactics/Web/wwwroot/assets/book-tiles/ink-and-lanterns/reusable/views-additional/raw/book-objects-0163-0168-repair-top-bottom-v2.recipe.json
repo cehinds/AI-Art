@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-correction-atlas",
+  "atlas": "book-objects-0163-0168-repair-top-bottom-v2-atlas.png",
+  "source_atlas": "book-objects-0163-0168-atlas.png",
+  "source_atlas_sha256": "88ffc04ed35aa54b71efc94a01570d96cbc4699f4678670be8e3d4b567e8efb8",
+  "source_contact": "book-objects-0163-0168-contact.png",
+  "source_contact_sha256": "f4e818a4998002043d9eb057cdefaaa7e5e0b4ef05bf2f181c94744d6f19885d",
+  "layout_reference": "book-objects-0001-0006-atlas.png",
+  "layout_reference_sha256": "78046a2296e5bd398ea9be371781bba73216dfd54ea181f343658b664f21dde5",
+  "source_ids": [
+    "clubs-guilds-restaurant-booth--native",
+    "clubs-guilds-private-conversation-booth--native",
+    "clubs-guilds-guild-training-doorway--native",
+    "clubs-guilds-silk-market-stall--native",
+    "clubs-guilds-mercenary-reception-desk--native",
+    "clubs-guilds-clean-white-club-entrance--native"
+  ],
+  "grid": [
+    6,
+    6
+  ],
+  "columns": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "corrected_columns": [
+    "top",
+    "bottom"
+  ],
+  "views": "inferred orthographic; not recovered pixels; not calibrated 3D",
+  "prompt": "Generate a transparent six-row by six-column orthographic repair atlas. Primary contact sheet provides six exact source props in row order (left to right, then second row); use the original target atlas only to preserve source identity and the floor-view reference atlas to follow its overhead/underside camera orientation. Columns front, top, right, left, bottom, rear. Correct TOP and BOTTOM cells. Camera axes are world fixed: top looks straight down at XY footprint; bottom looks straight upward from below; neither may show a frontal or 3/4 face. Top and bottom silhouette dimensions must agree with front/right/left/rear extents. For row1 restaurant booth: top must be a rectangular plan with the rectangular table, cloth outline and bench seat footprints only; back cushions are edge-on thin strips; bottom shows real table/bench underside and legs. Do not introduce plants, round furniture or unrelated details. For row5 mercenary reception desk: top is the actual rectangular desk counter plan, banner only a thin edge at the front; bottom shows desk/plant support footprints and underside. Do not introduce booth upholstery. For row6 clean white club entrance: top is only two column footprints and the crosswise arch/lintel depth from overhead; opening remains a void and curtain face is edge-on/invisible. Bottom shows column bases and arch underside footprint, never a face-on arch or curtain. Other rows also use strictly overhead plans and matching object undersides without generic wooden panels. Preserve source style and geometry; zero perspective, zero rotation, no extra objects, no text, labels, borders, or shadows.",
+  "atlas_sha256": "9c5443d3f3fbc0497f5b49e3e330cc56d737b6f5f9b5f4547e2efde569b4bcb1"
+}

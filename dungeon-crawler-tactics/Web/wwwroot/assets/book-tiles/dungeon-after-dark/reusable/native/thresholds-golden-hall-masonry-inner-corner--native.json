@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "thresholds-golden-hall-masonry-inner-corner--native",
+  "name": "Golden Hall Masonry inner corner (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:gold",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "thresholds",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/thresholds-golden-hall-masonry-inner-corner--native.png",
+    "width": 181,
+    "height": 184,
+    "sha256": "3c278c096ac6423965a432d8a34512e0b444ba67497b7f75ef33913f7b4c4b7c",
+    "rgba_sha256": "12d1a8b29bd9381ae777ee28abc323cc44a7a052fd5d96b5585717808f4c98e1"
+  },
+  "metadata_path": "reusable/native/thresholds-golden-hall-masonry-inner-corner--native.json",
+  "anchor_px": [
+    90.5,
+    184
+  ],
+  "object_id": "thresholds-golden-hall-masonry-inner-corner",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/thresholds.png",
+    "source_sha256": "2707e15c2c97b7139403ef3650fbca23073868f2b9aeae79c7bc615665e2bbc7",
+    "source_rect": [
+      809,
+      278,
+      181,
+      184
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
+  },
+  "canonical_asset_id": "thresholds-golden-hall-masonry-inner-corner",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:gold",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "thresholds-golden-hall-masonry-inner-corner"
+  }
+}

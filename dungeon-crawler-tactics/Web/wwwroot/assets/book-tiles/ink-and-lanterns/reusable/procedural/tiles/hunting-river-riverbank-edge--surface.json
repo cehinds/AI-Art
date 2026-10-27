@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-river-riverbank-edge--surface",
+  "name": "Riverbank edge (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "hunting-river",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-river-riverbank-edge--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d9d09af0220ccb5b9c94f1f98d5f1ab6dc37a20d89adbd3fb399e398c1671c14",
+    "rgba_sha256": "a03b82d33b0ce6c091156f05ad73b5c021b9613d808abce167c52a99ad572729"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-river-riverbank-edge--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-river-riverbank-edge",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-river/components/hunting-river-riverbank-edge.png",
+    "source_sha256": "89b5bc8f5143fc5ccd0b51d3ae758055b04deb0f8ca35a083e5ef61dc620695e",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
+  },
+  "canonical_asset_id": "hunting-river-riverbank-edge",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-river-riverbank-edge"
+  }
+}

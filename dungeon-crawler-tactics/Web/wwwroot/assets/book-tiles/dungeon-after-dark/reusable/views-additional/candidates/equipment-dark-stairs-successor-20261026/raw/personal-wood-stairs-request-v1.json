@@ -1,0 +1,19 @@
+{
+  "batch": "equipment-dark-stairs-personal-wood-v1",
+  "prompt": "Generate exactly FOUR transparent-background pixel-art candidate cells in a 2-column x 2-row atlas. Columns left-to-right: BOTTOM, REAR. Rows top-to-bottom: Personal Space warm wood plank STAIRS UP, then the matching STAIRS DOWN. The local source/current contact shows each precise target row (source plus its six current views); preserve its wood species/color, plank count, frame/stringer design, and up/down rise direction. The separate Ink stair contact is only a geometry diagram: copy no stone pixels or colors.\n\nFor each BOTTOM, camera looks straight up along +Z at the complete underside. Show a full horizontal stair-footprint plan with connected warm wood support/stringer bottoms and rear supports; retain the exact footprint and left/right rails. Do not show upper tread tops through opaque wood and do not turn the underside into a generic flat rectangle. For each REAR, camera is level and axis-aligned from the opposite end, showing the solid reverse support/riser construction of the same staircase, not repeating the front-facing top tread cavity. Preserve up/down orientation and original number/spacing of wooden treads. Do not add/remove steps or change pose.\n\nOne object per cell, centered with clear transparent margin, full silhouette inside cell; no cell-crossing, no neighbor contamination, no labels/grid/text, no scene/shadow. Crisp dark-outlined pixel art. Source target is sole style/material authority; hidden supports are inferred conservatively.",
+  "source_reference": "raw/personal-wood-stairs-source-current-contact.png",
+  "geometry_guide": "raw/ink-stairs-geometry-guide-contact.png",
+  "geometry_guide_role": "geometry only; no donor style pixels",
+  "affected_views": [
+    "bottom",
+    "rear"
+  ],
+  "rows": [
+    "personal-space-warm-wood-plank-stairs-up",
+    "personal-space-warm-wood-plank-stairs-down"
+  ],
+  "status": "rejected",
+  "generated_atlas_path": "raw/personal-wood-stairs-atlas-v1.png",
+  "generated_atlas_sha256": "33ff8afac8531d8a226edd72e0525d75e5d2e7bf3d82a5168b3efbd40c66deb5",
+  "qa_notes": "rejected: all cells reproduced tread-facing images instead of requested BOTTOM/REAR"
+}

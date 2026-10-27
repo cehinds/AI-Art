@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "thresholds-golden-hall-masonry-open-doorway--native",
+  "name": "Golden Hall Masonry open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "thresholds",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/thresholds-golden-hall-masonry-open-doorway--native.png",
+    "width": 220,
+    "height": 215,
+    "sha256": "23e5ce2e7faaf75684e5662b187d438d9e503d883bbc1f772ecf30e504ad3729",
+    "rgba_sha256": "e65aba35e0b79a5d904c48a454593f43bc34282d54aa0e483a64629c4bf0bff4"
+  },
+  "metadata_path": "reusable/native/thresholds-golden-hall-masonry-open-doorway--native.json",
+  "anchor_px": [
+    110.0,
+    215
+  ],
+  "object_id": "thresholds-golden-hall-masonry-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/thresholds.png",
+    "source_sha256": "4286b6a93e579ab96724fe26978a981265d5d0bc0946ed6fe9def45de7282635",
+    "source_rect": [
+      29,
+      469,
+      220,
+      215
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "thresholds-golden-hall-masonry-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "thresholds-golden-hall-masonry-open-doorway"
+  }
+}

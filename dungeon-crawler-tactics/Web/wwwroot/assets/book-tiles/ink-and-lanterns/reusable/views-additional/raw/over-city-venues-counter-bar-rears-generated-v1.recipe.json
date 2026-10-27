@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "method": "imagegen-source-guided-rear-panels",
+  "source_ids": [
+    "over-city-venues-general-goods-shop-counter",
+    "over-city-venues-tavern-bar"
+  ],
+  "source_images": [
+    "over-city-venues/components/over-city-venues-general-goods-shop-counter.png",
+    "over-city-venues/components/over-city-venues-tavern-bar.png"
+  ],
+  "grid": {
+    "columns": 2,
+    "rows": 1,
+    "object_order": [
+      "over-city-venues-general-goods-shop-counter",
+      "over-city-venues-tavern-bar"
+    ]
+  },
+  "corrected_view": "rear",
+  "atlas": "over-city-venues-counter-bar-rears-generated-v1.png",
+  "atlas_sha256": "99a23edfa8e9a20c751f9afa8f273100aa0b2839f0ec4eee8ab8686ee492420e",
+  "generation_request": "raw/over-city-venues-counter-bar-rear-request-v1.json",
+  "generation_prompt": "Create exactly TWO isolated orthographic REAR elevations in one horizontal row, in order: left is over-city-venues-general-goods-shop-counter; right is over-city-venues-tavern-bar. Each reference row contains the exact source and that object's FRONT/RIGHT/LEFT; keep each identity and dimensions distinct. Level camera from directly behind each counter. Left: show the solid plain wood rear of the general-goods shelf/counter and cabinet; remove front-facing colorful wares and blue front banner, do not copy the frontal display. Right: show the solid paneled wooden backside of the tavern bar; no front-facing bottles, barrel, shelf display, lanterns, tap, or blue banner. Include no new structures, maintain each source's full height and width, and show only real back faces of its shelving/casing. One centered isolated cutout per cell with transparent gutters, no text, no perspective, no extra objects or scenery. Inferred rear surfaces, not recovered pixels or calibrated 3D.",
+  "reference_sheet": "reusable/views-additional/raw/over-city-venues-counter-bar-rear-source-guides-v1.png",
+  "reference_sheet_sha256": "57859e51214f90e11f1810c75b76dd95a77e63ff26e08d64dbf958e7df24c989",
+  "alpha_threshold": 16,
+  "expected_result": "Inferred closed backs of source-matched counters, not recovered pixels or calibrated 3D."
+}

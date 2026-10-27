@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-zockau-mid-century-street-pavement-floor--surface",
+  "name": "Mid Century Street Pavement floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "hunting-zockau",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-zockau-mid-century-street-pavement-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "09185709eb6cc56cf55728695044c48c8ea50087238f6b00d294eef4840b7a99",
+    "rgba_sha256": "595332266a50d084a5c613e41a1a8ec688bfc601ee7ba10559b9c906f3508903"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-zockau-mid-century-street-pavement-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-zockau-mid-century-street-pavement-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-floor.png",
+    "source_sha256": "607391dce162222eb6d6d1c54b4e705b76fc5f561d04f0ae5cf02c02af238ed0",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ]
+  },
+  "canonical_asset_id": "hunting-zockau-mid-century-street-pavement-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-zockau-mid-century-street-pavement-floor"
+  }
+}

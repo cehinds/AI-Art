@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "faction-larracos-ancient-city-masonry-closed-doorway--native",
+  "name": "Ancient City Masonry closed doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "faction-larracos",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/faction-larracos-ancient-city-masonry-closed-doorway--native.png",
+    "width": 222,
+    "height": 201,
+    "sha256": "76226c55a373023f67cd32184a454cee6d7641bbb038c89dcb7d22e8f4b3ab84",
+    "rgba_sha256": "fd9584d2a7e04569b50c1c8a54665662104ecde51dba6d09e6ae82b760c3ecd3"
+  },
+  "metadata_path": "reusable/native/faction-larracos-ancient-city-masonry-closed-doorway--native.json",
+  "anchor_px": [
+    111.0,
+    201
+  ],
+  "object_id": "faction-larracos-ancient-city-masonry-closed-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/faction-larracos.png",
+    "source_sha256": "cb592894f49f9e6201bdfd0abea930b7f41905328272cd45a2a82f2a1c966cf3",
+    "source_rect": [
+      289,
+      498,
+      222,
+      201
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "faction-larracos-ancient-city-masonry-closed-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-larracos-ancient-city-masonry-closed-doorway"
+  }
+}

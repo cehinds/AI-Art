@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "ghost-havana-ghost-traffic-road-barrier",
+  "view": "top",
+  "status": "rejected-after-self-qa",
+  "prompt": "Create only a strict TOP view of this solid cast-concrete Jersey road barrier. Use SOURCE, RIGHT, LEFT, and BOTTOM as the geometry authorities; disregard the current rejected TOP in the earlier contact. It is a single heavy poured concrete obstacle, not a gate/boom. Straight down at 90 degrees, no perspective or horizon. Draw the complete broad footprint matching BOTTOM: overall full-span width about 220 units and depth about 95 units (roughly 2.3:1). The center has a narrow longitudinal concrete ridge; on both long sides the sloped Jersey flanks are visible as broad concrete top-facing planes within the footprint, reaching the wide base edges. Keep trapezoidal/tapered ends and source lifting-handle loops at their ends. The red/white stripes belong to the concrete flanks and may appear on those visible upward-facing planes, but the camera must remain exactly overhead. Preserve solid concrete continuity and source identity. Absolutely no metal base plates, no separate posts, no hinges/rotors/lights, no thin arm. Complete isolated object, transparent 256x256 canvas, centered. Inferred principal view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "ghost-havana/components/ghost-havana-ghost-traffic-road-barrier.png",
+      "sha256": "020133a6e90032e2f894e70998765bfcde98918c346b9251c8c9b0b3a8d30278",
+      "role": "canonical exact solid concrete identity"
+    },
+    {
+      "path": "reusable/views-additional/qa-ghost-havana-road-barrier-source-right-left-bottom-v1.png",
+      "sha256": "29f2b03bf680ca1fb15c81555ff63f1827816f9477468ec46771bf0ec0ba9996",
+      "role": "source plus current RIGHT/LEFT/BOTTOM; use as geometry authority and ignore rejected old TOP"
+    }
+  ],
+  "geometry_constraints": [
+    "single solid cast-concrete Jersey mass",
+    "top-view footprint approximately 220x95 (2.3:1)",
+    "narrow central longitudinal ridge with two broad upward-facing sloped concrete flanks",
+    "maintain source stripe paint and handle loops",
+    "no gate hardware, base plates, posts, or perspective"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/ghost-havana-ghost-traffic-road-barrier-top-v4-atlas.png",
+  "generated_atlas_sha256": "81590ca18ef851fb40cc043361b587c41f5d09661134375945485da5d1d1af3b",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Solid barrier mass was retained but footprint remained too shallow and perspective-like; superseded by v6 edit from accepted bottom."
+}

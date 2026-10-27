@@ -1,0 +1,863 @@
+{
+  "batch": "stone-corners-batch01",
+  "tool": "image_gen.imagegen",
+  "tool_request_id": null,
+  "generated_path": "/workspace/generated_images/exec-2ed4158d-7876-4392-a82e-7794feb7afff.png",
+  "staged_raw_path": "raw/stone-corners-batch01-atlas.png",
+  "raw_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+  "raw_dimensions": [
+    1774,
+    887
+  ],
+  "prompt_path": "../prompts/stone-corners-batch01.prompt.json",
+  "prompt_text": "Use reference 1 only as simple silhouette/camera diagram; reference 2 is a verified approved same-kit geometry/view guide; reference 3 is the exact target source contact and controls all stone materials, banners, metal rings and identity. Generate one transparent pixel-art atlas with TWO rows (outer corner first, inner corner second) and FOUR equal cells per row, columns FRONT, RIGHT, LEFT, REAR. These four are true level 90-degree elevations with vertical axis world Z, and all four show a broad rectangular joined wall face at the same total height; no isometric corners, no L silhouette, no standalone narrow post, no visible top surface. The physical object is a compact L-footprint corner of two perpendicular joined stone wings. From each camera, show the face-on branch as a broad rectangular elevation and only the physically visible narrow end of the perpendicular branch; maintain consistent dimensions and corner orientation across opposite directions. Use exactly the number and placement of source banners per row: outer source has one red hanging banner and one bronze ring detail; inner has two red hanging banners. Retain blue-gray masonry blocks, pale sandstone cap blocks and dark mortar/iron outline from the target source. Hidden faces inferred conservatively. No extra props, no letters, no shadows beyond the sprite, no cell spill. Crisp orthographic pixel art, transparent background.",
+  "input_refs": [
+    {
+      "path": "references/common-corner-silhouette-guide.png",
+      "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+    },
+    {
+      "path": "references/stone-approved-guides.png",
+      "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+    },
+    {
+      "path": "references/stone-corner-sources.png",
+      "sha256": "384c440578bc1dd70cbd71a495ab8f7e55c7c8ed3c639be82bb49fb1e9803e38"
+    }
+  ],
+  "layout": "4 columns x 2 rows; outer then inner; columns front,right,left,rear",
+  "component_policy": "full-atlas alpha threshold >=64/255, 4-connected components; assign by centroid to each logical cell, keep largest component by pixel area, use complete global component bounds even if crossing cell boundary",
+  "qa": "Visually reviewed raw atlas. All four cells show broad wall elevations rather than single posts or L elevations. Main world-Z height is consistent within object; source-specific banners/braces remain. Candidate pending Page current-hash review.",
+  "objects": [
+    {
+      "object_id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "affected_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ],
+      "preserve_views": [
+        "top",
+        "bottom"
+      ],
+      "source": {
+        "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+        "sha256": "b057e307191e4b521018b9bbaa3eb22ef6743eacc10b111c7c45ce7b8534ba82"
+      },
+      "base_current_six": {
+        "front": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.front.png",
+          "sha256": "b3b045a63dc66495b3f28f5d915ab3f06c67791ec39cc18d09d9ca99a3b9529b"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.top.png",
+          "sha256": "20cc2385c78711a4bbbf5c474b7a452c86686ddd250b369757cc32360d9d8c7b"
+        },
+        "right": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.right.png",
+          "sha256": "34b5a3fd57b9282c8832fc2bcf77879219d9ff2276928ce70f75e23576d5862e"
+        },
+        "left": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.left.png",
+          "sha256": "870434e687c9f42e8123c423cf36d839d82671ed77953b1f500363a606298ef9"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.bottom.png",
+          "sha256": "3f79c49a2d28e626981ae1ea03a8d759e7045b4ef7437c1ea43d99b8115b4e95"
+        },
+        "rear": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.rear.png",
+          "sha256": "350651d4112a9640453fdeb58ffe7c20a9414d66f774bd26252cb24cc194598c"
+        }
+      },
+      "candidate_views": {
+        "front": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.front",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.front.png",
+          "sha256": "c3aef7408ed733f406ced3c1de3826be2086f5606d00dbcadc9c8b59dfea6d94"
+        },
+        "right": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.right",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.right.png",
+          "sha256": "f5e764ee5f0d23a650d15bb459e49b32754cd14f8a8dcb03d38d2998a1eedbd1"
+        },
+        "left": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.left",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.left.png",
+          "sha256": "65f1b02f609a63f63d14e47a6e4353685096b23cffbc60316a6e50b3b6e67608"
+        },
+        "rear": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.rear",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.rear.png",
+          "sha256": "90c9bed7abc5caf07e8ea2a20bcb23beedfbeb61382ab41c63e195f3621947ea"
+        }
+      },
+      "full_candidate_contact_views": {
+        "front": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.front",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.front.png",
+          "sha256": "c3aef7408ed733f406ced3c1de3826be2086f5606d00dbcadc9c8b59dfea6d94"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.top.png",
+          "sha256": "20cc2385c78711a4bbbf5c474b7a452c86686ddd250b369757cc32360d9d8c7b",
+          "source": "preserved current base"
+        },
+        "right": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.right",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.right.png",
+          "sha256": "f5e764ee5f0d23a650d15bb459e49b32754cd14f8a8dcb03d38d2998a1eedbd1"
+        },
+        "left": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.left",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.left.png",
+          "sha256": "65f1b02f609a63f63d14e47a6e4353685096b23cffbc60316a6e50b3b6e67608"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-outer-corner.bottom.png",
+          "sha256": "3f79c49a2d28e626981ae1ea03a8d759e7045b4ef7437c1ea43d99b8115b4e95",
+          "source": "preserved current base"
+        },
+        "rear": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.rear",
+          "path": "images/early-arenas-heavy-dungeon-stone-outer-corner.rear.png",
+          "sha256": "90c9bed7abc5caf07e8ea2a20bcb23beedfbeb61382ab41c63e195f3621947ea"
+        }
+      },
+      "status": "candidate-only-pending-Page-review",
+      "shared_isotropic_scale": 0.5831841738063595,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "cell_qa": {
+        "front": {
+          "component_label": 7,
+          "area_pixels": 96378,
+          "bbox_global_xyxy": [
+            42,
+            539,
+            430,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "right": {
+          "component_label": 5,
+          "area_pixels": 59061,
+          "bbox_global_xyxy": [
+            577,
+            538,
+            821,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "left": {
+          "component_label": 8,
+          "area_pixels": 58922,
+          "bbox_global_xyxy": [
+            952,
+            539,
+            1196,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "rear": {
+          "component_label": 6,
+          "area_pixels": 96874,
+          "bbox_global_xyxy": [
+            1343,
+            538,
+            1732,
+            827
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        }
+      }
+    },
+    {
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "affected_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ],
+      "preserve_views": [
+        "top",
+        "bottom"
+      ],
+      "source": {
+        "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "sha256": "fd19f566718524eafde236ea290e28c338f175a1a8d9924396bd7202033dd6c2"
+      },
+      "base_current_six": {
+        "front": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.front.png",
+          "sha256": "ee699a5e6b84d16e98b84bca01f780957e3125b257d278787858c87c591bd4f8"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.top.png",
+          "sha256": "d0046970a4a28f685134c6c6e23887405737b4f3a489329cf124fbcf714565b3"
+        },
+        "right": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.right.png",
+          "sha256": "1ba101b6d5d2c80384d39b157a7d09b6174ea81d1b10c1cc355c54a526c1ac14"
+        },
+        "left": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.left.png",
+          "sha256": "722e7a39664ca95b5917e5b8d6e60b717d2f63307ba385b360fd502fa05abefb"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.bottom.png",
+          "sha256": "0917fe9c4ca2ae3116a299503afe2854aa085f82d15de6d6fe9b572cb56b39fe"
+        },
+        "rear": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.rear.png",
+          "sha256": "34e708ad2f49a9fe01327adcadd3ed1b8d1e4744ac39b27575a4a47b9592f6d9"
+        }
+      },
+      "candidate_views": {
+        "front": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.front",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.front.png",
+          "sha256": "07489559f3de1c0d22a148e4bbdd6ff2e83f01f8b8e321be788b26cf1bfe22c2"
+        },
+        "right": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.right",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.right.png",
+          "sha256": "fb2f4d6edfc330b54bd5c36bc5383fb030bfa2c77f3395815835907de87c3cbf"
+        },
+        "left": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.left",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.left.png",
+          "sha256": "27ecae54892c086f278b7d3d4271f6db376931845ac732b53271f95259022c9c"
+        },
+        "rear": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.rear",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.rear.png",
+          "sha256": "93ec9408c8092c98d5512f2f9922796f14157f6ebfe2eb0bd8a7ebcfffc1fa9b"
+        }
+      },
+      "full_candidate_contact_views": {
+        "front": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.front",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.front.png",
+          "sha256": "07489559f3de1c0d22a148e4bbdd6ff2e83f01f8b8e321be788b26cf1bfe22c2"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.top.png",
+          "sha256": "d0046970a4a28f685134c6c6e23887405737b4f3a489329cf124fbcf714565b3",
+          "source": "preserved current base"
+        },
+        "right": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.right",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.right.png",
+          "sha256": "fb2f4d6edfc330b54bd5c36bc5383fb030bfa2c77f3395815835907de87c3cbf"
+        },
+        "left": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.left",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.left.png",
+          "sha256": "27ecae54892c086f278b7d3d4271f6db376931845ac732b53271f95259022c9c"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/early-arenas-heavy-dungeon-stone-inner-corner.bottom.png",
+          "sha256": "0917fe9c4ca2ae3116a299503afe2854aa085f82d15de6d6fe9b572cb56b39fe",
+          "source": "preserved current base"
+        },
+        "rear": {
+          "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.rear",
+          "path": "images/early-arenas-heavy-dungeon-stone-inner-corner.rear.png",
+          "sha256": "93ec9408c8092c98d5512f2f9922796f14157f6ebfe2eb0bd8a7ebcfffc1fa9b"
+        }
+      },
+      "status": "candidate-only-pending-Page-review",
+      "shared_isotropic_scale": 0.5812815142061236,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "cell_qa": {
+        "front": {
+          "component_label": 7,
+          "area_pixels": 96378,
+          "bbox_global_xyxy": [
+            42,
+            539,
+            430,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "right": {
+          "component_label": 5,
+          "area_pixels": 59061,
+          "bbox_global_xyxy": [
+            577,
+            538,
+            821,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "left": {
+          "component_label": 8,
+          "area_pixels": 58922,
+          "bbox_global_xyxy": [
+            952,
+            539,
+            1196,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "rear": {
+          "component_label": 6,
+          "area_pixels": 96874,
+          "bbox_global_xyxy": [
+            1343,
+            538,
+            1732,
+            827
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.front",
+      "object_id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "view": "front",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-outer-corner.front.png",
+      "sha256": "c3aef7408ed733f406ced3c1de3826be2086f5606d00dbcadc9c8b59dfea6d94",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+        "source_sha256": "b057e307191e4b521018b9bbaa3eb22ef6743eacc10b111c7c45ce7b8534ba82",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 1,
+          "area_pixels": 98163,
+          "bbox_global_xyxy": [
+            39,
+            135,
+            429,
+            420
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5831841738063595,
+        "target_source_front_rear_extent_mean_px": [
+          203.5,
+          186.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          14,
+          45
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.right",
+      "object_id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "view": "right",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-outer-corner.right.png",
+      "sha256": "f5e764ee5f0d23a650d15bb459e49b32754cd14f8a8dcb03d38d2998a1eedbd1",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+        "source_sha256": "b057e307191e4b521018b9bbaa3eb22ef6743eacc10b111c7c45ce7b8534ba82",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 2,
+          "area_pixels": 61051,
+          "bbox_global_xyxy": [
+            578,
+            135,
+            821,
+            420
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            0,
+            886,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5831841738063595,
+        "target_source_front_rear_extent_mean_px": [
+          203.5,
+          186.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          57,
+          45
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.left",
+      "object_id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "view": "left",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-outer-corner.left.png",
+      "sha256": "65f1b02f609a63f63d14e47a6e4353685096b23cffbc60316a6e50b3b6e67608",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+        "source_sha256": "b057e307191e4b521018b9bbaa3eb22ef6743eacc10b111c7c45ce7b8534ba82",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 3,
+          "area_pixels": 60827,
+          "bbox_global_xyxy": [
+            953,
+            135,
+            1196,
+            420
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            0,
+            1329,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5831841738063595,
+        "target_source_front_rear_extent_mean_px": [
+          203.5,
+          186.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          57,
+          45
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-outer-corner.rear",
+      "object_id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "view": "rear",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-outer-corner.rear.png",
+      "sha256": "90c9bed7abc5caf07e8ea2a20bcb23beedfbeb61382ab41c63e195f3621947ea",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+        "source_sha256": "b057e307191e4b521018b9bbaa3eb22ef6743eacc10b111c7c45ce7b8534ba82",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 4,
+          "area_pixels": 98281,
+          "bbox_global_xyxy": [
+            1345,
+            135,
+            1736,
+            420
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            0,
+            1772,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5831841738063595,
+        "target_source_front_rear_extent_mean_px": [
+          203.5,
+          186.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          14,
+          45
+        ]
+      },
+      "row_object_id": "early-arenas-heavy-dungeon-stone-outer-corner"
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.front",
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "view": "front",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-inner-corner.front.png",
+      "sha256": "07489559f3de1c0d22a148e4bbdd6ff2e83f01f8b8e321be788b26cf1bfe22c2",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "source_sha256": "fd19f566718524eafde236ea290e28c338f175a1a8d9924396bd7202033dd6c2",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 7,
+          "area_pixels": 96378,
+          "bbox_global_xyxy": [
+            42,
+            539,
+            430,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5812815142061236,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          185.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          15,
+          45
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.right",
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "view": "right",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-inner-corner.right.png",
+      "sha256": "fb2f4d6edfc330b54bd5c36bc5383fb030bfa2c77f3395815835907de87c3cbf",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "source_sha256": "fd19f566718524eafde236ea290e28c338f175a1a8d9924396bd7202033dd6c2",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 5,
+          "area_pixels": 59061,
+          "bbox_global_xyxy": [
+            577,
+            538,
+            821,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5812815142061236,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          185.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          57,
+          44
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.left",
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "view": "left",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-inner-corner.left.png",
+      "sha256": "27ecae54892c086f278b7d3d4271f6db376931845ac732b53271f95259022c9c",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "source_sha256": "fd19f566718524eafde236ea290e28c338f175a1a8d9924396bd7202033dd6c2",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 8,
+          "area_pixels": 58922,
+          "bbox_global_xyxy": [
+            952,
+            539,
+            1196,
+            825
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5812815142061236,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          185.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          57,
+          45
+        ]
+      }
+    },
+    {
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.rear",
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "view": "rear",
+      "candidate_path": "images/early-arenas-heavy-dungeon-stone-inner-corner.rear.png",
+      "sha256": "93ec9408c8092c98d5512f2f9922796f14157f6ebfe2eb0bd8a7ebcfffc1fa9b",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "source_sha256": "fd19f566718524eafde236ea290e28c338f175a1a8d9924396bd7202033dd6c2",
+        "generated_atlas_path": "raw/stone-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "ee3b49030b7a1754ea3ce7481e433188f6c64347d53dc0a743ae2ecd0e223e72",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/stone-approved-guides.png",
+            "sha256": "3c4f1fe8c0d0c8f75c8cb4311964e18013686b51402a33e5bc5a9fb48dc8b777"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 6,
+          "area_pixels": 96874,
+          "bbox_global_xyxy": [
+            1343,
+            538,
+            1732,
+            827
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5812815142061236,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          185.0
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          15,
+          44
+        ]
+      },
+      "row_object_id": "early-arenas-heavy-dungeon-stone-inner-corner"
+    }
+  ]
+}

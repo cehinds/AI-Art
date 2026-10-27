@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-stations-platform-edge-segment--native",
+  "name": "Platform edge segment (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "iron-stations",
+    "material:iron",
+    "prop",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/iron-stations-platform-edge-segment--native.png",
+    "width": 234,
+    "height": 165,
+    "sha256": "a458545b4b4453c9846c2e4b77a3c7a9d2f49369615680512c474fd654634f81",
+    "rgba_sha256": "6709b4d33072f1f9895b1a2ee7a2d59d9ed5dc9edcd4a1dc7d3eb49623015e16"
+  },
+  "metadata_path": "reusable/native/iron-stations-platform-edge-segment--native.json",
+  "anchor_px": [
+    117.0,
+    165
+  ],
+  "object_id": "iron-stations-platform-edge-segment",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/iron-stations.png",
+    "source_sha256": "24812685901930a2e7aa3712e99b21c2dfc09115b5b0f6736a53f0da5d119a9c",
+    "source_rect": [
+      1024,
+      545,
+      234,
+      165
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "iron-stations-platform-edge-segment",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:unspecified",
+    "material:iron",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-stations-platform-edge-segment"
+  }
+}

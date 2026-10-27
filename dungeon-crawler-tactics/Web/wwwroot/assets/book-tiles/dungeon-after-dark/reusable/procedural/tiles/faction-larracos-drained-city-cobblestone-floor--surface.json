@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "faction-larracos-drained-city-cobblestone-floor--surface",
+  "name": "Drained City Cobblestone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "faction-larracos",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/faction-larracos-drained-city-cobblestone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5679a6e546cab0135f1d205a0fa5c4b3a022cb18faa423295461ea147d4590de",
+    "rgba_sha256": "faff132f5a9b5f69deb17c04032f94991b9a2e2ae5ec7fe930287c352a8550f5"
+  },
+  "metadata_path": "reusable/procedural/tiles/faction-larracos-drained-city-cobblestone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "faction-larracos-drained-city-cobblestone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "faction-larracos/components/faction-larracos-drained-city-cobblestone-floor.png",
+    "source_sha256": "adf6ee1e7d17dbca9ca2c10cbd1dd561b3d65f8c67e125d2e659c24c8e653a24",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-larracos"
+    ]
+  },
+  "canonical_asset_id": "faction-larracos-drained-city-cobblestone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "faction-larracos-drained-city-cobblestone-floor"
+  }
+}

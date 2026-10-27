@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-submarine-metal-hull-wall-northwest--native",
+  "name": "Submarine Metal Hull north wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-sea",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-sea-submarine-metal-hull-wall-northwest--native.png",
+    "width": 223,
+    "height": 141,
+    "sha256": "d06b2cb4aeaed88d0e3b19bf9a0208c3762c02b63fc43a9b80784c1d08747a36",
+    "rgba_sha256": "532d638ec3cae876cd97a6dcbbfb707305afd27d622b22830a5b7b9f46f97651"
+  },
+  "metadata_path": "reusable/native/bubble-sea-submarine-metal-hull-wall-northwest--native.json",
+  "anchor_px": [
+    111.5,
+    141
+  ],
+  "object_id": "bubble-sea-submarine-metal-hull-wall-northwest",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-sea.png",
+    "source_sha256": "b916f2e46db645bf959bfd48d757fa50ff8154283bdfb8ef25f9d8056b8e1403",
+    "source_rect": [
+      44,
+      338,
+      223,
+      141
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-submarine-metal-hull-wall-northwest",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-sea-submarine-metal-hull-wall-northwest"
+  }
+}

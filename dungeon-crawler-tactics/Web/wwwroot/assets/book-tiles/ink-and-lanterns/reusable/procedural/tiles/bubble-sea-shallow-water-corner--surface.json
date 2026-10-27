@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-shallow-water-corner--surface",
+  "name": "Shallow water corner (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-sea",
+    "environment:unspecified",
+    "ground",
+    "hazard:water",
+    "ink-and-lanterns",
+    "material:water",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:water",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-sea-shallow-water-corner--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "40dcd38201200e5f4ed199570de81b9c5fb8ae8ec263c52caeb6b44ec5a361b4",
+    "rgba_sha256": "9016b3bb72d27b36a700af2c7937eff24dadc52bca87ac6ef9f426280a6e1bce"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-sea-shallow-water-corner--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-sea-shallow-water-corner",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-sea/components/bubble-sea-shallow-water-corner.png",
+    "source_sha256": "2b22e8a23451ecfc875e26efab730bde191d5ca84c50ebc8b12cd5fd6d564efc",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-shallow-water-corner",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "hazard:water",
+    "material:water",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:water",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-sea-shallow-water-corner"
+  }
+}

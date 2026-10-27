@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "great-race-transition-shattered-glass-maze-floor--surface",
+  "name": "Shattered glass maze floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "great-race-transition",
+    "ground",
+    "material:glass",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/great-race-transition-shattered-glass-maze-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "19c3a11ff8c80c3865acb074b75d155f0210aef6d2bc43f751405037f724a179",
+    "rgba_sha256": "2d9c479d254d9efbaf9f821857d150ffce0ae495eee64dfd53d652c7a9f1f2a0"
+  },
+  "metadata_path": "reusable/procedural/tiles/great-race-transition-shattered-glass-maze-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "great-race-transition-shattered-glass-maze-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "great-race-transition/components/great-race-transition-shattered-glass-maze-floor.png",
+    "source_sha256": "af5b5ba0d1b8d21b9c9c73069e9917e65a50c0fc17de6b577c2f31b595071f8f",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "east": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "south": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "west": [
+      "join.floor",
+      "visual.great-race-transition"
+    ]
+  },
+  "canonical_asset_id": "great-race-transition-shattered-glass-maze-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:glass",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "great-race-transition-shattered-glass-maze-floor"
+  }
+}

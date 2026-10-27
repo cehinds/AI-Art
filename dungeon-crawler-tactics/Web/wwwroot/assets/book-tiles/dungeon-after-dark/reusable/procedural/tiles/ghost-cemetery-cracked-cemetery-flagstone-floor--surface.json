@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-cracked-cemetery-flagstone-floor--surface",
+  "name": "Cracked cemetery flagstone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-cemetery-cracked-cemetery-flagstone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "1f26f63b0a9acce5d427c42d6c72372369fa11ff2fd0a11fab2c52f5d0c48d2a",
+    "rgba_sha256": "3907db25271316f95edb6aea756af0680e86d582476d98b3496cd8cbae4834b6"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-cemetery-cracked-cemetery-flagstone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-cemetery-cracked-cemetery-flagstone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-cemetery/components/ghost-cemetery-cracked-cemetery-flagstone-floor.png",
+    "source_sha256": "1d61800da9148469101486bf1984653e256ee8fb84926fe8123422598da217d1",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "east": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "south": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "west": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ]
+  },
+  "canonical_asset_id": "ghost-cemetery-cracked-cemetery-flagstone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-cemetery-cracked-cemetery-flagstone-floor"
+  }
+}

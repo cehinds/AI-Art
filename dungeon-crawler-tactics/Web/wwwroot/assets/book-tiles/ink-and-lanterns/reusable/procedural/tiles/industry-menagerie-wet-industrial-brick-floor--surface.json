@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "industry-menagerie-wet-industrial-brick-floor--surface",
+  "name": "Wet industrial brick floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:industrial",
+    "ground",
+    "industry-menagerie",
+    "ink-and-lanterns",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/industry-menagerie-wet-industrial-brick-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "49b1fbfbedae5a3ae4b08512386a483582bf0820b186d5b7f44151031e2c1f0a",
+    "rgba_sha256": "83a045e525d10840cce502b0532686a142b0ca3831aff5a052679fda8eb29d17"
+  },
+  "metadata_path": "reusable/procedural/tiles/industry-menagerie-wet-industrial-brick-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "industry-menagerie-wet-industrial-brick-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "industry-menagerie/components/industry-menagerie-wet-industrial-brick-floor.png",
+    "source_sha256": "559c4febe1195d3265d18a508109584d18a2c7de3267993c214cf7a5fe589738",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "east": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "south": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "west": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ]
+  },
+  "canonical_asset_id": "industry-menagerie-wet-industrial-brick-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:industrial",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "industry-menagerie-wet-industrial-brick-floor"
+  }
+}

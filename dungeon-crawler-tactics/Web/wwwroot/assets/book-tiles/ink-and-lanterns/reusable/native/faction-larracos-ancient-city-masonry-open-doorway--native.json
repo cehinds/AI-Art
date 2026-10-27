@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "faction-larracos-ancient-city-masonry-open-doorway--native",
+  "name": "Ancient City Masonry open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:city",
+    "faction-larracos",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/faction-larracos-ancient-city-masonry-open-doorway--native.png",
+    "width": 204,
+    "height": 226,
+    "sha256": "092d6bc7946b81779839cfd14e03c5289a57a8dc4735cfc9fbc049912b712e69",
+    "rgba_sha256": "0f12fdd1b91a64a0c2b1cd58cf76a405be07bdd93aeb442aca47760228a7b5d3"
+  },
+  "metadata_path": "reusable/native/faction-larracos-ancient-city-masonry-open-doorway--native.json",
+  "anchor_px": [
+    102.0,
+    226
+  ],
+  "object_id": "faction-larracos-ancient-city-masonry-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/faction-larracos.png",
+    "source_sha256": "6929a1ea9b2db0e47320b7a6157e041f96d8c2b125dbe04614581344644e8987",
+    "source_rect": [
+      51,
+      481,
+      204,
+      226
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "faction-larracos-ancient-city-masonry-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-larracos-ancient-city-masonry-open-doorway"
+  }
+}

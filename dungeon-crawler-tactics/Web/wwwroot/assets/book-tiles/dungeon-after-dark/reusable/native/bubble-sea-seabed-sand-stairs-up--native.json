@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-seabed-sand-stairs-up--native",
+  "name": "Seabed Sand stairs up (native source crop)",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-sea",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:sand",
+    "role:provider",
+    "stairs",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-sea-seabed-sand-stairs-up--native.png",
+    "width": 194,
+    "height": 192,
+    "sha256": "29d61ec9668d4b7f1bd70228b715f80e241039563863a89c080862045adf7d6f",
+    "rgba_sha256": "1908c8344bf2df62b4cddb58c5f51a0575d133bc87d02ffd547f1aeb23782c10"
+  },
+  "metadata_path": "reusable/native/bubble-sea-seabed-sand-stairs-up--native.json",
+  "anchor_px": [
+    97.0,
+    192
+  ],
+  "object_id": "bubble-sea-seabed-sand-stairs-up",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-sea.png",
+    "source_sha256": "b916f2e46db645bf959bfd48d757fa50ff8154283bdfb8ef25f9d8056b8e1403",
+    "source_rect": [
+      545,
+      528,
+      194,
+      192
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-seabed-sand-stairs-up",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:sand",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-sea-seabed-sand-stairs-up"
+  }
+}

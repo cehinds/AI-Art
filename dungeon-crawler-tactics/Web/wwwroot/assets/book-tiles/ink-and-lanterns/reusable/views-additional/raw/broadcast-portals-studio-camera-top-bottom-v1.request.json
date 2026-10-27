@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "object_id": "broadcast-portals-studio-camera",
+  "views": [
+    "top",
+    "bottom"
+  ],
+  "status": "candidate-pending-independent-review",
+  "prompt": "Create a clean two-panel contact atlas with exactly two equal columns, transparent background and a large transparent gutter. Both panels show the same broadcast studio camera prop in orthographic views. Use the canonical camera source for identity and materials. IMPORTANT physical fact: this camera stands on exactly THREE tripod legs with three caster wheels, spaced 120 degrees apart around one central stem. Never add a fourth leg or wheel. Left panel is TOP view straight down: show the camera body footprint and exactly three tripod leg/wheel footprints around the central hub, with the lens/body footprint in the correct front direction. Right panel is BOTTOM view straight up: show underside of camera body and exactly three tripod leg/wheel assemblies, 120 degrees apart, attached to the center; opaque body hides the upper camera surfaces. Preserve the source camera silhouette/materials and obvious three-leg support count. Do not repeat front/rear elevation, do not show four legs, no perspective, no text. Two isolated complete silhouettes centered in their own panels, transparent background. These are inferred orthographic illustrations, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "broadcast-portals/components/broadcast-portals-studio-camera.png",
+      "role": "canonical identity and tripod count",
+      "sha256": "50e8c92a1b87816fc13e5920996af8e3e924408f27b7f76c77ef8be922061c2a"
+    },
+    {
+      "path": "reusable/views-additional/broadcast-portals-studio-camera.top.png",
+      "role": "current top to correct",
+      "sha256": "e148f61f6eb541392d54f719183f606162bdd2d1d3ec9e85f89d9a10d3dd8a40"
+    },
+    {
+      "path": "reusable/views-additional/broadcast-portals-studio-camera.bottom.png",
+      "role": "current bottom to correct",
+      "sha256": "d26792820e4f76d208e00c1e745e223d5521b675db0f858f2812348dfa1ace73"
+    },
+    {
+      "path": "reusable/views-additional/raw/broadcast-portals-studio-camera-current-source-six-reference-v1.png",
+      "sha256": "a312572b158980c1521f02954f610c9f7a7894a52b138019359d42549d6e1c05",
+      "role": "current source-plus-six context showing support-count issue"
+    }
+  ],
+  "geometry_constraints": [
+    "exactly 3 tripod legs/caster wheels at 120-degree spacing",
+    "top view strict overhead",
+    "bottom view strict underside",
+    "no fourth support",
+    "transparent isolated two-column atlas"
+  ],
+  "generated_atlas": "broadcast-portals-studio-camera-top-bottom-v1-atlas.png",
+  "generated_atlas_sha256": "3aceabd25a4a582fbecaade012d8d707b4aab96a9a6a8219f5296feb3b401885",
+  "candidate_outputs": {
+    "top": {
+      "path": "reusable/views-additional/raw/broadcast-portals-studio-camera.top-v1-candidate.png",
+      "sha256": "1a2c13c7f936eb11f3a8c5ccd3645239acae205040e6c8e79036c66ce95b6206",
+      "normalization_recipe": "reusable/views-additional/raw/broadcast-portals-studio-camera.top-v1-normalization.json"
+    },
+    "bottom": {
+      "path": "reusable/views-additional/raw/broadcast-portals-studio-camera.bottom-v1-candidate.png",
+      "sha256": "c4ef7a8174babdccceda672e7ca1745357094d706aa8bf59db74d0e583e9ef02",
+      "normalization_recipe": "reusable/views-additional/raw/broadcast-portals-studio-camera.bottom-v1-normalization.json"
+    }
+  },
+  "qa_contact": {
+    "path": "reusable/views-additional/qa-broadcast-portals-studio-camera-top-bottom-v1-candidate-source-six.png",
+    "sha256": "aded3774bf3e621e226413cef741ab1492dfc37a7019be952c624543647e3169"
+  }
+}

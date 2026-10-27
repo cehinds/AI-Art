@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "industry-menagerie-cracked-industrial-brick-floor--surface",
+  "name": "Cracked industrial brick floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "environment:industrial",
+    "ground",
+    "industry-menagerie",
+    "material:brick",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/industry-menagerie-cracked-industrial-brick-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "c177045fd2f5d6593d6a85500394d2bcee0e7172269494958870b1e0d3e376f7",
+    "rgba_sha256": "c1abcede900d18a7851440915fe31205d1618e317c40dc1decd111899090a9e7"
+  },
+  "metadata_path": "reusable/procedural/tiles/industry-menagerie-cracked-industrial-brick-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "industry-menagerie-cracked-industrial-brick-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "industry-menagerie/components/industry-menagerie-cracked-industrial-brick-floor.png",
+    "source_sha256": "3a1bc7433c4e1c9f1957a666f609d0a068c7b2b99534d63d0ba11c2775cdee6a",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "east": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "south": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "west": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ]
+  },
+  "canonical_asset_id": "industry-menagerie-cracked-industrial-brick-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "environment:industrial",
+    "material:brick",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "industry-menagerie-cracked-industrial-brick-floor"
+  }
+}

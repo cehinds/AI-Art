@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "request_id": "bubble-sea-submarine-grating-floor-four-orthographic-edge-profiles-v2",
+  "object_id": "bubble-sea-submarine-grating-floor",
+  "purpose": "Regenerate held FRONT/RIGHT/LEFT/REAR projections with axis-correct 3x5 slot counts; preserve TOP and installed BOTTOM.",
+  "prompt": "Create a transparent-background orthographic projection atlas with exactly one row and four equal columns, labels FRONT, RIGHT, LEFT, REAR above their cells. Depict the same square heavy steel submarine floor grating from the supplied source and correct TOP reference. Match the rusted dark steel frame, orange-gold rivets, central braces, and rectangular open slots. The TOP reference establishes a 3-column by 5-row slot grid; do not replace it with a solid panel. Principal camera views: world Z is upright, no perspective. FRONT and REAR are thin horizontal edge elevations with a 3-slot run visible across X; RIGHT and LEFT are thin horizontal edge elevations with a 5-slot run visible across Y. The plate lies horizontal on the floor, so all four side profiles have shallow height and long horizontal span; never show the square grid face standing vertically. Preserve the 3-by-5 grid proportions and structural rim. Keep each object fully inside its own cell, separated by generous transparent gutters; no neighboring fragments, no cast shadow outside the object. Transparent canvas.",
+  "references": [
+    {
+      "role": "canonical native source",
+      "path": "bubble-sea/components/bubble-sea-submarine-grating-floor.png",
+      "sha256": "9ac97f114d649656bdd41f5f2d765af4be1254ec91a36567136d2c00b86301c3"
+    },
+    {
+      "role": "accepted top-plan geometry/material guide",
+      "path": "reusable/views-additional/bubble-sea-submarine-grating-floor.top.png",
+      "sha256": "eb11768f81d2662010ce7f83374589926ffb2624c6ddb84d191046d38c0f5ef2"
+    },
+    {
+      "role": "accepted bottom support guide",
+      "path": "reusable/views-additional/bubble-sea-submarine-grating-floor.bottom.png",
+      "sha256": "ff961031d9f20b65753537ef9a8624e080233f932d51f3cbe64749935a88aac9"
+    }
+  ],
+  "outputs": {
+    "layout": "one_row_four_columns",
+    "directions": [
+      "front",
+      "right",
+      "left",
+      "rear"
+    ],
+    "transparent_background": true
+  },
+  "preserve_views": [
+    "top",
+    "bottom"
+  ],
+  "created_at": "2026-10-26",
+  "status": "atlas generation showed oblique grid panels; only bottom solid riveted edge strips are eligible for inferred profile extraction",
+  "generated_atlas": {
+    "path": "reusable/views-additional/raw/bubble-sea-submarine-grating-floor-four-profiles-v2-generated-atlas.png",
+    "sha256": "b6b6983c1e313d656e7c9775e5576df9750e64aaa76fc106ca801f998080134f",
+    "generator_output_path": "/workspace/generated_images/exec-120b4258-32fb-4339-9d30-48f918b1d7a2.png"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "over-city-wet-city-cobblestone-floor--surface",
+  "name": "Wet city cobblestone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:city",
+    "ground",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "over-city",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/over-city-wet-city-cobblestone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5dfd4f051c320b4cf96667021fc5f9fbf8d25e14223abc25457b13ec93217545",
+    "rgba_sha256": "f87192070beb8e6e035630dac71abd9a6f9b5fd2f4ec84ed5ecb07aac8357468"
+  },
+  "metadata_path": "reusable/procedural/tiles/over-city-wet-city-cobblestone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "over-city-wet-city-cobblestone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "over-city/components/over-city-wet-city-cobblestone-floor.png",
+    "source_sha256": "e499b0eb164b4f0d2024899c0cfafb075c51d9218b498734e1136ec604bcbdd7",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "east": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "south": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "west": [
+      "join.floor",
+      "visual.over-city"
+    ]
+  },
+  "canonical_asset_id": "over-city-wet-city-cobblestone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:city",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "over-city-wet-city-cobblestone-floor"
+  }
+}

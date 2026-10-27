@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "request_id": "bubble-airship-scrap-metal-deck-transition-front-rear-v5",
+  "status": "generated-atlas-ready-for-normalization",
+  "objects": [
+    "bubble-airship-scrap-metal-deck-edge-transition",
+    "bubble-airship-scrap-metal-deck-corner-transition"
+  ],
+  "rows": [
+    "bubble-airship-scrap-metal-deck-edge-transition",
+    "bubble-airship-scrap-metal-deck-corner-transition"
+  ],
+  "columns": [
+    "front",
+    "rear"
+  ],
+  "prompt": "Create a transparent-background 2-column by 2-row atlas of strict horizontal FRONT and REAR elevations. Row 1 is the scrap-metal EDGE transition from reference image 1; row 2 is the CORNER transition from reference image 2. Column 1 is FRONT, column 2 is REAR. These are level straight-on elevations of a flat floor edge, not top views. Show only the horizontal slab-edge thickness with the safety rail rising above it at a consistent shared world height. The rail is a broad horizontal yellow-black striped bar across the elevation, supported by the same bolted end caps/posts visible in the source. EDGE row has a rail on one plan boundary; show the physical rail height from both opposite views so neither front nor rear becomes a plain slab. CORNER row has rails on two adjacent plan boundaries; each view sees the corresponding rail as a broad horizontal bar, never as a vertical L or upright corner post. Keep all row-specific orange-red/gray rusted steel plate identities, bolt positions, center joints, and supports. Do not show the overhead square floor, top grid, or broad slab face. No perspective, no extra barriers, no missing rail, no cell crossing. Inferred projections, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "object_id": "bubble-airship-scrap-metal-deck-edge-transition",
+      "path": "reusable/views-additional/raw/bubble-airship-scrap-metal-deck-edge-transition-canonical-source-crop-v4.png",
+      "sha256": "9ea6f40a84129b0e6434cafa7569a324f92e64488e2d99929603cd52d910d527",
+      "canonical_source": "bubble-airship/components/bubble-airship-scrap-metal-deck-edge-transition.png",
+      "canonical_source_sha256": "6f02eb32d1a6a514281ceca0dd6e89c6979e7a75aab6bc3e47d0ec3318283ef7",
+      "role": "canonical source row identity and material"
+    },
+    {
+      "object_id": "bubble-airship-scrap-metal-deck-corner-transition",
+      "path": "reusable/views-additional/raw/bubble-airship-scrap-metal-deck-corner-transition-canonical-source-crop-v4.png",
+      "sha256": "bad16eca056205e4ba0e8df67d47ec63b034515f06c4b2f3c0b9e1e6712cdb4d",
+      "canonical_source": "bubble-airship/components/bubble-airship-scrap-metal-deck-corner-transition.png",
+      "canonical_source_sha256": "65f9e74eef08e2034f8d1ed383655684b6e3acd2e0be4d540a0cb4d2cda7fb53",
+      "role": "canonical source row identity and material"
+    }
+  ],
+  "preinstall_view_hashes": {
+    "bubble-airship-scrap-metal-deck-edge-transition": {
+      "front": "680fa9e85644a24c59181069391561f5bb90bc92889236d76db25fb423625071",
+      "top": "b94eb211f3c4c3cd5d9045925793ca2403c53e94bb0f1faa08a844e4728cd83e",
+      "right": "915880e46b9003063d73eee1c89516a8a010efe4ac3387b3d46de1578a952d50",
+      "left": "94e910e5900fb88e4ff463776f710eb2f6ddbe6f6dfc4beb5632e604e3da8858",
+      "bottom": "604167eec10b9d7a58726069447dd940cf26307b29ae4227af75d8bcb8f14c98",
+      "rear": "7755b22e94f99348fcf4d9dbc236244c5d1bf4f2e3fbce96a140c678514a50ef"
+    },
+    "bubble-airship-scrap-metal-deck-corner-transition": {
+      "front": "2460ada5a3907f3e77fc4c02c50e15debfe1d2817b1322d3136a3adff0a86be4",
+      "top": "78bc367598903af1bb69d0caad7f409d9edeedbb4678443f815f19d5c2d307b9",
+      "right": "0c8f8f65e9da3dfd8e6612c5a94aa1d215af47ad147699cd1b931d224ed0caba",
+      "left": "1952ec941acd51de9d881cf6fa276bc9cfd163ab634114439a1f5d8323a4d23a",
+      "bottom": "2ea7d3ef42ad6f2dfeb53610be9f5ce45a030bb731dba09722420dbf8ffb9c50",
+      "rear": "a1c2ba8c0ce0fbeec5c9413ed49075c12b70992a52d3fc428eaa979b9b6e67c1"
+    }
+  },
+  "generated_atlas": "reusable/views-additional/raw/bubble-airship-scrap-metal-deck-transition-front-rear-v5-atlas.png",
+  "generated_atlas_sha256": "9fed5b64e15267944a6747b9c446b93e5f0415509a5dbcb33dc458d3c0c15bc8",
+  "generation_call_id": "exec-23425481-b6a8-4868-a49b-7148e86c743a",
+  "geometry_constraints": [
+    "strict front/rear horizontal edge elevations",
+    "rails broad and horizontal at shared Z",
+    "edge rail must appear in both opposite views",
+    "corner both edge rail systems project horizontally",
+    "no top view or upright L"
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-desert-cracked-sandstone-and-sand-floor--surface",
+  "name": "Cracked sandstone and sand floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-desert",
+    "dungeon-after-dark",
+    "environment:desert",
+    "environment:dungeon",
+    "ground",
+    "material:sand",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-desert-cracked-sandstone-and-sand-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "01e1b198a72e29007f6941a6989b84316a8f61f03cccfd88bdcc0aa1871ce605",
+    "rgba_sha256": "19ed861c315fe4b5b3c47315402c7876bb960ca0ec3eb4980f36f378e9846a5b"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-desert-cracked-sandstone-and-sand-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-desert-cracked-sandstone-and-sand-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-desert/components/bubble-desert-cracked-sandstone-and-sand-floor.png",
+    "source_sha256": "cb990ca1379361a1e13f7b0ad924ebaf8568fd3e0c4bcb58fc628aa829298cd2",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-desert"
+    ]
+  },
+  "canonical_asset_id": "bubble-desert-cracked-sandstone-and-sand-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:desert",
+    "environment:dungeon",
+    "material:sand",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-desert-cracked-sandstone-and-sand-floor"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "ghost-havana-ghost-traffic-road-barrier",
+  "view": "top",
+  "status": "rejected-after-self-qa",
+  "prompt": "Make a strict vertical TOP ORTHOGRAPHIC plan of this exact solid Jersey concrete traffic barrier. Use the canonical source and the RIGHT, LEFT, and BOTTOM views in the geometry guide; ignore any rejected TOP. Important measured plan: the existing bottom footprint spans 232 pixels across and 98 pixels deep, an outline aspect of about 2.37:1. The overhead output must have that same broad footprint ratio: do NOT make a long thin beam, and do NOT foreshorten it. One single cast concrete mass. Within that full roughly 2.37:1 footprint, depict the long narrow central top ridge plus two broad upward-visible sloping concrete flanks reaching the widest base edges. Keep tapered end shoulders and lifting loops near both ends. The source white/red hazard paint belongs on those concrete flanks. Camera is exactly straight down, no horizon, no visible frontal upright wall, no perspective. Never add gate mechanisms, posts, plates, lights, or hinges. Center complete form on transparent 256x256, leave margin. Inferred top view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "ghost-havana/components/ghost-havana-ghost-traffic-road-barrier.png",
+      "sha256": "020133a6e90032e2f894e70998765bfcde98918c346b9251c8c9b0b3a8d30278",
+      "role": "canonical concrete body, hazard paint and lifting loops"
+    },
+    {
+      "path": "reusable/views-additional/qa-ghost-havana-road-barrier-source-right-left-bottom-v1.png",
+      "sha256": "29f2b03bf680ca1fb15c81555ff63f1827816f9477468ec46771bf0ec0ba9996",
+      "role": "current source and actual RIGHT/LEFT/BOTTOM physical views; BOTTOM gives measured plan footprint"
+    }
+  ],
+  "geometry_constraints": [
+    "plan footprint matches bottom 232x98 bbox, ratio 2.37:1",
+    "solid concrete body spans broad full depth",
+    "central ridge with broad sloped concrete flanks",
+    "top-down axis-aligned, no perspective",
+    "no separate gate parts or metal plates"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/ghost-havana-ghost-traffic-road-barrier-top-v5-atlas.png",
+  "generated_atlas_sha256": "359714fc69b0bce64460a25de4ce00b161459fa3716cdffd298ed338a8ddaca0",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Candidate still did not match accepted bottom footprint ratio; superseded by v6 edit from accepted bottom."
+}

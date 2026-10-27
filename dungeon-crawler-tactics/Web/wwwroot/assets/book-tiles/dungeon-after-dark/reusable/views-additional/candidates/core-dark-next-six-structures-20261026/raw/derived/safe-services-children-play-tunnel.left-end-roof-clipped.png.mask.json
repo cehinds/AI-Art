@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "method": "deterministic alpha mask on imagegen end candidate; preserve lower end-face pixels",
+  "input_path": "/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/core-dark-next-six-structures-20261026/raw/safe-services-children-play-tunnel.left-candidate-v1.png",
+  "input_sha256": "dd3e38f3c6726d66ce345aa193752c2b7d3de376fbb2191f0458ab91177c2671",
+  "input_alpha64_xyxy": [
+    473,
+    494,
+    780,
+    821
+  ],
+  "alpha_threshold": 64,
+  "mask_operation": {
+    "operation": "set alpha to zero",
+    "region": "all x, y < cutoff_y_px",
+    "cutoff_y_px": 529,
+    "cutoff_rule": "input alpha64 top + 35 pixels; leaves straight upper cap row and level cube end face, clears receding roof/ellipse"
+  },
+  "output_path": "/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/core-dark-next-six-structures-20261026/raw/derived/safe-services-children-play-tunnel.left-end-roof-clipped.png",
+  "output_sha256": "d23f39e3bae88cd602575f0307c39f62794b49ddc3842ed7c38d9496c372e579",
+  "output_alpha64_xyxy": [
+    473,
+    529,
+    780,
+    821
+  ],
+  "canvas": [
+    1254,
+    1254
+  ]
+}

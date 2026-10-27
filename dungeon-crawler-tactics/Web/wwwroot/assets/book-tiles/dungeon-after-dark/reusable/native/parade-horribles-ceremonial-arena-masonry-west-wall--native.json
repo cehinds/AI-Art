@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "parade-horribles-ceremonial-arena-masonry-west-wall--native",
+  "name": "Ceremonial Arena Masonry west wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "parade-horribles",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/parade-horribles-ceremonial-arena-masonry-west-wall--native.png",
+    "width": 67,
+    "height": 193,
+    "sha256": "165a3cf9253d3b8c3b72efe1b9a1faf04d4a8e93ed23ac2857c0fc94c0050c9c",
+    "rgba_sha256": "0349956c3c4e682863dc1be0283a96ba77e65b218a811606c8968447182b0eda"
+  },
+  "metadata_path": "reusable/native/parade-horribles-ceremonial-arena-masonry-west-wall--native.json",
+  "anchor_px": [
+    33.5,
+    193
+  ],
+  "object_id": "parade-horribles-ceremonial-arena-masonry-west-wall",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/parade-horribles.png",
+    "source_sha256": "51c4ca0af565d336b99469de408ea4ce2ba5e2c809e7927e92d9d86eba94b9ee",
+    "source_rect": [
+      359,
+      268,
+      67,
+      193
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
+  },
+  "canonical_asset_id": "parade-horribles-ceremonial-arena-masonry-west-wall",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "parade-horribles-ceremonial-arena-masonry-west-wall"
+  }
+}

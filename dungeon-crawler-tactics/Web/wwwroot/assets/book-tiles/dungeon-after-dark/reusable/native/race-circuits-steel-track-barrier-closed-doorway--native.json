@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "race-circuits-steel-track-barrier-closed-doorway--native",
+  "name": "Steel Track Barrier closed doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:steel",
+    "race-circuits",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/race-circuits-steel-track-barrier-closed-doorway--native.png",
+    "width": 207,
+    "height": 170,
+    "sha256": "b8137ae10838ed2921c9e74dde300efe4f6ae423ed80524fc6a41979289e4edf",
+    "rgba_sha256": "a76245fe5240d0e891abb48e151557ddd35f2be84a79dbd1a07cc39252fa861c"
+  },
+  "metadata_path": "reusable/native/race-circuits-steel-track-barrier-closed-doorway--native.json",
+  "anchor_px": [
+    103.5,
+    170
+  ],
+  "object_id": "race-circuits-steel-track-barrier-closed-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/race-circuits.png",
+    "source_sha256": "8a732dec1fb2f11c18ed6e54ecf3db74505447b3060b1f8b3f1d2b639e03e609",
+    "source_rect": [
+      294,
+      533,
+      207,
+      170
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "race-circuits-steel-track-barrier-closed-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:steel",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "race-circuits-steel-track-barrier-closed-doorway"
+  }
+}

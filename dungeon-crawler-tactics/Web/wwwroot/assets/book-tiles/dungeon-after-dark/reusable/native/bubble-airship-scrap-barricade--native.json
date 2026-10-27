@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-airship-scrap-barricade--native",
+  "name": "Scrap barricade (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-airship",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "prop",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-airship-scrap-barricade--native.png",
+    "width": 234,
+    "height": 157,
+    "sha256": "e08c7ddbe89d72117987b15993c2a1f6bdcc5cdf3d4c122114c3af6f4384f9bc",
+    "rgba_sha256": "0f62d60e265fc182b3471447d79de55b3ef6e191498d86eff9d5ab2ad7648103"
+  },
+  "metadata_path": "reusable/native/bubble-airship-scrap-barricade--native.json",
+  "anchor_px": [
+    117.0,
+    157
+  ],
+  "object_id": "bubble-airship-scrap-barricade",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-airship.png",
+    "source_sha256": "752e7fd5f30d4514106f0e739f1c1b4d1adcf407e42448f07c2134393e9e21cd",
+    "source_rect": [
+      790,
+      788,
+      234,
+      157
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "bubble-airship-scrap-barricade",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-airship-scrap-barricade"
+  }
+}

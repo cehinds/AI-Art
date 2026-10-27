@@ -1,0 +1,199 @@
+{
+  "object_id": "surface-entry-urban-brick-wall-northeast",
+  "contact_path": "ne-wall-surface-entry-urban-brick-wall-northeast-padded-candidates.png",
+  "contact_sha256": "23660baf9177c41156ebefdde8d5508c04dbebf7c478df685937786d098a9683",
+  "source": {
+    "path": "surface-entry/components/surface-entry-urban-brick-wall-northeast.png",
+    "sha256": "8c3e158a80595ab562254048087b8d9be53622a0248ba5edc97bc5db92884f70"
+  },
+  "candidate_views": {
+    "front": {
+      "path": "candidates/surface-entry-urban-brick-wall-northeast.front.candidate.png",
+      "sha256": "132c2d096b84dcb3a83b0f1241ef16662af88e59551360cc328df68f2c092fd1",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        109,
+        69,
+        148,
+        187
+      ],
+      "derivation": {
+        "method": "uniform-rescale-existing-view",
+        "transform": "uniform nearest-neighbor scale about shared anchor [128,128]",
+        "target_common_z_px": 117.0,
+        "source_alpha_bbox_xyxy": [
+          102,
+          49,
+          155,
+          207
+        ],
+        "source_z_px": 158,
+        "binding": "same target NE source view; deterministic calibration only, no new geometry or material"
+      },
+      "note": "Uniformly calibrated narrow end elevation to the mean retained RIGHT/LEFT wall Z; endcap proportions preserved."
+    },
+    "top": {
+      "path": "candidates/surface-entry-urban-brick-wall-northeast.top.candidate.png",
+      "sha256": "d2ca2fa6ae0c3f8c32cbc552233169bd4c191ed898fcd7d9e2df673e11086283",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        101,
+        24,
+        154,
+        232
+      ],
+      "derivation": {
+        "method": "rigid-axis-remap-and-center-thickness-crop",
+        "guide_object_id": "surface-entry-urban-brick-wall-northwest",
+        "guide_view": "top",
+        "guide_path": "reusable/views-additional/surface-entry-urban-brick-wall-northwest.top.png",
+        "guide_sha256": "a1b48d3811963fa0f374541f3e5bf3c472970b36b54410b6b150d885d7488795",
+        "transform": "cw90 then center crop wall-thickness X to source-supported 53px",
+        "crop_bounds_xyxy": [
+          101,
+          0,
+          154,
+          256
+        ],
+        "binding": "target NE canonical source retained; NW guide supplies same-kit brick material/geometry",
+        "canvas_padding": {
+          "method": "transparent-center-pad-no-rescale",
+          "old_size_wh": [
+            53,
+            256
+          ],
+          "old_file_sha256": "1e90497b5fbc7a99c04f56c644e50a7c479f778dee2a7d10b07f6b24b76f7eff",
+          "old_candidate_path": "candidates/prepad/surface-entry-urban-brick-wall-northeast.top.prepad.png",
+          "offset_xy": [
+            101,
+            0
+          ],
+          "new_size_wh": [
+            256,
+            256
+          ],
+          "anchor_px": [
+            128,
+            128
+          ]
+        }
+      },
+      "note": null
+    },
+    "bottom": {
+      "path": "candidates/surface-entry-urban-brick-wall-northeast.bottom.candidate.png",
+      "sha256": "ee78818b7328e006acd74ef99c4a35fb2e4c174e8d435c3fadeb1354e62112e1",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        101,
+        24,
+        154,
+        232
+      ],
+      "derivation": {
+        "method": "rigid-axis-remap-and-center-thickness-crop",
+        "guide_object_id": "surface-entry-urban-brick-wall-northwest",
+        "guide_view": "bottom",
+        "guide_path": "reusable/views-additional/surface-entry-urban-brick-wall-northwest.bottom.png",
+        "guide_sha256": "04ef5813ef6ac5d0496a74870fa0c9e623cd6f6e1a5d17453eb6dcd4086c5fa0",
+        "transform": "cw90 then center crop wall-thickness X to source-supported 53px",
+        "crop_bounds_xyxy": [
+          101,
+          0,
+          154,
+          256
+        ],
+        "binding": "target NE canonical source retained; NW guide supplies same-kit brick material/geometry",
+        "canvas_padding": {
+          "method": "transparent-center-pad-no-rescale",
+          "old_size_wh": [
+            53,
+            256
+          ],
+          "old_file_sha256": "cb6457c8345c812df8a04b8ec0363240f548974b756cead22f78197e0137d434",
+          "old_candidate_path": "candidates/prepad/surface-entry-urban-brick-wall-northeast.bottom.prepad.png",
+          "offset_xy": [
+            101,
+            0
+          ],
+          "new_size_wh": [
+            256,
+            256
+          ],
+          "anchor_px": [
+            128,
+            128
+          ]
+        }
+      },
+      "note": null
+    },
+    "rear": {
+      "path": "candidates/surface-entry-urban-brick-wall-northeast.rear.candidate.png",
+      "sha256": "9f016e407ee3226f71c0e3c4e0588663561ea0eb2079d7ec2448ace04b4924ec",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        109,
+        70,
+        147,
+        187
+      ],
+      "derivation": {
+        "method": "uniform-rescale-existing-view",
+        "transform": "uniform nearest-neighbor scale about shared anchor [128,128]",
+        "target_common_z_px": 117.0,
+        "source_alpha_bbox_xyxy": [
+          102,
+          48,
+          154,
+          209
+        ],
+        "source_z_px": 161,
+        "binding": "same target NE source view; deterministic calibration only, no new geometry or material"
+      },
+      "note": "Uniformly calibrated narrow end elevation to the mean retained RIGHT/LEFT wall Z; endcap proportions preserved."
+    }
+  },
+  "unchanged_views": {
+    "right": {
+      "path": "reusable/views-additional/surface-entry-urban-brick-wall-northeast.right.png",
+      "sha256": "9a9f220d46d0f1b52e100c84a233e44270c39e8f1b889ebfbea9c65874d2007c",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        24,
+        71,
+        232,
+        186
+      ]
+    },
+    "left": {
+      "path": "reusable/views-additional/surface-entry-urban-brick-wall-northeast.left.png",
+      "sha256": "23d97ab7f62fe10b2c531c53924b36d931a94d9935dadcea470ee2b819e195b7",
+      "size_wh": [
+        256,
+        256
+      ],
+      "alpha_bbox_xyxy": [
+        25,
+        69,
+        232,
+        188
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-airship-riveted-scrap-hull-inner-corner",
+  "views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "status": "rejected_after_source_silhouette_self_qa",
+  "prompt": "Create a transparent four-column atlas with four separate isolated orthographic lateral elevations of the exact bubble airship riveted scrap hull inner corner shown in reference image one. Reference one is the canonical Ink and Lanterns source and controls object identity, rusty orange-red steel panel texture, dark rivets and square bolted corner plates. Reference two includes the accepted same-object straight-wall source and six views; use its broad FRONT/REAR wall faces and shared-Z elevation proportions as geometry calibration only, never copy its blue/orange colors. The target is a fixed vertical L-shaped corner wall assembly in map plan. The existing TOP/BOTTOM plan already correctly show its L footprint; DO NOT redraw or reinterpret the plans. Generate only FRONT, RIGHT, LEFT, REAR from left to right, one orthographic view per equal-width column. All four must be upright broad rectangular wall-face elevations at the same physical Z height, with the same horizontal wall-arm thickness and common vertical scale. A camera facing an arm sees that arm as a broad flat rust-red riveted wall face, not an isometric corner glyph; the perpendicular return is edge-on or occluded. Never show an L-shaped silhouette, a thin freestanding post, a horizontal bar, a top-facing plan, a tabletop, or a perspective/foreshortened view. Both opposite side elevations must remain upright and share the same height as front/rear. Keep exact target material and panel/rivet design from source. Four transparent isolated complete silhouettes, crisp game-asset illustration, no text. Inferred views, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-inner-corner.png",
+      "sha256": "4b80b6b255f14808fa3b38c214f8a9bb4fcbf54d4c4d93732dab51560c48ccb0",
+      "role": "canonical source identity/material"
+    },
+    {
+      "path": "external-geometry-guide/bubble-airship-riveted-scrap-hull-wall-northwest-indexed-source-six.png",
+      "sha256": "b204f67841f61540f390282ea697e22bd5c8a7d0507e353b567bc197931e3749",
+      "role": "same-object accepted straight-wall geometry guide"
+    },
+    {
+      "path": "reusable/views-additional/qa-bubble-airship-riveted-scrap-hull-inner-corner-with-accepted-wall-geometry-guide.png",
+      "sha256": "7b7b3978c41f77d96385b4dcfdabb6d3e13471f1e1479268f7c33ab82b48f421",
+      "role": "target current source-plus-six context"
+    }
+  ],
+  "geometry_constraints": [
+    "four orthographic upright broad wall elevations",
+    "all four share one vertical Z height",
+    "not an L-shaped glyph in any elevation",
+    "same target orange-red riveted material",
+    "do not modify accepted L top/bottom plans"
+  ],
+  "raw_atlas": "bubble-airship-riveted-scrap-hull-inner-corner-four-elevations-v1-atlas.png",
+  "generated_atlas_sha256": "0293630e54b36ccd8a2955ec1980ea66fc63eded69902558aa7262b5ad3f2e60",
+  "qa_reason": "Generated columns retained L/corner topology and post views; no outputs installed."
+}

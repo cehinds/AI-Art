@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-sea-underwater-ruin-arch",
+  "view": "bottom",
+  "status": "rejected-after-source-review",
+  "prompt": "Draw only the BOTTOM projection of this ruin arch as seen looking vertically upward from below. The bottom does not include a bridge or continuous arch band: show ONLY the underside faces of the two separated square masonry foot pads at the left and right ends, matching their spacing and size in the accepted TOP reference. Leave the entire central gap between the two feet transparent and empty. Do not draw any U-shape, arch curve, vertical side piers, frontal portal, wall, slab, tray, or connecting strip. This is a pair of separate square rough stone feet, not an arch elevation. Use plain gray-green underside stone with subtle moss on edges, no flowers. Strict orthographic camera, transparent centered 256x256. Inferred view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/bubble-sea-underwater-ruin-arch.top.png",
+      "sha256": "1bae23f05a090a779d54ea43c02d7a2598dbffba245b7a699ca1c45919d88e9d",
+      "role": "accepted TOP reveals two end foot locations and central gap"
+    },
+    {
+      "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
+      "sha256": "574d01bdd6c00ffd92b624fb6d57b943c4f224d80e8a89b0390853a9df6046b8",
+      "role": "canonical stone/moss material and object identity"
+    }
+  ],
+  "geometry_constraints": [
+    "exactly two separated square masonry feet",
+    "empty transparent center gap",
+    "no U arch band or vertical elevation",
+    "match accepted top end positions",
+    "plain underside stone"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-sea-underwater-ruin-arch-bottom-v3-atlas.png",
+  "generated_atlas_sha256": "86f55c3f78944e99e1aa52b2f44579825b1a94cb8ee736d4912098c25762b79e",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Independent review requires a shallow stone arch-underside band connecting the two feet; the separated-feet-only candidate omits that visible span."
+}

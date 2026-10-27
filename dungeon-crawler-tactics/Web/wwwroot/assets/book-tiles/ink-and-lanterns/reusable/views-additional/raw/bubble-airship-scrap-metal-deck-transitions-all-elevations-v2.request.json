@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "request_id": "bubble-airship-scrap-metal-deck-transitions-all-elevations-v2",
+  "status": "generated-atlas-rejected-internal-qa",
+  "objects": [
+    "bubble-airship-scrap-metal-deck-edge-transition",
+    "bubble-airship-scrap-metal-deck-corner-transition"
+  ],
+  "views_by_column": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "prompt": "Create a transparent-background orthographic atlas in exactly 4 columns by 2 rows. Row 1 is the Airship scrap-metal deck EDGE transition shown in reference image 1; row 2 is the CORNER transition shown in reference image 2. Column order in both rows: FRONT, RIGHT, LEFT, REAR. Each cell contains one isolated straight-on horizontal floor-edge elevation, centered with transparent gutters. Preserve the same physical horizontal safety rail height in ALL four elevations. The broad front/rear views show the rail as a broad horizontal yellow-black striped bar above the bolted rust-metal slab edge. In right/left, show the shallow slab-depth profile with the same rail seen END-ON at the proper edge, not a broad face and never a tall vertical L-shaped rail. For the EDGE object, its rail exists only along the source's single striped boundary; both opposite front/rear elevations show that same rail's consistent height when visible, and the side views show the rail end at the correct end of the slab. For the CORNER object, its TOP shows rails on two adjacent edges forming an L in XY. In every side elevation show the rail as a horizontal bar at shared Z, with adjoining/end-on segments only where they meet that direction. Never rotate an L plan upright into a vertical bar. Keep slab thickness, support blocks, bolt plates, central supports, rust patterns and yellow-black stripes consistent with each exact row source. Preserve the distinct edge vs corner topology; don't interchange rows. No perspective, no full overhead face, no missing rail, no extra barriers, no added parts. Inferred views, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/qa-bubble-airship-scrap-metal-deck-edge-transition-source-top-bottom-v2.png",
+      "sha256": "3febe4e5c10f4ef7140987da5139ea2bd621ba07f990b4da5603228eb12e1a14",
+      "role": "edge source identity plus accepted top and bottom"
+    },
+    {
+      "path": "reusable/views-additional/qa-bubble-airship-scrap-metal-deck-corner-transition-source-top-bottom-v2.png",
+      "sha256": "72ca91acff0d1277dec66f6c75c515625b0713df0eb41c60dace353d2e16f845",
+      "role": "corner source identity plus accepted top and bottom"
+    }
+  ],
+  "canonical_sources": {
+    "bubble-airship-scrap-metal-deck-edge-transition": {
+      "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-edge-transition.png",
+      "sha256": "6f02eb32d1a6a514281ceca0dd6e89c6979e7a75aab6bc3e47d0ec3318283ef7"
+    },
+    "bubble-airship-scrap-metal-deck-corner-transition": {
+      "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-corner-transition.png",
+      "sha256": "65f9e74eef08e2034f8d1ed383655684b6e3acd2e0be4d540a0cb4d2cda7fb53"
+    }
+  },
+  "preinstall_view_hashes": {
+    "bubble-airship-scrap-metal-deck-edge-transition": {
+      "front": "680fa9e85644a24c59181069391561f5bb90bc92889236d76db25fb423625071",
+      "top": "b94eb211f3c4c3cd5d9045925793ca2403c53e94bb0f1faa08a844e4728cd83e",
+      "right": "915880e46b9003063d73eee1c89516a8a010efe4ac3387b3d46de1578a952d50",
+      "left": "94e910e5900fb88e4ff463776f710eb2f6ddbe6f6dfc4beb5632e604e3da8858",
+      "bottom": "604167eec10b9d7a58726069447dd940cf26307b29ae4227af75d8bcb8f14c98",
+      "rear": "7755b22e94f99348fcf4d9dbc236244c5d1bf4f2e3fbce96a140c678514a50ef"
+    },
+    "bubble-airship-scrap-metal-deck-corner-transition": {
+      "front": "2460ada5a3907f3e77fc4c02c50e15debfe1d2817b1322d3136a3adff0a86be4",
+      "top": "78bc367598903af1bb69d0caad7f409d9edeedbb4678443f815f19d5c2d307b9",
+      "right": "0c8f8f65e9da3dfd8e6612c5a94aa1d215af47ad147699cd1b931d224ed0caba",
+      "left": "1952ec941acd51de9d881cf6fa276bc9cfd163ab634114439a1f5d8323a4d23a",
+      "bottom": "2ea7d3ef42ad6f2dfeb53610be9f5ce45a030bb731dba09722420dbf8ffb9c50",
+      "rear": "a1c2ba8c0ce0fbeec5c9413ed49075c12b70992a52d3fc428eaa979b9b6e67c1"
+    }
+  },
+  "geometry_constraints": [
+    "four horizontal principal elevations",
+    "rail remains at shared height and never becomes vertical",
+    "edge rail one-sided and corner rail L topology retained",
+    "preserve accepted top/bottom"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-airship-scrap-metal-deck-transitions-all-elevations-v2-atlas.png",
+  "generated_atlas_sha256": "992d6f3827aa99ee77b9e060ddf3b088125fa0f7a3645a2ed40c516c621cc093",
+  "generation_call_id": "exec-d607bf7c-7d61-4b59-afdd-612b6f6e5c54",
+  "internal_qa_failure": "Output did not follow the four horizontal elevation directions; broad plan-like panels and upright full-height rails appeared in side cells. No candidates normalized or installed."
+}

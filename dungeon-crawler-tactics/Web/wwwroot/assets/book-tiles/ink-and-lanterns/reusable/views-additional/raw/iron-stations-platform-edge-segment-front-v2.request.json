@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "iron-stations-platform-edge-segment",
+  "view": "front",
+  "status": "generated-atlas-ready-for-normalization",
+  "prompt": "Create a new FRONT orthographic edge-elevation for the Iron Stations platform edge segment. Use the FIRST reference (the accepted REAR view of this same object) as the exact target world-Z support-frame height and broad X width: the new FRONT support posts and X-brace must be equally tall, not half-height. Use the SECOND reference (the approved thin-tactile FRONT candidate) for the thin yellow tactile rim and the correct FRONT edge material/plane; do not copy its too-short support frame. Keep the tactile strip edge-on as a narrow yellow horizontal band, with no broad gray tiled floor surface. Show the same full-width dark iron support arrangement and cross-bracing reaching down to the same bottom line as the accepted REAR. True axis-aligned side elevation, no perspective, no top view. Transparent background and full object. Inferred view.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/iron-stations-platform-edge-segment.rear.png",
+      "sha256": "5e97c738b072c8e2c3eea41366bcbd82fb7055b835d58a5f2b62b47bb14a3228",
+      "role": "accepted same-object geometry and target common support height/width"
+    },
+    {
+      "path": "reusable/views-additional/raw/iron-stations-platform-edge-segment.front-v1-candidate.png",
+      "sha256": "b070b4c491a59c5ba1eb8ae3fcf6f568ebe3d360a3861e6309ee0213af081488",
+      "role": "approved front tactile rim and material plane only; support frame was too short"
+    }
+  ],
+  "geometry_constraints": [
+    "match REAR support height and width",
+    "thin yellow tactile edge only",
+    "full-height X-braced supports",
+    "no broad tile grid",
+    "no anisotropic scaling"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/iron-stations-platform-edge-segment-front-v2-atlas.png",
+  "generated_atlas_sha256": "a065193c2bf513eb870b7d66824dabce11df167b33dd6fd5e45e950468616315",
+  "generation_call_id": "exec-e918c39d-d69a-4e75-9051-676f33c7647c"
+}

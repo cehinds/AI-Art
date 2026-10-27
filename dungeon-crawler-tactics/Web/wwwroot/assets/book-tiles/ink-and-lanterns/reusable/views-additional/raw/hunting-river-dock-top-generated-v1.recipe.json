@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "object_id": "hunting-river-riverside-dock",
+  "source_ids": [
+    "hunting-river-riverside-dock--native"
+  ],
+  "source_images": [
+    "hunting-river/components/hunting-river-riverside-dock.png"
+  ],
+  "grid": {
+    "columns": 1,
+    "rows": 1
+  },
+  "corrected_view": "top",
+  "atlas": "hunting-river-dock-top-generated-v1.png",
+  "atlas_sha256": "30adc255a566d19a85bc94e654d1585e8862cda2308b8288c35fbcec0b3bc56d",
+  "generated_parent_atlas": "raw/hunting-river-dock-top-bottom-generated-v1.png",
+  "generated_parent_atlas_sha256": "db43541e65541f17ecd5c2139bfdd0ced9d42a153b99ce50d9a38f9061cb67b5",
+  "generation_request": "raw/hunting-river-dock-top-bottom-request-v1.json",
+  "generation_prompt": "Using the actual riverside dock source and the indexed side elevations for identity, create a transparent 1-row x 2-column atlas of ONLY the same dock viewed orthographically. LEFT cell TOP: exact overhead plan; the plank platform has six stout round piling caps, three evenly spaced along each long edge (front/middle/rear positions visible in the front/rear elevations), not only four corner piles. Include the existing narrow lantern arm projecting from the same right-hand back corner, preserving its extent and position. Show water only as a tight perimeter. RIGHT cell BOTTOM: straight upward-looking underside; show full plank-deck underside, crossbeams and six round piling end caps matching the same three-by-two support arrangement and lantern-arm projection footprint; no upper deck surface, no upright pilings or lamp as if seen from above. Keep all features inside transparent gutters, same shared scale and centered footprint as the source/side views; no perspective, no labels/text, crisp pixel-art. Do not alter object identity, material, plank count/style, support count/locations or lantern-arm position. Infer hidden underside honestly; this is not recovered source art or calibrated 3D.",
+  "reference_path": "reusable/views-additional/raw/hunting-river-riverside-dock-source-six-reference-v1.png",
+  "reference_sha256": "4461c253209deb5b715910d9430f13f39852bc62934e01406e0801efca93e397",
+  "cell_extraction": {
+    "method": "largest alpha connected component >=50000 pixels within requested half; full component bounds plus 3px antialias padding",
+    "parent_bounds_px": [
+      160,
+      271,
+      822,
+      687
+    ],
+    "component_bounds_px": [
+      163,
+      274,
+      819,
+      684
+    ],
+    "component_pixels": 224109
+  },
+  "expected_result": "Inferred orthographic view; not recovered pixels or calibrated 3D."
+}

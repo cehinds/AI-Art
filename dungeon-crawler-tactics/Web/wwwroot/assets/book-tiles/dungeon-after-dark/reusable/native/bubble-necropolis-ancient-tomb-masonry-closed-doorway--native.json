@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-necropolis-ancient-tomb-masonry-closed-doorway--native",
+  "name": "Ancient Tomb Masonry closed doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-necropolis",
+    "door",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-necropolis-ancient-tomb-masonry-closed-doorway--native.png",
+    "width": 202,
+    "height": 178,
+    "sha256": "b9b6191fda4d985869851750cf94600872f6da994898cc5fd6e7bf849d8833ab",
+    "rgba_sha256": "fc11a0fb34aaa111b66d6e3eb45559e23fe3977402e2552ae10fdbf66e3c19bd"
+  },
+  "metadata_path": "reusable/native/bubble-necropolis-ancient-tomb-masonry-closed-doorway--native.json",
+  "anchor_px": [
+    101.0,
+    178
+  ],
+  "object_id": "bubble-necropolis-ancient-tomb-masonry-closed-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-necropolis.png",
+    "source_sha256": "74561c2801afb37a9eb0161b9fb1854170807d17e26e0e1b1e00f9267dcfa260",
+    "source_rect": [
+      296,
+      506,
+      202,
+      178
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "bubble-necropolis-ancient-tomb-masonry-closed-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-necropolis-ancient-tomb-masonry-closed-doorway"
+  }
+}

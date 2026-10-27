@@ -1,0 +1,667 @@
+{
+  "schema_version": 1,
+  "batch": "floor-transitions-01-clubs-carpet-v2",
+  "role": "candidate-only",
+  "write_scope": "book-tiles/ink-and-lanterns/reusable/views-additional/raw/core-staging-floor-transitions",
+  "no_live_writes": true,
+  "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+  "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+  "raw_atlas_size_wh": [
+    1774,
+    887
+  ],
+  "request_file": "clubs-plain-floor-edges-v2.request.json",
+  "request_sha256": "fc20a50fc3d4b729a800f79239b616ed1ba92e556382bc222aaf324e07ec1584",
+  "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+  "alpha_threshold": 16,
+  "sets": [
+    {
+      "object_id": "clubs-guilds-club-carpet-corner-transition",
+      "source": {
+        "path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+        "sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.front",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.front.png",
+          "sha256": "b4410b52e0d9b2a7f2986e8e98c2ae5d05fa7ef4d3509e524a15a32afd536574"
+        },
+        "top": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.top",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.top.png",
+          "sha256": "7aaa64520b657ea6e5e23f43e98e9b20065db01da68de6818aa3f51856f1c89b"
+        },
+        "right": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.right",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.right.png",
+          "sha256": "a613e33b2e8671780e847c2686f6adc0dde587f84d66bf7b673b3d19e303af88"
+        },
+        "left": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.left",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.left.png",
+          "sha256": "d1134acba625f25a56d7bc126f7c4caa2ec009649150f24d5ba0a3682544982b"
+        },
+        "bottom": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.bottom",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.bottom.png",
+          "sha256": "491603de32b37edad1541fdf7944ae7b618e56de2e1b8684ee890f0cbfebac07"
+        },
+        "rear": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.rear",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.rear.png",
+          "sha256": "3a4c3e78b3cacb31798305b18d0d9fdb00547de9b65bbeae0c121aedb7e24af3"
+        }
+      },
+      "review": {
+        "reviewer": "root",
+        "reviewed_at": "2026-10-25T18:08:08.605837+00:00",
+        "status": "needs-correction",
+        "notes": [
+          "Top/source have a missing corner in the footprint but bottom invents a complete rectangle. Elevations repeat top-pattern strips rather than corresponding exterior edge profiles."
+        ],
+        "affected_views": [
+          "front",
+          "right",
+          "left",
+          "bottom",
+          "rear"
+        ]
+      },
+      "candidate_views": {
+        "bottom": {
+          "candidate_path": "candidates/clubs-carpet-v1/clubs-guilds-club-carpet-corner-transition.bottom.candidate.png",
+          "candidate_sha256": "61a6950130de7bc9856b67d12f27b930de86bd3309c4bd8bb9c3d94d3507a693",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            22,
+            244,
+            234
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-view-edit",
+            "raw_atlas_path": "clubs-carpet-transitions-atlas.png",
+            "raw_atlas_sha256": "7e9746f570c61192a4ff85b6de22d81369880c66db09152a948f9e4d763b5ed3",
+            "request_id": "exec-b4998cf0-583f-4062-929e-2664a3804935",
+            "request_file": "clubs-carpet-transitions.request.json",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+            "source_sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf",
+            "raw_component_bbox_xyxy": [
+              1630,
+              104,
+              1907,
+              357
+            ],
+            "raw_component_size_wh": [
+              277,
+              253
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic scale to source plan world-X/world-Y extent; shared existing ground line for elevations; centered anchor contract 128,128",
+            "uniform_scale": 0.8375451263537906,
+            "resized_wh": [
+              232,
+              212
+            ],
+            "canvas_offset_xy": [
+              12,
+              22
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_world_x_px": 232,
+            "target_world_y_px": 218,
+            "ground_line_y": null,
+            "note": "Candidate only; inferred hidden underside/edge surfaces are not recovered pixels. L corner underside preserves native transparent quadrant."
+          }
+        },
+        "front": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-corner-transition.front.candidate.png",
+          "candidate_sha256": "b1037dcd8b7525a679c0ed52cb244979cb61fb4b0057c560c9ee6966453b2c4e",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            125,
+            244,
+            176
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+            "source_sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf",
+            "cell_bounds_xywh": [
+              0,
+              0,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              80,
+              258,
+              379,
+              324
+            ],
+            "raw_component_size_wh": [
+              299,
+              66
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7759197324414716,
+            "resized_wh": [
+              232,
+              51
+            ],
+            "canvas_offset_xy": [
+              12,
+              125
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 232,
+            "target_z_cap_px": 60,
+            "ground_line_y": 176,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "right": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-corner-transition.right.candidate.png",
+          "candidate_sha256": "b3d2bf9e3caddf4cefb3143efafb824016e03d4fd0b7b4caba060a7e4ae932ef",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            24,
+            116,
+            232,
+            176
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+            "source_sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf",
+            "cell_bounds_xywh": [
+              443,
+              0,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              506,
+              235,
+              814,
+              324
+            ],
+            "raw_component_size_wh": [
+              308,
+              89
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.6741573033707865,
+            "resized_wh": [
+              208,
+              60
+            ],
+            "canvas_offset_xy": [
+              24,
+              116
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 218,
+            "target_z_cap_px": 60,
+            "ground_line_y": 176,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "left": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-corner-transition.left.candidate.png",
+          "candidate_sha256": "6117e9730d037e92a7d85161e23d6df065c55b81c552182e63df929f19056b33",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            24,
+            116,
+            232,
+            176
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+            "source_sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf",
+            "cell_bounds_xywh": [
+              887,
+              0,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              961,
+              235,
+              1270,
+              324
+            ],
+            "raw_component_size_wh": [
+              309,
+              89
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.6741573033707865,
+            "resized_wh": [
+              208,
+              60
+            ],
+            "canvas_offset_xy": [
+              24,
+              116
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 218,
+            "target_z_cap_px": 60,
+            "ground_line_y": 176,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "rear": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-corner-transition.rear.candidate.png",
+          "candidate_sha256": "8191ca3ec509448e28d3b3e1f99c38eb1ff30adda38f444789ad3627bb38eea1",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            124,
+            244,
+            176
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+            "source_sha256": "42723ffbb0dbf4bd0a82d0759a5e510426c3c9fb6a3e4fc7e38f8cdf5e96bcdf",
+            "cell_bounds_xywh": [
+              1330,
+              0,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              1397,
+              258,
+              1694,
+              324
+            ],
+            "raw_component_size_wh": [
+              297,
+              66
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7811447811447811,
+            "resized_wh": [
+              232,
+              52
+            ],
+            "canvas_offset_xy": [
+              12,
+              124
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 232,
+            "target_z_cap_px": 60,
+            "ground_line_y": 176,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        }
+      },
+      "retained_views": {
+        "top": {
+          "asset_id": "clubs-guilds-club-carpet-corner-transition.top",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.top.png",
+          "sha256": "7aaa64520b657ea6e5e23f43e98e9b20065db01da68de6818aa3f51856f1c89b"
+        }
+      },
+      "contact_path": "clubs-guilds-club-carpet-corner-transition.candidate-source-current-six-v2.png",
+      "contact_sha256": "853d3c557c6fdedc1e3c1cd1645630bd053670ca4f03cc9a0efbce7ceb1dcc53",
+      "rejected_previous_directions": {
+        "first_atlas": "Candidates with broad patterned carpet face were held; corner RIGHT duplicate plan and edge TOP duplicate plan rejected. The L-shaped corner BOTTOM was accepted by Root and is retained exactly."
+      }
+    },
+    {
+      "object_id": "clubs-guilds-club-carpet-edge-transition",
+      "source": {
+        "path": "clubs-guilds/components/clubs-guilds-club-carpet-edge-transition.png",
+        "sha256": "ce699fbf3d6595b42eef899a36c220ba6ed241a08bdabc0a7556432e2fa606d8"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.front",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.front.png",
+          "sha256": "7750242a04f0bc3344124b9c7d979e1a974f6bc22812ed7ae6e5c998bbe14dc9"
+        },
+        "top": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.top",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.top.png",
+          "sha256": "8c1287d8425832583bed8c83114b31bcc26685b16d8337ad855cefbb8fe4a77f"
+        },
+        "right": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.right",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.right.png",
+          "sha256": "627ab0accac720ce9dfa5eb383f8356570e943b184e0693072be6f975c9a0bc6"
+        },
+        "left": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.left",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.left.png",
+          "sha256": "e456ca05e668d30e43083877fbdc1107e5b7fb72eb0cd57744f7dfbe4658c452"
+        },
+        "bottom": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.bottom",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.bottom.png",
+          "sha256": "72c79d9fd11aed0dae0a03753fd51e54da8808d9c8e9554e1f30a77edf51a650"
+        },
+        "rear": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.rear",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.rear.png",
+          "sha256": "45697b4921968e8f08a23b179ac5dc5aff4b7dc3e0b86bc804f9a468213271de"
+        }
+      },
+      "review": {
+        "reviewer": "root",
+        "reviewed_at": "2026-10-25T18:08:08.605091+00:00",
+        "status": "needs-correction",
+        "notes": [
+          "All four elevations repeat the full red-carpet plus paving top pattern; opposing edges should show their corresponding carpet/paving substrate cross-sections, not a reduced top plan."
+        ],
+        "affected_views": [
+          "front",
+          "right",
+          "left",
+          "rear"
+        ]
+      },
+      "candidate_views": {
+        "front": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-edge-transition.front.candidate.png",
+          "candidate_sha256": "db4f13c7c28c60fbcccd617c66823ee638085c3ab2aab7534980e4331ee83627",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            130,
+            244,
+            180
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-edge-transition.png",
+            "source_sha256": "ce699fbf3d6595b42eef899a36c220ba6ed241a08bdabc0a7556432e2fa606d8",
+            "cell_bounds_xywh": [
+              0,
+              443,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              80,
+              649,
+              379,
+              714
+            ],
+            "raw_component_size_wh": [
+              299,
+              65
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7759197324414716,
+            "resized_wh": [
+              232,
+              50
+            ],
+            "canvas_offset_xy": [
+              12,
+              130
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 232,
+            "target_z_cap_px": 60,
+            "ground_line_y": 180,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "right": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-edge-transition.right.candidate.png",
+          "candidate_sha256": "f4a710c4300ad9b01ea3f93d58cd4000cc01ad4aeacbe00387ffe5c966775aac",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            17,
+            132,
+            238,
+            180
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-edge-transition.png",
+            "source_sha256": "ce699fbf3d6595b42eef899a36c220ba6ed241a08bdabc0a7556432e2fa606d8",
+            "cell_bounds_xywh": [
+              443,
+              443,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              508,
+              648,
+              814,
+              714
+            ],
+            "raw_component_size_wh": [
+              306,
+              66
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7222222222222222,
+            "resized_wh": [
+              221,
+              48
+            ],
+            "canvas_offset_xy": [
+              17,
+              132
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 221,
+            "target_z_cap_px": 60,
+            "ground_line_y": 180,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "left": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-edge-transition.left.candidate.png",
+          "candidate_sha256": "3c718ee65d98930b49ebc9631611a328fe843d0e4a7dfe04ff776e884537a426",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            17,
+            132,
+            238,
+            180
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-edge-transition.png",
+            "source_sha256": "ce699fbf3d6595b42eef899a36c220ba6ed241a08bdabc0a7556432e2fa606d8",
+            "cell_bounds_xywh": [
+              887,
+              443,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              960,
+              648,
+              1267,
+              714
+            ],
+            "raw_component_size_wh": [
+              307,
+              66
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7198697068403909,
+            "resized_wh": [
+              221,
+              48
+            ],
+            "canvas_offset_xy": [
+              17,
+              132
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 221,
+            "target_z_cap_px": 60,
+            "ground_line_y": 180,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        },
+        "rear": {
+          "candidate_path": "candidates/clubs-carpet-v2/clubs-guilds-club-carpet-edge-transition.rear.candidate.png",
+          "candidate_sha256": "2922c54f62ffb9401384a875064c2e30aff0ca21e0b42445137ccb8f0db7435a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            129,
+            244,
+            180
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-floor-edge-edit",
+            "raw_atlas_path": "clubs-plain-edges-v2-atlas.png",
+            "raw_atlas_sha256": "d1b3831888adb4f89e8a0cc1355702b2965c0c298d03e30e43e71e1547e01ef7",
+            "request_id": "exec-ef995f08-9ea1-41f0-a307-101a5b30546f",
+            "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-edge-transition.png",
+            "source_sha256": "ce699fbf3d6595b42eef899a36c220ba6ed241a08bdabc0a7556432e2fa606d8",
+            "cell_bounds_xywh": [
+              1330,
+              443,
+              443,
+              443
+            ],
+            "raw_component_bbox_xyxy": [
+              1397,
+              648,
+              1696,
+              714
+            ],
+            "raw_component_size_wh": [
+              299,
+              66
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic fit to source-plan X/Y span with common approximate Z cap and unchanged shared ground line",
+            "uniform_scale": 0.7759197324414716,
+            "resized_wh": [
+              232,
+              51
+            ],
+            "canvas_offset_xy": [
+              12,
+              129
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_xy_span_px": 232,
+            "target_z_cap_px": 60,
+            "ground_line_y": 180,
+            "note": "Plain masonry floor edge with only 1-3px carpet trim. No broad patterned carpet face; candidate only."
+          }
+        }
+      },
+      "retained_views": {
+        "top": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.top",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.top.png",
+          "sha256": "8c1287d8425832583bed8c83114b31bcc26685b16d8337ad855cefbb8fe4a77f"
+        },
+        "bottom": {
+          "asset_id": "clubs-guilds-club-carpet-edge-transition.bottom",
+          "path": "reusable/views-additional/clubs-guilds-club-carpet-edge-transition.bottom.png",
+          "sha256": "72c79d9fd11aed0dae0a03753fd51e54da8808d9c8e9554e1f30a77edf51a650"
+        }
+      },
+      "contact_path": "clubs-guilds-club-carpet-edge-transition.candidate-source-current-six-v2.png",
+      "contact_sha256": "e9524cabc6d750925ad39e47c88e657872a72734b9a6f8a260d741ba612078c5",
+      "rejected_previous_directions": {
+        "first_atlas": "Candidates with broad patterned carpet face were held; corner RIGHT duplicate plan and edge TOP duplicate plan rejected. The L-shaped corner BOTTOM was accepted by Root and is retained exactly."
+      }
+    }
+  ]
+}

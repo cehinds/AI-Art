@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "method": "imagegen-four-square-stair-underside-atlas",
+  "source_atlas": "reusable/views-additional/raw/club-early-stair-undersides-generated-v2.png",
+  "source_atlas_sha256": "3ec468aa2f968cbc598615a9ff69444e58650d6ee805b26903d6bac7a71bdc8d",
+  "reference_sheet": "reusable/views-additional/raw/club-early-stair-underside-source-guides-v1.png",
+  "reference_sheet_sha256": "c77ed9b206dbfd04b91514667a96327f57a8bc23c029b9e279ded09ca39428d6",
+  "generation_request": "reusable/views-additional/raw/club-early-stair-underside-request-v2.json",
+  "generation_prompt": "Generate exactly FOUR orthographic BOTTOM views in a 2\u00d72 atlas; each cell is a true SQUARE footprint. Object order: upper-left club-carpet stairs UP, upper-right club-carpet stairs DOWN, lower-left arena-stone stairs UP, lower-right arena-stone stairs DOWN. The source-and-side reference has one row per exact object. For every bottom, the outer plan silhouette MUST be square (width and depth equal within 10%), filling most of the cell; do not create a wide rectangle or perspective view. Show only hidden understructure from a camera looking straight up, never the upright stair flight or treads. Club pair: dark brown plank/beam underside under the red-carpet stairs, four small plain square wooden post-foot ends at the four corners, no round gold ball finials, no red carpet faces. Arena pair: square full-coverage tan/gray stone underside with matching source masonry, four square corner post-foot ends, no stair treads, no pit/open hole. Preserve distinctions between UP/DOWN; each matches its source row. One separate centered object per cell with clear transparent gutters; no text, labels, border, scenery, unrelated material, or neighbor fragments. Inferred undersides, not recovered pixels or calibrated 3D.",
+  "grid": {
+    "columns": 2,
+    "rows": 2,
+    "object_order": [
+      "clubs-guilds-club-carpet-stairs-up",
+      "clubs-guilds-club-carpet-stairs-down",
+      "early-arenas-arena-stone-stairs-up",
+      "early-arenas-arena-stone-stairs-down"
+    ]
+  },
+  "source_ids": [
+    "clubs-guilds-club-carpet-stairs-up--native",
+    "clubs-guilds-club-carpet-stairs-down--native",
+    "early-arenas-arena-stone-stairs-up--native",
+    "early-arenas-arena-stone-stairs-down--native"
+  ],
+  "source_images": [
+    "clubs-guilds/components/clubs-guilds-club-carpet-stairs-up.png",
+    "clubs-guilds/components/clubs-guilds-club-carpet-stairs-down.png",
+    "early-arenas/components/early-arenas-arena-stone-stairs-up.png",
+    "early-arenas/components/early-arenas-arena-stone-stairs-down.png"
+  ],
+  "corrected_view": "bottom",
+  "target_dimension_axis": "max",
+  "target_dimension_px": [
+    171,
+    172,
+    186,
+    176
+  ],
+  "target_dimension_basis": "per-object max alpha width of accepted right/left elevations; preserve isotropic scale for square floor tile footprint",
+  "resampling": "lanczos",
+  "alpha_threshold": 16,
+  "status": "candidate-installed-for-independent-review",
+  "normalization": "global connected components assigned to nearest 2x2 cell center, retain main component and attached significant details, crop full alpha bounds, isotropic scale to per-object target max dimension, center on 256 canvas.",
+  "atlas": "club-early-stair-undersides-generated-v2.png",
+  "atlas_sha256": "3ec468aa2f968cbc598615a9ff69444e58650d6ee805b26903d6bac7a71bdc8d"
+}

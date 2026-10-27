@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "broadcast-portals-studio-partition-open-doorway",
+  "view": "bottom",
+  "status": "rejected-after-review",
+  "prompt": "Create only the BOTTOM orthographic projection of this OPEN wooden doorway, looking straight upward from directly below. The doorway is a vertical assembly; its tall jambs and header are edge-on from the bottom camera. Show only the two compact square underside/foot-cap surfaces of the timber jamb bases at the exact left/right spacing, plus their narrow lower-edge bevels and small iron details. Preserve the central doorway opening as transparent empty space; do not invent a bridge, door slab, horizontal panel, threshold board across the opening, or any upright frame face. Do not show lamps, header, or broad wood surfaces. Match the actual source warm wood, dark iron, dimensions and count. Axis-aligned principal view, no perspective, complete silhouette centered on transparent 256x256. Inferred view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "broadcast-portals/components/broadcast-portals-studio-partition-open-doorway.png",
+      "sha256": "a5449de293521b3926d3f60a749fc89f0efb002792e39c28fa19024fa5bcd8ca",
+      "role": "canonical source identity/material"
+    },
+    {
+      "path": "reusable/views-additional/qa-broadcast-open-door-source-six-v1.png",
+      "sha256": "abeb7b87317b9ef5ede20c5ee0a21fbdfb569e427f2438d9094cc66f786ef1f8",
+      "role": "current source plus six; bottom-only correction"
+    }
+  ],
+  "geometry_constraints": [
+    "two square jamb-bottom footprints only",
+    "transparent open gap remains between feet",
+    "no full upright frame or plank face",
+    "no invented cross-opening threshold",
+    "orthographic looking upward"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/broadcast-portals-studio-partition-open-doorway-bottom-v1-atlas.png",
+  "generated_atlas_sha256": "da862acb0ddd296a0afa53c6ac454b37846693ad76ec867649b0f0ff4004b5b0",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Omitted visible underside of the overhead lintel between jamb feet; root directed a narrow connecting beam, not a floor-level threshold."
+}

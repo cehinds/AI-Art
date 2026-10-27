@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-cemetery-flagstone-floor--surface",
+  "name": "Cemetery Flagstone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ghost-cemetery",
+    "ground",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "251b685c7e1e422121f02fe79a25938b1ee6c2f382dece02c46044d25bfdc555",
+    "rgba_sha256": "3ee148e73c4fde9df08d59d9a873a1971bc04096ed32e6e27ffda6e523cf0efb"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-cemetery-cemetery-flagstone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-cemetery-cemetery-flagstone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-floor.png",
+    "source_sha256": "bd8bde96c3a013dfc91fb45b18b070c55e24041a275d9b3332150bb34b7035ad",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "east": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "south": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "west": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ]
+  },
+  "canonical_asset_id": "ghost-cemetery-cemetery-flagstone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-cemetery-cemetery-flagstone-floor"
+  }
+}

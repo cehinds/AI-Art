@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-desert-desert-tavern-doorway",
+  "views": [
+    "bottom"
+  ],
+  "status": "rejected_after_footprint_self_qa",
+  "prompt": "Edit/create ONLY a strict orthographic BOTTOM plan of this exact desert tavern doorway tile, viewed straight upward from beneath the object. Follow the TOP image only for its XY footprint and object placement: a shallow wide rectangular doorway platform with TWO round wooden barrels attached at the far left and far right. On the bottom, those two barrels must appear as two distinct circular flat wooden base disks with visible concentric plank rings and center plugs; do not show barrel side slats. The central support underside is shallow dark brown wood boards between the circular barrel bases, with the small sandstone threshold footprint at the doorway. Preserve the exact left-right spacing and overall width from TOP/source. Opaque roof and wall hide the upper doorway, door, barrels sides, red awning top and its hanging face. No vertical fa\u00e7ade, no arched opening, no full upright door, no red cloth stripe, no generic square tray, no extra legs or objects. The full art must lie in one horizontal plane in the XY plan, no perspective or oblique faces. One centered complete silhouette, transparent background, no text. Inferred illustration, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "bubble-desert/components/bubble-desert-desert-tavern-doorway.png",
+      "sha256": "bfc242bf55844eb3134f568a3a233a29eb21aa14ede24fb99c1109cd3842d18b",
+      "role": "canonical source identity"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-desert-tavern-doorway.top.png",
+      "sha256": "a90a8cca4f88e5145d91f78b6b1aa47f3e6e8280e965b62582f9e17e9a65ad4a",
+      "role": "authoritative XY plan footprint and two barrel positions"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-desert-tavern-doorway.bottom.png",
+      "sha256": "88841a0ee1aa416411e8e8f2dde4cdffe368142a871be0fa86aaa1752a1e861f",
+      "role": "current underside target to correct"
+    },
+    {
+      "path": "reusable/views-additional/qa-tavern-bottom-source-six.png",
+      "sha256": "140d299c099d9b7fd74fd58c19c0901607fa97dce22ddb47fb80563ff11257d0",
+      "role": "current source-plus-six context"
+    }
+  ],
+  "transparent_background": true,
+  "geometry_constraints": [
+    "strict bottom plan viewed straight upward",
+    "two circular barrel base disks at left/right matching TOP XY footprint",
+    "central shallow wooden underside boards",
+    "no upright facade, door or awning face"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-desert-desert-tavern-doorway-bottom-v2-atlas-rejected.png",
+  "generated_atlas_sha256": "4c27db86e21078305ff206603f25e173cb028e641415a8c3b694dba0c28565f4",
+  "qa_reason": "Correct underside concept with two barrel disks and no fa\u00e7ade, but full object bounds are too shallow relative to accepted TOP footprint. Do not stretch anisotropically; regenerate to a width:depth ratio near 1.4:1."
+}

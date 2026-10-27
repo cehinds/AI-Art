@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "generated-atlas-ready-for-normalization",
+  "request_id": "bubble-airship-scrap-metal-deck-floors-front-rear-v1",
+  "objects": [
+    "bubble-airship-scrap-metal-deck-floor",
+    "bubble-airship-wet-scrap-metal-deck-floor",
+    "bubble-airship-worn-scrap-metal-deck-floor"
+  ],
+  "directions_per_object": [
+    "front",
+    "rear"
+  ],
+  "prompt": "Generate a transparent-background two-column by three-row atlas of ONLY six strict axis-aligned HORIZONTAL FLOOR EDGE ELEVATIONS. Source reference images are supplied in this exact top-to-bottom row order: row 1 = bubble-airship-scrap-metal-deck-floor; row 2 = bubble-airship-wet-scrap-metal-deck-floor; row 3 = bubble-airship-worn-scrap-metal-deck-floor. In every row, column 1 is FRONT and column 2 is REAR. Each row must retain its own exact material, colors, wear, and floor identity from its corresponding source; do not blend them or create any other objects. Camera is level with the ground plane, perfectly horizontal and orthographic. A floor tile seen from this camera is a long thin horizontal side profile: show only the vertical exposed steel slab edge / short tile thickness and a narrow rim along its top. Make each profile span about 215px horizontally and only about 28\u201340px high on a 256 square canvas, centered on baseline. NEVER show the broad square top surface, puddle pattern as a face, overhead checkerboard, or perspective slab top. For wet floor show only a tiny waterline/glint along the upper rim, not a puddle image. Keep clean transparent gutters between cells and rows, no labels, no neighboring strips. This is inferred art, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "object_id": "bubble-airship-scrap-metal-deck-floor",
+      "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-floor.png",
+      "sha256": "23a82d947dbc00eb8e1de3bc86260fef177cbd7a4b06faf3d6a233670194308b"
+    },
+    {
+      "object_id": "bubble-airship-wet-scrap-metal-deck-floor",
+      "path": "bubble-airship/components/bubble-airship-wet-scrap-metal-deck-floor.png",
+      "sha256": "118c3e27fc34d38f61e14204e50ed7c1f46f7099c703b2265491aff29c632828"
+    },
+    {
+      "object_id": "bubble-airship-worn-scrap-metal-deck-floor",
+      "path": "bubble-airship/components/bubble-airship-worn-scrap-metal-deck-floor.png",
+      "sha256": "132d0ad70ba063428e2706885648218078021c6d619b8f6d1ed8cf0d85dea8cd"
+    }
+  ],
+  "preinstall_view_hashes": {
+    "bubble-airship-scrap-metal-deck-floor": {
+      "front": "a4321aa41a984fecce31bc63456b4f1eeca1c0596774513ffc8439c46a3edc4f",
+      "top": "3952a23726fc3d0838ce09312c2166d565d07d161147573dc5ea8249d8cffd81",
+      "right": "3f0bdd7d6e0f272196ffc7333c6faf4235c129c261890167d9012bc42759f029",
+      "left": "93a5ebf90411977d774ef4f3769f2db9217c52291cb148d042938aba022041ba",
+      "bottom": "f0f556cce1eec4cc00768ecbbae46c8c8e9107a8a23bea1eb8f18c81ca9bb849",
+      "rear": "d9b7be86f8b601ade8322ae652b8b6699a9caf8f139eb4c79ae4939880445016"
+    },
+    "bubble-airship-wet-scrap-metal-deck-floor": {
+      "front": "44a6e38b3b588ef7a231e23657b3584e34a145da24b66d360e028b32c8674702",
+      "top": "2e1089f9a2b2c333785d88269d5fb5e17c7ae0522dbb9512492c87734f780355",
+      "right": "00e1e997292745dc8962ae34cc4d59553fbe7940f5349bb808ac6feef70819b6",
+      "left": "341f38970633f1987cd6a05654442e1220721ca1b67410cbe9654695c457f382",
+      "bottom": "3db991eecef6eae580549dd5518c821cca86d867200369a91050d5d02c459888",
+      "rear": "0e876106445e7513aa602c8c27ffbe403c5c3941c100db7cdf6916b8e99bc5f3"
+    },
+    "bubble-airship-worn-scrap-metal-deck-floor": {
+      "front": "2fbbac585eb7a48722d7eb8bba2ffdb0d0c951296290037d64114ffd34b0e83d",
+      "top": "be03d81b70e1cb8f9ef5f289dc27db4b557f9e0cf7394a9190f0dae7ae5360f0",
+      "right": "743cdac17c9eb3d096470cd8f0efe19fa0b143d82eb057de6a36f8761efe6e7f",
+      "left": "83cfe3c339acc7b2725d9c6260ff0f65ff67a1a51b7588c05e3750c54d9a9a30",
+      "bottom": "960fce222ef8f9b10443ac0be87fa78f9848f44b72973d98af747a05de70c9ed",
+      "rear": "03ddd24127267747e8d6e0155ace0648f1348acdf9d58c2c12c6c36357cbf108"
+    }
+  },
+  "geometry_constraints": [
+    "three separate row identities follow source order",
+    "two horizontal directions per object: FRONT then REAR",
+    "side profiles remain thin and level, not broad top faces",
+    "retain exact source-specific surface material and wear",
+    "transparent empty gutters; no cross-row contamination"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-airship-scrap-metal-deck-floors-front-rear-v1-atlas.png",
+  "generated_atlas_sha256": "fe65b1ee60afd2d2a98f5c0bd9e7102186f185ec301e6f492d868d3f7e6a6a97",
+  "generation_call_id": "imagegen-response-current-exec"
+}

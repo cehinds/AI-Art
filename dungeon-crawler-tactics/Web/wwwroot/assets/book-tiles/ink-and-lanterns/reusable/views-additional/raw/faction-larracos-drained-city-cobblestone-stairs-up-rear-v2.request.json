@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "faction-larracos-drained-city-cobblestone-stairs-up",
+  "view": "rear",
+  "status": "rejected-candidate",
+  "prompt": "Create only the REAR view of this UP gray stone stair flight, from the back side opposite the tread approach. The FIRST reference is an independently approved same-family stair REAR geometry guide: reproduce its rear-facing broad stone support wall between two tall parapet/sidewall stacks, with no exposed stair treads. Use the SECOND reference source-plus-six image for the target material and exact orientation only: retain its dark gray cobbles, mossy olive stains, and the correct UP high/low end. Do not reuse the guide brown stones. This is not a top view and not a three-quarter view: straight-on rear elevation, opaque masonry backing panel with matching side caps. No upper tread steps, no descending view into the flight, no front-facing staircase. Transparent background, complete centered silhouette, inferred orthographic art.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/over-city-city-cobblestone-stairs-up.rear.png",
+      "sha256": "0f4b33790e3123c556c943b52725bde1e57d68497e1b2837f3817fe9ee806475",
+      "role": "approved rear support geometry guide only"
+    },
+    {
+      "path": "reusable/views-additional/qa-faction-larracos-drained-city-cobblestone-stairs-up-current-source-six-pre-repair.png",
+      "sha256": "5a3bd44172bee365751e191c22f2a27cde59e9d8c728a5408e7bdfc566ab9a8c",
+      "role": "canonical target source and view identity/material; target UP/DOWN direction"
+    }
+  ],
+  "geometry_constraints": [
+    "rear face is broad opaque wall between two side parapets",
+    "zero visible tread surfaces",
+    "use target gray/moss material",
+    "preserve stair direction"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/faction-larracos-drained-city-cobblestone-stairs-up-rear-v2-atlas.png",
+  "generated_atlas_sha256": "1874d6a2f5c3f56684730489768c099185dd08e8c7fe247f55441e4785e62355",
+  "generation_call_id": "exec-3bef9500-4779-404d-b429-a96b78d6ea48",
+  "rejection_reason": "Even with approved same-family rear geometry guide, output retained exposed stair treads; do not install."
+}

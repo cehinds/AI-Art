@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "ghost-havana-ghost-traffic-road-barrier",
+  "view": "top",
+  "status": "rejected-after-independent-source-review",
+  "prompt": "Render only the TOP plan view of the exact two-pedestal Ghost Havana traffic barrier. Look straight down vertically, axis-aligned orthographic, so the striped upright arm is seen edge-on as a VERY THIN long horizontal strip (approximately 12\u201318 px thick when its full span is 190 px). Do not draw its broad vertical red-and-white warning face: that face is hidden at this camera angle. Show the two square metal ground-base plates at the left and right ends, each with corner bolts, plus the small orange hinge/rotor at the arm connection. Across the arm show only a thin top edge with a few narrow red/white color slivers, not broad diagonal stripes. Keep object identity, rusted metal, black outlines, proportions, palette, exact two bases. No ramps, no extra posts, no perspective, no oblique face, no crop. Transparent background, centered 256\u00d7256, inferred principal view.",
+  "reference_inputs": [
+    {
+      "path": "ghost-havana/components/ghost-havana-ghost-traffic-road-barrier.png",
+      "sha256": "020133a6e90032e2f894e70998765bfcde98918c346b9251c8c9b0b3a8d30278",
+      "role": "canonical object identity and native form"
+    },
+    {
+      "path": "reusable/views-additional/qa-ghost-havana-ghost-traffic-road-barrier-current-source-six-pre-repair.png",
+      "sha256": "385f184f65bcb1d0ae7479eb4894943e618fadcb90f7f27e5dfbca060a78ab7a",
+      "role": "current source plus six for exact material/context; correct TOP only"
+    }
+  ],
+  "geometry_constraints": [
+    "true vertical overhead camera",
+    "arm projects as thin long edge-on strip",
+    "two square bolt-studded bases at ends",
+    "no broad red-white upright face",
+    "retain small hinge geometry"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/ghost-havana-ghost-traffic-road-barrier-top-v2-atlas.png",
+  "generated_atlas_sha256": "5c04d015b0efa513f49d1cfb8ef735eb5180bd350bd3643dcbc5aef81405e78b",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Rejected by source review: actual object is a solid tapered Jersey barrier. Candidate lost the concrete mass and invented gate hardware."
+}

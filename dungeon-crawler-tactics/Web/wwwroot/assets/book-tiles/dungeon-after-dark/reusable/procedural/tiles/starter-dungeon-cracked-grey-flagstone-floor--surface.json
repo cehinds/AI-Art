@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "starter-dungeon-cracked-grey-flagstone-floor--surface",
+  "name": "Cracked grey flagstone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "starter-dungeon",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/starter-dungeon-cracked-grey-flagstone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "f98026a900a8b6d073f39fa79638632c8ddabd8e2c986d5046ceb418425b2568",
+    "rgba_sha256": "fba51363bc519d3c413282c2b1bd9e9aedb288aa20b30b42e46b225fdcfbcbcd"
+  },
+  "metadata_path": "reusable/procedural/tiles/starter-dungeon-cracked-grey-flagstone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "starter-dungeon-cracked-grey-flagstone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "starter-dungeon/components/starter-dungeon-cracked-grey-flagstone-floor.png",
+    "source_sha256": "b9d37ce0311699dc610a9788dee909951656d7be3a9eda7470470fb9d32eb442",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "east": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "south": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "west": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ]
+  },
+  "canonical_asset_id": "starter-dungeon-cracked-grey-flagstone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "starter-dungeon-cracked-grey-flagstone-floor"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "candidate_id": "axis-remaps-v1",
+  "entries": [
+    {
+      "object_id": "ghost-havana-colonial-street-paving-corner-transition",
+      "asset_id": "ghost-havana-colonial-street-paving-corner-transition.right",
+      "view": "right",
+      "candidate_path": "candidates/axis-remaps-v1/ghost-havana-colonial-street-paving-corner-transition.right.png",
+      "candidate_sha256": "8bde82e5bc063e2f0acd3e13132e028551b6f5ec4cb89f630efb5175dbf7f141",
+      "method": "symmetric-square-paving-edge-alias",
+      "alias_from_asset_id": "ghost-havana-colonial-street-paving-corner-transition.front",
+      "source_sha256": "22a401051e2f265b1790b562b64284a9dc677cbb34440837919fc317da02e42f",
+      "notes": "The corner-transition tile is square; use the full-span horizontal edge silhouette instead of the failed vertical-strip projection."
+    },
+    {
+      "object_id": "ghost-havana-colonial-street-paving-corner-transition",
+      "asset_id": "ghost-havana-colonial-street-paving-corner-transition.left",
+      "view": "left",
+      "candidate_path": "candidates/axis-remaps-v1/ghost-havana-colonial-street-paving-corner-transition.left.png",
+      "candidate_sha256": "094adab1bcef72570c02e53c3f7dc749c2f40b09a5e334abcefd049a36cc4e96",
+      "method": "symmetric-square-paving-edge-alias",
+      "alias_from_asset_id": "ghost-havana-colonial-street-paving-corner-transition.rear",
+      "source_sha256": "b9a00ac8948a44c6aa4451eacae6819b66bbdfefc4bee9d791de6e99afecb76a",
+      "notes": "The corner-transition tile is square; use the full-span horizontal edge silhouette instead of the failed vertical-strip projection."
+    },
+    {
+      "object_id": "broadcast-portals-studio-camera",
+      "asset_id": "broadcast-portals-studio-camera.top",
+      "view": "top",
+      "candidate_path": "candidates/axis-remaps-v1/broadcast-portals-studio-camera.top.png",
+      "candidate_sha256": "3cdead3c42f4b1777d27b5cd598c1c940a1254293c8f9cce70b1efc8709c343a",
+      "method": "90-degree-exact-orthographic-axis-rotation",
+      "transform_input_path": "reusable/views-additional/prebuilt/axis-remap-before-v1/broadcast-portals-studio-camera.top.png",
+      "source_sha256": "659c75705db7dee9362985664d6f034c868c66b70ded22c97970bd9bf5464dd3",
+      "transform": "rotate_cw_270",
+      "notes": "Root queue direction: align TOP camera lens toward image-bottom and BOTTOM lens toward image-top."
+    },
+    {
+      "object_id": "broadcast-portals-studio-camera",
+      "asset_id": "broadcast-portals-studio-camera.bottom",
+      "view": "bottom",
+      "candidate_path": "candidates/axis-remaps-v1/broadcast-portals-studio-camera.bottom.png",
+      "candidate_sha256": "513f75564f835af55879901349a0148efc41da27b0e2eff3a52f21dfae97b3b0",
+      "method": "90-degree-exact-orthographic-axis-rotation",
+      "transform_input_path": "reusable/views-additional/prebuilt/axis-remap-before-v1/broadcast-portals-studio-camera.bottom.png",
+      "source_sha256": "f3e9d8f456b7da997c2755e2515d2263972b627ba597af962517a8b3e7c88dc3",
+      "transform": "rotate_cw_270",
+      "notes": "Root queue direction: align TOP camera lens toward image-bottom and BOTTOM lens toward image-top."
+    },
+    {
+      "object_id": "thresholds-red-carpet-runner",
+      "asset_id": "thresholds-red-carpet-runner.top",
+      "view": "top",
+      "candidate_path": "candidates/axis-remaps-v1/thresholds-red-carpet-runner.top.png",
+      "candidate_sha256": "99602e1dca453926dd4a4f33a6f5013cb024b90c4f62e66fe15e360cb0a8faa9",
+      "method": "source-view-normalization",
+      "source_image": "thresholds/components/thresholds-red-carpet-runner.png",
+      "source_sha256": "bade2b3df0bd946eff98fe198f6b69f39fb07a7fdbbb564a3a2ee110c7677b1d",
+      "source_rect": [
+        80,
+        50,
+        176,
+        192
+      ],
+      "uniform_scale": 1.2916666666666667,
+      "normalized_bbox_size": [
+        124,
+        183
+      ],
+      "notes": "Native source is a long-Y plan; uniformly normalized to the existing runner transverse span."
+    },
+    {
+      "object_id": "thresholds-red-carpet-runner",
+      "asset_id": "thresholds-red-carpet-runner.bottom",
+      "view": "bottom",
+      "candidate_path": "candidates/axis-remaps-v1/thresholds-red-carpet-runner.bottom.png",
+      "candidate_sha256": "99602e1dca453926dd4a4f33a6f5013cb024b90c4f62e66fe15e360cb0a8faa9",
+      "method": "exact-symmetric-runner-plan-alias",
+      "alias_from_asset_id": "thresholds-red-carpet-runner.top",
+      "source_sha256": "99602e1dca453926dd4a4f33a6f5013cb024b90c4f62e66fe15e360cb0a8faa9",
+      "notes": "The flat reversible carpet runner has the same long-Y footprint from below; exact plan alias keeps dimensions coherent."
+    },
+    {
+      "object_id": "thresholds-red-carpet-runner",
+      "asset_id": "thresholds-red-carpet-runner.front",
+      "view": "front",
+      "candidate_path": "candidates/axis-remaps-v1/thresholds-red-carpet-runner.front.png",
+      "candidate_sha256": "be39adf444aba6fd73473011cc70539472b9afcecd05cc0b97676db63d562430",
+      "method": "exact-thin-runner-edge-alias",
+      "alias_from_asset_id": "thresholds-red-carpet-runner.right",
+      "source_sha256": "3681c15efcb1898343ae0f3e2c1e534949c80ee84fc2c2db5b863cf3bba76a93",
+      "notes": "Reuse the existing thin horizontal runner edge instead of a full face-on carpet plan."
+    },
+    {
+      "object_id": "thresholds-red-carpet-runner",
+      "asset_id": "thresholds-red-carpet-runner.rear",
+      "view": "rear",
+      "candidate_path": "candidates/axis-remaps-v1/thresholds-red-carpet-runner.rear.png",
+      "candidate_sha256": "0c12a6bdd37f64c2e13d7bb9ab6bfe818ce0ba7612e9540452b0b9cf662e3aa8",
+      "method": "exact-thin-runner-edge-alias",
+      "alias_from_asset_id": "thresholds-red-carpet-runner.left",
+      "source_sha256": "f85370b1b1777971457ce06bdb7bdca15348f9bf79b14cd557444a8194c156f1",
+      "notes": "Reuse the existing thin horizontal runner edge instead of a full face-on carpet plan."
+    }
+  ],
+  "proofs": [
+    {
+      "object_id": "ghost-havana-colonial-street-paving-corner-transition",
+      "contact_path": "qa/ghost-havana-colonial-street-paving-corner-transition-axis-remaps-v1-candidate-source-live-six.png",
+      "contact_sha256": "515bee1c9b64b00202304bee23c43cba3108b39b6bd8067e54c67e88fd9b82f2"
+    },
+    {
+      "object_id": "broadcast-portals-studio-camera",
+      "contact_path": "qa/broadcast-portals-studio-camera-axis-remaps-v1-candidate-source-live-six.png",
+      "contact_sha256": "760155476aa8380f361d8b4aee3f8ce0ac4080380fa66a1fab248a59a2e7da87"
+    },
+    {
+      "object_id": "thresholds-red-carpet-runner",
+      "contact_path": "qa/thresholds-red-carpet-runner-axis-remaps-v1-candidate-source-live-six.png",
+      "contact_sha256": "f061e8893e1cedc9428de98f176aa101a966c86f102fc7f1ff813d377f58c038"
+    }
+  ]
+}

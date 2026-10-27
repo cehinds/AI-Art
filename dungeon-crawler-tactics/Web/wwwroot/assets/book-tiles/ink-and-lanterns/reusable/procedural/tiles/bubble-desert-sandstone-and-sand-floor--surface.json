@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-desert-sandstone-and-sand-floor--surface",
+  "name": "Sandstone And Sand floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-desert",
+    "environment:desert",
+    "ground",
+    "ink-and-lanterns",
+    "material:sand",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-desert-sandstone-and-sand-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5d163a4102aeec604694b5ff39abb92e05df53639963435545f050286894b27c",
+    "rgba_sha256": "850f7bfa7456bfe7d31db502f99a81a7e4dc975f41c32ed8f5617ef26fec0177"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-desert-sandstone-and-sand-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-desert-sandstone-and-sand-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-desert/components/bubble-desert-sandstone-and-sand-floor.png",
+    "source_sha256": "b16f192ec1f21930040d4ba5953ed37646523746491455299e0befcdffe35f6e",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-desert"
+    ]
+  },
+  "canonical_asset_id": "bubble-desert-sandstone-and-sand-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:desert",
+    "material:sand",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-desert-sandstone-and-sand-floor"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-necropolis-worn-tomb-stone-floor--surface",
+  "name": "Worn tomb stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-necropolis",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-necropolis-worn-tomb-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "69691275cabcf39f016808162f6f79324d89ff7e11a55df5cf5480545fe5fa4e",
+    "rgba_sha256": "1cd0f8521f65ce21ae5f7db8536f06ba6410c3fbc6fb064dbe751df810410a42"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-necropolis-worn-tomb-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-necropolis-worn-tomb-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-necropolis/components/bubble-necropolis-worn-tomb-stone-floor.png",
+    "source_sha256": "3c93ab57cc5d9b9fcf33ef14c8c3efe6b8ee9cdac3f35f9f8cf3b23720b50d29",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ]
+  },
+  "canonical_asset_id": "bubble-necropolis-worn-tomb-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-necropolis-worn-tomb-stone-floor"
+  }
+}

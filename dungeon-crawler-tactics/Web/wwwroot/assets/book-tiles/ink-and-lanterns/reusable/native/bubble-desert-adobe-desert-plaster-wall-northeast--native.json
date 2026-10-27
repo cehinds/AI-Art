@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-desert-adobe-desert-plaster-wall-northeast--native",
+  "name": "Adobe Desert Plaster west wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-desert",
+    "environment:desert",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-desert-adobe-desert-plaster-wall-northeast--native.png",
+    "width": 50,
+    "height": 206,
+    "sha256": "eacb50eacfd14f895eb44258e2c31c718a820fc616e167f4e1beae548c9cca71",
+    "rgba_sha256": "51620b75f78d31d49824f0db443c910fb99714c3fdb03b1dfdaf222e98e7fad2"
+  },
+  "metadata_path": "reusable/native/bubble-desert-adobe-desert-plaster-wall-northeast--native.json",
+  "anchor_px": [
+    25.0,
+    206
+  ],
+  "object_id": "bubble-desert-adobe-desert-plaster-wall-northeast",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-desert.png",
+    "source_sha256": "b988407c9cf6e9ddb705461f498c7cbdfb33d39489ea9b476448ed95bfc80638",
+    "source_rect": [
+      376,
+      269,
+      50,
+      206
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
+  },
+  "canonical_asset_id": "bubble-desert-adobe-desert-plaster-wall-northeast",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:desert",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-desert-adobe-desert-plaster-wall-northeast"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "race-circuits-painted-grid-asphalt-floor--surface",
+  "name": "Painted grid asphalt floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "race-circuits",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/race-circuits-painted-grid-asphalt-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "e2e6944167995d7e8cb703d3bd250421909d0f4de50304bb9578f62e0b52e8ba",
+    "rgba_sha256": "9c71fa0d465e15a497c067c12b670eaad11f04bbbb522469b74e1e51ebd1245d"
+  },
+  "metadata_path": "reusable/procedural/tiles/race-circuits-painted-grid-asphalt-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "race-circuits-painted-grid-asphalt-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "race-circuits/components/race-circuits-painted-grid-asphalt-floor.png",
+    "source_sha256": "e334c0e5b5bcc7669be4f9e942f7a1b7636126473a0ed0574d711ecfdd81881d",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "east": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "south": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "west": [
+      "join.floor",
+      "visual.race-circuits"
+    ]
+  },
+  "canonical_asset_id": "race-circuits-painted-grid-asphalt-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "race-circuits-painted-grid-asphalt-floor"
+  }
+}

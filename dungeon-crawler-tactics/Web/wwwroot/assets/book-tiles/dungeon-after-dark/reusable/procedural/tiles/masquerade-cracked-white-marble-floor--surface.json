@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "masquerade-cracked-white-marble-floor--surface",
+  "name": "Cracked white marble floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "masquerade",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/masquerade-cracked-white-marble-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "6faa17ef756cf8de5b93d2e99111ed162857c91f2d868ebd7a9786f6f26a87c7",
+    "rgba_sha256": "6af0720720525100378bc65f80cdaefb75f7ccad68237ce24b02b7d0bf992b6b"
+  },
+  "metadata_path": "reusable/procedural/tiles/masquerade-cracked-white-marble-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "masquerade-cracked-white-marble-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "masquerade/components/masquerade-cracked-white-marble-floor.png",
+    "source_sha256": "4c391070682a772e72e0e6a23e016ea71cc669470df3eaf16010f73ad4216dfd",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
+  },
+  "canonical_asset_id": "masquerade-cracked-white-marble-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "masquerade-cracked-white-marble-floor"
+  }
+}

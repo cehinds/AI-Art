@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-sea-underwater-ruin-arch",
+  "view": "bottom",
+  "status": "generated-atlas-ready-for-normalization",
+  "prompt": "Edit the connected bottom-view candidate of this stone arch. Preserve exactly the two accepted square foot blocks, their spacing, overall horizontal footprint, and the connected center underside span. The only change: make the central stone arch-underside band substantially deeper from front-to-back, about the same depth as the central row of stone blocks visible in the accepted TOP image. It should be a broad but still shallow single-course rectangular stone band linking the feet, not a near-zero-width line or rod. Keep large empty portal space beyond the band; do NOT turn it into a frontal U-shaped arch, do NOT add vertical piers, and do NOT fill the opening with a panel. Plain gray-green textured masonry with believable block seams and muted moss on edges, no flowers underneath. Direct bottom orthographic view, no perspective. Preserve transparent 256x256 background. Inferred underside, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/raw/bubble-sea-underwater-ruin-arch-bottom-v4-candidate.png",
+      "sha256": "0e2b683f3c64327dce4987ec3a9940d578fd0bfc8af66c9ecae2af7ba9f780cf",
+      "role": "primary accepted foot blocks, connected span and overall bottom layout"
+    },
+    {
+      "path": "reusable/views-additional/bubble-sea-underwater-ruin-arch.top.png",
+      "sha256": "1bae23f05a090a779d54ea43c02d7a2598dbffba245b7a699ca1c45919d88e9d",
+      "role": "central stone block depth/footprint calibration"
+    },
+    {
+      "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
+      "sha256": "574d01bdd6c00ffd92b624fb6d57b943c4f224d80e8a89b0390853a9df6046b8",
+      "role": "canonical stone and moss material identity"
+    }
+  ],
+  "geometry_constraints": [
+    "retain v4 foot blocks and connections",
+    "center span depth matches central stone depth in accepted TOP",
+    "broad shallow band, not thin rod",
+    "keep portal opening mostly empty, not frontal U",
+    "plain stone underside, no flowers"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-sea-underwater-ruin-arch-bottom-v5-atlas.png",
+  "generated_atlas_sha256": "f1a4ae71f70ab7a76174cbeaa6d08960adfdd902fde3fe3305d5781cee8a4632",
+  "generation_call_id": "exec-cc05e3c5-03d9-4bc5-8ab5-388160267e53"
+}

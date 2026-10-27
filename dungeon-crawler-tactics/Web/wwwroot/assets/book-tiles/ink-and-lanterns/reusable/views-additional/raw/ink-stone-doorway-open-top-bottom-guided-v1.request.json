@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "request_id": "ink-stone-doorway-open-top-bottom-guided-v1",
+  "status": "request-prepared",
+  "objects": [
+    "bubble-necropolis-ancient-tomb-masonry-open-doorway",
+    "starter-dungeon-dark-stone-block-open-doorway"
+  ],
+  "rows": [
+    "bubble-necropolis-ancient-tomb-masonry-open-doorway",
+    "starter-dungeon-dark-stone-block-open-doorway"
+  ],
+  "columns": [
+    "top",
+    "bottom"
+  ],
+  "prompt": "Create a transparent-background 2-column by 2-row atlas for open stone doorways. Row 1 is the necropolis source, row 2 the starter-dungeon source. Column 1 TOP, column 2 BOTTOM. References 1 and 2 are the exact canonical source sprites for each row. References 3 and 4 are root-reviewed same-state top/bottom orthographic geometry templates from another stone doorway; follow their narrow principal-plane silhouettes and scale, repainting from each target row's own source palette/material. TOP shows only the thin depth surfaces of the overhead lintel/arch crown, two narrow jamb cap footprints, and threshold line; no vertical arch opening, no door panel face, no frontal emblems. BOTTOM shows only shallow underside planes: two jamb foot caps and a horizontal lintel/arch soffit span. Because these are open doorways, preserve the source state and panel/gap: for a closed doorway keep the door panel's underside as a narrow connected opaque strip; for an open doorway keep the center passage open beyond the shallow soffit band. Preserve necropolis gold/cream emblem style in row 1 and starter gray stone/wood identity in row 2; do not mix rows. Strict orthographic planes, no perspective, no full face-on arch or generic panel. One isolated asset per cell, centered with transparent gutters. Inferred, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "object_id": "bubble-necropolis-ancient-tomb-masonry-open-doorway",
+      "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-open-doorway.png",
+      "sha256": "5c13553fe97d2aed2645624a677cfb0bd23be4d0a1f46201d42944ec79ff87b1",
+      "role": "canonical source material, exact frame and open/closed state"
+    },
+    {
+      "object_id": "starter-dungeon-dark-stone-block-open-doorway",
+      "path": "starter-dungeon/components/starter-dungeon-dark-stone-block-open-doorway.png",
+      "sha256": "e234670bf040791c6371a2de427d27f0421cf3b675a765ae6302184a4163bc4d",
+      "role": "canonical source material, exact frame and open/closed state"
+    },
+    {
+      "object_id": "thresholds-golden-hall-masonry-open-doorway",
+      "path": "book-tiles/dungeon-after-dark/reusable/views-additional/images/thresholds-golden-hall-masonry-open-doorway.top.png",
+      "sha256": "580a40318ea3bcf5a232d1b37cd6e0ff39036210737dde45091b575718bec5f5",
+      "role": "root-reviewed same-state TOP geometry template; preserve only geometry"
+    },
+    {
+      "object_id": "thresholds-golden-hall-masonry-open-doorway",
+      "path": "book-tiles/dungeon-after-dark/reusable/views-additional/images/thresholds-golden-hall-masonry-open-doorway.bottom.png",
+      "sha256": "8c577b7ff9f867985221f558080a9d49d04d37ab674fc3ce1d31c82d1e9599af",
+      "role": "root-reviewed same-state BOTTOM geometry template; preserve only geometry"
+    }
+  ],
+  "preinstall_view_hashes": {
+    "bubble-necropolis-ancient-tomb-masonry-open-doorway": {
+      "front": "aba8cba44815217d66aeb6424b4b1a90fe4b8cc017cf8aa1f8eee7ee5d586c32",
+      "top": "054bbda9bb26657d8234ec6e863c31ae9cd83c88f0c8dc9ed03ffdc526ff67f8",
+      "right": "6fa85fbb30cb571e758ba0bd0dabad941245d6efb66ba219ad23ca1fd029f5d5",
+      "left": "1a3d31ffab3c9d64c67d6c11be7809fce39c099ec58d697ac5af8e7fc2ae8d29",
+      "bottom": "ffbe6a2704e40092c1a72bfe61395cc33921b491d4861dcaf9b3aa9bd0b2d8a8",
+      "rear": "2d3d21a30312fb05fd79493e2f5eac87ff3a7698cdd71bba504ac78fa2d6cad1"
+    },
+    "starter-dungeon-dark-stone-block-open-doorway": {
+      "front": "514e08189d0e2dadca5a1a4816e4f91d9d3cfd314363f2c902443cf8c6be1c11",
+      "top": "d94e7d7441a5cd97dc3133239c64e05a9d28e5548e912bae9500be31607bdd91",
+      "right": "65beb938abe573c301adb2b35c0e631fa49ed58548b33f79b7289cc7d95906b3",
+      "left": "9bb5139616daf2edd56bbbc8a70e146068da29024857ac8f2247bc9cea4ee996",
+      "bottom": "af4e011b2873dfee1515c9aa44d921829b3245e30a38868de9a80d9e0a0ff8aa",
+      "rear": "4a53c5f5f855281db79b876f7dcd26e46b770d384714e9a8ce0647a203703f8a"
+    }
+  },
+  "geometry_constraints": [
+    "use same-state approved geometry donor for plans",
+    "repaint from canonical target source",
+    "keep correct state and opening",
+    "narrow planes only, no upright faces"
+  ]
+}

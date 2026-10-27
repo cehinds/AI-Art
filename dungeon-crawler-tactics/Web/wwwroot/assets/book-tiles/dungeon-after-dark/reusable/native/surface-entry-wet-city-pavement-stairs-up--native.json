@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "surface-entry-wet-city-pavement-stairs-up--native",
+  "name": "Wet City Pavement stairs up (native source crop)",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "stairs",
+    "style:dungeon-after-dark",
+    "surface-entry",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/surface-entry-wet-city-pavement-stairs-up--native.png",
+    "width": 189,
+    "height": 202,
+    "sha256": "ae81a5f9ac61022e37ba3e13a02888fde9c706f7afaf40095e9beddcd85ae781",
+    "rgba_sha256": "38ea3a617b805b4b424c453b101a4d63aadfd62975be8ef903833e96c0379ee3"
+  },
+  "metadata_path": "reusable/native/surface-entry-wet-city-pavement-stairs-up--native.json",
+  "anchor_px": [
+    94.5,
+    202
+  ],
+  "object_id": "surface-entry-wet-city-pavement-stairs-up",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/surface-entry.png",
+    "source_sha256": "c64c0e3b22113ab1f323a0a19431f1c2a74d31f09a75a163ff0c55bf7baae5ed",
+    "source_rect": [
+      549,
+      496,
+      189,
+      202
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "surface-entry-wet-city-pavement-stairs-up",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-wet-city-pavement-stairs-up"
+  }
+}

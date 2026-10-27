@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "safe-services-diner-checker-tile-floor--surface",
+  "name": "Diner Checker Tile floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "safe-services",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/safe-services-diner-checker-tile-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "9b5c2eaa9181c98462f24080bd0b9e08bdd473620cafc5fe0c0498ce5354b2a0",
+    "rgba_sha256": "51be963a9607e9d6bcfb8fee3b9ebaf79830a5c15b970bd1f707cdfe66063ea5"
+  },
+  "metadata_path": "reusable/procedural/tiles/safe-services-diner-checker-tile-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "safe-services-diner-checker-tile-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "safe-services/components/safe-services-diner-checker-tile-floor.png",
+    "source_sha256": "2c53c94099ca75114f6dc7178a0eab89b1ed76e4a8eefed929252a6394597485",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "east": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "south": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "west": [
+      "join.floor",
+      "visual.safe-services"
+    ]
+  },
+  "canonical_asset_id": "safe-services-diner-checker-tile-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "safe-services-diner-checker-tile-floor"
+  }
+}

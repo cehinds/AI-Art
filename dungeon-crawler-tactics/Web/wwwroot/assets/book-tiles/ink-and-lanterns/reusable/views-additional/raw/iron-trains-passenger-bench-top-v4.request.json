@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "object_id": "iron-trains-passenger-bench",
+  "view": "top",
+  "status": "rejected-candidate",
+  "prompt": "Create one TOP view, a literal vertical overhead orthographic plan. The first reference is an independently approved TOP plan diagram of a bench: copy its shallow long footprint and seating-plan arrangement only. The second reference is the exact Iron Trains source+six sheet: copy its dark iron and worn reddish-brown wood identity only. The finished object is a bench: long axis left-right, shallow depth top-bottom. Show three seat slats as the horizontal seating surface, and the backrest only as a very thin raised rail/edge along the rear long side. From above, NEVER show a broad upright backrest panel. Maintain iron frame/legs as narrow end footprints and the correct bench footprint. No red upholstery, no yellow trim, no tall wood wall, no perspective. Transparent canvas, centered with margin, inferred orthographic view.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "../pocket-dungeon/reusable/views-additional/iron-trains-passenger-bench.top.png",
+      "sha256": "5c4a66c82d78d994994be0483483ce3df0bb121a4eded23d22f800dafa20fe9c",
+      "role": "approved top-down geometry guide only; do not copy red fabric or yellow rails"
+    },
+    {
+      "path": "reusable/views-additional/qa-iron-trains-passenger-bench-current-source-six-pre-repair.png",
+      "sha256": "440abb16b6a8f669eb63519dff6355947a3e83c6e40c38dcec11d5cd150c7e00",
+      "role": "target source and material identity only"
+    }
+  ],
+  "geometry_constraints": [
+    "camera directly overhead",
+    "three seat planks top-facing",
+    "backrest thin edge only",
+    "long shallow footprint",
+    "target iron/wood material"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/iron-trains-passenger-bench-top-v4-atlas.png",
+  "generated_atlas_sha256": "ee545037bba21ba2f0e5eccc347c38e12e174271ba9907b9398b508fa47cffdd",
+  "generation_call_id": "exec-5410ef4c-c60c-4a32-9417-7abc1c2db657",
+  "rejection_reason": "candidate remains a broad multi-board panel rather than the required seat surface and thin backrest edge"
+}
