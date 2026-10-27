@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "multipart-zip",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document",
+    "multipart-archive"
+  ],
+  "archive": {
+    "file": "ink-and-lanterns-complete-library.zip",
+    "bytes": 258625614,
+    "sha256": "763adcdfbf15a3b7bef55b3da3311cc63345ce0f2562c0ebddbf362a77b23560"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "file": "ink-and-lanterns-complete-library.zip.part-001",
+      "bytes": 99614719,
+      "sha256": "143ec721216d24db66965e08a9146d1cb90562d623cbc0176e1c228f85b4d21e"
+    },
+    {
+      "number": 2,
+      "file": "ink-and-lanterns-complete-library.zip.part-002",
+      "bytes": 99614719,
+      "sha256": "b16edeee61e7b6d287554f5cd1b3ed7f8122e236748434eaa6b369bffc5db516"
+    },
+    {
+      "number": 3,
+      "file": "ink-and-lanterns-complete-library.zip.part-003",
+      "bytes": 59396176,
+      "sha256": "2a0779f7520011bd892b8943b32bd0f23d236a66f7236b6df6d01e576b96ced8"
+    }
+  ],
+  "assembly": {
+    "operation": "concatenate-in-listed-order",
+    "tool": "assemble_archive_parts.py",
+    "command": "python assemble_archive_parts.py ink-and-lanterns-complete-library.zip.parts.json --output ink-and-lanterns-complete-library.zip",
+    "note": "Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.",
+    "tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+    "tool_bytes": 3115
+  }
+}

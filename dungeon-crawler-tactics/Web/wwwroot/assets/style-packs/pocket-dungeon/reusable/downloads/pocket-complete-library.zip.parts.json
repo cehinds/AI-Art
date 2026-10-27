@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "multipart-zip",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document",
+    "multipart-archive"
+  ],
+  "archive": {
+    "file": "pocket-complete-library.zip",
+    "bytes": 257614070,
+    "sha256": "da0ba2329006b21eefc10b67e1e872286d19936eecc8e3372975f0b4b3e1110a"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "file": "pocket-complete-library.zip.part-001",
+      "bytes": 99614719,
+      "sha256": "34f4da559e4e0b61b5b26464e900001fbe72192d2c4dab70231e0317cfe7d192"
+    },
+    {
+      "number": 2,
+      "file": "pocket-complete-library.zip.part-002",
+      "bytes": 99614719,
+      "sha256": "719c261857ac2b03b33b41ef0f571daa3ae820275973ff1818449fd5529e3bb4"
+    },
+    {
+      "number": 3,
+      "file": "pocket-complete-library.zip.part-003",
+      "bytes": 58384632,
+      "sha256": "c935bc2912b2409dfc11ba44e18f66cf9f6c386cf8c651d241cd226cbf25c221"
+    }
+  ],
+  "assembly": {
+    "operation": "concatenate-in-listed-order",
+    "tool": "assemble_archive_parts.py",
+    "command": "python assemble_archive_parts.py pocket-complete-library.zip.parts.json --output pocket-complete-library.zip",
+    "note": "Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.",
+    "tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+    "tool_bytes": 3115
+  }
+}
