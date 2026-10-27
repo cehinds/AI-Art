@@ -46,10 +46,14 @@ class GeometryExportTests(unittest.TestCase):
             contents = plan(root, [], selected_assets=['crop'])
             entries = json.loads(contents['library/reusable/archive-provenance.json'])['external_provenance']
             by_path = {r['path']: r for r in entries}
-            for name, size in [('atlas.png', [20, 12]), ('extractor.png', [40, 24])]:
+            for name, size in [('extractor.png', [40, 24])]:
                 self.assertEqual(by_path[name]['size_px'], size)
                 self.assertEqual(by_path[name]['sha256'], hashlib.sha256((root / name).read_bytes()).hexdigest())
                 self.assertNotIn('library/' + name, contents)
+            # The explicit crop-coordinate raster is embedded because the
+            # extracted validator must resolve its pixel coordinate space.
+            self.assertEqual(contents['library/atlas.png'], (root / 'atlas.png').read_bytes())
+            self.assertNotIn('atlas.png', by_path)
             full = plan(root, [], include_raw=True, selected_assets=['crop'])
             for name in ('atlas.png', 'extractor.png'):
                 self.assertEqual(full['library/' + name], (root / name).read_bytes())
@@ -58,8 +62,8 @@ class GeometryExportTests(unittest.TestCase):
                 output = extracted / relative
                 output.parent.mkdir(parents=True, exist_ok=True)
                 output.write_bytes(raw)
-            # The crop's x=39 fits the explicit extractor, not the x=20
-            # generation atlas. Neither raw image is present in this archive.
+            # The crop's x=39 is measured against the explicit atlas raster,
+            # while the independent extractor remains external.
             validate(extracted / 'library', require_views=True)
 
     def test_wrong_coordinate_image_hash_is_rejected(self):

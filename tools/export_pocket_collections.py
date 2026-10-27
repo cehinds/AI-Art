@@ -3,6 +3,8 @@
 
 Each archive carries its own dependency-closed subset index. Extract collections
 separately; never merge subset index.json files. The Git checkout is canonical.
+Large collections are published as size-limited parts with an ordered JSON
+manifest and a hash-verifying assembly helper. Join all parts before extracting.
 All archives are staged and independently validated before index.downloads is
 updated. Run only after view generation and the catalog rebuild have completed.
 The default plan is Pocket Dungeon's six collections. Other libraries require a
@@ -24,6 +26,7 @@ sys.dont_write_bytecode = True
 
 from package_pocket_reusable import asset_dependencies, encoded, plan, write_zip
 from validate_pocket_reusable import DEFAULT_PACK, contained, read_json, unique_records, validate
+from assemble_archive_parts import assemble, file_hash
 
 COLLECTIONS = (
     ("scenes", "Concept scenes and layered preview", ("concept-original", "concept-new", "concept-combat", "preview")),
@@ -158,6 +161,49 @@ def verify_archive(path, work, allow_recorded_blocks=False):
     return validate(work / Path(catalog).parts[0], require_views=True, **options)
 
 
+def stage_download(archive, max_bytes):
+    """Keep small ZIPs intact; larger collections use ordered, verified parts."""
+    if max_bytes <= 0:
+        raise ValueError('Download size limit must be positive')
+    size, digest = archive.stat().st_size, file_hash(archive)
+    common = {'archive_bytes': size, 'archive_sha256': digest}
+    if size < max_bytes:
+        return {**common, 'format': 'zip', 'name': archive.name, 'bytes': size,
+                'sha256': digest, 'parts': []}, [archive.name]
+    # Strictly below the stated cap, including exact-multiple boundaries.
+    part_size = max_bytes - 1
+    if part_size <= 0:
+        raise ValueError('Multipart size limit is too small')
+    rows = []
+    with archive.open('rb') as source:
+        while block := source.read(part_size):
+            number = len(rows) + 1
+            path = archive.with_name(f'{archive.name}.part-{number:03d}')
+            path.write_bytes(block)
+            rows.append({'number': number, 'file': path.name, 'bytes': len(block),
+                         'sha256': hashlib.sha256(block).hexdigest()})
+    manifest = archive.with_name(archive.name + '.parts.json')
+    doc = {'schema_version': 1, 'kind': 'multipart-zip',
+           'tags': ['attachment-tagged', 'metadata-document', 'multipart-archive'],
+           'archive': {'file': archive.name, 'bytes': size, 'sha256': digest},
+           'parts': rows, 'assembly': {'operation': 'concatenate-in-listed-order',
+             'tool': 'assemble_archive_parts.py',
+             'command': f'python assemble_archive_parts.py {manifest.name} --output {archive.name}',
+             'note': 'Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.'}}
+    helper = manifest.parent / 'assemble_archive_parts.py'
+    helper.write_bytes(Path(__file__).with_name('assemble_archive_parts.py').read_bytes())
+    doc['assembly']['tool_sha256'] = file_hash(helper)
+    doc['assembly']['tool_bytes'] = helper.stat().st_size
+    manifest.write_bytes(encoded(doc))
+    # Reassemble the actual staged bytes, then validate that assembled ZIP below.
+    archive.unlink()
+    assemble(manifest, archive)
+    return {**common, 'format': 'multipart-zip', 'name': manifest.name,
+            'bytes': manifest.stat().st_size, 'sha256': file_hash(manifest), 'parts': rows,
+            'assembly_tool': {'file': helper.name, 'bytes': helper.stat().st_size,
+                              'sha256': file_hash(helper)}}, [manifest.name, helper.name, *[r['file'] for r in rows]]
+
+
 def export(pack, max_mib=95, dry_run=False, collections_plan=None, allow_recorded_blocks=False):
     index_path = pack / "reusable/index.json"
     original = read_json(index_path)
@@ -173,6 +219,7 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None, allow_recorde
                 "maps": validation["maps_pixel_exact"],
                 "collections": collections}
     downloads = []
+    staged_files = set()
     destination = pack / "reusable/downloads"
     destination.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".pocket-export-", dir=destination) as temporary:
@@ -187,16 +234,25 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None, allow_recorde
             covered_assets.update(a["id"] for a in subset["assets"])
             archive_name = f"{prefix}-{key}.zip"
             archive = staging / archive_name
-            byte_count = write_zip(archive, contents, int(max_mib * 1048576))
+            # Temporary assembled ZIPs may exceed the per-file publication cap.
+            # An uncompressed upper bound avoids discarding valid large closures.
+            budget = max(int(max_mib * 1048576), sum(len(data) for data in contents.values()) + len(contents) * 1024 + 1048576)
+            write_zip(archive, contents, budget)
+            download, files = stage_download(archive, int(max_mib * 1048576))
+            staged_files.update(files)
             with tempfile.TemporaryDirectory(prefix="pocket-unpack-") as extracted:
                 result = verify_archive(archive, Path(extracted), allow_recorded_blocks)
-            relative = f"reusable/downloads/{archive_name}"
+            relative = f"reusable/downloads/{download['name']}"
             downloads.append({"id": key, "label": label, "path": relative, "file": relative,
-                "bytes": byte_count, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+                **{k: v for k, v in download.items() if k != 'name'},
+                'parts': [{**row, 'path': 'reusable/downloads/' + row['file']} for row in download['parts']],
                 "maps": list(maps), "assets": record["assets"], "asset_count": result["assets_checked"],
                 "pixel_exact_maps": result["maps_pixel_exact"],
                 "recorded_generation_blocks": result.get('recorded_generation_blocks', []),
-                "description": "Independent collection; extract separately. Do not merge subset indexes."})
+                "description": "Assemble all parts using the JSON manifest, then extract this independent collection separately." if download['parts'] else "Independent collection; extract separately. Do not merge subset indexes."})
+            if download['parts']:
+                downloads[-1]['assembly_tool']['path'] = 'reusable/downloads/' + download['assembly_tool']['file']
+                archive.unlink()
         expected_assets = {a["id"] for a in original["assets"]}
         if covered_assets != expected_assets:
             raise ValueError(f"Collection asset coverage mismatch: missing={sorted(expected_assets-covered_assets)}, unknown={sorted(covered_assets-expected_assets)}")
@@ -205,8 +261,7 @@ def export(pack, max_mib=95, dry_run=False, collections_plan=None, allow_recorde
             raise ValueError("Catalog changed during export; staged downloads were not published")
         # Detect edits to source PNGs that occurred without rebuilding the catalog.
         validate(pack, require_views=True, allow_recorded_blocks=allow_recorded_blocks)
-        for item in downloads:
-            name = Path(item["path"]).name
+        for name in sorted(staged_files):
             os.replace(staging / name, destination / name)
         current["downloads"] = downloads
         temporary_index = staging / "index.json"

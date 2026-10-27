@@ -129,6 +129,58 @@ class CollectionTests(unittest.TestCase):
         complete = json.loads(package_plan(pack)['library/reusable/attachment-rules.json'])
         self.assertIn('fixture::crate', [tile['id'] for tile in complete['tiles']])
 
+    def test_normalization_source_rect_is_embedded_and_survives_archive_extraction(self):
+        """Tight repair crops are required validator inputs, not optional atlases."""
+        from package_pocket_reusable import plan as make_plan
+
+        pack = Path(self.temp.name) / 'crop-library'
+        (pack / 'reusable').mkdir(parents=True)
+        crop = pack / 'reusable/raw/targeted-repairs/floor.top.png'
+        crop.parent.mkdir(parents=True)
+        Image.new('RGBA', (8, 5), (40, 60, 80, 255)).save(crop)
+        crop_sha = hashlib.sha256(crop.read_bytes()).hexdigest()
+        image = pack / 'floor.png'
+        Image.new('RGBA', (4, 4), (20, 30, 40, 255)).save(image)
+        asset = {
+            'id': 'floor', 'kind': 'sprite',
+            'image': {'path': 'floor.png', 'width': 4, 'height': 4},
+            'provenance': {
+                'method': 'generated',
+                'source_rect_image': 'reusable/raw/targeted-repairs/floor.top.png',
+                'source_rect_image_sha256': crop_sha,
+                'normalization': {'scale': 0.5, 'target_width_px': 4},
+            },
+        }
+        (pack / 'floor.json').write_bytes(encoded(asset))
+        (pack / 'room.json').write_bytes(encoded({'layers': [{'asset_id': 'floor'}]}))
+        (pack / 'README.md').write_text('Fixture\n')
+        (pack / 'manifest.json').write_text('{}\n')
+        catalog = {'assets': [asset], 'maps': [
+            {'id': 'room', 'file': 'room.json', 'source': 'floor.png',
+             'layers': [{'asset_id': 'floor'}]}], 'view_sets': []}
+        (pack / 'reusable/index.json').write_bytes(encoded(catalog))
+
+        contents = make_plan(pack, ['room'])
+        archive_member = 'library/reusable/raw/targeted-repairs/floor.top.png'
+        self.assertIn(archive_member, contents)
+        self.assertEqual(hashlib.sha256(contents[archive_member]).hexdigest(), crop_sha)
+        archive_path = Path(self.temp.name) / 'crop-collection.zip'
+        with zipfile.ZipFile(archive_path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            for name, data in contents.items():
+                archive.writestr(name, data)
+
+        extracted = Path(self.temp.name) / 'crop-extracted'
+        def validate_required_crop(root, require_views=False):
+            self.assertTrue(require_views)
+            extracted_crop = root / 'reusable/raw/targeted-repairs/floor.top.png'
+            self.assertTrue(extracted_crop.is_file())
+            self.assertEqual(hashlib.sha256(extracted_crop.read_bytes()).hexdigest(), crop_sha)
+            return {'status': 'fixture-validated'}
+
+        with patch.object(exporter, 'validate', side_effect=validate_required_crop):
+            result = exporter.verify_archive(archive_path, extracted)
+        self.assertEqual(result, {'status': 'fixture-validated'})
+
     def test_tampered_archive_rejected_before_validation(self):
         output = self.make_archive(tamper=True)
         with patch.object(exporter, 'validate') as validate:
@@ -136,7 +188,7 @@ class CollectionTests(unittest.TestCase):
                 exporter.verify_archive(output, Path(self.temp.name) / 'bad')
             validate.assert_not_called()
 
-    def run_export(self, omit_crate=False, mutate=False):
+    def run_export(self, omit_crate=False, mutate=False, max_mib=95):
         result = {'maps_pixel_exact': 1, 'assets_checked': 1}
         def subset(pack, maps, selected_assets):
             assets = [{'id': 'floor'}] if maps else ([] if omit_crate else [{'id': 'crate'}])
@@ -147,7 +199,24 @@ class CollectionTests(unittest.TestCase):
         with patch.object(exporter, 'validate', return_value=result), \
              patch.object(exporter, 'plan', side_effect=subset), \
              patch.object(exporter, 'verify_archive', return_value=result):
-            return exporter.export(self.pack, collections_plan=self.document)
+            return exporter.export(self.pack, max_mib=max_mib, collections_plan=self.document)
+
+    def test_multipart_publication_contains_all_parts_and_verified_assembly(self):
+        from assemble_archive_parts import assemble
+        result = self.run_export(max_mib=0.0001)
+        for download in result['downloads']:
+            self.assertEqual(download['format'], 'multipart-zip')
+            manifest = self.pack / download['path']
+            self.assertTrue(manifest.is_file())
+            self.assertTrue((self.pack / download['assembly_tool']['path']).is_file())
+            for part in download['parts']:
+                self.assertLess(part['bytes'], int(0.0001 * 1048576))
+                self.assertTrue((self.pack / part['path']).is_file())
+            assembled = Path(self.temp.name) / (download['id'] + '.zip')
+            joined = assemble(manifest, assembled)
+            self.assertEqual(joined['sha256'], download['archive_sha256'])
+            with zipfile.ZipFile(assembled) as archive:
+                self.assertIsNone(archive.testzip())
 
     def test_publishes_all_collections_only_after_coverage(self):
         result = self.run_export()

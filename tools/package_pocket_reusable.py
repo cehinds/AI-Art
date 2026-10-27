@@ -23,7 +23,7 @@ sys.dont_write_bytecode = True
 
 from validate_pocket_reusable import DEFAULT_PACK, VIEWS, contained, image_info, read_json, unique_records, view_reference
 
-TOOLS = ("build_pocket_reusable.py", "validate_pocket_reusable.py", "render_pocket_map.py", "package_pocket_reusable.py", "export_pocket_collections.py", "pocket-requirements.txt")
+TOOLS = ("build_pocket_reusable.py", "validate_pocket_reusable.py", "render_pocket_map.py", "package_pocket_reusable.py", "export_pocket_collections.py", "assemble_archive_parts.py", "pocket-requirements.txt")
 
 
 def encoded(value):
@@ -214,7 +214,10 @@ def plan(pack, selected_maps=None, include_raw=False, selected_assets=None):
             if atlas not in provenance_sizes:
                 with Image.open(path) as raster:
                     provenance_sizes[atlas] = list(raster.size)
-            if include_raw:
+            # The validator needs this exact raster to verify tight-input
+            # normalization coordinates in an extracted collection. Other raw
+            # generation atlases remain external unless --include-raw is set.
+            if include_raw or atlas == provenance.get('source_rect_image'):
                 files.add(atlas)
             else:
                 external[atlas] = {"path": atlas, "sha256": actual_hash, "size_px": provenance_sizes[atlas],
