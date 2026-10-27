@@ -17,7 +17,8 @@
     "role:provider",
     "safe-services",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-food-service-counter.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-food-service-counter.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-food-service-counter",
+      "source_sha256": "44fb834160e2b03be269ac556bb5212161103a574df239eba337de294700c78f",
+      "primary_source": {
+        "asset_id": "safe-services-food-service-counter",
+        "path": "safe-services/components/safe-services-food-service-counter.png",
+        "sha256": "44fb834160e2b03be269ac556bb5212161103a574df239eba337de294700c78f",
+        "rgba_sha256": "202b95cde351e34b8d9dd03b41eb9606ca2f8ece6b71e52cb939c1d84fc2a96b"
+      },
+      "image_hashes": {
+        "front": "0bed07aa87282b08d0032bc26b9a5f160762f024e32c0f2e94a62aa201a3ee56",
+        "top": "efb6a55a5fb5ad08e4ef60caf8036f032288d2bc7b1da98079d5c5249c62e879",
+        "right": "30c896f3671f9da97c600d7b1285f3e0509e9d5e15d676aa3a34bedddbbfbde4",
+        "left": "9e923da53453ed6cacf1e5c9ee6f9afb8b58a5fc5958de17dd8e6b7293e148e4",
+        "bottom": "bec2f5047a25fb75d6d2802dfc26cb91256f1bd060e44b9cc5f20e4dd704db78",
+        "rear": "4a4e1931e06c23e5826e9b2f04484f6236b1b2c0c985d3fe9f9cc5d483430676"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:12:52.232665+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-food-service-counter.png",
+          "sha256": "44fb834160e2b03be269ac556bb5212161103a574df239eba337de294700c78f",
+          "rgba_sha256": "202b95cde351e34b8d9dd03b41eb9606ca2f8ece6b71e52cb939c1d84fc2a96b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

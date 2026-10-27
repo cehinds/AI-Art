@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-zockau",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-small-pub-with-broken-sign.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-small-pub-with-broken-sign.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-small-pub-with-broken-sign",
+      "source_sha256": "68d6df9d9541d07c23dfa7adbd2beb71847921286d2293c1d06f656c2cbe5678",
+      "primary_source": {
+        "asset_id": "hunting-zockau-small-pub-with-broken-sign",
+        "path": "hunting-zockau/components/hunting-zockau-small-pub-with-broken-sign.png",
+        "sha256": "68d6df9d9541d07c23dfa7adbd2beb71847921286d2293c1d06f656c2cbe5678",
+        "rgba_sha256": "dc57583a9fa86f7d259ee19a1af9e5d48e2240cc979100f376404ad944db9a79"
+      },
+      "image_hashes": {
+        "front": "9728d57d1f8a574d9b9e20e8b9fed4a568743b4257e39694f8d9117c8c66241a",
+        "top": "458619dbc39c9f9fe10a6edfabff0ebf1d747cd233e7bdfec73f646b76cef5f6",
+        "right": "a6bc916a6ff6ea001636a0434faba1147dc995c3f3f078bd3a0081e86dcddf0c",
+        "left": "7de39d8853c51475b2656b9b91178bf103e7f92289a564fd93992246d54bc491",
+        "bottom": "5587d5e7ace25620867dc78da889c152beeb2253cb77551c55e2081f7019c896",
+        "rear": "76e878effc2294a914753e69867b933ae5dde17c49abe1c8273eb66fdc603bee"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:07:51.004838+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-small-pub-with-broken-sign.png",
+          "sha256": "68d6df9d9541d07c23dfa7adbd2beb71847921286d2293c1d06f656c2cbe5678",
+          "rgba_sha256": "dc57583a9fa86f7d259ee19a1af9e5d48e2240cc979100f376404ad944db9a79"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

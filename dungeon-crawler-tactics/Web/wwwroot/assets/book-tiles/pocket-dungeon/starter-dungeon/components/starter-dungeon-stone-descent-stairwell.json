@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:stone",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-stone-descent-stairwell.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-stone-descent-stairwell.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-stone-descent-stairwell",
+      "source_sha256": "5566355d64fd8f3c4360351cd8a3b594631978e294e5dfcf145201a612fd70d1",
+      "primary_source": {
+        "asset_id": "starter-dungeon-stone-descent-stairwell",
+        "path": "starter-dungeon/components/starter-dungeon-stone-descent-stairwell.png",
+        "sha256": "5566355d64fd8f3c4360351cd8a3b594631978e294e5dfcf145201a612fd70d1",
+        "rgba_sha256": "d77f60fe60096f84fc7827bdbff0f2eb96f1957e06d120ca12c5999f7956c325"
+      },
+      "image_hashes": {
+        "front": "8e9bb38d1169762aeacd3d2bb49becc5e3876e67e5122d019c544aa43d57d930",
+        "top": "5e4de5f0f571c1a225bdfbde4411ee857a39eecc5a7faf44ebc67b3d9027b8af",
+        "right": "33e9a5d247025c4494c1d52eeb6f1d986fcb0bc43a19784cf486898767299fd4",
+        "left": "183808e19a373534b4aef3882008d9dd42d8b89f3b2a113d7b8918ece098306b",
+        "bottom": "a1647d3eadcce831a2eeebfb2aebb2f7f8de718a8396f918f9d5926402bf0a98",
+        "rear": "668dd513adb959ec8e5816a5f730b8fe230ccb934363a92739da3cb7d45488b8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:19:48.028154+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-stone-descent-stairwell.png",
+          "sha256": "5566355d64fd8f3c4360351cd8a3b594631978e294e5dfcf145201a612fd70d1",
+          "rgba_sha256": "d77f60fe60096f84fc7827bdbff0f2eb96f1957e06d120ca12c5999f7956c325"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:stone",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -18,7 +18,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-general-goods-shop-counter.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-general-goods-shop-counter.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-general-goods-shop-counter",
+      "source_sha256": "97867bd8fa6f1a7ce7f44da3704c51063ab4c3d88e969ce1ce13049ee1134418",
+      "primary_source": {
+        "asset_id": "over-city-venues-general-goods-shop-counter",
+        "path": "over-city-venues/components/over-city-venues-general-goods-shop-counter.png",
+        "sha256": "97867bd8fa6f1a7ce7f44da3704c51063ab4c3d88e969ce1ce13049ee1134418",
+        "rgba_sha256": "951999b2573a2b3421ff413f237a1091abb4d1b4579fcfeb8dff155ba21a6934"
+      },
+      "image_hashes": {
+        "front": "71bb6bd38b5cb8d9e21943c21c2f1f21a3fd560eb27c87d8c7923660129c7efd",
+        "top": "047c6552eacc0e048ce4c32260f4c865db9a60884f4786e496014950950cf070",
+        "right": "373e794e247d327bfc4099b81597f74a1fd0b2f3c4232df4229cdb9f6359ed39",
+        "left": "1fd4da991a3cc0f5936fc37d167ef03eb2ab98f6bd6c529ea04cc736aa48ae4f",
+        "bottom": "11260bd3d621b045192e7994ea72fec0f706ea03964a2d66a2d1bf3f43961ab3",
+        "rear": "165e51621584cf1bc908b898e1480d6fde6dfc16975317e21c4c66c2054bc9f4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:52:00.992600+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-general-goods-shop-counter.png",
+          "sha256": "97867bd8fa6f1a7ce7f44da3704c51063ab4c3d88e969ce1ce13049ee1134418",
+          "rgba_sha256": "951999b2573a2b3421ff413f237a1091abb4d1b4579fcfeb8dff155ba21a6934"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

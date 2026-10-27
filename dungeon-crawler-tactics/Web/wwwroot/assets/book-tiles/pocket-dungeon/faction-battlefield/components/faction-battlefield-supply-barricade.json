@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-supply-barricade.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-supply-barricade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-supply-barricade",
+      "source_sha256": "6a37d12ca91321510fd7d2b0351c63f3cb7e97b5f44d0fc9fb68e22f2a0ffe39",
+      "primary_source": {
+        "asset_id": "faction-battlefield-supply-barricade",
+        "path": "faction-battlefield/components/faction-battlefield-supply-barricade.png",
+        "sha256": "6a37d12ca91321510fd7d2b0351c63f3cb7e97b5f44d0fc9fb68e22f2a0ffe39",
+        "rgba_sha256": "5f580eb47a6c008e0d45064883c88e38089d2b802e19bb61410bcd43f68b60aa"
+      },
+      "image_hashes": {
+        "front": "cea1f799bb44beefc46187d6fe8617c977d5ff790b950b23801ae97be2da49b4",
+        "top": "c6c8a48068ca07c07f2b3b825fa046931fd8eef3eae7796b6818a38be208d28d",
+        "right": "3edb5ea7ca62f349fa6976f4b7fc64723ac1cf4d4ece6ee35f1504a126bf07b5",
+        "left": "cf5f434fbe91b3d6e6b57c7ac9deecbc2c1e81cc24d761632128da5ecb6ec3f0",
+        "bottom": "6a4f42c1e46c5acd0434e24f6cdf4503680d5221ba69f714ce97ac4f868bbca0",
+        "rear": "fd578837d120b8f5e651801345eb6c31c07fa2b38b3a8be9322a316cdbddca0f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.611442+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-supply-barricade.png",
+          "sha256": "6a37d12ca91321510fd7d2b0351c63f3cb7e97b5f44d0fc9fb68e22f2a0ffe39",
+          "rgba_sha256": "5f580eb47a6c008e0d45064883c88e38089d2b802e19bb61410bcd43f68b60aa"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

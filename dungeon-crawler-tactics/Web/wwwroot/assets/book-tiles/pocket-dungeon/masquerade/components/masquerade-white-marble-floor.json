@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "masquerade/components/masquerade-white-marble-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-white-marble-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-white-marble-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-white-marble-floor",
+      "source_sha256": "5e61ab6e289250c59fd95c9b0e3f3bb1ab79399afb34041fdb7e79aa5f738571",
+      "primary_source": {
+        "asset_id": "masquerade-white-marble-floor",
+        "path": "masquerade/components/masquerade-white-marble-floor.png",
+        "sha256": "5e61ab6e289250c59fd95c9b0e3f3bb1ab79399afb34041fdb7e79aa5f738571",
+        "rgba_sha256": "7966ad665109a45888fae2274380e360c5c8acf799a958e40091bdf9b6604aec"
+      },
+      "image_hashes": {
+        "front": "5605b8b01c7f96477592d7c5b18604bcefc2f16dc20df56f6df64305b7d815c4",
+        "top": "7a039a0ea1badaad64116d64f16d1c82b4feeac2fe943b4753697469b3eabe13",
+        "right": "5605b8b01c7f96477592d7c5b18604bcefc2f16dc20df56f6df64305b7d815c4",
+        "left": "f54a3e0ac0b76a1b33525d4834048bd8d0c5ddaec8e3772385e6314cb5055326",
+        "bottom": "ee45ccc0c9721c74bcdbf09879b588526fcfb2d49ca0666ca0496e3d0184c01c",
+        "rear": "f54a3e0ac0b76a1b33525d4834048bd8d0c5ddaec8e3772385e6314cb5055326"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-white-marble-floor.png",
+          "sha256": "5e61ab6e289250c59fd95c9b0e3f3bb1ab79399afb34041fdb7e79aa5f738571",
+          "rgba_sha256": "7966ad665109a45888fae2274380e360c5c8acf799a958e40091bdf9b6604aec"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

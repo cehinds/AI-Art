@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-t-junction.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-t-junction.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-t-junction",
+      "source_sha256": "253e26fadef2d248cb9c982d524dfcb7009b34b2e425530358d60f3748cefa85",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-t-junction",
+        "path": "iron-tracks/components/iron-tracks-rail-t-junction.png",
+        "sha256": "253e26fadef2d248cb9c982d524dfcb7009b34b2e425530358d60f3748cefa85",
+        "rgba_sha256": "16f18c99cf5b95a754fcd3d14b0434e1b0c661bda90570770a0d3e802f3174f5"
+      },
+      "image_hashes": {
+        "front": "9cdf4b97829019a653ebcdcda073b6937b0b4874d15670bed634d57138259075",
+        "top": "cf484042265fb4140ad3f92a823147065466f7539e6ebc00aea55a94831d2a4e",
+        "right": "4ac38661638e7b5b0777258726b34c4adea574df57eeb0cf1a441a01e17d45ab",
+        "left": "8007beae594429fce6cb52c9792f046f10dccddfaecc28270cf7b8994789d2e6",
+        "bottom": "390273c7c743f2a45c051f52ec0ad208611ff565618f5ad1f97a58dabee7c9e5",
+        "rear": "8f0d34320526e4715701654550375dd7c63be8908b15fb62fe6ee44db536bbd2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:45:09.857568+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-t-junction.png",
+          "sha256": "253e26fadef2d248cb9c982d524dfcb7009b34b2e425530358d60f3748cefa85",
+          "rgba_sha256": "16f18c99cf5b95a754fcd3d14b0434e1b0c661bda90570770a0d3e802f3174f5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-tracks"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

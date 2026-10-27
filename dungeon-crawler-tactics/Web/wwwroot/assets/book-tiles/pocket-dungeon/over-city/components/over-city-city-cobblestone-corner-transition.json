@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "over-city/components/over-city-city-cobblestone-corner-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-city-cobblestone-corner-transition",
+      "source_sha256": "41954efebefaea1234cb71a38c62a4b94a4df95effced74f4b00ca0290c3ab29",
+      "primary_source": {
+        "asset_id": "over-city-city-cobblestone-corner-transition",
+        "path": "over-city/components/over-city-city-cobblestone-corner-transition.png",
+        "sha256": "41954efebefaea1234cb71a38c62a4b94a4df95effced74f4b00ca0290c3ab29",
+        "rgba_sha256": "f911b00996aa8c449d927b34521713e2d960bf3c939130474ad6083c7ca57a71"
+      },
+      "image_hashes": {
+        "front": "e82dd91d704767bb415f589d2efe123593637e176c5a7ba38e1c4b79fb81f520",
+        "top": "7884ead6664583ba9d7e47c41967c173775f56cb26391a1cc8e50026a20ea580",
+        "right": "60e974fe0523fbd949d01442902e34a091a9b41d07d9ba3d84984f6fd3fbd224",
+        "left": "5fc678ef53f9f4ba2b60a828a8d7cc037eeb73be9cc1b2d8dcd9d61bcdaf11ca",
+        "bottom": "709b0ff3677aa465abab6cb662d7cadac9d4932d3c8a54bb0bc83bddec35421a",
+        "rear": "dbd83ad30e2fd31e870ef8a9a44db477e646b1173c61928a04ed620e152c703c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-city-cobblestone-corner-transition.png",
+          "sha256": "41954efebefaea1234cb71a38c62a4b94a4df95effced74f4b00ca0290c3ab29",
+          "rgba_sha256": "f911b00996aa8c449d927b34521713e2d960bf3c939130474ad6083c7ca57a71"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

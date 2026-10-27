@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:floor",
-    "thresholds"
+    "thresholds",
+    "walkability:allowed"
   ],
   "image": {
     "path": "thresholds/components/thresholds-gold-brick-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-gold-brick-edge-transition",
+      "source_sha256": "9386750924889d744fbe0d56f532906539f9b47f07a5906a1c3de1f6879bf6ff",
+      "primary_source": {
+        "asset_id": "thresholds-gold-brick-edge-transition",
+        "path": "thresholds/components/thresholds-gold-brick-edge-transition.png",
+        "sha256": "9386750924889d744fbe0d56f532906539f9b47f07a5906a1c3de1f6879bf6ff",
+        "rgba_sha256": "d65e6e4f7ee3ef70350d3dcec5013e2c6efd3ebc43d301aaebe93ba4ed652f60"
+      },
+      "image_hashes": {
+        "front": "a178ccaba18d6886a5acf9e40ac472d81b26069e5dbff490e6f82b29362b6c13",
+        "top": "bf3c2ac97271a21ee9587ce01eaa5b734007fb0f75995d775b0f557e4cc15eb6",
+        "right": "2d2a85ae38c6125ed9f6bde39d74fe7f929e497b3b9b482addce8a89d50c1bb8",
+        "left": "d6aaf20833e8d99b40207c9c5a14cde535cc8d636b5d81c0c572f2dd4314e1a3",
+        "bottom": "0018de3eee7ddf5adc2f446fd5fd6ab7921a535d8db57309fccd29fa2f8887e1",
+        "rear": "8103e662354d26055a3c37720d936f68c848530803ceec272be0b1553d448be8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:37:55.405502+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-gold-brick-edge-transition.png",
+          "sha256": "9386750924889d744fbe0d56f532906539f9b47f07a5906a1c3de1f6879bf6ff",
+          "rgba_sha256": "d65e6e4f7ee3ef70350d3dcec5013e2c6efd3ebc43d301aaebe93ba4ed652f60"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-cemetery",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-la-iglesia-de-los-olvidados-entrance.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance",
+      "source_sha256": "53aca034549af8567cb0e4b0e42e0e1705c385fef47467f0f0d3572e56839590",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-la-iglesia-de-los-olvidados-entrance",
+        "path": "ghost-cemetery/components/ghost-cemetery-la-iglesia-de-los-olvidados-entrance.png",
+        "sha256": "53aca034549af8567cb0e4b0e42e0e1705c385fef47467f0f0d3572e56839590",
+        "rgba_sha256": "a580d381986c3f30e1d97e34c67bef9f75010911189f9caba5f62dbc57343080"
+      },
+      "image_hashes": {
+        "front": "528ff5214a5231d8cbe9a917c29423f62af7eae4f9558a186d3383d1bbecc8f0",
+        "top": "03f4265f7bd1af9c1cf0edd0452b820ca21aafe539c326a47ee5f88ffb85767e",
+        "right": "93a0cd1ac14ad0f8368dccacdd925c3d46429735f167a41a7c587d4b5678dc5a",
+        "left": "6d272f5aa469ed4bc53870093014c0a9f57d971e77a2120aa5433d411d0e53a2",
+        "bottom": "515b5f8efcd2e40b77328a349a3d82b2770ac0c6c808665a192c42df54a25cd9",
+        "rear": "70202cac6a7d3c0e5f1b1cd14ad09c0d45140f45c795f40e18c53f02ffd75b70"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-la-iglesia-de-los-olvidados-entrance.png",
+          "sha256": "53aca034549af8567cb0e4b0e42e0e1705c385fef47467f0f0d3572e56839590",
+          "rgba_sha256": "a580d381986c3f30e1d97e34c67bef9f75010911189f9caba5f62dbc57343080"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

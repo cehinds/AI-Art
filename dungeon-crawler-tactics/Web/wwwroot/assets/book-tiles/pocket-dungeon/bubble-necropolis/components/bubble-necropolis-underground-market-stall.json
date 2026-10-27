@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-underground-market-stall.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-underground-market-stall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-underground-market-stall",
+      "source_sha256": "0d82e6374cea57c351d56df810f4ad57ab1d3c2eb55a2aec7b23faf5d38317e0",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-underground-market-stall",
+        "path": "bubble-necropolis/components/bubble-necropolis-underground-market-stall.png",
+        "sha256": "0d82e6374cea57c351d56df810f4ad57ab1d3c2eb55a2aec7b23faf5d38317e0",
+        "rgba_sha256": "3934af15a352961f34b22dc1dc7390a2a97feb5fba1a8a96639eb047ae029d43"
+      },
+      "image_hashes": {
+        "front": "66cced975390afd4e6195ac6606db9e45acb80ac2bbd42cc93a13c753bfdd3db",
+        "top": "9ff7ccc52c231dcf8b2bf10f156168964ce7be55f95c5aa3c00ce98e5f1eed15",
+        "right": "8feedbc094f3386e13e270f4f6d5be7f202be7cc3148cbc9a4ec53064d317adf",
+        "left": "9b9014105d97847570dcd98ca12f916196ffe995de31ac74ffd62ad7fa518513",
+        "bottom": "87c6f9a624d8525e7a93d1b2673ec3f843b0340cb02cf5777d8a636c4ba47b19",
+        "rear": "89377ba71dd316c559856767d215b869f7b53b2dc80be10fa0af772b3df79d6a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T14:33:45.899423+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-underground-market-stall.png",
+          "sha256": "0d82e6374cea57c351d56df810f4ad57ab1d3c2eb55a2aec7b23faf5d38317e0",
+          "rgba_sha256": "3934af15a352961f34b22dc1dc7390a2a97feb5fba1a8a96639eb047ae029d43"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

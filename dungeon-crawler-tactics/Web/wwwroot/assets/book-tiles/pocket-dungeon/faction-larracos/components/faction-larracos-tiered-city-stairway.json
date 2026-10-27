@@ -18,7 +18,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-tiered-city-stairway.png",
@@ -112,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -131,31 +142,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-tiered-city-stairway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-tiered-city-stairway",
+      "source_sha256": "6ca79a1a6db56b4190d2e625e74b00e9e5139c25de95c9fb6c3ceaf9cce3a6c4",
+      "primary_source": {
+        "asset_id": "faction-larracos-tiered-city-stairway",
+        "path": "faction-larracos/components/faction-larracos-tiered-city-stairway.png",
+        "sha256": "6ca79a1a6db56b4190d2e625e74b00e9e5139c25de95c9fb6c3ceaf9cce3a6c4",
+        "rgba_sha256": "a8fb9b7500eb14306f31f6e3cb1411ce72e924ef9c8ffa243ef615c36c6bf0ee"
+      },
+      "image_hashes": {
+        "front": "1bb91cbdf1942589fff6dce36ecdf737704531d0e2d2ac5ea75848ef0bcd5ede",
+        "top": "bb2b7a6b9b11a31820be250bf9c7a2e5a1593c76f0673e4eab91b31899b2565f",
+        "right": "e0502e9ba23bcf953d9d04e5ee912e7dd0e925552467db96940069e44648411b",
+        "left": "f519918f7f556cfa2993a7697da07f5f674364869de6ef83ea9c0a6922b1ad29",
+        "bottom": "0ecbe664c81e0257964015dbafd2756985274d4406b017441dbfb58e018c1722",
+        "rear": "55ab45f48fd8fccb16c95a0a4b7e258f7af15892de61b742dafa9d05ed227d59"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:50:02.979205+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-tiered-city-stairway.png",
+          "sha256": "6ca79a1a6db56b4190d2e625e74b00e9e5139c25de95c9fb6c3ceaf9cce3a6c4",
+          "rgba_sha256": "a8fb9b7500eb14306f31f6e3cb1411ce72e924ef9c8ffa243ef615c36c6bf0ee"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -165,7 +225,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -180,14 +241,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface:wall",
     "thresholds",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "thresholds-golden-hall-masonry-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-golden-hall-masonry-endcap-northeast",
+      "source_sha256": "b63a3680f93241f56ca9a4b071f787a86b6cc773a637b329a7f15a06e17fcff3",
+      "primary_source": {
+        "asset_id": "thresholds-golden-hall-masonry-endcap-northeast",
+        "path": "thresholds/components/thresholds-golden-hall-masonry-endcap-northeast.png",
+        "sha256": "b63a3680f93241f56ca9a4b071f787a86b6cc773a637b329a7f15a06e17fcff3",
+        "rgba_sha256": "01125ca3f7a470d1453bc7dcb7bf79d47cfac8718fa58da8c6f083ce9cfb0f27"
+      },
+      "image_hashes": {
+        "front": "45ad3826fa8e977f8ec4f90ad6207500647750266d952f07ae6ae7b91f48907f",
+        "top": "5eb09df527295b7406b25cfb69d4966a1fe9d4aa8e64769d33bdfa9e874be82b",
+        "right": "45ad3826fa8e977f8ec4f90ad6207500647750266d952f07ae6ae7b91f48907f",
+        "left": "f475377bdf214f2e97c9c2bd9c63a11c966f2637d1824b75c7e351c8b9007a7a",
+        "bottom": "83eb780497f0d910af4ecc360cbc07185aa7d7dc599b5c0e6c7f9d037c15ad8a",
+        "rear": "f475377bdf214f2e97c9c2bd9c63a11c966f2637d1824b75c7e351c8b9007a7a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:15:01.287894+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-golden-hall-masonry-endcap-northeast.png",
+          "sha256": "b63a3680f93241f56ca9a4b071f787a86b6cc773a637b329a7f15a06e17fcff3",
+          "rgba_sha256": "01125ca3f7a470d1453bc7dcb7bf79d47cfac8718fa58da8c6f083ce9cfb0f27"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

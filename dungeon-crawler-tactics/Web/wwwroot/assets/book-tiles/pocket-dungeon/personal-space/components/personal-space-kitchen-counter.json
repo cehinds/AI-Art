@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-kitchen-counter.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-kitchen-counter.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-kitchen-counter",
+      "source_sha256": "d760fad5edccb36c15bdc80a4fc326d79d1ace331df77ab5651b2eff91975488",
+      "primary_source": {
+        "asset_id": "personal-space-kitchen-counter",
+        "path": "personal-space/components/personal-space-kitchen-counter.png",
+        "sha256": "d760fad5edccb36c15bdc80a4fc326d79d1ace331df77ab5651b2eff91975488",
+        "rgba_sha256": "f3e57944763f8768c5df7fce98e7b766079d96c527f0955c646c5c9159da6994"
+      },
+      "image_hashes": {
+        "front": "0a597d131358e6c63873e98f3f906f221f93569f1a45978da7a96551c92aea00",
+        "top": "c05ceee6d20e268e0a053cc730afc52b7867a4f155658fe59de7f2e22d595e4d",
+        "right": "2f40b57d43439a417c01b148d89b65727963e5b267916c3d662e437ac206ef07",
+        "left": "e1df4fa0bcd3e51878f2e5f358721f44ba791271733a6e2123a43cd430c33ac8",
+        "bottom": "6926d0e2b19731ee2e838647d04b98eb222277236531904f5fa96b85e20990fd",
+        "rear": "25e37f72ed4f37ea7e35d7db2705532575afb3eff11eabba264a046055e1c149"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:40:56.569380+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-kitchen-counter.png",
+          "sha256": "d760fad5edccb36c15bdc80a4fc326d79d1ace331df77ab5651b2eff91975488",
+          "rgba_sha256": "f3e57944763f8768c5df7fce98e7b766079d96c527f0955c646c5c9159da6994"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

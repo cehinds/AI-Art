@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-colonial-balcony-wall.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-balcony-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-colonial-balcony-wall",
+      "source_sha256": "a7f7f718fe7236e4f3527d14648673df4449f59a1f3f9500f89b2c9d28c80c25",
+      "primary_source": {
+        "asset_id": "ghost-havana-colonial-balcony-wall",
+        "path": "ghost-havana/components/ghost-havana-colonial-balcony-wall.png",
+        "sha256": "a7f7f718fe7236e4f3527d14648673df4449f59a1f3f9500f89b2c9d28c80c25",
+        "rgba_sha256": "ef22fe366b6da2ca38ab0ef99804c825123c19711c63c862c7aa420d0fcda58c"
+      },
+      "image_hashes": {
+        "front": "7154dd5dd399a131e03778a3095c2d9e224ea02ef136f03f62ef56157e4f7073",
+        "top": "ac91aa5774b2140c1b76421c8d7e04ee4607e0f9c2b30b1f7d0423accab16a82",
+        "right": "0eb00f3d3bd058c5e8f9047eec301c949795c50f091c3821cf46b2c527280b78",
+        "left": "37d59904ec4a5fabf015dbd28d42d5066a6e3151ef0f83b962525a735ad6e803",
+        "bottom": "839ec35fd93295f5c0a655c1dda496a1659191d38631ed63f6772668dab545c1",
+        "rear": "be051da948a01c51bfcdcf90f88cc409fa850f8660e97a1c3a3b5869ed4c7edd"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:21:58.871443+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-colonial-balcony-wall.png",
+          "sha256": "a7f7f718fe7236e4f3527d14648673df4449f59a1f3f9500f89b2c9d28c80c25",
+          "rgba_sha256": "ef22fe366b6da2ca38ab0ef99804c825123c19711c63c862c7aa420d0fcda58c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

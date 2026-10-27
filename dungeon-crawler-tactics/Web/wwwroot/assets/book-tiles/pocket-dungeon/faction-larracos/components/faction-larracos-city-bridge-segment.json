@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-city-bridge-segment.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-city-bridge-segment.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-city-bridge-segment",
+      "source_sha256": "109cde5b0c4763f58a974b101b05e76733ddd47fba0197483c7b21ba17042bca",
+      "primary_source": {
+        "asset_id": "faction-larracos-city-bridge-segment",
+        "path": "faction-larracos/components/faction-larracos-city-bridge-segment.png",
+        "sha256": "109cde5b0c4763f58a974b101b05e76733ddd47fba0197483c7b21ba17042bca",
+        "rgba_sha256": "241c6b185002e5842beba48749c1560d2461c6aacc27454a6ab3557058e16cbb"
+      },
+      "image_hashes": {
+        "front": "1d2d16db62d48be7a640ec704ec2220a64b4bd0cd76b56e07ab1e6bd02f603a7",
+        "top": "9832687a9a0babd1fd1a0979941b2dbf3d3840a1d805b969f8ffe5537d48c4d5",
+        "right": "6b1a4001b3ae04734cc782f6eff21f7d4e60f95a3a8cec8208f4a6e704309158",
+        "left": "234c09467012ad764b9391f06167842e6d93466126c2a1f721dffd7fb66ffa1c",
+        "bottom": "ff4a9baff2511254aaec63e97f69b7030889ef70ee39cef0259fba5e47c447d5",
+        "rear": "9f05fbe4dd35d3698d97753ea268ddf0e0d32ef88e954ea73891b5b91f002f4c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:08:19.679890+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-city-bridge-segment.png",
+          "sha256": "109cde5b0c4763f58a974b101b05e76733ddd47fba0197483c7b21ba17042bca",
+          "rgba_sha256": "241c6b185002e5842beba48749c1560d2461c6aacc27454a6ab3557058e16cbb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

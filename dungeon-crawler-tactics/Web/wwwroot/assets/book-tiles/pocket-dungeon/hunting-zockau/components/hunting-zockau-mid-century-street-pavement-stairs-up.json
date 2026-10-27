@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-mid-century-street-pavement-stairs-up",
+      "source_sha256": "3449518d543b74326b2906b8df785e8149b15e4e6f4d9ba7585b9cd0bdd0385d",
+      "primary_source": {
+        "asset_id": "hunting-zockau-mid-century-street-pavement-stairs-up",
+        "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-stairs-up.png",
+        "sha256": "3449518d543b74326b2906b8df785e8149b15e4e6f4d9ba7585b9cd0bdd0385d",
+        "rgba_sha256": "fa3f8de36bf20b5d407ba802abf8d7efe2bc9fddef73af9b543abf4faa98b517"
+      },
+      "image_hashes": {
+        "front": "8d8e36ae969f6307db1f392375ad1e18e1db93ee048e0cbc9bf2c965e717d7de",
+        "top": "339cbf75dfbcc8effee8bcb1834f9eb92ebb995c74f0b1c6d1a4220703e6bb7d",
+        "right": "357622e92f0ee32d63ad2a799ee5c27369a4c1fb5644b9f689252761765c426f",
+        "left": "6297f55ed4744b933ec41ac194ca3be269f2dc9113d432184446b05035e7c4e8",
+        "bottom": "80874012fa88cbba327abbcf92b7cb23c1826a87641311dea591f7ce1b43e386",
+        "rear": "db438dfc490318bce903e454495092f0d78d400e953124b057e0d3128a8ce2bb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:50:47.239711+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-stairs-up.png",
+          "sha256": "3449518d543b74326b2906b8df785e8149b15e4e6f4d9ba7585b9cd0bdd0385d",
+          "rgba_sha256": "fa3f8de36bf20b5d407ba802abf8d7efe2bc9fddef73af9b543abf4faa98b517"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

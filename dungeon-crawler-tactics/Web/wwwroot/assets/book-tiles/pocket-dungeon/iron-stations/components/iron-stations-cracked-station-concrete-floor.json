@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-cracked-station-concrete-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-cracked-station-concrete-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-cracked-station-concrete-floor",
+      "source_sha256": "499b89a4ca0c75875fba4f6b5364f14555bd80ceeabbcecb472dc49951f1f34b",
+      "primary_source": {
+        "asset_id": "iron-stations-cracked-station-concrete-floor",
+        "path": "iron-stations/components/iron-stations-cracked-station-concrete-floor.png",
+        "sha256": "499b89a4ca0c75875fba4f6b5364f14555bd80ceeabbcecb472dc49951f1f34b",
+        "rgba_sha256": "f63b4d82d72a5237e4f1b2ee355a717336625f26feffce1e67ad3a167b9e637e"
+      },
+      "image_hashes": {
+        "front": "f618869d85a4973d8cdf26fe78dd6eb4f308ff46dfa448ddd5a78178e80ab351",
+        "top": "e97ddce404d92d018341169d58dc1d355eb8f5e8302f19b8f1c482a50008a742",
+        "right": "5c342a8c57fac275fa7ca5d62e15fe9cdb747c14d4d4804a153e7e553e465340",
+        "left": "c2be1b2723dd0407b710cf032650778284ff5a5dfa4d65d8fe8cf83b2b13d820",
+        "bottom": "783aff77ea0390d938a13137d8ed713e41c11837355d71877fb9c8a0316edf78",
+        "rear": "fe3002c343a85bae876ee71508df347b66cda178cd90e3fa456c6b1f6f5e4c99"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:10.757675+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-cracked-station-concrete-floor.png",
+          "sha256": "499b89a4ca0c75875fba4f6b5364f14555bd80ceeabbcecb472dc49951f1f34b",
+          "rgba_sha256": "f63b4d82d72a5237e4f1b2ee355a717336625f26feffce1e67ad3a167b9e637e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-stations"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-stations"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

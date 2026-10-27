@@ -9,11 +9,11 @@
     "environment:unspecified",
     "forms",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "role:object",
     "strider",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "forms--strider--se--walk2",
@@ -70,5 +70,41 @@
       ],
       "shared_scale": 0.23963133640552994
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forms--strider--se--walk2"
   }
 }

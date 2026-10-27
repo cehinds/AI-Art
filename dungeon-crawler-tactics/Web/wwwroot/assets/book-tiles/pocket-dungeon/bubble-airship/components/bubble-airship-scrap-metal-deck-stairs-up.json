@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-scrap-metal-deck-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-scrap-metal-deck-stairs-up",
+      "source_sha256": "32f88d4d479ae23061a7003e1121eb4194d509b01ed8478006fea9c15ecee684",
+      "primary_source": {
+        "asset_id": "bubble-airship-scrap-metal-deck-stairs-up",
+        "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-stairs-up.png",
+        "sha256": "32f88d4d479ae23061a7003e1121eb4194d509b01ed8478006fea9c15ecee684",
+        "rgba_sha256": "e2e85d2aba90f455e781262926794e0bb9a9315d5580b5cf78df2ec7d9ab886f"
+      },
+      "image_hashes": {
+        "front": "02d644ee0d5d5351a4e6abd7dea03b402fde01bc02a96a0e747da4821bb55d40",
+        "top": "ee1f986038cba40988ba8f09b9a1959d9a8e8aa2f3f47c2e8c97ea6130f5236f",
+        "right": "81e9c038c9e99221099531732d9c234d6363bd6b76015b2c0ea8e7ba4a1ac419",
+        "left": "c643e738d5b144adc5374f345fb2ec64d2ea20fe7789c864a112aa630075fc6b",
+        "bottom": "bc78caf99efdd6f53a1bbac14103da6e5905db11f4b1f313246e64cbc345afed",
+        "rear": "c7efbe75753bc7457b6bfbcfbefe918d4aad17c783e5ec9dab9fb666a740150d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T02:18:46.542132+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-stairs-up.png",
+          "sha256": "32f88d4d479ae23061a7003e1121eb4194d509b01ed8478006fea9c15ecee684",
+          "rgba_sha256": "e2e85d2aba90f455e781262926794e0bb9a9315d5580b5cf78df2ec7d9ab886f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

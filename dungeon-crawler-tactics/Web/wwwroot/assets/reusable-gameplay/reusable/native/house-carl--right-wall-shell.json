@@ -54,7 +54,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "house-bedroom--left-wall-shell.front"
@@ -79,19 +79,41 @@
       "status": "inferred",
       "asset_id": "house-bedroom--left-wall-shell.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "pending-review",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "house-bedroom--left-wall-shell",
+      "source_sha256": "e1f6fcad3aab8e91e65a0c95f7919b0185edfb3c8f3194f1b78f68f27d5d6667",
+      "primary_source": {
+        "asset_id": "house-bedroom--left-wall-shell",
+        "path": "reusable/native/house-bedroom--left-wall-shell.png",
+        "sha256": "e1f6fcad3aab8e91e65a0c95f7919b0185edfb3c8f3194f1b78f68f27d5d6667",
+        "rgba_sha256": "20c61bac4f5951b652183c6b412fc4ebe8e680be3f4fbe6e8a57bfee3d12d228"
+      },
+      "image_hashes": {
+        "front": "6fd58b071e5f9904257f6aceb10d69e4b3e55e49bc97db5fd257f2958fd322e5",
+        "top": "59b19d641185c1c74b563f48cbdce9f91c1dc2408a7a17fc411d763d5a22794d",
+        "right": "7196102d26643f99a325432205db1195355cd35e577e456c6661150554c18049",
+        "left": "2908725cd0f31553f8bd66a915d768a6d0ac312a5742af047f06442414df4aae",
+        "bottom": "169cb07fd2ec77d3faca0029e1154cc4f553ed3e06318370fbceaa3574a73ae7",
+        "rear": "aab95ec8c74c51515d3fcf86dae8efa598d79661592d82b8dc2e25f2ea424efa"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T03:35:38.854321+00:00",
+      "notes": [
+        "Corrected TOP/BOTTOM now long world-Y, matching broad R/L walls and narrow F/R endcaps. Shared stone-cap/wood-panel wall source design retained, source room context excluded from clean shell."
       ],
-      "notes": "Generated or corrected views from canonical house crop; independent source-plus-six geometry review pending.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "b02cc31e00c41e06c8364f4dc4157054f38006eaa62a0d3c7df1e5d6f1406142",
+        "reviewed_reference": {
+          "path": "reusable/native/house-bedroom--left-wall-shell.png",
+          "sha256": "e1f6fcad3aab8e91e65a0c95f7919b0185edfb3c8f3194f1b78f68f27d5d6667",
+          "rgba_sha256": "20c61bac4f5951b652183c6b412fc4ebe8e680be3f4fbe6e8a57bfee3d12d228"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "house-bedroom--left-wall-shell",

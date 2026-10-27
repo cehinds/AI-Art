@@ -8,11 +8,11 @@
     "dungeon-stone",
     "environment:dungeon",
     "gameplay",
+    "inferred-view",
     "material:stone",
     "role:object",
     "stone-b",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "dungeon-stone--stone-b",
@@ -76,5 +76,39 @@
       "input_sha256": "a83d453cef8b7083fb7e91b88fc08640773e4a985337f96e80fe11c78e931824",
       "note": "Uniform plan-footprint calibration from the reviewed front/side world extent; no anisotropic resizing."
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:stone",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "dungeon-stone--stone-b"
   }
 }

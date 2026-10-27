@@ -11,7 +11,6 @@
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
-    "hazard:water",
     "material:water",
     "puddle",
     "role:object",
@@ -124,37 +123,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "water-puddle.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "water-puddle",
+      "source_sha256": "e4c63b07ee9680ca25dc8b13183d76289334679dceab355593b78d3ea4506c04",
+      "primary_source": {
+        "asset_id": "water-puddle",
+        "path": "components/water-puddle.png",
+        "sha256": "e4c63b07ee9680ca25dc8b13183d76289334679dceab355593b78d3ea4506c04",
+        "rgba_sha256": "6f0d8ad4a2a34f037f5df0717c75c1434281a60d031ab785a124c0232f0de63d"
+      },
+      "image_hashes": {
+        "front": "2425f28f93b70630d3db9e74e34d83127109ec40762544a248998fdacdde6e60",
+        "top": "e67e727f1f8c512219bc1159725f5597b17b40f86e06215a73c695626160b4bd",
+        "right": "562bffb79c8c3395956691629fbae9f415d60a72d8ab34e7fc0ca5952a5c953a",
+        "left": "e81374e8edbf80bc49520753386ace618a045b60acd075f2114b8bd8bdbc3974",
+        "bottom": "dbad68ebf807054ec58b8c384aae296264ce5cb054448dde11dd1274df6035d6",
+        "rear": "5fdb9f215d56bf526786b577e9cbae8f3bf68ee60b300c8bbae64b42fb79954f"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:02:24.758981+00:00",
+      "notes": [
+        "Fresh source+six: shallow liquid silhouettes, four horizontal lateral profiles, overhead footprint and plausible liquid underside matching shape; material translucency/symmetry legitimate."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/water-puddle.png",
+          "sha256": "e4c63b07ee9680ca25dc8b13183d76289334679dceab355593b78d3ea4506c04",
+          "rgba_sha256": "6f0d8ad4a2a34f037f5df0717c75c1434281a60d031ab785a124c0232f0de63d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:water",
     "role:object",
     "style:dungeon-after-dark"

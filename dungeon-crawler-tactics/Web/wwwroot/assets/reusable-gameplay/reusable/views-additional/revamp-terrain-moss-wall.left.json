@@ -7,15 +7,15 @@
     "attachment:floor",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
+    "left",
     "material:moss",
     "native-source-crop",
     "role:provider",
     "sprite-frame",
     "style:gameplay",
     "surface:wall",
-    "terrain",
-    "inferred-view",
-    "left"
+    "terrain"
   ],
   "object_id": "revamp-terrain-moss-wall",
   "view": "left",
@@ -83,6 +83,79 @@
         "pre_scale_mismatch_ratio": 1.1885714285714286,
         "post_scale_mismatch_ratio": 1.0
       }
-    }
+    },
+    "normalization": {
+      "scale": 0.538860103626943,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "revamp-terrain-moss-wall",
+        "view": "left",
+        "source_path": "reusable/native/revamp-terrain-moss-wall.png",
+        "source_sha256": "7fa045bbca22dd712b55b52d39c0cdd469a67e65302b5c520777d9d786bb8b92",
+        "atlas_path": "reusable/views-additional/raw/revamp-terrain-wall-elevations-atlas.png",
+        "atlas_sha256": "7623950dd02320664e17be851aac661099d44cd8d2d54f6f1ef07373dd351722",
+        "active_output_sha256": "9c2815d620d1d3e073af88a3093ab29a975c0c0b716e5952121f3aa7d5a5d862",
+        "active_output_rgba_sha256": "0624f203d0e4dcabd104b459ba778e6bbfb7561d0d6b9e09eadfc228ccacdd58",
+        "crop_bounds_xyxy": [
+          917,
+          468,
+          1241,
+          854
+        ],
+        "resized_dimensions_px": [
+          208,
+          247
+        ],
+        "scale": 0.538860103626943,
+        "projection_scale": 1.1885714285714286,
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-build-resolution.json",
+        "execution_report_sha256": "78e7a46f07b0c1ea16ea89e1e52ba03f7fe3e967cc9ae894fea9412f5cf70012",
+        "output_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-rebuild-receipt.json",
+        "output_report_sha256": "6bab12c1c1df9a54426130a8d51eb0eb31258ab1804c696abf1afe08370fe0dc",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/gameplay-per-view-isotropic-v1.json",
+        "recipe_sha256": "92c1b54c27551efcc19b314e4dd684cd96e210b8473963db5bdfae2eaf81fc8d"
+      }
+    },
+    "source_sha256": "7fa045bbca22dd712b55b52d39c0cdd469a67e65302b5c520777d9d786bb8b92"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:moss",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp-terrain-moss-wall"
   }
 }

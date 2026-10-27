@@ -3,12 +3,22 @@
   "name": "White Mausoleum Masonry west wall rear",
   "kind": "sprite",
   "tags": [
-    "ghost-cemetery",
-    "wall",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/ghost-cemetery-white-mausoleum-masonry-west-wall.rear.png",
@@ -68,7 +78,6 @@
           ]
         }
       ],
-      "shared_scale": 0.42,
       "render_size": [
         42,
         120
@@ -77,9 +86,53 @@
         128,
         248
       ],
-      "resampling": "NEAREST"
+      "resampling": "NEAREST",
+      "scale": 0.42,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "ghost-cemetery-white-mausoleum-masonry-west-wall",
+        "view": "rear",
+        "source_path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-west-wall.png",
+        "source_sha256": "52f4045c77c464c4d6240e1600fc638a0194f3af7f00b41badbb73d105c018e5",
+        "atlas_path": "reusable/views-additional/raw/equipment-staging/group-04-ghost-cemetery-west/raw-atlas.png",
+        "atlas_sha256": "8dd8a5381f5d3a87913887487a7eaf7f81cb3d113b5e3d39bf14e85a1eead48a",
+        "active_output_sha256": "aac74c2f4360b9337da09a8fe8f5e80a0f5390edffb687ab37bc5edc829e2a30",
+        "active_output_rgba_sha256": "73187b544820038a40b4339fd1c9ad28bd2bd74567d7b39f383e8758ec421717",
+        "crop_bounds_xyxy": [
+          1963,
+          274,
+          2064,
+          559
+        ],
+        "resized_dimensions_px": [
+          42,
+          120
+        ],
+        "scale": 0.42,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Root-approved inferred orthographic projection; canonical Ghost Cemetery source identity and pale masonry material are authoritative."
+    "notes": "Root-approved inferred orthographic projection; canonical Ghost Cemetery source identity and pale masonry material are authoritative.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.shared_scale",
+            "value": 0.42
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -159,5 +212,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-cemetery-white-mausoleum-masonry-west-wall"
+  }
 }

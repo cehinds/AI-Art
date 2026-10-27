@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-soot-stained-brick-closed-doorway",
+      "source_sha256": "e633359cb6509f04b6e7eadf1b63314eebd17945cf7064d390550715eac9bd7f",
+      "primary_source": {
+        "asset_id": "industry-menagerie-soot-stained-brick-closed-doorway",
+        "path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-closed-doorway.png",
+        "sha256": "e633359cb6509f04b6e7eadf1b63314eebd17945cf7064d390550715eac9bd7f",
+        "rgba_sha256": "a3700f71e09d5f223828d4fa92a9009e194b834b7c0dab10570cdc6f057e7ec4"
+      },
+      "image_hashes": {
+        "front": "183a493107f2a2746ea900be155fd69a4c7e98ee1551e6d79e0e1ebc8b22d291",
+        "top": "508c659ddb55e67a29de5c5ec4af91b09e3fc0a9cca6798a0121a170fd81ee17",
+        "right": "7b2b845a3aebf5a6e42318e102583bf9048ab22bb37c43baee74464818b87bd9",
+        "left": "8d6b738bceed304fdac714ebdf81dafc831ce1b676a1e035237c36d780758acf",
+        "bottom": "db3c18dfbdbf1b292691f0f0224b369ccf89e3dea4f2dc3dee0680347ebcb012",
+        "rear": "9cc2bce2f1ad025bda4afe677e59eb33f8b06330c06d0998835ad5f92ea88e7a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:37:12.970070+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-closed-doorway.png",
+          "sha256": "e633359cb6509f04b6e7eadf1b63314eebd17945cf7064d390550715eac9bd7f",
+          "rgba_sha256": "a3700f71e09d5f223828d4fa92a9009e194b834b7c0dab10570cdc6f057e7ec4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

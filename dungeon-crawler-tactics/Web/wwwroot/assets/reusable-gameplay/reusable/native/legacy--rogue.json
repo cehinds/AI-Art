@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--rogue.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--rogue.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--rogue",
+      "source_sha256": "b27f16867995f507054f34f14bea8ffb38ff74e092f5d970ff3ff6d8499bfbfc",
+      "primary_source": {
+        "asset_id": "legacy--rogue",
+        "path": "reusable/native/legacy--rogue.png",
+        "sha256": "b27f16867995f507054f34f14bea8ffb38ff74e092f5d970ff3ff6d8499bfbfc",
+        "rgba_sha256": "19d650b9551388662b7bca467aa32ee2cdb247844e3d1fbc1af6ad35ecebdeb0"
+      },
+      "image_hashes": {
+        "front": "3844a54fc4e2b0d0da36f9261ee169e91ffde6c29570739be3cad5f231d69cf9",
+        "top": "7d78854bf28f3e6a07bd25105dac9490947cff561260f558da5388f0e073fd39",
+        "right": "4e31d9987eb642246c8a27691a31fc5ae58e38dd7ff2ff2a07818e31a354252d",
+        "left": "a65f6e49f2077a304d4bc0cfeb7d4f2d8deaf7b1f5513a3115918888483bacff",
+        "bottom": "ff2ba1b6217432418bdbefed2b95f2ae6ed212f8cf80dbc961bccba9511bc575",
+        "rear": "554b5f1f1ffb6e962ba9d3c2442553c230db6059524e82ab17fbd263e26d98e1"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:52:50.537045+00:00",
+      "notes": [
+        "Fresh corrected source+six: BOTTOM true torso/robeunderside with shoe soles, headgearoccluded; nativefront/sourcepixelidentity and isotropicallyconsistent bodywidth/sideheight, toolendcaps retained."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--rogue.png",
+          "sha256": "b27f16867995f507054f34f14bea8ffb38ff74e092f5d970ff3ff6d8499bfbfc",
+          "rgba_sha256": "19d650b9551388662b7bca467aa32ee2cdb247844e3d1fbc1af6ad35ecebdeb0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

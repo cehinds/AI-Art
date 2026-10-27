@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-stairs-down.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-drained-city-cobblestone-stairs-down",
+      "source_sha256": "1dcd62cae068cd251060b531a63b26b15b0b6ba47f3a6e66693ebd666c82d288",
+      "primary_source": {
+        "asset_id": "faction-larracos-drained-city-cobblestone-stairs-down",
+        "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-stairs-down.png",
+        "sha256": "1dcd62cae068cd251060b531a63b26b15b0b6ba47f3a6e66693ebd666c82d288",
+        "rgba_sha256": "75d2fabd190002651ac243e3ec88ebde1ca284604383653f805d12f66c9b4a9e"
+      },
+      "image_hashes": {
+        "front": "69220b9d0c319590f4e30a7eef3de24324f71c68c834cd02255f4238e682e488",
+        "top": "4675ee78c049d795785c80278a553b41e50dd20a0cb9239588a41142bfde0ef7",
+        "right": "acb90ef085c04356fa29ab74a6cadbdf3dc282a59f273d08e23a764af31dc81e",
+        "left": "b26b8fac97939621a9f4d9ee491c66b6da41de41d4362f4c3b506664bfb0ec45",
+        "bottom": "89ee7eebf072a064886eff1dadbb336a5671ab9dc2f78ce53f42aaa24b0204e8",
+        "rear": "63556c0bbfeffb39c5cb78fd9016abee26831d50e5aa2a492589e783204161c0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:52:30.200634+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-stairs-down.png",
+          "sha256": "1dcd62cae068cd251060b531a63b26b15b0b6ba47f3a6e66693ebd666c82d288",
+          "rgba_sha256": "75d2fabd190002651ac243e3ec88ebde1ca284604383653f805d12f66c9b4a9e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

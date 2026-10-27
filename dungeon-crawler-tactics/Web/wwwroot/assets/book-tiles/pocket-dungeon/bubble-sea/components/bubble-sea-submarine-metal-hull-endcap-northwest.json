@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-metal-hull-endcap-northwest",
+      "source_sha256": "894307daab3c38c1d7ccf14e217350e15f58a9730ed76a4f1be76b9ef15b0b10",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-metal-hull-endcap-northwest",
+        "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-endcap-northwest.png",
+        "sha256": "894307daab3c38c1d7ccf14e217350e15f58a9730ed76a4f1be76b9ef15b0b10",
+        "rgba_sha256": "833efd7d0997d1e9f59b881f0e7e7d1ff02d5cb7c0e3339c13e2c584ba733cb4"
+      },
+      "image_hashes": {
+        "front": "bef47e5c3b33b7ab1e3f65e752e44884f8795c667cd4b757efd75b5a9e67c80f",
+        "top": "61c39a81159015774fbe4e1498bb1194d089ac6d4f1ace2e53029ff5414cbd56",
+        "right": "aaa7d44b4498f0ba43111e95765dd2224c1e387c762cbae55b160185cc662e9e",
+        "left": "37065bba7b7c1b18a931f7c1003452125fc715f28dad1bf1e99ec020fbaef010",
+        "bottom": "eb9a33ff8f9ee697a861e15258212938fe2973627a95ee84e6b759f3bec090ec",
+        "rear": "44cada69d7d75496efa02074b55ace432580e008686b42cae5fb4c01d08f4d1c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:34:24.097857+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-endcap-northwest.png",
+          "sha256": "894307daab3c38c1d7ccf14e217350e15f58a9730ed76a4f1be76b9ef15b0b10",
+          "rgba_sha256": "833efd7d0997d1e9f59b881f0e7e7d1ff02d5cb7c0e3339c13e2c584ba733cb4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

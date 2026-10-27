@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-worn-translucent-glass-tile-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-worn-translucent-glass-tile-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-worn-translucent-glass-tile-floor",
+      "source_sha256": "4978d0b109105b27d4eb17fa606aeb6049126a7148c5dc4145853ad0cd383237",
+      "primary_source": {
+        "asset_id": "bubble-glass-worn-translucent-glass-tile-floor",
+        "path": "bubble-glass/components/bubble-glass-worn-translucent-glass-tile-floor.png",
+        "sha256": "4978d0b109105b27d4eb17fa606aeb6049126a7148c5dc4145853ad0cd383237",
+        "rgba_sha256": "de9bfbd1c950a606f91340731694f7b7168d043104290dca25ebe85900f508df"
+      },
+      "image_hashes": {
+        "front": "688f96dac15708f34981ae678ea79147a2d3f44b9905e2b67893765312c1851c",
+        "top": "c4e2de3be4560709749a1c9d7bb66eaa60bbc267bc10ff8b53aa58b749b6a518",
+        "right": "57a7d5331628dccbd19118121861ceb1d61ec5c03a7a72c477b3e7eaa6a552b7",
+        "left": "9e4116e6ad0b5fc91b186ac1f67da7f833947dea29619d9b42cdd8182de081ef",
+        "bottom": "c1f29395e20358ed3c56e1f260547721d2dd07a322b59897d9c1fca90ed2bfea",
+        "rear": "a3e66baa454fbb228ca0b379f661b208fe71c035a302d1177fec997a689534cc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:40:57.764271+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-worn-translucent-glass-tile-floor.png",
+          "sha256": "4978d0b109105b27d4eb17fa606aeb6049126a7148c5dc4145853ad0cd383237",
+          "rgba_sha256": "de9bfbd1c950a606f91340731694f7b7168d043104290dca25ebe85900f508df"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-glass"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

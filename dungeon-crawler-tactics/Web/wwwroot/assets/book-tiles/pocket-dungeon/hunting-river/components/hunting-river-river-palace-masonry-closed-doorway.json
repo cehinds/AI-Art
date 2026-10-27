@@ -8,16 +8,17 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-river-palace-masonry-closed-doorway.png",
@@ -112,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-palace-masonry-closed-doorway",
+      "source_sha256": "da85b8789c572487e5b9f6ec6b24dd125601d2e02dafef9df3e5b9f673ea2eb9",
+      "primary_source": {
+        "asset_id": "hunting-river-river-palace-masonry-closed-doorway",
+        "path": "hunting-river/components/hunting-river-river-palace-masonry-closed-doorway.png",
+        "sha256": "da85b8789c572487e5b9f6ec6b24dd125601d2e02dafef9df3e5b9f673ea2eb9",
+        "rgba_sha256": "ca870aa90b3fc86da3dea735c9c6f82062f4124d151715e7f0534bf272659355"
+      },
+      "image_hashes": {
+        "front": "aa8746f2b0281c356fc2dee31b17021207af26e43c44f218e3a5b0df5fc0e2d6",
+        "top": "3dd0dac4ab05bff4b5ecdb79bba4aba541ddfdabf657a24e19e49127e610afb0",
+        "right": "e6b98a6ae93d5717b5044b3ed3b76da78ca7dc085fdc9161dac6406eca4b8007",
+        "left": "1375753570b445cee9e794e9fc89ca0dfe354f02bd91e504aa3aa207c076c70c",
+        "bottom": "d50dd5621ecf15b1d44aed83bbd797c5a0edc720f323df4e9b7db90a56da26dd",
+        "rear": "e3b358e7f36fb4fc44cba6719fc567235713fa6595b52069573248018355b842"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T18:48:54.558848+00:00",
+      "notes": [
+        "Reviewed native source and all six opaque-composited normalized views. Inferred illustrative geometry accepted; no clear projection, identity, footprint or neighboring-component defect."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-palace-masonry-closed-doorway.png",
+          "sha256": "da85b8789c572487e5b9f6ec6b24dd125601d2e02dafef9df3e5b9f673ea2eb9",
+          "rgba_sha256": "ca870aa90b3fc86da3dea735c9c6f82062f4124d151715e7f0534bf272659355"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

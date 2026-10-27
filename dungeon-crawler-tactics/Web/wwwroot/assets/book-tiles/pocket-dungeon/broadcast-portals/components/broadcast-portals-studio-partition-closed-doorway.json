@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "broadcast-portals",
     "door",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-studio-partition-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -159,15 +171,68 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-partition-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-partition-closed-doorway",
+      "source_sha256": "8ce37bba6c386c68c67d4d973c43f61bbbe61276306da0dd9b77ed5bb2a3ce78",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-partition-closed-doorway",
+        "path": "broadcast-portals/components/broadcast-portals-studio-partition-closed-doorway.png",
+        "sha256": "8ce37bba6c386c68c67d4d973c43f61bbbe61276306da0dd9b77ed5bb2a3ce78",
+        "rgba_sha256": "29cd2b086c0067edce48780718750bc4bc963f9474f46e02cdef44424a655859"
+      },
+      "image_hashes": {
+        "front": "8e70efc5d2bba98320419e19ce2f45f644d0fdfb7a9f3b18959001393cec5f74",
+        "top": "972da757462829cec2820535f91097e1a3a8bbbcfd45e3b0c08a8711dc707a93",
+        "right": "284a813b346c28c2472ced94e9c039699543ba6c629fb117d890e295a6bfa0b9",
+        "left": "86888b5916b8324b138c4a7dde93c95e7b6476d4aa19bbdcef214a79bb44d651",
+        "bottom": "2c4f59b41835ab20ffb037353c59c898cd640852fa79d29a9e0eca45c17b1297",
+        "rear": "afdbc2da3eb1bd56e36df15e40415b288177aefe1c9a4e179ce6ce7e07233ee1"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:53:40.114936+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-partition-closed-doorway.png",
+          "sha256": "8ce37bba6c386c68c67d4d973c43f61bbbe61276306da0dd9b77ed5bb2a3ce78",
+          "rgba_sha256": "29cd2b086c0067edce48780718750bc4bc963f9474f46e02cdef44424a655859"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

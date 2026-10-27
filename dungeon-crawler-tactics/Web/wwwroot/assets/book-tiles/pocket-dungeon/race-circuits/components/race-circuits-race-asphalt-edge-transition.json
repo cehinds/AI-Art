@@ -16,7 +16,8 @@
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-race-asphalt-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-race-asphalt-edge-transition",
+      "source_sha256": "7cfe8f594a4d2cf2c6ecd443fbf0699664e23e07c989d48d02706b74fbc7cdee",
+      "primary_source": {
+        "asset_id": "race-circuits-race-asphalt-edge-transition",
+        "path": "race-circuits/components/race-circuits-race-asphalt-edge-transition.png",
+        "sha256": "7cfe8f594a4d2cf2c6ecd443fbf0699664e23e07c989d48d02706b74fbc7cdee",
+        "rgba_sha256": "a367a32451da01caf01589b669c8a38bf2a9ae7786cf07433ff9b493751d1f10"
+      },
+      "image_hashes": {
+        "front": "ae1b33eaac956369579e77cb51c35ffe8638cf6ec919820fdd6afb8a028a72e5",
+        "top": "8fa2a794e8fb257fa5662249eae2a4706fb1a66a7a97346a044621f9202fd186",
+        "right": "fce78ace65fadfd272d82853a104fd4ddb84973d14e818f9d23e94ecfd72bff2",
+        "left": "69253c03ff9445d2bc8e58ce011c163663c3b85696d9aafa56ecb9ba176bc344",
+        "bottom": "e0a762e9852adc0aff4e748f5d7ec329f2f49ddc83a97780b8e3f98d68d2bd11",
+        "rear": "58bdea0117198f54a9f3eeff56bd6aa4c558740315258ecaced8d102db29f941"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-race-asphalt-edge-transition.png",
+          "sha256": "7cfe8f594a4d2cf2c6ecd443fbf0699664e23e07c989d48d02706b74fbc7cdee",
+          "rgba_sha256": "a367a32451da01caf01589b669c8a38bf2a9ae7786cf07433ff9b493751d1f10"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

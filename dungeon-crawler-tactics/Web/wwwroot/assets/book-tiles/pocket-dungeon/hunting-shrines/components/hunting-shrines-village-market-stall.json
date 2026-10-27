@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-shrines",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-market-stall.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-market-stall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-market-stall",
+      "source_sha256": "c157d39371fbb70686d57c015bdd40de0d8201e58ed70d70e8ee2a39aa96335d",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-market-stall",
+        "path": "hunting-shrines/components/hunting-shrines-village-market-stall.png",
+        "sha256": "c157d39371fbb70686d57c015bdd40de0d8201e58ed70d70e8ee2a39aa96335d",
+        "rgba_sha256": "e0ebcf61ac68d18a75e5d3adb61b9c5391bb71d081ca5f6ddf52fea401d45657"
+      },
+      "image_hashes": {
+        "front": "2a4e50cfe883630d792aa1ab4e92e1fde77f7847929da59ee536936386a5934d",
+        "top": "60fd71516c3aaaf7cf23f9537f834c2af4781d18223f022c4c7e4e488c8be957",
+        "right": "4299fe22c9d664684284d3b6ae90ae01203e2b2d8e6d188a90abc8f54482742d",
+        "left": "7a03805f1cf6157cb6bcad4241da99192922ff0c3e78e8b735fdbcc398d6946a",
+        "bottom": "d9cc17a58e3f597c6998a97752fc0e1176d423d794a9014d7c8ebe6922d1161b",
+        "rear": "c6f7770ae4e1d5ef073ad2c8f50147c4ac06c12b61de4061b76193114fda5338"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T18:50:53.703528+00:00",
+      "notes": [
+        "Fresh source+six: canopy/roof plan, side silhouette, rear and inferred foundation underside preserve source identity and pose."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-market-stall.png",
+          "sha256": "c157d39371fbb70686d57c015bdd40de0d8201e58ed70d70e8ee2a39aa96335d",
+          "rgba_sha256": "e0ebcf61ac68d18a75e5d3adb61b9c5391bb71d081ca5f6ddf52fea401d45657"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

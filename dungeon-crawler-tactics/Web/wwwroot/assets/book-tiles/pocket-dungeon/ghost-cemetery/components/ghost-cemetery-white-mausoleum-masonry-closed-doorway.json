@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway",
+      "source_sha256": "af5aae55146ffb52dea74bf66ca29fd2bd86f9a3bff7bda4e0d04433023f5b47",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-white-mausoleum-masonry-closed-doorway",
+        "path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-closed-doorway.png",
+        "sha256": "af5aae55146ffb52dea74bf66ca29fd2bd86f9a3bff7bda4e0d04433023f5b47",
+        "rgba_sha256": "2e6689c6398be0771934802c210d3fbc662301c411d075958d53b757bcbe2061"
+      },
+      "image_hashes": {
+        "front": "f81a1a63dc5f1cb8e0b306f0f65b5ea2376a74fe536675c674bb786e2a98383d",
+        "top": "67170d06fbf044413a8ab11be187a8b6996f9231e82642cae06a9bd60301e806",
+        "right": "f250d8b6a87eda8433a83626663e5828009426f58628c999eebd10e85ea259b7",
+        "left": "e2582dc35e2f5bde96f5dc948fa491e8a949ce87f6eba9c2c1aefa845da4fe37",
+        "bottom": "c5c121baa5ecb83eb25fd3d3219473b6d32cdb6d67da663846efb24d265665a3",
+        "rear": "fc8f50f994fb3691d28b76aea83a457066ecf6ab0e5da4781520882722779022"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-closed-doorway.png",
+          "sha256": "af5aae55146ffb52dea74bf66ca29fd2bd86f9a3bff7bda4e0d04433023f5b47",
+          "rgba_sha256": "2e6689c6398be0771934802c210d3fbc662301c411d075958d53b757bcbe2061"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

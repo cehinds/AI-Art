@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-cracked-glass-maze-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-cracked-glass-maze-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-cracked-glass-maze-floor",
+      "source_sha256": "408670caeb4097ca12020fdbf95c8fd7f979039eaf9375a9bdabe19e570914bf",
+      "primary_source": {
+        "asset_id": "great-race-transition-cracked-glass-maze-floor",
+        "path": "great-race-transition/components/great-race-transition-cracked-glass-maze-floor.png",
+        "sha256": "408670caeb4097ca12020fdbf95c8fd7f979039eaf9375a9bdabe19e570914bf",
+        "rgba_sha256": "a2abee8cd7c73531806dce1dbd75bce0d535c2af1bdeb3caf4f5b96caf7cef25"
+      },
+      "image_hashes": {
+        "front": "3381adaeb51c0ca4bf2e2c3c3b19859de2d1abde8d705a1cc08b387a0b53de5e",
+        "top": "18c3be478336b99ab020eeee8ca3aa447d9e6a1c831999de28349e0b0e4e9343",
+        "right": "54232dbe21c263d00bf6c387022c2a6805e15dc0805f09678bdb42d2b5e211e8",
+        "left": "a58132fc146584b9dc16d3b980d1ac8777a3660423fb06f57cef8ac252c7b793",
+        "bottom": "c1b5e8eaa6c570c42f8e4c86592ff3269700a021960d394417626e62a0cf6046",
+        "rear": "d98ed69964887def671e6362b11876807c2c3770a984d1d77b1467629014fd69"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:05:06.436189+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-cracked-glass-maze-floor.png",
+          "sha256": "408670caeb4097ca12020fdbf95c8fd7f979039eaf9375a9bdabe19e570914bf",
+          "rgba_sha256": "a2abee8cd7c73531806dce1dbd75bce0d535c2af1bdeb3caf4f5b96caf7cef25"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "east": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "south": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "west": [
+      "join.floor",
+      "visual.great-race-transition"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

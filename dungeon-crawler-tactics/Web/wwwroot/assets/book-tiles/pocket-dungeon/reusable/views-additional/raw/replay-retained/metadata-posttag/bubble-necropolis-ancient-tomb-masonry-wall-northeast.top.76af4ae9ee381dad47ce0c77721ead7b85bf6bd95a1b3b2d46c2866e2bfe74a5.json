@@ -1,0 +1,150 @@
+{
+  "id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.top",
+  "name": "Ancient Tomb Masonry west wall top",
+  "kind": "sprite",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-necropolis",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "top",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/views-additional/bubble-necropolis-ancient-tomb-masonry-wall-northeast.top.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "198fee07989fc35543c62a9f72eab82ebbc88f79a92489480ce97fbc671cd9cc",
+    "rgba_sha256": "e3dc7582a126196d125a950d723ad670e55cd8ef273eab1364b2439eb29e9f78"
+  },
+  "object_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast",
+  "view": "top",
+  "metadata_path": "reusable/views-additional/bubble-necropolis-ancient-tomb-masonry-wall-northeast.top.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "individual principal-view image; grouped in this object view_set"
+  },
+  "provenance": {
+    "method": "inferred-family-view-donor",
+    "source_image": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-wall-northeast.png",
+    "source_sha256": "f18002e0c3a61cd435b56f46c06d91435dd3800d93548fb080451c676328315e",
+    "family_donor_object_id": "bubble-necropolis-ancient-tomb-masonry-wall-northwest",
+    "family_donor_view": "top",
+    "derivation_input": {
+      "image_path": "bubble-necropolis-ancient-tomb-masonry-wall-northwest.top.png",
+      "image_sha256": "73c39af352a8ad6d78de7d80bf0f9b180a38d2819be489ed4751561bdaa9a9b1",
+      "source_image": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-wall-northwest.png",
+      "source_sha256": "52f388a48fc4ba92675ef6620a2ee50bc5ad6b0b669a67610f24f33dd2beb68a"
+    },
+    "transform": "rotate-90-ccw",
+    "candidate_path": "raw/candidates/wall-ne-orientations-v1/bubble-necropolis-ancient-tomb-masonry-wall-northeast.top.candidate.png",
+    "candidate_sha256": "198fee07989fc35543c62a9f72eab82ebbc88f79a92489480ce97fbc671cd9cc",
+    "notes": "Same style, canonical source images and material/detail identity match per NW/NE contact. North-wall (NW) plan axis extends X; west-wall (NE) plan axis extends Y. Remap orthographic elevation directions; rotate XY plans 90 degrees CCW to align long axis and target front/side orientation. Target source binding remains canonical NE source; donor source, view hashes and transformations are recorded per target leaf. Independent root scoped acceptance is recorded for bubble-necropolis-ancient-tomb-masonry-wall-northeast.top; install exact staged bytes."
+  },
+  "geometry_qa": "pending-review",
+  "provenance_history": [
+    {
+      "method": "generated",
+      "source_image": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-wall-northeast.png",
+      "generated_atlas": "reusable/views-additional/raw/atlases/bubble-necropolis-batch-02.png",
+      "generated_atlas_sha256": "56b83e0fe9118d8893b8d676f79d5b071cc8bc600ff0430a8cf3bcc3dcecc999",
+      "reference_sheet": "reusable/views-additional/raw/source-refs/bubble-necropolis-batch-02.png",
+      "prompt_file": "reusable/views-additional/raw/prompts/bubble-necropolis-batch-02.txt",
+      "normalization": {
+        "alpha_threshold": 245,
+        "minimum_component_area": 4,
+        "component_policy": "group opaque connected components by nearest logical row/column center; preserve full bounds",
+        "component_group": [
+          {
+            "label": 32,
+            "area": 5572,
+            "centroid": [
+              375.49156496769564,
+              319.56048097631015
+            ],
+            "bbox": [
+              337,
+              283,
+              415,
+              357
+            ]
+          }
+        ],
+        "shared_scale": 1.2222222222222223,
+        "source_crop_size": [
+          78,
+          74
+        ],
+        "render_size": [
+          95,
+          90
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "resampling": "NEAREST",
+        "anchor_px": [
+          128,
+          248
+        ]
+      },
+      "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
+    }
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-necropolis-ancient-tomb-masonry-wall-northeast"
+  }
+}

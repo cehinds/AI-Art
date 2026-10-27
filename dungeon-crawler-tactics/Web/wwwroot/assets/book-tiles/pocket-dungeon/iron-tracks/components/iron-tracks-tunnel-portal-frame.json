@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-tracks",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-tunnel-portal-frame.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-portal-frame.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-tunnel-portal-frame",
+      "source_sha256": "022320d268671241a14ea4351ee7a34d65ebb4c9829a28522d9fcab6425448da",
+      "primary_source": {
+        "asset_id": "iron-tracks-tunnel-portal-frame",
+        "path": "iron-tracks/components/iron-tracks-tunnel-portal-frame.png",
+        "sha256": "022320d268671241a14ea4351ee7a34d65ebb4c9829a28522d9fcab6425448da",
+        "rgba_sha256": "ffaa7e29a91fd78b421503d43cf81624b740e5e992b8b02065134cd59ffb5c8d"
+      },
+      "image_hashes": {
+        "front": "00d29857bc96ebe1bd55d7111c83318752fe93b032bdf0eb63d14d9923c0d0ba",
+        "top": "f502c52ee77a8c6dda54bb8c5a7a8b424f40376f1da8d39809b9fd91454101ba",
+        "right": "140142acb3eb9053f903967f410e12d67c2f9862ed63d146220a2f4da2bc4203",
+        "left": "7c6e869efd29abf0cb9fe2a2d0f34d283a62192f237c72f6a2be72fc40fc3df2",
+        "bottom": "d18d6e0d406eb5f03c33d5d60497a2b64c9771c51fff5399ec5ffe005b6fe484",
+        "rear": "14ca902a69a8cbd5eb978e9993ded3880d22c928398868081fbc6c172e2ec255"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:51.521578+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-tunnel-portal-frame.png",
+          "sha256": "022320d268671241a14ea4351ee7a34d65ebb4c9829a28522d9fcab6425448da",
+          "rgba_sha256": "ffaa7e29a91fd78b421503d43cf81624b740e5e992b8b02065134cd59ffb5c8d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

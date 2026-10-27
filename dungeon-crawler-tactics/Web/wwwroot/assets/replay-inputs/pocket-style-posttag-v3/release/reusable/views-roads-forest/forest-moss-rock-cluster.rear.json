@@ -1,0 +1,137 @@
+{
+  "id": "forest-moss-rock-cluster.rear",
+  "name": "Moss rock cluster rear",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "cluster",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "forest",
+    "inferred-view",
+    "material:moss",
+    "moss",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "rear",
+    "rock",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/forest-moss-rock-cluster.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "96ef3f33c3f62f65562a6ceb529d6f7728ee22144544ec01c7605c3f394129ab",
+    "rgba_sha256": "57e41fb0433c4d903d6a98d029ae268d553325617f0267afc46dc471515ed19f"
+  },
+  "object_id": "forest-moss-rock-cluster",
+  "view": "rear",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/forest-moss-rock-cluster.png",
+    "source_image_sha256": "30d63b1d9a9a42fcd3293964e9ce2cc899389bd5a0f659ca522c8181a4bde8bd",
+    "referenced_source_images": [
+      {
+        "path": "components/forest-moss-rock-cluster.png",
+        "sha256": "30d63b1d9a9a42fcd3293964e9ce2cc899389bd5a0f659ca522c8181a4bde8bd"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/forest-batch05.png",
+    "generated_atlas_sha256": "25c3c2b3f8203c07d8799126101a0af2ee535c8711c709c468801bb5ba2efeb1",
+    "crop_bounds_px": {
+      "logical_cell": [
+        1568,
+        0,
+        1881,
+        279
+      ],
+      "complete_component_bounds_atlas": [
+        1577,
+        65,
+        1859,
+        276
+      ],
+      "component_labels": [
+        {
+          "label": 4,
+          "pixels": 41712,
+          "bounds_atlas": [
+            1577,
+            65,
+            1859,
+            276
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.6811145510835913,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/forest-moss-rock-cluster.rear.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "cluster",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "material:moss",
+    "moss",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "rock",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-moss-rock-cluster"
+  }
+}

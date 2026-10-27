@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-smooth-white-cubic-castle-wall-northeast",
+      "source_sha256": "dfb143b60a026d7de76d48c26808bd7e16bc73d4369444e16c2fee7b2beb93cb",
+      "primary_source": {
+        "asset_id": "masquerade-smooth-white-cubic-castle-wall-northeast",
+        "path": "masquerade/components/masquerade-smooth-white-cubic-castle-wall-northeast.png",
+        "sha256": "dfb143b60a026d7de76d48c26808bd7e16bc73d4369444e16c2fee7b2beb93cb",
+        "rgba_sha256": "9274ecfe7d899d22b114889afcd457692fe398c77f4d5a00e0c19b15923729a0"
+      },
+      "image_hashes": {
+        "front": "2b95bda39f6f50991461cb4ed91bd3378326107f74b49d336b2dc49a8e31361b",
+        "top": "2b56668e15d1487f5fe17ddb6f819f175e09c2fdd63189a974e906aab7123e00",
+        "right": "85a58be386d4a7529df4df3cad36b96bd74cff5deb9e30f97394d185bfa90dce",
+        "left": "6a08918f681b8a1a648924186c32a334648a85ebc9adc27d54cb538c1ceba1f3",
+        "bottom": "af4a08973432af7510aa8a589d8212b829ba6d8924159264c44be1685a951502",
+        "rear": "ecf981228a9d90eee63c8ec59a06fb1d1e079d9055d4b8a98ea8328da2bed9ed"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:22:37.595349+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-smooth-white-cubic-castle-wall-northeast.png",
+          "sha256": "dfb143b60a026d7de76d48c26808bd7e16bc73d4369444e16c2fee7b2beb93cb",
+          "rgba_sha256": "9274ecfe7d899d22b114889afcd457692fe398c77f4d5a00e0c19b15923729a0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

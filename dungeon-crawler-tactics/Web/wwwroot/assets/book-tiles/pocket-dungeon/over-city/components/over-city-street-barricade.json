@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city/components/over-city-street-barricade.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-street-barricade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-street-barricade",
+      "source_sha256": "bafd578e8202952eed4688a7d1d98ca6033c00de1a685acdf7d267ddca24903d",
+      "primary_source": {
+        "asset_id": "over-city-street-barricade",
+        "path": "over-city/components/over-city-street-barricade.png",
+        "sha256": "bafd578e8202952eed4688a7d1d98ca6033c00de1a685acdf7d267ddca24903d",
+        "rgba_sha256": "4c6be4c8cb108b34f208233297c9d2f4a00de8f3a152d031dd3e9e70dbe2447c"
+      },
+      "image_hashes": {
+        "front": "14daa0f74b87ad7e22b3efa997e54b229654ffe7cd8c4d163e9a83b80441404b",
+        "top": "480dcc1d81cce4a8a58d83ae2ec1c3384e128aef8a6558d92bc4755e77fd724d",
+        "right": "74293effb3c037f570c9ded22282bc4472ff84acd2bf0d843028c1b2a07797cd",
+        "left": "3c1d437d338b21d562aec9e3a23d3d85fc5694248d3e39a0884d0797a5ed1312",
+        "bottom": "d7bd6bf5f9470c05eb02c69e8ca36a600f8676c4b9d5484225300461af26e120",
+        "rear": "dec4ea79e3a9d4a1140e0435592f2230d9d378c77ada7dee299ae24331bc68d9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:58:09.971668+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-street-barricade.png",
+          "sha256": "bafd578e8202952eed4688a7d1d98ca6033c00de1a685acdf7d267ddca24903d",
+          "rgba_sha256": "4c6be4c8cb108b34f208233297c9d2f4a00de8f3a152d031dd3e9e70dbe2447c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,12 +235,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

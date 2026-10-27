@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "faction-battlefield",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-command-tent.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-command-tent.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-command-tent",
+      "source_sha256": "1231ff19feb1af52ef3c65ebbbf9b11d2f4754a2257401421057146b16fb15cb",
+      "primary_source": {
+        "asset_id": "faction-battlefield-command-tent",
+        "path": "faction-battlefield/components/faction-battlefield-command-tent.png",
+        "sha256": "1231ff19feb1af52ef3c65ebbbf9b11d2f4754a2257401421057146b16fb15cb",
+        "rgba_sha256": "4cefe09a098d24488a9312b4b58a8e22427787d67f20fa71acaea5cda2cab25f"
+      },
+      "image_hashes": {
+        "front": "fb2a30b55e943072beb44f98f70afd3387a49040e561041fb80584f80876a686",
+        "top": "60791b7916600996f6a2546ed5b300da394816b538f61c5ac36c4622fde8b129",
+        "right": "318087a9b1d4ed3a74f297beddded83483f20781605d014f4fe27642eb8de44f",
+        "left": "54300a53214fb126d17c48bd6d8b35e4a86ccceb418368ca03f00c23a7ebaafe",
+        "bottom": "3dabdd5955652a6ed9bfd62d58dc3915f9ed6f65c068fcc7a1683f846ac77336",
+        "rear": "d2b52d87e943e6df8bce011d4fa24ecdfc201c5d31883eb188d13c86f5240a55"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.611442+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-command-tent.png",
+          "sha256": "1231ff19feb1af52ef3c65ebbbf9b11d2f4754a2257401421057146b16fb15cb",
+          "rgba_sha256": "4cefe09a098d24488a9312b4b58a8e22427787d67f20fa71acaea5cda2cab25f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

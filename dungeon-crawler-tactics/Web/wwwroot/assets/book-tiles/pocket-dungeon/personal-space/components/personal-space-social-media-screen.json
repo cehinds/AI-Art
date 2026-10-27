@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-social-media-screen.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-social-media-screen.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-social-media-screen",
+      "source_sha256": "7b92f38e97feaa803ea7feb3a594d92bd56a81096167a57dcc45763ede12cd93",
+      "primary_source": {
+        "asset_id": "personal-space-social-media-screen",
+        "path": "personal-space/components/personal-space-social-media-screen.png",
+        "sha256": "7b92f38e97feaa803ea7feb3a594d92bd56a81096167a57dcc45763ede12cd93",
+        "rgba_sha256": "f059ffdaf02db1de1bf92c00c15a2bc3de956946bf43cb0755b143da3ba810b7"
+      },
+      "image_hashes": {
+        "front": "9cc8dc99f4e84b8c94c060b455ba52e476676c5842b4ec3f4f7d7584845e7afb",
+        "top": "e0a539661f8decb126598668e9e078f1a7e6f56b48c26f87b56e7b4cf7a82584",
+        "right": "ee203894e7b8e088518ca8c6bc66e5b008d354b04696b512e26e606fc52067e9",
+        "left": "ec58d415f38819ce4dbe573686ab4a7804f6fed73c0c37986c5eaf2b24a76ccd",
+        "bottom": "beca1ac436dad3601b6a9a8bcb163eb2c875bfcca95a7c6a65e366cd37341727",
+        "rear": "bd9b6192c0d4f3cdea31dcae915bd2637349b9c555a597193b44dcae1e1e327b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:05:58.637462+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-social-media-screen.png",
+          "sha256": "7b92f38e97feaa803ea7feb3a594d92bd56a81096167a57dcc45763ede12cd93",
+          "rgba_sha256": "f059ffdaf02db1de1bf92c00c15a2bc3de956946bf43cb0755b143da3ba810b7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "safe-services",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-queue-ticket-dispenser.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-queue-ticket-dispenser.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-queue-ticket-dispenser",
+      "source_sha256": "05a874664dfb63467424f073b5991b3674a672c6c090122de796cf05ec8a8ca5",
+      "primary_source": {
+        "asset_id": "safe-services-queue-ticket-dispenser",
+        "path": "safe-services/components/safe-services-queue-ticket-dispenser.png",
+        "sha256": "05a874664dfb63467424f073b5991b3674a672c6c090122de796cf05ec8a8ca5",
+        "rgba_sha256": "ed1cdb1eb7329cc1c697514826b0ffce6be5c5cd8cb0bb9fc84c6ab9b4527643"
+      },
+      "image_hashes": {
+        "front": "6c47449a1d8c02500ed0b71ab66d8f2d921293a4494068fde7c17106f14f1184",
+        "top": "55dc97f00f827cd7d88c3b1adaef6eb618866fb4d4c027382a9105cab40bdd4b",
+        "right": "ec9890f8d7fa5c5927fe5312061276862c59fbdb763851ec2970c05bd5841aa1",
+        "left": "820e83f0f145e3a3e3065e2d62ffec9509f58ae5e5c9b4765f2db4cac441ff47",
+        "bottom": "91ff55bd00196148a2094216c6fd057fcc91075377305a3f2d01d201591a174c",
+        "rear": "9d5c4ce497615cb3bfbdfadc171dd04141f80f06aa23237af27eb4a5561021ae"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:41:59.175591+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-queue-ticket-dispenser.png",
+          "sha256": "05a874664dfb63467424f073b5991b3674a672c6c090122de796cf05ec8a8ca5",
+          "rgba_sha256": "ed1cdb1eb7329cc1c697514826b0ffce6be5c5cd8cb0bb9fc84c6ab9b4527643"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

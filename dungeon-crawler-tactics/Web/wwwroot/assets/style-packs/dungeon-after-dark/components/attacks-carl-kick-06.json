@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "dungeon-after-dark",
@@ -101,35 +102,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-06.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-carl-kick-06",
+      "source_sha256": "55c351e6ff7a3e8488c19ab85654cbc4faf675e9435f6a9767bbb340df9f54ff",
+      "primary_source": {
+        "asset_id": "attacks-carl-kick-06",
+        "path": "components/attacks-carl-kick-06.png",
+        "sha256": "55c351e6ff7a3e8488c19ab85654cbc4faf675e9435f6a9767bbb340df9f54ff",
+        "rgba_sha256": "9edaa28df87de0cfca1f50d047ab36b311a643770d97411532eb9d67b5d151be"
+      },
+      "image_hashes": {
+        "front": "24b2b8eacb20f8fa3f41e05eed3f6f2908d9c0e218729727c3ec52dda2cbea75",
+        "top": "502db8df15a6a02fb3ee2bbf1904d9216c20656ef91369567c3d70f562a01bf5",
+        "right": "81371041f06e3930d1b7bffcf84a21974423600ae34d121f6d42f0ac2822faaf",
+        "left": "dba5231e3e38e67f70f59e1edfeb873e73934bb19f0482e5c6df46b4acc877ef",
+        "bottom": "e0c34b552687ea8e6a26b924ad227a790e6dbc796dab7f615d78e6018349195d",
+        "rear": "941a026f95a5a8fe194c9feba02a23163ed498e93d77eb4ce69897245eab35f2"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:08:19.047920+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/attacks-carl-kick-06.png",
+          "sha256": "55c351e6ff7a3e8488c19ab85654cbc4faf675e9435f6a9767bbb340df9f54ff",
+          "rgba_sha256": "9edaa28df87de0cfca1f50d047ab36b311a643770d97411532eb9d67b5d151be"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -142,7 +179,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -157,7 +195,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

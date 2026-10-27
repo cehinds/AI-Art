@@ -16,7 +16,8 @@
     "role:provider",
     "safe-services",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "safe-services/components/safe-services-wet-diner-checker-tile-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-wet-diner-checker-tile-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-wet-diner-checker-tile-floor",
+      "source_sha256": "58e10b3cb00c21c30bdae8710457cb425cfe19ac0f294d30a2913f24aa934f0e",
+      "primary_source": {
+        "asset_id": "safe-services-wet-diner-checker-tile-floor",
+        "path": "safe-services/components/safe-services-wet-diner-checker-tile-floor.png",
+        "sha256": "58e10b3cb00c21c30bdae8710457cb425cfe19ac0f294d30a2913f24aa934f0e",
+        "rgba_sha256": "4f31997a6ab7cb7c993f72e9916bc360851b439747a34f76af8863fdbc6e40b9"
+      },
+      "image_hashes": {
+        "front": "cd3e557543dda807c18cb0d6143f830b8ae2a19a5bbed7ef96d919e07f908e9e",
+        "top": "87c5cea7da65ca9293f4bcc10838e28fb08f7f6cd2f13c8c50be3564bdd92d09",
+        "right": "129e071caa30c4b1433b273562ad5e647d8cf91806d96f76e94a78845d36b11e",
+        "left": "a11f18610592940eed68fbcfe06a7a03c692d50ab0fc9ae1e3f172da881a106a",
+        "bottom": "e8ed601625ce7ab84c15118939560ddadbbdc9df8c4ba0d6b4306268eca98640",
+        "rear": "614cf8926824cf8e5c48db7902235ae86acf4831f9d02b33bc629e406f740e46"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:12:52.232665+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-wet-diner-checker-tile-floor.png",
+          "sha256": "58e10b3cb00c21c30bdae8710457cb425cfe19ac0f294d30a2913f24aa934f0e",
+          "rgba_sha256": "4f31997a6ab7cb7c993f72e9916bc360851b439747a34f76af8863fdbc6e40b9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "east": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "south": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "west": [
+      "join.floor",
+      "visual.safe-services"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

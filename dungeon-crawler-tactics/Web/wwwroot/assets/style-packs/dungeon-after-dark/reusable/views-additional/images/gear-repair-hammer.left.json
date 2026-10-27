@@ -3,10 +3,22 @@
   "name": "Repair hammer Left",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "gear",
+    "generated",
+    "hammer",
+    "material:unspecified",
+    "orthographic",
+    "repair",
+    "role:screen",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/gear-repair-hammer.left.png",
@@ -61,7 +73,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective left projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels.",
@@ -74,5 +87,37 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/gear-repair-hammer.left.json"
+  "metadata_path": "reusable/views-additional/images/gear-repair-hammer.left.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-repair-hammer"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "gear",
+    "hammer",
+    "material:unspecified",
+    "repair",
+    "role:screen",
+    "style:dungeon-after-dark",
+    "ui"
+  ]
 }

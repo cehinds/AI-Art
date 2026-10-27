@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "carl",
     "dungeon-after-dark",
     "environment:dungeon",
@@ -83,35 +84,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "carl.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "carl",
+      "source_sha256": "83b6870aa732a2ef7b8d515975fa85aa0c44025db4c2e86ccfc9c3525ff6efc5",
+      "primary_source": {
+        "asset_id": "carl",
+        "path": "components/carl.png",
+        "sha256": "83b6870aa732a2ef7b8d515975fa85aa0c44025db4c2e86ccfc9c3525ff6efc5",
+        "rgba_sha256": "2d4c9d9f5428b08166dd25f88de09877fa76f25213f7f8c0ebf2fd8c8d126328"
+      },
+      "image_hashes": {
+        "front": "005b9c343f14d789991caf3a069479ee29b96e15f58ca07cb87508acc5e58f56",
+        "top": "13b7758e91bc1882da3c8b2377e7e94cc87dee2771e8ea8a87f787d38faefe47",
+        "right": "4eb62ba083ff307009f212d85447d88d0d0b924537a617fd9a71aec23d1c4991",
+        "left": "a15eaf4d89c0027938259693c4acd0b18af67b858c19d0d510395a2873badc48",
+        "bottom": "12e4961437328a313ff3c4dd6894a4ee4f13e812fb84bc07b67803998853b6ef",
+        "rear": "281de9318cd4a6778cb22ec46ad4706748810368753fb5ce501a516b6fe34478"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:08:19.050233+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/carl.png",
+          "sha256": "83b6870aa732a2ef7b8d515975fa85aa0c44025db4c2e86ccfc9c3525ff6efc5",
+          "rgba_sha256": "2d4c9d9f5428b08166dd25f88de09877fa76f25213f7f8c0ebf2fd8c8d126328"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -124,7 +161,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -139,7 +177,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

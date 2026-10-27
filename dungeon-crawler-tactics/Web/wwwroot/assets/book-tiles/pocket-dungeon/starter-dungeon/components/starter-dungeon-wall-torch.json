@@ -16,7 +16,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-wall-torch.png",
@@ -114,6 +115,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -133,31 +144,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-wall-torch.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-wall-torch",
+      "source_sha256": "4b1dcc5094c87c71011a6607d2861e3020922d73a2c8f43bea6b764ffd56176f",
+      "primary_source": {
+        "asset_id": "starter-dungeon-wall-torch",
+        "path": "starter-dungeon/components/starter-dungeon-wall-torch.png",
+        "sha256": "4b1dcc5094c87c71011a6607d2861e3020922d73a2c8f43bea6b764ffd56176f",
+        "rgba_sha256": "66a6d010f8a56fe338120729d0320eb213fb3b98f4bf9b90579cae3bf136d404"
+      },
+      "image_hashes": {
+        "front": "a24d4c89d1c7063d8acbbb4df48263e64c8c14d3c22ba081e8e6b14cfcaed566",
+        "top": "f33a7c354d3fe6e36c47cf08f3020292171cc8eaa6ad2363e2e33bd5c9367977",
+        "right": "d4b7655d2b0849d67f272e8cc01718d9f2df9ec7bda64c00ef740084e64bdcc3",
+        "left": "90f93cf1ae8d2c41f0e445e0eb1faee84208fcc69c8bf1e6c0dbc94084360918",
+        "bottom": "589c82ba4d4d7e59bf04637abb6588cc53a14df1f8ca9345ccf09df5c3bc3305",
+        "rear": "52b939bdbd1bbf583d6895c50dd8c82eebbb6413a29800184a3e9d09e28e3880"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:21:58.871443+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-wall-torch.png",
+          "sha256": "4b1dcc5094c87c71011a6607d2861e3020922d73a2c8f43bea6b764ffd56176f",
+          "rgba_sha256": "66a6d010f8a56fe338120729d0320eb213fb3b98f4bf9b90579cae3bf136d404"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -165,7 +225,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,

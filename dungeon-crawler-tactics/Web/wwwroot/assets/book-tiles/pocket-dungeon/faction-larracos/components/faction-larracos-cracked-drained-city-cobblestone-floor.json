@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-cracked-drained-city-cobblestone-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-cracked-drained-city-cobblestone-floor",
+      "source_sha256": "af30ae3654058fab2521479820e043128e268f7cb61ec3d841a7d9121622a267",
+      "primary_source": {
+        "asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor",
+        "path": "faction-larracos/components/faction-larracos-cracked-drained-city-cobblestone-floor.png",
+        "sha256": "af30ae3654058fab2521479820e043128e268f7cb61ec3d841a7d9121622a267",
+        "rgba_sha256": "4927a1addc135da1aa6ff8990a4302b69db2d781ac55ad58b9244369a91218c5"
+      },
+      "image_hashes": {
+        "front": "58e382e12b3db91716dc6314591c50381cb5bb8b888823bf1ec59f53e016e465",
+        "top": "7f10a9051695afcf133571c8ce8bf7178c4eb83f7be521783bc8de59da83fae4",
+        "right": "dfd366ba75a3a96500ae4480d15d6ff0897ababcbabf1a2547a1bccbd8d913a6",
+        "left": "f0f47b2667f86af58ba73d5645aa9979480147931eb2b75e2b2343bfda3c591a",
+        "bottom": "6dea5a5fa0825936b05b5b97bbd6d7e5ae90b5e51698abbb90de592d139ecff2",
+        "rear": "904707fc1876ee7895688afc6223a14da92e784f8ee50f278768d12c2fecd595"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:35:12.072520+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-cracked-drained-city-cobblestone-floor.png",
+          "sha256": "af30ae3654058fab2521479820e043128e268f7cb61ec3d841a7d9121622a267",
+          "rgba_sha256": "4927a1addc135da1aa6ff8990a4302b69db2d781ac55ad58b9244369a91218c5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-larracos"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

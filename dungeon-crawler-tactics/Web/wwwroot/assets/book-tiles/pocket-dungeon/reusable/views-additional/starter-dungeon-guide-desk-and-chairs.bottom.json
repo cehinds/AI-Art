@@ -3,12 +3,22 @@
   "name": "Guide desk and chairs bottom",
   "kind": "sprite",
   "tags": [
-    "starter-dungeon",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
     "bottom",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:provider",
+    "starter-dungeon",
+    "style:pocket-dungeon",
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/starter-dungeon-guide-desk-and-chairs.bottom.png",
@@ -172,5 +182,45 @@
       "candidate_contact": "reusable/views-additional/raw/candidates/starter-dungeon-guide-desk-and-chairs-bottom-v2/source-plus-six-candidate.png",
       "candidate_contact_sha256": "09361a4a4f1f2266780ec0cda99faf8643f1f7157a1dd4d29c79077a6d1c2d12"
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:tabletop",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:tabletop"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "starter-dungeon-guide-desk-and-chairs"
+  }
 }

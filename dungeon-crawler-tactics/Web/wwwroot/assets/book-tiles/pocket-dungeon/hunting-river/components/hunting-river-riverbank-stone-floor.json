@@ -11,13 +11,13 @@
     "book-location",
     "environment:dungeon",
     "ground",
-    "hazard:water",
     "hunting-river",
     "material:stone",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-riverbank-stone-floor.png",
@@ -141,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,40 +182,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-riverbank-stone-floor",
+      "source_sha256": "15c57aedacbcc5ac6125919ed2ea1d213821a3b60f5b824e3fd9bc82c3294147",
+      "primary_source": {
+        "asset_id": "hunting-river-riverbank-stone-floor",
+        "path": "hunting-river/components/hunting-river-riverbank-stone-floor.png",
+        "sha256": "15c57aedacbcc5ac6125919ed2ea1d213821a3b60f5b824e3fd9bc82c3294147",
+        "rgba_sha256": "a974be906eb939dd99fc18e9f93ea3b16a358212721ec4d401721458c2014860"
+      },
+      "image_hashes": {
+        "front": "86339b3843d85eab0b36e38ef5d813a3aef79595a68718f8ae8bab6a49fc2f9e",
+        "top": "299bbf60b0e8532133138a8e1ecab86124f610bd0cf959af112ab1f46cd97042",
+        "right": "319b8a5f858f282332ece25f717a0873e51d55f50709676d4887edb8bb2a82dd",
+        "left": "1ff52a2a1846607e86aa8963b6ba3ac8f287e30d31c1a88b3601ee577ed5a8ef",
+        "bottom": "9392f950e1ae059fa4d285fa28cdac46305493c68c8edb6968e39a98f50af0d7",
+        "rear": "f4967712be71ab5d7d53e8efb034e5872de597ab9ca6a3a53f68bdd8bdb3e0f0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T19:06:00.999271+00:00",
+      "notes": [
+        "Source and all six current outputs reviewed. Natural substrate and four matching lateral profiles remove the fabricated tray while preserving source top."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-riverbank-stone-floor.png",
+          "sha256": "15c57aedacbcc5ac6125919ed2ea1d213821a3b60f5b824e3fd9bc82c3294147",
+          "rgba_sha256": "a974be906eb939dd99fc18e9f93ea3b16a358212721ec4d401721458c2014860"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-river"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
-    "hazard:water",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,
@@ -218,7 +281,7 @@
       "none": []
     },
     "provides": [
-      "surface:water"
+      "surface:floor"
     ],
     "exclude_self": true,
     "compatibility_group": null,

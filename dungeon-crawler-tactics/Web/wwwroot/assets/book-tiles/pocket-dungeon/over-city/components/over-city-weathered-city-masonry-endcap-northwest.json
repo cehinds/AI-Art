@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-weathered-city-masonry-endcap-northwest",
+      "source_sha256": "e3e15ff997a815b2eab29c544bf2d5a8d578208afeadef3119fd562c14b7e8b1",
+      "primary_source": {
+        "asset_id": "over-city-weathered-city-masonry-endcap-northwest",
+        "path": "over-city/components/over-city-weathered-city-masonry-endcap-northwest.png",
+        "sha256": "e3e15ff997a815b2eab29c544bf2d5a8d578208afeadef3119fd562c14b7e8b1",
+        "rgba_sha256": "68df10793f70b591514a601a1ba7b1323bff02f3f1014c08c6d248683a38714d"
+      },
+      "image_hashes": {
+        "front": "c78e82486c7036327ec6265b4950a6753d50f5411f726204ea6e7f1153245636",
+        "top": "36fb05ea7fb9696217797289d0cae30d44b7de326cbb9bf1898d5dde55e483fa",
+        "right": "c78e82486c7036327ec6265b4950a6753d50f5411f726204ea6e7f1153245636",
+        "left": "145eab3986f4d91c78cd54f6ef2eb74dd0e4a86e52a1a7c87ce4b98af282f984",
+        "bottom": "237a1de78e8963d053a2abbca2c8c0465380bdf44300fea025ee35437648016d",
+        "rear": "145eab3986f4d91c78cd54f6ef2eb74dd0e4a86e52a1a7c87ce4b98af282f984"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:06:22.997551+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-weathered-city-masonry-endcap-northwest.png",
+          "sha256": "e3e15ff997a815b2eab29c544bf2d5a8d578208afeadef3119fd562c14b7e8b1",
+          "rgba_sha256": "68df10793f70b591514a601a1ba7b1323bff02f3f1014c08c6d248683a38714d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

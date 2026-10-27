@@ -3,12 +3,22 @@
   "name": "Rail signal mast bottom",
   "kind": "sprite",
   "tags": [
-    "iron-tracks",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
     "bottom",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-tracks",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-tracks-rail-signal-mast.bottom.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
     "source_sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5",
-    "generated_atlas": "raw/candidates/signal-mast-plans-v6/bottom-baseplate-edit.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/signal-mast-plans-v6/bottom-baseplate-edit.png",
     "generated_atlas_sha256": "76c305119412c7974798b2b7016e1b38d1724739abd4cfa8fb360176ad708a12",
     "generation_request": "raw/candidates/signal-mast-plans-v5/request.json",
     "generation_request_sha256": "74bbeb9cbc666f7ee2baa5e66ab9be2e1d72e1bb39239c8f8c6bd7860d9d26c8",
@@ -133,5 +143,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-tracks-rail-signal-mast"
+  }
 }

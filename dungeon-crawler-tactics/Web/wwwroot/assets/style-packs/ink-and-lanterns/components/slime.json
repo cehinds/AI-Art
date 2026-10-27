@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "existing",
     "expansion",
@@ -99,35 +100,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "slime",
+      "source_sha256": "181375fbfca9add0552a38934f502a8dcb6fb2385ff16011244819dd2412882c",
+      "primary_source": {
+        "asset_id": "slime",
+        "path": "components/slime.png",
+        "sha256": "181375fbfca9add0552a38934f502a8dcb6fb2385ff16011244819dd2412882c",
+        "rgba_sha256": "2600973b2cd2035611706de804e7f2a295579bfd0fd1309d52ee709ad2d39253"
+      },
+      "image_hashes": {
+        "front": "19e59b1ba644f10d4c0c3cf443147bb754941dd5aa58dc71e7cb7ec0da0b2b10",
+        "top": "1a5a0d78c6727671ee233bbe3de5e1c9d42c56de1ae20c4aa7b1290c2ea6b47b",
+        "right": "b0da1fc2cba6566d8e9cf159085e297485d5f5adcbb160674b993654dbc1c6e3",
+        "left": "724791dd66138942fe48bcdb18bf8c2b6af834d96eb1f9b60a15be93a9e77261",
+        "bottom": "f810b32465c2d41023221946c5a414906a1a4436c18c8ce92b13b3f187288f67",
+        "rear": "aba90c9bd4f1d23aeef888e1dec28ad4b22d77fee0185fe2ed0c054378167124"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:19:31.900756+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/slime.png",
+          "sha256": "181375fbfca9add0552a38934f502a8dcb6fb2385ff16011244819dd2412882c",
+          "rgba_sha256": "2600973b2cd2035611706de804e7f2a295579bfd0fd1309d52ee709ad2d39253"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -140,7 +177,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -155,7 +193,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

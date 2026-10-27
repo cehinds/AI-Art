@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "rat-scout",
+      "source_sha256": "6df8c2de6751add3f22e65e87baed9f6db54971346e8933bcf7edf2954f8de6a",
+      "primary_source": {
+        "asset_id": "rat-scout",
+        "path": "components/rat-scout.png",
+        "sha256": "6df8c2de6751add3f22e65e87baed9f6db54971346e8933bcf7edf2954f8de6a",
+        "rgba_sha256": "bff7bc919cf850dbf58fe003d83077565429bdcf0e7799f1b59aeae16d6697a8"
+      },
+      "image_hashes": {
+        "front": "9216dc3bb7b7f3e009d48f4e5398619cdba16d66da4af35c817a9a7a85c21adc",
+        "top": "d21dcdfe3b051f67773338f17374623ca324a6cff0aa8af023c4c889b48f553f",
+        "right": "b32774dd513b322eec1007ebdee8ede61480146f6aca317ff5c62073d209e8cd",
+        "left": "695d4189e30335f07c519f7b716db2e5554e2bad8e5bad123e5979196e2c1b73",
+        "bottom": "9726de191fbbbee087df64d44cbb5afad4c3c76dc925a50e04dee824855537e8",
+        "rear": "50b970230ed5876b1a528b2837024a169d99fb1f6d1ff106e60d4caba1f9115d"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:59:57.478165+00:00",
+      "notes": [
+        "Corrected bottom shows paw pads, belly and crossbow underside, not face/top; all six views reviewed."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/rat-scout.png",
+          "sha256": "6df8c2de6751add3f22e65e87baed9f6db54971346e8933bcf7edf2954f8de6a",
+          "rgba_sha256": "bff7bc919cf850dbf58fe003d83077565429bdcf0e7799f1b59aeae16d6697a8"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -3,12 +3,23 @@
   "name": "Adobe Desert Plaster closed doorway bottom",
   "kind": "sprite",
   "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bottom",
     "bubble-desert",
     "door",
-    "art-adaptation",
-    "bottom",
+    "environment:desert",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/bubble-desert-adobe-desert-plaster-closed-doorway.bottom.png",
@@ -68,8 +79,51 @@
       "anchor_px": [
         128,
         248
-      ]
-    }
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "bubble-desert-adobe-desert-plaster-closed-doorway",
+        "view": "bottom",
+        "source_path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-closed-doorway.png",
+        "source_sha256": "e4b7eb4ec81f587589ba5234946824220c42930c29d7fd4290b2c6f472b1f7d6",
+        "atlas_path": "reusable/views-additional/raw/candidates/desert-doorway-plans-rear-v1/raw-atlas.png",
+        "atlas_sha256": "9d112b73c92e322affd92652e0401a4be37d44bf0e984b08e07c00f4dd5e784a",
+        "active_output_sha256": "e41146b00f1c12fd496af55be71f4e2ad35eea66eb6d66dee12e9434144fccda",
+        "active_output_rgba_sha256": "88853a7cce2c2b1a81a9e1468aa004b12f23fdf98b55fea3f2b6912ad23f8647",
+        "crop_bounds_xyxy": [
+          1393,
+          140,
+          1705,
+          225
+        ],
+        "resized_dimensions_px": [
+          212,
+          58
+        ],
+        "scale": 0.6794871794871795,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
+    },
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.6794871794871795
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -121,5 +175,46 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:desert",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-desert-adobe-desert-plaster-closed-doorway"
+  }
 }

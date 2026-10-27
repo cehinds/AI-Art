@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-painted-civic-stone-wall-northeast",
+      "source_sha256": "a3f8360e54a67bb4247689d31b4702a86d2bea22980e4bd663e006cfb4cd49d9",
+      "primary_source": {
+        "asset_id": "over-city-venues-painted-civic-stone-wall-northeast",
+        "path": "over-city-venues/components/over-city-venues-painted-civic-stone-wall-northeast.png",
+        "sha256": "a3f8360e54a67bb4247689d31b4702a86d2bea22980e4bd663e006cfb4cd49d9",
+        "rgba_sha256": "4a0e6801c2f3fa55d75aad2193bc955c8e612613717f0f7740383eac340fe64d"
+      },
+      "image_hashes": {
+        "front": "4bf94b1acdd4b5147689a268fb928e029d51f6d846356ea97188384c3b6e107d",
+        "top": "bd5d5fa853f48c6333d781c0e1d67138fa01a617a6c639549aaa915bc542e9cc",
+        "right": "ff307dbbf13961d9cf4519d7736f048ce087b4c5b6eb1fbcae9a8b26e5c2261d",
+        "left": "ae72979c32e83e3b1a72a78458ded7b9c30f27982319eb7a1d7407e21b350bc7",
+        "bottom": "17957668122b6bad0756445c5bd795996d57410d48d7bc0ecb1dc22d044f56aa",
+        "rear": "1127e863bbfae89f32e0e70cbd2bd490172588036e48242170a497b3d68c23c1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-painted-civic-stone-wall-northeast.png",
+          "sha256": "a3f8360e54a67bb4247689d31b4702a86d2bea22980e4bd663e006cfb4cd49d9",
+          "rgba_sha256": "4a0e6801c2f3fa55d75aad2193bc955c8e612613717f0f7740383eac340fe64d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

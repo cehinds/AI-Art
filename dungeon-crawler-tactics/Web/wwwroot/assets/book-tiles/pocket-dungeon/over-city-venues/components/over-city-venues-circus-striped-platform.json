@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-circus-striped-platform.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-striped-platform.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-circus-striped-platform",
+      "source_sha256": "9627d4cbaa6b1af131799963c2aa5bbe99fee1339d631ea0e2b5798d08760ba1",
+      "primary_source": {
+        "asset_id": "over-city-venues-circus-striped-platform",
+        "path": "over-city-venues/components/over-city-venues-circus-striped-platform.png",
+        "sha256": "9627d4cbaa6b1af131799963c2aa5bbe99fee1339d631ea0e2b5798d08760ba1",
+        "rgba_sha256": "9ab436b1ff3a6ab733559f069cc532cb3869045fae488de50d954b19ef28aa88"
+      },
+      "image_hashes": {
+        "front": "087f9db6eba91c3a36aa4accb149c4589de453506a64c353a88ffe9a3a69501f",
+        "top": "45a25286be9d56348aa87abd10c7d21cb1307fe80da5203611b5b70debe4ecc9",
+        "right": "5879babca30127669075db636d3659d35ef13a60b06663fd91de7381da5d6173",
+        "left": "9890bc97615fcd58d1d774b5c38e4365010ca8f02a483708c89ccc4aff2b5b08",
+        "bottom": "0545b55641372ff7e0b2153612066d6235b3e496e4780604d9155ec612162ae6",
+        "rear": "ae1fc939483effb49dd760c5a3d4a051870f7ba363bb9c461ef7090e00ca9669"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-circus-striped-platform.png",
+          "sha256": "9627d4cbaa6b1af131799963c2aa5bbe99fee1339d631ea0e2b5798d08760ba1",
+          "rgba_sha256": "9ab436b1ff3a6ab733559f069cc532cb3869045fae488de50d954b19ef28aa88"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-translucent-glass-tile-corner-transition",
+      "source_sha256": "958ef21f37701f5183b4107331d8dee8cd1804a8b744d3d4023bd66b1258f42a",
+      "primary_source": {
+        "asset_id": "bubble-glass-translucent-glass-tile-corner-transition",
+        "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-corner-transition.png",
+        "sha256": "958ef21f37701f5183b4107331d8dee8cd1804a8b744d3d4023bd66b1258f42a",
+        "rgba_sha256": "be71ca15c1ec9e8824161a7b6e605d77e985d3ad7d3bd1e50d1054a9ea943801"
+      },
+      "image_hashes": {
+        "front": "acda827a968f2e54cc31b02110b56fc64b9eb3a01e4168e6346c1d1e9b157a32",
+        "top": "72e026cfdb2f36a1c2e3f8658501064ef306e224271ea48f46b56b9eb7c4f954",
+        "right": "e0602d5de4772740f273978834e19e15d55d78ba501e3ee0b96e6db9bc140b86",
+        "left": "dd15f3107c6db3f17e267dcc8bbbd26283f3ef152d23d92fc82132e94c141edd",
+        "bottom": "da96a0a7c20ef5f9a6e1566853ba030bc229933c70a74b3cd2ae19ddea51e15e",
+        "rear": "476d3bebcf93d57982776a704aca4fabc00d0c065af306cc78be3da2a8ee8992"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:40:57.764271+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-corner-transition.png",
+          "sha256": "958ef21f37701f5183b4107331d8dee8cd1804a8b744d3d4023bd66b1258f42a",
+          "rgba_sha256": "be71ca15c1ec9e8824161a7b6e605d77e985d3ad7d3bd1e50d1054a9ea943801"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

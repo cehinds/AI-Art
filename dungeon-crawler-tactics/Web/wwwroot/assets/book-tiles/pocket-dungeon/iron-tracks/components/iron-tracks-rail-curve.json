@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-curve.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-curve.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-curve.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-curve.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "iron-tracks-rail-curve.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-curve.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "iron-tracks-rail-curve.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-curve",
+      "source_sha256": "086278991c26f9174bee93deeae1a34220f77c0d5c71404aab35c4a202e36bee",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-curve",
+        "path": "iron-tracks/components/iron-tracks-rail-curve.png",
+        "sha256": "086278991c26f9174bee93deeae1a34220f77c0d5c71404aab35c4a202e36bee",
+        "rgba_sha256": "9865e685c64141348844c1c8358192c4b7a11efce925e1d8069a6eef7cfd55c7"
+      },
+      "image_hashes": {
+        "front": "d6f525770b3992069bf5fb30d7e56a85f3cdf74a5b9ebd3d56795a45e2e54df2",
+        "top": "8d64b1800877b1aa47a628652a85251b1e163876e7aba9078b13335f9f574bf4",
+        "right": "218610877462cffe8979b155109e3d47b30b2d6ac330859acdc268446c73c2ce",
+        "left": "8029e78fe7e169bfb5040c61619e4ade5e809c33d7dc0c009259451fe94e1881",
+        "bottom": "691b34d5ed2e595005d0401d475f91ef6eb2cb5c8a18e488868f72abaf97ab2c",
+        "rear": "4f84072b469425cd87fa711f1d79d49e0ee5248ecb9c05928bcf6c8d5c97f6e0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:45:09.857568+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-curve.png",
+          "sha256": "086278991c26f9174bee93deeae1a34220f77c0d5c71404aab35c4a202e36bee",
+          "rgba_sha256": "9865e685c64141348844c1c8358192c4b7a11efce925e1d8069a6eef7cfd55c7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-tracks"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

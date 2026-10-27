@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-asphalt-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-race-asphalt-stairs-down",
+      "source_sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694",
+      "primary_source": {
+        "asset_id": "race-circuits-race-asphalt-stairs-down",
+        "path": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
+        "sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694",
+        "rgba_sha256": "0cd5cc6314b7f35e5f631fd4d8969b0b8f2c4c6ef5ee69eb40c3389c12966e80"
+      },
+      "image_hashes": {
+        "front": "98284030c145dbcefc9dba33a80d4d45f27b8df14cdd5dbaf30f4a86ff2dfac1",
+        "top": "3554df0efa6148ef4ba5df22e3990225aebd80ba26a803368014a78f51597625",
+        "right": "907e4ea6ca0a424e1a16184168cf1ba258a5e2e736d682655bfbcd9591975a30",
+        "left": "95dd159ab4fd0c3d8fc2a03b406c6142a8f7b0533d493766ac661ec45a5910f2",
+        "bottom": "c32796f06f1d0c139159df071cd9f2c2f92069d5ff08c35537724db42662cb4a",
+        "rear": "b35094f2e108137a31e6846bedc055cba9429d5b7bfe54091810a7c5b220aef2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T19:33:18.436952+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
+          "sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694",
+          "rgba_sha256": "0cd5cc6314b7f35e5f631fd4d8969b0b8f2c4c6ef5ee69eb40c3389c12966e80"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

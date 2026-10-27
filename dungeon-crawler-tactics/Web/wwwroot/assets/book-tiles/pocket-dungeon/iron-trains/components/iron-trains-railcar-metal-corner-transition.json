@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-railcar-metal-corner-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-railcar-metal-corner-transition",
+      "source_sha256": "af4271363fe490bfa319fab754f131b4bbff65112366ebebbfdde121f6bc6e95",
+      "primary_source": {
+        "asset_id": "iron-trains-railcar-metal-corner-transition",
+        "path": "iron-trains/components/iron-trains-railcar-metal-corner-transition.png",
+        "sha256": "af4271363fe490bfa319fab754f131b4bbff65112366ebebbfdde121f6bc6e95",
+        "rgba_sha256": "139ac7c3cb0568e14f2e8414f0e1f27482d8dfb9e00e180c59f746bfa51abb0c"
+      },
+      "image_hashes": {
+        "front": "0da751363393a5a3804c51e6e47e2fd94a48d5ee3cab6a6310597440b118d659",
+        "top": "977f7f0545a4019bb0f0dba1af7f703c845699e5e54a71370d3beb35e7d7ca41",
+        "right": "01ccad71ef565e829dc64b36b4b6072ae1236af8720eaf3b243d7fb6104f4a52",
+        "left": "7d93cf8786ce81f132616a66e6b0998555a0d48276c9464b102c51c99df24c24",
+        "bottom": "a4985a3a7491e984a5355d3bb331d1d7ae78af23529cf1b01a75f943fb3bdcd2",
+        "rear": "7405630655ccf2162c6da800f332e05974769dd921e5c5b9e3f0d4b8f9028d54"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:55:57.227213+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-railcar-metal-corner-transition.png",
+          "sha256": "af4271363fe490bfa319fab754f131b4bbff65112366ebebbfdde121f6bc6e95",
+          "rgba_sha256": "139ac7c3cb0568e14f2e8414f0e1f27482d8dfb9e00e180c59f746bfa51abb0c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

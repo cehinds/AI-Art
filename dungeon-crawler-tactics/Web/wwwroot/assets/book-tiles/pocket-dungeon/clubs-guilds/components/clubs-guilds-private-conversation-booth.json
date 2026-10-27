@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "clubs-guilds",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-private-conversation-booth.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-private-conversation-booth.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-private-conversation-booth",
+      "source_sha256": "83e0337f0d7db91b92fa6885177597f16ab86647d46745e899b079f8b69cd3f5",
+      "primary_source": {
+        "asset_id": "clubs-guilds-private-conversation-booth",
+        "path": "clubs-guilds/components/clubs-guilds-private-conversation-booth.png",
+        "sha256": "83e0337f0d7db91b92fa6885177597f16ab86647d46745e899b079f8b69cd3f5",
+        "rgba_sha256": "4edc7fcfcf2f115980463880023fa4b9da5e7b61943bd35092ea15e608826054"
+      },
+      "image_hashes": {
+        "front": "6bc23d229350afe05a71155e658c25a059ecd241c77e3c38b7d8c368487f017d",
+        "top": "c7321f9bd1edd92089edf8c0437267a3bc8a6183685cec6951dd75c4a3bef44e",
+        "right": "4a1a245474c8df03efef6b9c8f0802c9c88b57a1e3de0914449d8c51c12260ed",
+        "left": "2cf5b7c6a8f128c99970c6c0d5aa950ca8f763de77e377e230053a781a989299",
+        "bottom": "e3f8f69ba764855003f8509ca5f45d9360edfbfe2a5c0ee8a724deb9e90d5d17",
+        "rear": "f4304e8c2fc8a9a1c31a4ebe6928ebabe589b66228e0ad9f06eb2a045c8e72ac"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T21:57:51.231150+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-private-conversation-booth.png",
+          "sha256": "83e0337f0d7db91b92fa6885177597f16ab86647d46745e899b079f8b69cd3f5",
+          "rgba_sha256": "4edc7fcfcf2f115980463880023fa4b9da5e7b61943bd35092ea15e608826054"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

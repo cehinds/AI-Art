@@ -3,12 +3,21 @@
   "name": "Village Paving corner transition rear",
   "kind": "tile",
   "tags": [
-    "hunting-shrines",
-    "ground",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hunting-shrines",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/hunting-shrines-village-paving-corner-transition.rear.png",
@@ -80,7 +89,38 @@
         256,
         256
       ],
-      "resampling": "NEAREST"
+      "resampling": "NEAREST",
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "hunting-shrines-village-paving-corner-transition",
+        "view": "rear",
+        "source_path": "hunting-shrines/components/hunting-shrines-village-paving-corner-transition.png",
+        "source_sha256": "2b30e070d096ca90e7dbfd52d964ba9d485d190d743d9b3eb8d199616c93fffe",
+        "atlas_path": "reusable/views-additional/raw/atlases/hunting-shrines-paving-directional-profiles-v1.png",
+        "atlas_sha256": "a47f225c1338e5ccb3c82a44bb506fcdc070bbc2f99e97a593f41e6ad826f8d2",
+        "active_output_sha256": "d216308a5e06dc170790ef439e2fffbf16757996695db0fb4aa21158df707138",
+        "active_output_rgba_sha256": "971786e18f1444d4cfac0cffe2e14515113c2f3c438f7a3a4860403b31e8fb30",
+        "crop_bounds_xyxy": [
+          1715,
+          483,
+          2047,
+          640
+        ],
+        "resized_dimensions_px": [
+          152,
+          72
+        ],
+        "scale": 0.4585987261146497,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "notes": "New axis-aligned orthographic profile generated from the canonical source TOP material boundaries; inferred view, not recovered source pixels.",
     "repair_atlas": "reusable/views-additional/raw/atlases/natural-ground-shrines-lateral-edge-profile-pilot.png",
@@ -107,7 +147,49 @@
         177,
         72
       ]
-    }
+    },
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.4585987261146497
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ],
+    "source_image_sha256": "2b30e070d096ca90e7dbfd52d964ba9d485d190d743d9b3eb8d199616c93fffe"
   },
-  "geometry_qa": "cleared"
+  "geometry_qa": "cleared",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-shrines-village-paving-corner-transition"
+  }
 }

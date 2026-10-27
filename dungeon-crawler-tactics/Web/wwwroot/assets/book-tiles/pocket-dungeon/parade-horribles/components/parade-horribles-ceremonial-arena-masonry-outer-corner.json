@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-ceremonial-arena-masonry-outer-corner",
+      "source_sha256": "e388e23f9c567995de3bf8778aaeaa96b724428bda912b6d4e67492cadf721da",
+      "primary_source": {
+        "asset_id": "parade-horribles-ceremonial-arena-masonry-outer-corner",
+        "path": "parade-horribles/components/parade-horribles-ceremonial-arena-masonry-outer-corner.png",
+        "sha256": "e388e23f9c567995de3bf8778aaeaa96b724428bda912b6d4e67492cadf721da",
+        "rgba_sha256": "b6ef860185115bfca65cd94a8f9d2cf35aa835adbc403cf9b29e17ea0f7fa404"
+      },
+      "image_hashes": {
+        "front": "5594b2724f6b9f0795260f74672157178bf1927a420a0eff874456e3cfc8d971",
+        "top": "1b21acd2e7e4fab6ee8d80dac33aab0fd212369d50cbae5a3be6bd39883f9b5b",
+        "right": "121e1742ec638515c1d7eff42389397c754bc1e3c02d15f946ae79a7926d6aaa",
+        "left": "7c4a4b28606dbe9218d27ebf3efbad96c18172787ee55d39393839e7e0854555",
+        "bottom": "2f8a73ee22ea1db19fee16870169a1a4e8b370c9ea32fade4c45632ff03c872d",
+        "rear": "ed6b7305683a9bde00577e1cc44c8a8bd0b7a751237c775f7e3de84368b21e40"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:32:39.225984+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-ceremonial-arena-masonry-outer-corner.png",
+          "sha256": "e388e23f9c567995de3bf8778aaeaa96b724428bda912b6d4e67492cadf721da",
+          "rgba_sha256": "b6ef860185115bfca65cd94a8f9d2cf35aa835adbc403cf9b29e17ea0f7fa404"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

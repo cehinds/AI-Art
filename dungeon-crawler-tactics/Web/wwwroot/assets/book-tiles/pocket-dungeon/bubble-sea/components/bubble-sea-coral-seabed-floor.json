@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-coral-seabed-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-coral-seabed-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-coral-seabed-floor",
+      "source_sha256": "e0055ed0526b17a53d6652e807be0e9bc7c1d0ed0278465764a8f4b7fe2c7f56",
+      "primary_source": {
+        "asset_id": "bubble-sea-coral-seabed-floor",
+        "path": "bubble-sea/components/bubble-sea-coral-seabed-floor.png",
+        "sha256": "e0055ed0526b17a53d6652e807be0e9bc7c1d0ed0278465764a8f4b7fe2c7f56",
+        "rgba_sha256": "10a73c181e7940c6afa9b78eeaedcf5100dc233171ef90b595f1eb86b6a01595"
+      },
+      "image_hashes": {
+        "front": "4332298b1382cb43c206a9929cd86dbefe17e9646f12f0d2c47d5c6e8c694760",
+        "top": "b97dfe7e3513d78bb03dd61b6bedc4d937cab27ca6d25376d1cc20ad0c8992f8",
+        "right": "1111d17ae7e4271003dd028aa2697f3a9d18ad440eb2bf22d06b0d12bd597873",
+        "left": "42e7eba98b5a1c8a0791498e12d423b93de55c7b477e84ecf4848d7a30c89760",
+        "bottom": "f90322b46d3ccd07f85ca983ebdaf88fbc634ab9fe4289368bef49dc352a6d3b",
+        "rear": "17f2db4166239964825f69c27cada35c4b66b69fd49521d236a03eb3e0b36cee"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.911890+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-coral-seabed-floor.png",
+          "sha256": "e0055ed0526b17a53d6652e807be0e9bc7c1d0ed0278465764a8f4b7fe2c7f56",
+          "rgba_sha256": "10a73c181e7940c6afa9b78eeaedcf5100dc233171ef90b595f1eb86b6a01595"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-sea"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

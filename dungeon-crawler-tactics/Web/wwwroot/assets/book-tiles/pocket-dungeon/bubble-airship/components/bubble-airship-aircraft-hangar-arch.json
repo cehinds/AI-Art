@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-airship",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-aircraft-hangar-arch.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-aircraft-hangar-arch.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-aircraft-hangar-arch",
+      "source_sha256": "b228a8b9bd92ff8a6a0fde8565c9e9af380ff45b66e3f737ada2c87351e42d04",
+      "primary_source": {
+        "asset_id": "bubble-airship-aircraft-hangar-arch",
+        "path": "bubble-airship/components/bubble-airship-aircraft-hangar-arch.png",
+        "sha256": "b228a8b9bd92ff8a6a0fde8565c9e9af380ff45b66e3f737ada2c87351e42d04",
+        "rgba_sha256": "2c8a1501a70f9fce5fb7e4f2291b5af4ebf42ed66a291b74a9996905ab49f80a"
+      },
+      "image_hashes": {
+        "front": "68a3e00ce735c6539962f799c41e405c50992449cd10c8dfbc588e832c2102e5",
+        "top": "85ca756e6b2670072c3f5e0c88355fae8b7263b1124bbdc7429a8f5cec0f1b48",
+        "right": "ff2b6fc317ff81a0a105eb18cefac8a99607e32fd3901d22de375670fe3f44f3",
+        "left": "176d050ecd1a0bcbdaa60c7ff6a2b0ea1088632640a591ee7ea51bd5cf030c6e",
+        "bottom": "635dfedf334230d0f463f7ea5d0077ac1f7883117b32fd39dba76a18db3ade66",
+        "rear": "691af6e5172691b7179ccadb42659b2416bead697831397647f61c6538c9cb71"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:55:40.595582+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-aircraft-hangar-arch.png",
+          "sha256": "b228a8b9bd92ff8a6a0fde8565c9e9af380ff45b66e3f737ada2c87351e42d04",
+          "rgba_sha256": "2c8a1501a70f9fce5fb7e4f2291b5af4ebf42ed66a291b74a9996905ab49f80a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

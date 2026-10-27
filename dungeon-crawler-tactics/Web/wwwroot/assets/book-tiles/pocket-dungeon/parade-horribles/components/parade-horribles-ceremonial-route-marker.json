@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-ceremonial-route-marker.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-route-marker.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-ceremonial-route-marker",
+      "source_sha256": "60b2fe0142fcf5a48b6b6eefc5b3b8d80b4fa479e18561461a4120be5c31b99a",
+      "primary_source": {
+        "asset_id": "parade-horribles-ceremonial-route-marker",
+        "path": "parade-horribles/components/parade-horribles-ceremonial-route-marker.png",
+        "sha256": "60b2fe0142fcf5a48b6b6eefc5b3b8d80b4fa479e18561461a4120be5c31b99a",
+        "rgba_sha256": "024a09e95189b6828db9cbbb446c1efd4a311f22acc8942decfe8063e4a4eb4f"
+      },
+      "image_hashes": {
+        "front": "9b671e2985777e8462eabbafc998ba96aea75a918b00abb06f10022502fa033f",
+        "top": "b94c64a3f4172b31d5bd1f80a8a4d86f0efa2c96521f47bc6526dc9535b645c2",
+        "right": "530499994d5cf579ef78d695d8b49581f532ece207ccce94e6c715fb5dafc71f",
+        "left": "49b91c456e0e4d86ebd73bdd663e34f11ffbcb3f8b96f9beab5d1c173803e3ef",
+        "bottom": "59de03c5ad56537d7e8fb8a27a01750a72d4a5d3654d28e2d345511d599c8175",
+        "rear": "f06266503fb43c64690fda16e3d9b1020cad989bd20378e761e2238f4967bcfc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:27:49.354532+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-ceremonial-route-marker.png",
+          "sha256": "60b2fe0142fcf5a48b6b6eefc5b3b8d80b4fa479e18561461a4120be5c31b99a",
+          "rgba_sha256": "024a09e95189b6828db9cbbb446c1efd4a311f22acc8942decfe8063e4a4eb4f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

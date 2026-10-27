@@ -4,16 +4,18 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "baked-scene",
     "crafting",
     "environment:safe-room",
     "gameplay",
     "house-furnishing",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
-    "role:reconstruction",
+    "role:provider",
     "style:gameplay",
-    "inferred-view",
+    "surface:tabletop",
     "top"
   ],
   "object_id": "menu-concepts-safe-room-services--crafting-workbench",
@@ -66,5 +68,42 @@
     },
     "source_crop_path": "reusable/views-additional/raw/crafting-workbench-top-correction-crop.png",
     "source_crop_sha256": "c03b33bb230289a1d6898656f7c00db0b79da7bce196c448f9d712493983d724"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:safe-room",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:tabletop"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:tabletop"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "menu-concepts-safe-room-services--crafting-workbench"
   }
 }

@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface-entry",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-urban-brick-outer-corner",
+      "source_sha256": "fde169cb0a6bfe16aab41ba2917b6459a1172ea61bf2ea5d061fed7442949fd4",
+      "primary_source": {
+        "asset_id": "surface-entry-urban-brick-outer-corner",
+        "path": "surface-entry/components/surface-entry-urban-brick-outer-corner.png",
+        "sha256": "fde169cb0a6bfe16aab41ba2917b6459a1172ea61bf2ea5d061fed7442949fd4",
+        "rgba_sha256": "118f070cab07d7f8d8ab5ccd47b8b92140db41ae435cdd259e476248a9418a92"
+      },
+      "image_hashes": {
+        "front": "b562165cb860e762563c65940870ccc13d91d411a77d52c0ed5ad6d54343581e",
+        "top": "91cbd1734faea2e086287df3a415ae7232522899922486734afdb4fe0c2e657c",
+        "right": "38e5f4c62cd43a445f152cb0467c9fb7eb17f5d3c8573f850858f3334f624c38",
+        "left": "f7ccc4f088aa1c3d85ed9d3b6910718ef020bf513ee7ec9157d6a86371fe5646",
+        "bottom": "b8ff05577254d2fac1e2673472211277ae6c38626241c44ee2c89344a3143cca",
+        "rear": "1874e6dc06fb46631dc1409ca809484a4ad0743002c33dc00a1d13c27c85ff9f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:21:36.961265+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-urban-brick-outer-corner.png",
+          "sha256": "fde169cb0a6bfe16aab41ba2917b6459a1172ea61bf2ea5d061fed7442949fd4",
+          "rgba_sha256": "118f070cab07d7f8d8ab5ccd47b8b92140db41ae435cdd259e476248a9418a92"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

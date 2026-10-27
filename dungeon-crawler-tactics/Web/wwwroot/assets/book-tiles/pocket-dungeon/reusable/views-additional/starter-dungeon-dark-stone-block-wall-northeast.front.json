@@ -3,12 +3,22 @@
   "name": "Dark Stone Block west wall front",
   "kind": "sprite",
   "tags": [
-    "starter-dungeon",
-    "wall",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
     "front",
+    "inferred-view",
+    "material:stone",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "starter-dungeon",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/starter-dungeon-dark-stone-block-wall-northeast.front.png",
@@ -64,7 +74,7 @@
     "referenced_derivation_input": {
       "path": "reusable/views-additional/starter-dungeon-dark-stone-block-wall-northeast.front.png",
       "sha256": "64644728601a6c76bb15248e6beae8cc4696d23f93ba8374d053ea826f1bd31c",
-      "notes": "Calibrated from this same view\u2019s retained earlier inferred projection."
+      "notes": "Calibrated from this same view’s retained earlier inferred projection."
     }
   },
   "geometry_qa": "cleared",
@@ -117,5 +127,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "starter-dungeon-dark-stone-block-wall-northeast"
+  }
 }

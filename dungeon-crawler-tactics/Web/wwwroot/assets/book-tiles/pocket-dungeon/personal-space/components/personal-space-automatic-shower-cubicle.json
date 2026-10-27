@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-automatic-shower-cubicle.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-automatic-shower-cubicle.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-automatic-shower-cubicle",
+      "source_sha256": "b24bde9f13eaff1a8ec127b563a48a761e436b1dc3e7d00ac1bfdc628f30a481",
+      "primary_source": {
+        "asset_id": "personal-space-automatic-shower-cubicle",
+        "path": "personal-space/components/personal-space-automatic-shower-cubicle.png",
+        "sha256": "b24bde9f13eaff1a8ec127b563a48a761e436b1dc3e7d00ac1bfdc628f30a481",
+        "rgba_sha256": "10d2c2f5a11541631bb1f6e3bccbee81e61e3ef872ff637150b82cdd69eb4764"
+      },
+      "image_hashes": {
+        "front": "2366437caf34a0e9f4553fb27fb642cdbe5d07aa2533e85161437d81afc3ca91",
+        "top": "8da20697074e16625d1c6c431900e35ffbcfd2ddc39c052c89c0ecdbd5705b68",
+        "right": "3a880c99d50dd54df7f1c6b7e67d050a8bf68ec830478e177759c74a9618ca23",
+        "left": "4e2697c1d144d5b144525b7306dc00259499d2becb671f60ea6879964595c179",
+        "bottom": "2365a9348146f9e38b245b3097573fd3d73bd12565b633f3115dfe87b79b3638",
+        "rear": "f511671024d3a3c09a97e4f873e86543ee3f9036640405fc801bb67e40942fa3"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:05:58.637462+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-automatic-shower-cubicle.png",
+          "sha256": "b24bde9f13eaff1a8ec127b563a48a761e436b1dc3e7d00ac1bfdc628f30a481",
+          "rgba_sha256": "10d2c2f5a11541631bb1f6e3bccbee81e61e3ef872ff637150b82cdd69eb4764"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

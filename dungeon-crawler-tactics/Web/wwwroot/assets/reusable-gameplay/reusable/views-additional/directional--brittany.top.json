@@ -10,10 +10,10 @@
     "directional",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "role:object",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "directional--brittany",
@@ -35,7 +35,7 @@
     "source_image": "reusable/native/directional--brittany.png",
     "native_front": "reusable/native/directional--brittany.png",
     "native_front_sha256": "5fbd7ca274a40f4ee7576f00a4ec51bae1b5b76227a1a57a36b7d548b3a5ce39",
-    "notes": "Inferred orthographic top view, preserving Brittany\u2019s accepted overhead pose and costume. Her upright club is foreshortened to a compact head/end footprint with only short visible handle, in its fixed position near the shoulder; unseen surfaces are illustrative, not recovered pixels.",
+    "notes": "Inferred orthographic top view, preserving Brittany’s accepted overhead pose and costume. Her upright club is foreshortened to a compact head/end footprint with only short visible handle, in its fixed position near the shoulder; unseen surfaces are illustrative, not recovered pixels.",
     "source_atlas": "reusable/views-additional/raw/brittany-top-club-correction-atlas.png",
     "source_atlas_sha256": "4961d0712d2d2713a3941b2be82b6caf882d820de3d3e8e67a9ae8f186bb61ee",
     "generation_recipe": "reusable/views-additional/raw/brittany-top-club-correction.recipe.json",
@@ -72,5 +72,41 @@
       "status": "blocked",
       "blocked_view": "bottom"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "directional--brittany"
   }
 }

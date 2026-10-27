@@ -3,12 +3,22 @@
   "name": "Larracos College of Magic entrance top",
   "kind": "sprite",
   "tags": [
-    "faction-larracos",
-    "prop",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "faction-larracos",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "top",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/faction-larracos-larracos-college-of-magic-entrance.top.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "faction-larracos/components/faction-larracos-larracos-college-of-magic-entrance.png",
     "source_sha256": "f42954aba00b2c78584f41f68baea87c8c9e95ac5b855416362d18e67f1b662f",
-    "generated_atlas": "raw/candidates/college-magic-entrance-plans-v1-raw-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/college-magic-entrance-plans-v1-raw-atlas.png",
     "generated_atlas_sha256": "90d45b5c31bc542cbe1b9660a12c52978097562f30787f3d831ff46b4e7d7dcd",
     "generation_request": "raw/candidates/college-magic-entrance-plans-v1-request.json",
     "generation_request_sha256": "d44d3968ec2629ce7c55485ee8a8324c7d57db87a118519828f77482beea5645",
@@ -119,5 +129,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-larracos-larracos-college-of-magic-entrance"
+  }
 }

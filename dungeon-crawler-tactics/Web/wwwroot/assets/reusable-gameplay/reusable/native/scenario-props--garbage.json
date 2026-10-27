@@ -50,7 +50,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "scenario-props--garbage.front"
@@ -75,19 +75,41 @@
       "status": "inferred",
       "asset_id": "scenario-props--garbage.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "scenario-props--garbage",
+      "source_sha256": "008daf461441515de3566576471ef20b1d8366a4f5703ae4ae249fba899f20c2",
+      "primary_source": {
+        "asset_id": "scenario-props--garbage",
+        "path": "reusable/native/scenario-props--garbage.png",
+        "sha256": "008daf461441515de3566576471ef20b1d8366a4f5703ae4ae249fba899f20c2",
+        "rgba_sha256": "307b01ac8901841135a7bfb11a43404c8ded6144354e87dca70c4e5da58d17d9"
+      },
+      "image_hashes": {
+        "front": "cfe3cf308bf2fa5c2e8c08dc2467dd9b01013a0c2734f8cd6c20db72855e3868",
+        "top": "7c61aa96b64bee4de0d45fa4075714218d3939b659fb62a63814b84f17e98bdc",
+        "right": "3a344c5827919e2e11dc6101bae0c04c0bfe4ffa4d51c5f03f039fc422009cdd",
+        "left": "eb7351a45ff2b226ce4c5c8b499aeedb72adf2bba3392ad33e5f84266e2b668b",
+        "bottom": "c8ca210eaf930361eb76848f9ee67a01c131d3dba0b3d943b47194dcc923acdf",
+        "rear": "59dace4d23ce1b28b052a52af07dce4730981de03f34d35c6af70131f47ab4cd"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T23:20:43.514022+00:00",
+      "notes": [
+        "Fresh canonical source crop and all six projections reviewed; barrier/loose garbage heap identity and inferred hidden faces coherent."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "ecfd3a5e221a8ce3de8634bacb4aae6935306e89a1eddbf2891ab81f7f797298",
+        "reviewed_reference": {
+          "path": "reusable/native/scenario-props--garbage.png",
+          "sha256": "008daf461441515de3566576471ef20b1d8366a4f5703ae4ae249fba899f20c2",
+          "rgba_sha256": "307b01ac8901841135a7bfb11a43404c8ded6144354e87dca70c4e5da58d17d9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [

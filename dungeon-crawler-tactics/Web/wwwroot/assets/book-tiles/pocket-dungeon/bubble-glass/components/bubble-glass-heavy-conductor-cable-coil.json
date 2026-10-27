@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-glass",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-heavy-conductor-cable-coil.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-heavy-conductor-cable-coil.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-heavy-conductor-cable-coil",
+      "source_sha256": "9b132b0c82f38825c627133679c5f52f89f7aa807bd09e8573c519631a36e83e",
+      "primary_source": {
+        "asset_id": "bubble-glass-heavy-conductor-cable-coil",
+        "path": "bubble-glass/components/bubble-glass-heavy-conductor-cable-coil.png",
+        "sha256": "9b132b0c82f38825c627133679c5f52f89f7aa807bd09e8573c519631a36e83e",
+        "rgba_sha256": "2b23332ea1da001317ef67f21ef0fb6fb2a7549119e4073ba727afb4fe682a12"
+      },
+      "image_hashes": {
+        "front": "92da6cade7bd91890cd67b31b975b1bc57988425e8bd9b3bfcdef07f1d4b3a50",
+        "top": "850c36dcbf3e51e036e4f6f0f68e478a2760dca593e88b6b743c284f4fedbd7c",
+        "right": "36cb826f994bd33bff72ea2daa334eaf196d21e2bf37079598bcc51415877a71",
+        "left": "a5e3977522184778bfd15b702d5ea626ee294ba8f5667959f7a46a586ba272fd",
+        "bottom": "7d24da679cf4a5c3fa3637e487bd4f2af5f234124f3c7710997903c65620fc8e",
+        "rear": "3a93a003ac8a47db26b8c7950d71b3a24862bfa1d1198f0b0c1a8b2e4e0316e7"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:17.908378+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-heavy-conductor-cable-coil.png",
+          "sha256": "9b132b0c82f38825c627133679c5f52f89f7aa807bd09e8573c519631a36e83e",
+          "rgba_sha256": "2b23332ea1da001317ef67f21ef0fb6fb2a7549119e4073ba727afb4fe682a12"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:glass",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

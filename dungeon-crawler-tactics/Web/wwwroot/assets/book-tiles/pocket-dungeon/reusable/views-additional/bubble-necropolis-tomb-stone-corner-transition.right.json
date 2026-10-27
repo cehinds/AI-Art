@@ -3,12 +3,21 @@
   "name": "Tomb Stone corner transition right",
   "kind": "tile",
   "tags": [
-    "bubble-necropolis",
-    "ground",
     "art-adaptation",
-    "right",
+    "attachment-tagged",
+    "book-location",
+    "bubble-necropolis",
+    "environment:dungeon",
+    "ground",
+    "inferred-view",
+    "material:stone",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "right",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/bubble-necropolis-tomb-stone-corner-transition.right.png",
@@ -68,7 +77,38 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "bubble-necropolis-tomb-stone-corner-transition",
+        "view": "right",
+        "source_path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-corner-transition.png",
+        "source_sha256": "34c88793669eba2ab5a34c1a874b7f827317c006dc3750089c5353740c66dcb5",
+        "atlas_path": "reusable/views-additional/raw/atlases/necropolis-edge-corner-corrections-v1.png",
+        "atlas_sha256": "9e0781e349d373d394c0cdd61fbe3cd772db9c7a61c8ae4e5c6af45a342a6736",
+        "active_output_sha256": "4e7be64cbf5d2a7e7920af577ff87c44a75726786eb6c68d404790ab004ac7ac",
+        "active_output_rgba_sha256": "8f8fc3a58aed3f026be7cb544e0abf91f6a0b95e0800ff6a837787efd0966436",
+        "crop_bounds_xyxy": [
+          893,
+          73,
+          1043,
+          351
+        ],
+        "resized_dimensions_px": [
+          86,
+          160
+        ],
+        "scale": 0.5755395683453237,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "notes": "Pixels inferred from same-object uniform frieze symmetry; canonical target source provenance is preserved and donor direction/hash recorded.",
     "symmetric_alias_of": "front",
@@ -82,7 +122,19 @@
       "image_sha256": "4e7be64cbf5d2a7e7920af577ff87c44a75726786eb6c68d404790ab004ac7ac",
       "source_image": "bubble-necropolis/components/bubble-necropolis-tomb-stone-corner-transition.png",
       "source_sha256": "34c88793669eba2ab5a34c1a874b7f827317c006dc3750089c5353740c66dcb5"
-    }
+    },
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.5755395683453237
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -177,5 +229,34 @@
       },
       "notes": "corner vertical side elevation; inferred from source and reviewed material family, not recovered pixels."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-necropolis-tomb-stone-corner-transition"
+  }
 }

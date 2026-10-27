@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-tunnel-stone-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-tunnel-stone-open-doorway",
+      "source_sha256": "b3810caa4ef02f936cbd0ce6bee50a6276bb7e43b627fc492a5656709fd4b149",
+      "primary_source": {
+        "asset_id": "iron-tracks-tunnel-stone-open-doorway",
+        "path": "iron-tracks/components/iron-tracks-tunnel-stone-open-doorway.png",
+        "sha256": "b3810caa4ef02f936cbd0ce6bee50a6276bb7e43b627fc492a5656709fd4b149",
+        "rgba_sha256": "879cbb971a541bc6c48bffd207e834a96c8dd65187243bb7a7dd0dc8ab742f34"
+      },
+      "image_hashes": {
+        "front": "cad2d8510a5c6bf224d5cd1450383b6a5ef314ad757218155e5b5b221d20ab37",
+        "top": "506263c58c0b87c28a2a94739144f3ba32ad49d071ab2461af6fdf41799e3da5",
+        "right": "01490812646bbafe1fe68563ac28df96cbb24ab8e99ee76e0dca7969eb359e78",
+        "left": "c4a9fd069a198e5a2966d4b03cd914b430a00e80e8a95ed7fd85d18947be6232",
+        "bottom": "15698e6b00a133c3e8291ccc1cf24f175ea5085662030b1b39fce241cd33bf40",
+        "rear": "9065b7996449d7a2f78fb953b7beae14f23490134fdc49c550a8fef48cb56553"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T17:08:27.281757+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-tunnel-stone-open-doorway.png",
+          "sha256": "b3810caa4ef02f936cbd0ce6bee50a6276bb7e43b627fc492a5656709fd4b149",
+          "rgba_sha256": "879cbb971a541bc6c48bffd207e834a96c8dd65187243bb7a7dd0dc8ab742f34"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:iron",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

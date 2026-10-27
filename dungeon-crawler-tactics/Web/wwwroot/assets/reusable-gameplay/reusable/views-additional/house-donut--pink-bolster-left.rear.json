@@ -4,19 +4,20 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "donut",
     "environment:unspecified",
     "gameplay",
     "house",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "physical-reference",
     "prop",
-    "role:reconstruction",
+    "rear",
+    "role:object",
     "service-room",
-    "style:gameplay",
-    "inferred-view",
-    "rear"
+    "style:gameplay"
   ],
   "object_id": "house-donut--pink-bolster-left",
   "view": "rear",
@@ -82,5 +83,39 @@
       "shared_scale": 0.8,
       "projection_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-donut--pink-bolster-left"
   }
 }

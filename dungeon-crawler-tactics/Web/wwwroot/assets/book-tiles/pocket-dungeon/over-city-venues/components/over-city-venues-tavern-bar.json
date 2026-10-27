@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-tavern-bar.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,40 +142,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-tavern-bar.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-tavern-bar",
+      "source_sha256": "deeaf7884ac3bca771eacd34ce4b6642461f0d75adfdd6d1f27512791c4c3759",
+      "primary_source": {
+        "asset_id": "over-city-venues-tavern-bar",
+        "path": "over-city-venues/components/over-city-venues-tavern-bar.png",
+        "sha256": "deeaf7884ac3bca771eacd34ce4b6642461f0d75adfdd6d1f27512791c4c3759",
+        "rgba_sha256": "78892dff2ac65a2ffddad53f27282fe472ce7db8ebb5f7b711e82c337a1d2f26"
+      },
+      "image_hashes": {
+        "front": "2b5736049f6da4b044c30bfcf95d77704579b6e243050d381a664dbe18722bff",
+        "top": "9477e029504ad451d9c7b525b80bcaf26d07614f9620b91f49f7ec9537d330d5",
+        "right": "1332d36d22488be76c1f94cb1f674bdb25bc405820657b91daf7dc1d09762ed6",
+        "left": "78f7acc780c1ca0b5ae4f2ff23d80a32f10e8b505c4ee69fa4638dda34865bc9",
+        "bottom": "6276dda9223eb7175323475eeb12d38611b68218fca1c724694c1bb38f2c3a5a",
+        "rear": "e5ef68cebd4d7aa9cb29a375a6300e04edc49acd9438b2c37a3d5657cc21c5db"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:56:00.204723+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-tavern-bar.png",
+          "sha256": "deeaf7884ac3bca771eacd34ce4b6642461f0d75adfdd6d1f27512791c4c3759",
+          "rgba_sha256": "78892dff2ac65a2ffddad53f27282fe472ce7db8ebb5f7b711e82c337a1d2f26"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,18 +235,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

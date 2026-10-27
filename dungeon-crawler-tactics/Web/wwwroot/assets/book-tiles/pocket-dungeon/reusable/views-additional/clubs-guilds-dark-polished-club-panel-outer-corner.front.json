@@ -3,12 +3,22 @@
   "name": "Dark Polished Club Panel outer corner front",
   "kind": "sprite",
   "tags": [
-    "clubs-guilds",
-    "wall",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "clubs-guilds",
+    "environment:dungeon",
     "front",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/clubs-guilds-dark-polished-club-panel-outer-corner.front.png",
@@ -60,9 +70,52 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "clubs-guilds-dark-polished-club-panel-outer-corner",
+        "view": "front",
+        "source_path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-outer-corner.png",
+        "source_sha256": "ff2cb1e1560930b68e82b705a63eddaeb024d55c1c79c8ead37b0c224a243c0e",
+        "atlas_path": "reusable/views-additional/raw/generated-atlases/pocket-corner-batch01-v2-clean.png",
+        "atlas_sha256": "a18d68183c8f09232f6df63b7bea5c91c98003fade722348af0a3e3330f78d4a",
+        "active_output_sha256": "6a004db88f806799fd66879d27b594baf34d666010bf21ec4566bc5b65231723",
+        "active_output_rgba_sha256": "78d0ab4f3b5c4a65af04d8ed90c6c33fea0020bff668cbe7c722f86e138d4ec9",
+        "crop_bounds_xyxy": [
+          92,
+          775,
+          301,
+          870
+        ],
+        "resized_dimensions_px": [
+          222,
+          101
+        ],
+        "scale": 1.063157894736842,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Orthographic broad wall-arm elevation inferred from source corner plan; accepted TOP and BOTTOM are preserved. Raw atlas and request retained; generation is inferred, not recovered pixels."
+    "notes": "Orthographic broad wall-arm elevation inferred from source corner plan; accepted TOP and BOTTOM are preserved. Raw atlas and request retained; generation is inferred, not recovered pixels.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 1.063157894736842
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -114,5 +167,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "clubs-guilds-dark-polished-club-panel-outer-corner"
+  }
 }

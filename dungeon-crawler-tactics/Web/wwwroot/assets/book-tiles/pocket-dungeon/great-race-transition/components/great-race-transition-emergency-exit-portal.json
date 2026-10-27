@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "great-race-transition",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-emergency-exit-portal.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-exit-portal.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-emergency-exit-portal",
+      "source_sha256": "ab1604fe088a307ef816e0869192b02b04121b8a7c58208c6715633c2053fb66",
+      "primary_source": {
+        "asset_id": "great-race-transition-emergency-exit-portal",
+        "path": "great-race-transition/components/great-race-transition-emergency-exit-portal.png",
+        "sha256": "ab1604fe088a307ef816e0869192b02b04121b8a7c58208c6715633c2053fb66",
+        "rgba_sha256": "afc3b5d88a48eec4fbc243bd55449368e33fb500b18c166f3d280f5ce9e9b7c2"
+      },
+      "image_hashes": {
+        "front": "453553a673072edba164c28f4232c4136e5f914d3b7bc206af13cedd4ad16613",
+        "top": "a1aadac69d0af25c56254058e06af99ecd55a70f5a0b873190512560f735e9ab",
+        "right": "2555134b10110f88f5faf42abd265adb10ee297203ae32b26485897349dcc7a0",
+        "left": "35870b1e84df115782ba88fe213bb7965cb94460a599827ae7bd22a4748daaab",
+        "bottom": "aeb99c6371c74d5dda50ad2e59e9a4d4325f0b6d3ed393da60fa2992b725f477",
+        "rear": "76b90dd7c98cf62c14ad94492e68e33907f1f52e1312df74afd737bcf0ab16c5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:05:06.436189+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-emergency-exit-portal.png",
+          "sha256": "ab1604fe088a307ef816e0869192b02b04121b8a7c58208c6715633c2053fb66",
+          "rgba_sha256": "afc3b5d88a48eec4fbc243bd55449368e33fb500b18c166f3d280f5ce9e9b7c2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

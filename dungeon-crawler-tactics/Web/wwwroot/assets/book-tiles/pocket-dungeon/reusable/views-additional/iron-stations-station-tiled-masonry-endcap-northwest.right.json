@@ -3,12 +3,22 @@
   "name": "Station Tiled Masonry north endcap right",
   "kind": "sprite",
   "tags": [
-    "iron-stations",
-    "wall",
     "art-adaptation",
-    "right",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-stations",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "right",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/iron-stations-station-tiled-masonry-endcap-northwest.right.png",
@@ -569,5 +579,45 @@
         "reason": "Remove disconnected atlas guide lines around the canonical single 1x1 masonry endcap. Preserve its largest connected source-faithful stone/tile body and attached foliage."
       }
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-stations-station-tiled-masonry-endcap-northwest"
+  }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "great-race-transition",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-broken-starting-pod.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-broken-starting-pod.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-broken-starting-pod",
+      "source_sha256": "815ab2343ee153c924db68d31a8b2f2579de64650263d9c52b1695f869f72e1f",
+      "primary_source": {
+        "asset_id": "great-race-transition-broken-starting-pod",
+        "path": "great-race-transition/components/great-race-transition-broken-starting-pod.png",
+        "sha256": "815ab2343ee153c924db68d31a8b2f2579de64650263d9c52b1695f869f72e1f",
+        "rgba_sha256": "368d7ef4c95eaeb01956c29f7046545d08c75a7d72f692b5733a6e9a6a0834a6"
+      },
+      "image_hashes": {
+        "front": "8cc2182af94cbaa9dc7ad466f878c85832a7d35e4dfc64a0987d2f2573eaf70e",
+        "top": "d3812dfe70797b17a976344790717414599f47d76453c0f59da5677185e2b325",
+        "right": "9f805d66942528712fd1efc9b985d45a562d1c2b5714aad9e7c0ad7b9a403203",
+        "left": "3cb731d161c01e4486c3f443de8573b1b221aeb543af2fca4f8deddecbffad97",
+        "bottom": "cff43ef9c4e8f4286b58e7ef50508cd4c5c31c53058b711141c3b978a111d3b5",
+        "rear": "23f5de1763e7e9383a866cbd75b612b397dfd22a0b986aff6c12f6e7d199575b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:05:06.436189+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-broken-starting-pod.png",
+          "sha256": "815ab2343ee153c924db68d31a8b2f2579de64650263d9c52b1695f869f72e1f",
+          "rgba_sha256": "368d7ef4c95eaeb01956c29f7046545d08c75a7d72f692b5733a6e9a6a0834a6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

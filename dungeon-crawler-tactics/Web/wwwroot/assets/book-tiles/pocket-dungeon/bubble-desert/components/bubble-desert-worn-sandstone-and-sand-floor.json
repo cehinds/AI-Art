@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-worn-sandstone-and-sand-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-worn-sandstone-and-sand-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-worn-sandstone-and-sand-floor",
+      "source_sha256": "fdeb684a6d300e3ca92bf4d13a0540c1a07d82180780314af94cd12e14fa28c7",
+      "primary_source": {
+        "asset_id": "bubble-desert-worn-sandstone-and-sand-floor",
+        "path": "bubble-desert/components/bubble-desert-worn-sandstone-and-sand-floor.png",
+        "sha256": "fdeb684a6d300e3ca92bf4d13a0540c1a07d82180780314af94cd12e14fa28c7",
+        "rgba_sha256": "4e8b23e3eb507bdb142ff7166bbc2977db15d4e138b89d6665e6e81d2bb4b735"
+      },
+      "image_hashes": {
+        "front": "d456f3b9c0b19293c2999936952b58c5321ae6f048b518f06f8be5d99488da8a",
+        "top": "10c0c23645fcdeedcc857adf174c6a367268424b640e349ea9f62e2d2ddbdab6",
+        "right": "7955e466905b9784bfcefec46baaea339a88ea631421c4a917166ca99600024e",
+        "left": "0f8a2aadbca108b4715ff0eddf834bc5466e8f05d08d1c8b4022e70454b30201",
+        "bottom": "5b06c551bb307ae6039d51c5690ee7bf1b4b7ae46b75a07188a024c201493e81",
+        "rear": "cf83b78e7e86e09a626a88112e00d2db478c7836918ec05f09dcb1f27fdbabca"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.909645+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-worn-sandstone-and-sand-floor.png",
+          "sha256": "fdeb684a6d300e3ca92bf4d13a0540c1a07d82180780314af94cd12e14fa28c7",
+          "rgba_sha256": "4e8b23e3eb507bdb142ff7166bbc2977db15d4e138b89d6665e6e81d2bb4b735"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-desert"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-desert"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

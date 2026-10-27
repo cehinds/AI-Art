@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-seabed-sand-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-seabed-sand-stairs-up",
+      "source_sha256": "8b3713a9f082183e95ef0554c4deef51185adfc979a5a55379dbbba8dae31380",
+      "primary_source": {
+        "asset_id": "bubble-sea-seabed-sand-stairs-up",
+        "path": "bubble-sea/components/bubble-sea-seabed-sand-stairs-up.png",
+        "sha256": "8b3713a9f082183e95ef0554c4deef51185adfc979a5a55379dbbba8dae31380",
+        "rgba_sha256": "29d1e580396fb376077e4a4c7fd4257c5dda8450a0534739e6062a28f7fa7b8d"
+      },
+      "image_hashes": {
+        "front": "f84ac4aa3c1c1199ca56b41ab750e88cc3c85a0e7c91dea769d59c61565cfb62",
+        "top": "8c21958b49a6e38982b48b8b8f091ab265548c34897857eaa5226d1e17853844",
+        "right": "5359604c6a6397c8d10dc80ec20be407a9e268df8a90399deb4405c2d28b8814",
+        "left": "45f4591a135a9d1a997f359267f3cce1c4cdb702863af800b76ee42b1f653d90",
+        "bottom": "b23be5c0e9c07bc1b01b8573cef94f406f20724f2f14b6901fb874de493540fc",
+        "rear": "18580b0d19d06870027a85bbf63035ff8da4153fe0d9e083280690071b82a0c5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T02:10:10.604786+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-seabed-sand-stairs-up.png",
+          "sha256": "8b3713a9f082183e95ef0554c4deef51185adfc979a5a55379dbbba8dae31380",
+          "rgba_sha256": "29d1e580396fb376077e4a4c7fd4257c5dda8450a0534739e6062a28f7fa7b8d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

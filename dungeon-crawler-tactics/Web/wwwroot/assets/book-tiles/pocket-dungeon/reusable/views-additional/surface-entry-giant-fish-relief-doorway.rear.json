@@ -3,12 +3,22 @@
   "name": "Giant fish relief doorway rear",
   "kind": "sprite",
   "tags": [
-    "surface-entry",
-    "prop",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:water",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface-entry",
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/surface-entry-giant-fish-relief-doorway.rear.png",
@@ -117,5 +127,40 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:water",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:water"
+      ],
+      "all": [],
+      "none": [
+        "hazard:lava",
+        "surface:lava"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-24b884da7da5",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-giant-fish-relief-doorway"
+  }
 }

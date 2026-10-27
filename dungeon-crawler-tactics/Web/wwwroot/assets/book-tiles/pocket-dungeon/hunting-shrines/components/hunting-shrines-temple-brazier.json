@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "environment:temple",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-temple-brazier.png",
@@ -127,6 +129,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -146,40 +158,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-brazier.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-temple-brazier",
+      "source_sha256": "8c208b611995de73f89277334718097da16b5a42e20ebd8d01df547e37f04cca",
+      "primary_source": {
+        "asset_id": "hunting-shrines-temple-brazier",
+        "path": "hunting-shrines/components/hunting-shrines-temple-brazier.png",
+        "sha256": "8c208b611995de73f89277334718097da16b5a42e20ebd8d01df547e37f04cca",
+        "rgba_sha256": "679e21b0896cad3238602bcc0f6ca1dfc76d7b7b4ac1609c727dc172a08a9aee"
+      },
+      "image_hashes": {
+        "front": "b1cbf350330389771f79c8b6a49da960666ac01d8f540df4e384761b5c1abda9",
+        "top": "d1e118cb8ff6b4d0a62cc7e6bdb9def053c4028c0408c63504a93f825e5c48a3",
+        "right": "efca5f15cbbf0d2444b5415db86fd74dc23760ac72166e3882d054bfb9f05219",
+        "left": "0a2a59fc4c8802149457b27e9fb6462406798bc7126d183b904b38f5b5a8a276",
+        "bottom": "861db6ca0b89e1efaad47555a30bae785825bd19c52fe995360442d8f8afff52",
+        "rear": "f141abe6ef00b9934f47268c44373076ceb76b446c22d419f36dd6a5fda5e799"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:45:35.321374+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-temple-brazier.png",
+          "sha256": "8c208b611995de73f89277334718097da16b5a42e20ebd8d01df547e37f04cca",
+          "rgba_sha256": "679e21b0896cad3238602bcc0f6ca1dfc76d7b7b4ac1609c727dc172a08a9aee"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "environment:temple",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -188,18 +251,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

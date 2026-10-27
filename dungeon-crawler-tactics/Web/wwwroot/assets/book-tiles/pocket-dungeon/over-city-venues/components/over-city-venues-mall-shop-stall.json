@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-mall-shop-stall.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-mall-shop-stall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-mall-shop-stall",
+      "source_sha256": "4e95581d27660ec8f0c5c7cdc9bbe2cbb332f007e947da19fcff699d6dea8e19",
+      "primary_source": {
+        "asset_id": "over-city-venues-mall-shop-stall",
+        "path": "over-city-venues/components/over-city-venues-mall-shop-stall.png",
+        "sha256": "4e95581d27660ec8f0c5c7cdc9bbe2cbb332f007e947da19fcff699d6dea8e19",
+        "rgba_sha256": "c9b127ae2258a15f7f96e6906d30b7c1477f41fade396f7f13abe0c4d0afabec"
+      },
+      "image_hashes": {
+        "front": "e47dc78ba657412aa7933862143571c64f66dacb16b2d989ab80351c91b178f5",
+        "top": "9870eeea9dd39bc43987e31359bc9489d05b12d6c811a88d79938aa18f7b3a38",
+        "right": "c2006313c0f79930f0078cda7bd779dc61b7d70a882f40d8942c3cd4b352b2cd",
+        "left": "e920b5080070a585c5aca5f392dbeba8e8c284247c2b5749d09729a32976fd41",
+        "bottom": "4427a64c38c6b2fcb296d35cbf80bf8c50526930fb1c53f5a84043bd8904cf66",
+        "rear": "fcf1d60b899239236b715e4f90119f4b0c335ee76e4c7a87f0b48aae1ae57115"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-mall-shop-stall.png",
+          "sha256": "4e95581d27660ec8f0c5c7cdc9bbe2cbb332f007e947da19fcff699d6dea8e19",
+          "rgba_sha256": "c9b127ae2258a15f7f96e6906d30b7c1477f41fade396f7f13abe0c4d0afabec"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

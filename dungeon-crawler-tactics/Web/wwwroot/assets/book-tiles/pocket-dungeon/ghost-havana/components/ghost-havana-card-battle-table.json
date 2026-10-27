@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-card-battle-table.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-card-battle-table.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-card-battle-table",
+      "source_sha256": "0f4c4024d11caeb8a91f49b93aed03ee2bf6da79f721bac1abfb21843f45bd54",
+      "primary_source": {
+        "asset_id": "ghost-havana-card-battle-table",
+        "path": "ghost-havana/components/ghost-havana-card-battle-table.png",
+        "sha256": "0f4c4024d11caeb8a91f49b93aed03ee2bf6da79f721bac1abfb21843f45bd54",
+        "rgba_sha256": "3ef33baab80609dc693f77b915836f27704957270f97a72a44f92dd8c01a5462"
+      },
+      "image_hashes": {
+        "front": "e69dcc753b132fdd287fadf64458d8a4bb95e1e971cb5e2f499f44a3d8959747",
+        "top": "b565830cda11e9830ae31ebf67ade1fd2a2a35f6f1a2a8c623b1f171df784862",
+        "right": "5a676134198f607dc013f10c68a5382a2ebd588fada0cc912122c88e2db8b09f",
+        "left": "54650e8c875f8eacf5bac23ce1522aed8a25b79070f3c1baa3446a09671c8f49",
+        "bottom": "c0bbb1dc6cbff0e8d751055b805f10cd08d9eb5b6290a2abd95be7e736b3b58d",
+        "rear": "75b8297b09550dc6fa83ba0c8b3cadccea71e91a7d4fe41c2884e0d89320cd52"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:34:42.351420+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-card-battle-table.png",
+          "sha256": "0f4c4024d11caeb8a91f49b93aed03ee2bf6da79f721bac1abfb21843f45bd54",
+          "rgba_sha256": "3ef33baab80609dc693f77b915836f27704957270f97a72a44f92dd8c01a5462"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

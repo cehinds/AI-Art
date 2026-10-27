@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,29 +160,78 @@
     "applicable": true,
     "complete": true,
     "front": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.front"
     },
     "top": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.top"
     },
     "right": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.right"
     },
     "left": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.left"
     },
     "bottom": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.bottom"
     },
     "rear": {
-      "status": "generated",
+      "status": "inferred-family-view-donor",
       "asset_id": "broadcast-portals-studio-partition-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-partition-wall-northeast",
+      "source_sha256": "30354273e94398426a54647709d049a592bb3f9be50091ac3f3aeb851c38512a",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-partition-wall-northeast",
+        "path": "broadcast-portals/components/broadcast-portals-studio-partition-wall-northeast.png",
+        "sha256": "30354273e94398426a54647709d049a592bb3f9be50091ac3f3aeb851c38512a",
+        "rgba_sha256": "3839dbd1a983cf6d5f0058e4441a51d361ee536ddcb4814964748d8ca90707f5"
+      },
+      "image_hashes": {
+        "front": "c01ecb40db387feca307763afe1a27c1cf02619364927a7abf458d5750bb5380",
+        "top": "322cf89f97ae407d94650d6678863fab273b35070f943da75503240348bd83fd",
+        "right": "cd34e866bc457c4e8c68dbec99b58b51111f9185065689a3ee7232082502f39b",
+        "left": "53e37afe5285589825af2926f5f0c16966d83047174898c8889e750392608bf7",
+        "bottom": "d2c289467bb68cae92c0e2d29c04ebf515f1a0d9bea27175b93be2d0cd0ad682",
+        "rear": "a7d36943e12cc92646c4d4d9ecd809298d2686b7bbc30497c39d62f940106e34"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:37:37.883978+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-partition-wall-northeast.png",
+          "sha256": "30354273e94398426a54647709d049a592bb3f9be50091ac3f3aeb851c38512a",
+          "rgba_sha256": "3839dbd1a983cf6d5f0058e4441a51d361ee536ddcb4814964748d8ca90707f5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

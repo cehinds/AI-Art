@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-mid-century-street-pavement-corner-transition",
+      "source_sha256": "923e577ab40ecfc1d541c3460408b67d83da0a477513ae91144b3cfb5e7811a6",
+      "primary_source": {
+        "asset_id": "hunting-zockau-mid-century-street-pavement-corner-transition",
+        "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-corner-transition.png",
+        "sha256": "923e577ab40ecfc1d541c3460408b67d83da0a477513ae91144b3cfb5e7811a6",
+        "rgba_sha256": "1e6ce55fede80ca1c82f7e3ec21b477610e9b95f6e5b5a42a51d03e9b1b4869a"
+      },
+      "image_hashes": {
+        "front": "6e4a6bd7156e3d90d831df66d2c9c30d18b7fc2320c4ccf5db78924b85d3a1e3",
+        "top": "7d51fa433c6a94a8ef72b5641de73367d79fe14c07d928e0650b18cc6d45987a",
+        "right": "8dd99d627187577979f5de02740e60698b5bf0430517376ff73792f74111aa02",
+        "left": "7a71e968b2bed9e3e17846ad034084110722258f041badc06406342409c35025",
+        "bottom": "a8ebf9d86e56002231b4a0b9612b0b01c22be20b06c46acd634e46842dd1d9a2",
+        "rear": "66a239ce5e0d558a6f2b77d4cab5524a6ce654453fd46ba7f5f98820c986e633"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:55:57.227213+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-corner-transition.png",
+          "sha256": "923e577ab40ecfc1d541c3460408b67d83da0a477513ae91144b3cfb5e7811a6",
+          "rgba_sha256": "1e6ce55fede80ca1c82f7e3ec21b477610e9b95f6e5b5a42a51d03e9b1b4869a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

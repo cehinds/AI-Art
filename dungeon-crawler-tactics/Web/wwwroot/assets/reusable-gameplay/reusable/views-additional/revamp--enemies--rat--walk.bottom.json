@@ -7,15 +7,15 @@
     "attachment-tagged",
     "attachment:floor",
     "attachment:stairs",
+    "bottom",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "role:object",
     "sprite-frame",
-    "style:gameplay",
-    "inferred-view",
-    "bottom"
+    "style:gameplay"
   ],
   "object_id": "revamp--enemies--rat--walk",
   "view": "bottom",
@@ -77,5 +77,41 @@
     "source_image_sha256": "582e0a3cb4c063b99ae5cbb730afd967a2b73b2f538ed3326d18287c0fdf1314",
     "generation_request_id": "exec-0550bc76-f657-4650-912e-709de9f08ea4",
     "generation_prompt": "reusable/views-additional/raw/rat-three-bottom-v2-20261026.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--enemies--rat--walk"
   }
 }

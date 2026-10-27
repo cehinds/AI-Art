@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "safe-services",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-restaurant-dining-booth.png",
@@ -114,6 +116,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -133,39 +145,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-restaurant-dining-booth.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-restaurant-dining-booth",
+      "source_sha256": "14d38abc3eb12d90cc34140c393929050e532c055136d373aaeb16bf5d07f6f3",
+      "primary_source": {
+        "asset_id": "safe-services-restaurant-dining-booth",
+        "path": "safe-services/components/safe-services-restaurant-dining-booth.png",
+        "sha256": "14d38abc3eb12d90cc34140c393929050e532c055136d373aaeb16bf5d07f6f3",
+        "rgba_sha256": "bc4960b3f871c4d7563f2a9638dfea7f883bb40db08cd770dd79e0bc2ee9ff82"
+      },
+      "image_hashes": {
+        "front": "23e2e33ad58d1c0a853b1515cb58abd61bd990602d51b4e7ee406f5966483d07",
+        "top": "14a06dafa2fe312b5e4d6fbe9cbcbb61c9783c7563c024ded35b806e1c7f9d0c",
+        "right": "47af93755a062d6627d379dae226c518f29b862df96dafdd415d02e64e4c98b7",
+        "left": "c3d39bfc6ac649f5aac5c45117a094dd58e0d9d150bddbc7412d83b38684ea72",
+        "bottom": "30306a809c58cd57ad3121a37424ceda541414e42fc1ad41e49227f54f2350d7",
+        "rear": "ba9bad5c2d386fdb2043c72ba7689a1331ce8e6dce00c6edda1aac0816b2cdc0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:12:52.232665+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-restaurant-dining-booth.png",
+          "sha256": "14d38abc3eb12d90cc34140c393929050e532c055136d373aaeb16bf5d07f6f3",
+          "rgba_sha256": "bc4960b3f871c4d7563f2a9638dfea7f883bb40db08cd770dd79e0bc2ee9ff82"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,18 +237,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

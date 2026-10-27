@@ -3,12 +3,22 @@
   "name": "Sunken stairwell right",
   "kind": "sprite",
   "tags": [
-    "bubble-sea",
-    "prop",
     "art-adaptation",
-    "right",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "bubble-sea",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "right",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/bubble-sea-sunken-stairwell.right.png",
@@ -120,9 +130,52 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "bubble-sea-sunken-stairwell",
+        "view": "right",
+        "source_path": "bubble-sea/components/bubble-sea-sunken-stairwell.png",
+        "source_sha256": "c15ad0f0ac5aef1b0526356594d4224511ac5e69249acf4c16fa69e95cb88b8b",
+        "atlas_path": "reusable/views-additional/raw/candidates/bubble-sea-sunken-stairwell-sides-v1/raw-atlas.png",
+        "atlas_sha256": "e5c56259f63196d73aded12b4c4c7e266e59b08b9a193fb76373c565141ffaac",
+        "active_output_sha256": "7230f16e0281443a746cf480a65c39caf83727f04c2c5ab4cd80348ad8e6462a",
+        "active_output_rgba_sha256": "e1e3f8623363a36e2ea1e693357cf384c74233042db0ae26def0c17d514dee71",
+        "crop_bounds_xyxy": [
+          356,
+          202,
+          806,
+          730
+        ],
+        "resized_dimensions_px": [
+          141,
+          166
+        ],
+        "scale": 0.3143939393939394,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "output_binding": "/workspace/generated_images/exec-1724a534-b6ff-4cf2-a245-62f689842fc3.png"
+    "output_binding": "/workspace/generated_images/exec-1724a534-b6ff-4cf2-a245-62f689842fc3.png",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.3143939393939394
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -174,5 +227,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-sea-sunken-stairwell"
+  }
 }

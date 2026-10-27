@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "masquerade/components/masquerade-white-marble-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-white-marble-stairs-down",
+      "source_sha256": "eadc0bce82bdd0358ef83c09326488d5dea88dc5729f66321fa6ce9f64536175",
+      "primary_source": {
+        "asset_id": "masquerade-white-marble-stairs-down",
+        "path": "masquerade/components/masquerade-white-marble-stairs-down.png",
+        "sha256": "eadc0bce82bdd0358ef83c09326488d5dea88dc5729f66321fa6ce9f64536175",
+        "rgba_sha256": "d93cf2c91c022994249b8d5d899a713425f22e524bf935de993b7b0cc25c84f7"
+      },
+      "image_hashes": {
+        "front": "37def4f437fda29fa162fe73c332147d59b3ebf6f0532589ee40c9dba4c76021",
+        "top": "02210d2f9d2e6b3612fc3f0da18da5ce80e8730ea3513f0ad0a6ee8ac5a98c80",
+        "right": "b56798cbed3ed042fdc3cf8f103fc0e91cbe0a925ec329f4cf4c3e0a9161ddd0",
+        "left": "107d966267350fa4d2550c263390ff1b73df01c8b7bd1a8670c9bfa5272722c3",
+        "bottom": "1d3cd282e09d000e45c83bdbfd0b7c7e9a1cf07ffeb8969802a8145bdd0c6150",
+        "rear": "e68e2769271748132ca43906bf9e02b0f192a0ae3ecdada6af2fca22450d83df"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:19:38.923825+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-white-marble-stairs-down.png",
+          "sha256": "eadc0bce82bdd0358ef83c09326488d5dea88dc5729f66321fa6ce9f64536175",
+          "rgba_sha256": "d93cf2c91c022994249b8d5d899a713425f22e524bf935de993b7b0cc25c84f7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

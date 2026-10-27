@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-wet-scrap-metal-deck-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -195,7 +206,60 @@
     "rear": {
       "status": "generated",
       "asset_id": "bubble-airship-wet-scrap-metal-deck-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-wet-scrap-metal-deck-floor",
+      "source_sha256": "6d798d1c329e1fcc0a7f4fc2a2f8906a04fc40d4ddf08c0a8247cd8760f21d84",
+      "primary_source": {
+        "asset_id": "bubble-airship-wet-scrap-metal-deck-floor",
+        "path": "bubble-airship/components/bubble-airship-wet-scrap-metal-deck-floor.png",
+        "sha256": "6d798d1c329e1fcc0a7f4fc2a2f8906a04fc40d4ddf08c0a8247cd8760f21d84",
+        "rgba_sha256": "122dfa23b5dcb57ab041bf0639d2f4d399555fbceb10dbe761948ff489a61596"
+      },
+      "image_hashes": {
+        "front": "3f7e5e6ba938b5aabf4e27164eb606a8912c311b158c479c6298eedd84db5ff7",
+        "top": "e8abda85450a4c760f09282248d1fb0666760018a86f70bea25e926238904824",
+        "right": "072ba5d69e33c178efa9a11c0fe625791c460eb0454248fbeee8f4b6883bebf8",
+        "left": "c4384be98805e5acf1982e1cd50dda08baf3fce9139f36981c186930431556f8",
+        "bottom": "eee0341db21e1bcb9f5f2985110b457fab133811de99ffef29cdb32bedc39924",
+        "rear": "46c8acaa88c5fc2d130c99174db7513420ecaf99b1120ae00f2a6176e5183dc4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T21:02:32.415516+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-wet-scrap-metal-deck-floor.png",
+          "sha256": "6d798d1c329e1fcc0a7f4fc2a2f8906a04fc40d4ddf08c0a8247cd8760f21d84",
+          "rgba_sha256": "122dfa23b5dcb57ab041bf0639d2f4d399555fbceb10dbe761948ff489a61596"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-airship"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

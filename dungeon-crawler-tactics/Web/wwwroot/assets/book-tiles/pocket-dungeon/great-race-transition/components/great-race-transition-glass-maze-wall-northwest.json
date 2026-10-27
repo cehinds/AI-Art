@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-maze-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-glass-maze-wall-northwest",
+      "source_sha256": "aeb52b2437fd69f6151955ad7c4c2247793b6e254ade55d3dd12180b9846ce1c",
+      "primary_source": {
+        "asset_id": "great-race-transition-glass-maze-wall-northwest",
+        "path": "great-race-transition/components/great-race-transition-glass-maze-wall-northwest.png",
+        "sha256": "aeb52b2437fd69f6151955ad7c4c2247793b6e254ade55d3dd12180b9846ce1c",
+        "rgba_sha256": "05c313b5bf6a7ae66585313e84a2695c16f61417d32587ab1057a46a41fdc7f3"
+      },
+      "image_hashes": {
+        "front": "7ea36a49ebc5977dd38c6116fd8d06f413cb0715b6d2fffdd85011dd85de72a0",
+        "top": "1201ed0d2262a251d2a496ba71272a0cb0463151d87ead17b46f1217e0c5f2e8",
+        "right": "c6af683e90756295744eec9f51963069e6c42cb2e0cc9cec1ef565953adba71e",
+        "left": "12be3938f893294f531a3aaa10da41e59b1b1410e92d945eec0e20530db63e93",
+        "bottom": "456dc4b18f5b811e2d46afc4a877fad9255db263db0ec2c03ea0d7b2141c7fc3",
+        "rear": "19fdd8bde16b159d419d38ea633f40fb17679632f9e0292e377a362453cdd267"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:08:29.349547+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-glass-maze-wall-northwest.png",
+          "sha256": "aeb52b2437fd69f6151955ad7c4c2247793b6e254ade55d3dd12180b9846ce1c",
+          "rgba_sha256": "05c313b5bf6a7ae66585313e84a2695c16f61417d32587ab1057a46a41fdc7f3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

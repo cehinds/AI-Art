@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-zockau",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-yellow-electric-street-lamp.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-yellow-electric-street-lamp.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-yellow-electric-street-lamp",
+      "source_sha256": "d4e7a0cb56a98988cabfb7a3d2c447149494ba10f06fc7461c1f24e01563aab3",
+      "primary_source": {
+        "asset_id": "hunting-zockau-yellow-electric-street-lamp",
+        "path": "hunting-zockau/components/hunting-zockau-yellow-electric-street-lamp.png",
+        "sha256": "d4e7a0cb56a98988cabfb7a3d2c447149494ba10f06fc7461c1f24e01563aab3",
+        "rgba_sha256": "b5fa754c02ae54f8fda5fc5afaca96d8f18b341960bd38e0e08520471d1488a7"
+      },
+      "image_hashes": {
+        "front": "b2d4f2219c2006c19801faf4cb5bec9217c94b3db6b9d456ae4796f3fb64f137",
+        "top": "ca22ca3edfed4e471483bdb571c1271ba4e170bb18924c5d9f2c5ffe4e917d08",
+        "right": "8ee525bee72046ce5466371f3dec09ef5d6898278749e2f3f5d372a55ad8784c",
+        "left": "a1fe5d3028c56364cb84536ed1357daf16d27a6fdacabcf0eb3397176db7198f",
+        "bottom": "fefa4af1d190fbaef7c7e3b3b23a781571382247ac71482856d51ae6bbf394ed",
+        "rear": "cc45fe44ccd6ee2cc0176afebf5e119622b44fc629fb6e261d945b90c7428b69"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:07:51.004838+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-yellow-electric-street-lamp.png",
+          "sha256": "d4e7a0cb56a98988cabfb7a3d2c447149494ba10f06fc7461c1f24e01563aab3",
+          "rgba_sha256": "b5fa754c02ae54f8fda5fc5afaca96d8f18b341960bd38e0e08520471d1488a7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

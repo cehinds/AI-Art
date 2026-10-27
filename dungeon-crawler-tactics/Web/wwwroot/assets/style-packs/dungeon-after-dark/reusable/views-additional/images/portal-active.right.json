@@ -1,12 +1,24 @@
 {
   "id": "portal-active.right",
-  "name": "Stone portal \u2014 active Right",
+  "name": "Stone portal — active Right",
   "kind": "structure",
   "tags": [
-    "six-view",
+    "active",
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "material:stone",
     "orthographic",
+    "portal",
+    "role:object",
+    "services",
+    "six-view",
     "structure",
-    "generated"
+    "structures",
+    "style:dungeon-after-dark"
   ],
   "image": {
     "path": "reusable/views-additional/images/portal-active.right.png",
@@ -62,7 +74,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-dilation2-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
@@ -71,5 +84,45 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/portal-active.right.json"
+  "metadata_path": "reusable/views-additional/images/portal-active.right.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "portal-active"
+  },
+  "attachment_generated_tags": [
+    "active",
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:stone",
+    "portal",
+    "role:object",
+    "services",
+    "structures",
+    "style:dungeon-after-dark"
+  ]
 }

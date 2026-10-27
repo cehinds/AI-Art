@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-adobe-town-gate.png",
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,31 +141,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-town-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-adobe-town-gate",
+      "source_sha256": "bf70fcdee1f31e4f142c4610a731bda14107c71d7bda25db83d8f0fc84dba531",
+      "primary_source": {
+        "asset_id": "bubble-desert-adobe-town-gate",
+        "path": "bubble-desert/components/bubble-desert-adobe-town-gate.png",
+        "sha256": "bf70fcdee1f31e4f142c4610a731bda14107c71d7bda25db83d8f0fc84dba531",
+        "rgba_sha256": "88b36daeac176bfc1b398f20ab5683cb459445d1d724fbec25abc97f5a6a52b6"
+      },
+      "image_hashes": {
+        "front": "1f761825330d72f505a421dd6c0770ca74d15f17a0408aa2e186aa318b8a648d",
+        "top": "cca3c67ebdbd539f90e202ea856af08b3a033f604470a49b89435ded81b3f421",
+        "right": "1d9c70a1c61d6fa08063a2813e2f2de97f0b42ebe117741df7d8e22739b18f6b",
+        "left": "10aeec88cc2a771a5e76c3e5a7a6698eb08e68dcce9ec8503f53d12f053aee0c",
+        "bottom": "4dbe162703de9a5837964b4b345d0e8ccedaa68e6c47e5fc74e1676f10ae19f0",
+        "rear": "ec16b57fbad99cfc5552f5c907e8e0dd221756aadc41ffe54812b19d2d4ecccb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:12:03.778787+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-adobe-town-gate.png",
+          "sha256": "bf70fcdee1f31e4f142c4610a731bda14107c71d7bda25db83d8f0fc84dba531",
+          "rgba_sha256": "88b36daeac176bfc1b398f20ab5683cb459445d1d724fbec25abc97f5a6a52b6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -163,7 +223,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,12 +239,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

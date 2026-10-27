@@ -1,0 +1,130 @@
+{
+  "id": "trap-chest-open.right",
+  "name": "Trap chest — open right",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "chest",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "material:unspecified",
+    "open",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "right",
+    "role:object",
+    "services",
+    "style:pocket-dungeon",
+    "trap"
+  ],
+  "object_id": "trap-chest-open",
+  "view": "right",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/trap-chest-open.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "d7c5a51752aae2e032be9a70d3ca0c35375c60caadab1024a97e31ffb04b5661",
+    "rgba_sha256": "be9ee7b528d224d8390d44b031a4256c23a1b4d693f880d71eae960ba4110260"
+  },
+  "metadata_path": "reusable/views-services/trap-chest-open.right.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/trap-chest-open.png",
+    "source_image_sha256": "746f7868ff7cd66ba097b0cef0b20a6ea13228fe267a1e6d8e0ddd7fb8de97ee",
+    "generated_atlas": "reusable/views-services/atlas-doors-chests.png",
+    "generated_atlas_sha256": "71805e57fd216bed21e2ff6b1dfb2f90aabc8a9ffe5180a4d507be5a123d0910",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a production-ready orthographic game sprite view atlas with transparent background for four supplied pixel-art dungeon objects. Strict grid 6 columns x 4 rows, edge-to-edge cells, no gaps/borders. Columns exactly front, top, right, left, bottom, rear. Rows exactly club-door-closed, club-door-open, trap-chest-closed, trap-chest-open in reference order. Center one complete object in every cell. Preserve exact identity, silhouette, materials, pixel-art style, palette, proportions, decorations from corresponding reference. Paired states are same object with only opening state changed. True orthographic views, no perspective, ground plane, shadow, scenery, labels or text. Infer hidden surfaces consistently. Top is straight down; bottom straight up; rear directly opposite front. Crisp pixel clusters, no antialiasing. Every cell must contain exactly one complete object.",
+      "reference_images": [
+        "components/club-door-closed.png",
+        "components/club-door-open.png",
+        "components/trap-chest-closed.png",
+        "components/trap-chest-open.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        2
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        95
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        578,
+        757,
+        135,
+        243
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.9053497942386831,
+      "render_size_px": [
+        122,
+        220
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "trap-chest-open"
+  }
+}

@@ -16,7 +16,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-guild-transformation-bed.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-guild-transformation-bed.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-guild-transformation-bed",
+      "source_sha256": "a5dc1a027383c485f741be53af09cd248648d20a1a58a365784b7085bdf58de6",
+      "primary_source": {
+        "asset_id": "thresholds-guild-transformation-bed",
+        "path": "thresholds/components/thresholds-guild-transformation-bed.png",
+        "sha256": "a5dc1a027383c485f741be53af09cd248648d20a1a58a365784b7085bdf58de6",
+        "rgba_sha256": "b5f81af474304c7ab8fc8fab29b79cdd5937ad4593ef170dc3889e372fad4f53"
+      },
+      "image_hashes": {
+        "front": "1988efcabecff07ba353d221fb751b66a525edeeb401da2842b2b73ebeadd464",
+        "top": "6215841cd61f1ae4e3fc46bdfc274fa05f18944abf27e2388cbbf43830b0bbe9",
+        "right": "a47c7c698019210ed8b6db1e1e52fb3c413a0d6e4cd66f297e14b8a1834c0d13",
+        "left": "0a7897fdb06fafad9516e1017e78def519c16a5bd176db1d76c062a2dc52ce7c",
+        "bottom": "2628ec4be363c65bc2ffc123d67348fdd949cb07492c799a4cbcbcdf440911c6",
+        "rear": "82c752b35b66582a05ff45cc44dd81e7cce3da511ae9bddb368197d88fa1d5a0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:21:31.915364+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-guild-transformation-bed.png",
+          "sha256": "a5dc1a027383c485f741be53af09cd248648d20a1a58a365784b7085bdf58de6",
+          "rgba_sha256": "b5f81af474304c7ab8fc8fab29b79cdd5937ad4593ef170dc3889e372fad4f53"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:city",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-painted-civic-stone-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-painted-civic-stone-open-doorway",
+      "source_sha256": "0ad9a3dfa6a9b6090b79368f24de3b471523a2931220882547038474f51f8733",
+      "primary_source": {
+        "asset_id": "over-city-venues-painted-civic-stone-open-doorway",
+        "path": "over-city-venues/components/over-city-venues-painted-civic-stone-open-doorway.png",
+        "sha256": "0ad9a3dfa6a9b6090b79368f24de3b471523a2931220882547038474f51f8733",
+        "rgba_sha256": "178a0e49da01e287105208cd743123c0b313ca58dcbc9b2ae3fbd80e53e9dac7"
+      },
+      "image_hashes": {
+        "front": "99a9da734c05bdaa76618d92079798133a917095b180ba72a47a58ada2cc0d8f",
+        "top": "07e9bf9d46791fedac601394e807b1c6be0c6b3d6d3d854004192ad9e47fb0b9",
+        "right": "7fe7804ad0cc78aa223820f8c55e9709895df92244d308e88bfea2da83c181ee",
+        "left": "afd54bfaca742b8211983932ec89ae3c76441e091f32dfa846f68265b3fb2c50",
+        "bottom": "eb8644513c7518661f0e24c4130699717789d8eb5c531eab1e00a4ab3c9caa3c",
+        "rear": "76a71ea006c006f37ee3a1887bf3b2f8e74070b287c75d8ae2d7ee6c56e831bb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-painted-civic-stone-open-doorway.png",
+          "sha256": "0ad9a3dfa6a9b6090b79368f24de3b471523a2931220882547038474f51f8733",
+          "rgba_sha256": "178a0e49da01e287105208cd743123c0b313ca58dcbc9b2ae3fbd80e53e9dac7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:city",
     "environment:dungeon",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

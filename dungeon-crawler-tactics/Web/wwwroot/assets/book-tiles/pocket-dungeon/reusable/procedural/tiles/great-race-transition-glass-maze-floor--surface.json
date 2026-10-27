@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/great-race-transition-glass-maze-floor--surface.png",
@@ -65,12 +66,30 @@
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "east": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "south": [
+      "join.floor",
+      "visual.great-race-transition"
+    ],
+    "west": [
+      "join.floor",
+      "visual.great-race-transition"
+    ]
   },
   "canonical_asset_id": "great-race-transition-glass-maze-floor",
   "attachment_generated_tags": [
@@ -79,7 +98,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

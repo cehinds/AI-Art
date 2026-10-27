@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-steel-arena-gate.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -137,31 +148,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-steel-arena-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-steel-arena-gate",
+      "source_sha256": "5fea8aa6039994cfb6f8eb46be294c1b54e355948422cf608f7c83e447fcc03f",
+      "primary_source": {
+        "asset_id": "industry-menagerie-steel-arena-gate",
+        "path": "industry-menagerie/components/industry-menagerie-steel-arena-gate.png",
+        "sha256": "5fea8aa6039994cfb6f8eb46be294c1b54e355948422cf608f7c83e447fcc03f",
+        "rgba_sha256": "854254330883e010856f1fad352b3d4e57fd4c844ca303f196a5bcf22a3ad225"
+      },
+      "image_hashes": {
+        "front": "6a79306a33e064367933aa14e265f2f741dba800f4857d872ff8b55ddbbd40b1",
+        "top": "8c26a6fdcda079da0194c18252633a407319aa669e16f239f1da444cfaae9d77",
+        "right": "a0ae998010997218bf0d39dc78bf47d9b1629ada810cc925583e0de78e8ad14e",
+        "left": "bc56fe4a5c3f2114edda514eade933320beff7fa3eab4ab6fcea9fe184d80524",
+        "bottom": "0743aa776cf894d0e85d2c69a7079c20e8ec4afcd207181bc27448086845dcee",
+        "rear": "6132d4fb2d07f82f6d016c372c1dbfe75ea9f8c60ef616e8122f0c72be464edb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:22:47.489056+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-steel-arena-gate.png",
+          "sha256": "5fea8aa6039994cfb6f8eb46be294c1b54e355948422cf608f7c83e447fcc03f",
+          "rgba_sha256": "854254330883e010856f1fad352b3d4e57fd4c844ca303f196a5bcf22a3ad225"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -169,7 +229,8 @@
     "environment:dungeon",
     "material:steel",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -184,12 +245,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-burial-niche-wall.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-burial-niche-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-burial-niche-wall",
+      "source_sha256": "4b6ede16fbee62c1d07641741782a9e09f36e4cc962462764be29c1b0eab4655",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-burial-niche-wall",
+        "path": "bubble-necropolis/components/bubble-necropolis-burial-niche-wall.png",
+        "sha256": "4b6ede16fbee62c1d07641741782a9e09f36e4cc962462764be29c1b0eab4655",
+        "rgba_sha256": "9e2d0a548a29f68b04ce442ca44d82aa0892109c3391505566c84a1309b3acc2"
+      },
+      "image_hashes": {
+        "front": "fb307c21ad964ed30557167e796263755afc6d253fcec55b48c116872425656e",
+        "top": "c64b169ae7f5288d62177bc6f5d68161791f71ba570675ca0d9ad5cb8a1e2664",
+        "right": "1f2d799100cecd0f4530058387f93d018d271a80b923e6b246abf2b4d2449fad",
+        "left": "89f9d179e67eb4a00517794f68c8ca4d584040bd0623fe08c223ec20a2052dad",
+        "bottom": "538bdc934b5883d7066cbdfd240184f7cde3cdff868379641e50b6a77b19934a",
+        "rear": "57f30e235956d7dc16d0caae74b84dd81859f4ed9f28055a3a74a028e6cf6d2a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:11:25.294072+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-burial-niche-wall.png",
+          "sha256": "4b6ede16fbee62c1d07641741782a9e09f36e4cc962462764be29c1b0eab4655",
+          "rgba_sha256": "9e2d0a548a29f68b04ce442ca44d82aa0892109c3391505566c84a1309b3acc2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-riveted-carriage-metal-closed-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-riveted-carriage-metal-closed-doorway",
+      "source_sha256": "297423a276ce1a0cc102f9cdb528dc87ebdff3bd0444910f6ab76d1f2a27bb7d",
+      "primary_source": {
+        "asset_id": "iron-trains-riveted-carriage-metal-closed-doorway",
+        "path": "iron-trains/components/iron-trains-riveted-carriage-metal-closed-doorway.png",
+        "sha256": "297423a276ce1a0cc102f9cdb528dc87ebdff3bd0444910f6ab76d1f2a27bb7d",
+        "rgba_sha256": "91d1f677836db037737b77bc441b995e8f37929a3123bcb34b0b409a411c8178"
+      },
+      "image_hashes": {
+        "front": "c8450a2e028c6bc413ecbc5aa517cd1ccb5d1e6977c950fea805b5f93a3e6020",
+        "top": "19e81669c2d46e6deccd74b1b74af57afc7320918caa017637b5548a814bac6d",
+        "right": "b749ecfde92aa14ed134b349991f83d759c01d061bb2963d6d5e138b4a1fc76e",
+        "left": "5ec8df13363aba707b24ee41e617ea8c6db1b1ccb31c43cb49c7d2fe5de7da76",
+        "bottom": "44df2ce2ad2f3c62b8e603beff4304ebefc1e9276e0f66eb0b48f12bb877c2bc",
+        "rear": "fccde0cdfb2259aa35681069718db8849dab76d63b0b4b2e95add058531846fa"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:56:46.925745+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-riveted-carriage-metal-closed-doorway.png",
+          "sha256": "297423a276ce1a0cc102f9cdb528dc87ebdff3bd0444910f6ab76d1f2a27bb7d",
+          "rgba_sha256": "91d1f677836db037737b77bc441b995e8f37929a3123bcb34b0b409a411c8178"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:iron",
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

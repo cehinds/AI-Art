@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-riveted-carriage-metal-inner-corner",
+      "source_sha256": "4ecde8130867ccf47ca07e4f098bbfd516ed348e740b366a2b7cd877bebcf4db",
+      "primary_source": {
+        "asset_id": "iron-trains-riveted-carriage-metal-inner-corner",
+        "path": "iron-trains/components/iron-trains-riveted-carriage-metal-inner-corner.png",
+        "sha256": "4ecde8130867ccf47ca07e4f098bbfd516ed348e740b366a2b7cd877bebcf4db",
+        "rgba_sha256": "719ec8a0d320f689c21bf0d9c704179989d524a23f72d680c6bb5760cd895361"
+      },
+      "image_hashes": {
+        "front": "a14b69c5614afe332bea29ee174218154386f00289ff8df93e5ae03d22b3d1d5",
+        "top": "8f7fe524d9f3571f1c043b20ceedad5a97d8d2e8462eb8141ddfd2d4a3e955f7",
+        "right": "113109fab88c812b5d3bec6a2e46e0c520ab504e51c9af4524651a4cc60531cd",
+        "left": "d31f6fd1ce6660d56008c92e8aeb577a26f873833df7dc3c5fe4f15816610396",
+        "bottom": "5ef4b63fdacdb4df6e7b5b5c0cefe71480fdf7a859d692ac6c5cfee7fecea361",
+        "rear": "27f811207f2f49a42786b8f43e889a0d12b776a49e3a2a762c21f4547d1a705d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:38:01.506614+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-riveted-carriage-metal-inner-corner.png",
+          "sha256": "4ecde8130867ccf47ca07e4f098bbfd516ed348e740b366a2b7cd877bebcf4db",
+          "rgba_sha256": "719ec8a0d320f689c21bf0d9c704179989d524a23f72d680c6bb5760cd895361"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

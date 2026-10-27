@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-cracked-mid-century-street-pavement-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-cracked-mid-century-street-pavement-floor",
+      "source_sha256": "a16ce618641b41fba5102bb71cb46314ec2bed9ab4a1c0b3da06025d7b428df0",
+      "primary_source": {
+        "asset_id": "hunting-zockau-cracked-mid-century-street-pavement-floor",
+        "path": "hunting-zockau/components/hunting-zockau-cracked-mid-century-street-pavement-floor.png",
+        "sha256": "a16ce618641b41fba5102bb71cb46314ec2bed9ab4a1c0b3da06025d7b428df0",
+        "rgba_sha256": "e6b9ddc84238d8489c5bb9176a7d8e724e7171eece606fdd0ef52e586ba3bcf6"
+      },
+      "image_hashes": {
+        "front": "aaa12d4f648cb53cacd9e4c19a5ede16f954c916e37b5eae4571415f413fc760",
+        "top": "0b75bb8fb1ce9ea8db05cf8bd2e9f8cadf5d92708894641d7f99b15ca67ab851",
+        "right": "8790cb3ef59b1fa5ba82a33d30949a9cc0aaac2c575c5faa75eaeda0b700759e",
+        "left": "f7341d5c35b52180ece321941b5d33dec11810d3611104dc2d646109d4044d76",
+        "bottom": "c5feb888ccbe506a12fa3a6e9d96cfdd727f7dd0d4961c8d49717afcac3b36b5",
+        "rear": "e3bed5000d4ab4b3e47e3f9ec47d7884c2538ea4b309b5b77ab6657e096b1e84"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-cracked-mid-century-street-pavement-floor.png",
+          "sha256": "a16ce618641b41fba5102bb71cb46314ec2bed9ab4a1c0b3da06025d7b428df0",
+          "rgba_sha256": "e6b9ddc84238d8489c5bb9176a7d8e724e7171eece606fdd0ef52e586ba3bcf6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

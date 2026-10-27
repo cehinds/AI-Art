@@ -3,10 +3,21 @@
   "name": "Compass Right",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "attachment-tagged",
+    "attachment:screen",
+    "compass",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "gear",
+    "generated",
+    "material:unspecified",
+    "orthographic",
+    "role:screen",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/gear-compass.right.png",
@@ -59,19 +70,50 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Locally isolated original generated view; neighboring alpha spill excluded, then all six views normalized with one shared isotropic scale.",
     "source_cell_calibration": [
       1.0,
-      1.0,
-      "isotropic"
+      1.0
     ]
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/gear-compass.right.json"
+  "metadata_path": "reusable/views-additional/images/gear-compass.right.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-compass"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "compass",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "gear",
+    "material:unspecified",
+    "role:screen",
+    "style:dungeon-after-dark",
+    "ui"
+  ]
 }

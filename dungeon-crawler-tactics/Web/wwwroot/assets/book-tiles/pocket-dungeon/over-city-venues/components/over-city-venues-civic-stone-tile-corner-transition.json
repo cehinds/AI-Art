@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-civic-stone-tile-corner-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-civic-stone-tile-corner-transition",
+      "source_sha256": "2e8bab4a505ac001dc8af0f4ee2c55446b2366757bba2f794b6e3deeea9a7a48",
+      "primary_source": {
+        "asset_id": "over-city-venues-civic-stone-tile-corner-transition",
+        "path": "over-city-venues/components/over-city-venues-civic-stone-tile-corner-transition.png",
+        "sha256": "2e8bab4a505ac001dc8af0f4ee2c55446b2366757bba2f794b6e3deeea9a7a48",
+        "rgba_sha256": "c39437899a5d44ad59b9d44c8ba193810d42710431cad7ea02ec3d112e3d0767"
+      },
+      "image_hashes": {
+        "front": "0412b92453ac5c97d1c9a7402066acd5bac13128d906c4e9d08c70b17f1100db",
+        "top": "0ee3f7267127384754ebb9eb345a158b0cd2a2c59701fc340ee4f2b19686987e",
+        "right": "919620e40306b778e880aa2720dce1753a829ea2bce52d5f9b781386b0757c09",
+        "left": "c1d317b777a68e23a09c9770a81cd4b17904efd84f8d297ca3663724d8a6fb12",
+        "bottom": "4baf0c6894cff5059bba923cabe5c8c6bd70bbe92b2cbbb7a09f302fb751fdee",
+        "rear": "6e8d80a6d32d7f0abfcaaf2b728fa2b9b881aa5eef38d21097636799f97fd761"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-civic-stone-tile-corner-transition.png",
+          "sha256": "2e8bab4a505ac001dc8af0f4ee2c55446b2366757bba2f794b6e3deeea9a7a48",
+          "rgba_sha256": "c39437899a5d44ad59b9d44c8ba193810d42710431cad7ea02ec3d112e3d0767"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

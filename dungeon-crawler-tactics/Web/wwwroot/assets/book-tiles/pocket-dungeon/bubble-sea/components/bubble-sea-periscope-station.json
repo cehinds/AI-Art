@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-sea",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-periscope-station.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-periscope-station.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-periscope-station",
+      "source_sha256": "6ada69c976fc99a3b830d2b0f2293f1f6437e1c0a13761279f57a3834e77d4bc",
+      "primary_source": {
+        "asset_id": "bubble-sea-periscope-station",
+        "path": "bubble-sea/components/bubble-sea-periscope-station.png",
+        "sha256": "6ada69c976fc99a3b830d2b0f2293f1f6437e1c0a13761279f57a3834e77d4bc",
+        "rgba_sha256": "99e7fddc3fd6e7a1dcdff2351d2ace5835111209b94f59b374002e683a6fb967"
+      },
+      "image_hashes": {
+        "front": "c9531bde2d94c6ca0bb8647df4b64d437fa5607741664bb08a860df25d6f60c2",
+        "top": "132ede4df70cab77c39c1967f678f1658758808b1724edf7d7207620abf9d386",
+        "right": "b70ed89814d606cf96c6a93f90796c6afa8da52444cd3345a57e24cff22ec503",
+        "left": "3851424dd6714c5f69df2c2b2ff3bdfb7ac5c8a6b994fee30f489f21bc2f7908",
+        "bottom": "6a87cb8570dfa8bd2c429a3daad7742d71af0a56e4e63112b677f4d894e67da7",
+        "rear": "b3f1b78c5aa71a2eacccab6a0c79cec762e6d6944f528d42a0737d36047d9e67"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:48:54.152985+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-periscope-station.png",
+          "sha256": "6ada69c976fc99a3b830d2b0f2293f1f6437e1c0a13761279f57a3834e77d4bc",
+          "rgba_sha256": "99e7fddc3fd6e7a1dcdff2351d2ace5835111209b94f59b374002e683a6fb967"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

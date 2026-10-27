@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-yellow-brick-road-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-yellow-brick-road-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-yellow-brick-road-edge-transition",
+      "source_sha256": "b4fab581303ec02ef5be2b956aa7a0f139a1b35a2aa84c56b80eea8a79cb656d",
+      "primary_source": {
+        "asset_id": "parade-horribles-yellow-brick-road-edge-transition",
+        "path": "parade-horribles/components/parade-horribles-yellow-brick-road-edge-transition.png",
+        "sha256": "b4fab581303ec02ef5be2b956aa7a0f139a1b35a2aa84c56b80eea8a79cb656d",
+        "rgba_sha256": "0969be14ec91fcb3ca1f84223516d7a86662dc148ef4b6ce0f569d418d4ebdd7"
+      },
+      "image_hashes": {
+        "front": "dfd32baa6fc29a8af998e4ca40c3ff305a9c6fd961725ba92aa244f9c56ab99b",
+        "top": "81121ce5061a1da0130cf55e7850af6d25adfaf1351e332a86e35c6bced32b50",
+        "right": "f01c014eef6aa7961f3f16c09d3c7c1ae0f2194547f8db52ee9ca948eb385713",
+        "left": "8779fe20728500ca012893b7cc07a00669c603ae4d8bd557b028e34ebd86bd4b",
+        "bottom": "de845d7af195908d12abc1a119a036a79de09da6bac4e0c89d013b44ce1c785b",
+        "rear": "e7b4832326cc34ab59106543df95eb13d8ad060e20b2dd360bca5621c4bfae6f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:27:49.354532+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-yellow-brick-road-edge-transition.png",
+          "sha256": "b4fab581303ec02ef5be2b956aa7a0f139a1b35a2aa84c56b80eea8a79cb656d",
+          "rgba_sha256": "0969be14ec91fcb3ca1f84223516d7a86662dc148ef4b6ce0f569d418d4ebdd7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "environment:dungeon",
     "environment:safe-room",
@@ -17,7 +18,8 @@
     "role:provider",
     "starter-dungeon",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-safe-room-threshold.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-safe-room-threshold.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-safe-room-threshold",
+      "source_sha256": "b42840e5659870ff77361700efce7daba708cb09c134a9d809f86a9efab765ce",
+      "primary_source": {
+        "asset_id": "starter-dungeon-safe-room-threshold",
+        "path": "starter-dungeon/components/starter-dungeon-safe-room-threshold.png",
+        "sha256": "b42840e5659870ff77361700efce7daba708cb09c134a9d809f86a9efab765ce",
+        "rgba_sha256": "857169ffa661a26680deac425ac26d669a7f76678578652079789d994778e2f9"
+      },
+      "image_hashes": {
+        "front": "84fece2d03ec61a2c051b128ebaefd190168292428b2038b90c960d66c6db83c",
+        "top": "904d2bd36e5bca441ccb4ad8ce88b76a757f8513319cc93228cdaf9c07aecee4",
+        "right": "5b25d80179291ea2b23e3c8dd319e98ab5a9285f8adb5b87940947d29fca560f",
+        "left": "9342483b4ca8ccb14c6dd38cde83b18014c785288e5c99f70319943f5b8b4853",
+        "bottom": "6366a525a48cda96faef585f7237da475187484868477c1100b09e393daeb560",
+        "rear": "37fb32b0c0ecbbd152e8d875b72190c84fee53acf24f48e03261ddc472c8078e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:40:56.569380+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-safe-room-threshold.png",
+          "sha256": "b42840e5659870ff77361700efce7daba708cb09c134a9d809f86a9efab765ce",
+          "rgba_sha256": "857169ffa661a26680deac425ac26d669a7f76678578652079789d994778e2f9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "environment:safe-room",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -167,15 +230,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

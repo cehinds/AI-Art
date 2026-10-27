@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-wet-cemetery-flagstone-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-wet-cemetery-flagstone-floor",
+      "source_sha256": "4aa0c1f4826771a66f3a56584520ce9c1e69fe3c3f9a245a5c2942fc543a5599",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-wet-cemetery-flagstone-floor",
+        "path": "ghost-cemetery/components/ghost-cemetery-wet-cemetery-flagstone-floor.png",
+        "sha256": "4aa0c1f4826771a66f3a56584520ce9c1e69fe3c3f9a245a5c2942fc543a5599",
+        "rgba_sha256": "33d9abb88a80f5bd8687a4c1ac20af2336a4d80e5873130917f1055a9cddc82c"
+      },
+      "image_hashes": {
+        "front": "767bbfc699e229ed397b22e692fe5c1390504057152d8dbab42412277d1d2c3d",
+        "top": "3b24ca6e435e8b2d421e4f8c0ce723b5f30b8489f87e4a712e635724fe3c7901",
+        "right": "45624b7b36d30d4393809b8e3d9513428a547b280276676c65805783a9639fbc",
+        "left": "1ddedb89a0113c2bd70bd0d3c110cbd739e5e2955d49c28b6b3f208a2a1d297c",
+        "bottom": "1525c249a63c7e83b086c771082820786d0c6fa37d8106d4744a906720d40edd",
+        "rear": "d7861ad3f47cbc5fcd248475d552e2005656ce11a47dc9348437605019cec7e9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-wet-cemetery-flagstone-floor.png",
+          "sha256": "4aa0c1f4826771a66f3a56584520ce9c1e69fe3c3f9a245a5c2942fc543a5599",
+          "rgba_sha256": "33d9abb88a80f5bd8687a4c1ac20af2336a4d80e5873130917f1055a9cddc82c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "east": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "south": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ],
+    "west": [
+      "join.floor",
+      "visual.ghost-cemetery"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

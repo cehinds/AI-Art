@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-colonial-street-paving-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-colonial-street-paving-stairs-up",
+      "source_sha256": "88b2780148fe8d5fb51b26a6c3955ddbd3b3511b210cbab3b8719de27e96fcbe",
+      "primary_source": {
+        "asset_id": "ghost-havana-colonial-street-paving-stairs-up",
+        "path": "ghost-havana/components/ghost-havana-colonial-street-paving-stairs-up.png",
+        "sha256": "88b2780148fe8d5fb51b26a6c3955ddbd3b3511b210cbab3b8719de27e96fcbe",
+        "rgba_sha256": "ee9f20c61a12c83103586e1cac7f6b32b5675b7d295ed7686d863e335e3cbf71"
+      },
+      "image_hashes": {
+        "front": "21e95f9d7ed0bb8254eda69b7a89881e8b58192b2f23ac9ee07c2a238a549918",
+        "top": "78e150ebd013fbfbf796791da103348cb11e5dd16af808f9f0007f59751f2755",
+        "right": "0902f53f3d4704a29ff9d0f47f268a72369194e808575052313d18e44c6476a6",
+        "left": "757cac60cdbb80547abb7d38e9709116fe7a243cd099cf75e4165e2c531cf6a5",
+        "bottom": "83ab6bca116c189113b204429a5f6cbe578e1325e774eb53132ef96c15b4ff3f",
+        "rear": "a9123278f378ac0d54ccdbdc4fe7a912c4f6635a230805893a99510507eb8052"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:56:20.265000+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-colonial-street-paving-stairs-up.png",
+          "sha256": "88b2780148fe8d5fb51b26a6c3955ddbd3b3511b210cbab3b8719de27e96fcbe",
+          "rgba_sha256": "ee9f20c61a12c83103586e1cac7f6b32b5675b7d295ed7686d863e335e3cbf71"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

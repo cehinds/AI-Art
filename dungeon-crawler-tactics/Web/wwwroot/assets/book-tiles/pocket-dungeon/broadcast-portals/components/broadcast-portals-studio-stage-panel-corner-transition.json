@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -173,7 +184,56 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-stage-panel-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-stage-panel-corner-transition",
+      "source_sha256": "a7e30b11b098e36eb3cfebea84aacbe9fd69c47a16810614cb6e7925698eb29c",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-stage-panel-corner-transition",
+        "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-corner-transition.png",
+        "sha256": "a7e30b11b098e36eb3cfebea84aacbe9fd69c47a16810614cb6e7925698eb29c",
+        "rgba_sha256": "3b20c0d412f20e4f30af523d7b6b45b7c91bf4251af14421892e27d8294b7934"
+      },
+      "image_hashes": {
+        "front": "4c373f26017fae114d6113ec633383a65c16b9ae54596db5ed340910cb979839",
+        "top": "1117b413c92c4ba819edebd83635962630be23b51d9d10429f1d9bf89c462016",
+        "right": "39296dd5272b9d3af4a733635ff97788e4a9bc07d07a379505961c2d99919f90",
+        "left": "42172c48134af771104cb8e9c095bc4b729e4c24ecae4e8999b05ebe65972057",
+        "bottom": "0bbe92073fae0d20753bbb3c5a1ae789d0fb7f2f1d239ed6f09e87cd26ac5ff4",
+        "rear": "95cc58297bc446df7d85f6c5677125082ae89a80bd36d463f9f68c30f844794a"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:54:30.418485+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-corner-transition.png",
+          "sha256": "a7e30b11b098e36eb3cfebea84aacbe9fd69c47a16810614cb6e7925698eb29c",
+          "rgba_sha256": "3b20c0d412f20e4f30af523d7b6b45b7c91bf4251af14421892e27d8294b7934"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

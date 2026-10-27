@@ -8,12 +8,12 @@
     "bench",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
+    "rear",
     "role:object",
     "scenario-props",
-    "style:gameplay",
-    "inferred-view",
-    "rear"
+    "style:gameplay"
   ],
   "object_id": "scenario-props--bench",
   "view": "rear",
@@ -62,5 +62,39 @@
   "geometry_qa": {
     "status": "pending-review",
     "notes": "Rear shaft continuity correction awaits independent canonical source-plus-six review."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "scenario-props--bench"
   }
 }

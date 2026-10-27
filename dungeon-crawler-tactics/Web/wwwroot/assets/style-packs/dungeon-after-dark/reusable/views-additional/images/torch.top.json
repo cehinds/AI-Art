@@ -3,10 +3,21 @@
   "name": "Wall lantern Top",
   "kind": "prop",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "attachment:wall",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "material:unspecified",
     "orthographic",
     "prop",
-    "generated"
+    "props",
+    "role:object",
+    "six-view",
+    "style:dungeon-after-dark",
+    "torch",
+    "world"
   ],
   "image": {
     "path": "reusable/views-additional/images/torch.top.png",
@@ -60,7 +71,8 @@
         256,
         256
       ],
-      "rotation_cw_degrees": 90
+      "rotation_cw_degrees": 90,
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective top projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels.",
@@ -73,5 +85,36 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/torch.top.json"
+  "metadata_path": "reusable/views-additional/images/torch.top.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:wall"
+      ],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-ad04455fcca4",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "torch"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:wall",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "props",
+    "role:object",
+    "style:dungeon-after-dark",
+    "torch",
+    "world"
+  ]
 }

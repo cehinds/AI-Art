@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "bubble-sea",
     "door",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-metal-hull-closed-doorway",
+      "source_sha256": "c5f956047d602b9126aa10b0df9a6214c3200ec681f51388a55aec4dbf2b143a",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-metal-hull-closed-doorway",
+        "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-closed-doorway.png",
+        "sha256": "c5f956047d602b9126aa10b0df9a6214c3200ec681f51388a55aec4dbf2b143a",
+        "rgba_sha256": "9eccbae7ae78e41a6c4e2318a23bdeb250f4b0348e0434804e469325b7875f0c"
+      },
+      "image_hashes": {
+        "front": "bf41a41117a4d7a92c19730310b6000cc57192c872744cfb76c4b92b5150846a",
+        "top": "adb0a6a52ce00c23f8c0a1e629a870a12d4d3525eed899ce082247d37b6761d2",
+        "right": "055f520ebd0c5d67cb35f4cf301dae851823fc76a494fbbcead89416878ae052",
+        "left": "fc32ea1276f87c4ff387176daca83b482000fc2883e4af7e96395134ceaa777a",
+        "bottom": "6288b5467fcd01c9a6a09260d5d3148c1ea6acfac6846fa2750288b24f000062",
+        "rear": "4f211d3446107b56385528170fb5a5b0eccdba6a88ee1bc4150bc4af28133359"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:36:05.094491+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-closed-doorway.png",
+          "sha256": "c5f956047d602b9126aa10b0df9a6214c3200ec681f51388a55aec4dbf2b143a",
+          "rgba_sha256": "9eccbae7ae78e41a6c4e2318a23bdeb250f4b0348e0434804e469325b7875f0c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

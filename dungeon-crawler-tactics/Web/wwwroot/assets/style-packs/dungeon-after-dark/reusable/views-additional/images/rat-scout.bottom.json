@@ -3,10 +3,23 @@
   "name": "Rat crossbow scout Bottom",
   "kind": "actor",
   "tags": [
-    "six-view",
-    "orthographic",
     "actor",
-    "generated"
+    "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "generated",
+    "material:unspecified",
+    "orthographic",
+    "rat",
+    "role:object",
+    "scout",
+    "six-view",
+    "style:dungeon-after-dark"
   ],
   "image": {
     "path": "reusable/views-additional/images/rat-scout.bottom.png",
@@ -72,5 +85,47 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/rat-scout.bottom.json"
+  "metadata_path": "reusable/views-additional/images/rat-scout.bottom.json",
+  "attachment_generated_tags": [
+    "actors",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "material:unspecified",
+    "rat",
+    "role:object",
+    "scout",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "rat-scout"
+  }
 }

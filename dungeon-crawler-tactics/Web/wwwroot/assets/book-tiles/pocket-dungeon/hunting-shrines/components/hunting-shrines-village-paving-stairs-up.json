@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-paving-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-paving-stairs-up",
+      "source_sha256": "77c08ca6b5e5a15c920e8c27ae5c75c9536e4144670cd192f8007c94178bf6fc",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-paving-stairs-up",
+        "path": "hunting-shrines/components/hunting-shrines-village-paving-stairs-up.png",
+        "sha256": "77c08ca6b5e5a15c920e8c27ae5c75c9536e4144670cd192f8007c94178bf6fc",
+        "rgba_sha256": "110acab3d49eb2acc9fb65bf097a40fa979030354cecc2a730295995db53fa12"
+      },
+      "image_hashes": {
+        "front": "bc9c18d8e3d53e7aad5dee2710cbe52eafa0130953ccec52b3bd3d6fad0e720c",
+        "top": "9ad9792cc2eb96ec870683f82216373defee4eba4c15b3f1b4b35779bdd720bc",
+        "right": "d6f011377db620a0f8c3391f0668544a5b008d31b61df457d65aa8fcac51d8c8",
+        "left": "ee0565fe8e1f409729ea132b7980d9a6758115f731d28e735d7d11d498185f53",
+        "bottom": "72b3dbb12e31367afacca3fa368ac7f6b960c16bf70536853499d287d6be28bc",
+        "rear": "0c7d14235a41dbca0b8261a2d51c6a359cfa3a477b622ee260e9a9bbc63c5a5d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:56:35.911073+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-paving-stairs-up.png",
+          "sha256": "77c08ca6b5e5a15c920e8c27ae5c75c9536e4144670cd192f8007c94178bf6fc",
+          "rgba_sha256": "110acab3d49eb2acc9fb65bf097a40fa979030354cecc2a730295995db53fa12"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

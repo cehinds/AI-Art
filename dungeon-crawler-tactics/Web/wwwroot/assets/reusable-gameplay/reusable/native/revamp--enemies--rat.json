@@ -52,7 +52,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp--enemies--rat.front"
@@ -77,19 +77,41 @@
       "status": "inferred",
       "asset_id": "revamp--enemies--rat.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "pending-review",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp--enemies--rat",
+      "source_sha256": "c2bae4800a2af51ba49a31095ea5c98d54e47fef1a93244a98d2174d8514eb2c",
+      "primary_source": {
+        "asset_id": "revamp--enemies--rat",
+        "path": "reusable/native/revamp--enemies--rat.png",
+        "sha256": "c2bae4800a2af51ba49a31095ea5c98d54e47fef1a93244a98d2174d8514eb2c",
+        "rgba_sha256": "057427b4f1e23e4cd984dad689ab77c6a3064cecc8d4237a0085d5cdf79f1024"
+      },
+      "image_hashes": {
+        "front": "79dfc04809f61407134eb0c701370edfd9a2c5879b6d72367dc472ead0393598",
+        "top": "91f153e27450154bb716f224144787b9afdbddd4f0068b4d2c1498cdd8a81614",
+        "right": "9a4500e1a5ad9a46dc47e02205737568ab6e3ffd8cea1b5be949924c08b15750",
+        "left": "ad4611404807ade0e1d7ebdaaa714abcd6a03c185cd4f161bd4ebf6e34581729",
+        "bottom": "9ca48ab83b16e0fae26426494c1ba4f5f0f8cfc31000dc2a594416a40c50d670",
+        "rear": "37c82cea5cf8b8e0faa9063976eddf1f19be4ba13d35af6a6fbd095ed9721c17"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T12:12:41.883640+00:00",
+      "notes": [
+        "Current source-plus-six: TOP/BOTTOM now preserve pronounced fixed-side tail curvature and recognizable armored rat head/body instead of near-central tail. Below views show jaw/belly and pose-specific paw soles with source gold-trim armor retained; source idle/walk/recoil phases remain distinct. Other four previously accepted principal views unchanged; prior tail/axis contradiction resolved."
       ],
-      "notes": "Camera columns remapped to principal directions and hit FRONT corrected; all six directions require fresh independent review.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "ad100153d6f0d146713e59f9cd2b28229ee1b438e5847e572954c13534626bed",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp--enemies--rat.png",
+          "sha256": "c2bae4800a2af51ba49a31095ea5c98d54e47fef1a93244a98d2174d8514eb2c",
+          "rgba_sha256": "057427b4f1e23e4cd984dad689ab77c6a3064cecc8d4237a0085d5cdf79f1024"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "revamp--enemies--rat",

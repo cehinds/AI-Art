@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "existing",
     "expansion",
@@ -99,35 +100,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "mimic",
+      "source_sha256": "56d4095d0664a4d3e7ae4671f4fa261b5008c27575179078dab8ca381498bfe5",
+      "primary_source": {
+        "asset_id": "mimic",
+        "path": "components/mimic.png",
+        "sha256": "56d4095d0664a4d3e7ae4671f4fa261b5008c27575179078dab8ca381498bfe5",
+        "rgba_sha256": "814c3c85b77d9416cf4c33b2ecf73d3dcb1ea346081ec1868b8c47472fd189ba"
+      },
+      "image_hashes": {
+        "front": "76b663f80c67dcd134f535dcf917a90964fe43872522c6a872555a52784c5b8a",
+        "top": "00ac1170519b806556f1915c9fc25d73ffa6d3c3c1bdb3c7812d9fb4e843025d",
+        "right": "1c34e7fef7da3fc5df70292e83f4db1f9ed429a3df84a75fea437924c4890bf8",
+        "left": "40f9651d19208d49df676646ea3f0620533611b8ad7857dae4e560ef9d88be0d",
+        "bottom": "22f6f09d3816f6b10ba0da3e2744a0d55b34a99a9a551645bbfa21f37c38c4f2",
+        "rear": "29af486fe6788099cc4454938ba284b8d8ff65298c9fb11aa56688e7ad03798d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:11:32.687202+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/mimic.png",
+          "sha256": "56d4095d0664a4d3e7ae4671f4fa261b5008c27575179078dab8ca381498bfe5",
+          "rgba_sha256": "814c3c85b77d9416cf4c33b2ecf73d3dcb1ea346081ec1868b8c47472fd189ba"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -140,7 +177,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -155,7 +193,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

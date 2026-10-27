@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-stone-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-stone-closed-doorway",
+      "source_sha256": "dd962d0167f6579f5025a9a4e0f35bc11e935109a4f58d4adb1164cc22fb5931",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-stone-closed-doorway",
+        "path": "hunting-shrines/components/hunting-shrines-village-stone-closed-doorway.png",
+        "sha256": "dd962d0167f6579f5025a9a4e0f35bc11e935109a4f58d4adb1164cc22fb5931",
+        "rgba_sha256": "42b8fd322a8eef0c5e51ab607831c2e1a81c21688bfd6df53418fa4096853355"
+      },
+      "image_hashes": {
+        "front": "cfc798b299be412da9eddc6e330fc1243463e0c09a67426d1aa47cdb0b3eaf2c",
+        "top": "4de8dec7dee7040ef9178ef81a879957f25c0234c651e6622870d2ad01c965df",
+        "right": "537eac6f03c2f602f25566879be3f96b025c0c015eab24bfbc11db59f08a02c4",
+        "left": "be46ecb06fde651ffade08efcc050fdd83ab2a9f2b5acd3f9f415de306b7b871",
+        "bottom": "7ce2ba0be78c86af0e7dbdf188098d53287c915dd96b9d03fc29710e4edb3686",
+        "rear": "10520728fb6bb7477d710d2a0d13d7487e229724dc026814259dfcf3ea769ea4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:45:35.321374+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-stone-closed-doorway.png",
+          "sha256": "dd962d0167f6579f5025a9a4e0f35bc11e935109a4f58d4adb1164cc22fb5931",
+          "rgba_sha256": "42b8fd322a8eef0c5e51ab607831c2e1a81c21688bfd6df53418fa4096853355"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

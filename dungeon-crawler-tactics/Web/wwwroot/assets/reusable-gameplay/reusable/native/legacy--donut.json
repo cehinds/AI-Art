@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--donut.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--donut.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--donut",
+      "source_sha256": "8aa4be47c9854d524152f538425fada3d9c5e08dbb363fa8f93372ab14b85cec",
+      "primary_source": {
+        "asset_id": "legacy--donut",
+        "path": "reusable/native/legacy--donut.png",
+        "sha256": "8aa4be47c9854d524152f538425fada3d9c5e08dbb363fa8f93372ab14b85cec",
+        "rgba_sha256": "64c907c42f7d56817068bf90bbd377f7886ec379443473bb54e846e6c66156c6"
+      },
+      "image_hashes": {
+        "front": "318025359c1e4512e5bf7ecb2c7b126476ad2edc120b259fb5d9050c5d1d48f1",
+        "top": "13ff2ed7fe67ea572686e15b603b02aac12bc8f085fb4a7e04939b896ace2b61",
+        "right": "d65f660fef01b1dd46b89be2942bc53f578d42a9868f3dbbd71ac26d1dcf09e8",
+        "left": "af6e440b4c805f688bd4f8057ff99075071f0fee49e3e3041b70797666ed5fb3",
+        "bottom": "035c651754c229b7fcb959b7d4d4682caa926084b3494531cf058b03991ebb98",
+        "rear": "4ef4885d82fe3ea80625cb19b6230127dd482a6e965434ca99c2070b4bbcd1d7"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:03:53.872861+00:00",
+      "notes": [
+        "Fresh corrected source+six: overhead crown rim/head footprint now physically plausible, lateral/rear pose and underside preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--donut.png",
+          "sha256": "8aa4be47c9854d524152f538425fada3d9c5e08dbb363fa8f93372ab14b85cec",
+          "rgba_sha256": "64c907c42f7d56817068bf90bbd377f7886ec379443473bb54e846e6c66156c6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

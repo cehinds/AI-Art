@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-reinforced-field-fortification-north-wall",
+      "source_sha256": "c8b6426137a5d300c9e9bcfb3138351d38e802b94174148bc2d416c61857e6cd",
+      "primary_source": {
+        "asset_id": "faction-battlefield-reinforced-field-fortification-north-wall",
+        "path": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-north-wall.png",
+        "sha256": "c8b6426137a5d300c9e9bcfb3138351d38e802b94174148bc2d416c61857e6cd",
+        "rgba_sha256": "58fe12ecbe99bc889b8a978a956dda6468b1df402ecf1bef06aa60cda10ba677"
+      },
+      "image_hashes": {
+        "front": "9e5d299b2187795e84182a373a206c0768095448fb3dd1bf9e4317a4a6ec4509",
+        "top": "0bd2b7ad67ea242f252065fd8a3e204fa69769e9f45a58d8c70c2a0c1d8f0c35",
+        "right": "a5f1826c01fd57e677d3437c82db2524c2d3a5d118ccc052c06e60200909f773",
+        "left": "f8d874bea5e1b9a57c5e4ad6b36f305384f6aee8e717066765a87d43c5c6e28e",
+        "bottom": "2e42dc0a45c3d1eeb0fe507a14beb9e64a472503de17b623e7333bd241cca5a0",
+        "rear": "d8cee6954ca6e2945394b77d1f4b1445ffcbcde8ed56d1c420030e35748bccb4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:20:10.586549+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-north-wall.png",
+          "sha256": "c8b6426137a5d300c9e9bcfb3138351d38e802b94174148bc2d416c61857e6cd",
+          "rgba_sha256": "58fe12ecbe99bc889b8a978a956dda6468b1df402ecf1bef06aa60cda10ba677"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

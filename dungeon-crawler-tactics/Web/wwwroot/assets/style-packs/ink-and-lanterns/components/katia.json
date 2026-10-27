@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "existing",
     "ink-and-lanterns",
@@ -107,11 +108,47 @@
     "rear": {
       "status": "inferred",
       "asset_id": "katia.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "katia",
+      "source_sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+      "primary_source": {
+        "asset_id": "katia",
+        "path": "components/katia.png",
+        "sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+        "rgba_sha256": "0afb64806c2acb3e2826870c2ec8146205832c2aafb2ce8327368ea1ccc5a09a"
+      },
+      "image_hashes": {
+        "front": "0a8760789c2f796e067d15fcacb851cd3b03d594de3c04db8810c214e5c8f767",
+        "top": "6eb66fe3c5cc4938ba90e87365708b3217ae6df6132209b683d44affbfc981fe",
+        "right": "9ce1b2bdf117febe9ad55a41fffb72ed21467d83b76e9afb93a55907da336e7e",
+        "left": "bf8adb3354131f631a2e09eec88b951dadcb89ee6f4d6577173d27678bf0e95d",
+        "bottom": "2ec207f45902f5a5c2f672db188f158cd2c589607171e29e5e3dd84ee6f557ed",
+        "rear": "f677fe3ed82a6ede75e07f51fec05806108841449d25ebf7f0af78db77bcc077"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:24:52.297692+00:00",
+      "notes": [
+        "Corrected current Katia has one complete body per view, stable neutral pose/costume, underside soles/belly clear."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/katia.png",
+          "sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+          "rgba_sha256": "0afb64806c2acb3e2826870c2ec8146205832c2aafb2ce8327368ea1ccc5a09a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -124,7 +161,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -139,7 +177,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

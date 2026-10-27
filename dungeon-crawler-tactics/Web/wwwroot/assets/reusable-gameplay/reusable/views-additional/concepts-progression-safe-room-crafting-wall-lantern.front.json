@@ -4,6 +4,7 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:wall",
     "baked-scene",
     "environment:safe-room",
     "fixture",
@@ -13,7 +14,7 @@
     "lantern",
     "material:gold",
     "native-source-crop",
-    "role:reconstruction",
+    "role:object",
     "style:gameplay",
     "wall-mounted"
   ],
@@ -76,7 +77,34 @@
         48
       ],
       "shared_scale": 0.29850746268656714,
-      "normalization": "largest alpha component at threshold16; uniform common Z scale; centered on common anchor"
+      "normalization": "largest alpha component at threshold16; uniform common Z scale; centered on common anchor",
+      "coordinate_format": "xywh"
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:wall",
+    "environment:safe-room",
+    "material:gold",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:wall"
+      ],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-ad04455fcca4",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concepts-progression-safe-room-crafting-wall-lantern"
   }
 }

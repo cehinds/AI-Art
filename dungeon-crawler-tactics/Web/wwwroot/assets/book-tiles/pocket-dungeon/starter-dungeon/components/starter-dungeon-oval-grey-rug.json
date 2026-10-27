@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-oval-grey-rug.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-oval-grey-rug.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-oval-grey-rug",
+      "source_sha256": "5ab34e5d3a5554be2b8fc386f3e134a0cf851866e5e70d5b0b194eee1a3708c4",
+      "primary_source": {
+        "asset_id": "starter-dungeon-oval-grey-rug",
+        "path": "starter-dungeon/components/starter-dungeon-oval-grey-rug.png",
+        "sha256": "5ab34e5d3a5554be2b8fc386f3e134a0cf851866e5e70d5b0b194eee1a3708c4",
+        "rgba_sha256": "251bc5fe4ddd6732d8af85ba3c3721e0fb1962ed2419db4a8db0e419b1223e90"
+      },
+      "image_hashes": {
+        "front": "9da6d258248530f9b07507929800dd6ac927a47657524d2b507af69c20621fe5",
+        "top": "ff967bf8cc74e8ec312d4f95de4a96ffae22419b6d5992cbb4312c17ea45246e",
+        "right": "3941284a19d875010a7d2daa356a1c6cfe0c38563b50ec557118158de0cd89f8",
+        "left": "4fdd2d5c75c62fae96aa6b5436f333fe946d243aa8ffac5372c93742decb1cd2",
+        "bottom": "d4e57a84807e57e13442f02ba7079cb555145827c61e04aa6c2386e215e8cd2b",
+        "rear": "83e4221cf471e9b27103c9483ee89119591543c06f342b9157a79f5795be1c7a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:13:56.684815+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-oval-grey-rug.png",
+          "sha256": "5ab34e5d3a5554be2b8fc386f3e134a0cf851866e5e70d5b0b194eee1a3708c4",
+          "rgba_sha256": "251bc5fe4ddd6732d8af85ba3c3721e0fb1962ed2419db4a8db0e419b1223e90"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

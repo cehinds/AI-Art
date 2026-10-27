@@ -4,17 +4,18 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "baked-scene",
     "environment:safe-room",
     "gameplay",
     "house-furnishing",
+    "inferred-view",
+    "left",
     "material:unspecified",
     "native-source-crop",
-    "role:reconstruction",
+    "role:object",
     "social",
-    "style:gameplay",
-    "inferred-view",
-    "left"
+    "style:gameplay"
   ],
   "object_id": "menu-concepts-safe-room-services--social-keyboard",
   "view": "left",
@@ -79,5 +80,39 @@
       "input_sha256": "b59b9e8f48dbf95442085c5f874a75461e038ad8b79d63fb3077ca037c2a95a1",
       "note": "Uniform side-profile calibration: keyboard Y-depth and profile thickness are both halved to match the plan depth and physical keybed thickness without anisotropic distortion."
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:safe-room",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "menu-concepts-safe-room-services--social-keyboard"
   }
 }

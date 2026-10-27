@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-glass",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-lightning-conductor-mast.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-lightning-conductor-mast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-lightning-conductor-mast",
+      "source_sha256": "77eab11aabb4596a586d3324aeabf6679d3cc60c0da160895ea43922ff964cb2",
+      "primary_source": {
+        "asset_id": "bubble-glass-lightning-conductor-mast",
+        "path": "bubble-glass/components/bubble-glass-lightning-conductor-mast.png",
+        "sha256": "77eab11aabb4596a586d3324aeabf6679d3cc60c0da160895ea43922ff964cb2",
+        "rgba_sha256": "40d34067504c39ae3e4fa55511d5d1167a202c546690d2e24beabf960efaf6db"
+      },
+      "image_hashes": {
+        "front": "01078ab898ed74bba0c79bb1cd93bea5b013ea10ad29d906fb51f803b71b5e46",
+        "top": "077a63c5070565c6a1fc8619ed7c3bf3c9b0f2fac02afdb6f772a09eb3ca94d1",
+        "right": "a162104dd0d39f78c70d303a7b71e9b9e59670a2f0305fdb92c5602863852896",
+        "left": "b75e47580e76ce8e1c55041aef0c35772537e961be40ec26ced28cfb903d30cc",
+        "bottom": "2389b2b1d7cdbebe4db49ad2f034b5c5ca22f4b03729c7bc9b458f1a29b40be7",
+        "rear": "03aacccb0c554738764158d87ac7de9f7f08a004bbe9a7817ee39cc3c565dcf8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:02:44.258265+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-lightning-conductor-mast.png",
+          "sha256": "77eab11aabb4596a586d3324aeabf6679d3cc60c0da160895ea43922ff964cb2",
+          "rgba_sha256": "40d34067504c39ae3e4fa55511d5d1167a202c546690d2e24beabf960efaf6db"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:glass",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

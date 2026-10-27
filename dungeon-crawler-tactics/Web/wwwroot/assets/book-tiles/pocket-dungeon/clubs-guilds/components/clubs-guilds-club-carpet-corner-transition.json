@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "clubs-guilds-club-carpet-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-club-carpet-corner-transition",
+      "source_sha256": "32ded1795993765997ed85790336ab1d562bf7fdcf29191a0536c71e4ae3cfe3",
+      "primary_source": {
+        "asset_id": "clubs-guilds-club-carpet-corner-transition",
+        "path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+        "sha256": "32ded1795993765997ed85790336ab1d562bf7fdcf29191a0536c71e4ae3cfe3",
+        "rgba_sha256": "8f0381b712dd9b00bce16cbbd984497eb8661f86f2a82799b5553b5d9b5dde61"
+      },
+      "image_hashes": {
+        "front": "936506228eaf96bdd0f53e6fbe08694e30d80335ebca0d9da44a2526fac2528e",
+        "top": "b27594e70c479b05936b300369ffdec21233552042c3bb9ac10fe6ba67c31509",
+        "right": "786d907c66588c1a0054e95f6429dbfe91dc5d0421122ba96f9b02336a9c9a97",
+        "left": "9571c303138d8820945bda8f99704a57b2d07278c1d54be6c6a4551af80b6c77",
+        "bottom": "ccd41b649e253d3ebb994cce7c4d3a8872ed8f7d5326a735ccd73d7bac2ff187",
+        "rear": "2122808ebf945babd803d1717df477e7ec3aa41bc08f28fe175a7ede7f2c5022"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:33:13.424059+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+          "sha256": "32ded1795993765997ed85790336ab1d562bf7fdcf29191a0536c71e4ae3cfe3",
+          "rgba_sha256": "8f0381b712dd9b00bce16cbbd984497eb8661f86f2a82799b5553b5d9b5dde61"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -16,7 +16,8 @@
     "role:provider",
     "safe-services",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "safe-services/components/safe-services-diner-checker-tile-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-diner-checker-tile-edge-transition",
+      "source_sha256": "ed2443fdf8ae328de5d9fda310ff7760ea9360ddbfc187758a4185f7862f0499",
+      "primary_source": {
+        "asset_id": "safe-services-diner-checker-tile-edge-transition",
+        "path": "safe-services/components/safe-services-diner-checker-tile-edge-transition.png",
+        "sha256": "ed2443fdf8ae328de5d9fda310ff7760ea9360ddbfc187758a4185f7862f0499",
+        "rgba_sha256": "14d1730121ab9299ac7686466ae0bf204c145859a7c57246b3f530360146a762"
+      },
+      "image_hashes": {
+        "front": "eda6bcdb5dc47b37fb955f3af14a654d93e38363b9947982cee2a4e014a33ef8",
+        "top": "b5e445d0b9477a7a8f85724dcea832b41edf006a1835ca7f3fc8c7d462a7fa3f",
+        "right": "8e3195d9b550197400f767b8255a694acfdbb7ccc6701ce943d49e346e173836",
+        "left": "e685a73f3783181002270929dd8d5071b0647ad2878e1891636be2dad56d1081",
+        "bottom": "085149311e4d204cdb9a36767b63238a1fce80c446c5d442c4b63597882cf806",
+        "rear": "9f2f5c37b9a60890b0b87f50726159f5073bee10882a6a019f20e9865df9e8af"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:23:52.042221+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-diner-checker-tile-edge-transition.png",
+          "sha256": "ed2443fdf8ae328de5d9fda310ff7760ea9360ddbfc187758a4185f7862f0499",
+          "rgba_sha256": "14d1730121ab9299ac7686466ae0bf204c145859a7c57246b3f530360146a762"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

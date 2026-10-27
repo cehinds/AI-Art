@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "great-race-transition",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-fractured-maze-slab.png",
@@ -138,6 +140,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -157,39 +169,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-fractured-maze-slab.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-fractured-maze-slab",
+      "source_sha256": "ca7ebd44154f439dc010e15d43bc31a87a11dca32493675d8fbf763243785046",
+      "primary_source": {
+        "asset_id": "great-race-transition-fractured-maze-slab",
+        "path": "great-race-transition/components/great-race-transition-fractured-maze-slab.png",
+        "sha256": "ca7ebd44154f439dc010e15d43bc31a87a11dca32493675d8fbf763243785046",
+        "rgba_sha256": "06c8777701d32644fc27888adadac100c93d553aede35138a3478e87384fe502"
+      },
+      "image_hashes": {
+        "front": "88d08a37b84d2eadef203f7de85d5efc0169c004513cbed2f4c9a52c54bb120e",
+        "top": "a6b51a97bf19e3808799bbfda2b9a243db5707dc3a9536b381f5b297e91d990c",
+        "right": "d578f48958db789e04c9ae0057147be0463a1c7dfba4c0e24473830f01be6153",
+        "left": "b6097030d6f0dea3e289e461c61c8e64b2bbeb6ec7a60cc991af13e449a247ba",
+        "bottom": "4c633de4f47f25e4745b8e6fa26c630f30a1b44ee5323a45096cc749259341ec",
+        "rear": "11955f9b5160fd50178cbee2e2446d054668c5d4cb7373ce89b7644b6542546f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T17:40:28.591965+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-fractured-maze-slab.png",
+          "sha256": "ca7ebd44154f439dc010e15d43bc31a87a11dca32493675d8fbf763243785046",
+          "rgba_sha256": "06c8777701d32644fc27888adadac100c93d553aede35138a3478e87384fe502"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -198,18 +261,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

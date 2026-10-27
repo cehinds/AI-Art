@@ -3,12 +3,22 @@
   "name": "Sarcophagus bottom",
   "kind": "sprite",
   "tags": [
-    "bubble-necropolis",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
     "bottom",
+    "bubble-necropolis",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/bubble-necropolis-sarcophagus.bottom.png",
@@ -37,7 +47,7 @@
     "generated_atlas_sha256": "ce8a92200fbb2dcd39e948d28507302e55922377e54b0ad2424871bd0d7317fd",
     "generation_request": "raw/candidates/sarcophagus-plan-axis-v1/bottom-v5-request.json",
     "generation_request_sha256": "4342b484a690d851a40b8225f308df2742284041e5348f1a747289f6c7b14519",
-    "prompt": "Edit this exact transparent pixel-art sarcophagus plan into its BOTTOM view. Preserve the outer silhouette, canvas placement, width, depth, corners, border thickness, and every gold/black perimeter pixel exactly; do not resize, stretch, rotate, crop, or change the footprint. Only replace the decorated central lid inset with a plain muted gray-brown stone underside panel, keeping the same inset outline and perspective-free flat XY plan. Remove the sun emblem and all lid symbols. This is the underside looking up along +Z, not a front fa\u00e7ade and not a 3D view. Keep transparent pixels transparent. Crisp matching pixel-art clusters. No words, shadows, objects, or guide marks.",
+    "prompt": "Edit this exact transparent pixel-art sarcophagus plan into its BOTTOM view. Preserve the outer silhouette, canvas placement, width, depth, corners, border thickness, and every gold/black perimeter pixel exactly; do not resize, stretch, rotate, crop, or change the footprint. Only replace the decorated central lid inset with a plain muted gray-brown stone underside panel, keeping the same inset outline and perspective-free flat XY plan. Remove the sun emblem and all lid symbols. This is the underside looking up along +Z, not a front façade and not a 3D view. Keep transparent pixels transparent. Crisp matching pixel-art clusters. No words, shadows, objects, or guide marks.",
     "candidate_recipe": "raw/candidates/sarcophagus-plan-axis-v1/bottom-v5-recipe.json",
     "candidate_recipe_sha256": "3b4b1a6ca0d21e1f1289ddbcd2979b5f733b44c4c24c963f5ec44049c92af5a4",
     "normalization": {
@@ -71,7 +81,7 @@
         182,
         110
       ],
-      "scale": "uniformly normalized to accepted TOP candidate plan width; aspect ratio preserved",
+      "scale": 0.1989071038251366,
       "resampling": "NEAREST",
       "canvas": [
         256,
@@ -93,6 +103,35 @@
         "left": "reusable/views-additional/raw/candidates/necropolis-doors-hatch-batch01/candidate-views/bubble-necropolis-sarcophagus.left.candidate.png",
         "bottom": "reusable/views-additional/raw/candidates/sarcophagus-plan-axis-v1/bubble-necropolis-sarcophagus.bottom.v5.candidate.png",
         "rear": "reusable/views-additional/raw/candidates/necropolis-doors-hatch-batch01/candidate-views/bubble-necropolis-sarcophagus.rear.candidate.png"
+      },
+      "scale_description": "uniformly normalized to accepted TOP candidate plan width; aspect ratio preserved",
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-sarcophagus-bottom-scale-evidence-20261027.json",
+        "recipe_sha256": "2797e0d6724f8d780f8c967296921042559ce075c36a38f098c328c2cc5212c4",
+        "object_id": "bubble-necropolis-sarcophagus",
+        "view": "bottom",
+        "source_path": "bubble-necropolis/components/bubble-necropolis-sarcophagus.png",
+        "source_sha256": "389c9143595c501a34630d2b3a725bd8dcc76995b39eb2d1ab37523b3d6713aa",
+        "atlas_path": "reusable/views-additional/raw/candidates/sarcophagus-plan-axis-v1/bottom-v5-raw-atlas.png",
+        "atlas_sha256": "ce8a92200fbb2dcd39e948d28507302e55922377e54b0ad2424871bd0d7317fd",
+        "active_output_sha256": "df8758151922b4d1548e34381d61d3cbdebc6c615eaf4c8b33cc5939de03ec0c",
+        "active_output_rgba_sha256": "9bc8a112ee9489797b993b164f1875015de62075a0b3ac4b762fb75cce0d1732",
+        "crop_bounds_xyxy": [
+          186,
+          688,
+          1101,
+          1240
+        ],
+        "resized_dimensions_px": [
+          182,
+          110
+        ],
+        "scale": 0.1989071038251366,
+        "projection_scale": 1.0,
+        "verification_basis": "producer-recorded-output"
       }
     },
     "reference_inputs": [
@@ -111,7 +150,15 @@
       128,
       248
     ],
-    "notes": "Root-accepted plain underside matched to the accepted horizontal TOP footprint; uniform scaling only, no anisotropic distortion."
+    "notes": "Root-accepted plain underside matched to the accepted horizontal TOP footprint; uniform scaling only, no anisotropic distortion.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book numeric scale evidence correction 2026-10-27",
+        "prior_field": "normalization.scale",
+        "prior_value": "uniformly normalized to accepted TOP candidate plan width; aspect ratio preserved",
+        "note": "The descriptive normalization statement is preserved here; its verified isotropic numeric scale is 182/915 and remains bound to the candidate recipe/output evidence."
+      }
+    ]
   },
   "geometry_qa": "pending-review",
   "provenance_history": [
@@ -163,5 +210,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-necropolis-sarcophagus"
+  }
 }

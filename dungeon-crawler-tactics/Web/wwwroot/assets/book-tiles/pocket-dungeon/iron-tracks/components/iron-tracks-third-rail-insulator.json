@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-tracks",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-third-rail-insulator.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-third-rail-insulator.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-third-rail-insulator",
+      "source_sha256": "39bfb2b160b832cb4f10ac3f37e6887a13e0fc099a1a6c9c730afe2a66037acb",
+      "primary_source": {
+        "asset_id": "iron-tracks-third-rail-insulator",
+        "path": "iron-tracks/components/iron-tracks-third-rail-insulator.png",
+        "sha256": "39bfb2b160b832cb4f10ac3f37e6887a13e0fc099a1a6c9c730afe2a66037acb",
+        "rgba_sha256": "f4ea6b840aff23dffa8678fe6af2948642c19c439d3e09a81a30dc8bf5e09ce7"
+      },
+      "image_hashes": {
+        "front": "f75581ed170882300d9dc2059d0ff930d3f21aa588956b7dbf6991bf23eb7e71",
+        "top": "cbc47626a44a908ffe13a58f7ed42e76cdd79889a989c8e47c0306bf2fb1bb8e",
+        "right": "efdea7787ebcadc829ab2e93e94ed702dd45123ac655bffbe8b37a3e89a18d3e",
+        "left": "2f9c07fa8e5159706a7af644b6e4fa62ff09c1a6a774bc2542af206827903238",
+        "bottom": "49fcfc5f77f2f0d8793743d5b644fc4828f290dea49a7a7fcda52818a3adf8f6",
+        "rear": "4a78a870cc9cbd4ac8fca2e7f6b9840b716ccc9cb9ca4c5aefb6a9dd50aaecca"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:51.521578+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-third-rail-insulator.png",
+          "sha256": "39bfb2b160b832cb4f10ac3f37e6887a13e0fc099a1a6c9c730afe2a66037acb",
+          "rgba_sha256": "f4ea6b840aff23dffa8678fe6af2948642c19c439d3e09a81a30dc8bf5e09ce7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

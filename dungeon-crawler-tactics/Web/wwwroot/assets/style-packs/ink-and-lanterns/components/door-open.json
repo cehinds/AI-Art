@@ -7,6 +7,7 @@
   "category": "structure",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "door",
     "environment:unspecified",
     "existing",
@@ -108,10 +109,46 @@
     "rear": {
       "status": "inferred",
       "asset_id": "door-open.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "door-open",
+      "source_sha256": "3ca6cf239788dada9f808129a7338dcd43863e6fcd365f3fc0e6da125b52f24e",
+      "primary_source": {
+        "asset_id": "door-open",
+        "path": "components/door-open.png",
+        "sha256": "3ca6cf239788dada9f808129a7338dcd43863e6fcd365f3fc0e6da125b52f24e",
+        "rgba_sha256": "4123f6181ade0e23bf2f7263c07411017235199c9e0b582e5269ece88be2cee6"
+      },
+      "image_hashes": {
+        "front": "30c43e29d613cc2e35714c3d3f5723aebb1bb23af01788af037d34370dda0f72",
+        "top": "d13a1578d19e7d8e394eeb48922ac1247d5f5f61263c320e74215694c4473b36",
+        "right": "d1fb43edf223d15f2abba63f065706ae2e69b8c313f01e26c0bb1825ba7e2e26",
+        "left": "ac50b11634d1838347e3a72a87376f24fd7d428a9d504d7af6fd92ca2f808f3d",
+        "bottom": "d98dcb8727e717af12d035e2d2e2855c7d9444e71126fc034d92456d5318d379",
+        "rear": "314ed2658d74685559d40785869d07cf31ad05362c6f4ca0f4118af86b736197"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:30:55.660499+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/door-open.png",
+          "sha256": "3ca6cf239788dada9f808129a7338dcd43863e6fcd365f3fc0e6da125b52f24e",
+          "rgba_sha256": "4123f6181ade0e23bf2f7263c07411017235199c9e0b582e5269ece88be2cee6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:unspecified",
     "material:unspecified",
     "role:provider",
@@ -124,15 +161,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

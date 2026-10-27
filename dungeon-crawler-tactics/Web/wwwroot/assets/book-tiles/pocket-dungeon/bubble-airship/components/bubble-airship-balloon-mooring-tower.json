@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-airship",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-balloon-mooring-tower.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-balloon-mooring-tower.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-balloon-mooring-tower",
+      "source_sha256": "5e0c4fb15be1dc8efa183de45e93ea691ca0da8208947c026e91bf6be1477c9a",
+      "primary_source": {
+        "asset_id": "bubble-airship-balloon-mooring-tower",
+        "path": "bubble-airship/components/bubble-airship-balloon-mooring-tower.png",
+        "sha256": "5e0c4fb15be1dc8efa183de45e93ea691ca0da8208947c026e91bf6be1477c9a",
+        "rgba_sha256": "a680d9f21e2416ec4d996284777506215283d0cd887b08bb8c3f70def1ae11c3"
+      },
+      "image_hashes": {
+        "front": "d3b0ba37b4def03c8cc7324d871ac68379e14613ea54b23d3b6686fd602f8cf4",
+        "top": "fd23520322f83747318983fb3a4522f476e6a59857b9a4dd36b2405ece818955",
+        "right": "163ed4c2549bbd2b8add9180649fb336272d5c2b8337e27118ede528fe4b59c3",
+        "left": "286a1fd1c6b2350cad7ac204aab76357cdb1a191cc07420af5374894a6c9ccc8",
+        "bottom": "3e309a0169e645c3d03327bbe5fa34be15f62f7cda9751e055b943970afe75c7",
+        "rear": "7418c07f806e1d46d704573d60c53b9419bd39bd17300f4859077f44fd39c8d6"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:55:40.596210+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-balloon-mooring-tower.png",
+          "sha256": "5e0c4fb15be1dc8efa183de45e93ea691ca0da8208947c026e91bf6be1477c9a",
+          "rgba_sha256": "a680d9f21e2416ec4d996284777506215283d0cd887b08bb8c3f70def1ae11c3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

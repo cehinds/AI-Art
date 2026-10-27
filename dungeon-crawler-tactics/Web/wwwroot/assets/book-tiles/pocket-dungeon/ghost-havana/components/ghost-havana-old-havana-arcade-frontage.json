@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-havana",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-old-havana-arcade-frontage.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-old-havana-arcade-frontage.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-old-havana-arcade-frontage",
+      "source_sha256": "b163d112cf5b82f3219b5360f6d5690fa0c2c21945c17d4e163a9828e5536626",
+      "primary_source": {
+        "asset_id": "ghost-havana-old-havana-arcade-frontage",
+        "path": "ghost-havana/components/ghost-havana-old-havana-arcade-frontage.png",
+        "sha256": "b163d112cf5b82f3219b5360f6d5690fa0c2c21945c17d4e163a9828e5536626",
+        "rgba_sha256": "fda7c7263ed8960052a0cee98582c028856e7ccd7b3abbbc9031b175ed65603a"
+      },
+      "image_hashes": {
+        "front": "67b80a73672d4931c1186c9f78fb66cff4fdbb6933c8b38bf36e53042d93f016",
+        "top": "df26387804635c4642dbe106307baf3cdb37e57b406e44eb1c0c7e0aac1a5f90",
+        "right": "ee65d7a08c3477976c152bb7d47119c6dafc8a1f4211603b4bbdb2008eec632a",
+        "left": "f6b1e94457190909835d936df19178a297041735023afdfcced7aebcd510cc4e",
+        "bottom": "7468e3b7ee6c29602c9e64319509a2d8599faacc224fcd9d994b9d0356324831",
+        "rear": "20d58c9cdb8d041440e0380c08bf5ea1d3531f94ec63430a79cc7c2a7654150d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T18:18:14.253500+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-old-havana-arcade-frontage.png",
+          "sha256": "b163d112cf5b82f3219b5360f6d5690fa0c2c21945c17d4e163a9828e5536626",
+          "rgba_sha256": "fda7c7263ed8960052a0cee98582c028856e7ccd7b3abbbc9031b175ed65603a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

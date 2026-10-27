@@ -3,10 +3,21 @@
   "name": "Bedroll Bottom",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "attachment-tagged",
+    "attachment:screen",
+    "bedroll",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "gear",
+    "generated",
+    "material:unspecified",
+    "orthographic",
+    "role:screen",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/gear-bedroll.bottom.png",
@@ -61,7 +72,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective bottom projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels.",
@@ -74,5 +86,36 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/gear-bedroll.bottom.json"
+  "metadata_path": "reusable/views-additional/images/gear-bedroll.bottom.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "gear-bedroll"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:screen",
+    "bedroll",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "gear",
+    "material:unspecified",
+    "role:screen",
+    "style:dungeon-after-dark",
+    "ui"
+  ]
 }

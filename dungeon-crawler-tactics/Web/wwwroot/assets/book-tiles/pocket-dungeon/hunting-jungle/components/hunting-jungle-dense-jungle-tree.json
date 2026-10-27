@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-jungle",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-dense-jungle-tree.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dense-jungle-tree.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-dense-jungle-tree",
+      "source_sha256": "27f5d9bdc70bddcf65e7fd41f216025f227a06cf44bcf1aa981e588cf727153e",
+      "primary_source": {
+        "asset_id": "hunting-jungle-dense-jungle-tree",
+        "path": "hunting-jungle/components/hunting-jungle-dense-jungle-tree.png",
+        "sha256": "27f5d9bdc70bddcf65e7fd41f216025f227a06cf44bcf1aa981e588cf727153e",
+        "rgba_sha256": "d55388dbabadd35c3b48ec3920f6d8d481eda0271e0d27da8edb33719661f52d"
+      },
+      "image_hashes": {
+        "front": "598090ec6dba08974e0545d557c9c49f58c473b8bae71882cab9bf865a221348",
+        "top": "5e20d9040f152904c99462ee2d79d5e7c37b2659465dc2ebd69d1cba3f731850",
+        "right": "8891eb49f46d0eedadea9078921cec0aa122c274cb2d8dcaf9363d3b745f4580",
+        "left": "93b89d4acdce08e62f238df0eaf426acc7d14a72271db74c3f00b3c85e5c5649",
+        "bottom": "34d3e817dbf56b240df725bc8def35f8b5a0f91a08ff1430a6cf8b2b458b2cad",
+        "rear": "02eedc6504ca597e60db7491324510073061412937ec136e99c8e3b7376a0377"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:06:36.522488+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-dense-jungle-tree.png",
+          "sha256": "27f5d9bdc70bddcf65e7fd41f216025f227a06cf44bcf1aa981e588cf727153e",
+          "rgba_sha256": "d55388dbabadd35c3b48ec3920f6d8d481eda0271e0d27da8edb33719661f52d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

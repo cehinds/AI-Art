@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city/components/over-city-ruined-town-house.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-ruined-town-house.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-ruined-town-house",
+      "source_sha256": "bdd58296b2bc4ecc10d0b947bad82e87db447a00349333450e82048e48871f3e",
+      "primary_source": {
+        "asset_id": "over-city-ruined-town-house",
+        "path": "over-city/components/over-city-ruined-town-house.png",
+        "sha256": "bdd58296b2bc4ecc10d0b947bad82e87db447a00349333450e82048e48871f3e",
+        "rgba_sha256": "e468a952753cd76f2cd306f12219e2d5455f0dc7c85e38899afdd8dbb5f47322"
+      },
+      "image_hashes": {
+        "front": "0199e49250cf7a7c46bb45122bc672149d5857620f2f3f1915c04fea6ea5e4dd",
+        "top": "20cfca2604383dcc669909dd23b6441a07004b1f1231e42479964882d5c74755",
+        "right": "4502ea5d0ff0b3563e81f2d365486e69e836d8526d36e5523e9772954301d779",
+        "left": "fe045e48017bd59d78a048745a6efbf9bc86bff2a7a629d5a545bfee777eee55",
+        "bottom": "b376d2abd3218ebafd7dad6ad00ab4150db472e6c58bedf2146faf7c690c7682",
+        "rear": "5226dbe53661d1b5638f360509e9dbe2ccce92dbef312e4cd86a97f21c0532cf"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:58:09.971668+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-ruined-town-house.png",
+          "sha256": "bdd58296b2bc4ecc10d0b947bad82e87db447a00349333450e82048e48871f3e",
+          "rgba_sha256": "e468a952753cd76f2cd306f12219e2d5455f0dc7c85e38899afdd8dbb5f47322"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

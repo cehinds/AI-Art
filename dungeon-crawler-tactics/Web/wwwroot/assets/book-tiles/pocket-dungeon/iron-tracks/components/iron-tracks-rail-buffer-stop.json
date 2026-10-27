@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-tracks",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-buffer-stop.png",
@@ -118,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -137,39 +149,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-buffer-stop.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-buffer-stop",
+      "source_sha256": "f19ac86eb12b87eb7beaf9ff6001cd933600f4f889946748192b4eb6c911038b",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-buffer-stop",
+        "path": "iron-tracks/components/iron-tracks-rail-buffer-stop.png",
+        "sha256": "f19ac86eb12b87eb7beaf9ff6001cd933600f4f889946748192b4eb6c911038b",
+        "rgba_sha256": "fcccb01be105e202766b04302a21a9ea07e649c10ddb5e1fa28cdfaa655da8d1"
+      },
+      "image_hashes": {
+        "front": "effac1873ec814df3d4eebbef2f7c3db48a902ff5abf9c040377b2abeb261032",
+        "top": "097b12c88a6ce370de01ad6c3bc546f1986ebb2027e7e719aea2d1bb27a03b12",
+        "right": "75bdd1aa7b13938d31cda70c9c223c5fd24236c38d6461bd259f5720e1e87ed8",
+        "left": "70ccbf09dcbab879d5c738ab8f1b38f55d7cdd545ce7e7615d40da95ddc3fa6e",
+        "bottom": "b65bbe009f4d8ce9b383ae3d2f1c13683f916511f83a3ae1f18317a2613e230b",
+        "rear": "e5e0fb036d2935e2d888184cb532da15f32e21641da3dda17eb2f64dfc6fe4a6"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T19:42:18.507216+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-buffer-stop.png",
+          "sha256": "f19ac86eb12b87eb7beaf9ff6001cd933600f4f889946748192b4eb6c911038b",
+          "rgba_sha256": "fcccb01be105e202766b04302a21a9ea07e649c10ddb5e1fa28cdfaa655da8d1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,18 +241,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

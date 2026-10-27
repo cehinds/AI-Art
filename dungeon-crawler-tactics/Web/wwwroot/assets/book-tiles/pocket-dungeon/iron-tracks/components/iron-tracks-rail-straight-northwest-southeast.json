@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-straight-northwest-southeast.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-straight-northwest-southeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-straight-northwest-southeast",
+      "source_sha256": "9f18592312c5f0b7abbdbcc0e41019ec653319e948710c2ed146a89b56fc6887",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-straight-northwest-southeast",
+        "path": "iron-tracks/components/iron-tracks-rail-straight-northwest-southeast.png",
+        "sha256": "9f18592312c5f0b7abbdbcc0e41019ec653319e948710c2ed146a89b56fc6887",
+        "rgba_sha256": "6e9981ba80396a7109c39bcde95dfcfc4c7db9f3df63996cbfeb85c44ccf690a"
+      },
+      "image_hashes": {
+        "front": "f5b38ce75c5d72e17a15aa7e9893c1a21593a1a2c0ec3429d40c37bba7bec2fb",
+        "top": "d770268e1af279414553013e868965494865ba8385e3ad9fc765187cd43435c2",
+        "right": "abc0bf38252283ff14dad2f2c3e7f5484d1d6f76dabe2cb45532a5649c6584c1",
+        "left": "80bc783c572f952560686b9f1459385c73f76feab956e9322b08bb98d42af469",
+        "bottom": "3f66af41ed8ce94611cfa61a6ce32735914337f66af6434d8cbcb08b395f48b5",
+        "rear": "3f1f4dfb2324466cff801b0e545542367ef3caff242939952c7ba9a4b4178913"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:19:20.005118+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-straight-northwest-southeast.png",
+          "sha256": "9f18592312c5f0b7abbdbcc0e41019ec653319e948710c2ed146a89b56fc6887",
+          "rgba_sha256": "6e9981ba80396a7109c39bcde95dfcfc4c7db9f3df63996cbfeb85c44ccf690a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-tracks"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

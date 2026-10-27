@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "existing",
     "expansion",
@@ -100,35 +101,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-scout.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "rat-scout",
+      "source_sha256": "b228030dc508beee624911b6e24857f77967afc83a9e6f9cb151444c82a3c05c",
+      "primary_source": {
+        "asset_id": "rat-scout",
+        "path": "components/rat-scout.png",
+        "sha256": "b228030dc508beee624911b6e24857f77967afc83a9e6f9cb151444c82a3c05c",
+        "rgba_sha256": "7332d89efef18d2534af9c5b04979e12ac358b997282b9969d4651f6246b85bb"
+      },
+      "image_hashes": {
+        "front": "5536723abbfe34f54ba6b7af1c4269fa7c27f8bc84b0d1769ba7780e04b788e2",
+        "top": "c626646c7bce378248f922827a3f179030729424b4575ebac8d0ac335e81efa1",
+        "right": "85c98409800ae75dcc161e81b4fbbdf38f266e0382b6922fa31dc36d60b1136a",
+        "left": "c9cd6d79a9950e24bec4a4074fb8e37fc0a8cad7529e9dc7ae6d41e725433aee",
+        "bottom": "b44cfa6c636a5d14dee2dfad58d2db622964955ee8374b6a03c931e31ffa747f",
+        "rear": "f78b412695efbbae36801f386c752fc4ce9f6d97dc928ea97ae41583815fcff5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/rat-scout.png",
+          "sha256": "b228030dc508beee624911b6e24857f77967afc83a9e6f9cb151444c82a3c05c",
+          "rgba_sha256": "7332d89efef18d2534af9c5b04979e12ac358b997282b9969d4651f6246b85bb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -141,7 +178,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -156,7 +194,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

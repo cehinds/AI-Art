@@ -1,0 +1,135 @@
+{
+  "id": "forest-berry-bush.bottom",
+  "name": "Berry bush bottom",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "berry",
+    "bottom",
+    "bush",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "forest",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/forest-berry-bush.bottom.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "484c0214b0cc31e2a213aed746826bfeadd971de4f4b81a6deff49af23e1cb10",
+    "rgba_sha256": "5c7732377738d2f4246d919110d625d59279f8e977ae106769d9601bcfc8fc85"
+  },
+  "object_id": "forest-berry-bush",
+  "view": "bottom",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/forest-berry-bush.png",
+    "source_image_sha256": "20b52d1b3b09128f7b29d8ecf9b03c9e4dca795b6aae92cc6e279acdd38c77e0",
+    "referenced_source_images": [
+      {
+        "path": "components/forest-berry-bush.png",
+        "sha256": "20b52d1b3b09128f7b29d8ecf9b03c9e4dca795b6aae92cc6e279acdd38c77e0"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/forest-batch02.png",
+    "generated_atlas_sha256": "343080ad1c3970a00c92404dd01b36bace998361696e59c1bf18ab707fd821ca",
+    "crop_bounds_px": {
+      "logical_cell": [
+        1183,
+        296,
+        1478,
+        591
+      ],
+      "complete_component_bounds_atlas": [
+        1182,
+        352,
+        1460,
+        561
+      ],
+      "component_labels": [
+        {
+          "label": 16,
+          "pixels": 44046,
+          "bounds_atlas": [
+            1182,
+            352,
+            1460,
+            561
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.7913669064748201,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/forest-berry-bush.bottom.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "berry",
+    "bush",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "material:unspecified",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-berry-bush"
+  }
+}

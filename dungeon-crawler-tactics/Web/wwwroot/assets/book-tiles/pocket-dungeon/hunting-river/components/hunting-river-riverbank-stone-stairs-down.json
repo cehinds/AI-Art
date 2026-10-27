@@ -11,14 +11,14 @@
     "attachment:floor",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:stone",
     "pocket-dungeon",
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-riverbank-stone-stairs-down.png",
@@ -108,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,41 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-stone-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-riverbank-stone-stairs-down",
+      "source_sha256": "1860f85a4161703816ca14414b327c1ef1e844b0f80cf8fd815b7cf91a0221a9",
+      "primary_source": {
+        "asset_id": "hunting-river-riverbank-stone-stairs-down",
+        "path": "hunting-river/components/hunting-river-riverbank-stone-stairs-down.png",
+        "sha256": "1860f85a4161703816ca14414b327c1ef1e844b0f80cf8fd815b7cf91a0221a9",
+        "rgba_sha256": "390469c93fc80513e91116f45623596c5c9d63a5672e5201691a10c48bae9485"
+      },
+      "image_hashes": {
+        "front": "58972bec676b46a87aa71b8f781144648760fbf5bbef8acee9299536402c55a0",
+        "top": "3deb96cf131a955bfadd29335dd46720345b834ea3ddc4fb663282cf2af2c002",
+        "right": "872d04d7fa959536a1a9f37eaec8a5da046735d0948b6d52e637e7fbf12ca9fc",
+        "left": "9906c9d0a1db69db0ae518373a97a358246d6f2b77232903cc9b6f584b118e74",
+        "bottom": "7e9111bd6a5ef03ac6005c7ea5ad650459cc1964fc02a02495b72a26dc991aca",
+        "rear": "286d1312f4640f1a07f6b08a1181a2ff1d76bcdfba7e86790cb3b550f0994d74"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:43:29.533825+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-riverbank-stone-stairs-down.png",
+          "sha256": "1860f85a4161703816ca14414b327c1ef1e844b0f80cf8fd815b7cf91a0221a9",
+          "rgba_sha256": "390469c93fc80513e91116f45623596c5c9d63a5672e5201691a10c48bae9485"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

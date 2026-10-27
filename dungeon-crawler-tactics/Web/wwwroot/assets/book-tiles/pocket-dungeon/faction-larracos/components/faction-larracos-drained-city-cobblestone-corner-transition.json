@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-corner-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-drained-city-cobblestone-corner-transition",
+      "source_sha256": "777cd5aea25500f1cfc06101837285cd9ee065d298aa418136a36872f7feb5d6",
+      "primary_source": {
+        "asset_id": "faction-larracos-drained-city-cobblestone-corner-transition",
+        "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-corner-transition.png",
+        "sha256": "777cd5aea25500f1cfc06101837285cd9ee065d298aa418136a36872f7feb5d6",
+        "rgba_sha256": "6b04b57a922db0a787f811e90b6e1ea383fb2d10521d02513d7e8c0c4e31957f"
+      },
+      "image_hashes": {
+        "front": "ede39428907b1a8e823489a14eb67561235bd0e4da97ceb6c164cc023f2f3961",
+        "top": "e69c06af31d3ea737d444b7089fbcfe3e9e2357c67790a9394d383d0b4e63e69",
+        "right": "3ec4606f03921bbcca9c3ca4648f9e5dcef4fb06c0b4d5954d02b19a36de50be",
+        "left": "81ac01aac51dfd7ab76ab15841fbb93ef4256fc2c1d4679f47dce6c845dc9582",
+        "bottom": "9c72ac1042b7923cb3c74d502442aa8e09aeec020be143fc6e324a706630dc57",
+        "rear": "f4aa5ca8156c653e1e964fb0e86bfe81ba6e61d55f86a43314a348225bebd3b1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:55:57.227213+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-corner-transition.png",
+          "sha256": "777cd5aea25500f1cfc06101837285cd9ee065d298aa418136a36872f7feb5d6",
+          "rgba_sha256": "6b04b57a922db0a787f811e90b6e1ea383fb2d10521d02513d7e8c0c4e31957f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

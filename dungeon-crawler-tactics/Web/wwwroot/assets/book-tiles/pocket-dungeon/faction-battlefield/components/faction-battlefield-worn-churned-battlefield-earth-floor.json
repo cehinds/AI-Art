@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-worn-churned-battlefield-earth-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-worn-churned-battlefield-earth-floor",
+      "source_sha256": "6cac6e197e30141a2e47978e3e5ee74a42d11d9a59c10e5053743230b776d7ab",
+      "primary_source": {
+        "asset_id": "faction-battlefield-worn-churned-battlefield-earth-floor",
+        "path": "faction-battlefield/components/faction-battlefield-worn-churned-battlefield-earth-floor.png",
+        "sha256": "6cac6e197e30141a2e47978e3e5ee74a42d11d9a59c10e5053743230b776d7ab",
+        "rgba_sha256": "a2c1884184b5559e197058e2f21dad8c770a485e3a7343e3908a0d37dfd3638d"
+      },
+      "image_hashes": {
+        "front": "a6ec3a5c0f0632acae5721f086681af4c6472bac327826fdb002a4bd7b98ac35",
+        "top": "9f3ff233b2229205babf18119ea11719050d8f425272a1a27630f92cf488a503",
+        "right": "1a56ed3c830b9d80879b2d10153efbb0bb2858e22b7962ff77402e776fbf5428",
+        "left": "8bdb3b3773638022b3fd9e4ebee8285d213357f117edf57210894cc1d96d96b2",
+        "bottom": "3909ec910afa3437a0a0e3d295ff646940459af8fcc6f664e78cd4e2183cf9c4",
+        "rear": "98ab77224a3008308aad64a806aa9e90c145e92ec573fed98450a967d3ffa7b9"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.916040+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-worn-churned-battlefield-earth-floor.png",
+          "sha256": "6cac6e197e30141a2e47978e3e5ee74a42d11d9a59c10e5053743230b776d7ab",
+          "rgba_sha256": "a2c1884184b5559e197058e2f21dad8c770a485e3a7343e3908a0d37dfd3638d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

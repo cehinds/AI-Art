@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-civic-stone-tile-stairs-up.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-civic-stone-tile-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-civic-stone-tile-stairs-up",
+      "source_sha256": "d4faef3efd43e5a4e79d6509162b2ac4b97b03dea1cc3488f24f5df246a3fd89",
+      "primary_source": {
+        "asset_id": "over-city-venues-civic-stone-tile-stairs-up",
+        "path": "over-city-venues/components/over-city-venues-civic-stone-tile-stairs-up.png",
+        "sha256": "d4faef3efd43e5a4e79d6509162b2ac4b97b03dea1cc3488f24f5df246a3fd89",
+        "rgba_sha256": "b9cc54509950976926d637b26da72ee6f371cf38627f9c13f5d3005824e605af"
+      },
+      "image_hashes": {
+        "front": "338c5d5cc4c22e48336d9a76df625cf5e9e4973830afc8e9f7fddc92d708ef4e",
+        "top": "f9eba629642605f1d82b11c3757e577860e3d3873f90b9b70f3c18c29cb7bd96",
+        "right": "0d8a8797f3dad9216a38e7b3a0bad1175b064ffd1f1e90ee32bbf3491369f95c",
+        "left": "1d20aed300a72e46ceb8cbc075065974674bb782659394492784161c5e1f8a2d",
+        "bottom": "33d53c86df33477fe82dd956a842ce36238b19564a4f6532f950cbd8734c4859",
+        "rear": "b657314bd950a596f7f738318552af5e1e24b866459b1b7364fe4a6c2d54cfa2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:10:30.526018+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-civic-stone-tile-stairs-up.png",
+          "sha256": "d4faef3efd43e5a4e79d6509162b2ac4b97b03dea1cc3488f24f5df246a3fd89",
+          "rgba_sha256": "b9cc54509950976926d637b26da72ee6f371cf38627f9c13f5d3005824e605af"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

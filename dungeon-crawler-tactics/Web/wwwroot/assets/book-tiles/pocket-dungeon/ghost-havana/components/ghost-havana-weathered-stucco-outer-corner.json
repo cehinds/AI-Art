@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-weathered-stucco-outer-corner",
+      "source_sha256": "3fe292a1b67bc9c0d1ae88022c936575b63919605490a6fcb096ae5ba7f155b1",
+      "primary_source": {
+        "asset_id": "ghost-havana-weathered-stucco-outer-corner",
+        "path": "ghost-havana/components/ghost-havana-weathered-stucco-outer-corner.png",
+        "sha256": "3fe292a1b67bc9c0d1ae88022c936575b63919605490a6fcb096ae5ba7f155b1",
+        "rgba_sha256": "237ad63f5bfe9088f2e8e5d8cf3409a22eed89b3e71d5be2a6c4ab8de76ba4dc"
+      },
+      "image_hashes": {
+        "front": "f7ca90d26c981e3eb2448e864f16e3a04d34f924476fa0e51d93f78cba5368a8",
+        "top": "caa31d0cd5453f14c3e9fdc499d52b00d6c118c4d508daf3860ca695a49865fa",
+        "right": "9692dbd9cf9fb59f8d71376dd4c64fac904fd5684267217fdd4c75c2654bae3c",
+        "left": "846d7cff1b58efea6bd877cfd0f5dc1dbf8744d1767adeb541b2a82b07f9edfe",
+        "bottom": "a9a79ec304d137749f0871323cc2a41d7fe25702c145638ee81d9795bdb7a5d1",
+        "rear": "426ff72ab33fc9aff9c0ae455e18c64ea5e76c0eccdcc8d1c9ed760c9a6f8f48"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:08:19.679890+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-weathered-stucco-outer-corner.png",
+          "sha256": "3fe292a1b67bc9c0d1ae88022c936575b63919605490a6fcb096ae5ba7f155b1",
+          "rgba_sha256": "237ad63f5bfe9088f2e8e5d8cf3409a22eed89b3e71d5be2a6c4ab8de76ba4dc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

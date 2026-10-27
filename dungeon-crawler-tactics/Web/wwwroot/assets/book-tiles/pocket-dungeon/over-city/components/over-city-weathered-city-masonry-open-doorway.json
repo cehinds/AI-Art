@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:city",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city/components/over-city-weathered-city-masonry-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-weathered-city-masonry-open-doorway",
+      "source_sha256": "1bd983a4ac48f709b112056622c38c17ba68fdd54a4f860da2739bc6cecc2312",
+      "primary_source": {
+        "asset_id": "over-city-weathered-city-masonry-open-doorway",
+        "path": "over-city/components/over-city-weathered-city-masonry-open-doorway.png",
+        "sha256": "1bd983a4ac48f709b112056622c38c17ba68fdd54a4f860da2739bc6cecc2312",
+        "rgba_sha256": "f21e4680a8929e643a7a9cf52561b935b85b4a60179c563f9e2d09551376e773"
+      },
+      "image_hashes": {
+        "front": "a26757e8cc46268d02b3362811f9eaad50a7906434e980ce66ae5f11521961cb",
+        "top": "6558625b6ca6ea30a66bc1ecf19503751a1445e61c058f9708a98c815dcdcbfd",
+        "right": "b08766fd995ef7171f7df0e6128d09b286c233a582c1bb87ec25b9bce8e3ec09",
+        "left": "e1dd5868c178afb4be7dcbd1dbbbec64c34101a614ef161e6e6a9d02f9f9b52a",
+        "bottom": "153a9fd73fb989b85edb081f34882dad0a3e41eaf8b4aa7356a3aa7c9a5a9c51",
+        "rear": "ac19071a405396c7ed162b0197a796cbb49e6cdfa656e08f5413c6c3d2289cab"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:58:09.971668+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-weathered-city-masonry-open-doorway.png",
+          "sha256": "1bd983a4ac48f709b112056622c38c17ba68fdd54a4f860da2739bc6cecc2312",
+          "rgba_sha256": "f21e4680a8929e643a7a9cf52561b935b85b4a60179c563f9e2d09551376e773"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

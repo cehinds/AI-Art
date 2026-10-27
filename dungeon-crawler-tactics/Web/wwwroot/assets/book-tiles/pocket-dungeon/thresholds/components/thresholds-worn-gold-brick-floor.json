@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:floor",
-    "thresholds"
+    "thresholds",
+    "walkability:allowed"
   ],
   "image": {
     "path": "thresholds/components/thresholds-worn-gold-brick-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-worn-gold-brick-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-worn-gold-brick-floor",
+      "source_sha256": "e80977360c61df67cff9bd17bff7e429df1eb8698575cdf6f89a2f5f699baa5d",
+      "primary_source": {
+        "asset_id": "thresholds-worn-gold-brick-floor",
+        "path": "thresholds/components/thresholds-worn-gold-brick-floor.png",
+        "sha256": "e80977360c61df67cff9bd17bff7e429df1eb8698575cdf6f89a2f5f699baa5d",
+        "rgba_sha256": "1c3c7e82f62d5cf0a2c4a6a67fd4f001ece8507a5aee5ea809fe410da634f2f8"
+      },
+      "image_hashes": {
+        "front": "d70eeb86159e0d46af1e833d8d97f2d1309c411158f3f7aa1ac2560d8cfced14",
+        "top": "94b40eb78829f6fb16dca0de732fede2623a79f99e414d684dbceee9e6c0e5be",
+        "right": "de9a194b35904218f2eb167af1125d9a1838d518243d42f4c8ad0014d63b0965",
+        "left": "5a571555110386366aa672e340d52b24a1bb1aa85a6b6722cad7d7dfb86ff506",
+        "bottom": "ba100e96abce9f1fd7c0fc41dd06b46d92b729dba0518e29d7ebca19734bd272",
+        "rear": "267fb803f1457c1a8d514d037b162b3bf1d128d25580c6e02d5620d4db7beafa"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:37:55.405502+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-worn-gold-brick-floor.png",
+          "sha256": "e80977360c61df67cff9bd17bff7e429df1eb8698575cdf6f89a2f5f699baa5d",
+          "rgba_sha256": "1c3c7e82f62d5cf0a2c4a6a67fd4f001ece8507a5aee5ea809fe410da634f2f8"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.thresholds"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -112,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -131,31 +142,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-weathered-city-masonry-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-weathered-city-masonry-inner-corner",
+      "source_sha256": "b6e5ef897db37cab1cdc957d94bd360d6fd1a6a89cfc7b0d7a8655c6166b0ea8",
+      "primary_source": {
+        "asset_id": "over-city-weathered-city-masonry-inner-corner",
+        "path": "over-city/components/over-city-weathered-city-masonry-inner-corner.png",
+        "sha256": "b6e5ef897db37cab1cdc957d94bd360d6fd1a6a89cfc7b0d7a8655c6166b0ea8",
+        "rgba_sha256": "07bcd428b167d4e3b161912660921a36cbe04ef3ad179cf6d231dd5315037374"
+      },
+      "image_hashes": {
+        "front": "fcf5a4d1bcf645368d0aaf4b20a50b65164e4610bbcdf6e7dec6cc3574958b8b",
+        "top": "e40f14c83c5d6dda8491d470aa637328adaa47e02dcb3da91f1bea05b66ab8b2",
+        "right": "ad415e79f8065b2b6d72194c4f22ccf0d8d20f209e678aaa83c9f4205e3dca7d",
+        "left": "2ce0a43253300943d41a8e03e056bd5819fc4613f1cd4af27f0d29722e4d62ee",
+        "bottom": "f900269f760f8bf52f5f2635f2c8b62df2c1982bdf71a5985c99b650a2522fe3",
+        "rear": "ddf8f815d77cb3871b54631dad83fef8ac3045bcd17222d6b06c286931bb2a70"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:57:41.392267+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-weathered-city-masonry-inner-corner.png",
+          "sha256": "b6e5ef897db37cab1cdc957d94bd360d6fd1a6a89cfc7b0d7a8655c6166b0ea8",
+          "rgba_sha256": "07bcd428b167d4e3b161912660921a36cbe04ef3ad179cf6d231dd5315037374"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -165,7 +225,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -180,14 +241,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -8,6 +8,7 @@
   "tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -96,35 +97,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "vending-machine",
+      "source_sha256": "eae344fc77e58cff7fc0810960a847b046518cf6092f4f92c20c7620be55e0c2",
+      "primary_source": {
+        "asset_id": "vending-machine",
+        "path": "components/vending-machine.png",
+        "sha256": "eae344fc77e58cff7fc0810960a847b046518cf6092f4f92c20c7620be55e0c2",
+        "rgba_sha256": "229fdaf885d27c8699b0cce830609fdf9407e4cabcb7bca3e3c5ad15708835a3"
+      },
+      "image_hashes": {
+        "front": "25e938150e2cb65ead64af9676ff737b5d77dba530c09c05a9f0ea658cdab80b",
+        "top": "3ec72499d10519fcd499e6474e371f766e21454a2d2745953f4d63a90ea3d5d4",
+        "right": "140fcce12da71ac2c9e78c6687a4fef84d8174666517ffe995c301d674f21cf7",
+        "left": "819bfe29f062e33c8d6c9e31d37fca4a42ec401c31f57b68de7ccf9736f01e83",
+        "bottom": "82978caf47e2e59b9cf2c52cf2810c909cafa249a40eb8100f6708937c86747d",
+        "rear": "b1fab22e7ccd4679c87fc681d3537dad967471c816aa825beb75452982f764da"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:05:39.683384+00:00",
+      "notes": [
+        "Broad bottle-display front, narrow metal sides, box top and underside coherent; striped overhang inferred as shallow canopy."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "b526b8953f9468a97e36ca4ad916c85db7c2478fba19e4e238fbf40a851ec440",
+        "reviewed_reference": {
+          "path": "components/vending-machine.png",
+          "sha256": "eae344fc77e58cff7fc0810960a847b046518cf6092f4f92c20c7620be55e0c2",
+          "rgba_sha256": "229fdaf885d27c8699b0cce830609fdf9407e4cabcb7bca3e3c5ad15708835a3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -137,7 +175,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
@@ -152,7 +191,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

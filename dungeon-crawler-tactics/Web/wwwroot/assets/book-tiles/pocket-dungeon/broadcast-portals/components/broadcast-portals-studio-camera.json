@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-studio-camera.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,15 +161,66 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-camera.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-camera",
+      "source_sha256": "1948dc5575bdb9f7fe56327cb3c63ac3eb3bba336e536579966fef64d33bce66",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-camera",
+        "path": "broadcast-portals/components/broadcast-portals-studio-camera.png",
+        "sha256": "1948dc5575bdb9f7fe56327cb3c63ac3eb3bba336e536579966fef64d33bce66",
+        "rgba_sha256": "7d1af54ccb4eae28005a18b5d63af6116bca224eb8e3308adc97f92bd0e5e07f"
+      },
+      "image_hashes": {
+        "front": "35e7b40bdc432905efe71645e4352d3ed98a61a8c4a1209e026a1ae22912627c",
+        "top": "3c3bd369109278b6996e409409d4984c68bc50eee8ba0b86e754fe54b1e3847e",
+        "right": "5bf629fe7913c43f7f82b729386e835ca5219287915f08217ad242073667d274",
+        "left": "b27fb8808df27baa40597b9166e2f9275ad72a3d2c1aee199cc97127848b7c6f",
+        "bottom": "87a8e0eb0599396326ad0f6a4975f2690ca7a56e66843d90e9f9474a7c1292e2",
+        "rear": "b63988ea0fd76e4511a41fd67084e5f7427ccaf82e0c495a04267936879bb302"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:53:40.114725+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-camera.png",
+          "sha256": "1948dc5575bdb9f7fe56327cb3c63ac3eb3bba336e536579966fef64d33bce66",
+          "rgba_sha256": "7d1af54ccb4eae28005a18b5d63af6116bca224eb8e3308adc97f92bd0e5e07f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

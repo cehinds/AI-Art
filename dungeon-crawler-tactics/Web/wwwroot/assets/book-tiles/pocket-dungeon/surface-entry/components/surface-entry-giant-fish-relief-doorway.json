@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:water",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-giant-fish-relief-doorway.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-giant-fish-relief-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-giant-fish-relief-doorway",
+      "source_sha256": "00eb84bf8d2ff4912c449b04227c5165eff898ad3dbafcf5d9811f4b18fb417b",
+      "primary_source": {
+        "asset_id": "surface-entry-giant-fish-relief-doorway",
+        "path": "surface-entry/components/surface-entry-giant-fish-relief-doorway.png",
+        "sha256": "00eb84bf8d2ff4912c449b04227c5165eff898ad3dbafcf5d9811f4b18fb417b",
+        "rgba_sha256": "7defb0e1437e59fa52d102d33b6bff9bbd4c565d83213a80e5c0d4277084a591"
+      },
+      "image_hashes": {
+        "front": "19479d4a5f2223cf98bd6aaae1e2c19b53dd1c63ab9c4db87cc8c010245bfe2b",
+        "top": "80f8750b83aa07bed197c31ffbfb2ff1538128b9a61737a88b1ba59afb7db0cd",
+        "right": "5d110cb4dfdb86528717b4c71321f53df39433b3ad128b0e03b7a452fed505e8",
+        "left": "032994b2c010757e21afaf95efe9a45b8023763d16af5d70f38750276b6a8959",
+        "bottom": "4f21287d97eda450170f1a3e74e973051b29ec20689d2fec85eca21e2955b461",
+        "rear": "7f0413905ce6dcf305b6173bd460785485e28291b7f3af8aad3438909d20cbcb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:36:05.094491+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-giant-fish-relief-doorway.png",
+          "sha256": "00eb84bf8d2ff4912c449b04227c5165eff898ad3dbafcf5d9811f4b18fb417b",
+          "rgba_sha256": "7defb0e1437e59fa52d102d33b6bff9bbd4c565d83213a80e5c0d4277084a591"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:water",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -165,15 +228,20 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:water"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:lava",
+        "surface:lava"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-24b884da7da5",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

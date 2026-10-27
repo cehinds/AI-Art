@@ -3,12 +3,22 @@
   "name": "Fractured maze slab rear",
   "kind": "sprite",
   "tags": [
-    "great-race-transition",
-    "prop",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "great-race-transition",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "rear",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/great-race-transition-fractured-maze-slab.rear.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "great-race-transition/components/great-race-transition-fractured-maze-slab.png",
     "source_sha256": "ca7ebd44154f439dc010e15d43bc31a87a11dca32493675d8fbf763243785046",
-    "generated_atlas": "raw/candidates/great-race-jungle-stations-elevations-v1-raw-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/great-race-jungle-stations-elevations-v1-raw-atlas.png",
     "generated_atlas_sha256": "798112a55baa1c40f15c3220522b590e732c89b50a9ea49a5e8a9fcb78498b92",
     "generation_request": "raw/candidates/great-race-jungle-stations-elevations-v1-request.json",
     "generation_request_sha256": "d31453c248054d1cd4e4d88166fb0749395eee3bd9a4d0acf1b129e3ffa4bf02",
@@ -67,7 +77,38 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "great-race-transition-fractured-maze-slab",
+        "view": "rear",
+        "source_path": "great-race-transition/components/great-race-transition-fractured-maze-slab.png",
+        "source_sha256": "ca7ebd44154f439dc010e15d43bc31a87a11dca32493675d8fbf763243785046",
+        "atlas_path": "reusable/views-additional/raw/candidates/great-race-jungle-stations-elevations-v1-raw-atlas.png",
+        "atlas_sha256": "798112a55baa1c40f15c3220522b590e732c89b50a9ea49a5e8a9fcb78498b92",
+        "active_output_sha256": "11955f9b5160fd50178cbee2e2446d054668c5d4cb7373ce89b7644b6542546f",
+        "active_output_rgba_sha256": "9e9b505739a671072b0aaa72f9ca50474afafe14a53cd3bf4d3633ff19d9a514",
+        "crop_bounds_xyxy": [
+          1613,
+          140,
+          1886,
+          212
+        ],
+        "resized_dimensions_px": [
+          220,
+          58
+        ],
+        "scale": 0.8058608058608059,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "reference_inputs": [
       {
@@ -80,7 +121,19 @@
       128,
       248
     ],
-    "notes": "Root-scoped-accepted low scattered stone elevation candidate; source-faithful cyan fractured slabs; pending whole-set review."
+    "notes": "Root-scoped-accepted low scattered stone elevation candidate; source-faithful cyan fractured slabs; pending whole-set review.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.8058608058608059
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "pending-review",
   "provenance_history": [
@@ -216,5 +269,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "great-race-transition-fractured-maze-slab"
+  }
 }

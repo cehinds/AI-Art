@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "great-race-transition",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-transparent-crawler-starting-pod.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-transparent-crawler-starting-pod.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-transparent-crawler-starting-pod",
+      "source_sha256": "cc1b2a39bf75bb99c4df4cfb88a34184fb8f8756f384bcdf81d75bb8225d9383",
+      "primary_source": {
+        "asset_id": "great-race-transition-transparent-crawler-starting-pod",
+        "path": "great-race-transition/components/great-race-transition-transparent-crawler-starting-pod.png",
+        "sha256": "cc1b2a39bf75bb99c4df4cfb88a34184fb8f8756f384bcdf81d75bb8225d9383",
+        "rgba_sha256": "ab12c12f6873274a73e31539b63b1075c336fcfcbc8dbfff4b0eb4e603be3b6e"
+      },
+      "image_hashes": {
+        "front": "00ae90af0cbb00e62ff8d912b256d57e9909cf532b6aae3ff0987bebc7a38ae3",
+        "top": "0d6447718dc83fe412c2d1c498afe53c6ef0d1f3791ac471160d8684facf6829",
+        "right": "14a4ed096b34f1e1c04207cb68b34c5f61656255b7eb6d74e78c05271f804e6c",
+        "left": "ec2442a8ca0f1de609470b597546b2cd2c45e7807e90853b6490d8ae81b29353",
+        "bottom": "65654ffc98902c4e39479fe6fd61374aa67b618081e94fb829765baf86348b62",
+        "rear": "d22cf9e97960c9cfc65e04a738ac3ab894ad1b8f0c3ba647053cd18865bf7722"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:05:06.436189+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-transparent-crawler-starting-pod.png",
+          "sha256": "cc1b2a39bf75bb99c4df4cfb88a34184fb8f8756f384bcdf81d75bb8225d9383",
+          "rgba_sha256": "ab12c12f6873274a73e31539b63b1075c336fcfcbc8dbfff4b0eb4e603be3b6e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

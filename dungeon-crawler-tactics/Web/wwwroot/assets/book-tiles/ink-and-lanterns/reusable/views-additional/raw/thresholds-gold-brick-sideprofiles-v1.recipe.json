@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-direct-source-side-profile-repair",
+  "request_id": "thresholds-gold-brick-sideprofiles-v1",
+  "raw_atlas": "reusable/views-additional/raw/thresholds-gold-brick-sideprofiles-v1.png",
+  "atlas": "thresholds-gold-brick-sideprofiles-v1.png",
+  "atlas_sha256": "b441b25bb9d0d5d0118e15d329fe2e7081b5ebbee3315f30f2261b3b5f21f889",
+  "grid": {
+    "columns": 4,
+    "rows": 6
+  },
+  "views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "objects": [
+    {
+      "row": 1,
+      "id": "thresholds-gold-brick-floor",
+      "name": "Gold Brick Floor",
+      "kind": "floor",
+      "tags": [
+        "thresholds",
+        "floor"
+      ],
+      "source_image": "thresholds/components/thresholds-gold-brick-floor.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "floor"
+      },
+      "replace_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ]
+    },
+    {
+      "row": 2,
+      "id": "thresholds-worn-gold-brick-floor",
+      "name": "Worn Gold Brick Floor",
+      "kind": "floor",
+      "tags": [
+        "thresholds",
+        "floor"
+      ],
+      "source_image": "thresholds/components/thresholds-worn-gold-brick-floor.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "floor"
+      },
+      "replace_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ]
+    },
+    {
+      "row": 3,
+      "id": "thresholds-cracked-gold-brick-floor",
+      "name": "Cracked Gold Brick Floor",
+      "kind": "floor",
+      "tags": [
+        "thresholds",
+        "floor"
+      ],
+      "source_image": "thresholds/components/thresholds-cracked-gold-brick-floor.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "floor"
+      },
+      "replace_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ]
+    },
+    {
+      "row": 4,
+      "id": "thresholds-wet-gold-brick-floor",
+      "name": "Wet Gold Brick Floor",
+      "kind": "floor",
+      "tags": [
+        "thresholds",
+        "floor"
+      ],
+      "source_image": "thresholds/components/thresholds-wet-gold-brick-floor.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "floor"
+      },
+      "replace_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ]
+    },
+    {
+      "row": 5,
+      "id": "thresholds-gold-brick-edge-transition",
+      "name": "Gold Brick Edge Transition",
+      "kind": "floor-transition",
+      "tags": [
+        "thresholds",
+        "floor"
+      ],
+      "source_image": "thresholds/components/thresholds-gold-brick-edge-transition.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "floor"
+      },
+      "replace_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ]
+    }
+  ],
+  "source_images": [
+    "thresholds/components/thresholds-gold-brick-floor.png",
+    "thresholds/components/thresholds-worn-gold-brick-floor.png",
+    "thresholds/components/thresholds-cracked-gold-brick-floor.png",
+    "thresholds/components/thresholds-wet-gold-brick-floor.png",
+    "thresholds/components/thresholds-gold-brick-edge-transition.png"
+  ],
+  "source_image_sha256": [
+    "cc424c3d343a59612d08b38707aaddff4926a5a01e57d64801c44223a24f1b36",
+    "2e0ac5f6575432f0d2d62b842caf9492121e8ad37de8c0b1ec5b4558968883e7",
+    "c3f5c55ccc7f6b731d2625594d7cf341a1befeeaeed774b2ce00aeed90560067",
+    "e1d4110b029efd1d71965f281f53ef9496d5d11862f0e17f563e5359f6f13717",
+    "a64aaff367b08bc675c96b5bca28ebae295d3f34fed1060f837a33aa64d2ae82"
+  ],
+  "prompt": "Create exactly five rows of floor tiles and four columns FRONT, RIGHT, LEFT, REAR. All are true eye-level horizontal edge views of thin flat floor slabs: each cell must be a narrow horizontal bar only 10-20% as tall as it is wide, showing slab thickness and a very thin gold decorative edge. Do NOT show any square tile face or top-down pattern. Row order uses supplied exact golden source tiles: clean, worn, cracked, wet, directional edge transition. Preserve each material/state but water/cracks should appear only where physically on visible vertical edge; no puddle pools or broad surface pattern. The edge transition may show its special gold curb only in the camera direction aligned with that source edge. Orthographic horizontal camera exactly at floor height. Isolated centered thin profile with transparent background. No perspective, labels or extra surfaces.",
+  "layout_note": "Generated image has a blank leading band; five object rows map to atlas rows 1-5, verified from component centers."
+}

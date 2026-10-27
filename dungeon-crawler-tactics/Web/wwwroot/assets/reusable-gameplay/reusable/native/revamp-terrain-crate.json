@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp-terrain-crate.front"
@@ -76,19 +76,41 @@
       "status": "inferred",
       "asset_id": "revamp-terrain-crate.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp-terrain-crate",
+      "source_sha256": "298060f4a738250620f6d79dc07da132f4b519e0046b2337e54b04b29e31b32f",
+      "primary_source": {
+        "asset_id": "revamp-terrain-crate",
+        "path": "reusable/native/revamp-terrain-crate.png",
+        "sha256": "298060f4a738250620f6d79dc07da132f4b519e0046b2337e54b04b29e31b32f",
+        "rgba_sha256": "6205a75e9cc977772fa67337a380270e7cb3dc0525a6298240abe1a2b63db991"
+      },
+      "image_hashes": {
+        "front": "9c85cace290dfd9b5af9391fb0a381fbbeceb7b5f1c12fe9092658efb0595545",
+        "top": "a941fd005f3dabd0550958cb6bb665bd39a3f6e21be4d397f76be918c8fd3ccd",
+        "right": "fc6631c04355e46f7027c4728eaaa927b88471a6a83823aab8c6a3e3638a09fe",
+        "left": "2eb80fc81ede0faede73e1256622b25b469b35667ab5ec8dd5031ab585ea2edd",
+        "bottom": "3486d02715b70ee373575944b946f205854e8dd9b05add841c137c0321febb33",
+        "rear": "92e745f1b75e0c340f004827b3517e5a08f78d5989f6f4a5ebdf5c6fc37011fa"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T21:58:55.834458+00:00",
+      "notes": [
+        "Exact native source and all six projections reviewed; flat principal crate faces, barrel/chest/door identity and hidden material coherent."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "d2636c0c3d62d0050f9f34c235684267273a51fbfcc95c06ac135d4733059cdd",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp-terrain-crate.png",
+          "sha256": "298060f4a738250620f6d79dc07da132f4b519e0046b2337e54b04b29e31b32f",
+          "rgba_sha256": "6205a75e9cc977772fa67337a380270e7cb3dc0525a6298240abe1a2b63db991"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [

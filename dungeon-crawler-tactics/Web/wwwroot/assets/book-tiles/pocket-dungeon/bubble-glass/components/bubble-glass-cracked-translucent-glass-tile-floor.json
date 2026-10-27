@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-cracked-translucent-glass-tile-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-cracked-translucent-glass-tile-floor",
+      "source_sha256": "b05cdc550d49bc8a451dd7781811f5411b762da494ada69db631086d30553492",
+      "primary_source": {
+        "asset_id": "bubble-glass-cracked-translucent-glass-tile-floor",
+        "path": "bubble-glass/components/bubble-glass-cracked-translucent-glass-tile-floor.png",
+        "sha256": "b05cdc550d49bc8a451dd7781811f5411b762da494ada69db631086d30553492",
+        "rgba_sha256": "b9703f92022112d9f7f5fcb032d3a567f7ae094d38ec8c4105ce0ca59c82a2f9"
+      },
+      "image_hashes": {
+        "front": "e5fc2b2e485020c400396f0ee6d8c6a96ec1caebb831314ee1857e11a7b1ec9e",
+        "top": "69623372120efc1a4511ae7ee4b45c2dde6c23c3af880c4d73b4090244666c3e",
+        "right": "b9651b2a41182d3bb1c38293040d2b154cd226d81bca212fce3571777a0cb6f7",
+        "left": "c6af0c2220bc95bd61850aedc6e3348fc0c8cf64a53f7ad78d8f8e3abd905dc9",
+        "bottom": "1ff7e616e9ab2058018552979835a119beb753a930e6cae86452108474fde924",
+        "rear": "a29687a91fa5c0a9a76a7f7392ed48e329be728fdc8f02e7aa2881627207d298"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:40:57.764271+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-cracked-translucent-glass-tile-floor.png",
+          "sha256": "b05cdc550d49bc8a451dd7781811f5411b762da494ada69db631086d30553492",
+          "rgba_sha256": "b9703f92022112d9f7f5fcb032d3a567f7ae094d38ec8c4105ce0ca59c82a2f9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-glass"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-glass"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

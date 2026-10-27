@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-cemetery",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-mausoleum-facade.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-mausoleum-facade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-mausoleum-facade",
+      "source_sha256": "85450f4ae68fd19f63a25504208958f62326ac494161a93bd813a1f265acaf74",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-mausoleum-facade",
+        "path": "ghost-cemetery/components/ghost-cemetery-mausoleum-facade.png",
+        "sha256": "85450f4ae68fd19f63a25504208958f62326ac494161a93bd813a1f265acaf74",
+        "rgba_sha256": "3ef86c2d6d3c6f06c0e5c2e39eb8b644f9cad45a47bc337953dd4e3ef6d1c146"
+      },
+      "image_hashes": {
+        "front": "45583500ee2ffae672c85b73964d9fd9760de85a8244b394ac3fe6bce87e8c32",
+        "top": "f03019a3aaa1bcbd40e5da957a1f6a3cd78e7e223cff6e3882205f51c1921945",
+        "right": "34f19aef8862692fbae51be585d93a8eddb32db9591bc29e2a81bf25c87cd490",
+        "left": "04ada9c8899c85ab7210c98892de6f119c935f8ddcefba95b55fefe97d8625ca",
+        "bottom": "72034d4c910977b1156df7abf65e271770b99a2e057bc8d887eac4814783f69d",
+        "rear": "1d4ade31d94d2cf68971eddf490a7f00ab64853cbbe8e69c9a42e8a9f4aa7b13"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:50:14.338489+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-mausoleum-facade.png",
+          "sha256": "85450f4ae68fd19f63a25504208958f62326ac494161a93bd813a1f265acaf74",
+          "rgba_sha256": "3ef86c2d6d3c6f06c0e5c2e39eb8b644f9cad45a47bc337953dd4e3ef6d1c146"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

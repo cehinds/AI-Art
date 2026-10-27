@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-shrines",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-point-mongo-camp-marker.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-point-mongo-camp-marker.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-point-mongo-camp-marker",
+      "source_sha256": "ba0effca0f84aa67b832c5cd1841b81a0e3d68fd156b53b586090aff7cbe95e7",
+      "primary_source": {
+        "asset_id": "hunting-shrines-point-mongo-camp-marker",
+        "path": "hunting-shrines/components/hunting-shrines-point-mongo-camp-marker.png",
+        "sha256": "ba0effca0f84aa67b832c5cd1841b81a0e3d68fd156b53b586090aff7cbe95e7",
+        "rgba_sha256": "7de85303ed6bf8001f6eb6a4b19480077c6ca54d7922011b38aedb3ed1899307"
+      },
+      "image_hashes": {
+        "front": "4b778f7261a58bf485016495d3e04a8e86d522d51bb28ff61221d543abd1cbdc",
+        "top": "b64ab9ef6984f2f528f52a2b1d1935e4c9d4e761e36d7aef4857cd932a74a141",
+        "right": "f0416e1073a60180dcf4fbe9f5d9d75992733675f8722d172067c7bab418fc8f",
+        "left": "b228d05a5e1335ff66d5c52a7190dc9508fe4b200c7cb786575c40ab2c02ba00",
+        "bottom": "0c7880cdb2380f268705c92000e7cc770b603f204d366807164b88b9e0d62b41",
+        "rear": "ebe5689a882a1cf2ee2bcb1c6939bf4c1e162df8cacc8ffa65d95ab09549050a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:16:12.263533+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-point-mongo-camp-marker.png",
+          "sha256": "ba0effca0f84aa67b832c5cd1841b81a0e3d68fd156b53b586090aff7cbe95e7",
+          "rgba_sha256": "7de85303ed6bf8001f6eb6a4b19480077c6ca54d7922011b38aedb3ed1899307"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

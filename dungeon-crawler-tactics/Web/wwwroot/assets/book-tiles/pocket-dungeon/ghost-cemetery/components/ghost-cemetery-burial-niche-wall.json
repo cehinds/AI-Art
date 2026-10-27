@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-burial-niche-wall.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-burial-niche-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-burial-niche-wall",
+      "source_sha256": "e0383496d8e7688ecdc94d583222858ee11d08b1639b00056e391f0ca6af7190",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-burial-niche-wall",
+        "path": "ghost-cemetery/components/ghost-cemetery-burial-niche-wall.png",
+        "sha256": "e0383496d8e7688ecdc94d583222858ee11d08b1639b00056e391f0ca6af7190",
+        "rgba_sha256": "ed6e6e5797f904b8f548ee89d2651a3e5e3fd20e3eb37223604b5e760783df38"
+      },
+      "image_hashes": {
+        "front": "db5fb9c620023287d88be646caee111e1160f3d1d183550ef371504946992d01",
+        "top": "e92abf6851b35efd66f16db3c832b661fb148f8f384e251eca82b6d1eb94a0aa",
+        "right": "51a23b47419cec01acca825ecfe6f06417d6051e6112b38a98148d857d8e9b7d",
+        "left": "69dd61247ecbdc6ac771f394f803183d189bb32ae0af4191843fafa4222263f8",
+        "bottom": "b654fd7077be657d08c308fba93d5f522988d34e4de84a4cc881349f50e57845",
+        "rear": "fba621926ec5c8a3ba71d544c5bea3037fe90f57ecf0d1841e75270dfa454c75"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:10:53.739127+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-burial-niche-wall.png",
+          "sha256": "e0383496d8e7688ecdc94d583222858ee11d08b1639b00056e391f0ca6af7190",
+          "rgba_sha256": "ed6e6e5797f904b8f548ee89d2651a3e5e3fd20e3eb37223604b5e760783df38"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

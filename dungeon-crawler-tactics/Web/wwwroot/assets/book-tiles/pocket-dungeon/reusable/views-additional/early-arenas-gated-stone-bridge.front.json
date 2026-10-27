@@ -3,12 +3,22 @@
   "name": "Gated stone bridge front",
   "kind": "sprite",
   "tags": [
-    "early-arenas",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "early-arenas",
+    "environment:dungeon",
     "front",
+    "inferred-view",
+    "material:stone",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/early-arenas-gated-stone-bridge.front.png",
@@ -33,11 +43,11 @@
     "method": "generated",
     "source_image": "early-arenas/components/early-arenas-gated-stone-bridge.png",
     "source_sha256": "b22a8ee27dbbe1da2d10d21adc63c31584099991103c8e34bbcb2192b4002efd",
-    "generated_atlas": "raw/candidates/gated-stone-bridge-elevations-v4/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/gated-stone-bridge-elevations-v4/generated-atlas.png",
     "generated_atlas_sha256": "1ac4630c4f5c033797d997fc51e0304b9657a03bac4281668b3518151a08a2db",
     "generation_request": "raw/candidates/gated-stone-bridge-elevations-v4/request.json",
     "generation_request_sha256": "6c7cfc7f002b1c6689a82b650213404531d572a9f6f00e11078a89bd187a222f",
-    "prompt": "Generate a transparent pixel-art atlas with TWO square cells side-by-side, first FRONT end elevation, second REAR end elevation, for the exact gated sandstone footbridge shown in the attached four-panel geometry reference. It contains labeled canonical source, accepted TOP plan, accepted RIGHT long side, and accepted LEFT long side. Source fixes identity/colors; TOP and side views fix footprint and height.\n\nStrict orthographic front/rear end-on views: camera horizontally level at bridge height, looking along the bridge length, no perspective, no isometric tilt, no view of the top deck surface. The bridge length runs away from this camera, so compress that length to a very thin edge. Match the accepted side-view parapet height exactly: total end-profile silhouette should be a LOW horizontal band, about 1/3 as tall as its width (roughly 2.8:1 width-to-height), not a tall fa\u00e7ade. Max height of stonework and iron is about one third of total horizontal width.\n\nBuild just a shallow horizontal bridge-end silhouette: two compact square stone end piers, each only about one block high; a low dark iron gate/rail between them with a straight horizontal top beam and several short vertical bars; a very thin dark stone deck edge along the bottom. The gate and piers all stay within the same low parapet height visible from RIGHT/LEFT. FRONT is the approach gate, REAR is the opposite end with matching low stone piers/rail, not an upright arch. The top plan has three masonry sections running along bridge length; those are depthwise and MUST NOT become stacked vertical blocks in these views. Do not draw a large vertical gate, a full wall, tall towers, any three-course vertical piers, walkway top plane, or broad front fa\u00e7ade. The endpoint has no raised tower structure.\n\nUse pale sandstone blocks, charcoal seams, muted dark iron as in the source. Center the compact shallow band in the lower half of each cell with ample transparent margin. Keep full silhouette inside each cell. Crisp pixel clusters, no labels, shadows, stray guide marks, cross-cell artifacts.",
+    "prompt": "Generate a transparent pixel-art atlas with TWO square cells side-by-side, first FRONT end elevation, second REAR end elevation, for the exact gated sandstone footbridge shown in the attached four-panel geometry reference. It contains labeled canonical source, accepted TOP plan, accepted RIGHT long side, and accepted LEFT long side. Source fixes identity/colors; TOP and side views fix footprint and height.\n\nStrict orthographic front/rear end-on views: camera horizontally level at bridge height, looking along the bridge length, no perspective, no isometric tilt, no view of the top deck surface. The bridge length runs away from this camera, so compress that length to a very thin edge. Match the accepted side-view parapet height exactly: total end-profile silhouette should be a LOW horizontal band, about 1/3 as tall as its width (roughly 2.8:1 width-to-height), not a tall façade. Max height of stonework and iron is about one third of total horizontal width.\n\nBuild just a shallow horizontal bridge-end silhouette: two compact square stone end piers, each only about one block high; a low dark iron gate/rail between them with a straight horizontal top beam and several short vertical bars; a very thin dark stone deck edge along the bottom. The gate and piers all stay within the same low parapet height visible from RIGHT/LEFT. FRONT is the approach gate, REAR is the opposite end with matching low stone piers/rail, not an upright arch. The top plan has three masonry sections running along bridge length; those are depthwise and MUST NOT become stacked vertical blocks in these views. Do not draw a large vertical gate, a full wall, tall towers, any three-course vertical piers, walkway top plane, or broad front façade. The endpoint has no raised tower structure.\n\nUse pale sandstone blocks, charcoal seams, muted dark iron as in the source. Center the compact shallow band in the lower half of each cell with ample transparent margin. Keep full silhouette inside each cell. Crisp pixel clusters, no labels, shadows, stray guide marks, cross-cell artifacts.",
     "output_binding": {
       "path": "raw/candidates/gated-stone-bridge-elevations-v4/generated-atlas.png",
       "sha256": "1ac4630c4f5c033797d997fc51e0304b9657a03bac4281668b3518151a08a2db"
@@ -117,5 +127,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:stone",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "early-arenas-gated-stone-bridge"
+  }
 }

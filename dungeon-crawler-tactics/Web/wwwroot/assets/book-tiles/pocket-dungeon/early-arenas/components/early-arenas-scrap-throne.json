@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-scrap-throne.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-scrap-throne.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-scrap-throne",
+      "source_sha256": "c9c425a621888e88d11d55616ea890591f7d030aa809ebe1d034c760849aa33a",
+      "primary_source": {
+        "asset_id": "early-arenas-scrap-throne",
+        "path": "early-arenas/components/early-arenas-scrap-throne.png",
+        "sha256": "c9c425a621888e88d11d55616ea890591f7d030aa809ebe1d034c760849aa33a",
+        "rgba_sha256": "cf844a35770831b69f0b1d989a6f4dd9a2e233b3bfad276d7cd6cef898e124ec"
+      },
+      "image_hashes": {
+        "front": "1a66c3cf56b539ff804f92abb87ccc4f76f424d0d6e7b93ec6abba5570f02b2d",
+        "top": "882c37cf63e816729ef29c956b09a3426280d5a29724bdea3ef3c791fc55d119",
+        "right": "a21669db0484052bc33d4bded9f070e7e2a35874106198a480ffa95f9b3b639b",
+        "left": "f6cce7f7c2435f38a27ff92f221be7cfc9024021e59399d7d652114110ae2f6b",
+        "bottom": "312fc490784dc8b69e3bdbae7609a2f5f66f57c2fd280419849585b3e32cf348",
+        "rear": "58a81b632d52c1aa935bb939b55abdd54472adf9139c5956b0d3a45e78136fb8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:18:19.104178+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-scrap-throne.png",
+          "sha256": "c9c425a621888e88d11d55616ea890591f7d030aa809ebe1d034c760849aa33a",
+          "rgba_sha256": "cf844a35770831b69f0b1d989a6f4dd9a2e233b3bfad276d7cd6cef898e124ec"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

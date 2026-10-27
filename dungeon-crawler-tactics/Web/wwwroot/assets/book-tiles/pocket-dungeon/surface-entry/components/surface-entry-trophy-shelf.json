@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "surface-entry"
+    "surface-entry",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-trophy-shelf.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-trophy-shelf.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-trophy-shelf",
+      "source_sha256": "1a16fbe2b330f9d44a096a4401ef56fa7629e020c6c86e41c90d4d84e2b360a0",
+      "primary_source": {
+        "asset_id": "surface-entry-trophy-shelf",
+        "path": "surface-entry/components/surface-entry-trophy-shelf.png",
+        "sha256": "1a16fbe2b330f9d44a096a4401ef56fa7629e020c6c86e41c90d4d84e2b360a0",
+        "rgba_sha256": "51fcb6d041049e90397c803aac43c13534369474af29f078dcbcef6861f9a24c"
+      },
+      "image_hashes": {
+        "front": "4b66fc3d7ef5b41417cc0c0c77806aca8ed07cdc2a478abd60a298f50fde5a31",
+        "top": "e1d921c06ff00465061149735a8aabefaac99263eec9768f65afeb209ab4ac21",
+        "right": "c096cbd6a693b3056589fa05f9e9fcdcb128794dca38af3d42c248aff4ddb06f",
+        "left": "35aa49baead863288e9ee296ee36877fd1eed0c5359a300e489550e9222371e5",
+        "bottom": "fe43583c6f1898d040f75dc1cd846e0c59b965c471e0389442d4c1b3a06483e9",
+        "rear": "b823bcdcad19a974f9120305757aed1a16203bff86398386cfdf02ad3310e87b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T19:38:08.367562+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-trophy-shelf.png",
+          "sha256": "1a16fbe2b330f9d44a096a4401ef56fa7629e020c6c86e41c90d4d84e2b360a0",
+          "rgba_sha256": "51fcb6d041049e90397c803aac43c13534369474af29f078dcbcef6861f9a24c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

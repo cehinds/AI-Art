@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:ceiling",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-nebula-ceiling-panel.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-nebula-ceiling-panel.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-nebula-ceiling-panel",
+      "source_sha256": "1f146c819c04ed0efb61b434515e1319088b5ce7eb3cd816fa0fa59fe8407b56",
+      "primary_source": {
+        "asset_id": "thresholds-nebula-ceiling-panel",
+        "path": "thresholds/components/thresholds-nebula-ceiling-panel.png",
+        "sha256": "1f146c819c04ed0efb61b434515e1319088b5ce7eb3cd816fa0fa59fe8407b56",
+        "rgba_sha256": "663b6d7fc3135bdafc0e1070ec82cb5221f8c87f14d7679b589739c8e558df6f"
+      },
+      "image_hashes": {
+        "front": "bfa9dec0cbbca923c3b60e2652c51ff6a3aa5c4da73ded1f83182c27f78db389",
+        "top": "18acb94fcd1bbd20eb5b637bf53d638582223f1111c1a91ba99b019e6cb573a0",
+        "right": "ae7eaa9be816562700e829b4461e6e075f9a4eff1d8fcca4416a34bf5c0baf25",
+        "left": "cb6647220f823ff56ebe4ca519940b9e3fd8e4785f841cbba30aeb3b5ee0868a",
+        "bottom": "65dac844209259fd018e6d42bb08d45a5cb3e249cb12149d5b42fdfb7a4a0878",
+        "rear": "bfa9dec0cbbca923c3b60e2652c51ff6a3aa5c4da73ded1f83182c27f78db389"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:47:52.783185+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-nebula-ceiling-panel.png",
+          "sha256": "1f146c819c04ed0efb61b434515e1319088b5ce7eb3cd816fa0fa59fe8407b56",
+          "rgba_sha256": "663b6d7fc3135bdafc0e1070ec82cb5221f8c87f14d7679b589739c8e558df6f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:ceiling"
+    "surface:ceiling",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:ceiling"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

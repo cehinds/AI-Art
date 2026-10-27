@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--beastmaster.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--beastmaster.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--beastmaster",
+      "source_sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+      "primary_source": {
+        "asset_id": "legacy--beastmaster",
+        "path": "reusable/native/legacy--beastmaster.png",
+        "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+        "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+      },
+      "image_hashes": {
+        "front": "e4a97ee1a14f7c41cc98d1b48bfed5b4836e03cac0db4cf472b1ac9c4d6b2a60",
+        "top": "ea858577c818f653d193e59aa836a0945407b6659b638f28b74ba0ba522fb262",
+        "right": "7a247e41b61b61f7b0f6e79f1556902f41c1e38946c45f2bc988c8dad34336f1",
+        "left": "9796acef3d1b2f8b87c34d86be719e47bad5f7c4d9445ea21ada1d2d8feb9b8b",
+        "bottom": "67ed1f073e1d83dc6ddd3702a4ece467cee0f109ff4e67bcea30384b0cf28039",
+        "rear": "00e716ceac5e840c877353a213350201ac919e573cb1e49c11dc8c0966c1a915"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.152520+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--beastmaster.png",
+          "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+          "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

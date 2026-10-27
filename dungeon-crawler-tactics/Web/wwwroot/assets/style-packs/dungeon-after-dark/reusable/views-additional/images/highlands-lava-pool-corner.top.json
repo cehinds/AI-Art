@@ -3,10 +3,24 @@
   "name": "Lava pool corner Top",
   "kind": "terrain",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "corner",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "ground",
+    "hazard:lava",
+    "highlands",
+    "lava",
+    "material:lava",
     "orthographic",
-    "terrain",
-    "generated"
+    "pool",
+    "role:provider",
+    "six-view",
+    "style:dungeon-after-dark",
+    "surface:lava",
+    "terrain"
   ],
   "image": {
     "path": "reusable/views-additional/images/highlands-lava-pool-corner.top.png",
@@ -61,7 +75,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-dilation2-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
@@ -70,5 +85,39 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/highlands-lava-pool-corner.top.json"
+  "metadata_path": "reusable/views-additional/images/highlands-lava-pool-corner.top.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:lava"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "highlands-lava-pool-corner"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "corner",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "hazard:lava",
+    "highlands",
+    "lava",
+    "material:lava",
+    "pool",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:lava"
+  ]
 }

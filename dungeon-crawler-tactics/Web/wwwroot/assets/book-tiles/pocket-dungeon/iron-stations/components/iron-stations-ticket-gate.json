@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-ticket-gate.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-ticket-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-ticket-gate",
+      "source_sha256": "f0ac925d451bb3cc32b3ab049a9fed29819347e5b2271a731d4a5af02cbe5437",
+      "primary_source": {
+        "asset_id": "iron-stations-ticket-gate",
+        "path": "iron-stations/components/iron-stations-ticket-gate.png",
+        "sha256": "f0ac925d451bb3cc32b3ab049a9fed29819347e5b2271a731d4a5af02cbe5437",
+        "rgba_sha256": "df9c3b08d0484190d164178f32f0f6600494aa92b91a2bc743c46882110dba9e"
+      },
+      "image_hashes": {
+        "front": "fac99f5011a4c3f739ed830a898fbac8bd212d25721a5b68b3c03af8b0f43fa2",
+        "top": "d02e902bdd61d72019e5505a9fb3f2baae3b57824e4b9dc78796559262f179d0",
+        "right": "72a7da3f833d429e10835c577dba2569ac2c2ea7bbcbf9badf4dbc007b14f0e9",
+        "left": "03cd032048a0f5746f1ca30087b3c62174580679b897aef16a0ab43d92cd34ac",
+        "bottom": "4c8e6ae1b4b0e9b09e697291209ce4e8b28357649e2a0b65a3242c88eb6cadd6",
+        "rear": "d29fcaaf3496494a15e53fc8f2990324f050002633526b5883c9b5cdcb93f9f7"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:41:59.175591+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-ticket-gate.png",
+          "sha256": "f0ac925d451bb3cc32b3ab049a9fed29819347e5b2271a731d4a5af02cbe5437",
+          "rgba_sha256": "df9c3b08d0484190d164178f32f0f6600494aa92b91a2bc743c46882110dba9e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

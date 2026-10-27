@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-gym-reception-turnstile.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gym-reception-turnstile.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-gym-reception-turnstile",
+      "source_sha256": "d0f46cc678d021c77105a51c0bb609657e878d53db63e94e0983ef876e5f1067",
+      "primary_source": {
+        "asset_id": "early-arenas-gym-reception-turnstile",
+        "path": "early-arenas/components/early-arenas-gym-reception-turnstile.png",
+        "sha256": "d0f46cc678d021c77105a51c0bb609657e878d53db63e94e0983ef876e5f1067",
+        "rgba_sha256": "677524693a67644273deb70e8707fb17b5408880f5e429b7e00672b1642e298c"
+      },
+      "image_hashes": {
+        "front": "2adacd6062372148a71f769c585536c14039be486ce6a2e4e13bebc41cf35762",
+        "top": "ab0370cfa2c0fa72b1b336f2d57bc69d4047b1e750c1d92cd1f0660bd2dcc6bc",
+        "right": "e172f2be9ecb6c22a86d2a9c21d03a34d63ec83ee5b58810d87a92155e6f42c4",
+        "left": "b6e150f7c44a7aefed6078d7d3830179a3ea64a44e59b24d173bf22875ab43ed",
+        "bottom": "17593dd47e1adc8272c95d0b1ebd5a6deb99c3d0cc1ac6e7296462dfc7523e6a",
+        "rear": "905fb269fcb57964db9bf9bc65e96d505ab2a90842e925fc7f70525f07a39d94"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:43:22.287429+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-gym-reception-turnstile.png",
+          "sha256": "d0f46cc678d021c77105a51c0bb609657e878d53db63e94e0983ef876e5f1067",
+          "rgba_sha256": "677524693a67644273deb70e8707fb17b5408880f5e429b7e00672b1642e298c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

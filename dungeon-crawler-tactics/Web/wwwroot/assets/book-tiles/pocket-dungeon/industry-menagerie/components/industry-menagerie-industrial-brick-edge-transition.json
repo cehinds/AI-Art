@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-industrial-brick-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-industrial-brick-edge-transition",
+      "source_sha256": "58f84f0abeaf704e094ab233f5052a87606aadb09a874b74582da225ac6cc87f",
+      "primary_source": {
+        "asset_id": "industry-menagerie-industrial-brick-edge-transition",
+        "path": "industry-menagerie/components/industry-menagerie-industrial-brick-edge-transition.png",
+        "sha256": "58f84f0abeaf704e094ab233f5052a87606aadb09a874b74582da225ac6cc87f",
+        "rgba_sha256": "d31b3b303dc12e34c0a04ce39e989607758f61bf94b3c83467c5156bc9d58056"
+      },
+      "image_hashes": {
+        "front": "2ac1ba3819968e8eb0477c8679252b8b50127d52fa22cefb68b9005fb785fa30",
+        "top": "162cbd38288a5accb58c4e282825c6d29ed63a1be4150f8a65d6c7721a0b241b",
+        "right": "10a4ba138be3617f3ac7b296b4a6c66af3f2f599d7ea3154004939793c3736ce",
+        "left": "9181add223e9ac1bceeed53a571febfdcbac5a51c35cc25d94840a38befb48ad",
+        "bottom": "65fdceab6f6d3891a1997a37d2e1b04b146af1d62f4d0d1a806aa3552b208ecf",
+        "rear": "ca47cdae77e861102f6ceb4ed0386bc32ab7da7d26a3411a976eb957b1e80084"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:38:52.185786+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-industrial-brick-edge-transition.png",
+          "sha256": "58f84f0abeaf704e094ab233f5052a87606aadb09a874b74582da225ac6cc87f",
+          "rgba_sha256": "d31b3b303dc12e34c0a04ce39e989607758f61bf94b3c83467c5156bc9d58056"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

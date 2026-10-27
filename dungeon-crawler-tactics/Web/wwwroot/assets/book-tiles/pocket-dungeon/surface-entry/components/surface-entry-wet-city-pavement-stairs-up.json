@@ -18,7 +18,8 @@
     "stairs",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-wet-city-pavement-stairs-up",
+      "source_sha256": "2c8144280bc59a0e654274682773125df521a9c15482ec2b4cec8fbef7cb11be",
+      "primary_source": {
+        "asset_id": "surface-entry-wet-city-pavement-stairs-up",
+        "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+        "sha256": "2c8144280bc59a0e654274682773125df521a9c15482ec2b4cec8fbef7cb11be",
+        "rgba_sha256": "03f6986c4da6bbba68e455bfe88a3c5f9d47bbd7f50033e6eb43ccf023fe44b0"
+      },
+      "image_hashes": {
+        "front": "42f2c07cf67f784e7ad6d1ae6280905db048cc4a518b273048e45867ec5fbc7a",
+        "top": "253d0b5930f9af8158dcf7b9437a2781e570ac5dfd0c38e56ebcb7e9b1eeb9c6",
+        "right": "950d22051b070524300ca5334bba804da754242c37f75af14b131bce4cf9a5a6",
+        "left": "abbb34e1fbc1787cc99a8d35174b7e0255b8afee6950bf8fcb3721c77908bb0d",
+        "bottom": "56f19b765d45ca609fc45517741b661e0bf57a86f1917d49725a92b14dcffa6b",
+        "rear": "18a72e1ceb764e648b82f23d1ca42e26c2f7d549f2e306f80eba19459bd0730a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:42:57.085782+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+          "sha256": "2c8144280bc59a0e654274682773125df521a9c15482ec2b4cec8fbef7cb11be",
+          "rgba_sha256": "03f6986c4da6bbba68e455bfe88a3c5f9d47bbd7f50033e6eb43ccf023fe44b0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

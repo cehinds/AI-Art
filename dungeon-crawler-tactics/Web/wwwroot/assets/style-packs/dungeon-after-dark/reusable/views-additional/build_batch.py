@@ -28,13 +28,25 @@ def process_batch(spec, object_ids=None):
     atlas_sha = hashlib.sha256(raw.read_bytes()).hexdigest()
     index_path = OUT / 'set-index.json'
     index = json.loads(index_path.read_text()) if index_path.exists() else {'assets':[], 'view_sets':[]}
+    asset_map={a['id']:a for a in index['assets']}
     for row, obj in enumerate(spec['objects']):
         if object_ids is not None and obj['id'] not in object_ids: continue
+        current_methods={asset_map.get(f"{obj['id']}.{view}",{}).get('provenance',{}).get('normalization',{}).get('component_selection')
+                         for view in VIEWS}
+        object_policy=(next(iter(current_methods)) if len(current_methods)==1 else None)
+        supported_policies=('global-centroid-alpha-components-spill-mask-v1',
+                            'global-centroid-alpha-components-spill-mask-dilation2-v1')
+        if object_policy not in (None,*supported_policies):
+            raise ValueError(f"{obj['id']}: unsupported component selection policy {object_policy!r}")
+        dilation=0 if object_policy=='global-centroid-alpha-components-spill-mask-v1' else 2
         crops, rects = [], []
         for col in range(6):
             x0, x1 = round(col*width/6), round((col+1)*width/6)
             y0, y1 = round(row*height/len(spec['objects'])), round((row+1)*height/len(spec['objects']))
-            selected=[c for c in components if x0<=c['cx']<x1 and y0<=c['cy']<y1 and x0<=c['box'][0] and y0<=c['box'][1] and c['box'][2]<=x1 and c['box'][3]<=y1]
+            # Components are assigned by centroid, then kept at their complete
+            # global extent. Requiring the full bbox to fit a nominal cell clips
+            # objects that legitimately cross a grid boundary.
+            selected=[c for c in components if x0<=c['cx']<x1 and y0<=c['cy']<y1]
             if not selected:
                 cell_alpha=(pixels[y0:y1,x0:x1,3]>32); yy,xx=np.nonzero(cell_alpha)
                 if len(xx)==0:raise ValueError(f"{obj['id']}/{VIEWS[col]} has no significant alpha components")
@@ -43,7 +55,9 @@ def process_batch(spec, object_ids=None):
                 outside=[];areas=[];count=0
             else:
                 xlo=min(c['box'][0] for c in selected);ylo=min(c['box'][1] for c in selected);xhi=max(c['box'][2] for c in selected);yhi=max(c['box'][3] for c in selected)
-                mask=np.isin(labels,[c['label'] for c in selected]);mask=ndimage.binary_dilation(mask,iterations=2)&(pixels[:,:,3]>0)
+                mask=np.isin(labels,[c['label'] for c in selected])
+                if dilation:mask=ndimage.binary_dilation(mask,iterations=dilation)
+                mask &= pixels[:,:,3]>0
                 masked=np.zeros_like(pixels);masked[mask]=pixels[mask];crop=Image.fromarray(masked,'RGBA').crop((xlo,ylo,xhi,yhi))
                 outside=[c['label'] for c in selected if c['box'][0]<x0 or c['box'][1]<y0 or c['box'][2]>x1 or c['box'][3]>y1]
                 areas=[c['area'] for c in selected];count=len(selected)
@@ -68,7 +82,8 @@ def process_batch(spec, object_ids=None):
                   'source_contact_sheet':spec['contact_sheet'],
                   'generated_atlas':str(raw.relative_to(ROOT)), 'generated_atlas_sha256':atlas_sha,
                   'prompt_path':spec['prompt_path'], 'source_rect':rects[col],
-                  'normalization':{'scale':scale,'offset_px':[ox,oy],'resampling':'nearest','frame_size':[256,256]},
+                  'normalization':{'scale':scale,'offset_px':[ox,oy],'resampling':'nearest','frame_size':[256,256],
+                                   'component_selection':object_policy or 'global-centroid-alpha-components-spill-mask-dilation2-v1'},
                   'rebuild_command':'python3 reusable/views-additional/build_all.py',
                   'notes':'Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels.'},
                   'anchor_px':[128,128]}
@@ -201,7 +216,33 @@ def process_view_column(spec, view, column=0, object_ids=None):
 
 def process_single_view_image(spec, object_id):
     """Install one standalone generated view without fabricating an atlas grid."""
-    raw=OUT/spec['raw'];im=Image.open(raw).convert('RGBA');pixels=np.asarray(im);alpha=pixels[:,:,3]>32
+    raw=OUT/spec['raw']
+    if spec.get('single_image_passthrough') is True:
+        im=Image.open(raw).convert('RGBA');pixels=np.asarray(im);alpha=pixels[:,:,3]>32
+        if im.size!=(256,256):raise ValueError(f"{object_id}: raw PNG passthrough requires a 256x256 source")
+        labels,n=ndimage.label(alpha);rects=[]
+        for label,sl in enumerate(ndimage.find_objects(labels),1):
+            if sl is None:continue
+            ys,xs=sl;area=int(np.count_nonzero(labels[sl]==label))
+            if area>=24:rects.append((label,area,(xs.start,ys.start,xs.stop,ys.stop)))
+        if not rects:raise ValueError(f"{object_id}: raw PNG passthrough has no significant alpha")
+        yy,xx=np.nonzero(alpha);x0=int(xx.min());y0=int(yy.min());x1=int(xx.max())+1;y1=int(yy.max())+1
+        index_path=OUT/'set-index.json';index=json.loads(index_path.read_text());view=spec['single_image_view'];asset=next(a for a in index['assets'] if a['id']==f"{object_id}.{view}")
+        ip=OUT/'images'/f"{asset['id']}.png";mp=ip.with_suffix('.json');ip.write_bytes(raw.read_bytes());rgba=im.tobytes();atlas_sha=hashlib.sha256(raw.read_bytes()).hexdigest()
+        asset['image']['sha256']=hashlib.sha256(ip.read_bytes()).hexdigest();asset['image']['rgba_sha256']=hashlib.sha256(struct.pack('>II',256,256)+rgba).hexdigest()
+        asset['provenance'].update({'method':'generated','generated_atlas':str(raw.relative_to(ROOT)),'generated_atlas_sha256':atlas_sha,
+          'source_contact_sheet':spec['contact_sheet'],'prompt_path':spec['prompt_path'],
+          'source_rect':{'cell':[0,0,256,256],'alpha_bounds':[x0,y0,x1-x0,y1-y0],
+             'component_count':len(rects),'component_areas':[r[1] for r in rects],'components_outside_cell':[]},
+          'normalization':{'scale':1.0,'offset_px':[0,0],'frame_size':[256,256],
+             'operation':'raw-png-passthrough-v1'},
+          'source_cell_calibration':[1.0,1.0],'rebuild_command':'python3 reusable/views-additional/build_all.py',
+          'notes':'Raw generated 256x256 view retained byte-for-byte; no crop, scale, resampling, or projection transform was applied.'})
+        mp.write_text(json.dumps(asset,indent=2)+'\n')
+        ss=next(s for s in index['view_sets'] if s['object_id']==object_id);ss['generation_complete']=True;ss['complete']=False;ss['geometry_qa']={'status':'pending-review','reviewed_image_hashes':[]}
+        tmp=index_path.with_suffix('.json.tmp');tmp.write_text(json.dumps(index,indent=2)+'\n');os.replace(tmp,index_path)
+        return
+    im=Image.open(raw).convert('RGBA');pixels=np.asarray(im);alpha=pixels[:,:,3]>32
     labels,n=ndimage.label(alpha);parts=[]
     for lab,sl in enumerate(ndimage.find_objects(labels),1):
         if sl is None:continue
@@ -277,6 +318,21 @@ def process_object_local_cells_shared_scale(spec, selections):
         cal=spec.get('cell_calibration',{}).get(oid,[1.0,1.0]) if isinstance(spec.get('cell_calibration'),dict) else spec.get('cell_calibration',[1.0,1.0])
         if isinstance(cal,(float,int)):cal=[float(cal),float(cal)]
         if abs(float(cal[0])-float(cal[1]))>1e-9:raise ValueError(f'{oid}: anisotropic local-cell calibration is forbidden')
+        input_group=None
+        if spec.get('normalization_group_recipe'):
+            if spec['normalization_group_recipe']!='object-local-cell-alpha-components-shared-scale-v1':
+                raise ValueError(f"{oid}: unknown local-cell normalization-group recipe")
+            gx0,gx1=round(0*width/6),round(1*width/6)
+            gy0,gy1=round(row*height/len(spec['objects'])),round((row+1)*height/len(spec['objects']))
+            input_group={'schema_version':1,'method':'process_object_local_cells_shared_scale',
+                'recipe_id':spec['normalization_group_recipe'],'source_atlas':str(raw.relative_to(ROOT)),
+                'source_atlas_sha256':atlas_sha,'cell_grid':{'columns':6,'rows':len(spec['objects']),
+                'row_index':row,'cell_size_px':[gx1-gx0,gy1-gy0]},'alpha_threshold_exclusive':32,
+                'component_connectivity':4,'minimum_component_area_px':24,'edge_touch_margin_px':1,
+                'component_selection':'non-edge-touching-at-least-1-percent-largest-fallback-largest',
+                'cell_calibration':[float(cal[0]),float(cal[1])],
+                'shared_scale_formula':'204/max-width-or-height-of-all-six-extracted-cells-after-calibration',
+                'resampling':'nearest'}
         for view in VIEWS:
             crop=crops[view];crops[view]=crop.resize((max(1,round(crop.width*cal[0])),max(1,round(crop.height*cal[1]))),Image.Resampling.NEAREST)
         scale=204/max(max(c.width,c.height) for c in crops.values())
@@ -290,8 +346,8 @@ def process_object_local_cells_shared_scale(spec, selections):
             asset['image']['rgba_sha256']=hashlib.sha256(struct.pack('>II',256,256)+rgba).hexdigest()
             asset['provenance'].update({'method':'generated','generated_atlas':str(raw.relative_to(ROOT)),'generated_atlas_sha256':atlas_sha,
                 'source_contact_sheet':spec['contact_sheet'],'prompt_path':spec['prompt_path'],'source_rect':rects[view],
-                'normalization':{'scale':scale,'offset_px':[ox,oy],'resampling':'nearest','frame_size':[256,256]},
-                'source_cell_calibration':[float(cal[0]),float(cal[1]),'isotropic'],'rebuild_command':'python3 reusable/views-additional/build_all.py',
+                'normalization':{'scale':scale,'offset_px':[ox,oy],'resampling':'nearest','frame_size':[256,256],**({'input_group':input_group} if input_group else {})},
+                'source_cell_calibration':[float(cal[0]),float(cal[1])],'rebuild_command':'python3 reusable/views-additional/build_all.py',
                 'notes':'Locally isolated original generated view; neighboring alpha spill excluded, then all six views normalized with one shared isotropic scale.'})
             mp.write_text(json.dumps(asset,indent=2)+'\n')
         s=next(x for x in index['view_sets'] if x['object_id']==oid);old=s.get('geometry_qa',{});history=old.get('history',[])
@@ -322,7 +378,15 @@ def process_selected_views(spec, selections):
         for view in targets:
             col=columns[view]; x0,x1=round(col*width/6),round((col+1)*width/6)
             y0,y1=round(row*height/len(spec['objects'])),round((row+1)*height/len(spec['objects']))
-            selected=[c for c in components if x0<=c['cx']<x1 and y0<=c['cy']<y1 and x0<=c['box'][0] and y0<=c['box'][1] and c['box'][2]<=x1 and c['box'][3]<=y1]
+            asset_id=f"{obj['id']}.{view}"; asset=asset_map[asset_id]
+            spill_policy=spec.get('partial_component_policy')
+            if spill_policy in ('global-centroid-alpha-components-spill-mask-v1',
+                                'global-centroid-alpha-components-spill-mask-dilation2-v1'):
+                selected=[c for c in components if x0<=c['cx']<x1 and y0<=c['cy']<y1]
+            elif spill_policy is not None:
+                raise ValueError(f"{obj['id']}.{view}: unsupported partial component policy {spill_policy!r}")
+            else:
+                selected=[c for c in components if x0<=c['cx']<x1 and y0<=c['cy']<y1 and x0<=c['box'][0] and y0<=c['box'][1] and c['box'][2]<=x1 and c['box'][3]<=y1]
             if not selected:
                 cell=pixels[y0:y1,x0:x1]; alpha=cell[:,:,3]>32; local,_=ndimage.label(alpha)
                 selected_local=[]
@@ -341,13 +405,17 @@ def process_selected_views(spec, selections):
             else:
                 chosen=[c['label'] for c in selected]
                 bx0=min(c['box'][0] for c in selected);by0=min(c['box'][1] for c in selected);bx1=max(c['box'][2] for c in selected);by1=max(c['box'][3] for c in selected)
-                mask=np.isin(labels,chosen)&(pixels[:,:,3]>0);crop=Image.fromarray(np.where(mask[:,:,None],pixels,0).astype('uint8'),'RGBA').crop((bx0,by0,bx1,by1))
+                mask=np.isin(labels,chosen)
+                if spill_policy == 'global-centroid-alpha-components-spill-mask-dilation2-v1':
+                    mask=ndimage.binary_dilation(mask,iterations=2)
+                mask &= pixels[:,:,3]>0
+                crop=Image.fromarray(np.where(mask[:,:,None],pixels,0).astype('uint8'),'RGBA').crop((bx0,by0,bx1,by1))
                 outside=[c['label'] for c in selected if c['box'][0]<x0 or c['box'][1]<y0 or c['box'][2]>x1 or c['box'][3]>y1]
                 cell_alpha=pixels[y0:y1,x0:x1,3]>32
                 rect={'cell':[x0,y0,x1-x0,y1-y0],'alpha_bounds':[bx0,by0,bx1-bx0,by1-by0],
                       'component_count':len(selected),'component_areas':[c['area'] for c in selected],'components_outside_cell':outside,
                       'edge_alpha_counts':{'left':int(cell_alpha[:,0].sum()),'right':int(cell_alpha[:,-1].sum()),'top':int(cell_alpha[0,:].sum()),'bottom':int(cell_alpha[-1,:].sum())}}
-            asset_id=f"{obj['id']}.{view}"; asset=asset_map[asset_id]; scale=asset['provenance']['normalization']['scale']
+            scale=asset['provenance']['normalization']['scale']
             cal=spec.get('cell_calibration',[1.0,1.0])
             # Some generated atlases draw individual orthographic cells at different
             # raw resolutions. Permit a per-object/per-view *isotropic* calibration
@@ -374,6 +442,7 @@ def process_selected_views(spec, selections):
       **({'preprocessed_from':spec['preprocessed_from'],'preprocessed_from_sha256':spec['preprocessed_from_sha256'],'preprocessing':spec['preprocessing']} if spec.get('preprocessed_from') else {}),
               'source_rect':rect,
               'normalization':{'scale':scale,'offset_px':[ox,oy],'resampling':'nearest','frame_size':[256,256],
+                               **({'component_selection':spill_policy} if spill_policy else {}),
                                **({'rotation_cw_degrees':rotation} if rotation else {})},
               'source_cell_calibration':[float(view_cal[0]),float(view_cal[1])],
               'notes':f"Generated corrective {view} projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels."})

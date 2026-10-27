@@ -3,12 +3,23 @@
   "name": "Tunnel Stone closed doorway top",
   "kind": "sprite",
   "tags": [
-    "iron-tracks",
-    "door",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-tracks",
+    "material:iron",
+    "material:stone",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "top",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-tracks-tunnel-stone-closed-doorway.top.png",
@@ -83,7 +94,38 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "iron-tracks-tunnel-stone-closed-doorway",
+        "view": "top",
+        "source_path": "iron-tracks/components/iron-tracks-tunnel-stone-closed-doorway.png",
+        "source_sha256": "6f21f3c985a06b0754655ac181619fb818c332860204aa67ddfaa7cfbfc37ff3",
+        "atlas_path": "reusable/views-additional/raw/candidates/closed-doorway-plans-batch01/raw-atlas-v2.png",
+        "atlas_sha256": "9f09158b1783796ad7daa830e8b9a090c7691abb92dc3df2912779975342cbd4",
+        "active_output_sha256": "d071de964c533db22b7fd68b0ec0c9afffb38427eef1b6e49335a7fcae2e001a",
+        "active_output_rgba_sha256": "bbde75588d1727d2391e1ff727455ace71ab75d72d3df1c6c08c143b78b0cf0e",
+        "crop_bounds_xyxy": [
+          1851,
+          153,
+          2128,
+          267
+        ],
+        "resized_dimensions_px": [
+          165,
+          68
+        ],
+        "scale": 0.5956678700361011,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "output_binding": "/workspace/generated_images/exec-4a0a80fe-8c3f-4397-8812-170989622cea.png",
     "geometry_reference": [
@@ -96,6 +138,18 @@
         "path": "reusable/views-additional/raw/candidates/closed-doorway-plans-batch01/approved-plan-geometry-guides.png",
         "sha256": "b9aa3acd07d44916fea12b37dfe1677902dc0e9c387d1c4250f6d60fc6750eba",
         "purpose": "root-approved shallow closed-doorway plan silhouettes only"
+      }
+    ],
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.5956678700361011
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
       }
     ]
   },
@@ -149,5 +203,46 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-tracks-tunnel-stone-closed-doorway"
+  }
 }

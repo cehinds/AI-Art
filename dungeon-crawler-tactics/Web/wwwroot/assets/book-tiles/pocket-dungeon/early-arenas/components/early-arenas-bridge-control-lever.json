@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-bridge-control-lever.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-bridge-control-lever.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-bridge-control-lever",
+      "source_sha256": "a327f787a4459469788ee4373bf178661bff21be34a3802d52200085a6ecdcd7",
+      "primary_source": {
+        "asset_id": "early-arenas-bridge-control-lever",
+        "path": "early-arenas/components/early-arenas-bridge-control-lever.png",
+        "sha256": "a327f787a4459469788ee4373bf178661bff21be34a3802d52200085a6ecdcd7",
+        "rgba_sha256": "0e2db1f9646363df7afe923af7b281c14ac0cc6d15fba7dec087c835ad5a9e54"
+      },
+      "image_hashes": {
+        "front": "039ca9acf6d0b78290a336ee362aa5ffba2595baabf45f9c50c20693f17aee51",
+        "top": "f3609a528c5032a2ab5566615d5a594aa4672d6d613c59f1f7a84a79615805ff",
+        "right": "cd2d753b28e6d7445b34dbc1f2f4506200eb0bc328d4dd09cec5307427de450a",
+        "left": "5460f9082b8a17a6f680b3b929e9b238d8578c70faf43b75cb6e3b31cbb51016",
+        "bottom": "12caa6212b92ee05c3565ba0b8c996eacc31c34c1ad895d64452bbacf5ebb302",
+        "rear": "dc92b1ef76916ce1ebf66b73b080b654daf6d46953f21583358deec3ce9ae50e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:21:31.915364+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-bridge-control-lever.png",
+          "sha256": "a327f787a4459469788ee4373bf178661bff21be34a3802d52200085a6ecdcd7",
+          "rgba_sha256": "0e2db1f9646363df7afe923af7b281c14ac0cc6d15fba7dec087c835ad5a9e54"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

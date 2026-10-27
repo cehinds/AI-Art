@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-underwater-trailer-window.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,16 +162,67 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-underwater-trailer-window.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-underwater-trailer-window",
+      "source_sha256": "0d6c1d3d774fca0454b88ac76aa75718ba67686242af21e4c6426c1794a04c20",
+      "primary_source": {
+        "asset_id": "broadcast-portals-underwater-trailer-window",
+        "path": "broadcast-portals/components/broadcast-portals-underwater-trailer-window.png",
+        "sha256": "0d6c1d3d774fca0454b88ac76aa75718ba67686242af21e4c6426c1794a04c20",
+        "rgba_sha256": "4a48a7be37579570097c996c02b310bc495b0d1a9d13aa3a99d1b9aef14a454b"
+      },
+      "image_hashes": {
+        "front": "19f9e06dabf690cb52a93f6cf4a94a44eaf1a7b5fd2ed14ee09cf813becdc422",
+        "top": "c722e38d6cf8ef63341fe7dc0eae642957e3ee733444bfdf9a97c436a3715f92",
+        "right": "857b24b6257c8394027c647a5bdef4fae80288e3af689f88ec87707e8869253a",
+        "left": "4d22d772e8c95850a794ba16f48efc645b55f442479f87a3cea91640d417dbb8",
+        "bottom": "6f59fcd0b49c6e2ae1fcd9d1ac04f22dc97b4372a15db5b87e0b1a598a02ba75",
+        "rear": "a1c3f619ac4f25eb35f37daf37909b97a1178f248aa308c1fcca0aa3ef02452d"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:54:30.462523+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-underwater-trailer-window.png",
+          "sha256": "0d6c1d3d774fca0454b88ac76aa75718ba67686242af21e4c6426c1794a04c20",
+          "rgba_sha256": "4a48a7be37579570097c996c02b310bc495b0d1a9d13aa3a99d1b9aef14a454b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "environment:underwater",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

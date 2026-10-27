@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--bard.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--bard.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--bard",
+      "source_sha256": "99eafc7bc2430d71220ffb432787971a59db41b21f0805b529bbd010ce062aa8",
+      "primary_source": {
+        "asset_id": "legacy--bard",
+        "path": "reusable/native/legacy--bard.png",
+        "sha256": "99eafc7bc2430d71220ffb432787971a59db41b21f0805b529bbd010ce062aa8",
+        "rgba_sha256": "39939c8fb8dbc7d7688910ace016d08cb8e0e8a064f39dac1060edbeab0a0c4c"
+      },
+      "image_hashes": {
+        "front": "010355c14ac268a3f660912dcb46d874d07a065768e0529180f1725962061814",
+        "top": "da1ec6be21447bd69fd76d3aac33afc9020130b21334d6005a2af4bcd7ae13f0",
+        "right": "d34622c7a55c2762d955ee873cddcb18393298554a49c561af80f8736da33027",
+        "left": "36c1641cccc877f1f16f8cd035bdd905e2aa636957d24c9c6c1e1d39e0cb41ac",
+        "bottom": "f2a55dbe2bba373bb24517181fe552fd19661a6673cdb5d565ecc74761a97b53",
+        "rear": "92dbe3bc727a8db5b1d25a65879eec5ec3d385f27154f7b8e305e0f19611c3c4"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.152153+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--bard.png",
+          "sha256": "99eafc7bc2430d71220ffb432787971a59db41b21f0805b529bbd010ce062aa8",
+          "rgba_sha256": "39939c8fb8dbc7d7688910ace016d08cb8e0e8a064f39dac1060edbeab0a0c4c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

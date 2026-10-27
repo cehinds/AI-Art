@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-scuffed-packed-dirt-arena-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-scuffed-packed-dirt-arena-floor",
+      "source_sha256": "b8f70c0309f1b39367693853bf6d77902a5264a0bd4e349e2ece5bddde0ed723",
+      "primary_source": {
+        "asset_id": "parade-horribles-scuffed-packed-dirt-arena-floor",
+        "path": "parade-horribles/components/parade-horribles-scuffed-packed-dirt-arena-floor.png",
+        "sha256": "b8f70c0309f1b39367693853bf6d77902a5264a0bd4e349e2ece5bddde0ed723",
+        "rgba_sha256": "f356ebd72f1d9e3a8aff20eff61ec79702ac81b6727906ff9333ad623ecf96a4"
+      },
+      "image_hashes": {
+        "front": "adcf0cd91d92025074b95df97a3e50b47996dd09a2baee32321d40b305f6aabf",
+        "top": "d06fa981fc57ff282ac5c268423433f0fae90f00fe170f7751ee8347bbd420c3",
+        "right": "c46397f9ab1484a6667cf8e7ebe9dc055ba42222c45ac45332cb6a14cfd9f859",
+        "left": "b373244d8890580a2630a2be0a61f11870c5060e3c80b36b6a0f943531f6787f",
+        "bottom": "e77525791a6534f7f23726eba36d166bd022c97b00ef1ef0fb73661413c15aae",
+        "rear": "9413908e7cbfad6787f3bf00dba325cd26230815bfb5b14751584c97298d1fac"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:27:49.354532+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-scuffed-packed-dirt-arena-floor.png",
+          "sha256": "b8f70c0309f1b39367693853bf6d77902a5264a0bd4e349e2ece5bddde0ed723",
+          "rgba_sha256": "f356ebd72f1d9e3a8aff20eff61ec79702ac81b6727906ff9333ad623ecf96a4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "east": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "south": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "west": [
+      "join.floor",
+      "visual.parade-horribles"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

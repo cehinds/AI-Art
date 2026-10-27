@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -99,35 +100,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mimic.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "mimic",
+      "source_sha256": "13e67b126d4fc2554ef0d545f9e09f0fd964caef6cccb7d17442046df1411594",
+      "primary_source": {
+        "asset_id": "mimic",
+        "path": "components/mimic.png",
+        "sha256": "13e67b126d4fc2554ef0d545f9e09f0fd964caef6cccb7d17442046df1411594",
+        "rgba_sha256": "faf824ce5319473e5b52c8eb1151d1cccfc200a9a73cdb3f78dd906a8f9f4967"
+      },
+      "image_hashes": {
+        "front": "aac64477ad41c89b5fb4755fb800c6ba65884318d1320f2b1a6761a01a798454",
+        "top": "037b87502b28ee345b3c522d44f20f8c2d54f395b490b358ed810968c7f247f3",
+        "right": "b879e9bd8b9e509e921fff2b56117f11fc99db487996f40465db757636258cf3",
+        "left": "4d174c6fdbdf7964b43a7a0147e0792e1915d01431e740d45790fc73ff239380",
+        "bottom": "72474e6c803f93b275ff43e18a1d1eaebe34e887df1c268de355212d5dc68a2a",
+        "rear": "ba1c37eead581473537c49726e806c261e7ea88d1a438a33432a5924e41de36c"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:00:25.025625+00:00",
+      "notes": [
+        "Open chest state preserved across directions; overhead open lid/cavity/tongue and underside backing are coherent with the source creature."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "086354143845120f6b2f70306d37a39e98835783a1dbe182df8bacd0ff33cb2b",
+        "reviewed_reference": {
+          "path": "components/mimic.png",
+          "sha256": "13e67b126d4fc2554ef0d545f9e09f0fd964caef6cccb7d17442046df1411594",
+          "rgba_sha256": "faf824ce5319473e5b52c8eb1151d1cccfc200a9a73cdb3f78dd906a8f9f4967"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -140,7 +178,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -155,7 +194,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

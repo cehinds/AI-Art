@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "personal-space/components/personal-space-cracked-warm-wood-plank-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "personal-space-cracked-warm-wood-plank-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-cracked-warm-wood-plank-floor",
+      "source_sha256": "576f23f63ba74e802cfd8e187eb8e38a55d43a8af140f7bdbf5d70a033a1db17",
+      "primary_source": {
+        "asset_id": "personal-space-cracked-warm-wood-plank-floor",
+        "path": "personal-space/components/personal-space-cracked-warm-wood-plank-floor.png",
+        "sha256": "576f23f63ba74e802cfd8e187eb8e38a55d43a8af140f7bdbf5d70a033a1db17",
+        "rgba_sha256": "6b703ffd093a1bceb17703268602a22babd1413b2fa593cfed67ba34a6d99f61"
+      },
+      "image_hashes": {
+        "front": "eb5251aec15d14768ac6d4c46be656a5ce801e3978e282b15ce4c7745ebbe5d4",
+        "top": "07ebdabb453a14bc120dd7bb9118c8db5a115ccd1f95c39e6f0977215073b23d",
+        "right": "57a8771da53e5d8334c5be7d85bc806942a4bb9f372dc0a872983a441a64fc2a",
+        "left": "ada547067129846b90df60df4250a5247e4a3139f5a6f922e6f45287630548e8",
+        "bottom": "b30c00be021c7d1f9f440074d2a59be91e31c904f0af9a51ce8f2c78184000f6",
+        "rear": "eb5251aec15d14768ac6d4c46be656a5ce801e3978e282b15ce4c7745ebbe5d4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:27:26.547421+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-cracked-warm-wood-plank-floor.png",
+          "sha256": "576f23f63ba74e802cfd8e187eb8e38a55d43a8af140f7bdbf5d70a033a1db17",
+          "rgba_sha256": "6b703ffd093a1bceb17703268602a22babd1413b2fa593cfed67ba34a6d99f61"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.personal-space"
+    ],
+    "east": [
+      "join.floor",
+      "visual.personal-space"
+    ],
+    "south": [
+      "join.floor",
+      "visual.personal-space"
+    ],
+    "west": [
+      "join.floor",
+      "visual.personal-space"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:wood",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

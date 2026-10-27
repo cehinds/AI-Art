@@ -7,15 +7,15 @@
     "attachment-tagged",
     "attachment:floor",
     "attachment:stairs",
+    "bottom",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "role:object",
     "sprite-frame",
-    "style:gameplay",
-    "inferred-view",
-    "bottom"
+    "style:gameplay"
   ],
   "object_id": "revamp--characters--mongo--windup",
   "view": "bottom",
@@ -77,5 +77,41 @@
     "source_image_sha256": "7dda940b2740757609cae2621414add5d795275bcea1751364740af891ce8a0e",
     "generation_request_id": "exec-0bb68376-df82-4e0b-9f4a-1434207b5d26",
     "generation_prompt": "reusable/views-additional/raw/mongo-sixposes-bottom-single-20261026.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--characters--mongo--windup"
   }
 }

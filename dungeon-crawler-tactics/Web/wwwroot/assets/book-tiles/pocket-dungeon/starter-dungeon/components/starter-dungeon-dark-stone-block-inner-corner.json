@@ -17,6 +17,7 @@
     "starter-dungeon",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-dark-stone-block-inner-corner",
+      "source_sha256": "aca69150360bff677878977dabdb77e5af849d20a063a5303efcbca50064a412",
+      "primary_source": {
+        "asset_id": "starter-dungeon-dark-stone-block-inner-corner",
+        "path": "starter-dungeon/components/starter-dungeon-dark-stone-block-inner-corner.png",
+        "sha256": "aca69150360bff677878977dabdb77e5af849d20a063a5303efcbca50064a412",
+        "rgba_sha256": "aee1615246c2bdfe04c2da4854098cbeb8c59d2a58a4ef5f205a807662e25932"
+      },
+      "image_hashes": {
+        "front": "456785ca03e657d2fa7f6122391c9cbedc6421fe036fce98b59d5ad736265270",
+        "top": "a583b2e920bb1a191043a2055a7939761e2bd5289591d9d2b3a2bf6484d99279",
+        "right": "f16b4f512fc2d9ac3e80dcf32833150303059176e286a2950ad739dc7f73f24c",
+        "left": "55ec6dbb27f87fb44441e962f98aef7070bba206dd92e3c0248e8fd366b58715",
+        "bottom": "a6351f4c7ab40ee768602b3a9711f95135498a150d0bf5053e1bc78a020fa20a",
+        "rear": "efccde86140e9bb543efee8108fd6d52cc1bf64a9e622c181b2995ea9befc1fa"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:15:36.821091+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-dark-stone-block-inner-corner.png",
+          "sha256": "aca69150360bff677878977dabdb77e5af849d20a063a5303efcbca50064a412",
+          "rgba_sha256": "aee1615246c2bdfe04c2da4854098cbeb8c59d2a58a4ef5f205a807662e25932"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-sarcophagus.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-sarcophagus.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-sarcophagus",
+      "source_sha256": "389c9143595c501a34630d2b3a725bd8dcc76995b39eb2d1ab37523b3d6713aa",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-sarcophagus",
+        "path": "bubble-necropolis/components/bubble-necropolis-sarcophagus.png",
+        "sha256": "389c9143595c501a34630d2b3a725bd8dcc76995b39eb2d1ab37523b3d6713aa",
+        "rgba_sha256": "5701e8da523b28437f9626e8594dd8b3b20b7b08a0a791891cf535af128b332f"
+      },
+      "image_hashes": {
+        "front": "814afb46d6607874f8c8117263d342956a3c430637a4433787ca16d00f28057a",
+        "top": "1faa2a3d03c59c11745d26a281f27d575a4cdc2983d18e384ff2c6094f00541c",
+        "right": "2e892df4682003aa5771645fb546dfd156b8075bc92da92823e6178e5ab83d5c",
+        "left": "1bce9350678820c19c8da5bd307624e3529c41329795784c0b9733179913d9ec",
+        "bottom": "df8758151922b4d1548e34381d61d3cbdebc6c615eaf4c8b33cc5939de03ec0c",
+        "rear": "2393ece8b3f54dfdd0d88ca9b077b51e99fbcc43cf6d1f1207c073f059e52d67"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:51:45.079902+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-sarcophagus.png",
+          "sha256": "389c9143595c501a34630d2b3a725bd8dcc76995b39eb2d1ab37523b3d6713aa",
+          "rgba_sha256": "5701e8da523b28437f9626e8594dd8b3b20b7b08a0a791891cf535af128b332f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

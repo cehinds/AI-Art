@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-riveted-scrap-hull-wall-northeast",
+      "source_sha256": "2eef284d96bbeabab56feaeec27eba061cc67eefee1219278df8a8abae378d68",
+      "primary_source": {
+        "asset_id": "bubble-airship-riveted-scrap-hull-wall-northeast",
+        "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-wall-northeast.png",
+        "sha256": "2eef284d96bbeabab56feaeec27eba061cc67eefee1219278df8a8abae378d68",
+        "rgba_sha256": "13c4fbfe9f2d23213ac1d10f7e5e8f4b446385c3008910e673cd9848724d129c"
+      },
+      "image_hashes": {
+        "front": "1a823876e8cc723c71dadde8ae3d41a04d82d623d51c26ee16c49e4cad69d046",
+        "top": "61f3c8f336872afaf853f31b6041c4ba0b30b9271a68a01fca12ceaec7152465",
+        "right": "7deced88fab04ac30948ce1e612cd59f59b706a8a48883a34f0a20b636a808cc",
+        "left": "65eb02d8697672830345bd4f5e94c157505ab6812dd2d7ee3e880da03ecbcbe4",
+        "bottom": "83c1d306437b528dae28b8d81c4d6d24cc4c779e6f0f9d554e00f6b6bd8733e7",
+        "rear": "2191313016a424b4a9281c76d102f9386604e0423e7f5e0b61a6e130d468c3f8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:09:11.553969+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-wall-northeast.png",
+          "sha256": "2eef284d96bbeabab56feaeec27eba061cc67eefee1219278df8a8abae378d68",
+          "rgba_sha256": "13c4fbfe9f2d23213ac1d10f7e5e8f4b446385c3008910e673cd9848724d129c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

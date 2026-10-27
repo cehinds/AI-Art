@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-flood-sluice-gate.png",
@@ -110,6 +111,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,31 +140,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-flood-sluice-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-flood-sluice-gate",
+      "source_sha256": "52620bf63ea428bbc8e3ca22181a59897f5a350095dce3c835f71f40be03ae01",
+      "primary_source": {
+        "asset_id": "faction-larracos-flood-sluice-gate",
+        "path": "faction-larracos/components/faction-larracos-flood-sluice-gate.png",
+        "sha256": "52620bf63ea428bbc8e3ca22181a59897f5a350095dce3c835f71f40be03ae01",
+        "rgba_sha256": "8825de9809c8014348d723488deb6b28d66960ee4f5f9637f9c637a1ae1acf03"
+      },
+      "image_hashes": {
+        "front": "42023a7004fb75ce0bec632aad7f13e3d3838e1d014013f0ebeb49159284ea07",
+        "top": "a5707c9921c99d45ff78d6559d242fab5482797e927d388ce69ba35655bca41c",
+        "right": "f867790b6e10bf4e1d75f3524dd09b9a529f27b2246ed00662a480310beeb48a",
+        "left": "bb6c637b954e3f04e056f39c36d5e95d9b91d137d7ae7ac08d5e4788028873bd",
+        "bottom": "e23e30d5c6bcf064ce812829ddf594abda5f121fd4940065b8fb916d12db3771",
+        "rear": "d901d6307c5e28956c86ab71dac1a6c63a06584e003a2772c89897528408f99e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:02:08.416324+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-flood-sluice-gate.png",
+          "sha256": "52620bf63ea428bbc8e3ca22181a59897f5a350095dce3c835f71f40be03ae01",
+          "rgba_sha256": "8825de9809c8014348d723488deb6b28d66960ee4f5f9637f9c637a1ae1acf03"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,12 +237,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

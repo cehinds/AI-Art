@@ -3,10 +3,21 @@
   "name": "Wooden bridge Bottom",
   "kind": "structure",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "attachment:floor",
+    "bridge",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "material:wood",
     "orthographic",
+    "role:object",
+    "six-view",
     "structure",
-    "generated"
+    "structures",
+    "style:dungeon-after-dark",
+    "world"
   ],
   "image": {
     "path": "reusable/views-additional/images/bridge.bottom.png",
@@ -61,7 +72,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective bottom projection at the established six-view scale; inferred surfaces, not recovered pixels."
@@ -70,5 +82,44 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/bridge.bottom.json"
+  "metadata_path": "reusable/views-additional/images/bridge.bottom.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bridge"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bridge",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:wood",
+    "role:object",
+    "structures",
+    "style:dungeon-after-dark",
+    "world"
+  ]
 }

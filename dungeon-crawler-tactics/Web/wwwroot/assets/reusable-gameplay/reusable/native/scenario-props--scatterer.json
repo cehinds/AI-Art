@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "scenario-props--scatterer.front"
@@ -76,18 +76,41 @@
       "status": "inferred",
       "asset_id": "scenario-props--scatterer.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "pending-review",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "scenario-props--scatterer",
+      "source_sha256": "20033db93cb40ab874c7f0e3c94344755b95c53e758f8f4bf1f4b65a2fdabf79",
+      "primary_source": {
+        "asset_id": "scenario-props--scatterer",
+        "path": "reusable/native/scenario-props--scatterer.png",
+        "sha256": "20033db93cb40ab874c7f0e3c94344755b95c53e758f8f4bf1f4b65a2fdabf79",
+        "rgba_sha256": "fab07e749dad5833c72835965157014b5f2bae1285e0b9275dddd71271e33813"
+      },
+      "image_hashes": {
+        "front": "e82a54aaf15f980b35a47401409b7b1320c510db16b1bde2478613ad1a8e2fe0",
+        "top": "60248b9057964572864a2764f934fe23996b5f8d2ba56326ed0508ff9ce8ec3d",
+        "right": "036ceb90805c0ebdc781905da5993b2e41f6aa375c46f386ff14dd183a538e79",
+        "left": "2f5b219a795cdb14b0949492a24b6c09b5216b1d9308cff5e8b1beacb8ba97fa",
+        "bottom": "6c12df9dc88c67b99bacab75b6400a6749472779fca1122628cf1c7b7a1597be",
+        "rear": "7ae2712cc4b2124fbff35eb84aa69ff029aa477b632112b236f0a34e6350788b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T13:04:41.369643+00:00",
+      "notes": [
+        "Current canonical source and six installed views verified: long paired curved antennae, brown roach elytra/body and six-leg identity retained, with opposed profiles and segmented underside. Natural rear occlusion explicitly inferred. All candidate source/raw/live hashes were guarded; LEFT stray pixels removed while alpha16-connected antennae retained. Source structural-antenna hold resolved."
       ],
-      "notes": "Generated isolated orthographic views from the canonical source; independent source-plus-six review required."
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "ff17b4cad4637b3bdff5e6187bab616f9b04f88b970ce98521b0b825f27fbd33",
+        "reviewed_reference": {
+          "path": "reusable/native/scenario-props--scatterer.png",
+          "sha256": "20033db93cb40ab874c7f0e3c94344755b95c53e758f8f4bf1f4b65a2fdabf79",
+          "rgba_sha256": "fab07e749dad5833c72835965157014b5f2bae1285e0b9275dddd71271e33813"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "scenario-props--scatterer",

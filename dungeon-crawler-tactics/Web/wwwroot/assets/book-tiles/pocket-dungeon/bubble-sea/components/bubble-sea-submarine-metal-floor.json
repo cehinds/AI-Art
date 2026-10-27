@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-submarine-metal-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-metal-floor",
+      "source_sha256": "a4786465277982fd5aca0cdd464c1be84836476caf2a091112bb606928aaa9ac",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-metal-floor",
+        "path": "bubble-sea/components/bubble-sea-submarine-metal-floor.png",
+        "sha256": "a4786465277982fd5aca0cdd464c1be84836476caf2a091112bb606928aaa9ac",
+        "rgba_sha256": "2bc4ed610dd4352fc766709462f537b075a016ad48bcb728b40a451fcc342a55"
+      },
+      "image_hashes": {
+        "front": "5c638e4cf8c79099b3e072425bfe53e8156d4a22834fc7e8b42a9cd867a05116",
+        "top": "7f087df730d4b20e14a97cb7d397d430955238f7dbe6e319ee1fce1ff9318677",
+        "right": "028d60ac0b37315881c2bf0521822a7900bb53ba2230eb710fc0f31f97813960",
+        "left": "c41fd92456dd9f87370bfb0d559056bea1f5d789c35d8f72c7ea31d05dbd22b5",
+        "bottom": "34fb7e47afe05af85f97c92f8b110093c839241779f6e5a20f74ab10bdaf8c97",
+        "rear": "aaefeee7677652e8363f6668d998f84e35f8ae0f58767666e8f4817e98fc7aa7"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.912227+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-metal-floor.png",
+          "sha256": "a4786465277982fd5aca0cdd464c1be84836476caf2a091112bb606928aaa9ac",
+          "rgba_sha256": "2bc4ed610dd4352fc766709462f537b075a016ad48bcb728b40a451fcc342a55"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-sea"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

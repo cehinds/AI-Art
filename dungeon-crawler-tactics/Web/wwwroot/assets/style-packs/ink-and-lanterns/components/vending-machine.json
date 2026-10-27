@@ -8,6 +8,7 @@
   "tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:unspecified",
     "existing",
     "ink-and-lanterns",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "vending-machine.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "vending-machine",
+      "source_sha256": "f047860e2f5e49317c5a0a00f5d258fa8b0eaa09234a8f605300cad0860792f3",
+      "primary_source": {
+        "asset_id": "vending-machine",
+        "path": "components/vending-machine.png",
+        "sha256": "f047860e2f5e49317c5a0a00f5d258fa8b0eaa09234a8f605300cad0860792f3",
+        "rgba_sha256": "0e71d93045faff72afc0d7940860d31ae5181a10a1aacdeee302aa3519250b07"
+      },
+      "image_hashes": {
+        "front": "7a5ef062be2e11da4c4fab40cf1729e970fb0a0e937e475dd424bb96faaf72bd",
+        "top": "e96c7f6b16610fccb18c9eb96f97d784ce9d829012d1d462202c141bd34e3d4c",
+        "right": "99b83b6eebeb112f0d77ee8f5d5693c5c64538172597508fb82d6d40bf133f76",
+        "left": "6c7454a3ed467f7680e71c82bbf09ca72b5580588c3cc69fb7ba68d9094e4141",
+        "bottom": "71b08d84df081f466b70e10b1f99139768b9129aa493ea20a3a43951ba70459c",
+        "rear": "be86bb0f7a1e579959654e58d264563f4fd1727678d493f9fd8f8a82d7e5f932"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:20:58.431195+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/vending-machine.png",
+          "sha256": "f047860e2f5e49317c5a0a00f5d258fa8b0eaa09234a8f605300cad0860792f3",
+          "rgba_sha256": "0e71d93045faff72afc0d7940860d31ae5181a10a1aacdeee302aa3519250b07"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

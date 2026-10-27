@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-sandstone-and-sand-edge-transition",
+      "source_sha256": "9cfb01fdc3c4f4b8dfeec07e994e546fb643e4b774aac8342e807e842082e948",
+      "primary_source": {
+        "asset_id": "bubble-desert-sandstone-and-sand-edge-transition",
+        "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-edge-transition.png",
+        "sha256": "9cfb01fdc3c4f4b8dfeec07e994e546fb643e4b774aac8342e807e842082e948",
+        "rgba_sha256": "0f2531fce8dbf7757e5a6d4aaceb14c6c7b76a468c6d11934a35a5645aeba930"
+      },
+      "image_hashes": {
+        "front": "1c27fb7bb86b1cba6a56925619a864a8faf8f5cc083360f19953c2ddc9b0d3cd",
+        "top": "a330e0104de1b2036c56c638c961d640e39b21ab577f76b06b3847793c0dfb35",
+        "right": "71d8d94969879ff48622d6e390c676f5f754ec6977804286f6cc10999ea997d8",
+        "left": "7df78087bfe176c3935fb589c0b7b79383158e37c0f3d272144b40baa93f678b",
+        "bottom": "020ef4a7212d8e2c6a24d3898ce3e3afb3c01b256bb85a579df1ce58bae1e18d",
+        "rear": "7a10b8a195a538696b1a81781eea3c12bb9df9198a7348d242641dcae54afdea"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.910792+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-edge-transition.png",
+          "sha256": "9cfb01fdc3c4f4b8dfeec07e994e546fb643e4b774aac8342e807e842082e948",
+          "rgba_sha256": "0f2531fce8dbf7757e5a6d4aaceb14c6c7b76a468c6d11934a35a5645aeba930"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

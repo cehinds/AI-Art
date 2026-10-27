@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-desert",
     "environment:desert",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-sand-dune-mound.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sand-dune-mound.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-sand-dune-mound",
+      "source_sha256": "92b03d650d14e90e351ae7dbb3db51e2baabcd00b14ff3b1364936c18792bf5b",
+      "primary_source": {
+        "asset_id": "bubble-desert-sand-dune-mound",
+        "path": "bubble-desert/components/bubble-desert-sand-dune-mound.png",
+        "sha256": "92b03d650d14e90e351ae7dbb3db51e2baabcd00b14ff3b1364936c18792bf5b",
+        "rgba_sha256": "022e6e9231bc2b01ad57a842a2dd802e6dfd0be2592d3a22551cb0cb8d78f345"
+      },
+      "image_hashes": {
+        "front": "ce0deb9cf5996edf8a80f3a0108f6a81327a291b1e047b484581103c624c7758",
+        "top": "8ce179cb326e480b4928a4e31792bfe8bb02a38908c103b9d27771a88c987844",
+        "right": "e5d770e30204a42e4802a01c8fe4bbd70bac6305b33fe51bebcdc668bf8e2e14",
+        "left": "afb3861fada742d22a883d16369d5d79d83a288697e68dc83b4b94378603db6b",
+        "bottom": "97cfc38a5d9ef400a60fda1f584676a55ded5df368e46fdd4fb793dc352b2800",
+        "rear": "7ae7459f0a7ce64cdd1a311343c4005dcc6585177425f02f19717f87c89e8273"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:36:47.931951+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-sand-dune-mound.png",
+          "sha256": "92b03d650d14e90e351ae7dbb3db51e2baabcd00b14ff3b1364936c18792bf5b",
+          "rgba_sha256": "022e6e9231bc2b01ad57a842a2dd802e6dfd0be2592d3a22551cb0cb8d78f345"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:desert",
     "environment:dungeon",
     "material:sand",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

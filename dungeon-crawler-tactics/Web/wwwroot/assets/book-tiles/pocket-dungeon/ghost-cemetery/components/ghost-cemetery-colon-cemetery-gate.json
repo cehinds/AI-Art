@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-colon-cemetery-gate.png",
@@ -122,6 +123,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -141,31 +152,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-colon-cemetery-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-colon-cemetery-gate",
+      "source_sha256": "40b7891cb2cb415599a77885ec2eb18c23e98d84798db101c1770a4e6a837e2c",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-colon-cemetery-gate",
+        "path": "ghost-cemetery/components/ghost-cemetery-colon-cemetery-gate.png",
+        "sha256": "40b7891cb2cb415599a77885ec2eb18c23e98d84798db101c1770a4e6a837e2c",
+        "rgba_sha256": "643e3fd3a623b1b058069b827159790d4d8f0f0d2d1783d94badceeb741bd540"
+      },
+      "image_hashes": {
+        "front": "fb988fd584c4a87087136766ccf79c78e93e618928fb179a89d994b70bf1fcb1",
+        "top": "54e867d42fd48dd64fd81bf29691b04949649aab2a262fb82549538e6c284c6f",
+        "right": "980e86b872170c81ad180559d987879c0a2bbdb493b216723c53996831a17922",
+        "left": "ec7aefe81c651ac4feafd589d7af2f8de0cb8617aa39823656c80a4e2b1dad42",
+        "bottom": "acb961f7e5c16ad9f5da6f21c4721a8d276634523bf0ac68bcae391f6cd3c57e",
+        "rear": "ed53e0bf28d1fd4ae8cab47a8d06f3115fcb0e1ba3158907f07766e0cc88a3dc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-colon-cemetery-gate.png",
+          "sha256": "40b7891cb2cb415599a77885ec2eb18c23e98d84798db101c1770a4e6a837e2c",
+          "rgba_sha256": "643e3fd3a623b1b058069b827159790d4d8f0f0d2d1783d94badceeb741bd540"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -173,7 +233,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -188,12 +249,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

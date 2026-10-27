@@ -3,12 +3,19 @@
   "name": "Broken wall Left",
   "kind": "tile",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
     "gameplay",
-    "native-source-crop",
-    "sprite-frame",
-    "terrain",
     "inferred-view",
-    "left"
+    "left",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
   ],
   "object_id": "revamp-terrain-broken-wall",
   "view": "left",
@@ -66,6 +73,79 @@
       ],
       "shared_scale": 0.5875706214689266,
       "projection_scale": 1.0
-    }
+    },
+    "normalization": {
+      "scale": 0.5875706214689266,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "revamp-terrain-broken-wall",
+        "view": "left",
+        "source_path": "reusable/native/revamp-terrain-broken-wall.png",
+        "source_sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3",
+        "atlas_path": "reusable/views-additional/raw/revamp-terrain-wall-props-elevation-correction-atlas.png",
+        "atlas_sha256": "7e4157dc8a72efab8633a5d4e4b08c359d3ecfc7ce2645282dd0c49da9d32831",
+        "active_output_sha256": "0d75d77f262adaab12bb8dc2f8a5134375e612f88ed097f6828d234c93cb122e",
+        "active_output_rgba_sha256": "c1d5a21dd8bdb77eb5f87d2be41a9b11e18112044f4bb3c0808463d1443f1ec6",
+        "crop_bounds_xyxy": [
+          934,
+          470,
+          1219,
+          824
+        ],
+        "resized_dimensions_px": [
+          167,
+          208
+        ],
+        "scale": 0.5875706214689266,
+        "projection_scale": 1.0,
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-build-resolution.json",
+        "execution_report_sha256": "78e7a46f07b0c1ea16ea89e1e52ba03f7fe3e967cc9ae894fea9412f5cf70012",
+        "output_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-rebuild-receipt.json",
+        "output_report_sha256": "6bab12c1c1df9a54426130a8d51eb0eb31258ab1804c696abf1afe08370fe0dc",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/gameplay-per-view-isotropic-v1.json",
+        "recipe_sha256": "92c1b54c27551efcc19b314e4dd684cd96e210b8473963db5bdfae2eaf81fc8d"
+      }
+    },
+    "source_sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp-terrain-broken-wall"
   }
 }

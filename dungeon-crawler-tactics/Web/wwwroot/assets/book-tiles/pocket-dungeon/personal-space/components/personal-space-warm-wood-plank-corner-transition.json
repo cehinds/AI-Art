@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "personal-space/components/personal-space-warm-wood-plank-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-warm-wood-plank-corner-transition",
+      "source_sha256": "2307e22a2dbc4292b473fb280b966eca461ad1e596c13c9dfca936f6051fa3c1",
+      "primary_source": {
+        "asset_id": "personal-space-warm-wood-plank-corner-transition",
+        "path": "personal-space/components/personal-space-warm-wood-plank-corner-transition.png",
+        "sha256": "2307e22a2dbc4292b473fb280b966eca461ad1e596c13c9dfca936f6051fa3c1",
+        "rgba_sha256": "ab80831e045e5fda6522cf19d617458c33e026e04dccbb57cad7b1ceae1fc2f6"
+      },
+      "image_hashes": {
+        "front": "14a6016eb26ed4185dc5c42a2c886369ebe9ca452fc337b20802b356bfa2ab5f",
+        "top": "2b4b6e41440bef2ea9388fa9cd4d75480d9f4f7cd11904fae41e2fa90bfeb22e",
+        "right": "c664ed39d505c517d68a4dbbda139b76a2bbced9e4e27a88c28f2836b3202672",
+        "left": "b3ca67bbe7590b688db97ebebcd5047f382d109c9b290b211f82fd7ca4eb97c5",
+        "bottom": "6b60bcb6788502097fe561777b4ab66ae185d3642fe734276252b04f02a37bdf",
+        "rear": "aeacf9090be396759a23723b8593a012f6fac91060690adaf3cbe6ab4dbf2135"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:12:46.479021+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-warm-wood-plank-corner-transition.png",
+          "sha256": "2307e22a2dbc4292b473fb280b966eca461ad1e596c13c9dfca936f6051fa3c1",
+          "rgba_sha256": "ab80831e045e5fda6522cf19d617458c33e026e04dccbb57cad7b1ceae1fc2f6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:wood",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -195,7 +206,60 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-stage-panel-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-stage-panel-floor",
+      "source_sha256": "42b6b1e2f2af8221a603248dc510e2010c97c2023f47c26acb4424dc98fd9d2a",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-stage-panel-floor",
+        "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-floor.png",
+        "sha256": "42b6b1e2f2af8221a603248dc510e2010c97c2023f47c26acb4424dc98fd9d2a",
+        "rgba_sha256": "155f6507ee83c583a49db4579e088bc7c0ba277a750161103caac004d6a1658e"
+      },
+      "image_hashes": {
+        "front": "6659872189c0d7503302912b0b55f15ae5e24d94eac33710e8785115676e05fe",
+        "top": "34d3b4ec53dd393e1e98af3f9548b3c5871ac987aa8565523f1c97330205b3e7",
+        "right": "28d353549d8cbc6f96b7fbe3ded06da4cf182d400e93da59c7f042da74d29860",
+        "left": "16a1b2b22b62cfcda67a8ee4d7af66b98856a1683f76fa467debdd6d5eb654aa",
+        "bottom": "749857699ceb9461930fe1a689195b040ba4333f2a03844032515716a970b635",
+        "rear": "090598a1d33df801338051cf67d4cc5c07d3d01bb38e04727befb74e8298c5fc"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:54:30.461609+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-floor.png",
+          "sha256": "42b6b1e2f2af8221a603248dc510e2010c97c2023f47c26acb4424dc98fd9d2a",
+          "rgba_sha256": "155f6507ee83c583a49db4579e088bc7c0ba277a750161103caac004d6a1658e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "east": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "south": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "west": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

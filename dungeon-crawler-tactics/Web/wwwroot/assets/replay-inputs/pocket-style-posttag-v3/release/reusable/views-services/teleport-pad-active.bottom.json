@@ -1,0 +1,129 @@
+{
+  "id": "teleport-pad-active.bottom",
+  "name": "Teleport pad — active bottom",
+  "kind": "tile",
+  "tags": [
+    "active",
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "material:unspecified",
+    "orthographic",
+    "pad",
+    "pocket-dungeon",
+    "role:object",
+    "services",
+    "style:pocket-dungeon",
+    "teleport",
+    "terrain"
+  ],
+  "object_id": "teleport-pad-active",
+  "view": "bottom",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/teleport-pad-active.bottom.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "fa4e57d63ae5cd90f9a98d8e36e580eafc7e395f9393088bf2ab19c67b206dda",
+    "rgba_sha256": "dfee02e3fd6b1e7e3eb83b956175b308a4fd030ab6d2c8b296979adc108cd02e"
+  },
+  "metadata_path": "reusable/views-services/teleport-pad-active.bottom.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/teleport-pad-active.png",
+    "source_image_sha256": "5ab3ebf0798d2c604bb092e472daadb3613f5a0bac35865d105d158ae0f63117",
+    "generated_atlas": "reusable/views-services/atlas-portals-pads.png",
+    "generated_atlas_sha256": "4f539ae43bee62363c39e8901ad824264aa0deb7830c70c478f1f35d0c7be160",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly portal-active, portal-inactive, teleport-pad-active, teleport-pad-inactive in reference order. Each cell has one complete centered object. Match each exact original silhouette, palette, materials and details; paired active/inactive variants must remain the same design, changing only luminous/active state. True orthographic direction views, top straight down, bottom opposite, rear opposite front. No shadows, ground, scene, labels, perspective, border or cell markers. Crisp chunky pixel art; infer hidden surfaces consistently. Transparent background throughout.",
+      "reference_images": [
+        "components/portal-active.png",
+        "components/portal-inactive.png",
+        "components/teleport-pad-active.png",
+        "components/teleport-pad-inactive.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        2,
+        4
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        74
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        1006,
+        525,
+        239,
+        227
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8906882591093117,
+      "render_size_px": [
+        213,
+        202
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "teleport-pad-active"
+  }
+}

@@ -3,12 +3,23 @@
   "name": "Adobe Desert Plaster inner corner left",
   "kind": "sprite",
   "tags": [
-    "bubble-desert",
-    "wall",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-desert",
+    "environment:desert",
+    "environment:dungeon",
+    "inferred-view",
     "left",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/bubble-desert-adobe-desert-plaster-inner-corner.left.png",
@@ -60,9 +71,52 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "bubble-desert-adobe-desert-plaster-inner-corner",
+        "view": "left",
+        "source_path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-inner-corner.png",
+        "source_sha256": "16530d0ecf4674ddb31d70e6ea33600ac251b4438fd6aabb4693cd90ed9550f4",
+        "atlas_path": "reusable/views-additional/raw/generated-atlases/pocket-corner-batch01-v2-clean.png",
+        "atlas_sha256": "a18d68183c8f09232f6df63b7bea5c91c98003fade722348af0a3e3330f78d4a",
+        "active_output_sha256": "6366869212fe2721b71af054e4f622208331a4f65f2bbabbe74f1c638edd1b0a",
+        "active_output_rgba_sha256": "debcbf6664fa4169401d8ad3ff835aa3dc9c060cc0f143721395b4ab8a9da0f8",
+        "crop_bounds_xyxy": [
+          799,
+          606,
+          1011,
+          705
+        ],
+        "resized_dimensions_px": [
+          214,
+          100
+        ],
+        "scale": 1.0101010101010102,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Orthographic broad wall-arm elevation inferred from source corner plan; accepted TOP and BOTTOM are preserved. Raw atlas and request retained; generation is inferred, not recovered pixels."
+    "notes": "Orthographic broad wall-arm elevation inferred from source corner plan; accepted TOP and BOTTOM are preserved. Raw atlas and request retained; generation is inferred, not recovered pixels.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 1.0101010101010102
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -114,5 +168,46 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:desert",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-desert-adobe-desert-plaster-inner-corner"
+  }
 }

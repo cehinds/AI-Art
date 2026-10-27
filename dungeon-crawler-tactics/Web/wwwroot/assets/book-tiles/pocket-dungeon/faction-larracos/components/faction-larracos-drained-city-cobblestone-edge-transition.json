@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-drained-city-cobblestone-edge-transition",
+      "source_sha256": "4da4b4fbe326778e46f7c968efde02221265b032fde9deda8ee3ab2819f68342",
+      "primary_source": {
+        "asset_id": "faction-larracos-drained-city-cobblestone-edge-transition",
+        "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-edge-transition.png",
+        "sha256": "4da4b4fbe326778e46f7c968efde02221265b032fde9deda8ee3ab2819f68342",
+        "rgba_sha256": "44ef3d6a62f07a552f2147c9c09c61643cf3e8f19965f344cf02ec611eb3b1f6"
+      },
+      "image_hashes": {
+        "front": "4ac26e1c7db968977b98f7e854307db1d9fe2753130fdeab18f46f88e64a2180",
+        "top": "4f05bf1be7d1a0b288dda8fd6e8f5cb2faa2858108d05f06f319263794e861e7",
+        "right": "0635d1fe7ca9ccb763e1a6198cd707f340a0c289585447fe7ca7df5721f21217",
+        "left": "e9aed690a62cfb272a14317049388076ff496d5c508f6e2509548b807e7b4f0e",
+        "bottom": "d7f8fb08ca432fdf4d084f9b2f34b3e331ef8b384b9914407d7f9f5c3e1730c2",
+        "rear": "f2f2c58daa87d72b9a86e3e37e80c7f45e55152fdf4e3c18423478abe5b16cd2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:35:12.072520+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-drained-city-cobblestone-edge-transition.png",
+          "sha256": "4da4b4fbe326778e46f7c968efde02221265b032fde9deda8ee3ab2819f68342",
+          "rgba_sha256": "44ef3d6a62f07a552f2147c9c09c61643cf3e8f19965f344cf02ec611eb3b1f6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-mid-century-street-pavement-floor",
+      "source_sha256": "80fc715b73f0a1b29a5e2ad4e57b222f841eae226c5038de202e5a39d45ec006",
+      "primary_source": {
+        "asset_id": "hunting-zockau-mid-century-street-pavement-floor",
+        "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-floor.png",
+        "sha256": "80fc715b73f0a1b29a5e2ad4e57b222f841eae226c5038de202e5a39d45ec006",
+        "rgba_sha256": "4270993a6bea0c9d50f136af76720eae7c63e0ff6161acd2ca64be81cb4e96c7"
+      },
+      "image_hashes": {
+        "front": "b08f6b1d01ce64770a89276f08f67375f338244fad24541e9bf274cfc3ddb6d6",
+        "top": "9285a1392a809fc8a9603c9eac750fa90ba0e0adca511bd887c9bb5b3f2f462e",
+        "right": "43844427c59282cfff7b2da41e1fda2b66d75fe4686f08841b0aaac4d55c41cc",
+        "left": "3795941fbf8d5b13fdb1eaa30536a18567dce351d65a0a69d55f98158c74811b",
+        "bottom": "8c271a9a6e7e0ec80596522f8c0eeba3b7bdfcccc92cf51ddcdf8e7cf6e17e12",
+        "rear": "7d1c86f57b5e07f187006d9f568b536176bbd2f3295815ddecec35b1e3452929"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-floor.png",
+          "sha256": "80fc715b73f0a1b29a5e2ad4e57b222f841eae226c5038de202e5a39d45ec006",
+          "rgba_sha256": "4270993a6bea0c9d50f136af76720eae7c63e0ff6161acd2ca64be81cb4e96c7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

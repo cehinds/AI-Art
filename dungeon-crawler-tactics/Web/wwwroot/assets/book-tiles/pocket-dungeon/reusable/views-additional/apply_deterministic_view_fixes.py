@@ -8,8 +8,26 @@ OUT=Path(__file__).resolve().parent; BOOK=OUT.parents[1]
 def file_sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def artifact_path(rel):
     path=Path(rel)
-    if path.is_absolute():return path
-    return (BOOK/path) if rel.startswith('reusable/views-additional/') else (OUT/path)
+    if path.is_absolute() or '..' in path.parts:raise ValueError(f'unsafe replay artifact path: {rel}')
+    root=BOOK if rel.startswith('reusable/views-additional/') else OUT
+    resolved=(root/path).resolve();resolved.relative_to(root.resolve());return resolved
+def resolve_candidate_donor(op):
+    manifest_path=OUT/'raw/replay-retained/donor-snapshots/manifest.json'
+    if manifest_path.is_file():
+        manifest=json.loads(manifest_path.read_text())
+        baseline_path=OUT/'replay-baseline.json';baseline=json.loads(baseline_path.read_text())
+        if manifest.get('baseline_sha256')!=file_sha(baseline_path) or manifest.get('set_index_sha256')!=baseline.get('set_index_sha256'):
+            raise ValueError('candidate donor snapshot manifest is bound to another frozen baseline')
+        row=next((x for x in manifest.get('donors',[]) if x.get('donor_image_path')==op['donor_image_path'] and x.get('object_id')==op['donor_object_id'] and x.get('view')==op['donor_view'] and x.get('sha256')==op['donor_image_sha256']),None)
+        if row:
+            snapshot=artifact_path(row['snapshot_path'])
+            if not snapshot.is_file() or file_sha(snapshot)!=op['donor_image_sha256']:
+                raise ValueError('candidate donor snapshot bytes differ from frozen hash')
+            return snapshot,row['snapshot_path']
+    direct=artifact_path(op['donor_image_path'])
+    if not direct.is_file() or file_sha(direct)!=op['donor_image_sha256']:
+        raise ValueError('candidate donor source image is missing or differs from frozen hash')
+    return direct,op['donor_image_path']
 def digest_png(p):
     im=Image.open(p).convert('RGBA')
     return file_sha(p),hashlib.sha256(struct.pack('>II',*im.size)+im.tobytes()).hexdigest()
@@ -288,18 +306,16 @@ def apply(op,index,backup):
             return {'object_id':oid,'view':view,'type':typ,'status':'already-applied','sha256':candidate_sha}
         if current!=op['before_sha256']:
             raise ValueError(f'{oid}.{view} candidate base hash changed')
-        source=BOOK/op['canonical_source_image'];donor=OUT/op['donor_image_path']
+        source=BOOK/op['canonical_source_image'];donor,donor_resolved_path=resolve_candidate_donor(op)
         if not source.is_file() or file_sha(source)!=op['canonical_source_sha256']:
             raise ValueError(f'{oid}.{view} canonical source hash changed')
-        if file_sha(donor)!=op['donor_image_sha256']:
-            raise ValueError(f'{oid}.{view} donor image hash changed')
         shutil.copy2(target,backup/f'{oid}.{view}.before-candidate.png');shutil.copyfile(candidate,target)
         meta=json.loads((OUT/f'{oid}.{view}.json').read_text());meta.setdefault('provenance_history',[]).append(meta.get('provenance',{}))
         meta['provenance']=op.get('provenance') or {
             'method':'inferred-family-view-donor','source_image':op['canonical_source_image'],
             'source_sha256':op['canonical_source_sha256'],
             'family_donor_object_id':op['donor_object_id'],'family_donor_view':op['donor_view'],
-            'derivation_input':{'image_path':op['donor_image_path'],'image_sha256':op['donor_image_sha256'],
+            'derivation_input':{'image_path':op['donor_image_path'],'resolved_image_path':donor_resolved_path,'image_sha256':op['donor_image_sha256'],
                 'source_image':op['donor_source_image'],'source_sha256':op['donor_source_sha256']},
             'transform':op['transform'],'candidate_path':op['candidate_path'],'candidate_sha256':candidate_sha,
             'notes':op['reason']}

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-submarine-grating-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-grating-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-grating-floor",
+      "source_sha256": "d5ece5e0d34596f5dc7fe4e68f26c58dc749a7854dea3c14bf64b6958b47a7ef",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-grating-floor",
+        "path": "bubble-sea/components/bubble-sea-submarine-grating-floor.png",
+        "sha256": "d5ece5e0d34596f5dc7fe4e68f26c58dc749a7854dea3c14bf64b6958b47a7ef",
+        "rgba_sha256": "2846ace21474154eff2800328fae0434d981b863e27cd17d84b69534a5b1e10f"
+      },
+      "image_hashes": {
+        "front": "a4602eca1ca32157745da961a97585130577937f9f51d6fb3d6f27996be158cd",
+        "top": "68535521de8542b013c543e729c2ced8896ca67170fa8feee862daadf241fa1b",
+        "right": "cfaa9745edc4fc6c38ea6523773c698e4ff99a60c8da72dd8e2aba3075868a2f",
+        "left": "73ec44334798b08f46c27a15edfe6d6eecbf92c7a5459a6a5267e8801078e8b6",
+        "bottom": "86f0b5cbb7e762bb0c185d3a5a80a47358d440245674f78c774ea5fe16532b02",
+        "rear": "932f7a7ef1eeb8485a7303500f9f1048669e7dc90303bf723c9ea13b8d4f6d96"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:33:55.970036+00:00",
+      "notes": [
+        "Fresh repair visually rechecked: aligned through-slot grate underside preserved."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-grating-floor.png",
+          "sha256": "d5ece5e0d34596f5dc7fe4e68f26c58dc749a7854dea3c14bf64b6958b47a7ef",
+          "rgba_sha256": "2846ace21474154eff2800328fae0434d981b863e27cd17d84b69534a5b1e10f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-sea"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

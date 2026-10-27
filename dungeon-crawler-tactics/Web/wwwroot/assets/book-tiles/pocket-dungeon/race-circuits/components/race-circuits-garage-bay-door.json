@@ -16,7 +16,8 @@
     "prop",
     "race-circuits",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-garage-bay-door.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-bay-door.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-garage-bay-door",
+      "source_sha256": "3ec49182361b5844334bab66fc28a62038a806741900df6b0df7dab2fa3ae827",
+      "primary_source": {
+        "asset_id": "race-circuits-garage-bay-door",
+        "path": "race-circuits/components/race-circuits-garage-bay-door.png",
+        "sha256": "3ec49182361b5844334bab66fc28a62038a806741900df6b0df7dab2fa3ae827",
+        "rgba_sha256": "1e8172005c2fc08844379597709f892e88076871691971a6d42fab7aa25a6ba9"
+      },
+      "image_hashes": {
+        "front": "140e9cc096e4ebab2f5967601e613da04d1b88fede83884019f95a67a56acba0",
+        "top": "62318320c744c8afda73f8ec160154b7776c1aa6f7e5313c78138e2278c37c09",
+        "right": "a79585d60c8c9fb2a15896c2b7e51d4fc87eca07ac8173ed0e561f75f4d0ea03",
+        "left": "717d5a53d164d567bdfacdbb11240950fe109937b50ac71d259ef0b09b399e6e",
+        "bottom": "0cc637eeff5a8d4b908273384f5d32bfb7ae3fd70465924d7b2323860478c5ce",
+        "rear": "6d2202bb7df310e7917c9587d0ebd436108f6311b83bd5be6e9c71135807cd04"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:38:52.185786+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-garage-bay-door.png",
+          "sha256": "3ec49182361b5844334bab66fc28a62038a806741900df6b0df7dab2fa3ae827",
+          "rgba_sha256": "1e8172005c2fc08844379597709f892e88076871691971a6d42fab7aa25a6ba9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,

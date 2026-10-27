@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-west-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-steel-track-barrier-west-wall",
+      "source_sha256": "4df5c496687915262299441bf78f638b68c8d439c2934c364d4ea2b6d2f55c47",
+      "primary_source": {
+        "asset_id": "race-circuits-steel-track-barrier-west-wall",
+        "path": "race-circuits/components/race-circuits-steel-track-barrier-west-wall.png",
+        "sha256": "4df5c496687915262299441bf78f638b68c8d439c2934c364d4ea2b6d2f55c47",
+        "rgba_sha256": "d59725bf9d58af18a861f4e3035f3232be804730790165553d358ff0dc9e8038"
+      },
+      "image_hashes": {
+        "front": "358ca089a6fd0e5e22fa3c82afc339d4668b5ae3d5177de2ad238add7b2d43c9",
+        "top": "ac33f35a0cb69e94f05537c376ec3364dcd8986d962d98cb0e40149ffeea60be",
+        "right": "4551ac17d182b51458ec6cb76788cc2337272f2cc580b72ebd484f205a3901b6",
+        "left": "b84c78282f37c6938c9b3b0edb2c5f9ecea3f2fb3e10cb81b12b2782a7334f93",
+        "bottom": "b2b58b3a67d002adf5ada171078081010c440fbb5d20232209e320fd44a04e23",
+        "rear": "2af08ea53d7ea16d26237d5d1a4ff65d6b2c71ce5af54e02a77013d00ba275b4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:22:37.595349+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-steel-track-barrier-west-wall.png",
+          "sha256": "4df5c496687915262299441bf78f638b68c8d439c2934c364d4ea2b6d2f55c47",
+          "rgba_sha256": "d59725bf9d58af18a861f4e3035f3232be804730790165553d358ff0dc9e8038"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:steel",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

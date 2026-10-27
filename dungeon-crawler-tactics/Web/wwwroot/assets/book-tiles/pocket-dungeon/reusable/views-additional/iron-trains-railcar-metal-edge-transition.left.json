@@ -3,12 +3,22 @@
   "name": "Railcar Metal edge transition left",
   "kind": "tile",
   "tags": [
-    "iron-trains",
-    "ground",
     "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "inferred-view",
+    "iron-trains",
     "left",
+    "material:iron",
+    "material:metal",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/iron-trains-railcar-metal-edge-transition.left.png",
@@ -33,11 +43,11 @@
     "method": "generated",
     "source_image": "iron-trains/components/iron-trains-railcar-metal-edge-transition.png",
     "source_sha256": "f182e4bcf3469fcafeb1cdd11b4b3ab64b7f39f9232b392287d88ffe6c1fe657",
-    "generated_atlas": "raw/candidates/railcar-edge-profiles-v5/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/railcar-edge-profiles-v5/generated-atlas.png",
     "generated_atlas_sha256": "e89e276f3b50f6eba562b45ab86c424833aa6aab2e523f898acd7232d4f8da16",
     "generation_request": "raw/candidates/railcar-edge-profiles-v5/request.json",
     "generation_request_sha256": "e7d7f39aad5cb40014e0f3963fbb0c67b808b9a1296ddda04fcfebf67a01af50",
-    "prompt": "Create two orthographic pixel-art long-side profiles, RIGHT and LEFT, using the exact Iron Trains railcar in the attached current contact. Respect the attached dimension guide: compare the accepted FRONT silhouette height and make each long side about 220 pixels wide by 45\u201350 pixels tall after uniform normalization. Previous outputs were too thin because they were panoramic lines; this time draw a tall substantial steel slab sidewall, not a narrow edge stripe. Each side should have a dark navy-blue riveted steel rectangular face around 30\u201336px high plus a bright-silver raised rail line and exactly FOUR orange-brown bolted support blocks. Arrange the four supports at equal intervals along world-Y, matching TOP. Their block fronts should be fully visible and low, attached across the upper portion of the slab, not tall posts. Body and rail span the entire long axis. Keep the same broad vertical thickness as the accepted FRONT end profile while extending the profile along Y. Orthographic level camera, no broad top-down plane, no end-on view, no perspective. Show only RIGHT on the left half of the output and LEFT on the right half; keep each silhouette separate and large enough to inspect. Pixel-art clusters, transparent background, no labels, dimension graphics, shadows/glow, extra fasteners, detached marks or clipping.",
+    "prompt": "Create two orthographic pixel-art long-side profiles, RIGHT and LEFT, using the exact Iron Trains railcar in the attached current contact. Respect the attached dimension guide: compare the accepted FRONT silhouette height and make each long side about 220 pixels wide by 45–50 pixels tall after uniform normalization. Previous outputs were too thin because they were panoramic lines; this time draw a tall substantial steel slab sidewall, not a narrow edge stripe. Each side should have a dark navy-blue riveted steel rectangular face around 30–36px high plus a bright-silver raised rail line and exactly FOUR orange-brown bolted support blocks. Arrange the four supports at equal intervals along world-Y, matching TOP. Their block fronts should be fully visible and low, attached across the upper portion of the slab, not tall posts. Body and rail span the entire long axis. Keep the same broad vertical thickness as the accepted FRONT end profile while extending the profile along Y. Orthographic level camera, no broad top-down plane, no end-on view, no perspective. Show only RIGHT on the left half of the output and LEFT on the right half; keep each silhouette separate and large enough to inspect. Pixel-art clusters, transparent background, no labels, dimension graphics, shadows/glow, extra fasteners, detached marks or clipping.",
     "output_binding": {
       "path": "raw/candidates/railcar-edge-profiles-v5/generated-atlas.png",
       "sha256": "e89e276f3b50f6eba562b45ab86c424833aa6aab2e523f898acd7232d4f8da16",
@@ -130,5 +140,35 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "material:metal",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-trains-railcar-metal-edge-transition"
+  }
 }

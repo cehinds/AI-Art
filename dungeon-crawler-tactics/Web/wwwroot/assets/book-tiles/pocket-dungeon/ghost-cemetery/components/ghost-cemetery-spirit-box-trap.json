@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-cemetery",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-spirit-box-trap.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-spirit-box-trap.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-spirit-box-trap",
+      "source_sha256": "e1d85a621ecf51585c17e59057c7b081d93f1c96cbf01c8ef08021603f3c569d",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-spirit-box-trap",
+        "path": "ghost-cemetery/components/ghost-cemetery-spirit-box-trap.png",
+        "sha256": "e1d85a621ecf51585c17e59057c7b081d93f1c96cbf01c8ef08021603f3c569d",
+        "rgba_sha256": "ee3dcd3be1b100e69238f214ff3865a9840f036e21afe5fb462ac0a01dcf6235"
+      },
+      "image_hashes": {
+        "front": "92059d64abc99074bbc0ddf509c98c94648a05b32a1c0197aff6161b9d6600b4",
+        "top": "cfd88e47b7be6bfe92cbca8dead527732d77e0c2d13b76da01e3b83398a3d7c0",
+        "right": "aa451df25bbfc6a77c4c2bff7779ae70af91308ccd3e53dba6fd5ce8fbfed565",
+        "left": "976ca8f55a60d58952ed7aa632d4f62b9f37ab53571dc50c35c10227658394a2",
+        "bottom": "3bd07d831cfd89a586210605032fa4dee572c8980aba1c46d8c390ff385b9a6b",
+        "rear": "643a524199c2c47e2a98a6ebeff93d64995322b0f08a0a7ecfca37884befd74e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:17:15.110282+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-spirit-box-trap.png",
+          "sha256": "e1d85a621ecf51585c17e59057c7b081d93f1c96cbf01c8ef08021603f3c569d",
+          "rgba_sha256": "ee3dcd3be1b100e69238f214ff3865a9840f036e21afe5fb462ac0a01dcf6235"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-north-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-ancient-city-masonry-north-wall",
+      "source_sha256": "feb31f890747556bfa3d8a7478d083836622a845f20903146652e15c2f11ad4a",
+      "primary_source": {
+        "asset_id": "faction-larracos-ancient-city-masonry-north-wall",
+        "path": "faction-larracos/components/faction-larracos-ancient-city-masonry-north-wall.png",
+        "sha256": "feb31f890747556bfa3d8a7478d083836622a845f20903146652e15c2f11ad4a",
+        "rgba_sha256": "69eceffa3102c6e4d27fa5dbd5d8edf97fa231e207f38ace7548901c4fab5c0b"
+      },
+      "image_hashes": {
+        "front": "acd0163d8c96cd20ca187cfa18885c94391b3ecda7252b581bf903ed037fba35",
+        "top": "d669b3808c3aa19c5d645b190b0ee0c0a8d924df806eedcbeabfb94141d03058",
+        "right": "8e93df4ba2a16250d09aa48efac16cacdb3c96de8a2adbb50d78db48a2ec8a37",
+        "left": "702a1f7d1e5a777468a3583b383fd410ccd19b3853c6a85cce015a736da15d0c",
+        "bottom": "d669b3808c3aa19c5d645b190b0ee0c0a8d924df806eedcbeabfb94141d03058",
+        "rear": "05c109f5ff14ea3054b86b352c47cb3ad557a1dbb94168d8f88e5d5204a6e553"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:07:45.186363+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-ancient-city-masonry-north-wall.png",
+          "sha256": "feb31f890747556bfa3d8a7478d083836622a845f20903146652e15c2f11ad4a",
+          "rgba_sha256": "69eceffa3102c6e4d27fa5dbd5d8edf97fa231e207f38ace7548901c4fab5c0b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

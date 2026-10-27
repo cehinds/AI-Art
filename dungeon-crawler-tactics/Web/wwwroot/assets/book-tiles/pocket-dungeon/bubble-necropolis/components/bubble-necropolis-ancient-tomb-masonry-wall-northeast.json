@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast",
+      "source_sha256": "f18002e0c3a61cd435b56f46c06d91435dd3800d93548fb080451c676328315e",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-ancient-tomb-masonry-wall-northeast",
+        "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-wall-northeast.png",
+        "sha256": "f18002e0c3a61cd435b56f46c06d91435dd3800d93548fb080451c676328315e",
+        "rgba_sha256": "9b55e51152ecfb1505f4a9766b21a992787b95d752c51e1bc755dc406fc17b30"
+      },
+      "image_hashes": {
+        "front": "49577b848ab5b3ac90569b531104527c6fccd1f24246a63545f4f7e63f8d0e24",
+        "top": "198fee07989fc35543c62a9f72eab82ebbc88f79a92489480ce97fbc671cd9cc",
+        "right": "a822d98bf9e5f169b8a98d5c0f55f4abd8aa33a2b05e5d550656780ab428bacb",
+        "left": "60c68d6447936027aa8eaadbb8eb61909d392ad71e5673470ad7f9d83a63a21f",
+        "bottom": "d65ee2b2c3db760693b000cfb5b69893c5739967aac1cc6e824b1db82e10d3b2",
+        "rear": "ee9efe395f2dd38cc3de9852c6df466220c2e8bd4e8f31d6d0b969d5f1d4cce8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:09:11.553969+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-wall-northeast.png",
+          "sha256": "f18002e0c3a61cd435b56f46c06d91435dd3800d93548fb080451c676328315e",
+          "rgba_sha256": "9b55e51152ecfb1505f4a9766b21a992787b95d752c51e1bc755dc406fc17b30"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

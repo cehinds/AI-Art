@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-ceremonial-arena-masonry-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-ceremonial-arena-masonry-open-doorway",
+      "source_sha256": "1e4edb7940d990ca0131c198ea4dc7fe891134ca3bfe0dad8da1ec8ef258f701",
+      "primary_source": {
+        "asset_id": "parade-horribles-ceremonial-arena-masonry-open-doorway",
+        "path": "parade-horribles/components/parade-horribles-ceremonial-arena-masonry-open-doorway.png",
+        "sha256": "1e4edb7940d990ca0131c198ea4dc7fe891134ca3bfe0dad8da1ec8ef258f701",
+        "rgba_sha256": "09075f288465f2af688a029ca019a88c66a71b88861d75f9dfacf39608a69cbf"
+      },
+      "image_hashes": {
+        "front": "651cb8dc4d7643489146e52099c2b2e0bad596b32a224bd9ad3b46b5feea5b09",
+        "top": "0b952ae66b70991ebb49fbb041138f48d9c22559f050f8f84663f20e2c1141cf",
+        "right": "82711e2908054dd9c1238af54083b461343b5c961bf9f29b7e83c4259406dcbf",
+        "left": "2c448df309e71e2103cc76c3af1227b8bf83a9934fb250a38c705ad11f3fe5b8",
+        "bottom": "926bb21ba76b9948c303e6bd6a3ac7e25ee6b0b1b660a1870e3cf9e4d84d4634",
+        "rear": "f5b79c400bf60eb7a3698b723ad834cc5ca05bf7496106fdabf80747860ebd63"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:27:49.354532+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-ceremonial-arena-masonry-open-doorway.png",
+          "sha256": "1e4edb7940d990ca0131c198ea4dc7fe891134ca3bfe0dad8da1ec8ef258f701",
+          "rgba_sha256": "09075f288465f2af688a029ca019a88c66a71b88861d75f9dfacf39608a69cbf"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-cracked-scrap-metal-deck-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -195,7 +206,60 @@
     "rear": {
       "status": "generated",
       "asset_id": "bubble-airship-cracked-scrap-metal-deck-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-cracked-scrap-metal-deck-floor",
+      "source_sha256": "7035cfb951d1835efea9ba42a925bbc00fadd4571ad9ba947b37c09366dd6260",
+      "primary_source": {
+        "asset_id": "bubble-airship-cracked-scrap-metal-deck-floor",
+        "path": "bubble-airship/components/bubble-airship-cracked-scrap-metal-deck-floor.png",
+        "sha256": "7035cfb951d1835efea9ba42a925bbc00fadd4571ad9ba947b37c09366dd6260",
+        "rgba_sha256": "e1a04a04ee343ecae50127b442be0444d58a61f99d71a430476f65f3bb2ef812"
+      },
+      "image_hashes": {
+        "front": "801ba71187cd87b9cec59900eecbcdcbefc87a31f4fb6c213da7025a83aafa12",
+        "top": "0fddb64e94798f630fca3975ce574e7225aec220c98afb53dd27be65fa14e1b0",
+        "right": "e1f9e20eb9f43c61aa53998bc2ea4e3c7fed4f3ba5a16c2e22f768f09d2f201a",
+        "left": "075bd24ab8af1e9a686b0357509511e5e117873622f6d531e0f6d3deb18c66b9",
+        "bottom": "078bfaea0c833a67c7d7e59eca12f1454c985d570ac0b50373d89ad3ecd33149",
+        "rear": "fa2e122902f5953cd3dfad57b6c9480357a71de88fba7a0f72d708de5b6e1dc6"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:55:40.597519+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-cracked-scrap-metal-deck-floor.png",
+          "sha256": "7035cfb951d1835efea9ba42a925bbc00fadd4571ad9ba947b37c09366dd6260",
+          "rgba_sha256": "e1a04a04ee343ecae50127b442be0444d58a61f99d71a430476f65f3bb2ef812"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-airship"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "drone",
     "environment:unspecified",
     "existing",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "spider-drone",
+      "source_sha256": "348befd109fcbf65a6305e1199b9bd0cb273597a46a3ebd1693f85d8bef86050",
+      "primary_source": {
+        "asset_id": "spider-drone",
+        "path": "components/spider-drone.png",
+        "sha256": "348befd109fcbf65a6305e1199b9bd0cb273597a46a3ebd1693f85d8bef86050",
+        "rgba_sha256": "b2706a70727898a14b100a12683e7030daa3893afdb5dbc46f3a600756111be6"
+      },
+      "image_hashes": {
+        "front": "5a9c677257168e56747bf77e4e77388995375946917a6ee3ea4716e5dc23db8c",
+        "top": "adc86dec7658ea6e555f3ae5a1ce9f30e6331019090506d43191cea2dd9f04a6",
+        "right": "fe43368ba0861c535be770156df3ecdb7f93d67a6d9d3b037873baacd4ef84b6",
+        "left": "2c4a26609e2918019cf1d3554a18c5802ef3366d0fe3b04f9e6515cd981c6b83",
+        "bottom": "451c494587cbc36d0d4c36534b32edf655ac6a2d18d53f8462cbd561c7ba66c0",
+        "rear": "2a5d3cffe3a84f02728edc81634d1ebb800d043db798732db95dde397e9accd2"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:19:31.989894+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/spider-drone.png",
+          "sha256": "348befd109fcbf65a6305e1199b9bd0cb273597a46a3ebd1693f85d8bef86050",
+          "rgba_sha256": "b2706a70727898a14b100a12683e7030daa3893afdb5dbc46f3a600756111be6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-tomb-stone-floor",
+      "source_sha256": "ac16058e11ed451568bd8138623025e4e8157b7614e8d80bb8d2cff68925329d",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-tomb-stone-floor",
+        "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-floor.png",
+        "sha256": "ac16058e11ed451568bd8138623025e4e8157b7614e8d80bb8d2cff68925329d",
+        "rgba_sha256": "a7f30e74a172eb9f605ed2ab0d0308a8c6e50ffd83db2565ce6b3eb08f1c4d02"
+      },
+      "image_hashes": {
+        "front": "043c166fd9a22ea3e509b1692419c94d9996a6fd1055fc8617edab69fef44f9c",
+        "top": "738f550dd53cb73e40d254e94ac6111b8884e337c5c59388871ba407bbce7ecc",
+        "right": "3a0bb089c0adb94d65f2f79e4e23e2b8ce270632919726a50f2bcfab325ed043",
+        "left": "372d0acc84efa79da546f81654e9794df4ca05a93e6c8aa5c6be52bf0841e9ca",
+        "bottom": "f9170210fb41ee55d9ab06f3a88ecaf04a4ebde942ae95859cf2a90d99b3f923",
+        "rear": "dc6239408120225eaa60e768e1e9404ef6c3152d0f24a51e9b6bc070afcffb04"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:03:34.791099+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-floor.png",
+          "sha256": "ac16058e11ed451568bd8138623025e4e8157b7614e8d80bb8d2cff68925329d",
+          "rgba_sha256": "a7f30e74a172eb9f605ed2ab0d0308a8c6e50ffd83db2565ce6b3eb08f1c4d02"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

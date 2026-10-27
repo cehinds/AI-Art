@@ -3,10 +3,24 @@
   "name": "Dirt road T junction Right",
   "kind": "terrain",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "dirt",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "ground",
+    "junction",
+    "material:unspecified",
     "orthographic",
-    "terrain",
-    "generated"
+    "road",
+    "roads",
+    "role:provider",
+    "six-view",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "t",
+    "terrain"
   ],
   "image": {
     "path": "reusable/views-additional/images/roads-dirt-road-t-junction.right.png",
@@ -59,7 +73,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-dilation2-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
@@ -68,5 +83,39 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/roads-dirt-road-t-junction.right.json"
+  "metadata_path": "reusable/views-additional/images/roads-dirt-road-t-junction.right.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "roads-dirt-road-t-junction"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "dirt",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "junction",
+    "material:unspecified",
+    "road",
+    "roads",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "t"
+  ]
 }

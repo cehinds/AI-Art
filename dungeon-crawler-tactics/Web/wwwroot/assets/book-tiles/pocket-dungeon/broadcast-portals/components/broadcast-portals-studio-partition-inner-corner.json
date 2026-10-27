@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,7 +161,56 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-partition-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-partition-inner-corner",
+      "source_sha256": "3ec3279b799fe338d1f55754e60091867209b52cff4cdea43f81104f795e4acd",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-partition-inner-corner",
+        "path": "broadcast-portals/components/broadcast-portals-studio-partition-inner-corner.png",
+        "sha256": "3ec3279b799fe338d1f55754e60091867209b52cff4cdea43f81104f795e4acd",
+        "rgba_sha256": "f593b58ae3a0f8b1300de75b8f467e74c2f5f075fdc6622f0f700fc196f4a385"
+      },
+      "image_hashes": {
+        "front": "2b2149c29a22659c5f9811c8f877ff7fd07b1de42f58e9bbab0e1287bbaad9b4",
+        "top": "aea10c207ac7c4b1c4bd93a5f0bbfc2e7d5b3497b1df6903bde53359caeb3eac",
+        "right": "a421aaaf51f15500313fa3cd9e21a03b87f8aa27070e343fd85a4e1b7d298dcd",
+        "left": "e541961c3d76c856feaca04aceb919dc9a07bc8cfa2f6c83b5ff5cd2577c04f7",
+        "bottom": "2569e70f11b835c7e6b23e7f5666012b1e782393ca676a181d6631c41988c6d3",
+        "rear": "22183557515b5198b691c2e5c2e1dd505a6ad8f72dc4ec4842b167c026a119ab"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:06:08.736162+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-partition-inner-corner.png",
+          "sha256": "3ec3279b799fe338d1f55754e60091867209b52cff4cdea43f81104f795e4acd",
+          "rgba_sha256": "f593b58ae3a0f8b1300de75b8f467e74c2f5f075fdc6622f0f700fc196f4a385"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

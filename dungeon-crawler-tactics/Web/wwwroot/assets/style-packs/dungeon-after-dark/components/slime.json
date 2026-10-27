@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -103,35 +104,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "slime.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "slime",
+      "source_sha256": "63a8cde5d11fb6edb1253448933bb2a16edd36600fa3c1f44fa7c4569c333bb5",
+      "primary_source": {
+        "asset_id": "slime",
+        "path": "components/slime.png",
+        "sha256": "63a8cde5d11fb6edb1253448933bb2a16edd36600fa3c1f44fa7c4569c333bb5",
+        "rgba_sha256": "5376b98ca752718f239b2a27d94c13da8a6de8d2d9dc1bca6d1c3c2c5a34b5f9"
+      },
+      "image_hashes": {
+        "front": "416c8901a8dc2255a0182bbc2afbdf945f7992918c0d08ab21ce09412e36c62f",
+        "top": "ec7f5173f9481236b101297bd15293da1df70ca95b4dfaa33b02085799e2c9cc",
+        "right": "d7ab00648a82bb9a14d138471b730f84bb5f47caae236ce5d01732876ed39f56",
+        "left": "284b790ea488e183b00e7f38a6cfcbc12546dcdc16877b483e9c663151490f5e",
+        "bottom": "fb15c8ecaa0300c6c3bdc3fe795641cd920f936811a0043163a3d8cad18653a2",
+        "rear": "d9d449e605ce2aa0bba2ff0d9e486d77ea1fbd360a9689de92f6603e6ac55ded"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:09:53.265815+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/slime.png",
+          "sha256": "63a8cde5d11fb6edb1253448933bb2a16edd36600fa3c1f44fa7c4569c333bb5",
+          "rgba_sha256": "5376b98ca752718f239b2a27d94c13da8a6de8d2d9dc1bca6d1c3c2c5a34b5f9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -144,7 +181,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -159,7 +197,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

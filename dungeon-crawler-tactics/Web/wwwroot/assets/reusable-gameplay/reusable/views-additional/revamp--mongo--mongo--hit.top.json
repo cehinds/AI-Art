@@ -9,12 +9,12 @@
     "attachment:stairs",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "role:object",
     "sprite-frame",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "revamp--mongo--mongo--hit",
@@ -78,5 +78,41 @@
     "source_image_sha256": "fafd2bb77d8e0dcbcc1451a23dc6adf293cc85767d6ca0812040c84ab1151094",
     "generation_request_id": "exec-e6bba6a8-1237-40d4-91fe-9eaa75775614",
     "generation_prompt": "reusable/views-additional/raw/mongo-hit-top-dorsal-refinement.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--mongo--mongo--hit"
   }
 }

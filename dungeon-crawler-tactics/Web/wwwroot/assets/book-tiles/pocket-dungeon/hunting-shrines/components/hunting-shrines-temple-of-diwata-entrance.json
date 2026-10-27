@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "environment:temple",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-temple-of-diwata-entrance.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-temple-of-diwata-entrance.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-temple-of-diwata-entrance",
+      "source_sha256": "c350d6b8dc847cf0337e90dbd711c18a7c984b3734abb74300090412922da3ed",
+      "primary_source": {
+        "asset_id": "hunting-shrines-temple-of-diwata-entrance",
+        "path": "hunting-shrines/components/hunting-shrines-temple-of-diwata-entrance.png",
+        "sha256": "c350d6b8dc847cf0337e90dbd711c18a7c984b3734abb74300090412922da3ed",
+        "rgba_sha256": "df5d2009cd53b607827ec9cd3527579fdcc9f60459a83de0f3e7b96686503541"
+      },
+      "image_hashes": {
+        "front": "ead5341e57c7c1617f0574e494d21382c643bf333da63f9984629c3dc28b08c6",
+        "top": "7bbf34af74fcf71d97f9a09efcfa702aa71f67c09eb6479e9e32e0934cd9c45e",
+        "right": "de46b145af1f76d26d20fe22d8a535ca2c753b1c35e6d05911cda1fc22d4512c",
+        "left": "efe0e24199d54eb6897c7657411ce44bd6f5e11f0e5c325048daa5540f3a4015",
+        "bottom": "9a113abc688a8c59abefa79b12688dcd17007b8d47b2d68adac49a12ac161a16",
+        "rear": "f75240a88158ab4b8d0895f4e9a11810e3b4ece8a9feb7235365c28e0d45fed4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:30:28.467344+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-temple-of-diwata-entrance.png",
+          "sha256": "c350d6b8dc847cf0337e90dbd711c18a7c984b3734abb74300090412922da3ed",
+          "rgba_sha256": "df5d2009cd53b607827ec9cd3527579fdcc9f60459a83de0f3e7b96686503541"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "environment:temple",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

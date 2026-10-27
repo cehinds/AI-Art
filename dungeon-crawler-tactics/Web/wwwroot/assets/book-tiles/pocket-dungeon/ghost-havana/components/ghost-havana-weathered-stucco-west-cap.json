@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-west-cap.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-weathered-stucco-west-cap",
+      "source_sha256": "55bf4e64979b4266b71f1b6b235b5c5ccb7c14136de2c87ffadef80f4ce2f5c9",
+      "primary_source": {
+        "asset_id": "ghost-havana-weathered-stucco-west-cap",
+        "path": "ghost-havana/components/ghost-havana-weathered-stucco-west-cap.png",
+        "sha256": "55bf4e64979b4266b71f1b6b235b5c5ccb7c14136de2c87ffadef80f4ce2f5c9",
+        "rgba_sha256": "dbad688d3ddbe889e9def0ec3f13d4a7e2158d590da013c9542f21f8b181bc5b"
+      },
+      "image_hashes": {
+        "front": "bccaab3320501b9ae0db94593a220a24859e637f0e9630878e4668621800f9b9",
+        "top": "6a57599cf3263b4ecd2bf366f3dae825f94388e78c018878937ee67565b561e5",
+        "right": "54f07ccd717b18777b239ccfc55519e0500f7228abe13c3f0b29a27b8c5b81fc",
+        "left": "eb0d9091fb84f2d7cd22467a63f5dfa5b8058ca045240f8e65602d9d38bbde92",
+        "bottom": "882359bf99febe1c2536a7a5d9c4abe6740745a85422cf8a63c79794588a2ec1",
+        "rear": "126a8ac3293829251abd07b15eff68796784459bc70146f67a50e577b0344ce4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:03:55.491464+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-weathered-stucco-west-cap.png",
+          "sha256": "55bf4e64979b4266b71f1b6b235b5c5ccb7c14136de2c87ffadef80f4ce2f5c9",
+          "rgba_sha256": "dbad688d3ddbe889e9def0ec3f13d4a7e2158d590da013c9542f21f8b181bc5b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

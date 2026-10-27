@@ -11,13 +11,13 @@
     "attachment:floor",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,41 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-palace-masonry-outer-corner",
+      "source_sha256": "02066e24e80238041fc88a34b9d6f18d9a074248ce7558830a32adde69787a3d",
+      "primary_source": {
+        "asset_id": "hunting-river-river-palace-masonry-outer-corner",
+        "path": "hunting-river/components/hunting-river-river-palace-masonry-outer-corner.png",
+        "sha256": "02066e24e80238041fc88a34b9d6f18d9a074248ce7558830a32adde69787a3d",
+        "rgba_sha256": "b3949c452d78e8bf5f1b95973555f71c2fe9d6dbb15d7b2dc83fe1ea44282fbe"
+      },
+      "image_hashes": {
+        "front": "9671ecf531df4ab28e887c0fbb62db31264dcbdae6a7237ae08a4c4f999a8050",
+        "top": "224abe9ec3cdd8f567e026e7123989b64ee14bfec28bda3877b4cc1652ac5104",
+        "right": "138a5d12acf578fc0ae6d2bbd8624d0cf031f39bd09d79804b4b3dca5e4fa97b",
+        "left": "9e8fc3803d9d868ca2a9ebde0ca6720819e7f9f3da4f35a2095a577c9613a690",
+        "bottom": "a63af5874aa90b62f94d6351331563cb5e858464d0f9f1d4fa9c58ce009917c6",
+        "rear": "721d7a8a4452e9deb4b7e0e443046a4cac1f8c8e17e317b0b775e0753f1ed637"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:45:10.961707+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-palace-masonry-outer-corner.png",
+          "sha256": "02066e24e80238041fc88a34b9d6f18d9a074248ce7558830a32adde69787a3d",
+          "rgba_sha256": "b3949c452d78e8bf5f1b95973555f71c2fe9d6dbb15d7b2dc83fe1ea44282fbe"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

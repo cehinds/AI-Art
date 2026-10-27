@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "environment:dungeon",
     "hunting-shrines",
@@ -16,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-house-doorway.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-house-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-house-doorway",
+      "source_sha256": "59897ff95fef78b502c052a14150a29a667e61b332e20a1dc9906cfd7fd2df9f",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-house-doorway",
+        "path": "hunting-shrines/components/hunting-shrines-village-house-doorway.png",
+        "sha256": "59897ff95fef78b502c052a14150a29a667e61b332e20a1dc9906cfd7fd2df9f",
+        "rgba_sha256": "122731b544aa79ea04424fb612f959ec4a53ea0f0667e09390f709b2f28c22a5"
+      },
+      "image_hashes": {
+        "front": "42a1eb4ec5e01215c3b3fd4f78a909d7ddf0dc91e36d7c01bfd4b84ee0ee1134",
+        "top": "e98d040c847510b0a4e76292535a847f39fdcf9423125c527565e82821b82a9e",
+        "right": "069439b660597e27eb7e003b5c5818552851c45c41be7b787fffe7dbbbc02e23",
+        "left": "81fa2c428980fd41988163021339aad7d19d1844b9335ecd9325b67c9a9970cf",
+        "bottom": "9b47d99f3152c1170a27e4862cfeed2ed99432f84e9653b40d1802b2cb325d1e",
+        "rear": "3f8e5f2746fca82b2089ea81d355adc4b44846720354ab3583c17e4dd15b8a35"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T18:50:53.703914+00:00",
+      "notes": [
+        "Fresh source+six: canopy/roof plan, side silhouette, rear and inferred foundation underside preserve source identity and pose."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-house-doorway.png",
+          "sha256": "59897ff95fef78b502c052a14150a29a667e61b332e20a1dc9906cfd7fd2df9f",
+          "rgba_sha256": "122731b544aa79ea04424fb612f959ec4a53ea0f0667e09390f709b2f28c22a5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -165,15 +228,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

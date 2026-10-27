@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-bedroom-bed.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-bedroom-bed.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-bedroom-bed",
+      "source_sha256": "b3bb6ea5d0841c3a6edd3b72506ba5a07b6c6d6df3723243ae0daa59d0f23d54",
+      "primary_source": {
+        "asset_id": "personal-space-bedroom-bed",
+        "path": "personal-space/components/personal-space-bedroom-bed.png",
+        "sha256": "b3bb6ea5d0841c3a6edd3b72506ba5a07b6c6d6df3723243ae0daa59d0f23d54",
+        "rgba_sha256": "8532af904ca6322cbfb2cbca5c73f82a4ffa1cc3ce8bf30f81b40878cf3fb4c7"
+      },
+      "image_hashes": {
+        "front": "6e1abc0c99caf9d4cb0e17fb4187b2395f63fa8bd7f416f44e178d2b21b76138",
+        "top": "173e4841ee02f3c5466f7be57bf09165befc6cf1f38bebe4382f1fd3da56228c",
+        "right": "d1410de80893bdff58e82166de09675ad8c4956c8c217711b871ef05998814a1",
+        "left": "47b583891d17adcc32d0d0ec614e85968f5c89a53195433a7154ae94ce78cfa1",
+        "bottom": "c5a3221d6368d187b27a9603025ef45a1eb518a5f898f7aad1e50309efd41669",
+        "rear": "dc265bd80fd6fe2ec75c8fa7b74d0fa7cd46c9f4b372005d85a6232e29e8f406"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:05:58.637462+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-bedroom-bed.png",
+          "sha256": "b3bb6ea5d0841c3a6edd3b72506ba5a07b6c6d6df3723243ae0daa59d0f23d54",
+          "rgba_sha256": "8532af904ca6322cbfb2cbca5c73f82a4ffa1cc3ce8bf30f81b40878cf3fb4c7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-palace-fountain.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-palace-fountain.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-palace-fountain",
+      "source_sha256": "cf87442056ae92c967e8bc1792cd334ed4ca1a6bb42ab3836a13005fd3e93bb1",
+      "primary_source": {
+        "asset_id": "hunting-river-palace-fountain",
+        "path": "hunting-river/components/hunting-river-palace-fountain.png",
+        "sha256": "cf87442056ae92c967e8bc1792cd334ed4ca1a6bb42ab3836a13005fd3e93bb1",
+        "rgba_sha256": "7f1860934e93798a1f154d427abc303af13383954e676228925b0a35672c2694"
+      },
+      "image_hashes": {
+        "front": "a0346b53c985844b30ea464b89489d5910dfb75322d90b282f5134b121761ec1",
+        "top": "4d1879a59f52cdbb3ddc794b0c4825fe7d393c8490d647539c87efccbf01ad99",
+        "right": "488cf95b1c7d8f5ef073e35672a9ab0d28a1f960f30b88906223427e5151b6b8",
+        "left": "38d37be17c5d4012cc677535518710316953dfb48dfa7ce38becd3df4188234d",
+        "bottom": "2b3a16075b279ff58cc355f9acd969372fec822429fe55f54f16ce7e41dfeebc",
+        "rear": "1e16f82bb17b906a7d9dbd1e65123e78b80fe36a744e4a4392ea0aa3ad5136b2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T18:48:54.567015+00:00",
+      "notes": [
+        "Reviewed native source and all six opaque-composited normalized views. Inferred illustrative geometry accepted; no clear projection, identity, footprint or neighboring-component defect."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-palace-fountain.png",
+          "sha256": "cf87442056ae92c967e8bc1792cd334ed4ca1a6bb42ab3836a13005fd3e93bb1",
+          "rgba_sha256": "7f1860934e93798a1f154d427abc303af13383954e676228925b0a35672c2694"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

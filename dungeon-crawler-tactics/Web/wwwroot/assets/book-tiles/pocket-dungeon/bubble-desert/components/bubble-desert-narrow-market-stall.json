@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-desert",
     "environment:desert",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-narrow-market-stall.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,40 +142,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-narrow-market-stall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-narrow-market-stall",
+      "source_sha256": "71cbf588cb8e26845f9bf6ff28d966ab24abfac94aceb0ac07e103879859d569",
+      "primary_source": {
+        "asset_id": "bubble-desert-narrow-market-stall",
+        "path": "bubble-desert/components/bubble-desert-narrow-market-stall.png",
+        "sha256": "71cbf588cb8e26845f9bf6ff28d966ab24abfac94aceb0ac07e103879859d569",
+        "rgba_sha256": "57691db3eb8a123020a3a97ab58a2fd983ecb9cc78eaf8166f5f8892a65125be"
+      },
+      "image_hashes": {
+        "front": "31e7811224da5b13775512819ce8dba4906a181acccb72886ea4f9fe00034c5c",
+        "top": "4f35ef4aaacf3548da048281c4e1f00afed4e78658c140f8afc6879e1fd0a9df",
+        "right": "540815d1f1c2d22bd19f2017f7f89e5edba3e4fbf6748dd0fae92fed79d01440",
+        "left": "e77e95d7dd10efe2aac75c96c1102466d13a9d01457aec0bcb1f9131820c9ea4",
+        "bottom": "90cdf423cd779e15ea4318c134dcaf135a72b831a516e51d4df1c17c1503833d",
+        "rear": "98e0703ef01b00f0869c2bf6e5fa1b8368081bb72134767ecfe703c8f72d985d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:39:46.504060+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-narrow-market-stall.png",
+          "sha256": "71cbf588cb8e26845f9bf6ff28d966ab24abfac94aceb0ac07e103879859d569",
+          "rgba_sha256": "57691db3eb8a123020a3a97ab58a2fd983ecb9cc78eaf8166f5f8892a65125be"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:desert",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,18 +235,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

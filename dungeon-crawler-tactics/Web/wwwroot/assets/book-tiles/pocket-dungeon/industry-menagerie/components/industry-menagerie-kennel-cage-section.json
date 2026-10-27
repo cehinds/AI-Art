@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "industry-menagerie",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-kennel-cage-section.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-kennel-cage-section.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-kennel-cage-section",
+      "source_sha256": "9c94e102a69dc7843e1e3b45c556c46af6fd19d17d690cbe852be3552712b7d7",
+      "primary_source": {
+        "asset_id": "industry-menagerie-kennel-cage-section",
+        "path": "industry-menagerie/components/industry-menagerie-kennel-cage-section.png",
+        "sha256": "9c94e102a69dc7843e1e3b45c556c46af6fd19d17d690cbe852be3552712b7d7",
+        "rgba_sha256": "4481c839cd90668b6d49388bd1d159fd12357325ae2bdd3796348981d5797233"
+      },
+      "image_hashes": {
+        "front": "a7d6ea1de0e9c5b28616d903025da05864cd9080f511df397a5c55b62a5ed036",
+        "top": "f1d6a7b2caa22df42378c2adc1402d99eba48181210d9c14cab38de4468f0f2c",
+        "right": "b746f50ee439ad86ee10781b8d630c061c19d6a32cc852dd59ccaa414aba04e3",
+        "left": "b2cfd4929dff8eee91af3666c27fad01320b77465a24f9ffd0f9597a36fff3c4",
+        "bottom": "c180114d5680e4bd7425e15dffd11ebc28851cbcfd411c570ef99befe515a057",
+        "rear": "f597b1e82f5a53f17f77df470b30fb99824ebacb26dd57e4ea6cdc0b13975ef8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:22:47.489056+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-kennel-cage-section.png",
+          "sha256": "9c94e102a69dc7843e1e3b45c556c46af6fd19d17d690cbe852be3552712b7d7",
+          "rgba_sha256": "4481c839cd90668b6d49388bd1d159fd12357325ae2bdd3796348981d5797233"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-worn-village-paving-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-worn-village-paving-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-worn-village-paving-floor",
+      "source_sha256": "b61c5581ee5bb5874c1269249be076ef3545e2b5c61901de2a33f42afafe10ee",
+      "primary_source": {
+        "asset_id": "hunting-shrines-worn-village-paving-floor",
+        "path": "hunting-shrines/components/hunting-shrines-worn-village-paving-floor.png",
+        "sha256": "b61c5581ee5bb5874c1269249be076ef3545e2b5c61901de2a33f42afafe10ee",
+        "rgba_sha256": "4da9e697ab41de0aa0143f4cedc1d14f5d99d346015e753ae687b4fe3eaccf02"
+      },
+      "image_hashes": {
+        "front": "65ae56114b60ad2cd2a2d86e57a25199e7fc1fd6e8bd57af4353533c976cbfcf",
+        "top": "603791a65da9c1305aaca0a2fd18a7ed6de81384c67cc1355b3f426e4cf88d9c",
+        "right": "65ae56114b60ad2cd2a2d86e57a25199e7fc1fd6e8bd57af4353533c976cbfcf",
+        "left": "65ae56114b60ad2cd2a2d86e57a25199e7fc1fd6e8bd57af4353533c976cbfcf",
+        "bottom": "a713f2c00ee9e5bd06c7f93d0b9a4b16166b7bfd59f931e336a98e1441402355",
+        "rear": "65ae56114b60ad2cd2a2d86e57a25199e7fc1fd6e8bd57af4353533c976cbfcf"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:21:46.762412+00:00",
+      "notes": [
+        "Fresh naturalmaterialrepair source+views: sourceTOPretained, fourlowstone/soilprofiles, naturalunderside, no metaltrays/bolts; physicalmaterialcoherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-worn-village-paving-floor.png",
+          "sha256": "b61c5581ee5bb5874c1269249be076ef3545e2b5c61901de2a33f42afafe10ee",
+          "rgba_sha256": "4da9e697ab41de0aa0143f4cedc1d14f5d99d346015e753ae687b4fe3eaccf02"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

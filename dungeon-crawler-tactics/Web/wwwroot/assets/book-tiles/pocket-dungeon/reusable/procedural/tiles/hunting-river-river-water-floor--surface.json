@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/hunting-river-river-water-floor--surface.png",
@@ -66,12 +67,30 @@
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-river"
+    ]
   },
   "canonical_asset_id": "hunting-river-river-water-floor",
   "attachment_generated_tags": [
@@ -81,7 +100,8 @@
     "material:water",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

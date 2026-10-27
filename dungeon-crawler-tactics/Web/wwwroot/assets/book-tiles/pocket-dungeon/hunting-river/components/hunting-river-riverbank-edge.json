@@ -11,13 +11,13 @@
     "book-location",
     "environment:dungeon",
     "ground",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-riverbank-edge.png",
@@ -119,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,40 +160,89 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-edge.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-edge.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-edge.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-mirror",
+      "asset_id": "hunting-river-riverbank-edge.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-edge.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverbank-edge.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-riverbank-edge",
+      "source_sha256": "65cd09a94eee158753382f808146ff755fa45543f7ad36ab5704af9c92f86204",
+      "primary_source": {
+        "asset_id": "hunting-river-riverbank-edge",
+        "path": "hunting-river/components/hunting-river-riverbank-edge.png",
+        "sha256": "65cd09a94eee158753382f808146ff755fa45543f7ad36ab5704af9c92f86204",
+        "rgba_sha256": "8bbba400c7fc64bed5305bd649acdef72fb399058095f14ff49676e7ea9238ed"
+      },
+      "image_hashes": {
+        "front": "06fa40a3d5df089d70e87bb0957a325fee5707bca70a50c74ec5d72903b1b99c",
+        "top": "9d5498fb180fa91dd4410466f6489f074f8541035fec19153b06b919c5011013",
+        "right": "8a2712369090652735e729bd4b52cb578cde1a031b6dcde8bd22c10e386bf762",
+        "left": "e7f976c23bca82b218d12d11bcefb3b25553d577839d32ce943e2d600422b4f0",
+        "bottom": "e9e4ef71751a07e86f4509192ede46789ac0872bf0aa08ac799007b9be1915a2",
+        "rear": "9e0a7c0cee3972cb1274b524d00339ae8cd1d27e012f902ecb1157116d91eefd"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T02:38:53.592149+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-riverbank-edge.png",
+          "sha256": "65cd09a94eee158753382f808146ff755fa45543f7ad36ab5704af9c92f86204",
+          "rgba_sha256": "8bbba400c7fc64bed5305bd649acdef72fb399058095f14ff49676e7ea9238ed"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,
@@ -196,7 +255,7 @@
       "none": []
     },
     "provides": [
-      "surface:water"
+      "surface:floor"
     ],
     "exclude_self": true,
     "compatibility_group": null,

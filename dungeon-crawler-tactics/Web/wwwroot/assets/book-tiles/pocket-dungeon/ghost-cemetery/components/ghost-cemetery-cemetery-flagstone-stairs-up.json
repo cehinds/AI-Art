@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-cemetery-flagstone-stairs-up",
+      "source_sha256": "0240243a6fade4385aa2000dd975d1b07a0d33ef17d7a79eacd3aceea0ef6760",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-cemetery-flagstone-stairs-up",
+        "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-stairs-up.png",
+        "sha256": "0240243a6fade4385aa2000dd975d1b07a0d33ef17d7a79eacd3aceea0ef6760",
+        "rgba_sha256": "88c2957b821e6029f9cd5dfe1c4c35a5755b9e4f070aa17925ff445225871179"
+      },
+      "image_hashes": {
+        "front": "36109e73e346db632e498c47951e981a2bcf94c35206011d37d90bf7b8ae421b",
+        "top": "4f690dfa8df750b48d98d9d92dbe8a272d15d65ed835423c75cef9be897c474c",
+        "right": "989aa452bf67e162faf128e343121cad21048fdb3b929c5b0397ad34e556a8af",
+        "left": "941682090bd0ba8fc8fcb04eb190d6868f5bd848a703d0aa314b55012668c761",
+        "bottom": "a1b3f458fba6297ada530ec14dc108516e934af5df12fbbd52ef4747e12e16da",
+        "rear": "b301033d7ee9fad798236d708ed3efbfff942f34f589ff8e164c4665944dde86"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-stairs-up.png",
+          "sha256": "0240243a6fade4385aa2000dd975d1b07a0d33ef17d7a79eacd3aceea0ef6760",
+          "rgba_sha256": "88c2957b821e6029f9cd5dfe1c4c35a5755b9e4f070aa17925ff445225871179"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

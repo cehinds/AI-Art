@@ -11,13 +11,13 @@
     "attachment:floor",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-fortification-gate.png",
@@ -107,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +136,89 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-fortification-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-fortification-gate",
+      "source_sha256": "2b7c005e594fd1f8b902e1292227c347c7016f8ad4897ca8ba493a70f14a80be",
+      "primary_source": {
+        "asset_id": "hunting-river-fortification-gate",
+        "path": "hunting-river/components/hunting-river-fortification-gate.png",
+        "sha256": "2b7c005e594fd1f8b902e1292227c347c7016f8ad4897ca8ba493a70f14a80be",
+        "rgba_sha256": "dcd9273292bcfd0f02dfd0778fbe8f0ff76d63bf31a0c0d73cd3ba49ab85fef6"
+      },
+      "image_hashes": {
+        "front": "03b30775b7ce2898304a8e36091808e2e40cf6b7d644ae750f1b2d0e7d719447",
+        "top": "97ef7e22e2b7666a1046b3066c666ea2f137be9668f6efeccb26e2e62791544b",
+        "right": "a4f00dd7d142d885a3f5815f20b526a880db9cfd8255ae3caa6f959c7031d635",
+        "left": "706f94a655b50bb8f29cfb2b27a8db40881ff5d6ebb12d67caa3b2d3c96349dd",
+        "bottom": "0f3e4eaa1230df17c4be25af65755468742aaf6a3f0f73b671ec96c042f10dbc",
+        "rear": "f2445db52f067cc8029ba57e837f45f6624beb23f287c6fdb392cbc3e728283e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T18:48:54.563957+00:00",
+      "notes": [
+        "Reviewed native source and all six opaque-composited normalized views. Inferred illustrative geometry accepted; no clear projection, identity, footprint or neighboring-component defect."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-fortification-gate.png",
+          "sha256": "2b7c005e594fd1f8b902e1292227c347c7016f8ad4897ca8ba493a70f14a80be",
+          "rgba_sha256": "dcd9273292bcfd0f02dfd0778fbe8f0ff76d63bf31a0c0d73cd3ba49ab85fef6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

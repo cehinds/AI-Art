@@ -7,6 +7,7 @@
   "category": "structure",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "door",
     "dungeon-after-dark",
     "environment:dungeon",
@@ -108,10 +109,46 @@
     "rear": {
       "status": "inferred",
       "asset_id": "door-open.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "door-open",
+      "source_sha256": "c870a2171c6a12b38ed8ad68c43456b7e453ea1d9b9e9ae491594026ac5f2328",
+      "primary_source": {
+        "asset_id": "door-open",
+        "path": "components/door-open.png",
+        "sha256": "c870a2171c6a12b38ed8ad68c43456b7e453ea1d9b9e9ae491594026ac5f2328",
+        "rgba_sha256": "3a67c6c7ed66c05601fac690f4d5818b7039659c416a8c2801851eb7a3ee54cd"
+      },
+      "image_hashes": {
+        "front": "e408ec5753c224a57559713f4f5fe3b104983ab7877d9394e5593cb316c3fa9e",
+        "top": "0733a56bbcaf50e9bb97222cb14999840bb951cdddce82276845fa892bde9de4",
+        "right": "701fa89811037ffc792929672fd1a26c3d376cc815ae5c6a4e9cff06251c78d5",
+        "left": "61b36dc8152f9918cf2d9b9d0e183235f68dba1e7336d45e2f52b18469ec5bb9",
+        "bottom": "7db8ffac9379f83b2f01276539147d32db77f2c948cf34acf07f60a2c7e2264e",
+        "rear": "0fa4083b3eed401b97a81a3b1c01ded99dc2871b4698df9b0f4c5d21a7b97eb2"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:09:53.132866+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/door-open.png",
+          "sha256": "c870a2171c6a12b38ed8ad68c43456b7e453ea1d9b9e9ae491594026ac5f2328",
+          "rgba_sha256": "3a67c6c7ed66c05601fac690f4d5818b7039659c416a8c2801851eb7a3ee54cd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
@@ -124,15 +161,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

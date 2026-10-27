@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/faction-larracos-cracked-drained-city-cobblestone-floor--surface.png",
@@ -66,12 +67,30 @@
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-larracos"
+    ]
   },
   "canonical_asset_id": "faction-larracos-cracked-drained-city-cobblestone-floor",
   "attachment_generated_tags": [
@@ -81,7 +100,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

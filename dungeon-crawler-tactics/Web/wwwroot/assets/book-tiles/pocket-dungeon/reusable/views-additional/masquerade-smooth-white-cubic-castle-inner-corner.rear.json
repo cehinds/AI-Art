@@ -3,12 +3,23 @@
   "name": "Smooth White Cubic Castle inner corner rear",
   "kind": "sprite",
   "tags": [
-    "masquerade",
-    "wall",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:castle",
+    "environment:dungeon",
+    "inferred-view",
+    "masquerade",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/masquerade-smooth-white-cubic-castle-inner-corner.rear.png",
@@ -60,12 +71,43 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "masquerade-smooth-white-cubic-castle-inner-corner",
+        "view": "rear",
+        "source_path": "masquerade/components/masquerade-smooth-white-cubic-castle-inner-corner.png",
+        "source_sha256": "0c826ff71c9361a195cb68451f6e1db2a5ba8c353ff9ccdfb32ee83e5f0fe57f",
+        "atlas_path": "reusable/views-additional/raw/generated-atlases/pocket-corner-batch02-clean.png",
+        "atlas_sha256": "47e6b4ad5651f016fc411063702a065599cdba8d1a40623c26f2698de76b29d8",
+        "active_output_sha256": "a04ab167f8196bcf11725cf836df6862575494196174309854b6866b269a8db0",
+        "active_output_rgba_sha256": "7d85c3e947c4479eb0b6e6f78f536131bba72cd7b58684449d01cbc495d1edb8",
+        "crop_bounds_xyxy": [
+          1137,
+          207,
+          1397,
+          336
+        ],
+        "resized_dimensions_px": [
+          214,
+          106
+        ],
+        "scale": 0.8217054263565892,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "notes": "Pixel copy from independently accepted same-family outer-corner view under the 180-degree plan counterpart; source object remains canonical inner corner.",
     "symmetric_alias_of": "front",
     "symmetric_alias_object_id": "masquerade-smooth-white-cubic-castle-outer-corner",
-    "symmetry_reason": "Inner footprint is the 180-degree counterpart of the accepted same-family outer corner. For the same camera, use the opposite-facing outer projection (front\u2194rear, right\u2194left) to preserve the broad wall arm and common baseline while retaining the inner source as canonical.",
+    "symmetry_reason": "Inner footprint is the 180-degree counterpart of the accepted same-family outer corner. For the same camera, use the opposite-facing outer projection (front↔rear, right↔left) to preserve the broad wall arm and common baseline while retaining the inner source as canonical.",
     "derivation_input": {
       "asset_id": "masquerade-smooth-white-cubic-castle-outer-corner.front",
       "object_id": "masquerade-smooth-white-cubic-castle-outer-corner",
@@ -74,7 +116,19 @@
       "image_sha256": "a04ab167f8196bcf11725cf836df6862575494196174309854b6866b269a8db0",
       "source_image": "masquerade/components/masquerade-smooth-white-cubic-castle-outer-corner.png",
       "source_sha256": "f6caf9a0e1c327408f49ec2db7739b44a7770e6a9c163b581ad31b3e142a782d"
-    }
+    },
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.8217054263565892
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -161,5 +215,46 @@
       },
       "notes": "Orthographic broad wall-arm elevation inferred from source corner plan; accepted TOP and BOTTOM are preserved. Raw atlas and request retained; generated pixels are inferred, not recovered."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:castle",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "masquerade-smooth-white-cubic-castle-inner-corner"
+  }
 }

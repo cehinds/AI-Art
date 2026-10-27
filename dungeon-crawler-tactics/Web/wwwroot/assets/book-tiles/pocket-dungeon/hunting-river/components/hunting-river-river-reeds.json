@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-river-reeds.png",
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,40 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-reeds.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-reeds",
+      "source_sha256": "21da6bf7ad223220b1bd29ac6d387135b32a14ffe8d5eb4ee763c089a16894e7",
+      "primary_source": {
+        "asset_id": "hunting-river-river-reeds",
+        "path": "hunting-river/components/hunting-river-river-reeds.png",
+        "sha256": "21da6bf7ad223220b1bd29ac6d387135b32a14ffe8d5eb4ee763c089a16894e7",
+        "rgba_sha256": "aaf8f3541057d15769d4b96a85bae449ef6aac6afd2337cd0118376f41d2dcf7"
+      },
+      "image_hashes": {
+        "front": "833fb455e8e437e31a67642f67756bcf2a3d74b3c1109319a430173e8404b7af",
+        "top": "bc388392dbbf0807f1b148c179a0dfd38cbae54519a14a20c4e107b56c6691d8",
+        "right": "9d5154460113fb283d39938614e08e45ae8a7c9f0a8671ea9422c99df9d57539",
+        "left": "ec3b50967dc6e632bb4a944df8ff0d83afcb03774878ca8dd7d2d90928bce889",
+        "bottom": "692926e203924406e35993487298cc4b0f3cdd3b5ea5fa8124234353e1b32db0",
+        "rear": "72ff401a244454d46a22afb024e6c77b8296ccf3c1a54194c3d830022f3e22b2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:58:05.212933+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-reeds.png",
+          "sha256": "21da6bf7ad223220b1bd29ac6d387135b32a14ffe8d5eb4ee763c089a16894e7",
+          "rgba_sha256": "aaf8f3541057d15769d4b96a85bae449ef6aac6afd2337cd0118376f41d2dcf7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

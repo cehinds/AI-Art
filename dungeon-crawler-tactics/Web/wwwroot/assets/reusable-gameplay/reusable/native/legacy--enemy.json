@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--enemy.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--enemy.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--enemy",
+      "source_sha256": "20b623284bf3039b43d0fb57df91764fb482062aed0e44d1eaffe1eac01d2217",
+      "primary_source": {
+        "asset_id": "legacy--enemy",
+        "path": "reusable/native/legacy--enemy.png",
+        "sha256": "20b623284bf3039b43d0fb57df91764fb482062aed0e44d1eaffe1eac01d2217",
+        "rgba_sha256": "fffe4efcdbc6c8df0b880ea79c53d1b4985e9da2654b7655b8623fa1e3bf9b1c"
+      },
+      "image_hashes": {
+        "front": "415501fc2b013e386c28cbc2eef7ea7499806a8c601645f2bff31ef95d1a4658",
+        "top": "906e724697b4ccaccf52fcdd0c05581db8a4b26202cc4775b1482a97b2fb549c",
+        "right": "779489f7e77ab5448a5672e47d1927a40d63b0b644eb234132c2f92d6bf86772",
+        "left": "0a7c9547924cb0e796278f54c91b424499301b419213d6b4a493eee8a62d248c",
+        "bottom": "4a75ef6b19084ac071928fee4dd3d0b5e22b726f88478ea377fe3cc91570467e",
+        "rear": "e21dec105de7e3a974ce3928c3e287603c3c7f370c22228e2d546629af4ca1c0"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.153381+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--enemy.png",
+          "sha256": "20b623284bf3039b43d0fb57df91764fb482062aed0e44d1eaffe1eac01d2217",
+          "rgba_sha256": "fffe4efcdbc6c8df0b880ea79c53d1b4985e9da2654b7655b8623fa1e3bf9b1c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

@@ -3,10 +3,24 @@
   "name": "Fallen log horizontal Front",
   "kind": "prop",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "fallen",
+    "forest",
+    "generated",
+    "horizontal",
+    "log",
+    "material:unspecified",
     "orthographic",
     "prop",
-    "generated"
+    "props",
+    "role:object",
+    "six-view",
+    "style:dungeon-after-dark"
   ],
   "image": {
     "path": "reusable/views-additional/images/forest-fallen-log-horizontal.front.png",
@@ -59,7 +73,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective front projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels.",
@@ -72,5 +87,47 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/forest-fallen-log-horizontal.front.json"
+  "metadata_path": "reusable/views-additional/images/forest-fallen-log-horizontal.front.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-fallen-log-horizontal"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "fallen",
+    "forest",
+    "horizontal",
+    "log",
+    "material:unspecified",
+    "props",
+    "role:object",
+    "style:dungeon-after-dark"
+  ]
 }

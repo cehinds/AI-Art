@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-wet-arena-stone-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-wet-arena-stone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-wet-arena-stone-floor",
+      "source_sha256": "27c7c7ceba7ce50ac77165ce20d6bfd2976771f5ce8af2530f02a615eb4beb62",
+      "primary_source": {
+        "asset_id": "early-arenas-wet-arena-stone-floor",
+        "path": "early-arenas/components/early-arenas-wet-arena-stone-floor.png",
+        "sha256": "27c7c7ceba7ce50ac77165ce20d6bfd2976771f5ce8af2530f02a615eb4beb62",
+        "rgba_sha256": "542e8b8cbb66e051b328f08094d2d41d8b4681322c884d6d7f0654758e685544"
+      },
+      "image_hashes": {
+        "front": "b30e76a818707497c1ef9edc3002c30b9d11433da34f15b338a8fb3e401a0492",
+        "top": "64b788e96ab23af4f5ee9d4ebd5b5a900c8ad0551555a6755d7c14cb79d97a32",
+        "right": "2ce2b457c90ed5e0e3cd75af3a72520d7336b51e5b4f5148b0938bac988fdbc1",
+        "left": "3bbdf1d8ae2a37a06113789ce4baa178b2d654317e3d72c7762023ba60271309",
+        "bottom": "942958e8430d27e844ba81b1f05228b8bf40eff3c6a97883d4c0cc6b650b36c1",
+        "rear": "4ca4c550c892a5d6e106a37cd5241f170862d9b2a203152c1bd6f1157fff5de6"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.914511+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-wet-arena-stone-floor.png",
+          "sha256": "27c7c7ceba7ce50ac77165ce20d6bfd2976771f5ce8af2530f02a615eb4beb62",
+          "rgba_sha256": "542e8b8cbb66e051b328f08094d2d41d8b4681322c884d6d7f0654758e685544"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "east": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "south": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "west": [
+      "join.floor",
+      "visual.early-arenas"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

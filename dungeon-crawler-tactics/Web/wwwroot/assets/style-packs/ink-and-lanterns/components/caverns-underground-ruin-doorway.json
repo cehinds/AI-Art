@@ -7,6 +7,7 @@
   "category": "structure",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "caverns",
     "doorway",
     "environment:unspecified",
@@ -97,34 +98,70 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "caverns-underground-ruin-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "caverns-underground-ruin-doorway",
+      "source_sha256": "5434b4bd830256c3922dd470cfcf1c0ee817f9e833befaa3a5b36c5408aa7fd4",
+      "primary_source": {
+        "asset_id": "caverns-underground-ruin-doorway",
+        "path": "components/caverns-underground-ruin-doorway.png",
+        "sha256": "5434b4bd830256c3922dd470cfcf1c0ee817f9e833befaa3a5b36c5408aa7fd4",
+        "rgba_sha256": "f0652e7d741b488f8983f23c27d61bd66fc5f2504002bc6b292d7b1b16996fa5"
+      },
+      "image_hashes": {
+        "front": "5bf34e188be9a9e1645b0457a3f03cc897d27cbc99825fa85bb3355034cd11ef",
+        "top": "f8983a3add8c7d9fd29e7491148b5e36cde46b90f2e631c9713ef4292ff0a854",
+        "right": "26fbb162de338685b343f7acb5b48183e0a0f92b10704890c4c4a868fa720b03",
+        "left": "270e942834f5c448ef7b3634ae5575bc6cd760fdf9bf8c58b9bf91dc14420b64",
+        "bottom": "0d95bbb3333de7c724f78e3a603f5531f5328865e3106ed2685962423f0e0e8e",
+        "rear": "710a00127b0378ba7f079caf193cc96859dc016ae20160c4c0dd50f606cafbd0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:40:19.515510+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/caverns-underground-ruin-doorway.png",
+          "sha256": "5434b4bd830256c3922dd470cfcf1c0ee817f9e833befaa3a5b36c5408aa7fd4",
+          "rgba_sha256": "f0652e7d741b488f8983f23c27d61bd66fc5f2504002bc6b292d7b1b16996fa5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:unspecified",
     "material:unspecified",
     "role:provider",
@@ -137,15 +174,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

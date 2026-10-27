@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-jungle",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-dryad-tree-dwelling.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-dryad-tree-dwelling.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-dryad-tree-dwelling",
+      "source_sha256": "c336847d7ee595f4fa04f0c8ab4ac647af237a6ad4d3e60dde612030abb58291",
+      "primary_source": {
+        "asset_id": "hunting-jungle-dryad-tree-dwelling",
+        "path": "hunting-jungle/components/hunting-jungle-dryad-tree-dwelling.png",
+        "sha256": "c336847d7ee595f4fa04f0c8ab4ac647af237a6ad4d3e60dde612030abb58291",
+        "rgba_sha256": "2f202bc8cf598898d7800c8c94f2ba086f3915f182bff4982d80b1cde1e0271a"
+      },
+      "image_hashes": {
+        "front": "df4160fc91f085d4ae1bc73237f23354629ac12901c88edee8a79f3e6a4318a8",
+        "top": "b24ff641f78ebba960d8ea42fb5685adc767c38ab579712ca14717c3cde5d4de",
+        "right": "1d2c0158ff66580f15329737943cf5a096c846ed335b5cbcaf9ca7c5d096b8b1",
+        "left": "7527952c31b1a3f16722640501616c56c7d83bc261456bbbdb0a7bafd54f900b",
+        "bottom": "36821b67ff3e3208b5228f9fb53d499f1292941dcc80c662d4b68d5c8db0aae2",
+        "rear": "b3c36a8cd5cd1a9630f0d06cd83ad4f3b84a0c1919990eed442655a45fcd1c6c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:06:36.522488+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-dryad-tree-dwelling.png",
+          "sha256": "c336847d7ee595f4fa04f0c8ab4ac647af237a6ad4d3e60dde612030abb58291",
+          "rgba_sha256": "2f202bc8cf598898d7800c8c94f2ba086f3915f182bff4982d80b1cde1e0271a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

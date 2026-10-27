@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Offline full-atlas extraction for generated six-view Pocket book assets."""
 from pathlib import Path
-import hashlib,json,struct
+import argparse,hashlib,json,struct
 import numpy as np
 from PIL import Image
 from scipy import ndimage
@@ -10,10 +10,116 @@ VIEWS=['front','top','right','left','bottom','rear']; ALPHA=245; MIN_AREA=4
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def rgba_sha(im):return hashlib.sha256(struct.pack('>II',*im.size)+im.convert('RGBA').tobytes()).hexdigest()
 def dump(p,d):p.write_text(json.dumps(d,indent=2)+'\n')
+def snapshot_active_donors(baseline):
+ corrections=json.loads((OUT/'corrections.json').read_text())['operations'];leaves={(g['object_id'],v):row for g in baseline['sets'] for v,row in g['views'].items()};active_paths={row['image_path']:(oid,view,row) for (oid,view),row in leaves.items()};retained=json.loads((OUT/'raw/replay-retained/replay-retained-manifest.json').read_text());retained_leaves={(x['object_id'],x['view']):x for x in retained['leaves']};rows=[];seen={}
+ for i,op in enumerate(corrections):
+  if op.get('type')!='install-view-candidate':continue
+  key=(op['donor_object_id'],op['donor_view']);donor_path=(OUT/op['donor_image_path']).resolve()
+  if (not key[0] or key[0] in {'.','..'} or '/' in key[0] or '\\' in key[0]
+      or key[1] not in VIEWS or len(op.get('donor_image_sha256',''))!=64
+      or any(c not in '0123456789abcdef' for c in op['donor_image_sha256'])):
+   raise SystemExit(f'candidate operation {i} has an unsafe donor identity or hash: {key}')
+  try:pack_rel=donor_path.relative_to(BOOK.resolve()).as_posix()
+  except ValueError:raise SystemExit(f'candidate operation {i} donor path escapes book root: {op["donor_image_path"]}')
+  active=active_paths.get(pack_rel)
+  if active:
+   if active[0:2]!=key:raise SystemExit(f'candidate operation {i} donor path/id mismatch: {op["donor_image_path"]}')
+   leaf=active[2]
+   if leaf['image_sha256']!=op['donor_image_sha256']:
+    target=leaves.get((op['object_id'],op['view']));ret=retained_leaves.get((op['object_id'],op['view'])) or {}
+    image_covered=target and (target['image_sha256']==op['candidate_sha256'] or ret.get('image_snapshot_sha256')==target['image_sha256'] or target['image_sha256']==ret.get('replay_before_overlay_image_sha256'))
+    meta_covered=target and (ret.get('metadata_snapshot_sha256')==target['metadata_sha256'] or target['metadata_sha256']==ret.get('replay_before_overlay_metadata_sha256'))
+    if not image_covered or not meta_covered:raise SystemExit(f'candidate operation {i} stale donor lacks exact target output coverage: {key}')
+    continue
+   source=(BOOK/leaf['image_path']).resolve()
+   if source!=donor_path or not source.is_file() or sha(source)!=op['donor_image_sha256']:
+    raise SystemExit(f'candidate operation {i} donor image path/hash mismatch before deletion: {op["donor_image_path"]}')
+  else:
+   if baseline['replay_inputs'].get(pack_rel)!=op['donor_image_sha256'] or not donor_path.is_file() or sha(donor_path)!=op['donor_image_sha256']:
+    raise SystemExit(f'candidate operation {i} donor is not an exact hash-pinned replay input: {op["donor_image_path"]}')
+   continue
+  if key in seen:continue
+  rel=f"raw/replay-retained/donor-snapshots/{key[0]}.{key[1]}.{op['donor_image_sha256']}.png";target=(OUT/rel).resolve()
+  target.relative_to(OUT.resolve())
+  target.parent.mkdir(parents=True,exist_ok=True)
+  tmp=target.with_suffix(target.suffix+'.tmp');tmp.write_bytes(source.read_bytes());tmp.replace(target)
+  if sha(target)!=op['donor_image_sha256']:raise SystemExit(f'candidate donor snapshot hash mismatch: {rel}')
+  row={'object_id':key[0],'view':key[1],'donor_image_path':op['donor_image_path'],'source_active_image_path':leaf['image_path'],'sha256':op['donor_image_sha256'],'snapshot_path':rel}
+  rows.append(row);seen[key]=row
+ manifest={'schema':'pocket-replay-donor-snapshots-v1','baseline_sha256':sha(OUT/'replay-baseline.json'),'set_index_sha256':baseline['set_index_sha256'],'donors':rows}
+ dump(OUT/'raw/replay-retained/donor-snapshots/manifest.json',manifest)
+ return len(rows)
 
-# Freeze and verify all current outputs before the base split overwrites its index.
+# Default is strict and checks every active output before overwriting it. The
+# destructive mode is explicitly limited to a marker-bound isolated copy.
 import subprocess,sys
-subprocess.run([sys.executable,str(OUT/'prepare_replay_plan.py')],check=True)
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--empty-output-replay',action='store_true',help='rebuild only inside a marker-bound isolated copy after deleting all indexed active PNGs, sidecars, and set-index')
+args=parser.parse_args()
+preflight=[sys.executable,str(OUT/'prepare_replay_plan.py')]
+subprocess.run(preflight,check=True)
+
+if args.empty_output_replay:
+ baseline=json.loads((OUT/'replay-baseline.json').read_text())
+ marker_path=OUT/'isolated-replay-marker.json'
+ try: marker=json.loads(marker_path.read_text())
+ except Exception as e: raise SystemExit(f'invalid isolated replay marker: {e}')
+ if marker.get('schema')!='pocket-isolated-replay-v1':
+  raise SystemExit('isolated marker has an unsupported schema')
+ if marker.get('isolated_pack_root')!=str(BOOK.resolve()) or marker.get('baseline_sha256')!=sha(OUT/'replay-baseline.json'):
+  raise SystemExit('isolated marker does not match this pack copy and frozen baseline')
+ canonical_root=Path(marker.get('canonical_pack_root','')).resolve() if marker.get('canonical_pack_root') else None
+ if canonical_root is None or not canonical_root.is_dir():
+  raise SystemExit('isolated marker is missing a valid canonical pack root')
+ if canonical_root==BOOK.resolve():
+  raise SystemExit('refusing empty-output replay against the canonical pack root')
+ if marker.get('set_index_sha256')!=baseline.get('set_index_sha256'):
+  raise SystemExit('isolated marker is not bound to the frozen set-index hash')
+ if marker.get('active_sets')!=len(baseline.get('sets',[])) or marker.get('active_views')!=sum(len(g.get('views',{})) for g in baseline.get('sets',[])):
+  raise SystemExit('isolated marker counts do not match the frozen baseline')
+ # Validate the retained release index before any destructive action. The
+ # later planner repeats this check; this early copy prevents malformed marker
+ # or snapshot state from deleting otherwise intact active outputs.
+ retained_manifest_path=OUT/'raw/replay-retained/replay-retained-manifest.json'
+ if not retained_manifest_path.is_file():raise SystemExit('missing retained replay manifest')
+ retained_manifest=json.loads(retained_manifest_path.read_text())
+ retained_index=OUT/retained_manifest.get('release_index_snapshot_path','')
+ if (not retained_index.is_file() or sha(retained_index)!=baseline.get('set_index_sha256')
+     or retained_manifest.get('release_set_index_sha256')!=baseline.get('set_index_sha256')):
+  raise SystemExit('retained release index snapshot does not match frozen baseline')
+ outputs=[]
+ for group in baseline['sets']:
+  for row in group['views'].values():
+   outputs.extend((row['image_path'],row['metadata_path']))
+ expected_count=2*sum(len(group['views']) for group in baseline['sets'])
+ if len(outputs)!=expected_count or len(set(outputs))!=expected_count:
+  raise SystemExit('frozen baseline has duplicate or incomplete active output paths')
+ resolved_outputs=[];row_by_path={}
+ for group in baseline['sets']:
+  for row in group['views'].values():
+   row_by_path[row['image_path']]=(row,'image_sha256')
+   row_by_path[row['metadata_path']]=(row,'metadata_sha256')
+ for rel in outputs:
+  p=(BOOK/rel).resolve();p.relative_to(BOOK.resolve())
+  row,key=row_by_path[rel]
+  expected=row[key]
+  if not p.is_file() or sha(p)!=expected:raise SystemExit(f'active output changed since strict preflight: {rel}')
+  resolved_outputs.append((rel,p))
+ # The index is an active rebuild output too. Its immutable copy lives under
+ # raw/replay-retained and was checked by prepare_replay_plan.py.
+ index_path=BOOK/baseline['set_index_path']
+ index_path=index_path.resolve();index_path.relative_to(BOOK.resolve())
+ if not index_path.is_file() or sha(index_path)!=baseline['set_index_sha256']:
+  raise SystemExit('set-index changed since strict preflight')
+ donor_count=snapshot_active_donors(baseline)
+ # All paths, bindings, and bytes have now passed before the first unlink.
+ for rel,p in resolved_outputs:p.unlink()
+ index_path.unlink()
+ subprocess.run([sys.executable,str(OUT/'prepare_replay_plan.py'),'--allow-missing-active-outputs'],check=True)
+ plan=json.loads((OUT/'replay-plan.json').read_text())
+ if not plan.get('empty_output_replay') or plan.get('baseline_sha256')!=sha(OUT/'replay-baseline.json'):
+  raise SystemExit('empty-output replay plan is absent or not bound to the current frozen baseline')
+ print(f'snapshotted {donor_count} hash-pinned active donor images before deletion')
 
 def run(entry, source):
  raw=BOOK/entry['raw']; im=Image.open(raw).convert('RGBA'); mask=np.asarray(im.getchannel('A'))>=ALPHA

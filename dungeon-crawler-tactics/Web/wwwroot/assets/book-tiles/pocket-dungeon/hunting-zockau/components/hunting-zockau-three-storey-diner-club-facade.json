@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-zockau",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-three-storey-diner-club-facade.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-three-storey-diner-club-facade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-three-storey-diner-club-facade",
+      "source_sha256": "b86d1ad066f708b28d2770e085a1e1f5747a52f260272ba2986fcb972b2329fa",
+      "primary_source": {
+        "asset_id": "hunting-zockau-three-storey-diner-club-facade",
+        "path": "hunting-zockau/components/hunting-zockau-three-storey-diner-club-facade.png",
+        "sha256": "b86d1ad066f708b28d2770e085a1e1f5747a52f260272ba2986fcb972b2329fa",
+        "rgba_sha256": "320ff7bebfac9dc061fcbccb8007fdf9ba3dbfb77c5e42ce28b8d721f0991a4b"
+      },
+      "image_hashes": {
+        "front": "3ef483210abcfd39927cd78d73978b3d90914ffe606c7875b33cc15be52ab7eb",
+        "top": "372479ecbd2f4f93d1873ab558c1e37cdf6516bac54b82314aec4d0309b44545",
+        "right": "2c597f6c40b0efa6896b28b1395b15f85793f0ba1f56a487ea96de072714c369",
+        "left": "dc3ce301d1541287655c698bb05df191b6f03b7f32a9191ac8c324a37dea57ad",
+        "bottom": "67ec853c6be58e2b958beacc02be13c4e1f25d4d9d583ecf2db63292695ee3e1",
+        "rear": "a05b92f7c147f89b2e468d69ad852e935ee8dbc9d420bb22a5a6ac15cf78fc37"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:07:51.004838+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-three-storey-diner-club-facade.png",
+          "sha256": "b86d1ad066f708b28d2770e085a1e1f5747a52f260272ba2986fcb972b2329fa",
+          "rgba_sha256": "320ff7bebfac9dc061fcbccb8007fdf9ba3dbfb77c5e42ce28b8d721f0991a4b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

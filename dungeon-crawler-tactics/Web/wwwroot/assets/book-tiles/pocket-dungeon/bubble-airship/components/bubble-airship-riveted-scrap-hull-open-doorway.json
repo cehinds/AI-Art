@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "bubble-airship",
     "door",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-riveted-scrap-hull-open-doorway",
+      "source_sha256": "083767d13c68eefc102641d6a9d4af5bf008b4bc4a090e992c07a679ed0428f4",
+      "primary_source": {
+        "asset_id": "bubble-airship-riveted-scrap-hull-open-doorway",
+        "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-open-doorway.png",
+        "sha256": "083767d13c68eefc102641d6a9d4af5bf008b4bc4a090e992c07a679ed0428f4",
+        "rgba_sha256": "1e2cf052cc283ad277173cbd60070306e1fd55d07530c108f9b875da39126095"
+      },
+      "image_hashes": {
+        "front": "fb068e785d47acbb48c771e54833c3a20dbe6da80c98a790c7c419af35e63799",
+        "top": "12cd762d2ff31e956ca012090b04c98babab688794f25a5a1381007b4b43a5ff",
+        "right": "9ae440662f553308a41ad3b7254b0ef48fbb88eedc57e5fa651af8ab2a4f46a2",
+        "left": "8981465fa0d2716939f736246cf9e84259c023c1332622f4a51004d61c5ab426",
+        "bottom": "8901d9b79b0c38a0d8cd2d86a71e16706281e9d6b97ba498c0d7ed6393b99e6d",
+        "rear": "16dabfa8859f050878538bb20d4b277c8086c072b62a5c11d767f89b3eba03cd"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:13:56.684815+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-open-doorway.png",
+          "sha256": "083767d13c68eefc102641d6a9d4af5bf008b4bc4a090e992c07a679ed0428f4",
+          "rgba_sha256": "1e2cf052cc283ad277173cbd60070306e1fd55d07530c108f9b875da39126095"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -3,12 +3,22 @@
   "name": "Old Havana arcade frontage bottom",
   "kind": "sprite",
   "tags": [
-    "ghost-havana",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
     "bottom",
+    "environment:dungeon",
+    "ghost-havana",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/ghost-havana-old-havana-arcade-frontage.bottom.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "ghost-havana/components/ghost-havana-old-havana-arcade-frontage.png",
     "source_sha256": "b163d112cf5b82f3219b5360f6d5690fa0c2c21945c17d4e163a9828e5536626",
-    "generated_atlas": "raw/candidates/havana-arcade-bottom-v1/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/havana-arcade-bottom-v1/generated-atlas.png",
     "generated_atlas_sha256": "b60eca4251550c4affd3a43628182713539a8cf43612b45a313a5321d609658b",
     "generation_request": "raw/candidates/havana-arcade-bottom-v1/request.json",
     "generation_request_sha256": "f9e8a9d5684b56c220be8eea24916fa7c80ce164ff46b859c9e06711f9ddba8a",
@@ -184,5 +194,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-havana-old-havana-arcade-frontage"
+  }
 }

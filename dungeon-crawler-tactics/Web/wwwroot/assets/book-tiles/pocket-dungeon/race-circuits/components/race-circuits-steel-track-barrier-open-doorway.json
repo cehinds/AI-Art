@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-steel-track-barrier-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-steel-track-barrier-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-steel-track-barrier-open-doorway",
+      "source_sha256": "4a7e8e4c31c35072afc590ee3c26fa9a6e96d3b09d6c85a9e355dfdaf8827867",
+      "primary_source": {
+        "asset_id": "race-circuits-steel-track-barrier-open-doorway",
+        "path": "race-circuits/components/race-circuits-steel-track-barrier-open-doorway.png",
+        "sha256": "4a7e8e4c31c35072afc590ee3c26fa9a6e96d3b09d6c85a9e355dfdaf8827867",
+        "rgba_sha256": "0d52451a323c25fffdebd5619990965201f7da04e66673cc9dd2cdff1af294ce"
+      },
+      "image_hashes": {
+        "front": "e21faba90b21cd31571735211af05785187168a76ac844937042cc43e6ff1dda",
+        "top": "c953b5257ae2ac5be1b088d3a103ee1a14e595b6ddebf984a56b4e4ba2e44b4d",
+        "right": "4049a84046722a32982c209e1a9f107063abc6fae394c8586d63fc3560508efa",
+        "left": "3e9cb74a6d81d604e66451abdac6f38a6f70a3b2b403d998adb8190b6fac80f6",
+        "bottom": "2e54c07ad5b9a7308dc7cc897a785da639c5e44ae9f0b6e3b2701fd9c793a2bd",
+        "rear": "f2ef00b12888f066d45e75794aa27b8801101335a76e931720a99bbdfead560a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-steel-track-barrier-open-doorway.png",
+          "sha256": "4a7e8e4c31c35072afc590ee3c26fa9a6e96d3b09d6c85a9e355dfdaf8827867",
+          "rgba_sha256": "0d52451a323c25fffdebd5619990965201f7da04e66673cc9dd2cdff1af294ce"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:steel",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -11,12 +11,14 @@
     "book-location",
     "environment:dungeon",
     "ground",
+    "hazard:pit",
     "material:unspecified",
     "pocket-dungeon",
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-pit-service-grating-floor.png",
@@ -140,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,39 +183,94 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-pit-service-grating-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-pit-service-grating-floor",
+      "source_sha256": "7bc17a1e3ac99bad32c8e014b86e425242ae0a5777e8973e22e874b903ec7e71",
+      "primary_source": {
+        "asset_id": "race-circuits-pit-service-grating-floor",
+        "path": "race-circuits/components/race-circuits-pit-service-grating-floor.png",
+        "sha256": "7bc17a1e3ac99bad32c8e014b86e425242ae0a5777e8973e22e874b903ec7e71",
+        "rgba_sha256": "a4143d985f5d30e5e951678b76292d0e6b2733a1e47223f4abb4ed7468d425fb"
+      },
+      "image_hashes": {
+        "front": "996f9831953607cc5641ecb3f2d614d99c73a8825dcdf641a6105a4fdffb1e63",
+        "top": "3401550d4300e0d10675ba445182b1c9b2e2adbea2a1f4e9b8173dd394572c32",
+        "right": "9a565cc640a71cdcaf19a56fa90a36ccc38a52a409953dd2c0bb56d57938a198",
+        "left": "fd7ee1fc4f9b48bc0a8779578b6915fe3c918e39b14947004a816f57f7a9c5f3",
+        "bottom": "0e9c0c2cd7082a0d3cd4173d582acedf23e517e18741369a5e72d72413a9bc54",
+        "rear": "96c59cdb9f7ea27e0b9be4ee9e6610f4e5856d5a72bddc333403d9e3eb5c1d86"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-pit-service-grating-floor.png",
+          "sha256": "7bc17a1e3ac99bad32c8e014b86e425242ae0a5777e8973e22e874b903ec7e71",
+          "rgba_sha256": "a4143d985f5d30e5e951678b76292d0e6b2733a1e47223f4abb4ed7468d425fb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "east": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "south": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "west": [
+      "join.floor",
+      "visual.race-circuits"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
+    "hazard:pit",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

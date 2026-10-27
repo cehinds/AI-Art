@@ -3,12 +3,22 @@
   "name": "Station Tiled Masonry inner corner bottom",
   "kind": "sprite",
   "tags": [
-    "iron-stations",
-    "wall",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
     "bottom",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-stations",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/iron-stations-station-tiled-masonry-inner-corner.bottom.png",
@@ -183,5 +193,45 @@
     ],
     "generation_linkage_note": "External imagegen response path was not bound to this request inside the generation call. The retained pack-local raw atlas and SHA256 are the deterministic replay input; the external generated_images path is not claimed as verified request linkage."
   },
-  "geometry_qa": "cleared"
+  "geometry_qa": "cleared",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-stations-station-tiled-masonry-inner-corner"
+  }
 }

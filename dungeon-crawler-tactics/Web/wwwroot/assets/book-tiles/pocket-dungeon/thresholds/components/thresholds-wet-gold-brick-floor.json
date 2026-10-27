@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:floor",
-    "thresholds"
+    "thresholds",
+    "walkability:allowed"
   ],
   "image": {
     "path": "thresholds/components/thresholds-wet-gold-brick-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-wet-gold-brick-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-wet-gold-brick-floor",
+      "source_sha256": "d9abe535c1c7092b4b9930f2411b67a05d6d4040ad293da9c4adec9ddfc810e8",
+      "primary_source": {
+        "asset_id": "thresholds-wet-gold-brick-floor",
+        "path": "thresholds/components/thresholds-wet-gold-brick-floor.png",
+        "sha256": "d9abe535c1c7092b4b9930f2411b67a05d6d4040ad293da9c4adec9ddfc810e8",
+        "rgba_sha256": "6d44f00cf94e995bc9bd0ed51ee1f19b362d1e80c14941028ef887fa74cb8e2e"
+      },
+      "image_hashes": {
+        "front": "0ae5d3c8f45f1154243db5d62ecac1b42bedd36225dd92a3014deb07fe5ab1a6",
+        "top": "7a98aa6167f123610b8a536732b828dc572ba9d11a22b52e6de15f0394719310",
+        "right": "bbd164b79ccae5f225bc000368eb19d61db6fd697604073f599f4c06f95837ce",
+        "left": "b3a99e4e295869680d1d41aa4ffb1a0cc534ad59e94d3b954ebb0c694686e314",
+        "bottom": "7c7425ed55d954dfb77acce05a5ad8d70d5ae9b3ff0f21e8e740f60018a8da43",
+        "rear": "1199c3aa57f0f1f432fb6731e959a987e90ac369d9d6dcd8ae135b2b02a2382b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:37:55.405502+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-wet-gold-brick-floor.png",
+          "sha256": "d9abe535c1c7092b4b9930f2411b67a05d6d4040ad293da9c4adec9ddfc810e8",
+          "rgba_sha256": "6d44f00cf94e995bc9bd0ed51ee1f19b362d1e80c14941028ef887fa74cb8e2e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.thresholds"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

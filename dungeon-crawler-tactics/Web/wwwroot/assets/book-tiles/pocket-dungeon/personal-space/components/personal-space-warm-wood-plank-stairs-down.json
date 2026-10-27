@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-warm-wood-plank-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-warm-wood-plank-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-warm-wood-plank-stairs-down",
+      "source_sha256": "ff29a1d52dfc332891e67abdb0355acabc89a0b520604236f66ea3a6f8275902",
+      "primary_source": {
+        "asset_id": "personal-space-warm-wood-plank-stairs-down",
+        "path": "personal-space/components/personal-space-warm-wood-plank-stairs-down.png",
+        "sha256": "ff29a1d52dfc332891e67abdb0355acabc89a0b520604236f66ea3a6f8275902",
+        "rgba_sha256": "ee41a7e944e1ba5abab675a836f2f924422a7b00b04d7928924b68f894e0510c"
+      },
+      "image_hashes": {
+        "front": "a3814146a4f188570119d02aa0b1c7b67de8267fdbb422aa7ad37cc850686fb2",
+        "top": "6c6766e3c2a6d958fd13f4666a0ebfb87740b451a4bf9641df65715d0da7088d",
+        "right": "35868543052344510bba6c521be1db70f9191c876639aadafefee72d887e104b",
+        "left": "e475c73813a71c4d6788c86713aa10b84bf4c5e993a9096fe5da4b0da5b8f1c5",
+        "bottom": "a71f639e0250aa664fefe87447ca92041d165f887f018825588a8b4058a9daf7",
+        "rear": "2c2fe94013268438125950dab97f28433b29505e65b3eb0490f582c63807ba1e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:40:52.972654+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-warm-wood-plank-stairs-down.png",
+          "sha256": "ff29a1d52dfc332891e67abdb0355acabc89a0b520604236f66ea3a6f8275902",
+          "rgba_sha256": "ee41a7e944e1ba5abab675a836f2f924422a7b00b04d7928924b68f894e0510c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:wood",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

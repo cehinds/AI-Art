@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-bubble-boundary-portal.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,15 +161,66 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-bubble-boundary-portal.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-bubble-boundary-portal",
+      "source_sha256": "b13e1f1880330f644002da7c0bdaf8f3e8926e5e97402738cd07cbf4d16b9452",
+      "primary_source": {
+        "asset_id": "broadcast-portals-bubble-boundary-portal",
+        "path": "broadcast-portals/components/broadcast-portals-bubble-boundary-portal.png",
+        "sha256": "b13e1f1880330f644002da7c0bdaf8f3e8926e5e97402738cd07cbf4d16b9452",
+        "rgba_sha256": "fe4416f4165be0fa3e61aa8c4cc2a640f10991d0840ea4f337f2ff2a6cba77e7"
+      },
+      "image_hashes": {
+        "front": "e3cbfbf13c3e3d137ccc7ef71b6b6ee49145883e39fe63a5d420eecb82ac5fb9",
+        "top": "a759a44f70572a9c54b79031daf883d8632d8fdabcc56025ea46a977b7070eab",
+        "right": "6a68c99326ea7c806165f2bbe781c611c2c07e2638ca2f00673499c232fef989",
+        "left": "be61b21c430091285279ac5f537d93a7ad372af9631addf0d28e4692cc34cfbb",
+        "bottom": "c4042ad92d1fdd0ed7d7374ca16a48b1f1f67daa723be2728e52e0a16e110657",
+        "rear": "37e15a38b1cda3f6ce65f6b6d163211702c4e1abc93c69d5033abe5922f83bc0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T02:42:04.418424+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-bubble-boundary-portal.png",
+          "sha256": "b13e1f1880330f644002da7c0bdaf8f3e8926e5e97402738cd07cbf4d16b9452",
+          "rgba_sha256": "fe4416f4165be0fa3e61aa8c4cc2a640f10991d0840ea4f337f2ff2a6cba77e7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

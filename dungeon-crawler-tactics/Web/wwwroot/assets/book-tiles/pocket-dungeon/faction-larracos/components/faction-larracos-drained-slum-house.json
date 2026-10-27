@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "faction-larracos",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-drained-slum-house.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-drained-slum-house.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-drained-slum-house",
+      "source_sha256": "8d7c1a7705e55e89c4555ec3f06f1845dc234c16feec015bacd60689598445c8",
+      "primary_source": {
+        "asset_id": "faction-larracos-drained-slum-house",
+        "path": "faction-larracos/components/faction-larracos-drained-slum-house.png",
+        "sha256": "8d7c1a7705e55e89c4555ec3f06f1845dc234c16feec015bacd60689598445c8",
+        "rgba_sha256": "81a9792a8fb2fd883bdace7ac60154e4129eaa28ccec7138dbd946e307910d0a"
+      },
+      "image_hashes": {
+        "front": "faebe3ce3fd3e6e092d6287efde4d0fe150353f37849a65015c859708caeff15",
+        "top": "2ca5085185eb504a235a8b6e79d77c95f84572be07e54c972058fb7f84dfd2f3",
+        "right": "9db0db810a8f40293d1d7b213a3d094c756ed45866a3537bfeeff2a2e11eca79",
+        "left": "df7ed126b92daaa11e9d61e2fb4f24e3102aa3cf52b47d2fb9820b09d35fb25d",
+        "bottom": "b428302e1d1610502f2289ec17dc220665c4765ff0e7aa9188bc5e87050eb433",
+        "rear": "7323d5d2a7af0d4ca4a2776fe9149aa934906e9dd0c75d449f684df70994d780"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:02:08.416324+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-drained-slum-house.png",
+          "sha256": "8d7c1a7705e55e89c4555ec3f06f1845dc234c16feec015bacd60689598445c8",
+          "rgba_sha256": "81a9792a8fb2fd883bdace7ac60154e4129eaa28ccec7138dbd946e307910d0a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

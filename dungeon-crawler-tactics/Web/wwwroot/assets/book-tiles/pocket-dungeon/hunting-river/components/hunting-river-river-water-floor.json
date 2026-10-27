@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-river-water-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-water-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-water-floor",
+      "source_sha256": "1e9d646ca3a2d5fa0aa2cc88f34a7fb66e5ba86d78daffb3f440a2d5dc06abe9",
+      "primary_source": {
+        "asset_id": "hunting-river-river-water-floor",
+        "path": "hunting-river/components/hunting-river-river-water-floor.png",
+        "sha256": "1e9d646ca3a2d5fa0aa2cc88f34a7fb66e5ba86d78daffb3f440a2d5dc06abe9",
+        "rgba_sha256": "48fff7a0d8b00354ff7001a45da3ff75365885575081e8eaf593e479b11cec70"
+      },
+      "image_hashes": {
+        "front": "49e9a5e9e037fb23a0833ee726ccb048dfe0f9e62e2a61e17412e8dd73b56569",
+        "top": "d42b5fd9ce0bbed1cf3af0ab35c51c0c6c38df1e9f9a3764c384eae9dcac3c64",
+        "right": "3e7057c7565a170161db1914dca70ee1793839bf9b31748e3007da9594c35927",
+        "left": "afdfe39e3837f8e4d054873eb4ddc82d19736214fb5bfd5553233bc3c383777b",
+        "bottom": "9f15477d82a48225afe9c5e1a950b452cd5a0609a7d452b8b1dc0017c7fd9175",
+        "rear": "9498ee3b404ea91757b24adc0c5a112ea7065eedd51cf7aa6f5dfb6c0ac83231"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T19:06:00.999271+00:00",
+      "notes": [
+        "Source and all six current outputs reviewed. Natural substrate and four matching lateral profiles remove the fabricated tray while preserving source top."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-water-floor.png",
+          "sha256": "1e9d646ca3a2d5fa0aa2cc88f34a7fb66e5ba86d78daffb3f440a2d5dc06abe9",
+          "rgba_sha256": "48fff7a0d8b00354ff7001a45da3ff75365885575081e8eaf593e479b11cec70"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-river"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:water",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

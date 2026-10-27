@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-glass",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-glass-spire.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-spire.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-glass-spire",
+      "source_sha256": "3cddcfd2d2f5d353f4ed3611c515310c0c83d7a206c3ad8b623ee1033fe3586d",
+      "primary_source": {
+        "asset_id": "bubble-glass-glass-spire",
+        "path": "bubble-glass/components/bubble-glass-glass-spire.png",
+        "sha256": "3cddcfd2d2f5d353f4ed3611c515310c0c83d7a206c3ad8b623ee1033fe3586d",
+        "rgba_sha256": "526b72e674f85180b24b7f34d08a485217c10235fe8892d583fd3648f0163c85"
+      },
+      "image_hashes": {
+        "front": "bb34575661ffba68f7b0353de945ddff4419f3b02f68590fef99cc2177f4c156",
+        "top": "40e26f37697827a0894b05530767afa53e5889a5bd467a8dde2347a1308da811",
+        "right": "0cf93cbb6b366567eab30dea617517446c35beaae7e39df3443d8bbc8ea9fa60",
+        "left": "a8885b11fb2362f5c7574f9f438476447a368a3353a003eebc9d7477cf039a7c",
+        "bottom": "f1b0e9ef8f1c0afb02f9272c86fff016c83eef28caea573c5bfafaf9fbdc72e7",
+        "rear": "44e7e43d7092d749efa580d95c7b2cc000263206aa831372e8dc889d37a077bb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:17.908378+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-glass-spire.png",
+          "sha256": "3cddcfd2d2f5d353f4ed3611c515310c0c83d7a206c3ad8b623ee1033fe3586d",
+          "rgba_sha256": "526b72e674f85180b24b7f34d08a485217c10235fe8892d583fd3648f0163c85"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:glass",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

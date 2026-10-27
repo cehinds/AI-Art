@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-narrow-alley-barricade.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-narrow-alley-barricade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-narrow-alley-barricade",
+      "source_sha256": "dcdf865f9a074ccc7a5136215cc38660d6dcc1c3f2491f25c1cd81d5bdfbfdec",
+      "primary_source": {
+        "asset_id": "hunting-zockau-narrow-alley-barricade",
+        "path": "hunting-zockau/components/hunting-zockau-narrow-alley-barricade.png",
+        "sha256": "dcdf865f9a074ccc7a5136215cc38660d6dcc1c3f2491f25c1cd81d5bdfbfdec",
+        "rgba_sha256": "5f87127dca7aeb887ed9f2ebc80b1e15cbd1d5a57aa1a91e875dcb389cd75644"
+      },
+      "image_hashes": {
+        "front": "76eefee146fc98adfc53a1a1765f7bfe249e6bed0242b85ef9571e6085ab028d",
+        "top": "7f9d86943054168c0b50a8ffc2d383451f835566765fcb963897b9abf3ba571e",
+        "right": "7874f03a27deeac648ac1508e84002e7ca2e86860c23ee1ef8a1017f9684ba23",
+        "left": "3e9e7465867881e2ad38807ee934bd6a98bf02091a4dd06f561e0df6551cb2e2",
+        "bottom": "ba6cd41e5047deca5b9556d1ed3b625af000e7ca6fd3775627eecba78fe96cb1",
+        "rear": "c670556ed4cbec1660a50a1a62ca9e3e1c0f26f2b36138a2894c76d0b2699fd9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T18:42:12.391721+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-narrow-alley-barricade.png",
+          "sha256": "dcdf865f9a074ccc7a5136215cc38660d6dcc1c3f2491f25c1cd81d5bdfbfdec",
+          "rgba_sha256": "5f87127dca7aeb887ed9f2ebc80b1e15cbd1d5a57aa1a91e875dcb389cd75644"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

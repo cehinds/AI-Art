@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "bubble-desert",
     "environment:desert",
@@ -17,7 +18,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-desert-tavern-doorway.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-desert-tavern-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-desert-tavern-doorway",
+      "source_sha256": "ee5b105af56654e228a4a7a2ecf2c9e4e7b4e2aa4678380f53d785073bb8292b",
+      "primary_source": {
+        "asset_id": "bubble-desert-desert-tavern-doorway",
+        "path": "bubble-desert/components/bubble-desert-desert-tavern-doorway.png",
+        "sha256": "ee5b105af56654e228a4a7a2ecf2c9e4e7b4e2aa4678380f53d785073bb8292b",
+        "rgba_sha256": "c4d5d8ca2dbcd014208d8e39df2cd949c3b90464fafb1a2b944d0b4ae70c6795"
+      },
+      "image_hashes": {
+        "front": "3a4efd06ce7f8a75de27342a3db42dad1757921263537a05b254c6f478ba4ccc",
+        "top": "51fd4724b86f719d363b1c309e692acc917c062b3d827abf916bc5134008fb1a",
+        "right": "7b568adece25d9439c956379b22ebb130175c88a9d5938a455a0ff60bc8bb0a4",
+        "left": "6dcc2aa81521f7adcb479ae492da2e4ff721c6501dcff54cb0a131de34fff272",
+        "bottom": "05d19eb9c5b555a4a846f48aaf3a5a5bcd26fff0d6c5afd405738a2946a17c33",
+        "rear": "8fedc8f469eb70c35fb4df30281fe360a67433f2ca9208d1dbb6c0af75473197"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:40:56.569380+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-desert-tavern-doorway.png",
+          "sha256": "ee5b105af56654e228a4a7a2ecf2c9e4e7b4e2aa4678380f53d785073bb8292b",
+          "rgba_sha256": "c4d5d8ca2dbcd014208d8e39df2cd949c3b90464fafb1a2b944d0b4ae70c6795"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:desert",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -167,15 +230,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "clubs-guilds",
     "door",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-dark-polished-club-panel-open-doorway",
+      "source_sha256": "6d5b2de4720942e90ed199ef0c01988ad33267d883efc34f77e5b12e047b8e6b",
+      "primary_source": {
+        "asset_id": "clubs-guilds-dark-polished-club-panel-open-doorway",
+        "path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-open-doorway.png",
+        "sha256": "6d5b2de4720942e90ed199ef0c01988ad33267d883efc34f77e5b12e047b8e6b",
+        "rgba_sha256": "159b2c2f4dcee8cabf7b1028b225cd02161cf7861f23a0e61b1756b179d64a20"
+      },
+      "image_hashes": {
+        "front": "2ec68f2591fd39779b1d290df817e4256bf6df46171585a390413f05bb407a42",
+        "top": "efa624a591e81d9c626a3f49c9264ac21c5de2967d58977579dcfbc05d6c7b59",
+        "right": "316498d1e2f3378091bc70c125d9d72c6250d275b53b132dc40bdc44c7f35d7d",
+        "left": "e6f75297587357cb0399da21faac15c104c1da1b454bb4fc6977c0665e62fadf",
+        "bottom": "c955fc6abaa0af3a6709ed277ff858c1dbda83d48ba7398a5f7879a79e6edb19",
+        "rear": "c44fd4bc4d1a73e48975288a79aa92009a8d0f22976f49b84eead29812dc92b5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:07:45.186363+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-open-doorway.png",
+          "sha256": "6d5b2de4720942e90ed199ef0c01988ad33267d883efc34f77e5b12e047b8e6b",
+          "rgba_sha256": "159b2c2f4dcee8cabf7b1028b225cd02161cf7861f23a0e61b1756b179d64a20"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

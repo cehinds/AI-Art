@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:castle",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "masquerade/components/masquerade-sugar-cube-castle-facade.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-sugar-cube-castle-facade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-sugar-cube-castle-facade",
+      "source_sha256": "dac6265668835d345526ee338985c22ec77d0a9dd7592d49688e3ecf4561988c",
+      "primary_source": {
+        "asset_id": "masquerade-sugar-cube-castle-facade",
+        "path": "masquerade/components/masquerade-sugar-cube-castle-facade.png",
+        "sha256": "dac6265668835d345526ee338985c22ec77d0a9dd7592d49688e3ecf4561988c",
+        "rgba_sha256": "30802a0e180a553971d8eb784a6de4b03e9a6b6b4aa8dcd2fd978edf66d93827"
+      },
+      "image_hashes": {
+        "front": "ad2ddb46a842463f3a245751732422a0d7f7368019b3d311e3c60d2753c41322",
+        "top": "3624a5954d50ce060f22a339de9a204b2ce2aeaaa3451b3613649c6b2d7728ff",
+        "right": "7801a8d828dd47a182d6621ad0429e3b2d7b2074c287ec8851aadb627e1e05a7",
+        "left": "2a12a8dc56296604711468bfd284b38e2e9715fa66eced0c11de875e4d705d4e",
+        "bottom": "ee496eb19467ac80e525ce2e3262857d275f00b35cc26927adba21ee99364e6f",
+        "rear": "439ffa97c5e81af66ae9e3038eec5a812cbbf6a3b2bed3afa6da1c7161f4418a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:57:30.609699+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-sugar-cube-castle-facade.png",
+          "sha256": "dac6265668835d345526ee338985c22ec77d0a9dd7592d49688e3ecf4561988c",
+          "rgba_sha256": "30802a0e180a553971d8eb784a6de4b03e9a6b6b4aa8dcd2fd978edf66d93827"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:castle",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

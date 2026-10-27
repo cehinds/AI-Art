@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -173,7 +184,56 @@
     "rear": {
       "status": "generated",
       "asset_id": "bubble-airship-scrap-metal-deck-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-scrap-metal-deck-corner-transition",
+      "source_sha256": "24706840218b4e0ebc52e5cc0d94c3a53083f10e27a5e033be1bbeddc027a841",
+      "primary_source": {
+        "asset_id": "bubble-airship-scrap-metal-deck-corner-transition",
+        "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-corner-transition.png",
+        "sha256": "24706840218b4e0ebc52e5cc0d94c3a53083f10e27a5e033be1bbeddc027a841",
+        "rgba_sha256": "83c04d4bce86e99f3ff8a42e7c0ac76895d47cdd7f1ddb18d1affd0a52f50748"
+      },
+      "image_hashes": {
+        "front": "c3db51b90b4cc6ad4b2575e5574585b14b0c9abffcb34b93c77f8c10b60d5a30",
+        "top": "048be5ee99b88661858d9dbe418392491c44e89529332546b11c3e51d1ae4f6d",
+        "right": "59511d05c4538c96ca9b69bafdd425cf8de198e98914560be7d8557fa51d0fea",
+        "left": "70b03e01f4e8178281a3a46cfdb32b84b42c4870a0d1397a02795362f2e386e9",
+        "bottom": "531325b6bfef803cd6d0d3bc007f064f92062918eeb940fe3ef5f2d631025fb2",
+        "rear": "ab808adefa6cb413c902d824b66344fe1a3e42cee428c6673084d480462b6122"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T21:02:32.415516+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-scrap-metal-deck-corner-transition.png",
+          "sha256": "24706840218b4e0ebc52e5cc0d94c3a53083f10e27a5e033be1bbeddc027a841",
+          "rgba_sha256": "83c04d4bce86e99f3ff8a42e7c0ac76895d47cdd7f1ddb18d1affd0a52f50748"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

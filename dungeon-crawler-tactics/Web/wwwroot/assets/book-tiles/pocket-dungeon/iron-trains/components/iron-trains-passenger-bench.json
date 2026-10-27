@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-passenger-bench.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-passenger-bench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-passenger-bench",
+      "source_sha256": "08136eaa489cde5084e47279751aa6c9a1c277528d1b508ebd51cb65bcbb55e5",
+      "primary_source": {
+        "asset_id": "iron-trains-passenger-bench",
+        "path": "iron-trains/components/iron-trains-passenger-bench.png",
+        "sha256": "08136eaa489cde5084e47279751aa6c9a1c277528d1b508ebd51cb65bcbb55e5",
+        "rgba_sha256": "deae950029d060b7d71c243b69c122cd377bc1593356f0d44b807b6fec1899b4"
+      },
+      "image_hashes": {
+        "front": "c29a547f15181fd9d17038001bb8aeca81539a8adf83beade245e97d2e92f33e",
+        "top": "5c4a66c82d78d994994be0483483ce3df0bb121a4eded23d22f800dafa20fe9c",
+        "right": "b1b8a9588144cb453cd638627db7fc9663d0893f95a7af76ceedd740683604d4",
+        "left": "07b8bbfba006aca0b02363ae4447a01c910b6e01e4aad52f428014357cdfb94e",
+        "bottom": "e2bbb9d6430d639d9b7c5cf7bd0793a12206aeb8a150ec6b70f74b4effd3cc45",
+        "rear": "561c06fd3ea9d944ac2394cfc7d90e27bf054cd1cae4e23fb51e03f9b90730d0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:56:46.925745+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-passenger-bench.png",
+          "sha256": "08136eaa489cde5084e47279751aa6c9a1c277528d1b508ebd51cb65bcbb55e5",
+          "rgba_sha256": "deae950029d060b7d71c243b69c122cd377bc1593356f0d44b807b6fec1899b4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

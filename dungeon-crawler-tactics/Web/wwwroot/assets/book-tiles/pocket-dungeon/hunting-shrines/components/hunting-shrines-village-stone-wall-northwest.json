@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-stone-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-stone-wall-northwest",
+      "source_sha256": "56243eb96c34b4a971d22e80983c9951636098ab20cb6a23db04497b13b432e4",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-stone-wall-northwest",
+        "path": "hunting-shrines/components/hunting-shrines-village-stone-wall-northwest.png",
+        "sha256": "56243eb96c34b4a971d22e80983c9951636098ab20cb6a23db04497b13b432e4",
+        "rgba_sha256": "86df6ad45b46c8f3434bc6c72a902cb0949f9c61550e747632fc230bfcaaac14"
+      },
+      "image_hashes": {
+        "front": "38118f712d640a4ce7870e2075e0e0e8e14d488ff751b833823ac2258713aaa7",
+        "top": "aed3e5180cd182605a34781f49ff6c959422126a82af8d18ea35357c2b7247cf",
+        "right": "6c18cfcd2e4f2b231995a37fbe4720b0f7eac913c00f806e5ec566e0a1dfe1ef",
+        "left": "23c5ad2b1b23feeca798b344e3f4102067ef702532f5ea27eac87fb885480969",
+        "bottom": "04e91d7266c325e279780677b5a33f412c7e89c2df4dc14f920279e4b9fde008",
+        "rear": "d8047c182e0c967753613b7b166a1ef1bd49990ff3f79d3f8673da177a30a6da"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:24:34.196312+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-stone-wall-northwest.png",
+          "sha256": "56243eb96c34b4a971d22e80983c9951636098ab20cb6a23db04497b13b432e4",
+          "rgba_sha256": "86df6ad45b46c8f3434bc6c72a902cb0949f9c61550e747632fc230bfcaaac14"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

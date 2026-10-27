@@ -9,13 +9,13 @@
     "attachment:stairs",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
+    "right",
     "role:object",
     "sprite-frame",
-    "style:gameplay",
-    "inferred-view",
-    "right"
+    "style:gameplay"
   ],
   "object_id": "revamp--mongo--mongo--walk3",
   "view": "right",
@@ -71,5 +71,41 @@
     "source_image_sha256": "2a4a824ec81fcb6bf933a90bef182c685edbd5554337f871ad780025083befb9",
     "generation_request_id": "exec-680782aa-eafc-413a-9e49-1fd0d2fe93b4",
     "generation_prompt": "reusable/views-additional/raw/ally-mongo-walk3-sides-v2.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--mongo--mongo--walk3"
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-cemetery",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-cemetery-descent-stairwell.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-descent-stairwell.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-cemetery-descent-stairwell",
+      "source_sha256": "648e9b1905d6ed3cc4d72a07d663baaf65fe6d7b25c33915f7e6c1e64bd9ce1f",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-cemetery-descent-stairwell",
+        "path": "ghost-cemetery/components/ghost-cemetery-cemetery-descent-stairwell.png",
+        "sha256": "648e9b1905d6ed3cc4d72a07d663baaf65fe6d7b25c33915f7e6c1e64bd9ce1f",
+        "rgba_sha256": "0134a55741e019c35a73af6a6884a0f0cb5ccee821be447f1871d54d037ed517"
+      },
+      "image_hashes": {
+        "front": "fdba2259d43c22ab819536e8b079c815adbdbb24f1c16400bc799d181a6888ec",
+        "top": "c468eb77df5c3a8026e82a5caa425e41bc6ea2ce82f05833de51072b5bc25a51",
+        "right": "9b68532d7bd7e146ca9b7a94ab4bdb08ef863eedefd14b26faa49cfee5cb3287",
+        "left": "9dc7f65d81d3e0fdec6ad9d84243fce10bab5571a1241f00552ee1a4b68b9d1e",
+        "bottom": "b7e78f0d6f0312761e2c11e4a1445163e9070b467e2bd4a7c26274708fac19f8",
+        "rear": "31613c0da9d160f315528d76a76c5bd9a8b77e32f95eaa59055b7cefc8bb70d5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:50:02.979205+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-cemetery-descent-stairwell.png",
+          "sha256": "648e9b1905d6ed3cc4d72a07d663baaf65fe6d7b25c33915f7e6c1e64bd9ce1f",
+          "rgba_sha256": "0134a55741e019c35a73af6a6884a0f0cb5ccee821be447f1871d54d037ed517"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

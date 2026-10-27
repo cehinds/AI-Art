@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--brawler.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--brawler.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--brawler",
+      "source_sha256": "46bf71764f0de6a97d3f5289d4a01032f748e56d0632472a6a19e781094f07f4",
+      "primary_source": {
+        "asset_id": "legacy--brawler",
+        "path": "reusable/native/legacy--brawler.png",
+        "sha256": "46bf71764f0de6a97d3f5289d4a01032f748e56d0632472a6a19e781094f07f4",
+        "rgba_sha256": "b73b5ca98619884f236df75fbf6eab14b83da8cd61a3e7dd7b5f377d27234814"
+      },
+      "image_hashes": {
+        "front": "7e70cec7899d2aefb0597f96433719aaaa95f6497465869c9798be5ad6b6bd20",
+        "top": "db8a13c126a39cc62186534a2d01054556efff1c1256a709eb876b95fc84c16b",
+        "right": "4c14661aad6f7e9f86b3b44d71749bbfdc34612b673a9b955d203464a570cdc6",
+        "left": "65ce34693855c783e17223cc911f11823d3671f195fdfc94853b6f2aa91939e9",
+        "bottom": "03887389b689235621d7bb637f55251cb971f5a7ef92810ba0ff566e1741e302",
+        "rear": "87789053517c1a4cc7f928a38ab7dea35adced8d89cc7115087890a82b21fd2c"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.152935+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--brawler.png",
+          "sha256": "46bf71764f0de6a97d3f5289d4a01032f748e56d0632472a6a19e781094f07f4",
+          "rgba_sha256": "b73b5ca98619884f236df75fbf6eab14b83da8cd61a3e7dd7b5f377d27234814"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

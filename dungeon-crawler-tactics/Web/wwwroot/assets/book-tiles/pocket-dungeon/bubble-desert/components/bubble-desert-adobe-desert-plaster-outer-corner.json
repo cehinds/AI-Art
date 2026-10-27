@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-adobe-desert-plaster-outer-corner",
+      "source_sha256": "338f1ac5e15bae9e959c88d036d57bb98e137b29c7885b8367ce986552037112",
+      "primary_source": {
+        "asset_id": "bubble-desert-adobe-desert-plaster-outer-corner",
+        "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-outer-corner.png",
+        "sha256": "338f1ac5e15bae9e959c88d036d57bb98e137b29c7885b8367ce986552037112",
+        "rgba_sha256": "e6c60aeb64c088042be5e5184e31f9e0bcd90aca624c635478847154722f34da"
+      },
+      "image_hashes": {
+        "front": "d4592bae571c3c99470e09fcc052d8e1035aa3819fd5bd85fe1b254232ca11a0",
+        "top": "41a367ce7824a49526184fd53f2851de5109e3b005f7f7a380b532e0a7bf271b",
+        "right": "ae6e1bb6513d35bda80afa35be524a16ba38a05d7366c9e00e4d4f3afaebd992",
+        "left": "aeb94ae5bd57188e7b3e9ed37876249a352892346a792b1447cab16ad5994bd7",
+        "bottom": "a5f76c2ea6b3e3adf044bd64768d4cb41da706a925e64b08f4c20d0d315b5926",
+        "rear": "37fbe71f8eab2f32f28de11223728ba1122b2086beb2f78febc80a30d2277413"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:55:07.462508+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-outer-corner.png",
+          "sha256": "338f1ac5e15bae9e959c88d036d57bb98e137b29c7885b8367ce986552037112",
+          "rgba_sha256": "e6c60aeb64c088042be5e5184e31f9e0bcd90aca624c635478847154722f34da"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

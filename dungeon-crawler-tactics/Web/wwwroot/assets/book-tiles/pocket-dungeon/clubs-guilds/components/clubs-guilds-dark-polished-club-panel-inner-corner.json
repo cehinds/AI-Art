@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-dark-polished-club-panel-inner-corner",
+      "source_sha256": "0884532a916c4f72c786c39b9ef220d12ab40e3d8a0905c9284be0d3d7e589d7",
+      "primary_source": {
+        "asset_id": "clubs-guilds-dark-polished-club-panel-inner-corner",
+        "path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-inner-corner.png",
+        "sha256": "0884532a916c4f72c786c39b9ef220d12ab40e3d8a0905c9284be0d3d7e589d7",
+        "rgba_sha256": "cf4ea9948a975ba69f15d36e8f75f6d1c48cea73383ad5e37764171d998d51dd"
+      },
+      "image_hashes": {
+        "front": "33155edb4bfe2b25b96f64d1a764d35cf4621ed2096eb8ecfae62631dffb7fa8",
+        "top": "18bf756b8095c8451b37c5bf2350c195f6e601289fa02870258a1b4925ae5ec4",
+        "right": "a17c258eeca6f35dee8d9abea96859d1db9e0bd610daf10f62678b272ed02dd4",
+        "left": "313e3e59aea311d480fa1ba1f2d8dadaaf543c7b9afef7ce91be08b1c7d38e74",
+        "bottom": "f0ce15f7f450f9e7580d0dad5f83d81d2d2ee121af04ea7cd78c4a6f044838fa",
+        "rear": "08d09bcdc975083949cc8accbdeb26df88aacb193608118a0c3aaa96521a1b82"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:45:10.961707+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-dark-polished-club-panel-inner-corner.png",
+          "sha256": "0884532a916c4f72c786c39b9ef220d12ab40e3d8a0905c9284be0d3d7e589d7",
+          "rgba_sha256": "cf4ea9948a975ba69f15d36e8f75f6d1c48cea73383ad5e37764171d998d51dd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

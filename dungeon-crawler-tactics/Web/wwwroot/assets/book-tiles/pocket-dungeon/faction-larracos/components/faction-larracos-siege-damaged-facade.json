@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "faction-larracos",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-siege-damaged-facade.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-siege-damaged-facade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-siege-damaged-facade",
+      "source_sha256": "8ce54bf088fa9c4ebb0e0ee420e15ca86679830e0bb929f6ee0d5374e5d3be97",
+      "primary_source": {
+        "asset_id": "faction-larracos-siege-damaged-facade",
+        "path": "faction-larracos/components/faction-larracos-siege-damaged-facade.png",
+        "sha256": "8ce54bf088fa9c4ebb0e0ee420e15ca86679830e0bb929f6ee0d5374e5d3be97",
+        "rgba_sha256": "e21cb7c9d17f9c956080ad0c6de334313a7caf2aab75971e2450f43c573513dd"
+      },
+      "image_hashes": {
+        "front": "541d05ee451cd478d4cf61067e4871ea71ff7242fed173f303e8d011597e015c",
+        "top": "b6756d4e4529f9ac8bbc99fce5febfdc2d29371990023aabb9c3a1d47ccb1ba0",
+        "right": "b23fd9642b5dfd66569c2c493bb39fa26b262206aacd5759bc127a0da1244a57",
+        "left": "c75445fb96a1e7ec330b4af7bdfdd91044164c1c11cb4f723091c2ef1cc0ca02",
+        "bottom": "4294b4e21f7b83b5a42c1904f24a47c43a4c83c6da02cf6e4fb0c5ac8e151f41",
+        "rear": "055e2f87fc94cac5277672ebf2e1fcaa2bcd90f5d46ace7787f876a61539dd30"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:02:08.416324+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-siege-damaged-facade.png",
+          "sha256": "8ce54bf088fa9c4ebb0e0ee420e15ca86679830e0bb929f6ee0d5374e5d3be97",
+          "rgba_sha256": "e21cb7c9d17f9c956080ad0c6de334313a7caf2aab75971e2450f43c573513dd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

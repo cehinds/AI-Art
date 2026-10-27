@@ -1,0 +1,135 @@
+{
+  "id": "roads-wood-bridge-straight.bottom",
+  "name": "Wood bridge straight bottom",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "bridge",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "material:wood",
+    "orthographic",
+    "pocket-dungeon",
+    "roads",
+    "role:object",
+    "straight",
+    "structure",
+    "structures",
+    "style:pocket-dungeon",
+    "wood"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/roads-wood-bridge-straight.bottom.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "dda243b1da9b3cc2e8d6f1d967c28cbbca3cda1b42b8a559a573eb733b4f7df3",
+    "rgba_sha256": "7d622c1e17cad51185bae801ee596a5f8e92156d9a69b5aea4784c3a7d7da392"
+  },
+  "object_id": "roads-wood-bridge-straight",
+  "view": "bottom",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/roads-wood-bridge-straight.png",
+    "source_image_sha256": "f29a44b6a4517cb45d91eeeb4499bb1c69bc33d6e8467a3951f279edba8d1482",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-wood-bridge-straight.png",
+        "sha256": "f29a44b6a4517cb45d91eeeb4499bb1c69bc33d6e8467a3951f279edba8d1482"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/roads-batch05.png",
+    "generated_atlas_sha256": "161c27ca562f6340d38c95be6943b070676ec311a83dd4e9a0022547f7837077",
+    "crop_bounds_px": {
+      "logical_cell": [
+        1183,
+        591,
+        1478,
+        887
+      ],
+      "complete_component_bounds_atlas": [
+        1227,
+        610,
+        1438,
+        836
+      ],
+      "component_labels": [
+        {
+          "label": 16,
+          "pixels": 40189,
+          "bounds_atlas": [
+            1227,
+            610,
+            1438,
+            836
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.7857142857142857,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/roads-wood-bridge-straight.bottom.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bridge",
+    "environment:dungeon",
+    "existing",
+    "material:wood",
+    "pocket-dungeon",
+    "role:object",
+    "straight",
+    "structure",
+    "structures",
+    "style:pocket-dungeon",
+    "wood"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "roads-wood-bridge-straight"
+  }
+}

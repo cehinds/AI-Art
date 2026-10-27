@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "environment:unspecified",
@@ -103,33 +104,63 @@
     "applicable": true,
     "complete": false,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-03.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "needs-correction",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-carl-kick-03",
+      "source_sha256": "279091d269590ecbd88df64c532b3e0351d357f9419e6e4411090b40bc0cad65",
+      "primary_source": {
+        "asset_id": "attacks-carl-kick-03",
+        "path": "components/attacks-carl-kick-03.png",
+        "sha256": "279091d269590ecbd88df64c532b3e0351d357f9419e6e4411090b40bc0cad65",
+        "rgba_sha256": "9d515c4b3b8193b200c4a4a4549719fadc4fae79ad8d7d3bf9466c85a6aeb987"
+      },
+      "image_hashes": {
+        "front": "4f6a6a6bb01394af85d7a4cc3c39f1f09df5fe462aec871bd1427107a270289f",
+        "top": "f712b8df82a8cb6d316e1d17e4f7c72655d4da793330d2f533b3be80592f1725",
+        "right": "45481735123fb5dfbeecb9f28725f32b5f4e32f2faf5ed5a15c8ea8fcc95999c",
+        "left": "2bf64a36b7977339a8f259336680ec7d83b7cf6d96144f34c30115651e895d0f",
+        "bottom": "6dae9e235ed77e50aa26f7b59d1a9717479cf83bd466a5fc40a69b7d0399ba7b",
+        "rear": "0dc85c150a20e1b18984bc3bdb6e759e70fc89432a6b7d539c7966e733a209d1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:38:42.734137+00:00",
+      "notes": [
+        "RIGHT/LEFT corrected and independently accepted with FRONT/TOP/REAR at current hashes. BOTTOM remains failed; actual batch generation request 82d28979-b9cf-4e35-9dfa-10a41dea122c blocked. Keep incomplete and do not retry."
+      ],
+      "affected_views": [
+        "bottom"
+      ]
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -142,7 +173,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -157,7 +189,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

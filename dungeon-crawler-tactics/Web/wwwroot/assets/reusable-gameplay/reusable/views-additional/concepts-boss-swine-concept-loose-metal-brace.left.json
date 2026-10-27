@@ -4,21 +4,22 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "baked-scene",
     "construction-component",
     "construction-frame",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
+    "left",
     "material:metal",
     "material:steel",
     "metal",
     "native-source-crop",
     "prop",
-    "role:reconstruction",
+    "role:object",
     "steel-brace",
-    "style:gameplay",
-    "inferred-view",
-    "left"
+    "style:gameplay"
   ],
   "object_id": "concepts-boss-swine-concept-loose-metal-brace",
   "view": "left",
@@ -73,5 +74,40 @@
     "extracted_from_sha256": "5a472a692c246e10185824949ecfbbae58f83d874a14e337bf9fecc6e0dcaaa2",
     "source_crop_path": "reusable/views-additional/raw/swine-loose-brace-left-crop.png",
     "source_crop_sha256": "b3f2ad72e2c353ac504ec7f44eb6110f064e122500c46bfb7c61129a7db46f43"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:metal",
+    "material:steel",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concepts-boss-swine-concept-loose-metal-brace"
   }
 }

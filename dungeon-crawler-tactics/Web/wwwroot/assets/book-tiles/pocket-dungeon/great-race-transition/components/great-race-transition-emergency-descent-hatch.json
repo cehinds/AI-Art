@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-emergency-descent-hatch.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-emergency-descent-hatch.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-emergency-descent-hatch",
+      "source_sha256": "1a0617b5d097fbd2772da2530357f6e55f0cd876ca9cba620a477d4efc5100ed",
+      "primary_source": {
+        "asset_id": "great-race-transition-emergency-descent-hatch",
+        "path": "great-race-transition/components/great-race-transition-emergency-descent-hatch.png",
+        "sha256": "1a0617b5d097fbd2772da2530357f6e55f0cd876ca9cba620a477d4efc5100ed",
+        "rgba_sha256": "279e0b1b34e35f613b8120a5989e8cea8ddd9ba08597dbb35c98cdb95e29dc2d"
+      },
+      "image_hashes": {
+        "front": "5c41bd7f1e64c3e860850d478a5691948080f78612258363fe83f7cd2fdb72a2",
+        "top": "d71e36c2ef6529ba6292d50682358b8c9848390bfa4bca139370e0d7cc2af698",
+        "right": "dceea374b4fe7b794c2d7b1d41db66167092fef0c9dd6e1656b527ee0bd92166",
+        "left": "5e7b0af2c52db64d85549cfa1291762cd4de2a498c67d8ff11c1f460714af8f3",
+        "bottom": "9e8fedf28986cf82ffb16b9d73bb600004a6f09d00156396a8a6b563f28f2c62",
+        "rear": "1977128ee869bfbd72ec8f413958ce96a0ff257c6c6127062b78574d57635e63"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:36:05.094491+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-emergency-descent-hatch.png",
+          "sha256": "1a0617b5d097fbd2772da2530357f6e55f0cd876ca9cba620a477d4efc5100ed",
+          "rgba_sha256": "279e0b1b34e35f613b8120a5989e8cea8ddd9ba08597dbb35c98cdb95e29dc2d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

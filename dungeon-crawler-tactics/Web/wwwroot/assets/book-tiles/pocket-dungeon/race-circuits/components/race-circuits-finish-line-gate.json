@@ -16,7 +16,8 @@
     "prop",
     "race-circuits",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-finish-line-gate.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-finish-line-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-finish-line-gate",
+      "source_sha256": "39191967fad1e0469b84be3a5d59f801cecac23fe6216ceef6c317dd88a0377d",
+      "primary_source": {
+        "asset_id": "race-circuits-finish-line-gate",
+        "path": "race-circuits/components/race-circuits-finish-line-gate.png",
+        "sha256": "39191967fad1e0469b84be3a5d59f801cecac23fe6216ceef6c317dd88a0377d",
+        "rgba_sha256": "d29a45fbaab5e4deded2726c05d5ae80f0ab2c21e1b888dc8d409b784d32870c"
+      },
+      "image_hashes": {
+        "front": "097331f0d26e199b4d73f015ed71a5b9c3870e0f7801760c08befcfe4aa5d307",
+        "top": "0fcc67a30d1b3149049c7704ef985233f912a43d10b66135c03df2d8f96dd3e4",
+        "right": "1f9cd0e4646e2140d42d0be8db4e674cf5924c5baf39efda51ee72e7b1ecdd7c",
+        "left": "0c8201f7b116b0db81cff068207d1ba7ed606f1a868de0bdf38774b49057e738",
+        "bottom": "d3cb85f6d0b3b6f8b3e0f9848ec253ff68fcdec8dd125365113ecabf3cda7c95",
+        "rear": "f28a46976b6547335c4153d635b680c03af8cf7de45a17f2a7e7379ecd3c9c18"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-finish-line-gate.png",
+          "sha256": "39191967fad1e0469b84be3a5d59f801cecac23fe6216ceef6c317dd88a0377d",
+          "rgba_sha256": "d29a45fbaab5e4deded2726c05d5ae80f0ab2c21e1b888dc8d409b784d32870c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

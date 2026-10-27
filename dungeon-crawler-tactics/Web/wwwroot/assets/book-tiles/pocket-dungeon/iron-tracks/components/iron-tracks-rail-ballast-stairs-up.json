@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-ballast-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-ballast-stairs-up",
+      "source_sha256": "102c4b2fb20e632c1c51ab4e7e718d2f4f8099c38a5981412c2d3aaa8872dc84",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-ballast-stairs-up",
+        "path": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
+        "sha256": "102c4b2fb20e632c1c51ab4e7e718d2f4f8099c38a5981412c2d3aaa8872dc84",
+        "rgba_sha256": "0a6e45798d0410371456e963b76c144343078e1a8b701fd357907ec4ceff6f09"
+      },
+      "image_hashes": {
+        "front": "0e23a90d2099ff110acfd7411cc523c28b9b2ab4b11d555558b6aed980542ade",
+        "top": "eb884ce0c8392339f6cdc98ae036c2f4e94af05576a9fa2e6098e4db680240cc",
+        "right": "acb77d5bfe7b5c4acdbcdd56ccb5d836792d454841293d935788da7793a4de86",
+        "left": "c70c906fc7630f783b72a07c687260a00881bc8e93115bb6f9eed6e82a610082",
+        "bottom": "9fe2389d24b232a1278bd2b1f9d5b968bd9d3156ce12bce6bf27283edd5e142b",
+        "rear": "d8ff0f56527e41ee0bf1649eb837cd98fab584ad195f721789cb92f378857c77"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:19:48.028154+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
+          "sha256": "102c4b2fb20e632c1c51ab4e7e718d2f4f8099c38a5981412c2d3aaa8872dc84",
+          "rgba_sha256": "0a6e45798d0410371456e963b76c144343078e1a8b701fd357907ec4ceff6f09"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

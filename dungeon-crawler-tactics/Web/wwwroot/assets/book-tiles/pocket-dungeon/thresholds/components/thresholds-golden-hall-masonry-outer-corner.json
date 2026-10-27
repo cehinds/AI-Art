@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface:wall",
     "thresholds",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-golden-hall-masonry-outer-corner",
+      "source_sha256": "d2b6f7fa76d5e5cec1a73621fde8fbbb39b0bbba5203ff31074d2006158dac87",
+      "primary_source": {
+        "asset_id": "thresholds-golden-hall-masonry-outer-corner",
+        "path": "thresholds/components/thresholds-golden-hall-masonry-outer-corner.png",
+        "sha256": "d2b6f7fa76d5e5cec1a73621fde8fbbb39b0bbba5203ff31074d2006158dac87",
+        "rgba_sha256": "f796e13be3e63d1d50a45af40cffa0418964ee5f26f0579bc4e9e0e2648a0156"
+      },
+      "image_hashes": {
+        "front": "7ea72ad64512582c92f0c2b18258d908b9d45f80d0b6c7e5611fab082c64dd2b",
+        "top": "c390af24ec115ba512386433191d14c0f3e7f3a4bc6aa760da2a3e76a2d88ef9",
+        "right": "5c9f67041bd370fa8fadc5de686d7a3d837cbc1abf4fc0812e08a288c49c732a",
+        "left": "28c5e68d5348fdd0a386b86607bb9f13f70b7529261f6ceb6cfd4c07614bbb17",
+        "bottom": "c390af24ec115ba512386433191d14c0f3e7f3a4bc6aa760da2a3e76a2d88ef9",
+        "rear": "f3de186ef074cb15a43f84e2b58adfa4b7c96f756c816855664f39f9dc76a887"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:23:38.501406+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-golden-hall-masonry-outer-corner.png",
+          "sha256": "d2b6f7fa76d5e5cec1a73621fde8fbbb39b0bbba5203ff31074d2006158dac87",
+          "rgba_sha256": "f796e13be3e63d1d50a45af40cffa0418964ee5f26f0579bc4e9e0e2648a0156"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -8,15 +8,16 @@
     "environment:unspecified",
     "gameplay",
     "house",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "physical-reference",
     "prop",
-    "role:reconstruction",
+    "rear",
+    "role:provider",
     "service-room",
     "style:gameplay",
-    "inferred-view",
-    "rear"
+    "surface:floor"
   ],
   "object_id": "house-bedroom--orange-rug",
   "view": "rear",
@@ -82,5 +83,31 @@
       "shared_scale": 1.0,
       "projection_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:floor"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-bedroom--orange-rug"
   }
 }

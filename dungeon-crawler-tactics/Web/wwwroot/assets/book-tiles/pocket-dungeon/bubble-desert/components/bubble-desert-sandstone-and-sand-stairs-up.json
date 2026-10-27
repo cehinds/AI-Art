@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-stairs-up.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-sandstone-and-sand-stairs-up",
+      "source_sha256": "1c681c881b7a2e5db99e98e9b5e210ca634aa87a9c7e6eb91ac04d6268651bab",
+      "primary_source": {
+        "asset_id": "bubble-desert-sandstone-and-sand-stairs-up",
+        "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-stairs-up.png",
+        "sha256": "1c681c881b7a2e5db99e98e9b5e210ca634aa87a9c7e6eb91ac04d6268651bab",
+        "rgba_sha256": "d0df2fc942893411bde255b39a5303d6640ad73562c4afff6b6db5ee829ace84"
+      },
+      "image_hashes": {
+        "front": "67a45d1088d843050b2b4fc255e2ac10d835a5cdafdb915b2a48d5df9fefafe2",
+        "top": "fd7a0a6d6ac4b062058ccf8c450d34e62179a2423aeb7bd83f3093688a8c4fab",
+        "right": "9e056a1bd49848affedafd72955b5a3f092a6d67b1f0700e46375536152b6dac",
+        "left": "2d5713b79860361b33527488fecd1adefc733711b7c957dbd49e3b43ab6a65f7",
+        "bottom": "82f5c853849483bb2ba95e469451d05a7806e9f362a86bdd014164c19398f73e",
+        "rear": "57c6f479b364663ca39250d0e41b07852acd3ea844abe60cc8670d066ac13875"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:03:34.716051+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-stairs-up.png",
+          "sha256": "1c681c881b7a2e5db99e98e9b5e210ca634aa87a9c7e6eb91ac04d6268651bab",
+          "rgba_sha256": "d0df2fc942893411bde255b39a5303d6640ad73562c4afff6b6db5ee829ace84"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "environment:unspecified",
     "existing",
@@ -97,35 +98,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-06.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-katia-punch-06",
+      "source_sha256": "d4a9cb1f46e711eed009cd1449ca9ac3fe3132fd51a354d9dcbb66a99cd2c152",
+      "primary_source": {
+        "asset_id": "attacks-katia-punch-06",
+        "path": "components/attacks-katia-punch-06.png",
+        "sha256": "d4a9cb1f46e711eed009cd1449ca9ac3fe3132fd51a354d9dcbb66a99cd2c152",
+        "rgba_sha256": "16134555447c6b6e559d3461524ddbfc30744c581cf5855c8e81f732cf5a48af"
+      },
+      "image_hashes": {
+        "front": "aabfda76d488cd3d690d9029a5a17a849a8a98a57bd0c22e34bccf4d44145b99",
+        "top": "c6b5b81f39e2f92aa8ad32da3e22c2d5b4d27505bd1e914d447c103feca65d29",
+        "right": "92fd66a0fbe087a65fa4db7d6475889e97b6da0d9cc55ad217ad9688cad3b0ba",
+        "left": "6d1dc82856c2fb4d6cf5e3145d10378bfe8acd9605147584b38e1dc8f1e17f42",
+        "bottom": "fa488e98ed1fb6b0366995f463d21ff389380e6213d3ca4ca231a01750a0e768",
+        "rear": "e0c312d41ef0fd7a4fab288083b022f551cf573be05726a51d2c6404c2d9b466"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:28:27.383530+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/attacks-katia-punch-06.png",
+          "sha256": "d4a9cb1f46e711eed009cd1449ca9ac3fe3132fd51a354d9dcbb66a99cd2c152",
+          "rgba_sha256": "16134555447c6b6e559d3461524ddbfc30744c581cf5855c8e81f732cf5a48af"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -138,7 +175,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +191,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

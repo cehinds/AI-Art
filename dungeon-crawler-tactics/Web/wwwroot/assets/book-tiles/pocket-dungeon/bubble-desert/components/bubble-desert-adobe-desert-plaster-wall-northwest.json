@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -128,6 +129,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -152,31 +163,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-adobe-desert-plaster-wall-northwest",
+      "source_sha256": "fc30225b537b979029db555f33c6aab8c79ca8098a432f877af49af692991821",
+      "primary_source": {
+        "asset_id": "bubble-desert-adobe-desert-plaster-wall-northwest",
+        "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-wall-northwest.png",
+        "sha256": "fc30225b537b979029db555f33c6aab8c79ca8098a432f877af49af692991821",
+        "rgba_sha256": "e71608e7eeb59e5098a7c36cbe277a6c3e328652f8d7fe22a6da67a2602fe796"
+      },
+      "image_hashes": {
+        "front": "7b9a687b77205fe762b6075e403d31039f35ace217a6d26092d6042a7bc68dd3",
+        "top": "c65ec1beeb5343eba90afc48d3d377d5a8ab39df53f300cc0129c93972568332",
+        "right": "3f104e075868bd3c8bf279171c883c02b70f87a927c37fdc5ff52ab509150780",
+        "left": "997fd5159c08c7916ccf62a1de1da9f03bd6fb15e82fd9598b6429ebd14f775f",
+        "bottom": "8115e9e7321f5dd8de3ac5b7cb97357b61549aba16c9d47750a6b05d0ae02953",
+        "rear": "810b8b7e5d656897bcfe45c17c9bb7f62a382e19b5130335ac57e0908f0e3ef2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:54:48.137983+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-wall-northwest.png",
+          "sha256": "fc30225b537b979029db555f33c6aab8c79ca8098a432f877af49af692991821",
+          "rgba_sha256": "e71608e7eeb59e5098a7c36cbe277a6c3e328652f8d7fe22a6da67a2602fe796"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -186,7 +246,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -201,14 +262,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

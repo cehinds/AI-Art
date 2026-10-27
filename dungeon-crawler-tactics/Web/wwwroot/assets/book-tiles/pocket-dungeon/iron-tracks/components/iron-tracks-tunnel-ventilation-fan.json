@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-tracks",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-tunnel-ventilation-fan.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-ventilation-fan.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-tunnel-ventilation-fan",
+      "source_sha256": "bac2bf6e324b2b84f21bccb7ea1c399e59ff3ed057c6a63625ec4fbf99461307",
+      "primary_source": {
+        "asset_id": "iron-tracks-tunnel-ventilation-fan",
+        "path": "iron-tracks/components/iron-tracks-tunnel-ventilation-fan.png",
+        "sha256": "bac2bf6e324b2b84f21bccb7ea1c399e59ff3ed057c6a63625ec4fbf99461307",
+        "rgba_sha256": "19d46e32683b46c8135daa8c0759c3734e09090f1121ca88be0e6136931c306a"
+      },
+      "image_hashes": {
+        "front": "9b70c5c3862afb53fdc3a556af7ab275529fc98d76c5abfa2ebc514ff37f6a2b",
+        "top": "e39fa49b21bad75df5fa9d7c321d7d01ef853cb560cf589e2d373cdf933ffda6",
+        "right": "c09bdc468cbf31ebc9758e152d7eda253464949d1c9b3e617f62b2382996741f",
+        "left": "debaae44b56b858f72609beade1339a967d24881ca2773b4b080a79f846e25a1",
+        "bottom": "05a9e7410d90dddf19b1326e509d60685c413341628b22a8918b253a58c5117d",
+        "rear": "85ab1dc438c6c67f2b2fcb659859ece1aa51e5118e43ea948e7d8b3f275786da"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:51.521578+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-tunnel-ventilation-fan.png",
+          "sha256": "bac2bf6e324b2b84f21bccb7ea1c399e59ff3ed057c6a63625ec4fbf99461307",
+          "rgba_sha256": "19d46e32683b46c8135daa8c0759c3734e09090f1121ca88be0e6136931c306a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

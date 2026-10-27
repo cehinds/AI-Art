@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-tunnel-stone-inner-corner",
+      "source_sha256": "d46b051b8dd67d1b27c5911eb65190be1e7eccd134201e4c45b6d2ec410add0f",
+      "primary_source": {
+        "asset_id": "iron-tracks-tunnel-stone-inner-corner",
+        "path": "iron-tracks/components/iron-tracks-tunnel-stone-inner-corner.png",
+        "sha256": "d46b051b8dd67d1b27c5911eb65190be1e7eccd134201e4c45b6d2ec410add0f",
+        "rgba_sha256": "d5fb79e1a216d947c59f0710f72dfc011af3b92247e777b5f9e37d86a83d9853"
+      },
+      "image_hashes": {
+        "front": "439bfe4fe03704bc0b432c8ac3f0eb47a7e1fadf61d65bb533dde846a7094fb6",
+        "top": "29f60a1ec05b141c31ff474ddd196052688a084dbe4e704c48319965d721727b",
+        "right": "fac1a56a93e721354b959012552ceac56e2f32cfb82dc4fb332ead24b2872a88",
+        "left": "7c4ad4529b52b7d0b77dce44736644d15d18c915ccfbbcc0447d36692a3be4a8",
+        "bottom": "3f8c97c33420211120f844922fe4f0903226fb92eef45d71c3eeb60aa44121fc",
+        "rear": "51189a3e80a0244ac0ee7a3bbc2fb85e853e1a0e2cd5960dcc93dc2ad420efdf"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:17:59.631947+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-tunnel-stone-inner-corner.png",
+          "sha256": "d46b051b8dd67d1b27c5911eb65190be1e7eccd134201e4c45b6d2ec410add0f",
+          "rgba_sha256": "d5fb79e1a216d947c59f0710f72dfc011af3b92247e777b5f9e37d86a83d9853"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

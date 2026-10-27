@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-wet-industrial-brick-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-wet-industrial-brick-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-wet-industrial-brick-floor",
+      "source_sha256": "196afe3452d3828eb6c6f4d9c10c356d7d6c5beca08061c1d85e017f13e4523d",
+      "primary_source": {
+        "asset_id": "industry-menagerie-wet-industrial-brick-floor",
+        "path": "industry-menagerie/components/industry-menagerie-wet-industrial-brick-floor.png",
+        "sha256": "196afe3452d3828eb6c6f4d9c10c356d7d6c5beca08061c1d85e017f13e4523d",
+        "rgba_sha256": "9857a1336714ce511cebbd28129a388e1bced13e89e03b991e0d403a455a0ed3"
+      },
+      "image_hashes": {
+        "front": "e644ce692851ef2907e62c040485c0fe8ddab0e8fcec7e92baf8d03e69d96bd9",
+        "top": "9c01d51d193eb4d04ea49e4b52858b8bd1d475e6c80a2e10065224ec8e3dc3d5",
+        "right": "9dff7825767e7299ed8c2e22577d7ae16b393b760d7bd30d8346a72ff97cb997",
+        "left": "29138c31c54c70b838cbd82d26586725ed8af3e7212d35316c3b932beed29a3a",
+        "bottom": "a138a2d5ade148c22132f3b7adc7a16e9cdfc9af52aacea18ce020eb1057999b",
+        "rear": "3fc6e169a4202317c8cd4e40bd915f62d6b6fb1b92239a459c3740617fbea769"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:22:47.489056+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-wet-industrial-brick-floor.png",
+          "sha256": "196afe3452d3828eb6c6f4d9c10c356d7d6c5beca08061c1d85e017f13e4523d",
+          "rgba_sha256": "9857a1336714ce511cebbd28129a388e1bced13e89e03b991e0d403a455a0ed3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "east": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "south": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ],
+    "west": [
+      "join.floor",
+      "visual.industry-menagerie"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

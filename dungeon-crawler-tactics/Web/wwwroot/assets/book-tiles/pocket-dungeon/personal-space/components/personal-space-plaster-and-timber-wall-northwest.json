@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-plaster-and-timber-wall-northwest",
+      "source_sha256": "fff3faf694b815a040674308d38a623ef89b141d5468a46bc40bb8b13f74b8f9",
+      "primary_source": {
+        "asset_id": "personal-space-plaster-and-timber-wall-northwest",
+        "path": "personal-space/components/personal-space-plaster-and-timber-wall-northwest.png",
+        "sha256": "fff3faf694b815a040674308d38a623ef89b141d5468a46bc40bb8b13f74b8f9",
+        "rgba_sha256": "60b31961deaae0c45bc847dc111b5eff6a929683f9692d5e10f166625e6863ea"
+      },
+      "image_hashes": {
+        "front": "dbc38803aa21f0796d11c1d4e474fff4b957fd0a30c0827be531937a70fd8c04",
+        "top": "1e9634b6384af88ad2dc47853c59069f8c0ec058ff756a5521bc159d24c1117a",
+        "right": "74b0bef65b6149a674ff1a31e0b914b8fb355cf416710bcf855017e1afb0f745",
+        "left": "6df74189a3a251af413893303ae58ff158f828c1461f25bf420ac2a599f96cd2",
+        "bottom": "a876a2b70550a4a131d375110cc21d2e2d3899919c90b6a7b1ae0b7de11866e9",
+        "rear": "8128eef01798e473deeae1a2e21dd97642e77aa1107059c7667c99f5ecdc0cd3"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:05:58.637462+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-plaster-and-timber-wall-northwest.png",
+          "sha256": "fff3faf694b815a040674308d38a623ef89b141d5468a46bc40bb8b13f74b8f9",
+          "rgba_sha256": "60b31961deaae0c45bc847dc111b5eff6a929683f9692d5e10f166625e6863ea"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

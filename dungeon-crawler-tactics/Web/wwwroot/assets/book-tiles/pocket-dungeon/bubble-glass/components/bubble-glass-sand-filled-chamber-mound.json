@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-glass",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-sand-filled-chamber-mound.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-filled-chamber-mound.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-sand-filled-chamber-mound",
+      "source_sha256": "78b6ff3d441154d9cbc3b1ccfb6b40cdede3c23b2b16d1f70d69d4f9c1509dd0",
+      "primary_source": {
+        "asset_id": "bubble-glass-sand-filled-chamber-mound",
+        "path": "bubble-glass/components/bubble-glass-sand-filled-chamber-mound.png",
+        "sha256": "78b6ff3d441154d9cbc3b1ccfb6b40cdede3c23b2b16d1f70d69d4f9c1509dd0",
+        "rgba_sha256": "2b45f2f8930a087a21210efb3b6b798e386298b9e60097b05ba74639ed267a5d"
+      },
+      "image_hashes": {
+        "front": "b9a6ab62e9c3b01d582954d71526c19082d7791e83b26f9dfe53be03129df6ce",
+        "top": "ed4b1f9616d18327cd00f704034b88e0e934e336913058caae54c2eb32b48904",
+        "right": "9bca3dcd1632e9341e5d389667656d2121947e0c5584c64f12709878cef9e48c",
+        "left": "09732f8ad9c09b02802232942b280d211260c792fe2577506225e88a7c75891d",
+        "bottom": "8faabfbe1b506d37a07c384a6b14ddd6b6614973ac891b5977d5c511e032f26b",
+        "rear": "80c34a7fc598be65e8298ae2b635a6f9e7b1418ff04851703c991e8b50e56114"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:36.776513+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-sand-filled-chamber-mound.png",
+          "sha256": "78b6ff3d441154d9cbc3b1ccfb6b40cdede3c23b2b16d1f70d69d4f9c1509dd0",
+          "rgba_sha256": "2b45f2f8930a087a21210efb3b6b798e386298b9e60097b05ba74639ed267a5d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:glass",
     "material:sand",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-convention-stage-backdrop.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,15 +161,66 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-convention-stage-backdrop.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-convention-stage-backdrop",
+      "source_sha256": "aa8074ba8faacf8c277bc239636c19d478127586312b030b0b3a74ca411f97c9",
+      "primary_source": {
+        "asset_id": "broadcast-portals-convention-stage-backdrop",
+        "path": "broadcast-portals/components/broadcast-portals-convention-stage-backdrop.png",
+        "sha256": "aa8074ba8faacf8c277bc239636c19d478127586312b030b0b3a74ca411f97c9",
+        "rgba_sha256": "8bfaa31f6f28e0a0284e2b7ebfba7eae516cf304a1dcee7922cac35d7ba9df7f"
+      },
+      "image_hashes": {
+        "front": "dddfed73637b835172bc59d055ba489c0fa1ecafe52622c80f3bb22d55ed34fe",
+        "top": "2cc090c9217f04a92b33deb37ec7fac770b81dc5392888de3a6566365e03ccfa",
+        "right": "0bda9c76973213900e4adc4cdde62b4a08b30538f8faa6cb4aeaa820d488611a",
+        "left": "4430e13c77c04e1905f35958e2b2629df7def0f72f4972e74e76809e4df9f364",
+        "bottom": "07447bd01692ed66b81e108b0fc2fc1fc6353f94dabaf950165e2d7e413865c5",
+        "rear": "0d8ad467ac3843f2432cf4cff43e71aee069eaa9da92183c5e9dcb0d178604f4"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:52:55.533901+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-convention-stage-backdrop.png",
+          "sha256": "aa8074ba8faacf8c277bc239636c19d478127586312b030b0b3a74ca411f97c9",
+          "rgba_sha256": "8bfaa31f6f28e0a0284e2b7ebfba7eae516cf304a1dcee7922cac35d7ba9df7f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

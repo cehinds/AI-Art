@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-jungle-earth-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-jungle-earth-stairs-down",
+      "source_sha256": "008a4918deb137d8b6b78a8283467248db056a40b5d77dc13011b91a1f8deafa",
+      "primary_source": {
+        "asset_id": "hunting-jungle-jungle-earth-stairs-down",
+        "path": "hunting-jungle/components/hunting-jungle-jungle-earth-stairs-down.png",
+        "sha256": "008a4918deb137d8b6b78a8283467248db056a40b5d77dc13011b91a1f8deafa",
+        "rgba_sha256": "a7f8c229387a8651049e4748269093dbf9873749639d3051f2ad5d88a2a1d3ae"
+      },
+      "image_hashes": {
+        "front": "30b71651f182a9e96f552fef6d3eac63cbef154fb4168a2db38e380699f67311",
+        "top": "a6f7f76483e3537ca31c1d18e06117c9938c06f85075cd9c4f12069201d8ede8",
+        "right": "db3f653b86d0d31280b857de221923f18573138e757457b806a3214a1e76dfb5",
+        "left": "fbdf21de68fa64c748e1a131ef94baa1e1c6f3cf98591701a2b8311b480cf9d9",
+        "bottom": "5ed8e8ab249c28c9ff0e7e1d4f9fd546aaf640cf172cad00c732491d8993822c",
+        "rear": "840558ce5856c9ff3e6aa64c1aeb5e59d474b99a064772029aa2b4ede99ce576"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:05:04.902279+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-jungle-earth-stairs-down.png",
+          "sha256": "008a4918deb137d8b6b78a8283467248db056a40b5d77dc13011b91a1f8deafa",
+          "rgba_sha256": "a7f8c229387a8651049e4748269093dbf9873749639d3051f2ad5d88a2a1d3ae"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-tomb-stone-edge-transition",
+      "source_sha256": "79988cb6f9886c3c473a1b68a696a0465db84b27e17844cb012b02eec6c288a2",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-tomb-stone-edge-transition",
+        "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-edge-transition.png",
+        "sha256": "79988cb6f9886c3c473a1b68a696a0465db84b27e17844cb012b02eec6c288a2",
+        "rgba_sha256": "bb1ec25e0082d47c22b09bacda62b4f81aae12700e445c4d6d64600e121cac38"
+      },
+      "image_hashes": {
+        "front": "c215ae20b0e9b8e2206251f41f0ab219f2cf8d2d76e286dff5465436865e6aa8",
+        "top": "440f0ce42b15ca062f1cd0b154f6acecf6ca7e2394043f32af0e2ec965cfe66a",
+        "right": "c215ae20b0e9b8e2206251f41f0ab219f2cf8d2d76e286dff5465436865e6aa8",
+        "left": "7db33ab7b837d311208baeb44a1570e11e49c629566daad91aac2cca7ee409a0",
+        "bottom": "2d36b83a54959dc5ac2cdc972225cc19c2649aff59d6f01fca5482a8e403476d",
+        "rear": "7db33ab7b837d311208baeb44a1570e11e49c629566daad91aac2cca7ee409a0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:05:06.235922+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-edge-transition.png",
+          "sha256": "79988cb6f9886c3c473a1b68a696a0465db84b27e17844cb012b02eec6c288a2",
+          "rgba_sha256": "bb1ec25e0082d47c22b09bacda62b4f81aae12700e445c4d6d64600e121cac38"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

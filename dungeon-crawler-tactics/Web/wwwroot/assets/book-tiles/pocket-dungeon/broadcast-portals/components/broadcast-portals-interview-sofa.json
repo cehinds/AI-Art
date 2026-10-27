@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-interview-sofa.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,15 +161,66 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-interview-sofa.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-interview-sofa",
+      "source_sha256": "5a04a888aecfe0f645e3c76cf88477f3a7b2650a57c4db73068dde8d0fac1659",
+      "primary_source": {
+        "asset_id": "broadcast-portals-interview-sofa",
+        "path": "broadcast-portals/components/broadcast-portals-interview-sofa.png",
+        "sha256": "5a04a888aecfe0f645e3c76cf88477f3a7b2650a57c4db73068dde8d0fac1659",
+        "rgba_sha256": "e805ce01870e9ab0bccba7c30b56069ce168f46d7a1492dc53cbe7eecd555ef6"
+      },
+      "image_hashes": {
+        "front": "c5288e205c3a52ab3194d02bbf7a04a4f180e4ef47c84b21483046c84d1794ea",
+        "top": "92998e2dcfca35a742f3b652e4c892db5b4e4ab6c33883b7ad24ff49d7e609ae",
+        "right": "66d6ede99c799b94ac344b319c2b7b8d57552dbf0b5df6541b9e299edf2692e9",
+        "left": "11ffc410fa4fbe553768ca77e839961db62549327575d0519c9b3f6e464f8330",
+        "bottom": "d8ffdd9c61d3da2c8ec8b15f39d6d7b1f1e56b62ce6387e53cb6008c6e16a5ae",
+        "rear": "3da4c1a6e0ddb79fb6ea8f5c38233001095fd5cbb2733151dc589940727bdebb"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:52:55.534607+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-interview-sofa.png",
+          "sha256": "5a04a888aecfe0f645e3c76cf88477f3a7b2650a57c4db73068dde8d0fac1659",
+          "rgba_sha256": "e805ce01870e9ab0bccba7c30b56069ce168f46d7a1492dc53cbe7eecd555ef6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

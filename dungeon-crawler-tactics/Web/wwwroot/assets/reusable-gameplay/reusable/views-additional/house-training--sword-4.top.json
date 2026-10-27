@@ -4,19 +4,20 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:wall",
     "environment:unspecified",
     "gameplay",
     "house",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "physical-reference",
     "prop",
-    "role:reconstruction",
+    "role:object",
     "service-room",
     "style:gameplay",
-    "training",
-    "inferred-view",
-    "top"
+    "top",
+    "training"
   ],
   "object_id": "house-training--sword-4",
   "view": "top",
@@ -82,6 +83,67 @@
       "shared_scale": 0.46,
       "projection_scale": 1.0,
       "orientation_correction_degrees": 0
+    },
+    "normalization": {
+      "scale": 0.46,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "house-training--sword-4",
+        "view": "top",
+        "source_path": "reusable/native/house-training--sword-4.png",
+        "source_sha256": "ac1b9d1314ebe7f1d11ef4dc4043298893b1c1cc6981c1ff1ed13f514886a39e",
+        "atlas_path": "reusable/views-additional/raw/house-batch-14-training-atlas.png",
+        "atlas_sha256": "81fd7b550e2fb678077fb6c77d062c15a7ba8a6602aaa8297c9de3fbcc678a28",
+        "active_output_sha256": "887e2699c40c0daaada2bcd37efb1b498df6da45adcf1ca9e69f0c6601ca3a8d",
+        "active_output_rgba_sha256": "8495ef1b7607686a207233b6a9a075d3ada3d56d1c5902db6e8011906fb9bd83",
+        "crop_bounds_xyxy": [
+          297,
+          884,
+          402,
+          928
+        ],
+        "resized_dimensions_px": [
+          48,
+          20
+        ],
+        "scale": 0.46,
+        "projection_scale": 1.0,
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-build-resolution.json",
+        "execution_report_sha256": "78e7a46f07b0c1ea16ea89e1e52ba03f7fe3e967cc9ae894fea9412f5cf70012",
+        "output_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-rebuild-receipt.json",
+        "output_report_sha256": "6bab12c1c1df9a54426130a8d51eb0eb31258ab1804c696abf1afe08370fe0dc",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/gameplay-per-view-isotropic-v1.json",
+        "recipe_sha256": "92c1b54c27551efcc19b314e4dd684cd96e210b8473963db5bdfae2eaf81fc8d"
+      }
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:wall",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:wall"
+      ],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-ad04455fcca4",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-training--sword-4"
   }
 }

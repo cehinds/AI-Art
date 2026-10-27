@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "masquerade/components/masquerade-worn-white-marble-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-worn-white-marble-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-worn-white-marble-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-worn-white-marble-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-worn-white-marble-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-worn-white-marble-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-worn-white-marble-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-worn-white-marble-floor",
+      "source_sha256": "adee0c49c1fc69e31f48293b36370eecc23283014ed8dc5d8e056cb3c3c9eda2",
+      "primary_source": {
+        "asset_id": "masquerade-worn-white-marble-floor",
+        "path": "masquerade/components/masquerade-worn-white-marble-floor.png",
+        "sha256": "adee0c49c1fc69e31f48293b36370eecc23283014ed8dc5d8e056cb3c3c9eda2",
+        "rgba_sha256": "7b636657a4bc69fcde8212a3b92fc5745e62c11bd08269686d5cc4d0ce8d8f6d"
+      },
+      "image_hashes": {
+        "front": "c7caf959975cddffbb4519046fe9caacda3dff61abca1feb3ade9115720328e7",
+        "top": "724ef424840647ca700bdfc7eaf0f3ebcada2d224e55185bafa5a385ba76ade9",
+        "right": "c7caf959975cddffbb4519046fe9caacda3dff61abca1feb3ade9115720328e7",
+        "left": "40046afcacd1b699cae17a37363b8280a4abe405218cf587c53f734119c2e1c1",
+        "bottom": "e49405b9eff9f43bd146b6a711b9b8277afce4030ad343b45841cf497c2b0bae",
+        "rear": "40046afcacd1b699cae17a37363b8280a4abe405218cf587c53f734119c2e1c1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-worn-white-marble-floor.png",
+          "sha256": "adee0c49c1fc69e31f48293b36370eecc23283014ed8dc5d8e056cb3c3c9eda2",
+          "rgba_sha256": "7b636657a4bc69fcde8212a3b92fc5745e62c11bd08269686d5cc4d0ce8d8f6d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

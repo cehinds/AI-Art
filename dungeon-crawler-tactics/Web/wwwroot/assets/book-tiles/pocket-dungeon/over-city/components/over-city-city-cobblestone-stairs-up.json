@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city/components/over-city-city-cobblestone-stairs-up.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-city-cobblestone-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-city-cobblestone-stairs-up",
+      "source_sha256": "a0b076521a16930fd567c458ace692e2dcc794f3cd5b74d5e68b49d2ef257d01",
+      "primary_source": {
+        "asset_id": "over-city-city-cobblestone-stairs-up",
+        "path": "over-city/components/over-city-city-cobblestone-stairs-up.png",
+        "sha256": "a0b076521a16930fd567c458ace692e2dcc794f3cd5b74d5e68b49d2ef257d01",
+        "rgba_sha256": "63de188415022a096e7baca5b5e4f0e19fa5cb2a04ac1dc3014d9866d5cbe812"
+      },
+      "image_hashes": {
+        "front": "8c5d2891c921301c6c9d9beec9b210776cbd5a2f10851741917df1c6c31652b9",
+        "top": "829fc1c325e4c7d1f67a85d0aa95f46d7784564a60512235387745a399020093",
+        "right": "4cfd43e9c2741bb13a9fbde35e7a2a5b7f60231cae6bb09e3cecd2146b6e0bb4",
+        "left": "c14506b608f331b98e4b286d2625c019e43f37e6db1fd665571375ce8ba88084",
+        "bottom": "9576baf3366062bf9c49b3b2cc577998bbb2d490e506d829f56e5cc98ac19a21",
+        "rear": "60dcb03e510cf04c987f4b676c708c37caf3fc32607486fb06c07e2a665ab89d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:10:30.526018+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-city-cobblestone-stairs-up.png",
+          "sha256": "a0b076521a16930fd567c458ace692e2dcc794f3cd5b74d5e68b49d2ef257d01",
+          "rgba_sha256": "63de188415022a096e7baca5b5e4f0e19fa5cb2a04ac1dc3014d9866d5cbe812"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

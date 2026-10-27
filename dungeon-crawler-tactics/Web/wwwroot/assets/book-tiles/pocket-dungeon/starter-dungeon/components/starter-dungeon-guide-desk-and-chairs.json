@@ -17,7 +17,8 @@
     "role:provider",
     "starter-dungeon",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-guide-desk-and-chairs.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-guide-desk-and-chairs.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-guide-desk-and-chairs",
+      "source_sha256": "edeb94a5d1be124488a3b16e5503dd495f5bb1dd195450c695a26b262083cfb6",
+      "primary_source": {
+        "asset_id": "starter-dungeon-guide-desk-and-chairs",
+        "path": "starter-dungeon/components/starter-dungeon-guide-desk-and-chairs.png",
+        "sha256": "edeb94a5d1be124488a3b16e5503dd495f5bb1dd195450c695a26b262083cfb6",
+        "rgba_sha256": "e875241422f53ad522cb4b582723560756f1afdcec6bd62879075469ca32453d"
+      },
+      "image_hashes": {
+        "front": "c08f5e751b03497be5649945261ab6011b7562814cc46e2024b7819ee6f7d1b9",
+        "top": "80cbaa2e4eb08946b81eed7e235603c0fd1d30445200064bb611405093198a9e",
+        "right": "bf00cc912592ebf394f9a8d98c55dd2e66eda449dde59b8a9faec45f4923e51f",
+        "left": "4e30643b87520377efc62fe2e8589554cd6b3c741f80d297407a46478d72265e",
+        "bottom": "f05fab663ba325acbc3238553837a57095c550cbe80e43c86c025469f9edcff8",
+        "rear": "fa7dc72c5ef8180c95ad4299edb1e7a4a5a5a0629d3cfd8ee3ae6c8de16e52ad"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:40:37.924387+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-guide-desk-and-chairs.png",
+          "sha256": "edeb94a5d1be124488a3b16e5503dd495f5bb1dd195450c695a26b262083cfb6",
+          "rgba_sha256": "e875241422f53ad522cb4b582723560756f1afdcec6bd62879075469ca32453d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

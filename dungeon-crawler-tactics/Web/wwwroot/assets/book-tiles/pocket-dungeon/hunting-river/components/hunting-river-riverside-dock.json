@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-riverside-dock.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-riverside-dock.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-riverside-dock",
+      "source_sha256": "6ab1628e2554be889ecd6f50e26bda121b394b9ed10abd63b2d8ab4d7d0c1664",
+      "primary_source": {
+        "asset_id": "hunting-river-riverside-dock",
+        "path": "hunting-river/components/hunting-river-riverside-dock.png",
+        "sha256": "6ab1628e2554be889ecd6f50e26bda121b394b9ed10abd63b2d8ab4d7d0c1664",
+        "rgba_sha256": "4da40411d073049f9d4faaec5c0714c56c27137dc1e9f7765c30999693ab54fc"
+      },
+      "image_hashes": {
+        "front": "b17e9ec3410ae9ee24b04b08413761ae1b62f02f8bbf8ed1f51ffb77b5bd3be4",
+        "top": "123101e92a26e194b745d6f0c48358dcddb38c00cfb41f6840ad11c0c488367e",
+        "right": "3b23e7b757b51f198de8b3c4a0f9bcd1aae2e8ec3d2fd0310660d33c7387a6c4",
+        "left": "49bf91e4bdbd15cf793e0f54055448a05dc161947b8de1f4793d74cf2d8ba1f2",
+        "bottom": "ca0ec948a0e03844dd0b9adbebd79ceb5f8c56e8acf1636cf2e97ad471865e89",
+        "rear": "b93636e8e324822457f7ec04e7082eaa3bbb7e86343fc460eabf47a20446bf6a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:35:16.785233+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-riverside-dock.png",
+          "sha256": "6ab1628e2554be889ecd6f50e26bda121b394b9ed10abd63b2d8ab4d7d0c1664",
+          "rgba_sha256": "4da40411d073049f9d4faaec5c0714c56c27137dc1e9f7765c30999693ab54fc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

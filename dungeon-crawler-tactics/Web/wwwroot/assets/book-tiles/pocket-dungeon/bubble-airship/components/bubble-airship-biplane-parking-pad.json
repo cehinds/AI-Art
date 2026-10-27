@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-airship",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-biplane-parking-pad.png",
@@ -114,6 +116,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -133,39 +145,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-biplane-parking-pad.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-biplane-parking-pad",
+      "source_sha256": "4e3bb7a5f7656fbce996110af15a69e1c9be473fb91a425c6dd50a66f06a1951",
+      "primary_source": {
+        "asset_id": "bubble-airship-biplane-parking-pad",
+        "path": "bubble-airship/components/bubble-airship-biplane-parking-pad.png",
+        "sha256": "4e3bb7a5f7656fbce996110af15a69e1c9be473fb91a425c6dd50a66f06a1951",
+        "rgba_sha256": "d0ca7d8411aafd3c19f24ecfd5881c3601088a1caaaf9cc4b163063fb7402ae0"
+      },
+      "image_hashes": {
+        "front": "bb26e8dcdd5a8d2d7fc079afb16ff95d6352def16375a6d9a536cb6eae97c531",
+        "top": "f2822f2d1fe095a99515f36a7f2b2faba220bb5a9b722c2a94e91367a4c6ed44",
+        "right": "41dfe54d68df5c402782a63ffe332679e465b08194767871bed07da2ab8e1162",
+        "left": "8b3db5b5dc64e2f4754737024e4f944d74d8fc9fb98d5225e0710aa73b7d548d",
+        "bottom": "f14029adff4b5604828b388f76d0f975f495fcff93271b48909b77bd9a0009f3",
+        "rear": "704d696e809cd08463777ed950950f976cd7781a1af2bac80d3904198a5beed8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:23:52.042221+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-biplane-parking-pad.png",
+          "sha256": "4e3bb7a5f7656fbce996110af15a69e1c9be473fb91a425c6dd50a66f06a1951",
+          "rgba_sha256": "d0ca7d8411aafd3c19f24ecfd5881c3601088a1caaaf9cc4b163063fb7402ae0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,18 +237,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

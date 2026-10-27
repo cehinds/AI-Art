@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-stations",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-abyss-warning-barrier.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-abyss-warning-barrier.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-abyss-warning-barrier",
+      "source_sha256": "3a6a34773e2fa05e82f92b7df39c71e03469d75d4af39bbc917a74fb01cdb0dd",
+      "primary_source": {
+        "asset_id": "iron-stations-abyss-warning-barrier",
+        "path": "iron-stations/components/iron-stations-abyss-warning-barrier.png",
+        "sha256": "3a6a34773e2fa05e82f92b7df39c71e03469d75d4af39bbc917a74fb01cdb0dd",
+        "rgba_sha256": "4d8812f4b420aecc9c913aeb205c0fcdcc49aaee47036849d82e802701a2606c"
+      },
+      "image_hashes": {
+        "front": "7d2a1fa562ddc83cdb3373215d8673a70bfd83f1a854e02086e26ea40c7c5697",
+        "top": "9556034af837f5e83000aa1544915cb5c700f1524723189531fd8798db3d355f",
+        "right": "9c1a53a93b000d01295f5c9eae3279efc43e36000a11a9cd8c96903b7c56c4eb",
+        "left": "46a174411fc0902e83b15503cff9e259ef693b5786aeb61302f1bfcc4f33d0e1",
+        "bottom": "ece144cff9e5175e7dbb5ff19c667ddd7e8345671a40f756d324ace3c1e636f0",
+        "rear": "16726efb8ec68629f0fe2873d0fae2600ec2f7bfc7284301d9f834cb90e8014b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:10.757675+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-abyss-warning-barrier.png",
+          "sha256": "3a6a34773e2fa05e82f92b7df39c71e03469d75d4af39bbc917a74fb01cdb0dd",
+          "rgba_sha256": "4d8812f4b420aecc9c913aeb205c0fcdcc49aaee47036849d82e802701a2606c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

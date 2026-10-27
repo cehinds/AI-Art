@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "drone",
     "dungeon-after-dark",
     "environment:dungeon",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "spider-drone.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "spider-drone",
+      "source_sha256": "d1d38130a0eb2720bdd67c4f4b0ca01ca9b0d2894b04dab1160c46420a7634da",
+      "primary_source": {
+        "asset_id": "spider-drone",
+        "path": "components/spider-drone.png",
+        "sha256": "d1d38130a0eb2720bdd67c4f4b0ca01ca9b0d2894b04dab1160c46420a7634da",
+        "rgba_sha256": "d2eab0a8d30168ee6a8ea79018ed7c3c5b7f081357aa92ef39275cf5f21c45d1"
+      },
+      "image_hashes": {
+        "front": "501c9465f40fc4f5eaee8def080a336cf120e81cd87103886c91f9b42f9e3c2b",
+        "top": "cadd2fca29c1d6626cd4b9b6fb8afcd4a554436131273c888a5c693a5d2918ba",
+        "right": "21583bd88216453ccb1510cf9f8a8024551cda1fefbb41b3a484c8be149db7e5",
+        "left": "1a01a810d5581ec96cdefbb91a402f589e9294d738400963931904938dacf930",
+        "bottom": "82b3fbf103d53182e27465839c9b7565d290efaecab297eaf533dd1604285f3e",
+        "rear": "ca585901667f60f27be28249a47d443d1af1eb3cc359ca51d6e4bbc75eaa4dd0"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:09:53.270473+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/spider-drone.png",
+          "sha256": "d1d38130a0eb2720bdd67c4f4b0ca01ca9b0d2894b04dab1160c46420a7634da",
+          "rgba_sha256": "d2eab0a8d30168ee6a8ea79018ed7c3c5b7f081357aa92ef39275cf5f21c45d1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

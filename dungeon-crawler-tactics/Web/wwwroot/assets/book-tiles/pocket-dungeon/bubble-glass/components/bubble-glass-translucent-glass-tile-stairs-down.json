@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-translucent-glass-tile-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-translucent-glass-tile-stairs-down",
+      "source_sha256": "3540d9918953c236cecc788abf215ac41e7b3223b9028c050d12cf190c7a565f",
+      "primary_source": {
+        "asset_id": "bubble-glass-translucent-glass-tile-stairs-down",
+        "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-stairs-down.png",
+        "sha256": "3540d9918953c236cecc788abf215ac41e7b3223b9028c050d12cf190c7a565f",
+        "rgba_sha256": "d49cf2dfc2f239adf22e84f9ff3d9642047b95dcaa20f289e82ee50219db63a2"
+      },
+      "image_hashes": {
+        "front": "72e8d3be47efa5981ab3f7e33dcbfba6367c9cad9d5a1cfcf01da81259473282",
+        "top": "6c29d159290b15cea274b24430573ce1e21e94442c898a7f0c9a8f969922283c",
+        "right": "103696bebd21828bc3602296d6c6bd518dba169d251766c8151dce71fbaed216",
+        "left": "93304ea673fefeb0b9892c9b639adb90b9c2a644532b4c71adebe7259db75ae9",
+        "bottom": "f491bb70b02f1c5be1d1ade77e5f1515d62f344dc13b82475cf9d5ec592326e9",
+        "rear": "19369e49b00ea3599285960568ec41bb627de5711f031ca457b6ba2008de3024"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:17.908378+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-translucent-glass-tile-stairs-down.png",
+          "sha256": "3540d9918953c236cecc788abf215ac41e7b3223b9028c050d12cf190c7a565f",
+          "rgba_sha256": "d49cf2dfc2f239adf22e84f9ff3d9642047b95dcaa20f289e82ee50219db63a2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

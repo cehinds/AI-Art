@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-jungle-earth-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-jungle-earth-floor",
+      "source_sha256": "a607c820a5e54a755d3af15909355a83c3754f1d970ea8580b89e10a769f0b74",
+      "primary_source": {
+        "asset_id": "hunting-jungle-jungle-earth-floor",
+        "path": "hunting-jungle/components/hunting-jungle-jungle-earth-floor.png",
+        "sha256": "a607c820a5e54a755d3af15909355a83c3754f1d970ea8580b89e10a769f0b74",
+        "rgba_sha256": "4a35e4d4b6c1fc52e85768309b659903e6218b1b50af2563db4f08e3cf4e1c01"
+      },
+      "image_hashes": {
+        "front": "f95972ff1d2a9d88149a6bfa17b678af13e24b948dd4e5eaaac1e84a72e78276",
+        "top": "e758b013bded7e5f911a42c4ccef4f8e0958cddd285675afea1d1eedb96b042c",
+        "right": "5e245fb16862ad45ca830740375eb9a67f069d4c3a2203b67fbfb7545d4767d7",
+        "left": "59b46c122423c542d3bc3da590f9040642ccd3dbc770c54db922028529f77322",
+        "bottom": "2acd806fa14d083bbee354dd69776a03b1d241801aeb0fd6e5e6aedcde7f6f8d",
+        "rear": "4e0864e266b9d9b3fbe957e9d0ff12ad0b5ef1f43ec958e427442b5c17908b94"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:06:36.522488+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-jungle-earth-floor.png",
+          "sha256": "a607c820a5e54a755d3af15909355a83c3754f1d970ea8580b89e10a769f0b74",
+          "rgba_sha256": "4a35e4d4b6c1fc52e85768309b659903e6218b1b50af2563db4f08e3cf4e1c01"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

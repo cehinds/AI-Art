@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-crafting-bench.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-crafting-bench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-crafting-bench",
+      "source_sha256": "6f29f7e13d8f16530546a0543f0365e84444b87dc0ad29001be8d9aa2561942f",
+      "primary_source": {
+        "asset_id": "personal-space-crafting-bench",
+        "path": "personal-space/components/personal-space-crafting-bench.png",
+        "sha256": "6f29f7e13d8f16530546a0543f0365e84444b87dc0ad29001be8d9aa2561942f",
+        "rgba_sha256": "a4814ccbc6d459c2a2206bc21e973914720701c5a2be372ba1fde0e061d14604"
+      },
+      "image_hashes": {
+        "front": "734e75c1467991d5bdc778f1a36740bf45747d9b745499630b18d87484d315f5",
+        "top": "d2016bd5c3092ed93265cdad35a519b13f5755829a9d6479371ff533a4cc5803",
+        "right": "f1a793e6adf46f29e155f53953fbd91ed3bd5fccb8990d530c8996d7d0a674db",
+        "left": "9173f7df18f36d5497cfd1f4cf52af0331e29942f3971b1d5101e9336809295c",
+        "bottom": "60f8477025f5c3ef59e20562319678f8ce36eeb9559fdc563f5ae487c3be95a0",
+        "rear": "acb5bfc910d1646c276e0b4f1cb9e9a34d6e5e19628ad757f0348c931818059f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:38:06.416719+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-crafting-bench.png",
+          "sha256": "6f29f7e13d8f16530546a0543f0365e84444b87dc0ad29001be8d9aa2561942f",
+          "rgba_sha256": "a4814ccbc6d459c2a2206bc21e973914720701c5a2be372ba1fde0e061d14604"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

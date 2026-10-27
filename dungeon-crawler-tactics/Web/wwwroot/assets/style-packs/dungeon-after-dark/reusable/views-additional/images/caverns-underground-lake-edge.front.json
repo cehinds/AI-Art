@@ -3,10 +3,23 @@
   "name": "Underground lake edge Front",
   "kind": "terrain",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "caverns",
+    "dungeon-after-dark",
+    "edge",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "ground",
+    "lake",
+    "material:unspecified",
     "orthographic",
+    "role:provider",
+    "six-view",
+    "style:dungeon-after-dark",
+    "surface:floor",
     "terrain",
-    "generated"
+    "underground"
   ],
   "image": {
     "path": "reusable/views-additional/images/caverns-underground-lake-edge.front.png",
@@ -59,7 +72,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated corrective front projection at the established six-view scale; isotropic cell calibration applied; inferred surfaces, not recovered pixels.",
@@ -72,5 +86,38 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/caverns-underground-lake-edge.front.json"
+  "metadata_path": "reusable/views-additional/images/caverns-underground-lake-edge.front.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "caverns-underground-lake-edge"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "caverns",
+    "dungeon-after-dark",
+    "edge",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "lake",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "underground"
+  ]
 }

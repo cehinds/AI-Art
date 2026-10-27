@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-paving-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-paving-corner-transition",
+      "source_sha256": "2b30e070d096ca90e7dbfd52d964ba9d485d190d743d9b3eb8d199616c93fffe",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-paving-corner-transition",
+        "path": "hunting-shrines/components/hunting-shrines-village-paving-corner-transition.png",
+        "sha256": "2b30e070d096ca90e7dbfd52d964ba9d485d190d743d9b3eb8d199616c93fffe",
+        "rgba_sha256": "cfcf0bc7932a187c84c0ca87fb96e4eb1ea592fa49f459c2cccc543b8627def6"
+      },
+      "image_hashes": {
+        "front": "220d6e4c33c1c1b46a22ceb81fff6334da3a8beb33a5684cb66b1c2890aca00f",
+        "top": "dac524d4a3def101a6d41898607d1629351e8c987b454d7a658cea4aab6d654e",
+        "right": "93976b2c880e4aee496a35650639cd891b94f0dfb1ab15a78c58f5f03b69cdfa",
+        "left": "5fd5951e0d0c8941f6d788d36640d1acdb0a2fca64b1228b87c6f311ae76d07f",
+        "bottom": "cac9b12cbfe3d9e632dcbaa7123cfe34ad3fa2baa403586b7625b1e425a6147c",
+        "rear": "d216308a5e06dc170790ef439e2fffbf16757996695db0fb4aa21158df707138"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:27:08.326907+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-paving-corner-transition.png",
+          "sha256": "2b30e070d096ca90e7dbfd52d964ba9d485d190d743d9b3eb8d199616c93fffe",
+          "rgba_sha256": "cfcf0bc7932a187c84c0ca87fb96e4eb1ea592fa49f459c2cccc543b8627def6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

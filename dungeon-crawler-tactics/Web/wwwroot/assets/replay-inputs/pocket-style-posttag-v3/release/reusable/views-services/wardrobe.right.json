@@ -1,0 +1,128 @@
+{
+  "id": "wardrobe.right",
+  "name": "Wardrobe right",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "right",
+    "role:object",
+    "services",
+    "style:pocket-dungeon",
+    "wardrobe"
+  ],
+  "object_id": "wardrobe",
+  "view": "right",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/wardrobe.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "1fdc594a45af8e3be3a7a23d85479c70f8b46c186a05cf5b01b10b729eb06a76",
+    "rgba_sha256": "25ef98ff6497a0b09c8700a328d8ca215bbbb699e6174c1179b5c0d1e0615e4a"
+  },
+  "metadata_path": "reusable/views-services/wardrobe.right.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/wardrobe.png",
+    "source_image_sha256": "02f2e4b294b1de653eb22bb539622adb5d31ccce2092e6c476a9c735e90d0501",
+    "generated_atlas": "reusable/views-services/atlas-storage-furniture.png",
+    "generated_atlas_sha256": "2cfea813a394f564a8ca5148d7a1c15bb12706b574e60e39cd7c11528a2d68b4",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a transparent 6-column x 4-row orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly armor-rack, weapon-rack, bookshelf, wardrobe matching supplied references. One complete centered object per cell, same identity and proportions in every view. Preserve source colors, materials, silhouettes and distinguishing detail; objects remain the same design. True orthographic views with top straight down, bottom underside, rear opposite front, and inferred hidden surfaces. No scenery, floor, shadows, perspective, labels, borders, or cell marks. Crisp game pixel art; transparent background.",
+      "reference_images": [
+        "components/armor-rack.png",
+        "components/weapon-rack.png",
+        "components/bookshelf.png",
+        "components/wardrobe.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        2
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        100
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        620,
+        752,
+        109,
+        240
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8870967741935484,
+      "render_size_px": [
+        97,
+        213
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "wardrobe"
+  }
+}

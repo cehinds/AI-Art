@@ -5,16 +5,16 @@
   "tags": [
     "attachment-tagged",
     "attachment:floor",
+    "bottom",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "role:provider",
     "room-kit",
     "style:gameplay",
     "surface:wall",
-    "wall-ne",
-    "inferred-view",
-    "bottom"
+    "wall-ne"
   ],
   "object_id": "room-kit--walls--wall-ne",
   "view": "bottom",
@@ -67,5 +67,42 @@
       ],
       "shared_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "room-kit--walls--wall-ne"
   }
 }

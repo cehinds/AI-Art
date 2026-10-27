@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:city",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-ancient-city-masonry-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-ancient-city-masonry-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-ancient-city-masonry-open-doorway",
+      "source_sha256": "b0015677878fa974d6375cc831d2b78834a50338da17e37d864d2587bbd0f2c9",
+      "primary_source": {
+        "asset_id": "faction-larracos-ancient-city-masonry-open-doorway",
+        "path": "faction-larracos/components/faction-larracos-ancient-city-masonry-open-doorway.png",
+        "sha256": "b0015677878fa974d6375cc831d2b78834a50338da17e37d864d2587bbd0f2c9",
+        "rgba_sha256": "ec5eaff4116fd7252e7e54ebc0528323a776267032cec17701c510fe01e38753"
+      },
+      "image_hashes": {
+        "front": "bd88fd208e1a0bb716c2a9558c80c7231fcf1a7aca390ff89820a1f2fddfc9b3",
+        "top": "11029ea070b63cd175527e0122997c349c8bbbee1ac033ef71d0651f7dea5004",
+        "right": "6924660c3feb4716738f1d722a5906221171e1f8e70143be16c566e5442ac9f0",
+        "left": "9e6a2f6bfae843dc975a24001d3e5dfb1be6f5c008c0ede5dd90b7684fd68ce7",
+        "bottom": "9b12347643f9437c03cf9c9e4fc163e4af9552bd71a7fa62f50cd1cc1a87d1b1",
+        "rear": "3f8fd857468361943582dccdddba2333ddec551a39d965794b4e6c31d22194ee"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:28:43.992684+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-ancient-city-masonry-open-doorway.png",
+          "sha256": "b0015677878fa974d6375cc831d2b78834a50338da17e37d864d2587bbd0f2c9",
+          "rgba_sha256": "ec5eaff4116fd7252e7e54ebc0528323a776267032cec17701c510fe01e38753"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

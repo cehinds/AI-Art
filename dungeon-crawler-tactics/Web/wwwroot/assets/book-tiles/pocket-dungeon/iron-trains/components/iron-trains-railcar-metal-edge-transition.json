@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-railcar-metal-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-mirror",
+      "asset_id": "iron-trains-railcar-metal-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-railcar-metal-edge-transition",
+      "source_sha256": "f182e4bcf3469fcafeb1cdd11b4b3ab64b7f39f9232b392287d88ffe6c1fe657",
+      "primary_source": {
+        "asset_id": "iron-trains-railcar-metal-edge-transition",
+        "path": "iron-trains/components/iron-trains-railcar-metal-edge-transition.png",
+        "sha256": "f182e4bcf3469fcafeb1cdd11b4b3ab64b7f39f9232b392287d88ffe6c1fe657",
+        "rgba_sha256": "4c23639f7fe19a2ed223175295d557db524b880148851e3cc10060c8c6494219"
+      },
+      "image_hashes": {
+        "front": "0f17da24a6faa6938f4bfce44b4353bf7deea1bea20c1654f563c0672b93b84b",
+        "top": "599ede32be9d1a8ecc0be44ccaa0b4c8f8167851eb697e26e0caefb54728630f",
+        "right": "d45dd1c3ba6296a02d0bc2eca4b405c8009878bf3307921997834912fefc15c8",
+        "left": "5afd9441600b92a523d28d218732ce41fedab674f5ec901026c289060ec0d663",
+        "bottom": "7ed511077b06e9d1b58cfc8f046b281673d0a12d70f71513a0e377457e8b079d",
+        "rear": "26aa04db6cc7dade97a595b1a748dcfe7e84505e26aa6bf107b3c325bca21b67"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T19:53:50.415882+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-railcar-metal-edge-transition.png",
+          "sha256": "f182e4bcf3469fcafeb1cdd11b4b3ab64b7f39f9232b392287d88ffe6c1fe657",
+          "rgba_sha256": "4c23639f7fe19a2ed223175295d557db524b880148851e3cc10060c8c6494219"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-wet-club-carpet-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-wet-club-carpet-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-wet-club-carpet-floor",
+      "source_sha256": "ea77b2f4c58f8c8c450cdd8be49dbb32d2db6dae8c9f6e8e1b3f6614d47d63ba",
+      "primary_source": {
+        "asset_id": "clubs-guilds-wet-club-carpet-floor",
+        "path": "clubs-guilds/components/clubs-guilds-wet-club-carpet-floor.png",
+        "sha256": "ea77b2f4c58f8c8c450cdd8be49dbb32d2db6dae8c9f6e8e1b3f6614d47d63ba",
+        "rgba_sha256": "4bde26f2ac4b6fe7b0c0c1d76d71d7e723e3e8d25cc51957b95c2925d3667ea5"
+      },
+      "image_hashes": {
+        "front": "45c7d9bcababdfc18723fe7c8b8c696470bf8be536cc3b3b36bc98a2abc51a1a",
+        "top": "ea6d24a0d90bfc1df3c4ab8f516e906d5f9e9a9891a753afa7f935b86ff5848c",
+        "right": "aeee88d3202b0aee9995ac3c0c666a62d84517a7b8857c98246494ac318320b4",
+        "left": "6a9de04dee32096ee533dd310ff1018d7801c61ff7362e0fa4e488af96cac24a",
+        "bottom": "3a6eb71f72c2a3a8d1bb9be88a7c5d6b597a7fbaf1383f3a2d56591855cc733b",
+        "rear": "8067e3b141e37e2cd8ff9758ac62f5d74ffd9d2406b505062dd63569cce5b1af"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:22:04.870486+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-wet-club-carpet-floor.png",
+          "sha256": "ea77b2f4c58f8c8c450cdd8be49dbb32d2db6dae8c9f6e8e1b3f6614d47d63ba",
+          "rgba_sha256": "4bde26f2ac4b6fe7b0c0c1d76d71d7e723e3e8d25cc51957b95c2925d3667ea5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

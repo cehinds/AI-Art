@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-quadrant-selection-wheel.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-quadrant-selection-wheel.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-quadrant-selection-wheel",
+      "source_sha256": "310f1a2ac65d37fff2234e3bb83c08d007d501f1fbaeccae0c60afc6627d51af",
+      "primary_source": {
+        "asset_id": "thresholds-quadrant-selection-wheel",
+        "path": "thresholds/components/thresholds-quadrant-selection-wheel.png",
+        "sha256": "310f1a2ac65d37fff2234e3bb83c08d007d501f1fbaeccae0c60afc6627d51af",
+        "rgba_sha256": "730e5e187c17d9b9c5036c2f625f0389ed20ec562e0016bdabcfc6685ebae6f3"
+      },
+      "image_hashes": {
+        "front": "499dd009c2ce658b422e90f8a5320a018c7cb602f8d377548457553d4c820993",
+        "top": "2950e12d5593fddf203ce736e7ea5f9cdb65df49efcc40b020e00b143bb0d394",
+        "right": "cc3cb0a281b4227ef4286c60bc1898215f2a3d2f2567d9a72f58fb0a47707e74",
+        "left": "c66856d300f94ccb24c0675266424bdf792c26dee6c856d486f9b8c55a7f21e7",
+        "bottom": "b26f19741c12d6974b1a46334d972b5d6dda35642712f3b7a8f52159ff69594c",
+        "rear": "e475871fd54c4ce4e0f92dc34b9cae9bad20ec0cbcaea291e68812672e5f0ed6"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:21:31.915364+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-quadrant-selection-wheel.png",
+          "sha256": "310f1a2ac65d37fff2234e3bb83c08d007d501f1fbaeccae0c60afc6627d51af",
+          "rgba_sha256": "730e5e187c17d9b9c5036c2f625f0389ed20ec562e0016bdabcfc6685ebae6f3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "rat-guard",
+      "source_sha256": "89976333c6c554cd6be9ee46dcbfc74cf762a438017e2199e7b9925821b95bf2",
+      "primary_source": {
+        "asset_id": "rat-guard",
+        "path": "components/rat-guard.png",
+        "sha256": "89976333c6c554cd6be9ee46dcbfc74cf762a438017e2199e7b9925821b95bf2",
+        "rgba_sha256": "eee900d8d63a0b4fa094a672dab37a768c7edf628e84ddbca8e94a44cd9a03bd"
+      },
+      "image_hashes": {
+        "front": "2618457e47767ac7f0fb017a3e80ec6601fbe0699dbab98d9d54256480ae1854",
+        "top": "e6321318655d9384c22ce826d31caf6e769480c7c62d611a3d3f8daefdb69da6",
+        "right": "a49ecb0a74276d86c62127e6eb4df00bb1b4d304efa751ba8014a1e9e6358d9b",
+        "left": "a0682ff0b05cfc2fa4885271597736f750b6ef807927c25b99803ea86e08b7f2",
+        "bottom": "56d54e2b3b8cd389e5d01fff5f90bbc730ede365540e760aa077b263d21bd0de",
+        "rear": "d7532d060bac8316e92df42488aa797ff51d21a046dc3b2d28d31d4d306263ec"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:59:57.477117+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/rat-guard.png",
+          "sha256": "89976333c6c554cd6be9ee46dcbfc74cf762a438017e2199e7b9925821b95bf2",
+          "rgba_sha256": "eee900d8d63a0b4fa094a672dab37a768c7edf628e84ddbca8e94a44cd9a03bd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-riveted-scrap-hull-inner-corner",
+      "source_sha256": "09101e479151b816128a244f83d17a0b65b31889632040c288cb7ee606797e80",
+      "primary_source": {
+        "asset_id": "bubble-airship-riveted-scrap-hull-inner-corner",
+        "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-inner-corner.png",
+        "sha256": "09101e479151b816128a244f83d17a0b65b31889632040c288cb7ee606797e80",
+        "rgba_sha256": "a03ca8574f942a6bd0c66186f79d6f8cda71ddd27070e31fe2af28e2192623ce"
+      },
+      "image_hashes": {
+        "front": "5e92f7796febcb1e261201b03e5f233bb3b2b8eef5468e8fbaaf48860d3c9b5f",
+        "top": "f8170cf01df0fcd2425a6fcb50588de7cec17b61b4146167fd170478c6c4c0a0",
+        "right": "24bc3c9b0db00a1f9b7b15248897e5b2b501afbb35037561025bb5e2c7bf8d23",
+        "left": "dc943320f0bb927cd55a464c6433a25c5480ea94837710a4fca35aea9ccecd5b",
+        "bottom": "30ae256335b873e697bcca9e4f91b5541099442edd6ce84b8715829ab8dfd484",
+        "rear": "c983e478a94bd281fafb4dc5979ccb2d081d52af53ec4217bde3b716a4fe17ae"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T14:33:45.899423+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-inner-corner.png",
+          "sha256": "09101e479151b816128a244f83d17a0b65b31889632040c288cb7ee606797e80",
+          "rgba_sha256": "a03ca8574f942a6bd0c66186f79d6f8cda71ddd27070e31fe2af28e2192623ce"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

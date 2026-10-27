@@ -3,12 +3,22 @@
   "name": "Platform end ramp left",
   "kind": "sprite",
   "tags": [
-    "iron-stations",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-stations",
     "left",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-stations-platform-end-ramp.left.png",
@@ -33,11 +43,11 @@
     "method": "generated",
     "source_image": "iron-stations/components/iron-stations-platform-end-ramp.png",
     "source_sha256": "e11f099f1dae22be1994fecaa495701f6189ee92dc68ed28060de6b02e327c21",
-    "generated_atlas": "raw/candidates/platform-ramp-elevations-v1/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/platform-ramp-elevations-v1/generated-atlas.png",
     "generated_atlas_sha256": "44e7e862df713d283790d0b89a9af75518de9e31c7c71c75395ff943a2ad3241",
     "generation_request": "raw/candidates/platform-ramp-elevations-v1/request.json",
     "generation_request_sha256": "0906b36e1134c8e3f9558b94ab42718a2645bccc22867121574ee25cafbfd382",
-    "prompt": "Create a transparent-background pixel-art atlas with exactly FOUR square orthographic elevations of the Iron Stations grounded platform-end ramp tile. Order: FRONT, RIGHT, LEFT, REAR. The attached contact shows the canonical source plus current accepted TOP and BOTTOM plans, which are binding for the exact square XY footprint, concrete/steel materials, yellow tactile strip and black-yellow striped ramp region. Preserve those TOP/BOTTOM live files; only these four elevations are proposed.\n\nThis is a flat ground-mounted tile/ramp, not an upright post or panel. The FRONT and REAR are the short end elevations of the tile: low concrete/steel edge strips sitting at the ground, with the yellow tactile strip only as a thin raised edge and the ramp/hazard pattern not shown as a broad face. Their complete object silhouettes are short, around 25\u201340px high at 256px, and span the same ~220px width as TOP. No square map-pattern face from above.\n\nRIGHT and LEFT are the long side elevations. Show the platform's low concrete slab edge and a grounded shallow wedge ramp where the source plan has the diagonal hazard region. The top concrete platform may be raised modestly at one end and transitions down smoothly to ground at the ramp end; tactile paving becomes only a narrow horizontal top edge, never a frontal field of raised dots. Preserve the source's hazard black/yellow stripe material only as a narrow edge/run on the sloped ramp; no broad overhead surface. These two profiles should be oppositely oriented to correspond to the source TOP map layout, with a shallow ramp wedge rather than tall skinny posts.\n\nUse strict horizontal cameras, no perspective/isometric. Keep one continuous low tile with thin construction thickness, consistent common Z and source footprint. Crisp pixel-art clusters, transparent background, no labels, shadows, stray guides, extra posts, clipping or upright TOP-pattern faces.",
+    "prompt": "Create a transparent-background pixel-art atlas with exactly FOUR square orthographic elevations of the Iron Stations grounded platform-end ramp tile. Order: FRONT, RIGHT, LEFT, REAR. The attached contact shows the canonical source plus current accepted TOP and BOTTOM plans, which are binding for the exact square XY footprint, concrete/steel materials, yellow tactile strip and black-yellow striped ramp region. Preserve those TOP/BOTTOM live files; only these four elevations are proposed.\n\nThis is a flat ground-mounted tile/ramp, not an upright post or panel. The FRONT and REAR are the short end elevations of the tile: low concrete/steel edge strips sitting at the ground, with the yellow tactile strip only as a thin raised edge and the ramp/hazard pattern not shown as a broad face. Their complete object silhouettes are short, around 25–40px high at 256px, and span the same ~220px width as TOP. No square map-pattern face from above.\n\nRIGHT and LEFT are the long side elevations. Show the platform's low concrete slab edge and a grounded shallow wedge ramp where the source plan has the diagonal hazard region. The top concrete platform may be raised modestly at one end and transitions down smoothly to ground at the ramp end; tactile paving becomes only a narrow horizontal top edge, never a frontal field of raised dots. Preserve the source's hazard black/yellow stripe material only as a narrow edge/run on the sloped ramp; no broad overhead surface. These two profiles should be oppositely oriented to correspond to the source TOP map layout, with a shallow ramp wedge rather than tall skinny posts.\n\nUse strict horizontal cameras, no perspective/isometric. Keep one continuous low tile with thin construction thickness, consistent common Z and source footprint. Crisp pixel-art clusters, transparent background, no labels, shadows, stray guides, extra posts, clipping or upright TOP-pattern faces.",
     "output_binding": {
       "path": "raw/candidates/platform-ramp-elevations-v1/generated-atlas.png",
       "sha256": "44e7e862df713d283790d0b89a9af75518de9e31c7c71c75395ff943a2ad3241"
@@ -120,5 +130,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-stations-platform-end-ramp"
+  }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-sea",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-seaweed-cluster.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seaweed-cluster.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-seaweed-cluster",
+      "source_sha256": "ccc8aef32fd4e56710cc9e6ded795724ddb369a9887f1b5f19de46c4a8c46317",
+      "primary_source": {
+        "asset_id": "bubble-sea-seaweed-cluster",
+        "path": "bubble-sea/components/bubble-sea-seaweed-cluster.png",
+        "sha256": "ccc8aef32fd4e56710cc9e6ded795724ddb369a9887f1b5f19de46c4a8c46317",
+        "rgba_sha256": "cd64df611abe2d9246625c6d724efde7e166d8d1334eb199203457f622db9452"
+      },
+      "image_hashes": {
+        "front": "0d86fc283613b4cf4e03697b3d915bae05ccfbcf35bde18d8c540830dd0c0437",
+        "top": "a01cf814b09c57b6b3644a37a5c205fecdda8502459f3e24feb8842e3256e5b3",
+        "right": "54e27d300f0a1cd7eee9b00cdd55577ed89de70b85231549deda0e6d45997aaf",
+        "left": "2c3abb6d80c9272dc49cbe1143c7cb59d00815db505f5ebcd6a37d786eb47a11",
+        "bottom": "36d3277e50f0cdd55eae3ef60496e0eb9c54fc845b6add4e0b040428155e7bc9",
+        "rear": "bfd7f0c8a1d5a9d54f67825671bc529acd23c283380056c1730e3aa61be332b2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:42:25.104606+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-seaweed-cluster.png",
+          "sha256": "ccc8aef32fd4e56710cc9e6ded795724ddb369a9887f1b5f19de46c4a8c46317",
+          "rgba_sha256": "cd64df611abe2d9246625c6d724efde7e166d8d1334eb199203457f622db9452"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

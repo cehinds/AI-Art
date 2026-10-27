@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-overgrown-urban-wall.png",
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,31 +141,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-overgrown-urban-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-overgrown-urban-wall",
+      "source_sha256": "57e839e3e8668b229640a8e252df9b31d8b2507a4272880168fba70e38c4df2f",
+      "primary_source": {
+        "asset_id": "hunting-jungle-overgrown-urban-wall",
+        "path": "hunting-jungle/components/hunting-jungle-overgrown-urban-wall.png",
+        "sha256": "57e839e3e8668b229640a8e252df9b31d8b2507a4272880168fba70e38c4df2f",
+        "rgba_sha256": "b9a694646309b9bbf48131dacc134b0e7d49ed813e55beccfc98a8224a9a5d32"
+      },
+      "image_hashes": {
+        "front": "511eb9a2053438e507a0643a98d120531c1a3b06480bbae172ede12132f90a06",
+        "top": "caaaad250575a8a98f9cc321947723773bf1bd0869a75c62a198daf3f89acbab",
+        "right": "8ca5aa4d4cec66770b7b63ec9c05f1a80474c3ec9dcb92b153a12804794c22d4",
+        "left": "37798d463ee6f54ea4ae4a857a37fdfc9f809f1e37d1286b02eedbbaaacfb16e",
+        "bottom": "9c235a1df625aa8e2ac895c5ecc2775b9ac7153e7003e8389203b147f89831a0",
+        "rear": "b8b34d16ea6498b51c66ce0d509713682637beac1a1a393812780eb788417483"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:38:06.416719+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-overgrown-urban-wall.png",
+          "sha256": "57e839e3e8668b229640a8e252df9b31d8b2507a4272880168fba70e38c4df2f",
+          "rgba_sha256": "b9a694646309b9bbf48131dacc134b0e7d49ed813e55beccfc98a8224a9a5d32"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -163,7 +223,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,14 +239,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-deep-tomb-shaft.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-deep-tomb-shaft.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-deep-tomb-shaft",
+      "source_sha256": "ec51cc2d7e4d4c27063674cd00de3cc80264e70270e5376a8a06f8f27a49a6b2",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-deep-tomb-shaft",
+        "path": "bubble-necropolis/components/bubble-necropolis-deep-tomb-shaft.png",
+        "sha256": "ec51cc2d7e4d4c27063674cd00de3cc80264e70270e5376a8a06f8f27a49a6b2",
+        "rgba_sha256": "27b9cd83604d43e0ba55075d19cc69d554edaf2d480f55ea0afbbd03adb3569e"
+      },
+      "image_hashes": {
+        "front": "bc464d303140d2d17b3175620c1af3720d39a23c745523fb408fb8b9a224aa43",
+        "top": "a88028a4aa4751c4e33b60fccbd8dabb8906ecbde561ba381bc8d19b79997d40",
+        "right": "383c4bc0d0afefd51ba9469cbdaf9c1754731115c6e0b536a9917eef4316ba4c",
+        "left": "482eaa39e6a6a8590d3fe95c49c3b847f334e2b134c6ea6a36cc0d09f8125778",
+        "bottom": "19bda2858330e70506a82884302ebce98f10abdc376f48b3f7099a94c8ce1eb5",
+        "rear": "9d82c8d58ad59bb3c3fd7f5ee1ece8100ac6378f96a8610b77254ca9e008d1ed"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:36:05.094491+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-deep-tomb-shaft.png",
+          "sha256": "ec51cc2d7e4d4c27063674cd00de3cc80264e70270e5376a8a06f8f27a49a6b2",
+          "rgba_sha256": "27b9cd83604d43e0ba55075d19cc69d554edaf2d480f55ea0afbbd03adb3569e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

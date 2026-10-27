@@ -3,12 +3,22 @@
   "name": "Trophy shelf top",
   "kind": "sprite",
   "tags": [
-    "surface-entry",
-    "prop",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "surface-entry",
+    "top",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/surface-entry-trophy-shelf.top.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "surface-entry/components/surface-entry-trophy-shelf.png",
     "source_sha256": "1a16fbe2b330f9d44a096a4401ef56fa7629e020c6c86e41c90d4d84e2b360a0",
-    "generated_atlas": "raw/candidates/trophy-shelf-plans-v3/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/trophy-shelf-plans-v3/generated-atlas.png",
     "generated_atlas_sha256": "31cd33c949eea51686970ff5a55baa4a663ac6cf8665bf5d40a368e16a94d8e1",
     "generation_request": "raw/candidates/trophy-shelf-plans-v3/request.json",
     "generation_request_sha256": "a3604cb40851267c4e31c3a8b6dac2e52bb07a8a1de677fd06a0c696277deedf",
@@ -159,5 +169,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-trophy-shelf"
+  }
 }

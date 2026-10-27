@@ -8,12 +8,12 @@
     "dungeon-stone",
     "environment:dungeon",
     "gameplay",
+    "inferred-view",
     "material:stone",
+    "rear",
     "role:object",
     "style:gameplay",
-    "walls-nw",
-    "inferred-view",
-    "rear"
+    "walls-nw"
   ],
   "object_id": "dungeon-stone--walls-nw",
   "view": "rear",
@@ -34,7 +34,7 @@
     "source_image": "reusable/native/dungeon-stone--walls-nw.png",
     "native_front": "reusable/native/dungeon-stone--walls-nw.png",
     "native_front_sha256": "350df8fbeb2aba3593146befec5c962a6845a87a468ba9145734097a8b5d1fdf",
-    "notes": "Inferred orthographic long-Y NW wall, remapped from atlas-reconstructed original projections using accepted Gameplay NW convention: front<-right, right<-rear, left<-front, rear<-left; TOP/BOTTOM clockwise 90\u00b0. Source stone material and block identity retained; not recovered pixels.",
+    "notes": "Inferred orthographic long-Y NW wall, remapped from atlas-reconstructed original projections using accepted Gameplay NW convention: front<-right, right<-rear, left<-front, rear<-left; TOP/BOTTOM clockwise 90°. Source stone material and block identity retained; not recovered pixels.",
     "source_atlas": "reusable/views-additional/raw/gameplay-misc-missing-batch-001-atlas.png",
     "source_atlas_sha256": "f76684258d5dd3eded362cd2b01221de2327c0d6912107377269aaf5415b2b34",
     "generation_recipe": "reusable/views-additional/raw/gameplay-misc-missing-batch-001.recipe.json",
@@ -75,5 +75,39 @@
       "source_sha256": "5615704ad9c74080138f74a374ef464e845580a98ccbf6e72f9dd9d09f4ad759",
       "rotation": null
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:stone",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "dungeon-stone--walls-nw"
   }
 }

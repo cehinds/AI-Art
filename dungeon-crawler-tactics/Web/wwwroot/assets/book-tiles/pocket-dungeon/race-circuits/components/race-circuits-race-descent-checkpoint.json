@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "race-circuits",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-race-descent-checkpoint.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-race-descent-checkpoint.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-race-descent-checkpoint",
+      "source_sha256": "db55f8bc6da0fc66a2a3b161c568115e446a8bdff84de19829189e605bea589b",
+      "primary_source": {
+        "asset_id": "race-circuits-race-descent-checkpoint",
+        "path": "race-circuits/components/race-circuits-race-descent-checkpoint.png",
+        "sha256": "db55f8bc6da0fc66a2a3b161c568115e446a8bdff84de19829189e605bea589b",
+        "rgba_sha256": "5f1cf36ae9d2f752e62075c90c47ca139928ce52b3b645f75c5617446b0a2b79"
+      },
+      "image_hashes": {
+        "front": "9e7b9062e064a125777cf28b9d24c3d9547983b75a6bb7215c49e011437faa46",
+        "top": "09e4078bd44e4bda5b26d0ea5693f3eb19542b1b0b02e616d22af9978f627561",
+        "right": "614a31839943de946cfa67052318f6af2bc76e3b002ca1b93be06c514c6c99bc",
+        "left": "e1e7b1cb77426e38306934afcfb6f4dc0109d4905ced4e4e27f720d7406258cc",
+        "bottom": "abeef2aa5a405cd4bc9d0f4f8618937499ce3cabfa5b5735557dbfd07a4fca3d",
+        "rear": "36f71b35cea5c066f25b5bd24cea91a7fd951bd214f5dcca12d578a974493a4a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-race-descent-checkpoint.png",
+          "sha256": "db55f8bc6da0fc66a2a3b161c568115e446a8bdff84de19829189e605bea589b",
+          "rgba_sha256": "5f1cf36ae9d2f752e62075c90c47ca139928ce52b3b645f75c5617446b0a2b79"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

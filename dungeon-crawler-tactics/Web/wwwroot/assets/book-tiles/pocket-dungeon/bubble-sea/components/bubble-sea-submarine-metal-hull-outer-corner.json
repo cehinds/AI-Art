@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-submarine-metal-hull-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-metal-hull-outer-corner",
+      "source_sha256": "38ef066c6814e00b396399e02554f171643923b4fa1eaf7c92a0f49216a0eb98",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-metal-hull-outer-corner",
+        "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-outer-corner.png",
+        "sha256": "38ef066c6814e00b396399e02554f171643923b4fa1eaf7c92a0f49216a0eb98",
+        "rgba_sha256": "eabde714957ae2f87450e90bef408ca08021cb6f7799b29a32f5b5ae596d1a8f"
+      },
+      "image_hashes": {
+        "front": "b33ddb6bfe94fd05a4eb0bb384c2c0d53ffa25eef80f85085247a95629a05c12",
+        "top": "1ddf1a0b25d2599f77784d90038769b36a5f759cf0de88dc36344a832c5487be",
+        "right": "7b659675ca3a65b1cbc0556b943ca424e1b0885f5d8393d2e9c2572154d5a98b",
+        "left": "8b59d6b1a7f01b565f002abb8b119fef4f5149f5151e7690af4cc32387c6f13b",
+        "bottom": "f34d8dd3a977dd38d2603e7f00285257bf24347b70d580bccc71955374245da4",
+        "rear": "f03f6073c62c93dd71d912f20242808f86201bb61bcfb653bae133def534a150"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:42:00.289035+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-outer-corner.png",
+          "sha256": "38ef066c6814e00b396399e02554f171643923b4fa1eaf7c92a0f49216a0eb98",
+          "rgba_sha256": "eabde714957ae2f87450e90bef408ca08021cb6f7799b29a32f5b5ae596d1a8f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

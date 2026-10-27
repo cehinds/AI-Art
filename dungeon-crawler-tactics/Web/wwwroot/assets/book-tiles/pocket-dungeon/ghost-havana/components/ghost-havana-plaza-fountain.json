@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-havana",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-plaza-fountain.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-plaza-fountain.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-plaza-fountain",
+      "source_sha256": "299d0cb0c91ed45bc9aa85eb61ccb83b40a6b44959ba640b84b6d616a705f81f",
+      "primary_source": {
+        "asset_id": "ghost-havana-plaza-fountain",
+        "path": "ghost-havana/components/ghost-havana-plaza-fountain.png",
+        "sha256": "299d0cb0c91ed45bc9aa85eb61ccb83b40a6b44959ba640b84b6d616a705f81f",
+        "rgba_sha256": "137c0267351cf8d4ffc5d52a78d2d28934f0f63aa7cb18e2b60936b7a36b5e8d"
+      },
+      "image_hashes": {
+        "front": "119416ab12990e1a096eb63710c2ccc019fe204ef915ee647186f933b10f095f",
+        "top": "c6021ad865fa9940875bed8fc6ea636219105e5ee1865c779229ed8c237b6d0c",
+        "right": "7fe66c5f04ffed223b5a9fa8d4e4ff7b08c5b843da2661f92bd3d7dc039777ff",
+        "left": "fd7573d5e02cf481d4de6c91c4c953b7b3929339b22fe1b485a4aefcef54c261",
+        "bottom": "d4e635571f35ab6e9c44d4d8d332e5d1c1a10573211608899667051e1da58f78",
+        "rear": "0cc54be621934c85d384eda12b115e3117fd5df85538e86b9427049c9d15bc7c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:17:02.727474+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-plaza-fountain.png",
+          "sha256": "299d0cb0c91ed45bc9aa85eb61ccb83b40a6b44959ba640b84b6d616a705f81f",
+          "rgba_sha256": "137c0267351cf8d4ffc5d52a78d2d28934f0f63aa7cb18e2b60936b7a36b5e8d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

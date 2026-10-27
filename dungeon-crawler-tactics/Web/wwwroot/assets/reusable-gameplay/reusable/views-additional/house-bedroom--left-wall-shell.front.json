@@ -4,20 +4,22 @@
   "kind": "tile",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "bedroom",
     "environment:unspecified",
+    "front",
     "gameplay",
     "house",
+    "inferred-view",
     "material:stone",
     "material:wood",
     "native-source-crop",
     "physical-reference",
-    "role:reconstruction",
+    "role:provider",
     "service-room",
     "structure",
     "style:gameplay",
-    "inferred-view",
-    "front"
+    "surface:wall"
   ],
   "object_id": "house-bedroom--left-wall-shell",
   "view": "front",
@@ -82,6 +84,79 @@
       ],
       "shared_scale": 0.636085626911315,
       "projection_scale": 1.0
+    },
+    "normalization": {
+      "scale": 0.636085626911315,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "house-bedroom--left-wall-shell",
+        "view": "front",
+        "source_path": "reusable/native/house-bedroom--left-wall-shell.png",
+        "source_sha256": "e1f6fcad3aab8e91e65a0c95f7919b0185edfb3c8f3194f1b78f68f27d5d6667",
+        "atlas_path": "reusable/views-additional/raw/house-batch-03-shells-atlas-v1.png",
+        "atlas_sha256": "ccdf60c15cea14c52eaa489574875809e56218141a87e16100f5f2635d0986aa",
+        "active_output_sha256": "6fd58b071e5f9904257f6aceb10d69e4b3e55e49bc97db5fd257f2958fd322e5",
+        "active_output_rgba_sha256": "0ca892b2ec665f8f6d4fde4516f4fc68f51f6b918ba65a80e82d8d03dd1e198c",
+        "crop_bounds_xyxy": [
+          158,
+          396,
+          220,
+          649
+        ],
+        "resized_dimensions_px": [
+          39,
+          161
+        ],
+        "scale": 0.636085626911315,
+        "projection_scale": 1.0,
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-build-resolution.json",
+        "execution_report_sha256": "78e7a46f07b0c1ea16ea89e1e52ba03f7fe3e967cc9ae894fea9412f5cf70012",
+        "output_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-rebuild-receipt.json",
+        "output_report_sha256": "6bab12c1c1df9a54426130a8d51eb0eb31258ab1804c696abf1afe08370fe0dc",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/gameplay-per-view-isotropic-v1.json",
+        "recipe_sha256": "92c1b54c27551efcc19b314e4dd684cd96e210b8473963db5bdfae2eaf81fc8d"
+      }
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:stone",
+    "material:wood",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-bedroom--left-wall-shell"
   }
 }

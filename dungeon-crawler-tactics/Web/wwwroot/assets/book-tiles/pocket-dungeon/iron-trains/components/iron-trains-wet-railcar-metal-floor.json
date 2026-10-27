@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-wet-railcar-metal-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-wet-railcar-metal-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-wet-railcar-metal-floor",
+      "source_sha256": "7528e7a97da9d888a300bafd4d8f1e204e4c78bd856999d2c37f193798336f9d",
+      "primary_source": {
+        "asset_id": "iron-trains-wet-railcar-metal-floor",
+        "path": "iron-trains/components/iron-trains-wet-railcar-metal-floor.png",
+        "sha256": "7528e7a97da9d888a300bafd4d8f1e204e4c78bd856999d2c37f193798336f9d",
+        "rgba_sha256": "cc4130e93522a5cd51fe5f99f37151a2fcab9d40871c8bc8494598d4c078a431"
+      },
+      "image_hashes": {
+        "front": "7f9b3256280c9e409103082b71fe8462f30c2394b7ad7fa680d4a8c1f8dc009a",
+        "top": "b77a40af57e44be305098ecab06379f749dcb15687f7d55d7cc5b581b8f12a2f",
+        "right": "f3e482a929bc453d6bed6114095fc7ce227b516f617fca41138e13ea0471cd29",
+        "left": "ed971db75b93750026d7a2efa5da193d3967643b015c367398ffd11091cf0287",
+        "bottom": "09c6053680700c5f5977dd55315e358d1742d27023d5f7840513d8d640d15917",
+        "rear": "4d73496546dfdef402b836917d48c080c526603f1ed51c58e6853c2fa66dd6a9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:56:46.925745+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-wet-railcar-metal-floor.png",
+          "sha256": "7528e7a97da9d888a300bafd4d8f1e204e4c78bd856999d2c37f193798336f9d",
+          "rgba_sha256": "cc4130e93522a5cd51fe5f99f37151a2fcab9d40871c8bc8494598d4c078a431"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-trains"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

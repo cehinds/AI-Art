@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-churned-battlefield-earth-corner-transition",
+      "source_sha256": "4ecfacfa6020929039104e0f17d5ead34cf92c2f47a7b8152966ab9b18e3c89e",
+      "primary_source": {
+        "asset_id": "faction-battlefield-churned-battlefield-earth-corner-transition",
+        "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-corner-transition.png",
+        "sha256": "4ecfacfa6020929039104e0f17d5ead34cf92c2f47a7b8152966ab9b18e3c89e",
+        "rgba_sha256": "7c696c4e12d62d2578fc0e828d4d02f3f3c175b5ffabf45bf5349036cfbf0803"
+      },
+      "image_hashes": {
+        "front": "4cc1b477fadf107daf730eeb6a854e48e90db59172c511fba065f87837f08d87",
+        "top": "e44e5fc5f22dc1d38ce01efa80c5b41c4f626e15fc12b2593562c6e0da8aa282",
+        "right": "2379c49e182387e03590364e7742d55a49fd025f61be13a6a2a81223a1a5165a",
+        "left": "e49b4a8192edf9b8cbb814d6b019375cb35d0e4721a0cd5e5e0a4d20688f5cbc",
+        "bottom": "b2327340cc800a686d9344f56dd72a8c6114a26d8ff814a368e5d0dd7422e200",
+        "rear": "6bfb6060b7503fabd008554408960bf0158a6f750dbe339d485d7dab3ece3bd1"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.917498+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-corner-transition.png",
+          "sha256": "4ecfacfa6020929039104e0f17d5ead34cf92c2f47a7b8152966ab9b18e3c89e",
+          "rgba_sha256": "7c696c4e12d62d2578fc0e828d4d02f3f3c175b5ffabf45bf5349036cfbf0803"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

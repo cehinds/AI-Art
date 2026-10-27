@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,31 +141,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast",
+      "source_sha256": "bfb1afa9d7ddd3ce9b42ae32da84851116180e8b743527c2110930018d2c74b4",
+      "primary_source": {
+        "asset_id": "hunting-jungle-vine-covered-ruin-stone-endcap-northeast",
+        "path": "hunting-jungle/components/hunting-jungle-vine-covered-ruin-stone-endcap-northeast.png",
+        "sha256": "bfb1afa9d7ddd3ce9b42ae32da84851116180e8b743527c2110930018d2c74b4",
+        "rgba_sha256": "20f66fe256b1ea4142cbc15b38774baa9361bc0957714d0bd9d16a945098dccc"
+      },
+      "image_hashes": {
+        "front": "81b18fbd6e622e28e4a3a70b404c5ba2972f1e0f3aa92445154ac5c6922454fb",
+        "top": "0fb00d4471ef7ee7e9b9d550556209a1c955b453851318dda356297bb2dd229c",
+        "right": "948c3a9abbdb2c9150ff59f5c5141bb6712fa83f59f4ce502031d385ede9c4ac",
+        "left": "f2df606ea7c9d958c782c5cf3545e67f1bb9ba7a913f10d32f250aa66b9b4d91",
+        "bottom": "0984490813440b4c450dad2fd5ae0f93b717daf91e2f0315fb20b5ab9072ab1e",
+        "rear": "be9780dde7692e605b9b3515c8569c0fc582b51a7dba2e007b14379ce8f9910f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:27:35.357861+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-vine-covered-ruin-stone-endcap-northeast.png",
+          "sha256": "bfb1afa9d7ddd3ce9b42ae32da84851116180e8b743527c2110930018d2c74b4",
+          "rgba_sha256": "20f66fe256b1ea4142cbc15b38774baa9361bc0957714d0bd9d16a945098dccc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -163,7 +223,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,14 +239,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

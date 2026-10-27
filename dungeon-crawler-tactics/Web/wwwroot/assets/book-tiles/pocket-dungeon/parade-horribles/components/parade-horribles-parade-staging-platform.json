@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-parade-staging-platform.png",
@@ -126,6 +128,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -145,39 +157,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-parade-staging-platform.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-parade-staging-platform",
+      "source_sha256": "75961a51f6012b9b822b62763095a3ca86bd69d06b88588d67d3404bc6622dd4",
+      "primary_source": {
+        "asset_id": "parade-horribles-parade-staging-platform",
+        "path": "parade-horribles/components/parade-horribles-parade-staging-platform.png",
+        "sha256": "75961a51f6012b9b822b62763095a3ca86bd69d06b88588d67d3404bc6622dd4",
+        "rgba_sha256": "3cf1591310f4803c53146215138e710c659706be21ec332a201efac2134b2eb0"
+      },
+      "image_hashes": {
+        "front": "212d22a88986535113c7c01005460a219f6f297afa26919fe3d97920b490e30d",
+        "top": "1c529283a5e2c7a6b399a15ec357055a4f3f53750860d1fb90193159736e62ea",
+        "right": "7ee645d73ed39ec9024b26d586bec80f21b86e16a0dd96e4a08ebfcd676a8524",
+        "left": "85ce7913d8beac034262f816d4de254f9546be4cce851512141a3ff1ae9960bb",
+        "bottom": "43eca57b8c5c6834a63095d55930ef6f76ab66a9cbeeca98e8fa63ee7a94389e",
+        "rear": "01214e4b7a323ec255cc81d43290bc60a1f2c51745069e36d7a3703a48458f76"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:34:42.351420+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-parade-staging-platform.png",
+          "sha256": "75961a51f6012b9b822b62763095a3ca86bd69d06b88588d67d3404bc6622dd4",
+          "rgba_sha256": "3cf1591310f4803c53146215138e710c659706be21ec332a201efac2134b2eb0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -186,18 +249,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -50,7 +50,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "bosses--juicer.front"
@@ -75,19 +75,41 @@
       "status": "inferred",
       "asset_id": "bosses--juicer.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bosses--juicer",
+      "source_sha256": "d834632b1d7b16015483aba0566cc57d425b423453951d2f04c7d7d8b7bd46fe",
+      "primary_source": {
+        "asset_id": "bosses--juicer",
+        "path": "reusable/native/bosses--juicer.png",
+        "sha256": "d834632b1d7b16015483aba0566cc57d425b423453951d2f04c7d7d8b7bd46fe",
+        "rgba_sha256": "60c18f24f1ccf45fe3d433c8105b3f3cfe203636f6bed83fefa9dc581550abc2"
+      },
+      "image_hashes": {
+        "front": "88d6076b6f0008629ce06ac621b0916d6a90bd6b2fff7cdb3a088c1474af7a02",
+        "top": "dc8529afc51c17c22f76f1f805d3dd2c73beadbec595b411de6cad2c3d3309ef",
+        "right": "5b21c0d2b3d10c14eb570796feb5332f230395584ab40becd8fe8cc47a9dfe92",
+        "left": "1dd64dcde8a2ed13f99956a010e50c3d43ed1e74b061f6c7f1b3c427d7b43017",
+        "bottom": "d45849ea32de41be77fd9b069235ca9482c668315f8003fdd830330566e60042",
+        "rear": "bb45a06ffc8ad42231bf7d7a26f01b6701783b9b17fdcc77c6196d32bef1a3ec"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:26:01.853220+00:00",
+      "notes": [
+        "Corrected head-on FRONT now distinct from opposite profiles; source-specific held weight and stance retained with dorsal overhead and sole-first underside. Hidden body geometry inferred."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "dce0080799d0454516c7c74ff6a0e9645496c565888903b2380915071b434fed",
+        "reviewed_reference": {
+          "path": "reusable/native/bosses--juicer.png",
+          "sha256": "d834632b1d7b16015483aba0566cc57d425b423453951d2f04c7d7d8b7bd46fe",
+          "rgba_sha256": "60c18f24f1ccf45fe3d433c8105b3f3cfe203636f6bed83fefa9dc581550abc2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "association": {

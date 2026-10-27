@@ -4,19 +4,21 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:unspecified",
     "gameplay",
     "house",
+    "inferred-view",
     "katia",
+    "left",
     "material:unspecified",
     "native-source-crop",
     "physical-reference",
     "prop",
-    "role:reconstruction",
+    "role:provider",
     "service-room",
     "style:gameplay",
-    "inferred-view",
-    "left"
+    "surface:tabletop"
   ],
   "object_id": "house-katia--small-side-table",
   "view": "left",
@@ -82,5 +84,42 @@
       "shared_scale": 1.0,
       "projection_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:tabletop"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:tabletop"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-katia--small-side-table"
   }
 }

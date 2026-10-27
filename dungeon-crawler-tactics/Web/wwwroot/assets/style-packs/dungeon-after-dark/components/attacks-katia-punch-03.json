@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "dungeon-after-dark",
     "environment:dungeon",
@@ -109,35 +110,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-katia-punch-03.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-katia-punch-03",
+      "source_sha256": "18812c10e0462a45bc1b1a5d1cc2b3f46e87d606298eca8d73729b2429e9a9b1",
+      "primary_source": {
+        "asset_id": "attacks-katia-punch-03",
+        "path": "components/attacks-katia-punch-03.png",
+        "sha256": "18812c10e0462a45bc1b1a5d1cc2b3f46e87d606298eca8d73729b2429e9a9b1",
+        "rgba_sha256": "60c5ca40da29712b42f30a61997d1982e2e78cfc4bdc82f0ece3f41e686fdca5"
+      },
+      "image_hashes": {
+        "front": "8269e2704cb1d08f7620465415767b0f1345e33c46ce481634313eaf81cfb836",
+        "top": "74d8a7fa255f7e061758fe650da33959b4a7222f6bb92b60175423dd3d3715dc",
+        "right": "09d4367f246d5c18139d818b75244cc9c4628025940ee0e99b674b0ad4a53883",
+        "left": "acad864e2c5a6a4c0c26007c06488fecc351df40b6794f57f8b837aeee5924af",
+        "bottom": "8b23891b6909ec3db549c57f76b7c1715146883ca3a62a8538a68cd4c2a5db67",
+        "rear": "b9e9392b395a9fa599381b230e92232243948b7ca42fae96767e18529574ab78"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T04:43:24.958828+00:00",
+      "notes": [
+        "Full clean LEFT profile now retains complete boots and source extended armored punch, detached islands removed; corrected head-on FRONT and other four views coherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "f54a51a62a5d4a832d76d6b3a9c534f5f02e28fde8d259508603a71dde454e64",
+        "reviewed_reference": {
+          "path": "components/attacks-katia-punch-03.png",
+          "sha256": "18812c10e0462a45bc1b1a5d1cc2b3f46e87d606298eca8d73729b2429e9a9b1",
+          "rgba_sha256": "60c5ca40da29712b42f30a61997d1982e2e78cfc4bdc82f0ece3f41e686fdca5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -150,7 +188,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -165,7 +204,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city/components/over-city-broken-tram-wreck.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-broken-tram-wreck.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-broken-tram-wreck",
+      "source_sha256": "b855ab2a1350f3dbc9ad32ab11b06559387f7082ca7dd9122b2ecd57bcdae86d",
+      "primary_source": {
+        "asset_id": "over-city-broken-tram-wreck",
+        "path": "over-city/components/over-city-broken-tram-wreck.png",
+        "sha256": "b855ab2a1350f3dbc9ad32ab11b06559387f7082ca7dd9122b2ecd57bcdae86d",
+        "rgba_sha256": "a2eaf21199f2fea6fc67a11f3b0bdbb61b201ff7b65740fcbcff72ff0377d42c"
+      },
+      "image_hashes": {
+        "front": "04a90d71ffdfa6d240af56abde1c7c1334f6d3850853e0428ce9a366ef7f36d5",
+        "top": "36d3edf2cdc8f9fb980742cd6d7fd0295a3edbace3a9da92bfa9f5abc7b7f362",
+        "right": "3cc761ff6ab8caed4b3f057fb5e113ce8d7c28681ded3c58d4f8acf2d08c17fe",
+        "left": "87dc50254993c516b3e4671608ad3e7421f7ccc06d6856058daea60eca9d87d1",
+        "bottom": "78b95c3cabf545d4cef0121351ce5dc8783f0a41cae96d6100c7a51ce5617d73",
+        "rear": "164550a9a27e514f00c5143d09940725d229e5d57ed521d9b7f943955276515b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:58:09.971668+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-broken-tram-wreck.png",
+          "sha256": "b855ab2a1350f3dbc9ad32ab11b06559387f7082ca7dd9122b2ecd57bcdae86d",
+          "rgba_sha256": "a2eaf21199f2fea6fc67a11f3b0bdbb61b201ff7b65740fcbcff72ff0377d42c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

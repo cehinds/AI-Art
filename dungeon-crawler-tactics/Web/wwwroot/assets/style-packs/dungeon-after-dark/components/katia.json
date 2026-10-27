@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -95,35 +96,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "katia.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "katia",
+      "source_sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+      "primary_source": {
+        "asset_id": "katia",
+        "path": "components/katia.png",
+        "sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+        "rgba_sha256": "20c152e7855f15b5b16a59606d722db2345cbeca05f6605f481bf60a5ffdecc2"
+      },
+      "image_hashes": {
+        "front": "4d0a77cf79730b2029e4693b4c9e1be7a06cc577e1756afdab130ec5777febe8",
+        "top": "abc77a8ccab1f583057fb9ef4be5805f8533200f9307b27345e5392e3d600692",
+        "right": "d699a69ef20ff00327a9baf4049fe3b73f92b64da0ae8cba446948ec4f615dc4",
+        "left": "aee144fd62dc120e77e14e2f1046d2b16fca23e00bf1f3b6ce761dd875b74deb",
+        "bottom": "d1ad662391e98191a5a237135b1bb97886dcc98f8b5a1faefd7164e68aa3a622",
+        "rear": "35cf3a83e767f49f56ed969ce4c3e1d03cb9fc796140323a283887f136c5f151"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:09:53.137715+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/katia.png",
+          "sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+          "rgba_sha256": "20c152e7855f15b5b16a59606d722db2345cbeca05f6605f481bf60a5ffdecc2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -136,7 +173,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -151,7 +189,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

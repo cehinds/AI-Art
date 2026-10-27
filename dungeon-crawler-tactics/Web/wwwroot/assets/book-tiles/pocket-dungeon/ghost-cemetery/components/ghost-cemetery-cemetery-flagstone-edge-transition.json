@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-cemetery-flagstone-edge-transition",
+      "source_sha256": "58c0cc26fb941f92970869aa80f69b3446b4cf2b2f8021a2c5b83f7eafd8db6e",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-cemetery-flagstone-edge-transition",
+        "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-edge-transition.png",
+        "sha256": "58c0cc26fb941f92970869aa80f69b3446b4cf2b2f8021a2c5b83f7eafd8db6e",
+        "rgba_sha256": "dd8fbc05f6bd59fc3777f4ec37e90a0407ebe10ffd533794ba9e135c37b748fd"
+      },
+      "image_hashes": {
+        "front": "52d81a5eed309b14650a5408e0b4f48a6f7dd2b437005c6cad781cce41a7dd75",
+        "top": "e30fd8047d95b4008786ea1c920bb4c51c317395fd573340734a802abda1cefd",
+        "right": "0f59d38ab8b9f5ff6d890c43585c2deccca1682ff9ec216b907d96e7afbc09f8",
+        "left": "a1b6f1d5e49e2c6552e93e2c075ae62672896369aa9d5ab94c2af0358f41eeeb",
+        "bottom": "e30fcb25e3949e25f90dc2bcb356f3bbe15063abe1aadd274e834796c8ab2011",
+        "rear": "7bfd930a89d235a161ae83ae15df617379d0df2945b5ff8d1d7109167eeeaef5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:02:36.356395+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-cemetery-flagstone-edge-transition.png",
+          "sha256": "58c0cc26fb941f92970869aa80f69b3446b4cf2b2f8021a2c5b83f7eafd8db6e",
+          "rgba_sha256": "dd8fbc05f6bd59fc3777f4ec37e90a0407ebe10ffd533794ba9e135c37b748fd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

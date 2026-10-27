@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-wrought-iron-stair-railing.png",
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,31 +141,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wrought-iron-stair-railing.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-wrought-iron-stair-railing",
+      "source_sha256": "9649a3bd199e071b976df842b6238ab0f23e8611e1916df39eef9860f651b800",
+      "primary_source": {
+        "asset_id": "surface-entry-wrought-iron-stair-railing",
+        "path": "surface-entry/components/surface-entry-wrought-iron-stair-railing.png",
+        "sha256": "9649a3bd199e071b976df842b6238ab0f23e8611e1916df39eef9860f651b800",
+        "rgba_sha256": "9b1151b41a5cc4b759ea2cf32675d3ace154642eaa83d73155505858655e8729"
+      },
+      "image_hashes": {
+        "front": "30e1661c3e74c3df5615b935e6f91d5ad11c373c022852404640a706707d19ad",
+        "top": "7b56495ccfc4a0875687d756152c33b80f5e8131857f7115b31d2163309fa53d",
+        "right": "e4b28a42afd5f629f9c11107fe0ed902c36e7405442243d12950d9e59217740b",
+        "left": "09506ec7c24ce194d534b0ec813efe366d632ea7d11c739a8d572506821f2e99",
+        "bottom": "637bc282ffe7a599bc0430b1865773f8932121be66dace8ee084b5e951666bd6",
+        "rear": "6d6e393dd7ebc4820cfdfea53943b3684d55af15dc63e09ad8af90837f8e46b0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:56:35.911073+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-wrought-iron-stair-railing.png",
+          "sha256": "9649a3bd199e071b976df842b6238ab0f23e8611e1916df39eef9860f651b800",
+          "rgba_sha256": "9b1151b41a5cc4b759ea2cf32675d3ace154642eaa83d73155505858655e8729"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -163,7 +223,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,14 +239,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

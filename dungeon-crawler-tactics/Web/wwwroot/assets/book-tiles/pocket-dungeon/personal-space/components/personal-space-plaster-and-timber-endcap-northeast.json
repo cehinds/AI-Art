@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-plaster-and-timber-endcap-northeast",
+      "source_sha256": "ad4eb32cd6c7abed17837a5724dc212c94644691cc23e1be30be03d6a96a6404",
+      "primary_source": {
+        "asset_id": "personal-space-plaster-and-timber-endcap-northeast",
+        "path": "personal-space/components/personal-space-plaster-and-timber-endcap-northeast.png",
+        "sha256": "ad4eb32cd6c7abed17837a5724dc212c94644691cc23e1be30be03d6a96a6404",
+        "rgba_sha256": "b34bd3da62b422b87f8f5f9562e1823113cae580c965779ead44d5a30dc6ea0c"
+      },
+      "image_hashes": {
+        "front": "02060034e27575d46aac19774b1574246e35ba56f704901383b04f7c2dac000a",
+        "top": "519fdf987a6efad5805e55f4861ea921ce8cb22109767d1804846ce7f7080705",
+        "right": "7066eb634c431368119ab0ef61995df89f935d2428284e408b6dd49b58c24ae3",
+        "left": "60b293998fe54d24a7bf7d0384d054df0ae333b44e93c1c56ec520b094e45fda",
+        "bottom": "2605ebbf2fc66d8d74ce9723c1d1f741a4bbf6d369695e7280397caff8b8687f",
+        "rear": "4ed6b8677b41840d3b112ec0472bd39d1dd7291cffe9b21c40cef252a66a6726"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:29:45.648442+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-plaster-and-timber-endcap-northeast.png",
+          "sha256": "ad4eb32cd6c7abed17837a5724dc212c94644691cc23e1be30be03d6a96a6404",
+          "rgba_sha256": "b34bd3da62b422b87f8f5f9562e1823113cae580c965779ead44d5a30dc6ea0c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

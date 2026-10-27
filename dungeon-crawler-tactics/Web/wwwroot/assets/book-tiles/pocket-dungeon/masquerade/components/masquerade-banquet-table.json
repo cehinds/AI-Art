@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "masquerade/components/masquerade-banquet-table.png",
@@ -111,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,31 +141,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-banquet-table.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-banquet-table",
+      "source_sha256": "82a2e93179eab4678fa38803119c23a7e35b0009b9f4aacfc767de544ea5a226",
+      "primary_source": {
+        "asset_id": "masquerade-banquet-table",
+        "path": "masquerade/components/masquerade-banquet-table.png",
+        "sha256": "82a2e93179eab4678fa38803119c23a7e35b0009b9f4aacfc767de544ea5a226",
+        "rgba_sha256": "bbe154976d0d35010ef03e8f9b7d56acc534eb53373fe143e62aab556c31fe76"
+      },
+      "image_hashes": {
+        "front": "8b8eeeeaa65dca7c44261c7385627c798a00015faebf6f57092b3f57e350cc7e",
+        "top": "1d3b5ac6c724286ca4e7134979d4ace376ef37133cf4a15206d083fcedb778bd",
+        "right": "7042e0cab152663efa9dfbb89e4b30f3a14829d58683ebc093d321dabdf08d2a",
+        "left": "0addfcc74f8ce1ed9cb7e768c06e93c32795baa42196497af76c874df1f1c40d",
+        "bottom": "f651387e2a277380a96cdb1db711a12cfc88a14b166bbc6c77930d5d9e9ab825",
+        "rear": "e3044b1ff848810fb8cfa20983686189ae9ea809437fd8043b7cf1106f8a9ebe"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:44:09.966161+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-banquet-table.png",
+          "sha256": "82a2e93179eab4678fa38803119c23a7e35b0009b9f4aacfc767de544ea5a226",
+          "rgba_sha256": "bbe154976d0d35010ef03e8f9b7d56acc534eb53373fe143e62aab556c31fe76"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -163,7 +223,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,14 +239,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

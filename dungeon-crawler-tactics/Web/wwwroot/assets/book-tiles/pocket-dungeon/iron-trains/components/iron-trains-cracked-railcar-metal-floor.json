@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-cracked-railcar-metal-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cracked-railcar-metal-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-cracked-railcar-metal-floor",
+      "source_sha256": "0093267b67e3534241b1fcc70c8988bc96396539832780e82415144712ef7ad2",
+      "primary_source": {
+        "asset_id": "iron-trains-cracked-railcar-metal-floor",
+        "path": "iron-trains/components/iron-trains-cracked-railcar-metal-floor.png",
+        "sha256": "0093267b67e3534241b1fcc70c8988bc96396539832780e82415144712ef7ad2",
+        "rgba_sha256": "0a3c37d06a3d8ab19ba10a55aa7bcb9d6bd6af90ff57c0b6f3f7a889b499bdba"
+      },
+      "image_hashes": {
+        "front": "fe86cb17d1b2533a27710d58847edbeb62457038b8f2a9d77b002d4ccb8a7cd0",
+        "top": "b260ed8378df47e7f7dbb2d1c7d465ca94e6bda2cfa83f3c3d043650a67b91f6",
+        "right": "743a5e995f4f29e0be230228d67ca76c165aa2a6d0799162f549fafd9d166309",
+        "left": "b15c0cc8138325c71e75c9642977328ed0c0913079e394b7b9fd1d7317c0f0b7",
+        "bottom": "95d26654f71ca681e3889f9e3ac72d66e730a683c2a971470c9cd968e220f590",
+        "rear": "1b62ba0e22dcde3dad6f7ba103249ada921876423410786a0b3bc6d7a9474282"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:56:46.925745+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-cracked-railcar-metal-floor.png",
+          "sha256": "0093267b67e3534241b1fcc70c8988bc96396539832780e82415144712ef7ad2",
+          "rgba_sha256": "0a3c37d06a3d8ab19ba10a55aa7bcb9d6bd6af90ff57c0b6f3f7a889b499bdba"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-trains"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-trains"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

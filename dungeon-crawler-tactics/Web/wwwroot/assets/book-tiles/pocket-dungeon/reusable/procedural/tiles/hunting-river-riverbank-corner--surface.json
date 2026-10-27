@@ -11,13 +11,13 @@
     "book-location",
     "environment:dungeon",
     "ground",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/hunting-river-riverbank-corner--surface.png",
@@ -54,34 +54,43 @@
     "eligible": true,
     "cell_size_px": 128,
     "walkable": true,
-    "connections": [
-      "north",
-      "east",
-      "south",
-      "west"
-    ],
+    "connections": [],
     "rotation_degrees": [
       0,
       90,
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
   },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
+  },
   "canonical_asset_id": "hunting-river-riverbank-corner",
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,
@@ -94,7 +103,7 @@
       "none": []
     },
     "provides": [
-      "surface:water"
+      "surface:floor"
     ],
     "exclude_self": true,
     "compatibility_group": null,

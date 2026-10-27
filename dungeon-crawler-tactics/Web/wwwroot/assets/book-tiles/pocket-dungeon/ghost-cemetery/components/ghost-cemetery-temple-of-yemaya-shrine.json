@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "environment:temple",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-cemetery/components/ghost-cemetery-temple-of-yemaya-shrine.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-temple-of-yemaya-shrine.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-temple-of-yemaya-shrine",
+      "source_sha256": "da3d711a4894bf7710a052d96ff776de48d4acc93d31367f67d46ffbea91ad6b",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-temple-of-yemaya-shrine",
+        "path": "ghost-cemetery/components/ghost-cemetery-temple-of-yemaya-shrine.png",
+        "sha256": "da3d711a4894bf7710a052d96ff776de48d4acc93d31367f67d46ffbea91ad6b",
+        "rgba_sha256": "8b49f1f968e165cecd32f66633b1933ed1fd7ac6efbf059c625be0e75ba85573"
+      },
+      "image_hashes": {
+        "front": "3f0583f65a9d6a28b62fc9fd9c6d1b65508ae0828f54bf127d050dae35b2bd7d",
+        "top": "8f01e626f3238851eb74e941dcb95659ffcd92b2de1e51db1b1b76d3873ba951",
+        "right": "929ca4e09a0ac037f026e528a4290e82f7191b7716076fb0888789a6f15197aa",
+        "left": "425f7e883bbd879570eb4409d59f251344020290743f0b99ff461711be73baa6",
+        "bottom": "032264ccf7774481774c70680f59505d9d866e36394fb536f845f41088c84b4a",
+        "rear": "31f8de1e62320c11418b84e4807572ae3fe397c529db90da4604e64a156e4e5d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:09:46.903742+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-temple-of-yemaya-shrine.png",
+          "sha256": "da3d711a4894bf7710a052d96ff776de48d4acc93d31367f67d46ffbea91ad6b",
+          "rgba_sha256": "8b49f1f968e165cecd32f66633b1933ed1fd7ac6efbf059c625be0e75ba85573"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "environment:temple",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

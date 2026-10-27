@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:doorway",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-golden-hall-masonry-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-golden-hall-masonry-open-doorway",
+      "source_sha256": "9270c10abada13ce49a9dc6569c5bf32f7a225452063bb19cd6569449988e5b2",
+      "primary_source": {
+        "asset_id": "thresholds-golden-hall-masonry-open-doorway",
+        "path": "thresholds/components/thresholds-golden-hall-masonry-open-doorway.png",
+        "sha256": "9270c10abada13ce49a9dc6569c5bf32f7a225452063bb19cd6569449988e5b2",
+        "rgba_sha256": "eaefede26e68df78f63e1902512db95116adf6c99802bb4ee7ba1f88d0550b5e"
+      },
+      "image_hashes": {
+        "front": "eb63cd12e1ee8e38772d34352e1fe574ae6fdf03923373a5c0723a4328ce5116",
+        "top": "d8aa6daa15cff70eb4af80c20a328569188d449b9aadbcc522d6e8f4dc696a85",
+        "right": "c5c90d52d0d4583c37d89bb1fd966568e985d34d6319ed184874fcaac2f5a540",
+        "left": "d83033dc6f208ad26e67e1dc51298ad66199bf6acfecf134186deef0d1e7b8db",
+        "bottom": "c42a1eb7accb25e25f6f683a5e5f7ac68920e43dd1e0f4d300062399cb518f10",
+        "rear": "c885e09f2d2db7c91d0886668852f38a938b0e4bba2370550197fb7af4556fcb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:37:55.405502+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-golden-hall-masonry-open-doorway.png",
+          "sha256": "9270c10abada13ce49a9dc6569c5bf32f7a225452063bb19cd6569449988e5b2",
+          "rgba_sha256": "eaefede26e68df78f63e1902512db95116adf6c99802bb4ee7ba1f88d0550b5e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

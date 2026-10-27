@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-scorpion-settlement-gate.png",
@@ -110,6 +111,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,31 +140,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-scorpion-settlement-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-scorpion-settlement-gate",
+      "source_sha256": "e14dfdb760eba3e6f68e0acfb470579e426ba5d45b4f31cd6172e42f34ab4459",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-scorpion-settlement-gate",
+        "path": "bubble-necropolis/components/bubble-necropolis-scorpion-settlement-gate.png",
+        "sha256": "e14dfdb760eba3e6f68e0acfb470579e426ba5d45b4f31cd6172e42f34ab4459",
+        "rgba_sha256": "375366bb7ea2162e31e8b22efbce947c6c2ea85ba356f7a7c3c610f5d9b5542a"
+      },
+      "image_hashes": {
+        "front": "61ba3e6592d8b28291a278ccbbb50832908b954099bf726ccc9f7619d54c9c27",
+        "top": "0440abff3595615e56a8be509cfc3112258dedd13f2482fc54b8565c36783eee",
+        "right": "032f261584c2362f26fbf1fb1d9191b0777039ce66c8e2e694dacc2817772855",
+        "left": "7038cc5962a362fc9cfa734bd49786356c07962e9fa180f09497fe6dd4f238c9",
+        "bottom": "d2457ef3f9ec1f715fae6b4ee2ebf6c9a4aa7671f36a492eaef2fde05c3076a4",
+        "rear": "11dc48b852389def30af5e5be29b372a2b45cfd29196a641bec336085a234ff0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:42:06.023581+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-scorpion-settlement-gate.png",
+          "sha256": "e14dfdb760eba3e6f68e0acfb470579e426ba5d45b4f31cd6172e42f34ab4459",
+          "rgba_sha256": "375366bb7ea2162e31e8b22efbce947c6c2ea85ba356f7a7c3c610f5d9b5542a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,12 +237,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

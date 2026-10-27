@@ -16,7 +16,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-bookcase-with-framed-photographs.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-bookcase-with-framed-photographs.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-bookcase-with-framed-photographs",
+      "source_sha256": "857c4e782e86c49e51b0c428fb8c34dc804acee77063a7628341a1b8c0796269",
+      "primary_source": {
+        "asset_id": "starter-dungeon-bookcase-with-framed-photographs",
+        "path": "starter-dungeon/components/starter-dungeon-bookcase-with-framed-photographs.png",
+        "sha256": "857c4e782e86c49e51b0c428fb8c34dc804acee77063a7628341a1b8c0796269",
+        "rgba_sha256": "06307c15240441bc17794c2241291056286fe093b870a1e27e4fb74ee755b66c"
+      },
+      "image_hashes": {
+        "front": "445d306e4d25c4dda91120b34c9f63ec4917c1c4a86766e2e3593230a6546fd8",
+        "top": "4811e74b85f3d560a6c31c360c9227ce1d55291d8fb86b23a16257f3643ad3df",
+        "right": "86eeb4f3d99fabc0224562c5ecf1e7df9aed18795dcec78a7023eb5452e27e90",
+        "left": "cc4a5eed2e7f997c4d38b7df6c1b3ba36ae72bc3459dc2032b0578a5f934d5fe",
+        "bottom": "372961a08b9c6f5e56b1ca4577de3f8f8a5dd06c2db54bb272e8e21f33c0b254",
+        "rear": "08ffc2b757d69372482ed1c59846c25a36332356d83ed8ae9e1589da093e6ffd"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:24:50.675938+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-bookcase-with-framed-photographs.png",
+          "sha256": "857c4e782e86c49e51b0c428fb8c34dc804acee77063a7628341a1b8c0796269",
+          "rgba_sha256": "06307c15240441bc17794c2241291056286fe093b870a1e27e4fb74ee755b66c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

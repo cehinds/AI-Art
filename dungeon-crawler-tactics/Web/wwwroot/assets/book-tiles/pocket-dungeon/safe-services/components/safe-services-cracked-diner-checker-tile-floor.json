@@ -16,7 +16,8 @@
     "role:provider",
     "safe-services",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "safe-services/components/safe-services-cracked-diner-checker-tile-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cracked-diner-checker-tile-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-cracked-diner-checker-tile-floor",
+      "source_sha256": "94839c0ed0045217ef9de05360ffb0554121017f006a7d41b1f79b72019dea88",
+      "primary_source": {
+        "asset_id": "safe-services-cracked-diner-checker-tile-floor",
+        "path": "safe-services/components/safe-services-cracked-diner-checker-tile-floor.png",
+        "sha256": "94839c0ed0045217ef9de05360ffb0554121017f006a7d41b1f79b72019dea88",
+        "rgba_sha256": "fc7b672213906b1f6f5f6f18249600b1d5c56d5716264777725dcb7ef1d9d8eb"
+      },
+      "image_hashes": {
+        "front": "251ebc3b2bbff10c2b41b02034980a9f417d121fc75813a46dd74b6458036a7d",
+        "top": "59ddf4f0c83e0cea3200cf27bed077939719c2d425db4fd8ef7a82a60cb8805a",
+        "right": "ea7643e6e6d7a80c6afddadf06ac7acf2582d794103cd0dcada5259c05258b90",
+        "left": "c1a2219b1549094737cce53a1ab857df72b02d7f7e2ce3ec992b013fd240d450",
+        "bottom": "9abb3d0c21d930c2487088be137ed8c3f3b2defee961ba2df4dd1674f2724337",
+        "rear": "5f90aa43745b5fb19cc8d03918dab1ad7c0aebd66daf653a07fe252d47a48b85"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:12:52.232665+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-cracked-diner-checker-tile-floor.png",
+          "sha256": "94839c0ed0045217ef9de05360ffb0554121017f006a7d41b1f79b72019dea88",
+          "rgba_sha256": "fc7b672213906b1f6f5f6f18249600b1d5c56d5716264777725dcb7ef1d9d8eb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "east": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "south": [
+      "join.floor",
+      "visual.safe-services"
+    ],
+    "west": [
+      "join.floor",
+      "visual.safe-services"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

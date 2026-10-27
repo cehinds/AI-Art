@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "cast",
     "donut",
@@ -97,35 +98,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-05.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-donut-cast-05",
+      "source_sha256": "ec5ba99e756e29361de912763232e8414916d522d50d19488a2cc43b2cf76568",
+      "primary_source": {
+        "asset_id": "attacks-donut-cast-05",
+        "path": "components/attacks-donut-cast-05.png",
+        "sha256": "ec5ba99e756e29361de912763232e8414916d522d50d19488a2cc43b2cf76568",
+        "rgba_sha256": "1d4c10bfb3c12d6bccf88feaf6bf2f6f934c7fe9ffa175d776f04cc61af86836"
+      },
+      "image_hashes": {
+        "front": "42245305a8f295775d1bf5a1c7ab3e9d0ffe383c16a753563b58fdc56c27edba",
+        "top": "b5bd138444f38d9ea006e1a0d4cdfc0f8f7da50a36c6a1ce6fcb5d8f3cfefbd5",
+        "right": "d46097b26dddc4a07e30fde1df2fe769aa58eb76afae1dd6dd1129a66700f439",
+        "left": "98d11eb19e09f1ccd497d7535fb886609a2fbe00afb0e740580b55b24ff4d4ee",
+        "bottom": "6eabe9467d26415a054c90c4d91ca8262d1ee52cadaff728c8710e5927be937c",
+        "rear": "6c7c020211b33ea2e1a572b46e14e96546bf05983a06830f8a28a447c29328db"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T05:12:43.483199+00:00",
+      "notes": [
+        "BOTTOM now true compact underbody with tucked forepaws and close hind soles, crown/eyes/frontal face fully occluded. Source crouched cast phase and calico identity retained."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "43406b9c3c8868770e336b75610f41d44a9ded1a337db1f964a862da264b2c7b",
+        "reviewed_reference": {
+          "path": "components/attacks-donut-cast-05.png",
+          "sha256": "ec5ba99e756e29361de912763232e8414916d522d50d19488a2cc43b2cf76568",
+          "rgba_sha256": "1d4c10bfb3c12d6bccf88feaf6bf2f6f934c7fe9ffa175d776f04cc61af86836"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -138,7 +176,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +192,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

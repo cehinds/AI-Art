@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-glass-descent-steps.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-glass-descent-steps.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-glass-descent-steps",
+      "source_sha256": "85bbc92e6e4218ee4b680d28241e724fd40928f9c24a76a8a6737b8c635fd3d1",
+      "primary_source": {
+        "asset_id": "great-race-transition-glass-descent-steps",
+        "path": "great-race-transition/components/great-race-transition-glass-descent-steps.png",
+        "sha256": "85bbc92e6e4218ee4b680d28241e724fd40928f9c24a76a8a6737b8c635fd3d1",
+        "rgba_sha256": "f487d767d60013f39d9cbc1bd932ed3df09f0b347d702207030e9fe2015e6347"
+      },
+      "image_hashes": {
+        "front": "143afab60e4c397dd664144049a3ad3032895cc8f5724b153a50e75951981dae",
+        "top": "62b4244dffeaefce9752ffa421d31691968dd00940c61e0187a437d957b15bb4",
+        "right": "22d1476a020f819dc5a7d22ad7747882dd06b1f59759e793b6947aaef4a4f4a7",
+        "left": "f555e2b37fbbbd41d199396f4c4e03095bc405280fab8a090cc6dcb55158d31b",
+        "bottom": "9c88e0cd1715f3aeda7d28f5eba7ef7b2b1dc9aa8427a561f4f79ee6673aa487",
+        "rear": "c29295857cb661670ba1d7d3ef2ae4fd8b9ea42f5c7a18b460433cda0eb8d06b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:50:02.979205+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-glass-descent-steps.png",
+          "sha256": "85bbc92e6e4218ee4b680d28241e724fd40928f9c24a76a8a6737b8c635fd3d1",
+          "rgba_sha256": "f487d767d60013f39d9cbc1bd932ed3df09f0b347d702207030e9fe2015e6347"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:glass",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

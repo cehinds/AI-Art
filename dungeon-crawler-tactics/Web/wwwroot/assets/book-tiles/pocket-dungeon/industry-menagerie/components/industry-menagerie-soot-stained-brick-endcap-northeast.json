@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-soot-stained-brick-endcap-northeast",
+      "source_sha256": "e556578fcde2f8c41dc474003eb0a89741c0d5d8971fb49b20b00dbbc2775300",
+      "primary_source": {
+        "asset_id": "industry-menagerie-soot-stained-brick-endcap-northeast",
+        "path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-endcap-northeast.png",
+        "sha256": "e556578fcde2f8c41dc474003eb0a89741c0d5d8971fb49b20b00dbbc2775300",
+        "rgba_sha256": "e2df49f4138e8827b4ab29840c4781b0bc52be6a16d743b0775d93d2c840f5b1"
+      },
+      "image_hashes": {
+        "front": "9b6a13262928770904002702a43b815b5e186fe1751940a5594e388648e6e662",
+        "top": "7f6d6268c70c6a3610c52c78fd1f19af1b3ca964ad80fa6c533806a68ddeb537",
+        "right": "9b6a13262928770904002702a43b815b5e186fe1751940a5594e388648e6e662",
+        "left": "a69ddbfd62cf1d6ee91374686ee60a095107a379b3c47384a5864c8c98ccb2e1",
+        "bottom": "490a25b42e0d8dbbfad5017246b7ab58a6351a6649e4d1a21a8489ef4807dfd3",
+        "rear": "a69ddbfd62cf1d6ee91374686ee60a095107a379b3c47384a5864c8c98ccb2e1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:44:09.966161+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-endcap-northeast.png",
+          "sha256": "e556578fcde2f8c41dc474003eb0a89741c0d5d8971fb49b20b00dbbc2775300",
+          "rgba_sha256": "e2df49f4138e8827b4ab29840c4781b0bc52be6a16d743b0775d93d2c840f5b1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

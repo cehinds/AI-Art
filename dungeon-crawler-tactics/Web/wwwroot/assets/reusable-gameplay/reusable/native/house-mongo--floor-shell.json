@@ -54,7 +54,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "house-bedroom--floor-shell.front"
@@ -79,19 +79,41 @@
       "status": "inferred",
       "asset_id": "house-bedroom--floor-shell.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "pending-review",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "house-bedroom--floor-shell",
+      "source_sha256": "b2b7bfbee3b8d4297bd75447be4e453475f4d94bb46785b5e37560bd103f95c4",
+      "primary_source": {
+        "asset_id": "house-bedroom--floor-shell",
+        "path": "reusable/native/house-bedroom--floor-shell.png",
+        "sha256": "b2b7bfbee3b8d4297bd75447be4e453475f4d94bb46785b5e37560bd103f95c4",
+        "rgba_sha256": "5bd2e7feb85d6229f1a3a9528239fd03c6f52c7e3c14ab19ec898345eaf03c97"
+      },
+      "image_hashes": {
+        "front": "43a43bad982bad9caccd32e024b526855f01e8dc852291b87dfa46e644ef6640",
+        "top": "2452631b9b376e404dac3880ef7f9c45cc987042adafcb89bf0758c49d7156f4",
+        "right": "1237e4342c35e96e1518323eb6bb76f76511a89eb390237cd3dee9dabf45b85a",
+        "left": "189ea6c1a73f48e62186127a23ff8b993643f182dd11c34f112455d45a7d620f",
+        "bottom": "7b3aa6f2de04bbd6e54482192d813d6b813ce0ad9a552bc8d24ad51567845294",
+        "rear": "131a32618be8f14a6028acda5ba1ccfdb66fea84c980d3cd9c9a87e47f92b1f3"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T02:50:08.604123+00:00",
+      "notes": [
+        "Source native house part identity retained with coherent principal silhouette/material and inferred hidden reverse/base. No neighboring room furniture introduced; modest illustration/foliage variation accepted."
       ],
-      "notes": "Six inferred orthographic views generated from canonical house crop; independent source-plus-six geometry review pending.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "83dafc82de35f69a4c5bf0241359d5fe595c6a7058fb4c46facb2e9dd008b1dd",
+        "reviewed_reference": {
+          "path": "reusable/native/house-bedroom--floor-shell.png",
+          "sha256": "b2b7bfbee3b8d4297bd75447be4e453475f4d94bb46785b5e37560bd103f95c4",
+          "rgba_sha256": "5bd2e7feb85d6229f1a3a9528239fd03c6f52c7e3c14ab19ec898345eaf03c97"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "house-bedroom--floor-shell",

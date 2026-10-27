@@ -18,7 +18,8 @@
     "stairs",
     "style:pocket-dungeon",
     "surface:stairs",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-gold-brick-stairs-down.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-gold-brick-stairs-down",
+      "source_sha256": "b58afe998167bd11a2bbdc82c70beda10db83dbe6cab2f834df70aef366ee460",
+      "primary_source": {
+        "asset_id": "thresholds-gold-brick-stairs-down",
+        "path": "thresholds/components/thresholds-gold-brick-stairs-down.png",
+        "sha256": "b58afe998167bd11a2bbdc82c70beda10db83dbe6cab2f834df70aef366ee460",
+        "rgba_sha256": "06e88775019986aadac54f4453bb0db5241ac3de39d8a466705392595374a05b"
+      },
+      "image_hashes": {
+        "front": "25a965a982fc8b14b88c8668ef3e657d01178627148dc9eb31d305f5c61daf44",
+        "top": "41656fe0966696c3fcf868ea3f4cdabf819d32963cb0312863ce3e7b70204fc9",
+        "right": "846bfdc45f3b174f42a3fd0e0a4bb88b20bed82d131e10f9394442d00a5c0e82",
+        "left": "695f75404c56c4d249fafc4bfa3d1f142559dacf4b4d5e1de230501d44c90e43",
+        "bottom": "df22d8718f97a71490e74efcf2cbbf14aa87bf08b372371b94f5935ab984e4fc",
+        "rear": "070ad8189ac13b1e679c7d203bc9b6cbeab1cd572fc1f794cd424a552f6500ef"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:19:38.923825+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-gold-brick-stairs-down.png",
+          "sha256": "b58afe998167bd11a2bbdc82c70beda10db83dbe6cab2f834df70aef366ee460",
+          "rgba_sha256": "06e88775019986aadac54f4453bb0db5241ac3de39d8a466705392595374a05b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

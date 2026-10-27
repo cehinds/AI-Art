@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-red-warning-beacon.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-red-warning-beacon.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-red-warning-beacon",
+      "source_sha256": "d9a6b0044548f90e9d8cef4fc4e3c8fc848dbe7bec2fece30a327e16cd14afca",
+      "primary_source": {
+        "asset_id": "early-arenas-red-warning-beacon",
+        "path": "early-arenas/components/early-arenas-red-warning-beacon.png",
+        "sha256": "d9a6b0044548f90e9d8cef4fc4e3c8fc848dbe7bec2fece30a327e16cd14afca",
+        "rgba_sha256": "39b170d97c571c5d5d4a1839685e2d04f58b4b6c7efad37ae0b7c504d4d0d799"
+      },
+      "image_hashes": {
+        "front": "031d80914a7cba9d993eba9ae97065c8402beb7178c59a7aca87e7bd4392f52e",
+        "top": "623b08aa034f40e88035208c60fba863dda3fef48ae20ceb07f22e563296c83e",
+        "right": "47c2ae1de673e8274ad97d9e87517ed3e4fbcb3033e96d6585091cd7656c5c51",
+        "left": "b51e851a17e5ef74a2380b6c0ab806b911b9d79c74fa91d738fe261df0182e00",
+        "bottom": "7cd482e98d113c62c44f4b98c629d3fe16ee56d202a180197e61df88da9df0c0",
+        "rear": "0ec2d68755f282fc4d335b89da8c885edaf8f9823a4a55249c1a075ac0beceb0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.447794+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-red-warning-beacon.png",
+          "sha256": "d9a6b0044548f90e9d8cef4fc4e3c8fc848dbe7bec2fece30a327e16cd14afca",
+          "rgba_sha256": "39b170d97c571c5d5d4a1839685e2d04f58b4b6c7efad37ae0b7c504d4d0d799"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

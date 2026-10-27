@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-tracks",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-track-switch-lever.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-track-switch-lever.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-track-switch-lever",
+      "source_sha256": "9e0c678e032b080d01e6eccf853d54655a8d386c3f06fcee44d244f46563e737",
+      "primary_source": {
+        "asset_id": "iron-tracks-track-switch-lever",
+        "path": "iron-tracks/components/iron-tracks-track-switch-lever.png",
+        "sha256": "9e0c678e032b080d01e6eccf853d54655a8d386c3f06fcee44d244f46563e737",
+        "rgba_sha256": "946a10ebd048be38c5af4ac88fe46db6aff4a63ef2fb4107b40587427a33f304"
+      },
+      "image_hashes": {
+        "front": "9261e600878319897a38b6e2a3612dcea37d2892e894dc1506e776cd851077ff",
+        "top": "6740ff154973611b00bb1e1f7542444e9e0ce7ac653d18317bead8e3e7df2e2a",
+        "right": "c7cceef19f73f26e7e2766c578688d3d7a28ef90cfcc912bfa30c2536c90325e",
+        "left": "ae48449cabb91fa1c10bdd5aa9d586b4bcb20350ae670a137cdb3eec14ca172b",
+        "bottom": "ed50c2dbc888834d07f7cb65c3f57e621d22fdd8bbdbce7762dd1aefae954fb7",
+        "rear": "e91678693c78a32577ae0fa174ba5faf178f69c660778acc221cf4c2de4c4953"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:55:51.521578+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-track-switch-lever.png",
+          "sha256": "9e0c678e032b080d01e6eccf853d54655a8d386c3f06fcee44d244f46563e737",
+          "rgba_sha256": "946a10ebd048be38c5af4ac88fe46db6aff4a63ef2fb4107b40587427a33f304"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

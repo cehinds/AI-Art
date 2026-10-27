@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-sea",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-underwater-ruin-arch.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-underwater-ruin-arch",
+      "source_sha256": "bca0e1be86f7c2e229aeac15ae4c2b2f22e88a773bc7361abef03fc0e25bfafd",
+      "primary_source": {
+        "asset_id": "bubble-sea-underwater-ruin-arch",
+        "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
+        "sha256": "bca0e1be86f7c2e229aeac15ae4c2b2f22e88a773bc7361abef03fc0e25bfafd",
+        "rgba_sha256": "30f0043ceef78141622ecf4639768dc66ff5feec90c1c83e57c88de8c3aca437"
+      },
+      "image_hashes": {
+        "front": "69637c442978a6a0a176658f1f6c276d906e4fb52c8787993561be406878a431",
+        "top": "a17389710110a0e60ce2fbf251837a2fa7a9a458cae2c51a82332b5126eef2d9",
+        "right": "0a8b70fc46a55b3a4ecada550ebf52c2e81c902068bd2259be85a60e21a235d8",
+        "left": "71a84d5bc13361a54c4a3d4367845267105e68615c80b277a832f51850421377",
+        "bottom": "cc28327e8fdd7ac81f79c0c5180a0918674e0decb3bfd2f4e152028e42d6e070",
+        "rear": "93dafd5dfb924123cc8c202edc922f8918178c02c843cbf221ab5469f10a386d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:43:02.557533+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-underwater-ruin-arch.png",
+          "sha256": "bca0e1be86f7c2e229aeac15ae4c2b2f22e88a773bc7361abef03fc0e25bfafd",
+          "rgba_sha256": "30f0043ceef78141622ecf4639768dc66ff5feec90c1c83e57c88de8c3aca437"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "environment:underwater",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

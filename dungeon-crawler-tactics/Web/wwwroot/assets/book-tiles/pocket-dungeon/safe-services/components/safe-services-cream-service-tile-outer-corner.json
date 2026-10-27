@@ -17,6 +17,7 @@
     "safe-services",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-cream-service-tile-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-cream-service-tile-outer-corner",
+      "source_sha256": "950eed16f48135813ea1358471ba202e878ea593b4bd6d28ad3ee7ae4fe8fa0b",
+      "primary_source": {
+        "asset_id": "safe-services-cream-service-tile-outer-corner",
+        "path": "safe-services/components/safe-services-cream-service-tile-outer-corner.png",
+        "sha256": "950eed16f48135813ea1358471ba202e878ea593b4bd6d28ad3ee7ae4fe8fa0b",
+        "rgba_sha256": "18d431221da0e6d96a76d91152301f44f02968d1f3ef19ca467d57f277079c51"
+      },
+      "image_hashes": {
+        "front": "00d92c1461c8655a48a64a8a5dd976518eb86199d688503676bf9253415e9360",
+        "top": "5ee489f83b507f265f7d136a19c74e787fba338e6397e389f0b9793ab5fe3a44",
+        "right": "a29da7425ed73c4ad91188d6135b0f33daaabc8c06420e27db2b21377a359dd7",
+        "left": "d9bbfab3e573b98b2d5ae75400ab929e15db2d932a46e0e519b5c0ce012687e7",
+        "bottom": "7f49d413182a535e38bf480038e77cfcf6fdbfff0ac24ae0f10e1156bede53c0",
+        "rear": "2319773bb5fc8f622e844a3ca609968029bf8c7279b373485bcfeb5e8e0f4970"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:08:19.679890+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-cream-service-tile-outer-corner.png",
+          "sha256": "950eed16f48135813ea1358471ba202e878ea593b4bd6d28ad3ee7ae4fe8fa0b",
+          "rgba_sha256": "18d431221da0e6d96a76d91152301f44f02968d1f3ef19ca467d57f277079c51"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

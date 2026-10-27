@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-station-tiled-masonry-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-station-tiled-masonry-open-doorway",
+      "source_sha256": "8f5671715fe7fdeb6a2b79051205176060ec540ce906dc8786d3ae70f2fb3ea2",
+      "primary_source": {
+        "asset_id": "iron-stations-station-tiled-masonry-open-doorway",
+        "path": "iron-stations/components/iron-stations-station-tiled-masonry-open-doorway.png",
+        "sha256": "8f5671715fe7fdeb6a2b79051205176060ec540ce906dc8786d3ae70f2fb3ea2",
+        "rgba_sha256": "7119b89af6d8db669a6a4f7ed44f515ff723ffa420499c932f7d3bf2951dbf6d"
+      },
+      "image_hashes": {
+        "front": "24952148bd5fc70a9ffd67a23b3c39a4261b2ce7891781a54729dac5e5bd6844",
+        "top": "1380c81fde80757c4add3a4f63147dc9ede9fde9f2c0694710a6930ec965060e",
+        "right": "964af77931d485d137d46ee976777f348988d6eadbf7deae2e5c77c50276b165",
+        "left": "e710d36e716fb952c14ac7a63020d24c40267b24a8ca73c8c3b5e4c3525bd9b0",
+        "bottom": "6821697ba84f556445f9b87896d1c3cbeb22a94a11cd57a871d361c7c6ebebdd",
+        "rear": "4c6f63fab90b7b639e0d185b4d3edd30090980f88c68d80c609a056eb4448b8a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:36:05.094491+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-station-tiled-masonry-open-doorway.png",
+          "sha256": "8f5671715fe7fdeb6a2b79051205176060ec540ce906dc8786d3ae70f2fb3ea2",
+          "rgba_sha256": "7119b89af6d8db669a6a4f7ed44f515ff723ffa420499c932f7d3bf2951dbf6d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

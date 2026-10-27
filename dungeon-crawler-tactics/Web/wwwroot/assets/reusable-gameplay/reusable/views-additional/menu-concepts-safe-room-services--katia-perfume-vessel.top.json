@@ -4,16 +4,18 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
     "baked-scene",
     "environment:safe-room",
     "gameplay",
     "house-furnishing",
+    "inferred-view",
     "katia",
     "material:unspecified",
     "native-source-crop",
-    "role:reconstruction",
+    "role:object",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "menu-concepts-safe-room-services--katia-perfume-vessel",
@@ -69,5 +71,41 @@
       ],
       "shared_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:safe-room",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "menu-concepts-safe-room-services--katia-perfume-vessel"
   }
 }

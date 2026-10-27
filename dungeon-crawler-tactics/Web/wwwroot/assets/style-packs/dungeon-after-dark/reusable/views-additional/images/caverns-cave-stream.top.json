@@ -3,10 +3,22 @@
   "name": "Cave stream Top",
   "kind": "terrain",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "cave",
+    "caverns",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "generated",
+    "ground",
+    "material:unspecified",
     "orthographic",
-    "terrain",
-    "generated"
+    "role:provider",
+    "six-view",
+    "stream",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "terrain"
   ],
   "image": {
     "path": "reusable/views-additional/images/caverns-cave-stream.top.png",
@@ -53,10 +65,19 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "operation": "retained-snapshot-passthrough-v1",
+      "retained_snapshot_evidence": {
+        "schema_version": 1,
+        "method": "verified-retained-snapshot-v1",
+        "manifest_path": "reusable/views-additional/raw/retained-approved-output-snapshots-v1.json",
+        "manifest_sha256": "3e1824544a4a75c1bdbc46327b677affac291225294974bb02d1f8ff9ab5dc7b",
+        "object_id": "caverns-cave-stream",
+        "view": "top"
+      }
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
-    "notes": "Generated standalone orthographic view; hidden surfaces are inferred, not recovered pixels.",
+    "notes": "Generated standalone orthographic view; hidden surfaces are inferred, not recovered pixels. Exact rebuild is bound to the distinct retained approved PNG snapshot; the historical atlas recipe did not reproduce current bytes. Exact rebuild is bound to a distinct retained approved PNG snapshot; active atlas generation is not claimed for this image.",
     "source_cell_calibration": [
       0.1675,
       0.1675
@@ -66,5 +87,37 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/caverns-cave-stream.top.json"
+  "metadata_path": "reusable/views-additional/images/caverns-cave-stream.top.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "caverns-cave-stream"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "cave",
+    "caverns",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "stream",
+    "style:dungeon-after-dark",
+    "surface:floor"
+  ]
 }

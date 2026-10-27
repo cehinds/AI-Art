@@ -11,13 +11,13 @@
     "book-location",
     "environment:dungeon",
     "ground",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/native/hunting-river-palace-paving-floor--native.png",
@@ -59,15 +59,33 @@
     "complete": true,
     "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
   },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-river"
+    ]
+  },
   "canonical_asset_id": "hunting-river-palace-paving-floor",
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,
@@ -80,7 +98,7 @@
       "none": []
     },
     "provides": [
-      "surface:water"
+      "surface:floor"
     ],
     "exclude_self": true,
     "compatibility_group": null,

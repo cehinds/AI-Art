@@ -3,12 +3,22 @@
   "name": "Train control console top",
   "kind": "sprite",
   "tags": [
-    "iron-trains",
-    "prop",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-trains",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "top",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-trains-train-control-console.top.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "iron-trains/components/iron-trains-train-control-console.png",
     "source_sha256": "650502a8744e0db800b32e87eb7d1aaf03a78f5b3bea2bab89e9922be6f1651f",
-    "generated_atlas": "raw/candidates/control-console-top-v1/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/control-console-top-v1/generated-atlas.png",
     "generated_atlas_sha256": "01b2bd891f53681b4b098a8e2e86c3e069b4f09eba773118b2770bcbe5d37f63",
     "generation_request": "raw/candidates/control-console-top-v1/request.json",
     "generation_request_sha256": "86a7ef872a3a849e006dda8990e471c69a389e2b55aa9d3e6218b177d5f8665f",
@@ -152,5 +162,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-trains-train-control-console"
+  }
 }

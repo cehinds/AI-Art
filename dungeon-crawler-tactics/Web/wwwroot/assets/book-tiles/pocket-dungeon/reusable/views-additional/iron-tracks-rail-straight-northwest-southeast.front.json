@@ -3,12 +3,21 @@
   "name": "Rail straight northwest southeast front",
   "kind": "tile",
   "tags": [
-    "iron-tracks",
-    "ground",
     "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
     "front",
+    "ground",
+    "inferred-view",
+    "iron-tracks",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/iron-tracks-rail-straight-northwest-southeast.front.png",
@@ -65,7 +74,7 @@
         248
       ]
     },
-    "notes": "Replace four repeated generic edge profiles with direction-specific low orthographic rail/ballast projections derived from this tile\u2019s canonical route map. TOP/BOTTOM remain unchanged. Candidate pending independent review.",
+    "notes": "Replace four repeated generic edge profiles with direction-specific low orthographic rail/ballast projections derived from this tile’s canonical route map. TOP/BOTTOM remain unchanged. Candidate pending independent review.",
     "reference_inputs": [
       {
         "object_id": "iron-tracks-rail-straight-northwest-southeast",
@@ -157,5 +166,34 @@
         ]
       }
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-tracks-rail-straight-northwest-southeast"
+  }
 }

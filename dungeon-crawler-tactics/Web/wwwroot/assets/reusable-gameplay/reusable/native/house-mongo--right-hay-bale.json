@@ -53,7 +53,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "house-mongo--right-hay-bale.front"
@@ -78,19 +78,41 @@
       "status": "inferred",
       "asset_id": "house-mongo--right-hay-bale.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "pending-review",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "house-mongo--right-hay-bale",
+      "source_sha256": "1aa50138e6590569cd5cf22235d80e9df73f6c6f790309b89f40a5153a552a4d",
+      "primary_source": {
+        "asset_id": "house-mongo--right-hay-bale",
+        "path": "reusable/native/house-mongo--right-hay-bale.png",
+        "sha256": "1aa50138e6590569cd5cf22235d80e9df73f6c6f790309b89f40a5153a552a4d",
+        "rgba_sha256": "c651834f8f482bdcc216626a657e60e1cf29d7b266dbf20092bd73c95e5a0b69"
+      },
+      "image_hashes": {
+        "front": "36a82afe32f798738694256159862e3ed580cab06f05708650b3401575fe31cb",
+        "top": "d3c0e39b04b7e47675a27be1073397e289eec400ddbb2e8fdbc04a9923761726",
+        "right": "2c86425ab48b11637b72b97fb0e90d57587283eae8fc93e9e17e430d4b3ca753",
+        "left": "87e608bcc7768c4236fe4c4de4593b2fd94b49955812932241f4e13dfca13599",
+        "bottom": "ed69e384d37de81feec842ff8c8c4d37f347e8b612edc37b9d6579a99d5f2aad",
+        "rear": "3f3f043769d88699c04e227556cfb6dfdfb30fe0caff4e630a520e3dda839dfa"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T03:28:52.360695+00:00",
+      "notes": [
+        "BOTTOM now bound straw/rope substrate, eliminating invented planked base; source bale state and dimensions coherent."
       ],
-      "notes": "Generated or corrected views from canonical house crop; independent source-plus-six geometry review pending.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "da9d6965e01e57c31c340291e26e95a0e77552dda3eb6f3479d552395472e97e",
+        "reviewed_reference": {
+          "path": "reusable/native/house-mongo--right-hay-bale.png",
+          "sha256": "1aa50138e6590569cd5cf22235d80e9df73f6c6f790309b89f40a5153a552a4d",
+          "rgba_sha256": "c651834f8f482bdcc216626a657e60e1cf29d7b266dbf20092bd73c95e5a0b69"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "association": {

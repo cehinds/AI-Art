@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-wet-churned-battlefield-earth-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-wet-churned-battlefield-earth-floor",
+      "source_sha256": "18d77023065750557a0a2fe0b121131cecf781b6d7cd8f9c41eb24dda51c3aee",
+      "primary_source": {
+        "asset_id": "faction-battlefield-wet-churned-battlefield-earth-floor",
+        "path": "faction-battlefield/components/faction-battlefield-wet-churned-battlefield-earth-floor.png",
+        "sha256": "18d77023065750557a0a2fe0b121131cecf781b6d7cd8f9c41eb24dda51c3aee",
+        "rgba_sha256": "069dfa38c3f761027fc37e32588d6b323ff727cc0af415849fd2ae208433f1ba"
+      },
+      "image_hashes": {
+        "front": "b914b42c3863035bb75f3e6da3a3a7994426756c00f9d04243f60d347073ec8f",
+        "top": "3d8b884a73b1e4799493f933f0d4bd8f720a3c9c267e75932bc8f4fd1825302b",
+        "right": "3704437967af88b1a356d30cd1a80a8d418a7e7d8ff288d2f97d8ab732195674",
+        "left": "1abbae51659bec7b9dd4105875b8da2e1d4de561bbae38ebce79b111661efef9",
+        "bottom": "04c90f0939623ef7b956c834abd7c0a3da1c882be0922c939b6a8badcdfb2676",
+        "rear": "c7214a23afc7473273a62e2bb3444277e37fa3b6c5dfe46c1fdca1cee48e6a1a"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:33:55.970587+00:00",
+      "notes": [
+        "Fresh six-view contact rechecked: distant y247 foreign line islands removed; main terrain silhouette unchanged and plain underside coherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-wet-churned-battlefield-earth-floor.png",
+          "sha256": "18d77023065750557a0a2fe0b121131cecf781b6d7cd8f9c41eb24dda51c3aee",
+          "rgba_sha256": "069dfa38c3f761027fc37e32588d6b323ff727cc0af415849fd2ae208433f1ba"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

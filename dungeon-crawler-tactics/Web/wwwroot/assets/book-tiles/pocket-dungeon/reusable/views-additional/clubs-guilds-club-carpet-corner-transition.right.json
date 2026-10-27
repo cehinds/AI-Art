@@ -3,12 +3,21 @@
   "name": "Club Carpet corner transition right",
   "kind": "tile",
   "tags": [
-    "clubs-guilds",
-    "ground",
     "art-adaptation",
-    "right",
+    "attachment-tagged",
+    "book-location",
+    "clubs-guilds",
+    "environment:dungeon",
+    "ground",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "right",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/clubs-guilds-club-carpet-corner-transition.right.png",
@@ -33,7 +42,7 @@
     "method": "generated",
     "source_image": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
     "source_sha256": "32ded1795993765997ed85790336ab1d562bf7fdcf29191a0536c71e4ae3cfe3",
-    "generated_atlas": "raw/generated-atlases/club-carpet-corner-sides-batch01.png",
+    "generated_atlas": "reusable/views-additional/raw/generated-atlases/club-carpet-corner-sides-batch01.png",
     "generated_atlas_sha256": "cf2fb2346e5a22f7af997f48a1445e720a1f5413f707fbb4b7cbb26ccaeccb60",
     "normalization": {
       "alpha_threshold": 245,
@@ -47,7 +56,6 @@
       "reference_view": "top",
       "reference_sha256": "b27594e70c479b05936b300369ffdec21233552042c3bb9ac10fe6ba67c31509",
       "scale_axis": "width",
-      "shared_scale": 0.45076586433260396,
       "render_size": [
         206,
         32
@@ -60,9 +68,53 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale": 0.45076586433260396,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "clubs-guilds-club-carpet-corner-transition",
+        "view": "right",
+        "source_path": "clubs-guilds/components/clubs-guilds-club-carpet-corner-transition.png",
+        "source_sha256": "32ded1795993765997ed85790336ab1d562bf7fdcf29191a0536c71e4ae3cfe3",
+        "atlas_path": "reusable/views-additional/raw/generated-atlases/club-carpet-corner-sides-batch01.png",
+        "atlas_sha256": "cf2fb2346e5a22f7af997f48a1445e720a1f5413f707fbb4b7cbb26ccaeccb60",
+        "active_output_sha256": "786d907c66588c1a0054e95f6429dbfe91dc5d0421122ba96f9b02336a9c9a97",
+        "active_output_rgba_sha256": "b43bc1d8cd6d203b27d5c1141c7d8b847761bf832e804b950aadc62b12625732",
+        "crop_bounds_xyxy": [
+          587,
+          325,
+          1044,
+          396
+        ],
+        "resized_dimensions_px": [
+          206,
+          32
+        ],
+        "scale": 0.45076586433260396,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Replace the broad L-shaped map projection with a thin straight orthographic boundary profile. This direction shows continuous hardwood boundary along the source RIGHT edge; preserve full tile-edge length, thin floor thickness and source-specific wood/carpet material boundary."
+    "notes": "Replace the broad L-shaped map projection with a thin straight orthographic boundary profile. This direction shows continuous hardwood boundary along the source RIGHT edge; preserve full tile-edge length, thin floor thickness and source-specific wood/carpet material boundary.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.shared_scale",
+            "value": 0.45076586433260396
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -114,5 +166,34 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "clubs-guilds-club-carpet-corner-transition"
+  }
 }

@@ -17,7 +17,8 @@
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-vehicle-upgrade-workbench.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-cleanup",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-cleanup",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-cleanup",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-orthographic-cleanup",
+      "asset_id": "race-circuits-vehicle-upgrade-workbench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-vehicle-upgrade-workbench",
+      "source_sha256": "4e3e2eccb032acc4d4592fda3d9eed1611b7df5d2e443a7aed0127177e90f7e2",
+      "primary_source": {
+        "asset_id": "race-circuits-vehicle-upgrade-workbench",
+        "path": "race-circuits/components/race-circuits-vehicle-upgrade-workbench.png",
+        "sha256": "4e3e2eccb032acc4d4592fda3d9eed1611b7df5d2e443a7aed0127177e90f7e2",
+        "rgba_sha256": "c3848c0ee98e7ebdd4db3d89c553d02e6a11fe2909c5dec880cec06b70ec01ed"
+      },
+      "image_hashes": {
+        "front": "88c7469d0a2977ec280f40a56ea2acb7287230605a13e2edd3469377799cbaf9",
+        "top": "7a79e7c49cf4ae6e172b44891d9a1cc5a8c9864d0014d2f7166aaffeefc55c1a",
+        "right": "47e975130d9debb7432878577eff32e8c130fa4fe83a00d4ac8b098bb792f4e5",
+        "left": "bad6a824738f574c538b5241c761150fa60a6cf8898d93c848722902897f1ac5",
+        "bottom": "4ef200a0a38440996ca1dd94551c5f53bbdf61d4a27b001210c9a0fd4c5a51d2",
+        "rear": "dbf1993d9a23d6e28f75e7c5aa529a624209a443e91d8f9a20292a1c2c15c952"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:07:20.899723+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-vehicle-upgrade-workbench.png",
+          "sha256": "4e3e2eccb032acc4d4592fda3d9eed1611b7df5d2e443a7aed0127177e90f7e2",
+          "rgba_sha256": "c3848c0ee98e7ebdd4db3d89c553d02e6a11fe2909c5dec880cec06b70ec01ed"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

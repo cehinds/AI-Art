@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-river-bridge-pier.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-bridge-pier.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-bridge-pier",
+      "source_sha256": "389e1359cbd20c970b6feda7f6fc769fa20101f6fa90b84cee92c98ee05e52ff",
+      "primary_source": {
+        "asset_id": "hunting-river-river-bridge-pier",
+        "path": "hunting-river/components/hunting-river-river-bridge-pier.png",
+        "sha256": "389e1359cbd20c970b6feda7f6fc769fa20101f6fa90b84cee92c98ee05e52ff",
+        "rgba_sha256": "473450f9e682f322865e77b7f741bbb4a9b7c5a4ccbbd968a8f6e19056614f83"
+      },
+      "image_hashes": {
+        "front": "f3950b7cc405ee866f0462b90b8a0708f66d5c05991f9a0288fce55c3c325373",
+        "top": "0ac2988b8b9a77743e6f7f7bd3078975c6a5a7c30cbfc9dbb4b550ded8ab556a",
+        "right": "b0f2072b4c761c65546edac1adfc9383b94fd7838ba5b9004ea8d7df006fe86d",
+        "left": "ab7fb8661c507fa475e111dbfefa9180627717293c41c7f5588e0a7e5bbea2d8",
+        "bottom": "122fd28c422f08e92a02ff2d68ce131099104a6d447a47a2cf8bfad938e5f459",
+        "rear": "eed44df91b664199e7a86dcc97aac6d64bcbf148736c6e2b5e9bf477d66d6083"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:32:57.261584+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-bridge-pier.png",
+          "sha256": "389e1359cbd20c970b6feda7f6fc769fa20101f6fa90b84cee92c98ee05e52ff",
+          "rgba_sha256": "473450f9e682f322865e77b7f741bbb4a9b7c5a4ccbbd968a8f6e19056614f83"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

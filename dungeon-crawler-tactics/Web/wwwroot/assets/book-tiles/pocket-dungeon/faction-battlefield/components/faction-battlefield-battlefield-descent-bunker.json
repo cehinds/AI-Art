@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "faction-battlefield",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-battlefield-descent-bunker.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-battlefield-descent-bunker.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-battlefield-descent-bunker",
+      "source_sha256": "1d1cc39331446b9bd9c1b1ffea3b57bf9131cb0e20efea500510b79793ff2fde",
+      "primary_source": {
+        "asset_id": "faction-battlefield-battlefield-descent-bunker",
+        "path": "faction-battlefield/components/faction-battlefield-battlefield-descent-bunker.png",
+        "sha256": "1d1cc39331446b9bd9c1b1ffea3b57bf9131cb0e20efea500510b79793ff2fde",
+        "rgba_sha256": "49bddb1bed7cc070f5247419217564207bafd0008f6041b983a1388795e07d37"
+      },
+      "image_hashes": {
+        "front": "7e09726a0d8506df350962e9eebed8f506c839c8b36cfc0520a37cf281358fdc",
+        "top": "7b4e187a9c25ce2b070ac4ea6680cfc8f595b1c111dcfdec383ca69ba8b4a984",
+        "right": "8a0a16737fcc851c458d6a5b209dde17c660cb8d5804974799219fb589c35ad9",
+        "left": "6ab7013e6131ced4695711497733f53e778a07b8fa78c6b4a2cc4151a7c4327e",
+        "bottom": "872fcda70204b7676ecf69c957629103362eba599aba349a6763c4c187f7ed19",
+        "rear": "eeccf81184ed461aca90ed9f811b82e6ced775b9dfa76e35ff846ee8081abebc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:55:22.431415+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-battlefield-descent-bunker.png",
+          "sha256": "1d1cc39331446b9bd9c1b1ffea3b57bf9131cb0e20efea500510b79793ff2fde",
+          "rgba_sha256": "49bddb1bed7cc070f5247419217564207bafd0008f6041b983a1388795e07d37"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

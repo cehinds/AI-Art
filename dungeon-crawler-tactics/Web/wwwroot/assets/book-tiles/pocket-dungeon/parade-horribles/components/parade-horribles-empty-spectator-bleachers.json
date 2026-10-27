@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-empty-spectator-bleachers.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-empty-spectator-bleachers.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-empty-spectator-bleachers",
+      "source_sha256": "4cfdf6705b13ed95f92a8490ca74d425504d2fa32648ae027b602f453890c9b3",
+      "primary_source": {
+        "asset_id": "parade-horribles-empty-spectator-bleachers",
+        "path": "parade-horribles/components/parade-horribles-empty-spectator-bleachers.png",
+        "sha256": "4cfdf6705b13ed95f92a8490ca74d425504d2fa32648ae027b602f453890c9b3",
+        "rgba_sha256": "4ca1c83ba6f29b88f66ea86c59327a3d923b5dd6a1da20d807e33e56433457d1"
+      },
+      "image_hashes": {
+        "front": "05d1bca64659f995f63c5806b823202a27bb4d6871a5c31acaa920c4c84432cb",
+        "top": "b3b24c3347205e8a4944222a33f5be5addc62a5115f67f515d1621c3bdb68428",
+        "right": "0c56c92cdf0ef66036eb601163550d8e28fb140eb84fa7901552d201bd63d25e",
+        "left": "7a62ab051ef6afcb1ff5d583de631d0da381c00d8dcdf42b52774eaf6140e8d8",
+        "bottom": "663dc30d696b7187ccf51a7213d54ba68e0e7808806fe2eb10328a624a632b62",
+        "rear": "2252ada9fbf9bfbde7bba61700c270ee4d2ae402648a7e83a49593c9dbc0d451"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:59:02.045984+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-empty-spectator-bleachers.png",
+          "sha256": "4cfdf6705b13ed95f92a8490ca74d425504d2fa32648ae027b602f453890c9b3",
+          "rgba_sha256": "4ca1c83ba6f29b88f66ea86c59327a3d923b5dd6a1da20d807e33e56433457d1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

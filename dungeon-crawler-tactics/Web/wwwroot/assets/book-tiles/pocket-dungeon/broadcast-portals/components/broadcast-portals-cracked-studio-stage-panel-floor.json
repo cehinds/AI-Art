@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-cracked-studio-stage-panel-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -195,7 +206,60 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-cracked-studio-stage-panel-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-cracked-studio-stage-panel-floor",
+      "source_sha256": "52576a646db4407bfa72a1ead117ee5153a33ddffbd0b82c082ad6e280697e6b",
+      "primary_source": {
+        "asset_id": "broadcast-portals-cracked-studio-stage-panel-floor",
+        "path": "broadcast-portals/components/broadcast-portals-cracked-studio-stage-panel-floor.png",
+        "sha256": "52576a646db4407bfa72a1ead117ee5153a33ddffbd0b82c082ad6e280697e6b",
+        "rgba_sha256": "5a17108c1ed467226dd3293833b46e7f6023965bdb5a30dc80570f0e700e1041"
+      },
+      "image_hashes": {
+        "front": "aa727b96d6863c25df7d2f0e67031e8dad5816a6b83737d4557b2e0e4208d93f",
+        "top": "274eea4dc9b62e7cde2c936685fc9ff7acf36ef74b29806372091f97b341f2e0",
+        "right": "d7055a3fb7665d59eed2370d8e31dd7ced63b05abd78a23be6c2bcbc3b3d3333",
+        "left": "779870c2b95fc5bbce1e82471edf388a958a9eeaa1128348e87d6895609ece88",
+        "bottom": "2b16ed43b0b3ed327f252743288487d48a96ada59ee71e4c3a4011f70d8e8c1e",
+        "rear": "1f39a20f6601308fd7ec3d092f05c0243ae7ca68d9ca5277dad65f3d0c36f036"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:52:55.534110+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-cracked-studio-stage-panel-floor.png",
+          "sha256": "52576a646db4407bfa72a1ead117ee5153a33ddffbd0b82c082ad6e280697e6b",
+          "rgba_sha256": "5a17108c1ed467226dd3293833b46e7f6023965bdb5a30dc80570f0e700e1041"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "east": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "south": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "west": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

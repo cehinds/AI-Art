@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-arena-stone-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-arena-stone-stairs-up",
+      "source_sha256": "0e18998cc5b81162a2734095653c87a8ffce2b88d76762c900466d45db0e4445",
+      "primary_source": {
+        "asset_id": "early-arenas-arena-stone-stairs-up",
+        "path": "early-arenas/components/early-arenas-arena-stone-stairs-up.png",
+        "sha256": "0e18998cc5b81162a2734095653c87a8ffce2b88d76762c900466d45db0e4445",
+        "rgba_sha256": "b97cebfc4bf3585db1eb5aff8dd670cbbdfa9ebb4e6674e0be813331d48eafd2"
+      },
+      "image_hashes": {
+        "front": "42a43ac006b3e145db55f54ca5552116b9ba79db3820cb8069ddab95ba0203ab",
+        "top": "728ce201204722763dbfefd968ad0b857c6691094444748a44fa458d970230dc",
+        "right": "1452ea35ba9dea365a6c33517be8f2e8eab935630076153bdf86c43d70ac3bc9",
+        "left": "e8eae4c24b4ae4e2326034b067e692aa354d04ab36c67753054b1db17db2afff",
+        "bottom": "997abec55b32d25a1e3c1cc95e1a136106fc9422ff2ca62bac73fdcbfe9b0e02",
+        "rear": "8fb8fc2ba8fcf2e273d6330e341703c888c2cba8477eca4eac0e5eae6e25389c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:19:38.923825+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-arena-stone-stairs-up.png",
+          "sha256": "0e18998cc5b81162a2734095653c87a8ffce2b88d76762c900466d45db0e4445",
+          "rgba_sha256": "b97cebfc4bf3585db1eb5aff8dd670cbbdfa9ebb4e6674e0be813331d48eafd2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

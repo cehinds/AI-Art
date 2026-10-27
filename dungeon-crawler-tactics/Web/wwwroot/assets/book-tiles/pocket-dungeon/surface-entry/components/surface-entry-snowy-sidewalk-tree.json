@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:snow",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "surface-entry"
+    "surface-entry",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-snowy-sidewalk-tree.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-snowy-sidewalk-tree.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-snowy-sidewalk-tree",
+      "source_sha256": "c84629471ef64fddc9b2b3da5d70d08d46b6f0043e0c20e5db7ef8b77b23af57",
+      "primary_source": {
+        "asset_id": "surface-entry-snowy-sidewalk-tree",
+        "path": "surface-entry/components/surface-entry-snowy-sidewalk-tree.png",
+        "sha256": "c84629471ef64fddc9b2b3da5d70d08d46b6f0043e0c20e5db7ef8b77b23af57",
+        "rgba_sha256": "a74c9f145a740f51567b9ab3826149549fa08f14b4b59640c0bf9797ac86ef53"
+      },
+      "image_hashes": {
+        "front": "58e7e5a4db21f5e862c3551be04e12527983a1ac2370257140439890632af653",
+        "top": "b51b0d9d099a189d76dc9d726da93f9d6ccb4b66750ef7ef79356ffe246c3a4e",
+        "right": "7565672e9d5e1845df0021ecb3c95afcd2977d09cfd54708fcecfd145084c437",
+        "left": "747c8c045610e41207e8aad65e514a82a1ca3858f30e271f17c162c464251e13",
+        "bottom": "c47bb9ebe30b9f4bee56cbf69da19b709794e926d138a1cc82fbf6a863f1a2b0",
+        "rear": "6128b34dd37b99a1be51f0818cde508bdb5b5bba363cdee624931edb27c002ab"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:38:00.462243+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-snowy-sidewalk-tree.png",
+          "sha256": "c84629471ef64fddc9b2b3da5d70d08d46b6f0043e0c20e5db7ef8b77b23af57",
+          "rgba_sha256": "a74c9f145a740f51567b9ab3826149549fa08f14b4b59640c0bf9797ac86ef53"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:snow",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

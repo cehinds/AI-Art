@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "race-circuits",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-blank-race-leaderboard.png",
@@ -118,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -137,39 +149,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-blank-race-leaderboard.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-blank-race-leaderboard",
+      "source_sha256": "f4acf81869169e0e4a2d8b4014afb02721b82326a6202e298db682af342fdcfc",
+      "primary_source": {
+        "asset_id": "race-circuits-blank-race-leaderboard",
+        "path": "race-circuits/components/race-circuits-blank-race-leaderboard.png",
+        "sha256": "f4acf81869169e0e4a2d8b4014afb02721b82326a6202e298db682af342fdcfc",
+        "rgba_sha256": "71be09490f85112f0cd67ac2c88f022cba27cc8e4eff0baa79b7a525a365ca52"
+      },
+      "image_hashes": {
+        "front": "3ae513a9e504a996931b1c9842a1b15181b3ac3aa6e2d70ce92f3ee47ddb7da4",
+        "top": "f7be4db804d2b2d7eeaccb0c2e08b6033de83b10008bc447975eec09bd80ceb4",
+        "right": "27f9c9a96267c4cb2dd48e67431c808922020ef826af1dd583018fb288326daf",
+        "left": "2b40c96ab2c4eead196b26e58fbc755193aa52fdf467238e732def1209049536",
+        "bottom": "ed0cc62f229e54a8aedad5a32322bfe4af5cd27b7e6ee521b513384cf0ed036e",
+        "rear": "d973e4206e21f8eea14840fe0f565411a122b3a8c772c799d3e7d6ba2bc64878"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-blank-race-leaderboard.png",
+          "sha256": "f4acf81869169e0e4a2d8b4014afb02721b82326a6202e298db682af342fdcfc",
+          "rgba_sha256": "71be09490f85112f0cd67ac2c88f022cba27cc8e4eff0baa79b7a525a365ca52"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,18 +241,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "environment:unspecified",
@@ -99,33 +100,63 @@
     "applicable": true,
     "complete": false,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-02.rear"
+    },
+    "reason": "Principal views exist but the set remains unapproved or unfinished.",
+    "geometry_qa": {
+      "status": "needs-correction",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-carl-kick-02",
+      "source_sha256": "f2918510c855b5719c7cf1a3160918d7d813250874e813ba30e51b6e4bf0647a",
+      "primary_source": {
+        "asset_id": "attacks-carl-kick-02",
+        "path": "components/attacks-carl-kick-02.png",
+        "sha256": "f2918510c855b5719c7cf1a3160918d7d813250874e813ba30e51b6e4bf0647a",
+        "rgba_sha256": "462fc2c3472165477cc8f28b89836eb69afbda8170812c9f699b64f1bb3ccb06"
+      },
+      "image_hashes": {
+        "front": "fd6ce9ceadc0b3dbd653c34e4df8fe11f173ae7305755b0d900f5b6d41170d64",
+        "top": "9e249326690e343f6fa2b6c811bd7414da1ff057ed527078c497c2e1be9cc272",
+        "right": "8a9f423c9896e3667e552f68760534d7d279510f74318224ea615c89b46681b7",
+        "left": "6290b5aa9d34452838ac3b445282a34e123276f55a602d0cb2263c416a13112a",
+        "bottom": "ba2636c0bcf681c55debea1167016983b655593ad0f85e1c0f2b7851968c8e53",
+        "rear": "570b682107a50e3a0bc06b243194a228d1ba011caf09d65c5c46944f5c29d9f3"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T08:44:02.704092+00:00",
+      "notes": [
+        "Independent current canonical source+six partial review: FRONT accepted as illustrative frontal torso with intentional head/shoulder turn; opposite side profiles distinct, dorsal TOP and REAR coherent. BOTTOM remains failed and actual output-tool blocked; no whole-set approval. Other five explicitly accepted at captured hashes."
+      ],
+      "affected_views": [
+        "bottom"
+      ]
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -138,7 +169,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +185,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "bite",
     "environment:unspecified",
@@ -97,35 +98,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-01.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-mongo-bite-01",
+      "source_sha256": "c45d69576cc2f14802aa0c2ade9a9614c17cef2341d175bc013aadf7ce053491",
+      "primary_source": {
+        "asset_id": "attacks-mongo-bite-01",
+        "path": "components/attacks-mongo-bite-01.png",
+        "sha256": "c45d69576cc2f14802aa0c2ade9a9614c17cef2341d175bc013aadf7ce053491",
+        "rgba_sha256": "a328d77b4c7cfa8f9ef01084ec29e032ac0e5dbdbc83ccc83f216d9efb84684c"
+      },
+      "image_hashes": {
+        "front": "1e4441dad43784250d3e1f8f131a3af48a3a4558fb8475fc6f4b1db47fe904e9",
+        "top": "5c99fe0b9f83a54e4faf01d1bc2979cbb46ffa0d09051eb2b2690880fa8d513a",
+        "right": "9b4fd66d77860e00f751b9d4aaef1350f209609a7b0dda363bca78704f78c892",
+        "left": "02393ec3033c2bd09440cab8241ee04b3c9bca568086cbfd5287086c9291deec",
+        "bottom": "f604d9837b468672ba366c9dafff90babe8609150afd7d076992a0d1478781e5",
+        "rear": "587d6f34729c59ed36d2d3d6d06af5724f869f0c778b633230c750a00f6e934a"
+      },
+      "reviewer": "views_equipment",
+      "reviewed_at": "2026-10-26T00:59:22.804502+00:00",
+      "notes": [
+        "All six principal views preserve the exact bite-frame phase and open/closed beak state; frontal and side directions are distinct, top shows the wing/tail plan, and underside shows belly/feet without the face."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "ee0f2dbd006c249d7e518d76c2eade949197a42e61c51ad9decbe8c9fad8c0ee",
+        "reviewed_reference": {
+          "path": "components/attacks-mongo-bite-01.png",
+          "sha256": "c45d69576cc2f14802aa0c2ade9a9614c17cef2341d175bc013aadf7ce053491",
+          "rgba_sha256": "a328d77b4c7cfa8f9ef01084ec29e032ac0e5dbdbc83ccc83f216d9efb84684c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -138,7 +176,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +192,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

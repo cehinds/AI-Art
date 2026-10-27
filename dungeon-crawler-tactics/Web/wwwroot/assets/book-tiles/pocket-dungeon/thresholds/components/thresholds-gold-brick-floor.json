@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:floor",
-    "thresholds"
+    "thresholds",
+    "walkability:allowed"
   ],
   "image": {
     "path": "thresholds/components/thresholds-gold-brick-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-gold-brick-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-gold-brick-floor",
+      "source_sha256": "f9fb9bb6557d1dd98453008609aaf4d651dabf465dda7041febd3fa40826dfdc",
+      "primary_source": {
+        "asset_id": "thresholds-gold-brick-floor",
+        "path": "thresholds/components/thresholds-gold-brick-floor.png",
+        "sha256": "f9fb9bb6557d1dd98453008609aaf4d651dabf465dda7041febd3fa40826dfdc",
+        "rgba_sha256": "93cdf4eb98aebee73fee027d38008193f7d1e706373283d4d11a7b51cdc05c94"
+      },
+      "image_hashes": {
+        "front": "6efd03c51090d095810060f87bd17f65093fb49c20915a4d047a26b86e54e4a8",
+        "top": "cc7b8b6e07a42512e92ac851b1e7f0347c401c86e3c052749453deb9d116916f",
+        "right": "7803b0af72947a372ba59cf9f7532d81bb6a7781c8cbb32d9b4f87a318464a68",
+        "left": "ff24fcf90e4507914e7f95c7ffe36e378ac36c738e12c2a14b5d8bd7a28d67e0",
+        "bottom": "f9a561bfcede689d0574a882c8d38489b6e2d465691642edca2286ad36cd8b01",
+        "rear": "8437ffc830dc6dbfb1617e9fb24ec798714e72528ad25f51a2a434f30a18b799"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:37:55.405502+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-gold-brick-floor.png",
+          "sha256": "f9fb9bb6557d1dd98453008609aaf4d651dabf465dda7041febd3fa40826dfdc",
+          "rgba_sha256": "93cdf4eb98aebee73fee027d38008193f7d1e706373283d4d11a7b51cdc05c94"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.thresholds"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

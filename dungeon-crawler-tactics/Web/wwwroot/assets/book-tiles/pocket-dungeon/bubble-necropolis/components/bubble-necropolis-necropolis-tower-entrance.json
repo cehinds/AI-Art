@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-necropolis-tower-entrance.png",
@@ -118,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -137,39 +149,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-necropolis-tower-entrance.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-necropolis-tower-entrance",
+      "source_sha256": "c240965db69a12e0f77b2cfca650b2e1c72b09c8cfa2531fdfdf6631741b9d52",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-necropolis-tower-entrance",
+        "path": "bubble-necropolis/components/bubble-necropolis-necropolis-tower-entrance.png",
+        "sha256": "c240965db69a12e0f77b2cfca650b2e1c72b09c8cfa2531fdfdf6631741b9d52",
+        "rgba_sha256": "8495900c98f947b5434c990081fb9b1d4fc28c177570252a8c7ef61a85b446d9"
+      },
+      "image_hashes": {
+        "front": "c54f5cd3d33338abfe0655576ee76c720f4cc876e85202c8ae1206e7e66ab37d",
+        "top": "a062e6b7e297554da979eeafa8f26dcc6c1cd70b2c1a1bc690b021749b3b7699",
+        "right": "6ca7319625279d5a6993a21752cec94d7f5279e4e7e7ead621c12d9c4ac98b5a",
+        "left": "edbf51dce4a3491abc1807e13372d2c9f3ff816e69a8566c9e8c1d87dc84c1b5",
+        "bottom": "d1f7e090bdfac534e40c924b9917f4f5450363bd6fddac24ceb120b3593afa7a",
+        "rear": "72f4ffad335b2f7b9f87772ec41c0adfd6a86da18be98c93cddd44004ad75021"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:42:06.023581+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-necropolis-tower-entrance.png",
+          "sha256": "c240965db69a12e0f77b2cfca650b2e1c72b09c8cfa2531fdfdf6631741b9d52",
+          "rgba_sha256": "8495900c98f947b5434c990081fb9b1d4fc28c177570252a8c7ef61a85b446d9"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -178,18 +241,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

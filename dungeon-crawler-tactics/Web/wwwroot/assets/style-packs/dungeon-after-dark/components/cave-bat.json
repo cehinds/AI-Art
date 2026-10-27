@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "bat",
     "cave",
     "dungeon-after-dark",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "cave-bat",
+      "source_sha256": "4152143799cc8ed11475bb38b415095d5e8d52aba48e84359d42ad51ce7ee2f3",
+      "primary_source": {
+        "asset_id": "cave-bat",
+        "path": "components/cave-bat.png",
+        "sha256": "4152143799cc8ed11475bb38b415095d5e8d52aba48e84359d42ad51ce7ee2f3",
+        "rgba_sha256": "772856467393876b12a50e73377b0a8bb2e8fb3786fbecf385e7f739c7abe204"
+      },
+      "image_hashes": {
+        "front": "bce040fee1cd6535cf6721a22f9fabeb168a4ed23f3de8b3f6e172046d175e07",
+        "top": "9aba9483d0fb8b0256165d845143d004db4b3e4e097f81fd408626b8109cea24",
+        "right": "025406439a87ba0ad7416c55901fa3292b9f870cb75dc13078aaa3b50d163be7",
+        "left": "10217622cbe978eb3605ed32f00ddf7e7f54c720ebae29fd1121676c40dda1c4",
+        "bottom": "b7f1455e338f05bf3ad2c46454a1584c7def63b7745e392e9e3c8fe64dc44568",
+        "rear": "aa97fc6339a07ad11f370b6e4ef5b13e512041086785d21315018fdadc66bc33"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:08:19.051345+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/cave-bat.png",
+          "sha256": "4152143799cc8ed11475bb38b415095d5e8d52aba48e84359d42ad51ce7ee2f3",
+          "rgba_sha256": "772856467393876b12a50e73377b0a8bb2e8fb3786fbecf385e7f739c7abe204"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

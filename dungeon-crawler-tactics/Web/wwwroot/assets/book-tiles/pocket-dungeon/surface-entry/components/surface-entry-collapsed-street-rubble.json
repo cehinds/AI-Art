@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "surface-entry"
+    "surface-entry",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-collapsed-street-rubble.png",
@@ -150,6 +152,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -169,39 +181,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-collapsed-street-rubble.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-collapsed-street-rubble",
+      "source_sha256": "ad7e826d15a1d1a6bb80a10d4f38a27d23e9216ddade215a6da5d07484f5189d",
+      "primary_source": {
+        "asset_id": "surface-entry-collapsed-street-rubble",
+        "path": "surface-entry/components/surface-entry-collapsed-street-rubble.png",
+        "sha256": "ad7e826d15a1d1a6bb80a10d4f38a27d23e9216ddade215a6da5d07484f5189d",
+        "rgba_sha256": "3557d3806d75f4cd64db3386f1aee07f4f2c0c700f80bde4652cb13ef2ebf334"
+      },
+      "image_hashes": {
+        "front": "6ae13a7546bf5a09d731f708a351657b175f3714d420951c41aec6ac5623b514",
+        "top": "8fcee5aafcc7224c01c6f330be0272262c2ba76c87c7adf247cb006edd8e057d",
+        "right": "51012c7021350e95633789a724cdb140bc5edd47c12f97e96b8d38c25df87f35",
+        "left": "f765c21d91287b478afc5431f57fbe9ab7e1c0ff78c10fd2a74c76912ce5c56c",
+        "bottom": "1cb686ad3e5d11ace3a9e743ab57d93d24755c84773bb805e2d078f0fa20d191",
+        "rear": "4b3975e3ac8fb0bc900d81bde85e79f474f2455ac1ebd8904fe0334436437658"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:56:35.911073+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-collapsed-street-rubble.png",
+          "sha256": "ad7e826d15a1d1a6bb80a10d4f38a27d23e9216ddade215a6da5d07484f5189d",
+          "rgba_sha256": "3557d3806d75f4cd64db3386f1aee07f4f2c0c700f80bde4652cb13ef2ebf334"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -210,18 +273,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

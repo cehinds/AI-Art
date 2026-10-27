@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-shallow-water-edge.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-shallow-water-edge.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-shallow-water-edge",
+      "source_sha256": "2a9cd47e6bcca487d9d0a08ccf67122863374c69aaa07c829f479204de8cc468",
+      "primary_source": {
+        "asset_id": "bubble-sea-shallow-water-edge",
+        "path": "bubble-sea/components/bubble-sea-shallow-water-edge.png",
+        "sha256": "2a9cd47e6bcca487d9d0a08ccf67122863374c69aaa07c829f479204de8cc468",
+        "rgba_sha256": "166becdf87a0877e32a9ca18c83a403d227fdf01317c4fb843fccf8e3c7c6f0a"
+      },
+      "image_hashes": {
+        "front": "e7efb295ae431962df2ea7c80ef2d1f3ea9d0497e84113faa69733f25b132771",
+        "top": "0a565eae5c08b669d46bbab657f8a30eeba43712abccce36c8a95522eb7a9ff6",
+        "right": "4e44c0e3b42fd6e9baf61aa155607049b070e74b084bd7ef70e62aab4141d136",
+        "left": "f467bb685dedd0a81da5790fda00dc735f6831be7c83fb8392c7db13c13acc44",
+        "bottom": "f2df29d8360d43cceab66c87b87b8271ec78e8daed9c3e630e5b7e574b7de98c",
+        "rear": "5f3924d4d6c10aacbbaa9c7901436a224cc2ad53da9dfca36c8a5d57d6b088e7"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.912830+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-shallow-water-edge.png",
+          "sha256": "2a9cd47e6bcca487d9d0a08ccf67122863374c69aaa07c829f479204de8cc468",
+          "rgba_sha256": "166becdf87a0877e32a9ca18c83a403d227fdf01317c4fb843fccf8e3c7c6f0a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:water",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:water",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

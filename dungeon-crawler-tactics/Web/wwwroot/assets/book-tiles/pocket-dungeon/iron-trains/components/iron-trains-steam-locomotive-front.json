@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-trains",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-steam-locomotive-front.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-steam-locomotive-front.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-steam-locomotive-front",
+      "source_sha256": "f9fd4c866e30e90b0eba8ef10642ba027f2d69befa561df6265d6e2f939d3c80",
+      "primary_source": {
+        "asset_id": "iron-trains-steam-locomotive-front",
+        "path": "iron-trains/components/iron-trains-steam-locomotive-front.png",
+        "sha256": "f9fd4c866e30e90b0eba8ef10642ba027f2d69befa561df6265d6e2f939d3c80",
+        "rgba_sha256": "b6a622d893f4425511c3b7ab2dcaa4c30abaf71541968a556cfcf97091091764"
+      },
+      "image_hashes": {
+        "front": "ba26d89c6eee20464ceef03189102f5c81e753db6919d182d7bf5b4349e61b66",
+        "top": "5625870a74a47bb375adf5a329ccf009e20cae0ecb210f6fd5e52674341df892",
+        "right": "a35938d1b093979cb14232ebfaa04079a6d114f10ccdba266e706032e166cc68",
+        "left": "98497175d8c275d14e15753944028dbeeb7538d8786c217cb2dcc3e2375fba18",
+        "bottom": "9471df7054c793d0ab3628ae1cbb6df0bfe8a931545ee3208eade84413928f7b",
+        "rear": "bf42adf5a4a6195fd213df6dd95bb85adb8da20941dca10fe2065689a5b2be39"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:10:30.526018+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-steam-locomotive-front.png",
+          "sha256": "f9fd4c866e30e90b0eba8ef10642ba027f2d69befa561df6265d6e2f939d3c80",
+          "rgba_sha256": "b6a622d893f4425511c3b7ab2dcaa4c30abaf71541968a556cfcf97091091764"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

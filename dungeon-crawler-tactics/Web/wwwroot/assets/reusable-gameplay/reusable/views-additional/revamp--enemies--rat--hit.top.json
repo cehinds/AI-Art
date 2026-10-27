@@ -9,12 +9,12 @@
     "attachment:stairs",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "role:object",
     "sprite-frame",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "revamp--enemies--rat--hit",
@@ -77,5 +77,41 @@
     "source_image_sha256": "e47de947658e6dd98d6d403e51897a13193f682e25fbb1d5f3f0ee20f310fa01",
     "generation_request_id": "exec-023d98c1-c545-439a-bfb1-aa5b35df6568",
     "generation_prompt": "reusable/views-additional/raw/rat-three-top-v1-20261026.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--enemies--rat--hit"
   }
 }

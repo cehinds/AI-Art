@@ -3,12 +3,22 @@
   "name": "Reinforced Field Fortification north wall top",
   "kind": "sprite",
   "tags": [
-    "faction-battlefield",
-    "wall",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "faction-battlefield",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "top",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/faction-battlefield-reinforced-field-fortification-north-wall.top.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-north-wall.png",
     "source_sha256": "c8b6426137a5d300c9e9bcfb3138351d38e802b94174148bc2d416c61857e6cd",
-    "generated_atlas": "raw/generated-atlases/faction-battlefield-north-wall-plans-batch01-v2.png",
+    "generated_atlas": "reusable/views-additional/raw/generated-atlases/faction-battlefield-north-wall-plans-batch01-v2.png",
     "generated_atlas_sha256": "6e2013eea7f38575eb527ff72902dc18a9550307bb5ad08f0732484d0634121f",
     "normalization": {
       "alpha_threshold": 245,
@@ -47,7 +57,6 @@
       "reference_view": "front",
       "reference_sha256": "9e5d299b2187795e84182a373a206c0768095448fb3dd1bf9e4317a4a6ec4509",
       "scale_axis": "width",
-      "shared_scale": 0.2173458725182863,
       "render_size": [
         208,
         57
@@ -60,9 +69,53 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale": 0.2173458725182863,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "faction-battlefield-reinforced-field-fortification-north-wall",
+        "view": "top",
+        "source_path": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-north-wall.png",
+        "source_sha256": "c8b6426137a5d300c9e9bcfb3138351d38e802b94174148bc2d416c61857e6cd",
+        "atlas_path": "reusable/views-additional/raw/generated-atlases/faction-battlefield-north-wall-plans-batch01-v2.png",
+        "atlas_sha256": "6e2013eea7f38575eb527ff72902dc18a9550307bb5ad08f0732484d0634121f",
+        "active_output_sha256": "0bd2b7ad67ea242f252065fd8a3e204fa69769e9f45a58d8c70c2a0c1d8f0c35",
+        "active_output_rgba_sha256": "c068c162098505fc00fd4bc8dd98b3ab5eab5427a54f58a4f3556eb68d2aea25",
+        "crop_bounds_xyxy": [
+          82,
+          227,
+          1039,
+          488
+        ],
+        "resized_dimensions_px": [
+          208,
+          57
+        ],
+        "scale": 0.2173458725182863,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Replace the incorrect front-facing plan with a true orthographic top/bottom principal projection of the fortification wall. Each plan spans the accepted full wall length and shallow physical thickness; top shows the three sandbag caps and timber rail from above, bottom shows timber backing and support beams from below."
+    "notes": "Replace the incorrect front-facing plan with a true orthographic top/bottom principal projection of the fortification wall. Each plan spans the accepted full wall length and shallow physical thickness; top shows the three sandbag caps and timber rail from above, bottom shows timber backing and support beams from below.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.shared_scale",
+            "value": 0.2173458725182863
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -114,5 +167,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-battlefield-reinforced-field-fortification-north-wall"
+  }
 }

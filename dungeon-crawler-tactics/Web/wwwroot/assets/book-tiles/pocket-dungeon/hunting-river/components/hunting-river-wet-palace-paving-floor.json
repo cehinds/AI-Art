@@ -11,13 +11,13 @@
     "book-location",
     "environment:dungeon",
     "ground",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-wet-palace-paving-floor.png",
@@ -141,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,40 +182,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wet-palace-paving-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-wet-palace-paving-floor",
+      "source_sha256": "2ddd7d566df8bd7e7714ccc188597a115de53e5b8a6b1f3dacd9d666191301e7",
+      "primary_source": {
+        "asset_id": "hunting-river-wet-palace-paving-floor",
+        "path": "hunting-river/components/hunting-river-wet-palace-paving-floor.png",
+        "sha256": "2ddd7d566df8bd7e7714ccc188597a115de53e5b8a6b1f3dacd9d666191301e7",
+        "rgba_sha256": "40499f63b4dff91bb1b0caf47a114fe422dfcdb2de551af6eeb5f5f9259765fc"
+      },
+      "image_hashes": {
+        "front": "eb1c6bfac5b6e6722cf87d4ee21b9e81074332dd4dbfc9dee5623180724ecaa0",
+        "top": "8fdd1e3f18aea792c34be452a22f444bcf7b4816d1491709a00367be7edd3339",
+        "right": "6b88a082f5a133a14c8976dcf57f8cb4e4acfc01b324591428cc5321acef600a",
+        "left": "44735aebf42a4cd6163eff94c46f691352f30714d538721d1befb62a8b93845e",
+        "bottom": "7794d6b4e6883b1fcc0c59573f9566d3ad67da6210e00d356f0d20a9fc2c72f1",
+        "rear": "79b1189a235ba879dbb69c0fb70bd24268f706e01dab43aa24ea178102e7e0e2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T19:06:00.999271+00:00",
+      "notes": [
+        "Source and all six current outputs reviewed. Natural substrate and four matching lateral profiles remove the fabricated tray while preserving source top."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-wet-palace-paving-floor.png",
+          "sha256": "2ddd7d566df8bd7e7714ccc188597a115de53e5b8a6b1f3dacd9d666191301e7",
+          "rgba_sha256": "40499f63b4dff91bb1b0caf47a114fe422dfcdb2de551af6eeb5f5f9259765fc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-river"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-river"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:water"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,
@@ -218,7 +281,7 @@
       "none": []
     },
     "provides": [
-      "surface:water"
+      "surface:floor"
     ],
     "exclude_self": true,
     "compatibility_group": null,

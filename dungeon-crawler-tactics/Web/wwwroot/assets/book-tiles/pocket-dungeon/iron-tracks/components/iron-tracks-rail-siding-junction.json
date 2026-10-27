@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-siding-junction.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-siding-junction.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-siding-junction.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-siding-junction.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "iron-tracks-rail-siding-junction.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-siding-junction.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-siding-junction.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-siding-junction",
+      "source_sha256": "620909b43f186c1f73d1e61db63dfc7fcc643b384414e25b57f5d92b888e525c",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-siding-junction",
+        "path": "iron-tracks/components/iron-tracks-rail-siding-junction.png",
+        "sha256": "620909b43f186c1f73d1e61db63dfc7fcc643b384414e25b57f5d92b888e525c",
+        "rgba_sha256": "6c4782ef557484ffec9f26eb64122fe3a972c1a265952785947eebc24aa70246"
+      },
+      "image_hashes": {
+        "front": "fe80dfd1002fa8b2dd115f2c82f86784d9cad5d7e360f389a9cc0434f2db70c1",
+        "top": "0387d1d46e7d0e679c19316317695ff95492020ff7364d2c7625f35febd69165",
+        "right": "11afdb6e62e98c79d45cc93261be429bde637fcbd3ea9bd4c3db8b0471247ccb",
+        "left": "4f84072b469425cd87fa711f1d79d49e0ee5248ecb9c05928bcf6c8d5c97f6e0",
+        "bottom": "2556bc26325f705c2ca137d0931eeccca6ea98a2520ddaa5a4e1e7b62c88f989",
+        "rear": "887197187f67f25d47db77538aac07722c1ea986eeeaaf9a0f9daa690c66311c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:45:09.857568+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-siding-junction.png",
+          "sha256": "620909b43f186c1f73d1e61db63dfc7fcc643b384414e25b57f5d92b888e525c",
+          "rgba_sha256": "6c4782ef557484ffec9f26eb64122fe3a972c1a265952785947eebc24aa70246"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

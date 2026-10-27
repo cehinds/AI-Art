@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "carl",
     "environment:unspecified",
@@ -97,35 +98,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-carl-kick-04.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-carl-kick-04",
+      "source_sha256": "466811dcaeb322a6e71914c88a55333a0b20d70377a396a6b588d8054e9f3524",
+      "primary_source": {
+        "asset_id": "attacks-carl-kick-04",
+        "path": "components/attacks-carl-kick-04.png",
+        "sha256": "466811dcaeb322a6e71914c88a55333a0b20d70377a396a6b588d8054e9f3524",
+        "rgba_sha256": "436c0e661d2602cce1ddcb6d3a9947e87bc0a3d403db65f5ec10fac6d57823eb"
+      },
+      "image_hashes": {
+        "front": "3a7098e0644628b76be99c97ce0b1cb909fb4c750d0a74d086b8eeb780f2e122",
+        "top": "6697939b45046d73cd1a38111035624375a4ef8ff31e7b31669a937467822dec",
+        "right": "80be3b11d4eff45483731829061aa637bad5675a24e7cc0be11023480a8e9784",
+        "left": "59ca6f89de115932a2e910b102f7e223788a6af571674ca4987d9cdeb81218fa",
+        "bottom": "e7d9e02af4d093dc793ad541a0c288d5b70cfa152cfc5150b7a7314444ae13c1",
+        "rear": "72773d89ef4d5c410ce41a53a13b3d2e005c656bd39febaf533caadfe47a849f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:41:11.843950+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/attacks-carl-kick-04.png",
+          "sha256": "466811dcaeb322a6e71914c88a55333a0b20d70377a396a6b588d8054e9f3524",
+          "rgba_sha256": "436c0e661d2602cce1ddcb6d3a9947e87bc0a3d403db65f5ec10fac6d57823eb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -138,7 +175,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +191,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

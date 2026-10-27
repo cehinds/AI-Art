@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-colonial-street-paving-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-colonial-street-paving-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-colonial-street-paving-floor",
+      "source_sha256": "2d7c71f13fac4c9b43d126578c301e4f76ddfcf99b5e9d48dfddff8d7978edca",
+      "primary_source": {
+        "asset_id": "ghost-havana-colonial-street-paving-floor",
+        "path": "ghost-havana/components/ghost-havana-colonial-street-paving-floor.png",
+        "sha256": "2d7c71f13fac4c9b43d126578c301e4f76ddfcf99b5e9d48dfddff8d7978edca",
+        "rgba_sha256": "4b6be294a0a7a0cd308ca1c290b0a7a28d21831feb7855efc5e14b72e668f2e4"
+      },
+      "image_hashes": {
+        "front": "c477a7028b90d0c4a7a4635780917754daa4fd1c13a8f6f68a894190d698359e",
+        "top": "5dc51596676186fdbbf0239a5bb2ed8a83df4fafcef2670e3b07e2798200bb2a",
+        "right": "557802280316471036586e91d108d77c5160cfcd7d466c6b33c70b28f06b83b0",
+        "left": "a79985fe88197bba84445d82f7c18410ea8e7fc1f5aee6f0aa6feeeac339f19e",
+        "bottom": "b321b614e667b83e8e7bdf478771219a23f475bda1cd2aca5c0dec902cdc2d2c",
+        "rear": "e32615a5512d859c59a5bf581913a8165baf043b476d39dc493fc457f32369b9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:20:01.511781+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-colonial-street-paving-floor.png",
+          "sha256": "2d7c71f13fac4c9b43d126578c301e4f76ddfcf99b5e9d48dfddff8d7978edca",
+          "rgba_sha256": "4b6be294a0a7a0cd308ca1c290b0a7a28d21831feb7855efc5e14b72e668f2e4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "east": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "south": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "west": [
+      "join.floor",
+      "visual.ghost-havana"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

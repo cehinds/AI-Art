@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-airship/components/bubble-airship-bomb-rack.png",
@@ -110,6 +111,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,31 +140,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-airship-bomb-rack.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-airship-bomb-rack",
+      "source_sha256": "8f748fe5b9abfd291675f7e918670700ef91d232852f65b33dc1c9e4cd8b6dd0",
+      "primary_source": {
+        "asset_id": "bubble-airship-bomb-rack",
+        "path": "bubble-airship/components/bubble-airship-bomb-rack.png",
+        "sha256": "8f748fe5b9abfd291675f7e918670700ef91d232852f65b33dc1c9e4cd8b6dd0",
+        "rgba_sha256": "23cea2679887c460e74c5346504e745ac224431bd2963685b07efaf2b225a833"
+      },
+      "image_hashes": {
+        "front": "9c5621b4811e418665c2e5458dd0e0b1e27ac6970979fd856f339d144c309b38",
+        "top": "abf70fc24d0909f3418e296c5af5e13bedb50654b48d6591d3214cff505877b0",
+        "right": "7f021978a79c0a157b9da67f82cf723ce6f2402ae28419f800b7860c44289dd9",
+        "left": "9d20eb86b9c74a727e17bff2cd782558aadf91c2b8af0ee81a636a67d32f02aa",
+        "bottom": "ad7bfafb18fc440bb641d00a9102c189693a14456887563f31f3984093921f3b",
+        "rear": "bb90875df7738c0cc8fd50607005e6220cb93714ec8bc1305e2899ea88feda32"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:55:40.596971+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-airship/components/bubble-airship-bomb-rack.png",
+          "sha256": "8f748fe5b9abfd291675f7e918670700ef91d232852f65b33dc1c9e4cd8b6dd0",
+          "rgba_sha256": "23cea2679887c460e74c5346504e745ac224431bd2963685b07efaf2b225a833"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,12 +237,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

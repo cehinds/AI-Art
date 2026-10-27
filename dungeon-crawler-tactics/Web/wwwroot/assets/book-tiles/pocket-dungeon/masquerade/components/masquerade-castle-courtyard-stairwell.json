@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:castle",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "masquerade/components/masquerade-castle-courtyard-stairwell.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-castle-courtyard-stairwell.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-castle-courtyard-stairwell",
+      "source_sha256": "f4e27635ea6b650d71870958383ef149af42d186624ace224e46a3b9a31a6362",
+      "primary_source": {
+        "asset_id": "masquerade-castle-courtyard-stairwell",
+        "path": "masquerade/components/masquerade-castle-courtyard-stairwell.png",
+        "sha256": "f4e27635ea6b650d71870958383ef149af42d186624ace224e46a3b9a31a6362",
+        "rgba_sha256": "6c4035997bf96e1d3a74c0c97fdb757f495149973a51832b050763bfee13c256"
+      },
+      "image_hashes": {
+        "front": "caf8c1cc9d3406b1a8f9f446ec164f8e9da9d9e247b924b8adfa52a25d55f06b",
+        "top": "07b00eda71f32b4211236520a6724ab3fd31336971703b1c7fcee0ade3ed2d6c",
+        "right": "fa8844e62fcd94dc805f83042f236a0df9a600b10eff83a1fdd197d9620a7268",
+        "left": "135b8920a85042fe672e73cdf0d68eafc466fa4533f070c889627bc471511267",
+        "bottom": "a6133f71ac28db0d7e33e4ea6f10ad986c398118841fd533c6f5c5b09b5c930f",
+        "rear": "62be09a8a4aacabc0d3a73b07f4c63eb845f59d889e43e8bbb3c67b6adee2774"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:19:48.028154+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-castle-courtyard-stairwell.png",
+          "sha256": "f4e27635ea6b650d71870958383ef149af42d186624ace224e46a3b9a31a6362",
+          "rgba_sha256": "6c4035997bf96e1d3a74c0c97fdb757f495149973a51832b050763bfee13c256"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:castle",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

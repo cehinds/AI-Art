@@ -1,0 +1,129 @@
+{
+  "id": "merchant-stall.rear",
+  "name": "Merchant stall rear",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "material:unspecified",
+    "merchant",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "rear",
+    "role:object",
+    "services",
+    "stall",
+    "style:pocket-dungeon"
+  ],
+  "object_id": "merchant-stall",
+  "view": "rear",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/merchant-stall.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "807628504c457d2b31f36fa1e30093fbff3b1b0a887047105feb1adeed91e2cf",
+    "rgba_sha256": "b1e1666da41604fca23157bc7f739a7d728922b990f834fe9c492e30a17bfad9"
+  },
+  "metadata_path": "reusable/views-services/merchant-stall.rear.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/merchant-stall.png",
+    "source_image_sha256": "01047db32249100eebc814cdfb71c2e5e04e961fb5bf089f19696a41e902aee3",
+    "generated_atlas": "reusable/views-services/atlas-services-a.png",
+    "generated_atlas_sha256": "3974284307b0e30ccc2aabd7d26043709de1c9c766353b91623a04ec0ffc6f19",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a transparent 6-column x 4-row orthographic pixel-art game asset atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly merchant-stall, mailbox, notice-board, vending-machine matching corresponding supplied source images. Every cell contains one complete, centered object. Preserve exact object identity, proportions, materials, colors, and recognizable decoration from that object's reference. True orthographic directions; top down, bottom underside, rear opposite front. Infer hidden surfaces coherently. No labels, scenery, floor/shadows, perspective, borders or grid marks. Crisp pixel-art, transparent background.",
+      "reference_images": [
+        "components/merchant-stall.png",
+        "components/mailbox.png",
+        "components/notice-board.png",
+        "components/vending-machine.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        0,
+        5
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        4
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        1243,
+        18,
+        262,
+        235
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8333333333333334,
+      "render_size_px": [
+        218,
+        196
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "merchant-stall"
+  }
+}

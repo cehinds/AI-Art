@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-club-carpet-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-club-carpet-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-club-carpet-stairs-up",
+      "source_sha256": "96eba8ee42892c312cb4271673f3cc1339cfd3a1b318355e8c55f79a4a15ae68",
+      "primary_source": {
+        "asset_id": "clubs-guilds-club-carpet-stairs-up",
+        "path": "clubs-guilds/components/clubs-guilds-club-carpet-stairs-up.png",
+        "sha256": "96eba8ee42892c312cb4271673f3cc1339cfd3a1b318355e8c55f79a4a15ae68",
+        "rgba_sha256": "1b5eb41b86a212ccaf39ef5262bb4396b64f57de4c7e1c6351f28a9a23d3c13a"
+      },
+      "image_hashes": {
+        "front": "c97015979a79c9269adb830ac6e14c564db1e3182d9367fc184ece694c8e9f61",
+        "top": "5a3a8f8065c204cdc29c26a36dcd1acb0256124fe4061fdf08ffacdcc4e877a9",
+        "right": "1d4e5f351b98499b652abb37b56393576009de390173bb663115592b01fd5cf2",
+        "left": "30a579cf98bc1bc335199f19b0e3b54d0e0dd3621c68a2bd10cb83d1f15662a7",
+        "bottom": "7f492abc6bec297f0166a698e4107cba2404059254b43c70d251c36f76003c5f",
+        "rear": "6fb928ee9d19b05a867e16ff7fcf33b5179ec035dc0a835581d2e2dc2980229b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:56:20.265000+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-club-carpet-stairs-up.png",
+          "sha256": "96eba8ee42892c312cb4271673f3cc1339cfd3a1b318355e8c55f79a4a15ae68",
+          "rgba_sha256": "1b5eb41b86a212ccaf39ef5262bb4396b64f57de4c7e1c6351f28a9a23d3c13a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/surface-entry-wet-city-pavement-floor--surface.png",
@@ -66,12 +67,30 @@
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "east": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "south": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "west": [
+      "join.floor",
+      "visual.surface-entry"
+    ]
   },
   "canonical_asset_id": "surface-entry-wet-city-pavement-floor",
   "attachment_generated_tags": [
@@ -81,7 +100,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

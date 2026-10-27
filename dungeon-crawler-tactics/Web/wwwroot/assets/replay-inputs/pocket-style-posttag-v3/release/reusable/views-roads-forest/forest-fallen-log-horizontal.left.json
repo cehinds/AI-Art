@@ -1,0 +1,137 @@
+{
+  "id": "forest-fallen-log-horizontal.left",
+  "name": "Fallen log horizontal left",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "fallen",
+    "forest",
+    "horizontal",
+    "inferred-view",
+    "left",
+    "log",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/forest-fallen-log-horizontal.left.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "71b161e54ddd18fcd0c42d548c0572bfd411a19a6a29363bbada4f706fe4ba03",
+    "rgba_sha256": "51c3c7adba90caaa4737c52c159b0c1b35aad716a40d63bad0c030effeb0274b"
+  },
+  "object_id": "forest-fallen-log-horizontal",
+  "view": "left",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/forest-fallen-log-horizontal.png",
+    "source_image_sha256": "ad7ade9f7bbd59e47f9cbaaffffb4a8b2b78702848ee0ea3ef8af9e6a2197c8b",
+    "referenced_source_images": [
+      {
+        "path": "components/forest-fallen-log-horizontal.png",
+        "sha256": "ad7ade9f7bbd59e47f9cbaaffffb4a8b2b78702848ee0ea3ef8af9e6a2197c8b"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/forest-batch04.png",
+    "generated_atlas_sha256": "e97e4c61948e1020304e85ccd5a65dddf61af86169b3bd50dc63d416f6bc4b2d",
+    "crop_bounds_px": {
+      "logical_cell": [
+        887,
+        0,
+        1183,
+        296
+      ],
+      "complete_component_bounds_atlas": [
+        898,
+        64,
+        1155,
+        259
+      ],
+      "component_labels": [
+        {
+          "label": 5,
+          "pixels": 35561,
+          "bounds_atlas": [
+            898,
+            64,
+            1155,
+            259
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.8029197080291971,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/forest-fallen-log-horizontal.left.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "environment:forest",
+    "existing",
+    "fallen",
+    "horizontal",
+    "log",
+    "material:unspecified",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "forest-fallen-log-horizontal"
+  }
+}

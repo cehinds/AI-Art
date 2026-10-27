@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-churned-battlefield-earth-stairs-down",
+      "source_sha256": "26ab23d37946886220537925f42e81dfede3694d4d3e2340afc8a81270069510",
+      "primary_source": {
+        "asset_id": "faction-battlefield-churned-battlefield-earth-stairs-down",
+        "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-stairs-down.png",
+        "sha256": "26ab23d37946886220537925f42e81dfede3694d4d3e2340afc8a81270069510",
+        "rgba_sha256": "55272291e45f7c6091865d94c6b2d20abd2902832b1b2484b180131a43157965"
+      },
+      "image_hashes": {
+        "front": "7b612c7864f51828bb52ff3838071c6d58968071b3a49df588155147e24ec67e",
+        "top": "51cfc2bf85d6ba59263bda3a26aa4d40820c4bc33f836afc052a5f4beb6f017e",
+        "right": "a0ce45ddcfcd384a37d273ef691114185bf1a2da501a24159b2a1b6b09800a05",
+        "left": "e4fa44dc47f2f429f4786102496c6285e10ac5f4c5b24220f352aff4c26c74ce",
+        "bottom": "0a35bddb30da6ad5bb697d84f0e39a4a86a56917d03097d929c906158af2983c",
+        "rear": "1d5d4ad798e53e956d43a9b2076772988c002c34f89835d94da5185f0128e7ee"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.611442+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-churned-battlefield-earth-stairs-down.png",
+          "sha256": "26ab23d37946886220537925f42e81dfede3694d4d3e2340afc8a81270069510",
+          "rgba_sha256": "55272291e45f7c6091865d94c6b2d20abd2902832b1b2484b180131a43157965"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

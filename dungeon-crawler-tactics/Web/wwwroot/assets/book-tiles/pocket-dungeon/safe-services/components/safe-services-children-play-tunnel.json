@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "safe-services",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-children-play-tunnel.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-children-play-tunnel.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-children-play-tunnel",
+      "source_sha256": "50ec69b13d9f262e0a144df56f18131f6c00f16e48d0e76bce8259f869db3298",
+      "primary_source": {
+        "asset_id": "safe-services-children-play-tunnel",
+        "path": "safe-services/components/safe-services-children-play-tunnel.png",
+        "sha256": "50ec69b13d9f262e0a144df56f18131f6c00f16e48d0e76bce8259f869db3298",
+        "rgba_sha256": "a67dc7b99183156f1e5708425e6cf306ec32e8906ca4118b09c6f9ee681d7e97"
+      },
+      "image_hashes": {
+        "front": "108f31ba5464c66f3d05a6af0bf4d91cd6b3ec71edf5c380ca501f73d79b1018",
+        "top": "b9b8c335a8655101231ed8d9b9b645741da78f24703fa1b4074d4a9c02d30d47",
+        "right": "af9012eeef9d0799f73031aaef763a87a39ebebd55e86d8e4779d5f0127ea220",
+        "left": "33c921741461da6720f3ebcd2faf3c2414de1ad6313bd8b04608f747408501ea",
+        "bottom": "d9491f53d13bf4e54c51f7095c8d8e34d06b7db5f7ee49907582a697e39b50c9",
+        "rear": "9b76be59b645b19083b4a38ee52ff1bd1e7eca3faa291f80869406fcc9fab45f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:56:35.911073+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-children-play-tunnel.png",
+          "sha256": "50ec69b13d9f262e0a144df56f18131f6c00f16e48d0e76bce8259f869db3298",
+          "rgba_sha256": "a67dc7b99183156f1e5708425e6cf306ec32e8906ca4118b09c6f9ee681d7e97"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

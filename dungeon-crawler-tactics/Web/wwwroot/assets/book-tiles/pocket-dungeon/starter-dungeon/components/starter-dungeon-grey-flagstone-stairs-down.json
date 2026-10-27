@@ -17,7 +17,8 @@
     "stairs",
     "starter-dungeon",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-grey-flagstone-stairs-down",
+      "source_sha256": "fb17aba0af414022c63109c9d9e9ce9a3a5130c39fc491ac47c38bb1f5f730b1",
+      "primary_source": {
+        "asset_id": "starter-dungeon-grey-flagstone-stairs-down",
+        "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-stairs-down.png",
+        "sha256": "fb17aba0af414022c63109c9d9e9ce9a3a5130c39fc491ac47c38bb1f5f730b1",
+        "rgba_sha256": "33b3e9b9bd78bf6856b2d94d10f9637e1787025a992cf415e85f027c8e5623cb"
+      },
+      "image_hashes": {
+        "front": "0d90b96d8b9c04d71f15f4662e33175a29ae51d9606712002164dbde4052b17c",
+        "top": "d3031c8c6c4cef0a675c584de518ad7581d14e297030b32e212de9dac786e8be",
+        "right": "419fe62f9e2e255381aa4777dfb1d5cc6d10297d47a4ff27c8fdc5ae454fd329",
+        "left": "c9acaba7a9aedd44cb1b0158b7595537fb62170886ff524f4381841d274dae5a",
+        "bottom": "a8e7d179f897262b4a47654748ba340957523a896e7c2c9fed3250f8068ca094",
+        "rear": "8c32a8b53aac68edfb0ee1d3ec0478c49e063066f639b8ab425dbeaf0619ab20"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:19:48.028154+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-stairs-down.png",
+          "sha256": "fb17aba0af414022c63109c9d9e9ce9a3a5130c39fc491ac47c38bb1f5f730b1",
+          "rgba_sha256": "33b3e9b9bd78bf6856b2d94d10f9637e1787025a992cf415e85f027c8e5623cb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

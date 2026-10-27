@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "bite",
     "dungeon-after-dark",
@@ -97,35 +98,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-mongo-bite-02.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-mongo-bite-02",
+      "source_sha256": "a410af5542f9524bc3d6b81c186428f99faac52402241f994e365acc5f5aa759",
+      "primary_source": {
+        "asset_id": "attacks-mongo-bite-02",
+        "path": "components/attacks-mongo-bite-02.png",
+        "sha256": "a410af5542f9524bc3d6b81c186428f99faac52402241f994e365acc5f5aa759",
+        "rgba_sha256": "3693e48a68ccaa811ee355f5aa00ba05fec6a59908b79c74e246fdfd0c53c581"
+      },
+      "image_hashes": {
+        "front": "8d6464b4f70ad4820be3fe5255e698e0070bdd97c1959416b72ce55348301c61",
+        "top": "8ef9ae739f1f87adbaa55f6652a92c4309088fac8bce5a0aac3d41ecc80cf908",
+        "right": "1c80c7f6107dc6e786e4a77ea8f997c3e60830828290cf86016240d3517b2210",
+        "left": "edd802382b49d925607698fb5c35c9c334246b7ecea6b91cb2dc62e20d206445",
+        "bottom": "ea7fe888c7eec1a3ccebdfb3d61a0e9eeaeb9d744de0b53d46108323c163ef00",
+        "rear": "0fb45948b06d767d279d0b19c20be24118f99bfb5bddea4b7fe1386f31032c28"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T23:46:27.392991+00:00",
+      "notes": [
+        "Fresh canonical source and all six views reviewed; red bird attack phase, blue beak/feather identity, head-on/opposite profiles and underside coherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "b37d23d1f4ef24e1c2612d1493f5cbbba438072542992c7374920f19f1651366",
+        "reviewed_reference": {
+          "path": "components/attacks-mongo-bite-02.png",
+          "sha256": "a410af5542f9524bc3d6b81c186428f99faac52402241f994e365acc5f5aa759",
+          "rgba_sha256": "3693e48a68ccaa811ee355f5aa00ba05fec6a59908b79c74e246fdfd0c53c581"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -138,7 +176,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +192,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

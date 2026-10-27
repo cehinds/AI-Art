@@ -11,13 +11,13 @@
     "attachment:floor",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,41 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-river-palace-masonry-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-river-palace-masonry-endcap-northwest",
+      "source_sha256": "52eeedee676e84cdd0565aa69420c0c1acd18a4e6a6e72c4c8c21ccf86fe0b3b",
+      "primary_source": {
+        "asset_id": "hunting-river-river-palace-masonry-endcap-northwest",
+        "path": "hunting-river/components/hunting-river-river-palace-masonry-endcap-northwest.png",
+        "sha256": "52eeedee676e84cdd0565aa69420c0c1acd18a4e6a6e72c4c8c21ccf86fe0b3b",
+        "rgba_sha256": "4f54d445fd469b61a46aa335e2fe58bd1af8d90b5039a05501f12fd9ef980c63"
+      },
+      "image_hashes": {
+        "front": "7fb5b79c8275a412abb9d000e80433e8cb0f13aaf511400dd00692d9b11f3b70",
+        "top": "8f990ca86e6861ef5e6ccfd41cd4e9845de51c4e57ba20ffa39269c55d18efad",
+        "right": "4616b6401790dcbe03e24af0480e464b5874044731a185d1b245e60de5af3d18",
+        "left": "fc9e019fe32557510357b607cf20067c22ddcece5cacfdeb07560b87ac3baf12",
+        "bottom": "f0b946252d49a1516d8613571374fd28e46f346c6c9cc6f5596b07d4af4eaeab",
+        "rear": "64f48a05abce73f36eae74c2db9ae1a894af27e2bf47cab5c09d58d99a2ceccb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:27:35.357861+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-river-palace-masonry-endcap-northwest.png",
+          "sha256": "52eeedee676e84cdd0565aa69420c0c1acd18a4e6a6e72c4c8c21ccf86fe0b3b",
+          "rgba_sha256": "4f54d445fd469b61a46aa335e2fe58bd1af8d90b5039a05501f12fd9ef980c63"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

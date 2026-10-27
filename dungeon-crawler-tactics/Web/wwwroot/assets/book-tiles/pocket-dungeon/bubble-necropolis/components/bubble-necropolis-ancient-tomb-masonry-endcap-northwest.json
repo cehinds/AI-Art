@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest",
+      "source_sha256": "dfcf17dc5939f5615924edc0d7f4da08a76cc7133c88b60e19f4863f756eaa4c",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-ancient-tomb-masonry-endcap-northwest",
+        "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-endcap-northwest.png",
+        "sha256": "dfcf17dc5939f5615924edc0d7f4da08a76cc7133c88b60e19f4863f756eaa4c",
+        "rgba_sha256": "246e00b1a40d522f74bb5f0ed076d0fca2be7658fd45c989114a52e28fb8b2fd"
+      },
+      "image_hashes": {
+        "front": "d415cd6c794d973aa88800601c038740169258d0196d4f87810311c49b5175fd",
+        "top": "8b801edec9e4efaafa3c06dfea06d78664debe44595c9fc7d06baf97a4631e0f",
+        "right": "d415cd6c794d973aa88800601c038740169258d0196d4f87810311c49b5175fd",
+        "left": "46f4ac85bae042148a7f921b63f4b0894c5905a8f808f8b6f976c17c8b19d43c",
+        "bottom": "1c57c7dc55d439c6eae7a0191bfefa15dd9ec1cf1f7ba07435eb3bfc4a5520f6",
+        "rear": "46f4ac85bae042148a7f921b63f4b0894c5905a8f808f8b6f976c17c8b19d43c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:07:41.043958+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-endcap-northwest.png",
+          "sha256": "dfcf17dc5939f5615924edc0d7f4da08a76cc7133c88b60e19f4863f756eaa4c",
+          "rgba_sha256": "246e00b1a40d522f74bb5f0ed076d0fca2be7658fd45c989114a52e28fb8b2fd"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-stone-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-tomb-stone-stairs-up",
+      "source_sha256": "559995a2c0715405111bc2bc7e982b11378bb5dc6ac4c2aff80397e8bb8d14ae",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-tomb-stone-stairs-up",
+        "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-stairs-up.png",
+        "sha256": "559995a2c0715405111bc2bc7e982b11378bb5dc6ac4c2aff80397e8bb8d14ae",
+        "rgba_sha256": "f82d6ab926a5d5027cfde5302fab3fc41cb93b78953e53d74f5da684530bb6e1"
+      },
+      "image_hashes": {
+        "front": "4dcb4cbdfe99175b8bb7d0a179e2e6f4dd2e52bbe15c4bc7f02722b9a7eea11f",
+        "top": "5117322a7c1b6a817720f7bcfad5c427eae5efc5c012b2739d204d4e06f5107e",
+        "right": "b0aa979ace65244a66d65764c1a215fa104dac02f11c746f246f27e5c7f58c2b",
+        "left": "021c71ee10667f13f463d75d413913e2552f4aab336f43cb9992f6991cc20c24",
+        "bottom": "52668c11a80b6dc7e7d2ad614672918f723e95e1d95f99216c0541efd90832f4",
+        "rear": "aa361139d777ac0a12852d156180056a58e0e88dd4790430522af7455d64d74b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:52:01.784750+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-tomb-stone-stairs-up.png",
+          "sha256": "559995a2c0715405111bc2bc7e982b11378bb5dc6ac4c2aff80397e8bb8d14ae",
+          "rgba_sha256": "f82d6ab926a5d5027cfde5302fab3fc41cb93b78953e53d74f5da684530bb6e1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-cracked-churned-battlefield-earth-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-cracked-churned-battlefield-earth-floor",
+      "source_sha256": "3cdd9d01ad9aa9371cf8e7cc174f327b9a5791b7c7328a1c243f26d2b495b868",
+      "primary_source": {
+        "asset_id": "faction-battlefield-cracked-churned-battlefield-earth-floor",
+        "path": "faction-battlefield/components/faction-battlefield-cracked-churned-battlefield-earth-floor.png",
+        "sha256": "3cdd9d01ad9aa9371cf8e7cc174f327b9a5791b7c7328a1c243f26d2b495b868",
+        "rgba_sha256": "9069f9b74ae644677f5b8abdf739ef448b3febb62f50a04032c766b5b1d6e512"
+      },
+      "image_hashes": {
+        "front": "86421907b46cf5124f7e38a31fe61245a09d693173658cb19e06185605e1e907",
+        "top": "882c03d1f5707091655f86abc7f079893f95d0c740a8ec847ca637b0be07541c",
+        "right": "d1b47442b7faa49aff4a4f90c9c2c482b8bfd0dc15aa999bf42ac2b7fc4934fa",
+        "left": "832e0dcc60038aac18fdcc9ab4f9232e51fb7c1fed7c1abd50dadd665fad4970",
+        "bottom": "620ca3f9da7d54a3526c934740e1349f438c74cec2e36a94e403482168350be4",
+        "rear": "7893df14888cb636ba33fc820972d06f2aed67fe470561b4d9e1ff7ef65f18a4"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.916385+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-cracked-churned-battlefield-earth-floor.png",
+          "sha256": "3cdd9d01ad9aa9371cf8e7cc174f327b9a5791b7c7328a1c243f26d2b495b868",
+          "rgba_sha256": "9069f9b74ae644677f5b8abdf739ef448b3febb62f50a04032c766b5b1d6e512"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-battlefield"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -3,12 +3,22 @@
   "name": "Waiting room bench rear",
   "kind": "sprite",
   "tags": [
-    "safe-services",
-    "prop",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "environment:safe-room",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "rear",
+    "role:object",
+    "safe-services",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/safe-services-waiting-room-bench.rear.png",
@@ -49,7 +59,6 @@
       ],
       "reference_view": "front",
       "reference_sha256": "5d85323ed2282827bcff1b87a0ff6390417cb7756ac271c1084645b16b8f6f6f",
-      "shared_scale": 0.32210834553440704,
       "render_size": [
         220,
         100
@@ -62,9 +71,53 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale": 0.32210834553440704,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "safe-services-waiting-room-bench",
+        "view": "rear",
+        "source_path": "safe-services/components/safe-services-waiting-room-bench.png",
+        "source_sha256": "81f193a4b0395c44bb100226088d0b58a144ff69d0fcba644a4b7ad958923b18",
+        "atlas_path": "reusable/views-additional/raw/atlases/safe-services-bench-three-seat-top-rear-v2.png",
+        "atlas_sha256": "894ff152ec4de44f8036b2cb3a6d1c3f16caff6e6efeb52b813036375bcdc413",
+        "active_output_sha256": "d703cd7a7053452ed99884677ec8c68927ab1141459fbafbdeb95a578f12c318",
+        "active_output_rgba_sha256": "3f474e68bb627b0f7bb850c445fb76543c37eee2bb527114be77ce74631af4bb",
+        "crop_bounds_xyxy": [
+          989,
+          305,
+          1672,
+          617
+        ],
+        "resized_dimensions_px": [
+          220,
+          100
+        ],
+        "scale": 0.32210834553440704,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Source identity preserved: three bright-red seats/back cushions on a gray metal frame. TOP occludes upright cushion faces; REAR shows back panels. Inferred orthographic views."
+    "notes": "Source identity preserved: three bright-red seats/back cushions on a gray metal frame. TOP occludes upright cushion faces; REAR shows back panels. Inferred orthographic views.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.shared_scale",
+            "value": 0.32210834553440704
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -153,5 +206,43 @@
       },
       "notes": "Inferred orthographic view: top shows seat pads and narrow upright-back edge; rear shows back panels without front seat faces."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "environment:safe-room",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "safe-services-waiting-room-bench"
+  }
 }

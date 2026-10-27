@@ -3,12 +3,22 @@
   "name": "Yellow Brick Road stairs down bottom",
   "kind": "sprite",
   "tags": [
-    "parade-horribles",
-    "stairs",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
     "bottom",
+    "environment:dungeon",
+    "inferred-view",
+    "material:brick",
     "orthographic",
-    "inferred-view"
+    "parade-horribles",
+    "pocket-dungeon",
+    "role:provider",
+    "stairs",
+    "style:pocket-dungeon",
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/parade-horribles-yellow-brick-road-stairs-down.bottom.png",
@@ -62,9 +72,9 @@
       }
     },
     "notes": "Root-approved Equipment candidate installed verbatim. Canonical source identity retained; inferred orthographic views are not recovered pixels.",
-    "generated_atlas": "reusable/views-additional/raw/candidates/parade-horribles-yellow-brick-road-stairs-down-bottom-batch02/../parade-bottom-batch02/raw-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/parade-bottom-batch02/raw-atlas.png",
     "generated_atlas_sha256": "65a4b58fae38b7f9cfdda890d1293052e8ea9bf1b25efaa9f306eec6842c1608",
-    "prompt_file": "reusable/views-additional/raw/candidates/parade-horribles-yellow-brick-road-stairs-down-bottom-batch02/../parade-bottom-batch02/prompt.txt",
+    "prompt_file": "reusable/views-additional/raw/candidates/parade-bottom-batch02/prompt.txt",
     "prompt_sha256": "88d1114944c16c8d74e27c7dbf9d222d55812dc88641d606cfed5f83c6b3c163",
     "candidate_contact": "reusable/views-additional/raw/candidates/parade-horribles-yellow-brick-road-stairs-down-bottom-batch02/source-plus-six-candidate.png",
     "candidate_contact_sha256": "6a805751773a5aee15ef94c52809d24e1c82976e42fd55395c053cf188961476"
@@ -119,5 +129,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:brick",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "parade-horribles-yellow-brick-road-stairs-down"
+  }
 }

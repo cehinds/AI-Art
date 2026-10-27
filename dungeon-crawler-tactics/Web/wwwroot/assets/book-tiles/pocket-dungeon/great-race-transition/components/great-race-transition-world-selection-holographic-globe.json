@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "great-race-transition",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "great-race-transition/components/great-race-transition-world-selection-holographic-globe.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "great-race-transition-world-selection-holographic-globe.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "great-race-transition-world-selection-holographic-globe",
+      "source_sha256": "2e8e6e0242c93d71b06eef7f3b02397c4babb241dfda543df4113e9e477510f7",
+      "primary_source": {
+        "asset_id": "great-race-transition-world-selection-holographic-globe",
+        "path": "great-race-transition/components/great-race-transition-world-selection-holographic-globe.png",
+        "sha256": "2e8e6e0242c93d71b06eef7f3b02397c4babb241dfda543df4113e9e477510f7",
+        "rgba_sha256": "8be6ad0515f337adac49b5bd72dd62c6ab877762dbc8f94a3bbf4cf17d05661d"
+      },
+      "image_hashes": {
+        "front": "4f0414ce7d71535564ba47bcf5500b275614f31c519d7220515d3b3002c2a5c0",
+        "top": "4e7c1f84c3a6fd4a819020a49be332f5b45256c00a9a36ea72f1de8062bb72cf",
+        "right": "254877e280288e4b73a9930118eb70296b7a066c2fed976e023d31da8a66d8bc",
+        "left": "03f3d15bd3eac5ce20da6ca1633450681bf4f63b36732efe2c66bf31af553b01",
+        "bottom": "d9740a5f19d050f939d43ec5ede4c3280cdee03823d75a0a27db43265249c34d",
+        "rear": "529071f8d9c098b7c006b22dc7862513efcff923b184891da019b4ffdbe79971"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:31:30.241273+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "great-race-transition/components/great-race-transition-world-selection-holographic-globe.png",
+          "sha256": "2e8e6e0242c93d71b06eef7f3b02397c4babb241dfda543df4113e9e477510f7",
+          "rgba_sha256": "8be6ad0515f337adac49b5bd72dd62c6ab877762dbc8f94a3bbf4cf17d05661d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

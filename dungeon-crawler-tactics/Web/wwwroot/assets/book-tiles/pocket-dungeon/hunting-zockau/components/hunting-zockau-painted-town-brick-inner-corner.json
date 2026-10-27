@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-zockau-painted-town-brick-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-painted-town-brick-inner-corner",
+      "source_sha256": "d876283cc50a2c0bbfe6e385f7721b808b49e113c79f235db7043ddcb08ffa53",
+      "primary_source": {
+        "asset_id": "hunting-zockau-painted-town-brick-inner-corner",
+        "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-inner-corner.png",
+        "sha256": "d876283cc50a2c0bbfe6e385f7721b808b49e113c79f235db7043ddcb08ffa53",
+        "rgba_sha256": "e282085aac3a7d5ffbaa3182f73c2f4af3cecf33c81bce838f5c1ca6cfdeda45"
+      },
+      "image_hashes": {
+        "front": "c7a5930bb1d7481a518b7ed02d332933bb10427477d569d849e455c91929c8a5",
+        "top": "a0aaa1260041ed13fde9149f639406ef541f4f8a9b1b9eeea41bfcb379322740",
+        "right": "f83ea47200366c02d0d148a8281e0f8c7bf435d2d9db242764f297ec2af799ed",
+        "left": "70dfb91e298f94b5dabe78b02b657c816ba03ea97d2ff60f91e05a5043bd937c",
+        "bottom": "3a30d5ed8aa711fa03b7bb8d048dff0a372b9d4d163b53ba17d28fdd1e3abf1b",
+        "rear": "b46ead0b912d88d9b6c0b5f6125358878ed5e94afdb4b8149f12ec5c6775b7b5"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:15:36.647510+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-inner-corner.png",
+          "sha256": "d876283cc50a2c0bbfe6e385f7721b808b49e113c79f235db7043ddcb08ffa53",
+          "rgba_sha256": "e282085aac3a7d5ffbaa3182f73c2f4af3cecf33c81bce838f5c1ca6cfdeda45"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

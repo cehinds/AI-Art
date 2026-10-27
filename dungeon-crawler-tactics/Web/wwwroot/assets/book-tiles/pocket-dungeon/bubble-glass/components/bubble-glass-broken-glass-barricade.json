@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-broken-glass-barricade.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-broken-glass-barricade.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-broken-glass-barricade",
+      "source_sha256": "30e39395307c58610b3c34e7a98fca74d24a2954c003906ffd3ee8a420e6e1c6",
+      "primary_source": {
+        "asset_id": "bubble-glass-broken-glass-barricade",
+        "path": "bubble-glass/components/bubble-glass-broken-glass-barricade.png",
+        "sha256": "30e39395307c58610b3c34e7a98fca74d24a2954c003906ffd3ee8a420e6e1c6",
+        "rgba_sha256": "102827deb7b303074bd27a1fa49eb2ff819cd3b01c8f0bc5ab148a694d0f3ded"
+      },
+      "image_hashes": {
+        "front": "09e47fa0f73cde4074ae16ceccc7869f1529905ab36cb8ccb4ef25b5148e9bfa",
+        "top": "e8f0f9ce74a9feb71e0394ec1445dbab3b5bbfcab7639b9b6eadce0474c8d59d",
+        "right": "d0d57770aedba027ef8e2e0f4ddccc16380f9841ba37538280a8d8cc0b30a790",
+        "left": "e02afc20081a6cb00a2b1e87239398145a4a6116d607c068c79b18a05e180ea6",
+        "bottom": "5e0fc397d4dd73bc6f939ecf7b79a116b174b07e38046f840b36e1d32968b584",
+        "rear": "89573f7561711ea530d971123f2573ff8abfe259ee5e604ce2b24174db2bf0f6"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:36.776513+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-broken-glass-barricade.png",
+          "sha256": "30e39395307c58610b3c34e7a98fca74d24a2954c003906ffd3ee8a420e6e1c6",
+          "rgba_sha256": "102827deb7b303074bd27a1fa49eb2ff819cd3b01c8f0bc5ab148a694d0f3ded"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:glass",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

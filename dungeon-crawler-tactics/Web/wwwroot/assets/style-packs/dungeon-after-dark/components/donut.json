@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "donut",
     "dungeon-after-dark",
     "environment:dungeon",
@@ -83,35 +84,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "donut.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "donut",
+      "source_sha256": "677be82215e25385d15bf2ee6cfe45eb297f98f00fb9063ff3e136c72bbccd97",
+      "primary_source": {
+        "asset_id": "donut",
+        "path": "components/donut.png",
+        "sha256": "677be82215e25385d15bf2ee6cfe45eb297f98f00fb9063ff3e136c72bbccd97",
+        "rgba_sha256": "7650d586bb762ce25c83d8a1ebcfa5d5b802d89236381fbce33d2e7a51fe967b"
+      },
+      "image_hashes": {
+        "front": "09a44df8b53d2b99a5e25ccdd7830645008942030a4701c0b294c6c3d3283523",
+        "top": "5f9c297f6489d8c207537e4efe6f0df8d004f369593f131b4ac3c45a92aa79d4",
+        "right": "dad4fe11aac1654bbc9847d69d4e6f00251d4861044a01fa27b0765c1b42879e",
+        "left": "a249d20b47ee7ba882a3af112eeadc243130e2383deebd6c6959cdb3ff8da0b5",
+        "bottom": "ac4100b0599e0bd7de7d109cde78758e48f6aef0fd886c433625403d57ffc868",
+        "rear": "18358a83d069cf3ca7f870ea5a5ec150522720f206db3df15c59e9e610c29dfa"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:08:19.052557+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/donut.png",
+          "sha256": "677be82215e25385d15bf2ee6cfe45eb297f98f00fb9063ff3e136c72bbccd97",
+          "rgba_sha256": "7650d586bb762ce25c83d8a1ebcfa5d5b802d89236381fbce33d2e7a51fe967b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -124,7 +161,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -139,7 +177,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-unoccupied-parade-float-base.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-unoccupied-parade-float-base.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-unoccupied-parade-float-base",
+      "source_sha256": "61f7326eb020eb23992499642eadd9654432e548347b5aef8fee4c5ab22c36c8",
+      "primary_source": {
+        "asset_id": "parade-horribles-unoccupied-parade-float-base",
+        "path": "parade-horribles/components/parade-horribles-unoccupied-parade-float-base.png",
+        "sha256": "61f7326eb020eb23992499642eadd9654432e548347b5aef8fee4c5ab22c36c8",
+        "rgba_sha256": "7bcd6b9107daf4dcbe06d6dba111b70f1c72f12e1fc52a10c82805fd59f1612e"
+      },
+      "image_hashes": {
+        "front": "19634b53930c3e9ae319d1dc700d2901cc015168bb200c86f536b8632e3c56d1",
+        "top": "4528739349d8d03c1e1b459b3b6a5953dfa04930af666fb35e5a68443c990601",
+        "right": "27b91371003e64f4cb2f79dfb13edd9260140ce7d477f7779dc06b9608ad63cd",
+        "left": "4a14d52a2b8c09ae08195655a4beb29fd5329ff473eddac15e3a601ce62dccf2",
+        "bottom": "20a5b3c63c8c016a83b345e024d9904b2571ca023f2f5f40f8651c76042e66d4",
+        "rear": "04239b521abd9915145a0b677bf221537d68d32c11999c04f689188f18d68f8f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T18:33:44.065686+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-unoccupied-parade-float-base.png",
+          "sha256": "61f7326eb020eb23992499642eadd9654432e548347b5aef8fee4c5ab22c36c8",
+          "rgba_sha256": "7bcd6b9107daf4dcbe06d6dba111b70f1c72f12e1fc52a10c82805fd59f1612e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

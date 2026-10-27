@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-apartment-window-wall.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-apartment-window-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-apartment-window-wall",
+      "source_sha256": "bb15f9ef25a633b85cc98a3d62d2e68bc19f346e3ac73b5e2a7b3a672c92b565",
+      "primary_source": {
+        "asset_id": "surface-entry-apartment-window-wall",
+        "path": "surface-entry/components/surface-entry-apartment-window-wall.png",
+        "sha256": "bb15f9ef25a633b85cc98a3d62d2e68bc19f346e3ac73b5e2a7b3a672c92b565",
+        "rgba_sha256": "b89d27eb3365c9bbcfa362806a83860b1f46d7d56df7ed9edf294b6dbb9575c7"
+      },
+      "image_hashes": {
+        "front": "36e241da18c879b86625a9848a1aba3e8a027b2f24cac493842c9837d1c53937",
+        "top": "390f4555b74bf5a958b218e99d2af2a7a0737cd185b891801b7ceded80f1c398",
+        "right": "8553abcd48591c3e5f1417605f32f1df4ae2af1517a2c1d91ce769e154417e5a",
+        "left": "7d31d3e2bdfe5e5a8802c21ca0308d02af3e10f2a7f66ec8eb4f5712770c769c",
+        "bottom": "bac2bf7b792c8e86520d2c9eaec8fb98bf8fb06e826eeab3f15152c00d004f2d",
+        "rear": "5dd36c9da410a4a70961b7e434ed1d13599226eb39b8b3ed2b1190c033e29979"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:45:35.321374+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-apartment-window-wall.png",
+          "sha256": "bb15f9ef25a633b85cc98a3d62d2e68bc19f346e3ac73b5e2a7b3a672c92b565",
+          "rgba_sha256": "b89d27eb3365c9bbcfa362806a83860b1f46d7d56df7ed9edf294b6dbb9575c7"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

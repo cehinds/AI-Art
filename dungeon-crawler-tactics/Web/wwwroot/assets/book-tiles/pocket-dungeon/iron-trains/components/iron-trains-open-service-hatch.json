@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-trains",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-open-service-hatch.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-open-service-hatch.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-open-service-hatch",
+      "source_sha256": "45f5e59040fcfaf56f504aa16c724c2abe6347a7e79c9f60e35106df93314024",
+      "primary_source": {
+        "asset_id": "iron-trains-open-service-hatch",
+        "path": "iron-trains/components/iron-trains-open-service-hatch.png",
+        "sha256": "45f5e59040fcfaf56f504aa16c724c2abe6347a7e79c9f60e35106df93314024",
+        "rgba_sha256": "e8aa798425a2ebff34fbedd636b686771039577f93591ca3b79eaacd7b7a0d31"
+      },
+      "image_hashes": {
+        "front": "90af0e281f487613d6d9e740942b9c5ff11bc4b052c94209a9e4bc702a55d80c",
+        "top": "f91a4531566c44ca0865d196c1e525c31475f7edb040b1ebc55707e3e43e3523",
+        "right": "e2c3c5c4bdb9c2c703255ee7d372299b3951d664499fc6100c76f3b80674cf2f",
+        "left": "73bd514f897d28e5b9f44ff827c39273d7c207d0b0bdd2b7ce5c5990a4f40c58",
+        "bottom": "665a514ed778c22026ba2ce8db7306767f0e5c9f87dfab6de9bb8a16ca2ef2ac",
+        "rear": "c360f023be35ca5c6b4c14ac4b4c9f82edaa0a753c7e6c56b4de2ca4b3b0c0eb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:40:56.569380+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-open-service-hatch.png",
+          "sha256": "45f5e59040fcfaf56f504aa16c724c2abe6347a7e79c9f60e35106df93314024",
+          "rgba_sha256": "e8aa798425a2ebff34fbedd636b686771039577f93591ca3b79eaacd7b7a0d31"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

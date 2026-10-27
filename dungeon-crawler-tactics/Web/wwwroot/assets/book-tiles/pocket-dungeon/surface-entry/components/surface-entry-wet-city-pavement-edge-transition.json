@@ -17,7 +17,8 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface-entry",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "surface-entry/components/surface-entry-wet-city-pavement-edge-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-wet-city-pavement-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-wet-city-pavement-edge-transition",
+      "source_sha256": "8cd250b3632e3aac4de1f1e782589b7728ef4da945c28a0041405c2cf00b03d5",
+      "primary_source": {
+        "asset_id": "surface-entry-wet-city-pavement-edge-transition",
+        "path": "surface-entry/components/surface-entry-wet-city-pavement-edge-transition.png",
+        "sha256": "8cd250b3632e3aac4de1f1e782589b7728ef4da945c28a0041405c2cf00b03d5",
+        "rgba_sha256": "438b5c386af6eb92ad5ac4dbd486b306c24015dafbed96fba294b4c26d517d55"
+      },
+      "image_hashes": {
+        "front": "4799e05b20f0ef0b1eb246c8424b56a95c968d39bcf6f71d9d3f9cc8a4fde965",
+        "top": "6779ed97df125cd110ab483a1693bba314b05d740e57a504b75e31d4bb12834a",
+        "right": "dfb65218fb7e1eff8767cb86251479f687d9598227f6a4fbbd6700b9d58fae53",
+        "left": "104606977b8c686c5b5108141a3e01c23329c1a6e1784ad1ae44c2757d7ef8a0",
+        "bottom": "ed4a2dd7ab3773a356f04488572b50e0bb0377824e90dbf0041512ffa0e1d249",
+        "rear": "7d45d447ce04fd17d181252a038a2f895bfea7e2625d32b9ae30e0147a470c22"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:35:55.249275+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-wet-city-pavement-edge-transition.png",
+          "sha256": "8cd250b3632e3aac4de1f1e782589b7728ef4da945c28a0041405c2cf00b03d5",
+          "rgba_sha256": "438b5c386af6eb92ad5ac4dbd486b306c24015dafbed96fba294b4c26d517d55"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

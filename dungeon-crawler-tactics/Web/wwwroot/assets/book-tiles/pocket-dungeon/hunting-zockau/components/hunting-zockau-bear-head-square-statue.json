@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-zockau",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-bear-head-square-statue.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-bear-head-square-statue.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-bear-head-square-statue",
+      "source_sha256": "b652e7bffc4b74526ebda3aa0fa2589b11fbd04df3fa88f2bea1c12a865a0fe0",
+      "primary_source": {
+        "asset_id": "hunting-zockau-bear-head-square-statue",
+        "path": "hunting-zockau/components/hunting-zockau-bear-head-square-statue.png",
+        "sha256": "b652e7bffc4b74526ebda3aa0fa2589b11fbd04df3fa88f2bea1c12a865a0fe0",
+        "rgba_sha256": "2ea3958b90e2e199adbff9e0c9763fcc03efa5386a20f8194e4b84db3225b972"
+      },
+      "image_hashes": {
+        "front": "9b32b8188b51e84f680075659450a41e321a08cdc5fa0d3f544590a0f87be76d",
+        "top": "5a3c387d6bb3e44d4510ac38f66cc785c3b2edde30a66390588337c0efbf5142",
+        "right": "ebf03cc4330535acffec1fb3c45e0051cd3abe06ee72e103c2e5ea1cdfd00e24",
+        "left": "99e5eeed67ffeeb62dd23b92d1f55411e9f12a5a3de3e9d9b338e8e7722be496",
+        "bottom": "d9f51243e8e0c80ebe8b18c9eafaa44f733db3d99195f52f994a7480c0b08239",
+        "rear": "0fb0e441ecdfe2ee0692321256edcf8132ec75485b998ad50d8b31297a4642c8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:31:30.241273+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-bear-head-square-statue.png",
+          "sha256": "b652e7bffc4b74526ebda3aa0fa2589b11fbd04df3fa88f2bea1c12a865a0fe0",
+          "rgba_sha256": "2ea3958b90e2e199adbff9e0c9763fcc03efa5386a20f8194e4b84db3225b972"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

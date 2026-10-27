@@ -17,7 +17,8 @@
     "prop",
     "role:object",
     "safe-services",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-waiting-room-bench.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-waiting-room-bench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-waiting-room-bench",
+      "source_sha256": "81f193a4b0395c44bb100226088d0b58a144ff69d0fcba644a4b7ad958923b18",
+      "primary_source": {
+        "asset_id": "safe-services-waiting-room-bench",
+        "path": "safe-services/components/safe-services-waiting-room-bench.png",
+        "sha256": "81f193a4b0395c44bb100226088d0b58a144ff69d0fcba644a4b7ad958923b18",
+        "rgba_sha256": "7da6b9f78844a21dad7b442900b6f9376d0c483ab60b1bbe81d4ac86cb7557f1"
+      },
+      "image_hashes": {
+        "front": "5d85323ed2282827bcff1b87a0ff6390417cb7756ac271c1084645b16b8f6f6f",
+        "top": "083ba36ba40f1793923ea39b402ccc3bb783dd6a3900254cf6a19e4f4cdbd4dc",
+        "right": "34b9c9e19f4192973f7be0640f73889cf7827164a76848a27baeef9ecb70de2e",
+        "left": "9902db3cd491e2eed93041b5e5437031349921fdc8d6c49894836593812c6031",
+        "bottom": "2f6e5a77f00097337b58587d1f8cf5ecc5061080faaa3f60f36048c74b01d2b5",
+        "rear": "d703cd7a7053452ed99884677ec8c68927ab1141459fbafbdeb95a578f12c318"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:31:18.879727+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-waiting-room-bench.png",
+          "sha256": "81f193a4b0395c44bb100226088d0b58a144ff69d0fcba644a4b7ad958923b18",
+          "rgba_sha256": "7da6b9f78844a21dad7b442900b6f9376d0c483ab60b1bbe81d4ac86cb7557f1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "environment:safe-room",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,12 +235,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

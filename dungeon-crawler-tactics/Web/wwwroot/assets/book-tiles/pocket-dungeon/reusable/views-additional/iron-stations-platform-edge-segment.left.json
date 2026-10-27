@@ -3,12 +3,22 @@
   "name": "Platform edge segment left",
   "kind": "sprite",
   "tags": [
-    "iron-stations",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "iron-stations",
     "left",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-stations-platform-edge-segment.left.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "iron-stations/components/iron-stations-platform-edge-segment.png",
     "source_sha256": "9b9e1fde696462f14a0a1bdce72ba87bd7dea384a4c7c0eee16f9c6fe588e327",
-    "generated_atlas": "raw/candidates/platform-edge-end-profiles-v3-raw.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/platform-edge-end-profiles-v3-raw.png",
     "generated_atlas_sha256": "56543c5483161db3ff2c12d8f5717b7fcb61db5cebc02a3ad8c3d0593c4edf9c",
     "generation_request": "raw/candidates/platform-edge-end-profiles-v3-request.json",
     "generation_request_sha256": "9b744fa2b926a5fb0a316745187901de20dc7a242b76c524a62595a258fc6313",
@@ -130,5 +140,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-stations-platform-edge-segment"
+  }
 }

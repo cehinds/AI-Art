@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-shrines",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-hunter-trap-mechanism.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-hunter-trap-mechanism.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-hunter-trap-mechanism",
+      "source_sha256": "bbfbe1f1c7f3dd0be5de34b8e049383b1db1d2346704cd2e482c8c79049142da",
+      "primary_source": {
+        "asset_id": "hunting-shrines-hunter-trap-mechanism",
+        "path": "hunting-shrines/components/hunting-shrines-hunter-trap-mechanism.png",
+        "sha256": "bbfbe1f1c7f3dd0be5de34b8e049383b1db1d2346704cd2e482c8c79049142da",
+        "rgba_sha256": "151d6327f75c99c0115543dd48f8ce9706d6eb8e24f514aac3182be3bb4c7dc6"
+      },
+      "image_hashes": {
+        "front": "36fe8b08ece4ea99b363b217552d0e857e8a17866e7f860071e3e2946f8a0445",
+        "top": "be9dc780ee005f05aa156faad9aadce9ad13e871d7068e3f9c3d377915180a7c",
+        "right": "9323f3cfbf607894642c4b1ec8c86e26be6ad5f65bd0bf69aef4a749c202dcfe",
+        "left": "b0dc6b00fbd29dc47736fcae19e5b5b4950c19621c217fbb7c49445fadb1a1b2",
+        "bottom": "94708405632f6f199563865a6f72084baf24d0b3283dbd1cbc6ffe3ab5e8063b",
+        "rear": "5bddebb7fca44b4f3ac5c27e07c399aabfe227838b84d381be63c8ea71892aee"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:16:12.263533+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-hunter-trap-mechanism.png",
+          "sha256": "bbfbe1f1c7f3dd0be5de34b8e049383b1db1d2346704cd2e482c8c79049142da",
+          "rgba_sha256": "151d6327f75c99c0115543dd48f8ce9706d6eb8e24f514aac3182be3bb4c7dc6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

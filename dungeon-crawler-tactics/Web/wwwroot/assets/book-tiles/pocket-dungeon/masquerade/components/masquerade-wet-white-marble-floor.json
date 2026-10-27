@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "masquerade/components/masquerade-wet-white-marble-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-wet-white-marble-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-wet-white-marble-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-wet-white-marble-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-wet-white-marble-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-wet-white-marble-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-wet-white-marble-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-wet-white-marble-floor",
+      "source_sha256": "0a939d201c318d2f8ac3cc9a2c8b9f76def45a7a1cfbc10c3334e6b5ca564a12",
+      "primary_source": {
+        "asset_id": "masquerade-wet-white-marble-floor",
+        "path": "masquerade/components/masquerade-wet-white-marble-floor.png",
+        "sha256": "0a939d201c318d2f8ac3cc9a2c8b9f76def45a7a1cfbc10c3334e6b5ca564a12",
+        "rgba_sha256": "7bdd9a6adcfa88406e1dbde8769f37c3528bd55ef69945835df21244bb63fd96"
+      },
+      "image_hashes": {
+        "front": "3fae5aa1d958e08371071402685cf24917a823a657c02d83a5ab38c022067037",
+        "top": "2112b06c61a142b9d3776365181f6ad3df9a1c4a087832c63168712ba1eafb7f",
+        "right": "3fae5aa1d958e08371071402685cf24917a823a657c02d83a5ab38c022067037",
+        "left": "3da1468bf5056741d6150556792d2ace75af0e32e7112dc9052610a0bcd4894d",
+        "bottom": "6f126102c29ca2023561afef200b1c1b3e601a54c3f8a853608582046a9fb5c9",
+        "rear": "3da1468bf5056741d6150556792d2ace75af0e32e7112dc9052610a0bcd4894d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-wet-white-marble-floor.png",
+          "sha256": "0a939d201c318d2f8ac3cc9a2c8b9f76def45a7a1cfbc10c3334e6b5ca564a12",
+          "rgba_sha256": "7bdd9a6adcfa88406e1dbde8769f37c3528bd55ef69945835df21244bb63fd96"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "masquerade/components/masquerade-white-marble-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-white-marble-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "masquerade-white-marble-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "masquerade-white-marble-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "masquerade-white-marble-edge-transition",
+      "source_sha256": "144dafa4025eea83efce63f14fd89c593cfbb3db2ce20885e6d9ecbd511a7495",
+      "primary_source": {
+        "asset_id": "masquerade-white-marble-edge-transition",
+        "path": "masquerade/components/masquerade-white-marble-edge-transition.png",
+        "sha256": "144dafa4025eea83efce63f14fd89c593cfbb3db2ce20885e6d9ecbd511a7495",
+        "rgba_sha256": "69cddeb9effa97aa6db055d5fd2ba58dc502db6fd80889c3582e33bb9be7e371"
+      },
+      "image_hashes": {
+        "front": "fd1fc96ecb0fae80b905920a71b4101649b4f56bb0e5212ae99fb4eb1b853edf",
+        "top": "6b3f3ab0ec2f3db94b5cb053bfdaf42b863876914f75701917697e1cb020982e",
+        "right": "fd1fc96ecb0fae80b905920a71b4101649b4f56bb0e5212ae99fb4eb1b853edf",
+        "left": "a9dd9bedcf76037a56075978011d6b7cfdcfff8c3ba377e93c3e441356971a23",
+        "bottom": "bf0f0676448079e760b1aa2370b1a1bb916dd8f0fdca4bb0b43ded00a8b2064d",
+        "rear": "a9dd9bedcf76037a56075978011d6b7cfdcfff8c3ba377e93c3e441356971a23"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:07:45.186363+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "masquerade/components/masquerade-white-marble-edge-transition.png",
+          "sha256": "144dafa4025eea83efce63f14fd89c593cfbb3db2ce20885e6d9ecbd511a7495",
+          "rgba_sha256": "69cddeb9effa97aa6db055d5fd2ba58dc502db6fd80889c3582e33bb9be7e371"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

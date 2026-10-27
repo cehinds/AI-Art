@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/procedural/tiles/bubble-necropolis-tomb-stone-floor--surface.png",
@@ -65,12 +66,30 @@
       180,
       270
     ],
-    "edge_policy": "Existing square ground material; visible repeat seams remain possible."
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
   },
   "views": {
     "applicable": false,
     "complete": true,
     "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-necropolis"
+    ]
   },
   "canonical_asset_id": "bubble-necropolis-tomb-stone-floor",
   "attachment_generated_tags": [
@@ -79,7 +98,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

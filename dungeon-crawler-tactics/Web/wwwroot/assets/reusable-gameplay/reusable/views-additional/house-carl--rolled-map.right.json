@@ -4,19 +4,20 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:wall",
     "carl",
     "environment:unspecified",
     "gameplay",
     "house",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "physical-reference",
     "prop",
-    "role:reconstruction",
+    "right",
+    "role:object",
     "service-room",
-    "style:gameplay",
-    "inferred-view",
-    "right"
+    "style:gameplay"
   ],
   "object_id": "house-carl--rolled-map",
   "view": "right",
@@ -82,6 +83,67 @@
       "shared_scale": 0.47165532879818595,
       "projection_scale": 1.0,
       "orientation_correction_degrees": 0
+    },
+    "normalization": {
+      "scale": 0.47165532879818595,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "verified-per-view-isotropic-v1",
+        "object_id": "house-carl--rolled-map",
+        "view": "right",
+        "source_path": "reusable/native/house-carl--rolled-map.png",
+        "source_sha256": "e7cb4ea56f15eedd81b028ac67e7d385be05422c2e7f5e4852990fa86ffe08ab",
+        "atlas_path": "reusable/views-additional/raw/house-repair-14-open-map-atlas.png",
+        "atlas_sha256": "a19628db78aeb2ee705b1381e2bbe1ed48ee0bef6c0c8f7b2bcaa81ddd6771ef",
+        "active_output_sha256": "1beaa9a8a041a99e665fd47be53f7602c617ace346ee7b07104300b96ee25d23",
+        "active_output_rgba_sha256": "0e3bf5eec642a3652f4f3df081862dace1df4dad06f9ef84af3d1e155354a56c",
+        "crop_bounds_xyxy": [
+          921,
+          186,
+          981,
+          566
+        ],
+        "resized_dimensions_px": [
+          28,
+          179
+        ],
+        "scale": 0.47165532879818595,
+        "projection_scale": 1.0,
+        "verification_basis": "executed-replay",
+        "execution_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-build-resolution.json",
+        "execution_report_sha256": "78e7a46f07b0c1ea16ea89e1e52ba03f7fe3e967cc9ae894fea9412f5cf70012",
+        "output_report_path": "reusable/views-additional/raw/scale-evidence/gameplay-2256-isolated-rebuild-receipt.json",
+        "output_report_sha256": "6bab12c1c1df9a54426130a8d51eb0eb31258ab1804c696abf1afe08370fe0dc",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/gameplay-per-view-isotropic-v1.json",
+        "recipe_sha256": "92c1b54c27551efcc19b314e4dd684cd96e210b8473963db5bdfae2eaf81fc8d"
+      }
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:wall",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:wall"
+      ],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-ad04455fcca4",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "house-carl--rolled-map"
   }
 }

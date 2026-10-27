@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-sea",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-pressure-pipe-manifold.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-pressure-pipe-manifold.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-pressure-pipe-manifold",
+      "source_sha256": "a285c13e4cc1b4395d390dd2e38e55aa20795584bffaa38150e3115b5c1d6d49",
+      "primary_source": {
+        "asset_id": "bubble-sea-pressure-pipe-manifold",
+        "path": "bubble-sea/components/bubble-sea-pressure-pipe-manifold.png",
+        "sha256": "a285c13e4cc1b4395d390dd2e38e55aa20795584bffaa38150e3115b5c1d6d49",
+        "rgba_sha256": "97b61dfe78bedfe6b3706bea2179e52b7cc67f794642f361265b0e1b4660a36a"
+      },
+      "image_hashes": {
+        "front": "fecfe950e127f2c962b98173853b3da4b49be6fe1980aedb1df1c69c2b3fa056",
+        "top": "40df992b652ee8721ccd6a07f6813e2c0c99d03a2ae852214b0818d1448e32d5",
+        "right": "0758db8fc030b571f5976ff5120fa9072d2735e3edc8f0dff5678c08d4bf7824",
+        "left": "0a8a7f42e8df59d6f5a8950eaa37d0d02d3119b56c4986b6fde099ff48d84c95",
+        "bottom": "1d883cce65f6266078daca9f948a0b7980f9b4b553f9ec4a016e630b2aa086ce",
+        "rear": "97c3cafca65e947c2c5c724d0c7de3de1d0d60bd151af9df5919d8895b7f95c3"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:31:30.241273+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-pressure-pipe-manifold.png",
+          "sha256": "a285c13e4cc1b4395d390dd2e38e55aa20795584bffaa38150e3115b5c1d6d49",
+          "rgba_sha256": "97b61dfe78bedfe6b3706bea2179e52b7cc67f794642f361265b0e1b4660a36a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

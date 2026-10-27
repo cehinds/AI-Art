@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-station-concrete-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-station-concrete-edge-transition",
+      "source_sha256": "beb02398220c9bdcae0d8a14aab1c2ea0224f5f08a44480c699b54e114a33b41",
+      "primary_source": {
+        "asset_id": "iron-stations-station-concrete-edge-transition",
+        "path": "iron-stations/components/iron-stations-station-concrete-edge-transition.png",
+        "sha256": "beb02398220c9bdcae0d8a14aab1c2ea0224f5f08a44480c699b54e114a33b41",
+        "rgba_sha256": "e2f090cdf3ae1da99801e28240ddcc5902537072f338fd28b340c15c3a8e7a2f"
+      },
+      "image_hashes": {
+        "front": "04f7455fd6f2bf72adda6f7f9ee47a9f636a30ace12ddef455897cf742296e2b",
+        "top": "722330f84f306a75c6b39970e08efff8c81d563cc9a5b015fa9038ed4f0ad5af",
+        "right": "6bd397b93899646917768012e9ceef2f65f571d7261148835904ddaa47f3b6fb",
+        "left": "d13db85fb0892d870d68f7ccd059d3dd54a8c34c383f05c38b77c9b732c9a74d",
+        "bottom": "d44cafdcf49987f2634dfc6ee47a5f1352221c4f3898e5df7848fb55b116c808",
+        "rear": "94aeb2122484c58fe45ba7115c05c2b4f5aed75830130031abd00ac6737d7d92"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:25:31.272674+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-station-concrete-edge-transition.png",
+          "sha256": "beb02398220c9bdcae0d8a14aab1c2ea0224f5f08a44480c699b54e114a33b41",
+          "rgba_sha256": "e2f090cdf3ae1da99801e28240ddcc5902537072f338fd28b340c15c3a8e7a2f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

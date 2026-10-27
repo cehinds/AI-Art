@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface-entry",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-urban-brick-wall-northeast",
+      "source_sha256": "0fff2fc27ccbe9fa30512ff34d2cf405e240f43d09782345e930fe0e9bd6309d",
+      "primary_source": {
+        "asset_id": "surface-entry-urban-brick-wall-northeast",
+        "path": "surface-entry/components/surface-entry-urban-brick-wall-northeast.png",
+        "sha256": "0fff2fc27ccbe9fa30512ff34d2cf405e240f43d09782345e930fe0e9bd6309d",
+        "rgba_sha256": "079cb6103a0da37aaf103ac3d790cef4b912761f20153a5769dacfa80c55adad"
+      },
+      "image_hashes": {
+        "front": "c8de6e13ec355da1ee1ff1785ecbf89f507ded37d4f95c3fd49fb8a36a192a31",
+        "top": "c71df7b124865a45f4bd6005fe57ac2ba00586c74a65df3be5df7f04cb8d492b",
+        "right": "a5eec8264976e658791d02e841f8acfd63c56f8e22aab321a54d33219bccd3b3",
+        "left": "89e6900d621c331a1eb93e6473b40d755d4bea9f9459106c110fc44c22ec3be9",
+        "bottom": "be8f4e29632994456370ec56ad69c54d2d558341a853f9f178518b2868340786",
+        "rear": "620e97b14f40c0cc6b3e98410ff8959d6c7a51501cbea5ed9769f1d0d3d27edf"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:45:49.078675+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-urban-brick-wall-northeast.png",
+          "sha256": "0fff2fc27ccbe9fa30512ff34d2cf405e240f43d09782345e930fe0e9bd6309d",
+          "rgba_sha256": "079cb6103a0da37aaf103ac3d790cef4b912761f20153a5769dacfa80c55adad"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -16,7 +16,8 @@
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-garage-concrete-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-garage-concrete-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-garage-concrete-floor",
+      "source_sha256": "94b0ec325469928e4b9c45216a3e2e6e6a89d35a43ccf24abf01a218c0e74788",
+      "primary_source": {
+        "asset_id": "race-circuits-garage-concrete-floor",
+        "path": "race-circuits/components/race-circuits-garage-concrete-floor.png",
+        "sha256": "94b0ec325469928e4b9c45216a3e2e6e6a89d35a43ccf24abf01a218c0e74788",
+        "rgba_sha256": "ddaa40d54a3a2b6b5efb89648538a936315cee2229ef391e47f295d9d6d16187"
+      },
+      "image_hashes": {
+        "front": "8e55636ce114b27e5972e5dbf0437152a65d96b7455370286a7bd0a908ff8621",
+        "top": "092686ab2e09b34e1c5dbec2ec518cc25da13f679896b0ce94dbf37df4273abb",
+        "right": "6e5133bfb32319ec362e00c6786d063cca8c23d15a6816e0c17d524dec1074c3",
+        "left": "bd4e090c97c2015932eecf96c61634384213a8acbc817e3d6a5b9ab5945d6872",
+        "bottom": "4ea7a7a221cb821ad897b03a1a903a182cd603543308897fa6faf91cb3e96988",
+        "rear": "3d7836ccc7bcd75ee592a6a47d2d323237d0c3351db50681fac245fff3f380f8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-garage-concrete-floor.png",
+          "sha256": "94b0ec325469928e4b9c45216a3e2e6e6a89d35a43ccf24abf01a218c0e74788",
+          "rgba_sha256": "ddaa40d54a3a2b6b5efb89648538a936315cee2229ef391e47f295d9d6d16187"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "east": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "south": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "west": [
+      "join.floor",
+      "visual.race-circuits"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

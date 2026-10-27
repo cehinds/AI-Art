@@ -42,6 +42,7 @@ baseline_leaves = {
     for view, row in group['views'].items()
 }
 restored_png = restored_metadata = 0
+replaced_intermediate_metadata = []
 for leaf in manifest['leaves']:
     key = (leaf['object_id'], leaf['view'])
     row = baseline_leaves.get(key)
@@ -74,11 +75,27 @@ for leaf in manifest['leaves']:
         if sha(snapshot) != leaf['metadata_snapshot_sha256'] or leaf['metadata_snapshot_sha256'] != row['metadata_sha256']:
             raise SystemExit(f"retained sidecar snapshot hash mismatch: {key}")
         current = sha(meta_target)
-        if current == leaf['replay_before_overlay_metadata_sha256']:
+        # The isolated builder may emit an intermediate sidecar whose bytes
+        # differ from both historical replay metadata and the frozen release
+        # sidecar (for example, it may refresh generated fields). The immutable
+        # baseline binds this target path and the release snapshot binds the
+        # exact final bytes, so record the intermediate hash diagnostically and
+        # restore the retained release bytes without treating that hash as a
+        # precondition.
+        if current != row['metadata_sha256']:
+            intermediate = json.loads(meta_target.read_text())
+            if (intermediate.get('id') != leaf['asset_id']
+                    or intermediate.get('metadata_path') != row['metadata_path']
+                    or intermediate.get('image', {}).get('path') != row['image_path']):
+                raise SystemExit(f"intermediate replay sidecar identity/path mismatch: {key}")
             shutil.copyfile(snapshot, meta_target)
             restored_metadata += 1
-        elif current != row['metadata_sha256']:
-            raise SystemExit(f"unexpected replay sidecar precondition: {key}")
+            if current != leaf['replay_before_overlay_metadata_sha256']:
+                replaced_intermediate_metadata.append({
+                    'object_id': key[0], 'view': key[1],
+                    'intermediate_sha256': current,
+                    'released_sha256': row['metadata_sha256'],
+                })
     elif sha(meta_target) != row['metadata_sha256']:
         raise SystemExit(f"recipe-derived sidecar differs without a retained snapshot: {key}")
 
@@ -92,6 +109,8 @@ receipt = {
     'baseline_sha256': sha(baseline_path),
     'restored_pngs': restored_png,
     'restored_sidecars': restored_metadata,
+    'intermediate_sidecars_replaced': len(replaced_intermediate_metadata),
+    'intermediate_sidecar_hashes': replaced_intermediate_metadata,
     'restored_set_index': True,
     'pre_overlay_set_index_sha256': pre_overlay_index_sha256,
     'index_guard': 'exact asset ids, image paths, metadata paths, and view-set ids; per-leaf PNG/sidecar hashes are independently guarded',

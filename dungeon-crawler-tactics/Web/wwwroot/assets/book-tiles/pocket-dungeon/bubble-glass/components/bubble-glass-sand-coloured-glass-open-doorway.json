@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "bubble-glass",
     "door",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-sand-coloured-glass-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-sand-coloured-glass-open-doorway",
+      "source_sha256": "375d18ebce2b4db7156e694977a73097c0700b38328f71030ed0a86ee7896d43",
+      "primary_source": {
+        "asset_id": "bubble-glass-sand-coloured-glass-open-doorway",
+        "path": "bubble-glass/components/bubble-glass-sand-coloured-glass-open-doorway.png",
+        "sha256": "375d18ebce2b4db7156e694977a73097c0700b38328f71030ed0a86ee7896d43",
+        "rgba_sha256": "c6be5286a4c61bf3151169f425d6f8867e233ac78684f74835010f88f9c94306"
+      },
+      "image_hashes": {
+        "front": "899c245a7b59dfed5dbaf4970df9f988dbce674d3217b82a4a1b0e0098b5a5ac",
+        "top": "dc16d59cec369bec85fb6df25449fe26f5c3f8e1e41e973c00f6effec17e7937",
+        "right": "90e1eaf8bd4cd288adcbf71db3640d7db6ff8ccaf0ff9903f06d9a00884073ab",
+        "left": "89f6d66577cdc836409b26aedd5f42870dd8b553ae4b0cd239d82bb2c0823bd8",
+        "bottom": "46f4e13e16acbdb68afd1a3d50fbd28070f908bd114298f3384192bddd589e89",
+        "rear": "e79fc1ee55b8eaab498752d4748dc86a2f8ba9f9a64c9c170731136d41b4f3e2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:17.908378+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-sand-coloured-glass-open-doorway.png",
+          "sha256": "375d18ebce2b4db7156e694977a73097c0700b38328f71030ed0a86ee7896d43",
+          "rgba_sha256": "c6be5286a4c61bf3151169f425d6f8867e233ac78684f74835010f88f9c94306"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:glass",
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

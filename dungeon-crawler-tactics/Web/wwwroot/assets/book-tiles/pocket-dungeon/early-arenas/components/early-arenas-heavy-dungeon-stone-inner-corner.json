@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "source_sha256": "51408aa0983105774b34e8eb9531eaa5597b2e6cb9b6530d6f7a15cf2a080e11",
+      "primary_source": {
+        "asset_id": "early-arenas-heavy-dungeon-stone-inner-corner",
+        "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+        "sha256": "51408aa0983105774b34e8eb9531eaa5597b2e6cb9b6530d6f7a15cf2a080e11",
+        "rgba_sha256": "b52250011fc601abf07d170b845a297c9ee84874b1736666518c4e468a2f2bfc"
+      },
+      "image_hashes": {
+        "front": "f71b1911e7012a0623691f55c52397e252cd184a7a268ed36a00a874f9dc21d7",
+        "top": "cb1901805141d980f6cc2c7207c8cfe1732fe641f6a7fad59f8a4cbf5a276384",
+        "right": "0821155a0c01b4f90189234a75b5cacb93d351f36ae346fa8c2eea6715c2751f",
+        "left": "255424081303ea21b2f4c8456575f93503cfd9686efda060c9572edbd915b588",
+        "bottom": "cb1901805141d980f6cc2c7207c8cfe1732fe641f6a7fad59f8a4cbf5a276384",
+        "rear": "87c845a6aeb9ed44b95c02b75e8f75ed8c6beea07b8eeec84a6d67395242be92"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:33:45.927280+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+          "sha256": "51408aa0983105774b34e8eb9531eaa5597b2e6cb9b6530d6f7a15cf2a080e11",
+          "rgba_sha256": "b52250011fc601abf07d170b845a297c9ee84874b1736666518c4e468a2f2bfc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "dungeon-after-dark",
     "environment:dungeon",
     "existing",
@@ -95,35 +96,72 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "mongo.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "mongo",
+      "source_sha256": "4951fc6f22e1fa28bb05639e1648259964d3561c64cd36d6bd17acb2b1442ccb",
+      "primary_source": {
+        "asset_id": "mongo",
+        "path": "components/mongo.png",
+        "sha256": "4951fc6f22e1fa28bb05639e1648259964d3561c64cd36d6bd17acb2b1442ccb",
+        "rgba_sha256": "bcf2c9c02297b53de19d2a39c7c7829deed84f657f32d1fc2fbf44e96886672d"
+      },
+      "image_hashes": {
+        "front": "082109c50b95fa38b5fc50d3710fe7631028c828c71fa975a78ae34bdee78561",
+        "top": "e8fc99652ce85c90c4f9991f5572aa6ce869c212a6cb9813f4f185dfc471ac52",
+        "right": "56a97eee71cdb4d29af31172b353a1474062a46445fdb0c432a3189adc8a1b88",
+        "left": "afd14ade63ef12b9bac64e07b7cc11e59fff5ae4ba7fabe645d954183e68ec01",
+        "bottom": "34401ffe36ddb6f06c05e95c29361a6b3b11690b2289adb3338d25ea72e8b83c",
+        "rear": "f92c8f31c9dd9a0ab84b0c0447a3b6d4569f00649ef42beafce59ebb17f0a5a8"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:00:24.308831+00:00",
+      "notes": [
+        "Raised-wing flight pose now coherent across six cameras: broad dorsal/ventral wing spans, raised front/rear V, opposite lateral profiles. Detached underside islands removed; inferred undersides explicitly accepted."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "086354143845120f6b2f70306d37a39e98835783a1dbe182df8bacd0ff33cb2b",
+        "reviewed_reference": {
+          "path": "components/mongo.png",
+          "sha256": "4951fc6f22e1fa28bb05639e1648259964d3561c64cd36d6bd17acb2b1442ccb",
+          "rgba_sha256": "bcf2c9c02297b53de19d2a39c7c7829deed84f657f32d1fc2fbf44e96886672d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -136,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -151,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

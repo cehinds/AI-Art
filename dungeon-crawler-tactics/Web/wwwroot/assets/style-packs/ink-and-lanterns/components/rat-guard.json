@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "existing",
     "expansion",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "rat-guard.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "rat-guard",
+      "source_sha256": "c0e8b848d184aab5ba7e63357fe0420a25c05ed4de93aff0884bc1d3d4940f6b",
+      "primary_source": {
+        "asset_id": "rat-guard",
+        "path": "components/rat-guard.png",
+        "sha256": "c0e8b848d184aab5ba7e63357fe0420a25c05ed4de93aff0884bc1d3d4940f6b",
+        "rgba_sha256": "59ff7470876fba0b633d871fa535e1229f6119d963d9040ab9ab08aa766b379e"
+      },
+      "image_hashes": {
+        "front": "91564098bfed5f60e91216926bdcc9dcedcf41c6e1d1f8a79632bb2b0fd95635",
+        "top": "f79e33d7639592c29d21705764bb2dd176f8c860d59bed4b6a170d03cae58a43",
+        "right": "d5a9bd9231a44ecd65d36aa3ab2153b24cfe0a2678e457f43ff0dc553df8fd8d",
+        "left": "84e4fca051742dd1f3af1cd0a2534d6848b930fd1839fe48daed71cb7d89f39c",
+        "bottom": "f4efcfce51734b9a1a6ce214816b868b6b4fec02e862b5e6b4b5713aa73f586b",
+        "rear": "12bb0d4656471301b1bda5d633ef47c9eadf67f4e3a089bb8415b82d8cadd90c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/rat-guard.png",
+          "sha256": "c0e8b848d184aab5ba7e63357fe0420a25c05ed4de93aff0884bc1d3d4940f6b",
+          "rgba_sha256": "59ff7470876fba0b633d871fa535e1229f6119d963d9040ab9ab08aa766b379e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

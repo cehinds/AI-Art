@@ -52,7 +52,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp--mongo--mongo.front"
@@ -77,19 +77,41 @@
       "status": "inferred",
       "asset_id": "revamp--mongo--mongo.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp--mongo--mongo",
+      "source_sha256": "4dfce9e3215537c85b2855c8cde629fded7c0922f10b25162eda1b8e0420cb7f",
+      "primary_source": {
+        "asset_id": "revamp--mongo--mongo",
+        "path": "reusable/native/revamp--mongo--mongo.png",
+        "sha256": "4dfce9e3215537c85b2855c8cde629fded7c0922f10b25162eda1b8e0420cb7f",
+        "rgba_sha256": "4024fc0a55f97334eb47dfe84b2e191eb838408aa213776a501992f54e99e0df"
+      },
+      "image_hashes": {
+        "front": "bb8076142d62d3e748d106a10869bcae36811affab838ded9f51bd7854dc5340",
+        "top": "d52f1f4336c1a10505616be0fd228e3fef708c10da4efcaed4a36410579abf7c",
+        "right": "34f5ceedff2ab7b002d97b242d958ab398f2d8c557fb7424b560d5e56ba7d2f8",
+        "left": "24e618cfa1946cda348695bca553cfa6aaa3990e82e96ea59d9ef07ab8dac67f",
+        "bottom": "63dbbc6af40bf9d9bf5cb605c9f3776dea839ec44af61ae21e2237d870119d7d",
+        "rear": "0efd6321e44089e0ed5b2be113eed8e581b9db8547d33d433ee903f53f9b0e50"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:27:50.291039+00:00",
+      "notes": [
+        "Blunt blue source muzzle, red feathered body/long tail and pose-specific wing spread retained across principal cameras. Slender overhead silhouette is plausible long-Y body/tail projection; hidden feather surfaces inferred."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "0cf60f5ad2010d9fe82c763aefa5a2d29112e370dcf4e50251fd6c5e271b7030",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp--mongo--mongo.png",
+          "sha256": "4dfce9e3215537c85b2855c8cde629fded7c0922f10b25162eda1b8e0420cb7f",
+          "rgba_sha256": "4024fc0a55f97334eb47dfe84b2e191eb838408aa213776a501992f54e99e0df"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "revamp--mongo--mongo",

@@ -3,12 +3,22 @@
   "name": "Soot Stained Brick open doorway bottom",
   "kind": "sprite",
   "tags": [
-    "industry-menagerie",
-    "door",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
     "bottom",
+    "door",
+    "environment:dungeon",
+    "industry-menagerie",
+    "inferred-view",
+    "material:brick",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/industry-menagerie-soot-stained-brick-open-doorway.bottom.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "industry-menagerie/components/industry-menagerie-soot-stained-brick-open-doorway.png",
     "source_sha256": "3b18290ca11f083546da0ce1dfe9aa6fad397e151ea5d08fad195e83c07dceba",
-    "generated_atlas": "raw/candidates/industry-open-doorway-plans-v1-raw.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/industry-open-doorway-plans-v1-raw.png",
     "generated_atlas_sha256": "015b8f957481f336b1d0bc5ac66f61b10b9809a0f0418440cfe26db45e7b6c27",
     "generation_request": "raw/candidates/industry-open-doorway-plans-v1-request.json",
     "generation_request_sha256": "7b28e240be8f94507048b4c15b6c64298f443ae715bf2a1ad43c5d763cb635f8",
@@ -60,7 +70,38 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "industry-menagerie-soot-stained-brick-open-doorway",
+        "view": "bottom",
+        "source_path": "industry-menagerie/components/industry-menagerie-soot-stained-brick-open-doorway.png",
+        "source_sha256": "3b18290ca11f083546da0ce1dfe9aa6fad397e151ea5d08fad195e83c07dceba",
+        "atlas_path": "reusable/views-additional/raw/candidates/industry-open-doorway-plans-v1-raw.png",
+        "atlas_sha256": "015b8f957481f336b1d0bc5ac66f61b10b9809a0f0418440cfe26db45e7b6c27",
+        "active_output_sha256": "085dd91cc1ea8f802026ae631bd08940cafc549b51725733cae966f4102b03b2",
+        "active_output_rgba_sha256": "d2f941fc6428a3e0cab659092842b7d0a556bfd325c6f7b8f18f7346ca8d91a1",
+        "crop_bounds_xyxy": [
+          965,
+          403,
+          1654,
+          648
+        ],
+        "resized_dimensions_px": [
+          220,
+          78
+        ],
+        "scale": 0.3193033381712627,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "reference_inputs": [
       {
@@ -77,7 +118,19 @@
         "role": "shallow doorway geometry only"
       }
     ],
-    "notes": "Root-scoped-accepted shallow plan for the open soot-stained brick doorway; source identity and open passage preserved. Pending fresh whole-set review."
+    "notes": "Root-scoped-accepted shallow plan for the open soot-stained brick doorway; source identity and open passage preserved. Pending fresh whole-set review.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.3193033381712627
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "pending-review",
   "provenance_history": [
@@ -129,5 +182,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:brick",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "industry-menagerie-soot-stained-brick-open-doorway"
+  }
 }

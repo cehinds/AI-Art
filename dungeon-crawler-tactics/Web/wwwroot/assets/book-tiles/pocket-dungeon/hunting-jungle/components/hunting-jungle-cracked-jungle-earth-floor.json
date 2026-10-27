@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-cracked-jungle-earth-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-cracked-jungle-earth-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-cracked-jungle-earth-floor",
+      "source_sha256": "664ee75bbe04da659e6608d9f29196ee3a0306f97fb3263dbb6e562996e7eb9e",
+      "primary_source": {
+        "asset_id": "hunting-jungle-cracked-jungle-earth-floor",
+        "path": "hunting-jungle/components/hunting-jungle-cracked-jungle-earth-floor.png",
+        "sha256": "664ee75bbe04da659e6608d9f29196ee3a0306f97fb3263dbb6e562996e7eb9e",
+        "rgba_sha256": "2c2f54289ac80f37a503cc4b3ac036407007817cd476bd4bd28d81530517a289"
+      },
+      "image_hashes": {
+        "front": "3b857433faa5bbf0101fa43981653f38e28d9775bfbb41f62c62b70d043d87a0",
+        "top": "6a062c58177b7b31690be39a33b6efa01959195c7afa0b828b269dcf492bb610",
+        "right": "eccbbe79eb91dbea37d99472dea2d2238931c256aa48da1937ecc80ddaf2f46b",
+        "left": "6d90c332c6b108fd0d1965b1458264d853e2a95f18f4b0c0f91c026cecacabb9",
+        "bottom": "0bde1a662a6759c35acd8330796868431eda2eb01bec8958f6887eb99c657d2f",
+        "rear": "5239a415ee7012829b8611608cf15ca42c6fcab896d87623f35d42c6442f4b51"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:06:36.522488+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-cracked-jungle-earth-floor.png",
+          "sha256": "664ee75bbe04da659e6608d9f29196ee3a0306f97fb3263dbb6e562996e7eb9e",
+          "rgba_sha256": "2c2f54289ac80f37a503cc4b3ac036407007817cd476bd4bd28d81530517a289"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

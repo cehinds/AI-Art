@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-closed-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-closed-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-painted-town-brick-closed-doorway",
+      "source_sha256": "0e8de2246b01ef8e8005b90b327d778a820cb1535e48ca595fb6e0e967e86d05",
+      "primary_source": {
+        "asset_id": "hunting-zockau-painted-town-brick-closed-doorway",
+        "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-closed-doorway.png",
+        "sha256": "0e8de2246b01ef8e8005b90b327d778a820cb1535e48ca595fb6e0e967e86d05",
+        "rgba_sha256": "9aaf7c34d652c383623668940395a22be2037a5ad4c4895da940e293072f513a"
+      },
+      "image_hashes": {
+        "front": "c784ca40585f1fc1e1a72b1fa03cf9e8d0da948a9726283950567ed486e3b177",
+        "top": "5e4f0485adcd86790c84fda24681c009ece746eab33876bd673ebb5941d8e9b5",
+        "right": "38200a7543723e88abf57a3778d63d5e75f4ff83d34d3e77124b8f7bbf1fbbb9",
+        "left": "adeb0a601efc204dc637d3ea0c9af223d5a77dd3bfd348d95ae487506b9b8f9a",
+        "bottom": "f2cfb7a433a1f8ec4393cddd3cf6412fe1077c45544911f108c87fcae38b8bdd",
+        "rear": "4a04f2730729b2f242981fd4bb300a4392dbab667b97f98e5d207f17fae0b745"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T15:33:19.870855+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-closed-doorway.png",
+          "sha256": "0e8de2246b01ef8e8005b90b327d778a820cb1535e48ca595fb6e0e967e86d05",
+          "rgba_sha256": "9aaf7c34d652c383623668940395a22be2037a5ad4c4895da940e293072f513a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

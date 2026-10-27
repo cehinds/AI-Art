@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "style:pocket-dungeon",
-    "thresholds"
+    "thresholds",
+    "walkability:blocked"
   ],
   "image": {
     "path": "thresholds/components/thresholds-red-carpet-runner.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-red-carpet-runner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-red-carpet-runner",
+      "source_sha256": "34e03e4040ffe3c2954328df7e4ab053acd043ecd6104f5e7f22302ab5c5d38c",
+      "primary_source": {
+        "asset_id": "thresholds-red-carpet-runner",
+        "path": "thresholds/components/thresholds-red-carpet-runner.png",
+        "sha256": "34e03e4040ffe3c2954328df7e4ab053acd043ecd6104f5e7f22302ab5c5d38c",
+        "rgba_sha256": "448181dc436b465046e727a8e65e8a165dac3d6610cd7290ed3f3d2b2de4c4ba"
+      },
+      "image_hashes": {
+        "front": "4ec635cc78a8edf282ed0c69ad610e1a33f7abd7f60f3aeed75f807c65ab7446",
+        "top": "a2e6a47f0cceb4cd798bbb2f1ed37c66e65ebb3e4ab53d6e318eef1b70a4b34b",
+        "right": "2f7941c1a0da4ccd2374ace297a326897fd8d1b5b4555e05d86b60a732507614",
+        "left": "3f58f9c6d9777844d70334bd609b857686b06e3887536aa50e0aa488d9663da9",
+        "bottom": "11dfdcf7464ac352152bb0d85c5fab500d5b8e138d8e6f2d9335cbe1518205d6",
+        "rear": "4ec635cc78a8edf282ed0c69ad610e1a33f7abd7f60f3aeed75f807c65ab7446"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:47:52.783185+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-red-carpet-runner.png",
+          "sha256": "34e03e4040ffe3c2954328df7e4ab053acd043ecd6104f5e7f22302ab5c5d38c",
+          "rgba_sha256": "448181dc436b465046e727a8e65e8a165dac3d6610cd7290ed3f3d2b2de4c4ba"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

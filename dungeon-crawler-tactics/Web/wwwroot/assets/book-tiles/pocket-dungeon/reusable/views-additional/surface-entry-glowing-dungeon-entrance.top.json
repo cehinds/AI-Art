@@ -3,12 +3,22 @@
   "name": "Glowing dungeon entrance top",
   "kind": "sprite",
   "tags": [
-    "surface-entry",
-    "prop",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "surface-entry",
+    "top",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/surface-entry-glowing-dungeon-entrance.top.png",
@@ -47,7 +57,6 @@
       ],
       "reference_view": "front",
       "reference_sha256": "a0c8637fdefc1f0bbee3658c3d2f52fed9fbacf040618c0760a21dedf1830b74",
-      "shared_scale": 0.212443095599393,
       "render_size": [
         140,
         35
@@ -60,9 +69,53 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale": 0.212443095599393,
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "surface-entry-glowing-dungeon-entrance",
+        "view": "top",
+        "source_path": "surface-entry/components/surface-entry-glowing-dungeon-entrance.png",
+        "source_sha256": "aa135413178036665743a3250f2073f578b48d09d8f003bfa92915efe5576cb9",
+        "atlas_path": "reusable/views-additional/raw/atlases/surface-entry-glowing-entrance-plans-v3.png",
+        "atlas_sha256": "899c026ffa40e3b513f5434a52955cdd66a897b591ea798972369d667dd5c7b4",
+        "active_output_sha256": "66516a9899f4522ba06b5d292a79bc572318a5124b9862f61875055a1996fbfc",
+        "active_output_rgba_sha256": "a09342f2ff255aae4607c7317d3a727c01f37d550992cf197ea5f32f77b60a60",
+        "crop_bounds_xyxy": [
+          428,
+          308,
+          1087,
+          471
+        ],
+        "resized_dimensions_px": [
+          140,
+          35
+        ],
+        "scale": 0.212443095599393,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Thin-depth inferred orthographic arch/threshold footprint with source stone identity; not recovered pixels."
+    "notes": "Thin-depth inferred orthographic arch/threshold footprint with source stone identity; not recovered pixels.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.shared_scale",
+            "value": 0.212443095599393
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -274,5 +327,44 @@
       },
       "notes": "Source-specific rectangular U-shaped stone arch footprint; vertical arch curvature is occluded in the top plan, and underside uses matching masonry."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-glowing-dungeon-entrance"
+  }
 }

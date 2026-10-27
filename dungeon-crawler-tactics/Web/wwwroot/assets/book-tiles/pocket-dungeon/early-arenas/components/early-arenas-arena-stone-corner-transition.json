@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-arena-stone-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-arena-stone-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-arena-stone-corner-transition",
+      "source_sha256": "afe80cab3c02ade778e6dab6f5f1942554dffb711ab2d5f3246f679dd8a78482",
+      "primary_source": {
+        "asset_id": "early-arenas-arena-stone-corner-transition",
+        "path": "early-arenas/components/early-arenas-arena-stone-corner-transition.png",
+        "sha256": "afe80cab3c02ade778e6dab6f5f1942554dffb711ab2d5f3246f679dd8a78482",
+        "rgba_sha256": "1c50868fbc4054b073b6cc3e66fa214f9c950e58913118f660098cb8588f6c48"
+      },
+      "image_hashes": {
+        "front": "11abff14c6d97ca3bd8474bd478b8b05360a41f141859e21159e487f76fa8eeb",
+        "top": "338e9599259f1eb55dba23b20a8cbb2e0391834b3fe8836313ab60389517feb0",
+        "right": "2244781f3a15984502169d720173319f17b4363307b5421bb377d249de8918ce",
+        "left": "2aafed1e2b74917665a937a5de5df7a95b5add3bacc20fc876938de03833840c",
+        "bottom": "4129551dfb35b9aef2e5a8b5ddbe26be5addc54f1c6904dd36bd3349a4561bcb",
+        "rear": "0310df3185f962602a7033a1e205a74e9944128aad4e85a5cae6b2088c7083bc"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.915282+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-arena-stone-corner-transition.png",
+          "sha256": "afe80cab3c02ade778e6dab6f5f1942554dffb711ab2d5f3246f679dd8a78482",
+          "rgba_sha256": "1c50868fbc4054b073b6cc3e66fa214f9c950e58913118f660098cb8588f6c48"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

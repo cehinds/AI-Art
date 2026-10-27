@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "door",
     "early-arenas",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-open-doorway.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -135,39 +147,92 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-heavy-dungeon-stone-open-doorway",
+      "source_sha256": "9a8ef7dbf03da59eeefacf97ab2b67acc7868bbbba86f8dc3a76f9449f9b4c53",
+      "primary_source": {
+        "asset_id": "early-arenas-heavy-dungeon-stone-open-doorway",
+        "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-open-doorway.png",
+        "sha256": "9a8ef7dbf03da59eeefacf97ab2b67acc7868bbbba86f8dc3a76f9449f9b4c53",
+        "rgba_sha256": "aef2338b8e112cbc9b3f0861505df5431e7946dc0557daa1c00832b91153b558"
+      },
+      "image_hashes": {
+        "front": "76b562d287955c41e63947378c7bca84ad1edcfa1fa68a4c9e75a3fd6f0e616b",
+        "top": "da805162f1a7f2a38e47074c7adeffafdbdb0996f8e473894589d8f3158d651a",
+        "right": "478bbea5f04ac4ec7ace3089476a2efb620b8a1a9260c45ede1da8bc31a4e9bb",
+        "left": "dff4d5dfd538a67046e218704bfcc8c32e3d051c2890fe1318d0c9d5cde58634",
+        "bottom": "2b933e423cb2a382bddd5c1299ea25813fcc6d25a7850e07507888f5e9511b75",
+        "rear": "6b2c5b04aaec2084a730e0194cf9582a1c191419851fed725f2fd765cad580e1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.447794+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-open-doorway.png",
+          "sha256": "9a8ef7dbf03da59eeefacf97ab2b67acc7868bbbba86f8dc3a76f9449f9b4c53",
+          "rgba_sha256": "aef2338b8e112cbc9b3f0861505df5431e7946dc0557daa1c00832b91153b558"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:dungeon",
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -175,15 +240,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

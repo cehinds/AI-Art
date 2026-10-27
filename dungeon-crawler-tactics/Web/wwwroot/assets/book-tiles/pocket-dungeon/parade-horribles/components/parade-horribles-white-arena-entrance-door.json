@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "parade-horribles/components/parade-horribles-white-arena-entrance-door.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "parade-horribles-white-arena-entrance-door.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "parade-horribles-white-arena-entrance-door",
+      "source_sha256": "beed86d53c549cb79b21e9a25b8e2280f20cb2e0922de73604972ff65e7bf146",
+      "primary_source": {
+        "asset_id": "parade-horribles-white-arena-entrance-door",
+        "path": "parade-horribles/components/parade-horribles-white-arena-entrance-door.png",
+        "sha256": "beed86d53c549cb79b21e9a25b8e2280f20cb2e0922de73604972ff65e7bf146",
+        "rgba_sha256": "fc2f4a82902d8443e50a3c6b1db8cb9c4f49834e3f15f55596ccec6594cb77a8"
+      },
+      "image_hashes": {
+        "front": "efdfde82a3a64a4ee10e5485f19ec8b4f4bac3c798225d08b5780ec0fcf911f8",
+        "top": "8fade1ee3dfff9d89431d55e4251dc90f4fe76e7774ad3d7af40e0b4bdf8d77e",
+        "right": "5986ae049338e3b14dfd6211cb3560d768fa61b29c92d4714659985aa8f259b8",
+        "left": "3a7a087cf3a9b6b2515c34897d2284aa84c0dc367a7a4b446ea4304fb8ddf4be",
+        "bottom": "738081edc3b7e2fbf71e3a055804b71bc99bf505db5b61817881580459bc63d4",
+        "rear": "2f1d2cae96eed818b2dcfeeef1297b23afd3be9090682b4c6a93c0015ef7ee3a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:27:49.354532+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "parade-horribles/components/parade-horribles-white-arena-entrance-door.png",
+          "sha256": "beed86d53c549cb79b21e9a25b8e2280f20cb2e0922de73604972ff65e7bf146",
+          "rgba_sha256": "fc2f4a82902d8443e50a3c6b1db8cb9c4f49834e3f15f55596ccec6594cb77a8"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,

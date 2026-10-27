@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-mid-century-street-pavement-edge-transition",
+      "source_sha256": "e3b9531cf7018139708358760f11c0790b176cb0cfd68aa8fbb4c3618a061baf",
+      "primary_source": {
+        "asset_id": "hunting-zockau-mid-century-street-pavement-edge-transition",
+        "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-edge-transition.png",
+        "sha256": "e3b9531cf7018139708358760f11c0790b176cb0cfd68aa8fbb4c3618a061baf",
+        "rgba_sha256": "de1405bfa725413fb749eb4f6f776ecaa11595abba8f483ae88ef0539151c5bb"
+      },
+      "image_hashes": {
+        "front": "ad6bd0dc3ac422a9e38c51a70e00428cd6dd49f97af231b2496eb4a5f1fcfac3",
+        "top": "7a941234bca785c9013f44148dcf3bb6e5d8c62eae7fc9f2b2fbdc2cbb72bf66",
+        "right": "377db67a58c5e73ef57f67cbfb089a5f18299e5fb970cad5d46aa8cf104accb0",
+        "left": "062141c3f7940e90c933427d73259cbad478735c25d1fa44bf145328a6f2bf11",
+        "bottom": "79871523a5d7e42ce0678e314128a1acd882ba757e5e0f7772bd1ce9e2cdcfc7",
+        "rear": "95b4bee61b0659c9fa8a14452c1e7cfc6caf4ce42c915b4ae0c1a83bd5c82b01"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-mid-century-street-pavement-edge-transition.png",
+          "sha256": "e3b9531cf7018139708358760f11c0790b176cb0cfd68aa8fbb4c3618a061baf",
+          "rgba_sha256": "de1405bfa725413fb749eb4f6f776ecaa11595abba8f483ae88ef0539151c5bb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-tunnel-stone-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-tunnel-stone-wall-northeast",
+      "source_sha256": "de247a4f8ee110bb5910e6456ad715d8dfc056633bda7faece2a229fc0dd9f48",
+      "primary_source": {
+        "asset_id": "iron-tracks-tunnel-stone-wall-northeast",
+        "path": "iron-tracks/components/iron-tracks-tunnel-stone-wall-northeast.png",
+        "sha256": "de247a4f8ee110bb5910e6456ad715d8dfc056633bda7faece2a229fc0dd9f48",
+        "rgba_sha256": "d5fd586976e780b90ff72c194a2ac27ce0cc9f45eea222eb1fba0da18b7ae28d"
+      },
+      "image_hashes": {
+        "front": "a974a57510c832364d6d53e02465a13f6139a6310793092871ee8827f995dbe5",
+        "top": "140738fd5b0b4322691744f56f7d74b0a267d6dc946eb075bdbaf4e7d3a6bf02",
+        "right": "a91390369e1f2f67d43324fd5e14dcebfa4d90e4ae5994dd95ece94f30d31d5c",
+        "left": "21265e175bc9e6df66190f9926879bc1a48db35224fad1f0db4fd7c12b187c08",
+        "bottom": "935d919b2d57f0bffc4fb89332b65d1efeb8412c9d6f1995c7e855eb40ca7312",
+        "rear": "195745e9e8eaeccf43ef7598be3bacbbdc140d2b92dbc6496d0776f809749f9e"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:22:37.595349+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-tunnel-stone-wall-northeast.png",
+          "sha256": "de247a4f8ee110bb5910e6456ad715d8dfc056633bda7faece2a229fc0dd9f48",
+          "rgba_sha256": "d5fd586976e780b90ff72c194a2ac27ce0cc9f45eea222eb1fba0da18b7ae28d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

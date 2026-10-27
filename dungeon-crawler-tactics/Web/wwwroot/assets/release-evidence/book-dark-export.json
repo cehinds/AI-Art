@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "kind": "retained-export-receipt",
+  "library": "book-dark",
+  "source_report": {
+    "historical_filename": "dark-complete-library-export-receipt.json",
+    "sha256": "6cacd818f34982ba9db0533467e611f16f8a1974a57e9ea672f1f9f8c96b5236",
+    "bytes": 5076
+  },
+  "path_base": "assets unless explicitly prefixed art-repository-relative; historical-location fields are documentary labels, not runtime dependencies",
+  "report": {
+    "schema_version": 1,
+    "kind": "complete-library-export-receipt",
+    "status": "exported-and-validated-with-recorded-generation-blocks",
+    "pack_root": "book-tiles/dungeon-after-dark",
+    "maps": 62,
+    "assets": 16698,
+    "plan": {
+      "path": "historical-location:book-tiles-dungeon-after-dark-complete-library-root183.json",
+      "sha256": "ea409485806f4a355e386dae8c74cba69f746765aa12f677c542afaf9d4a3bb2"
+    },
+    "preexport_validation": {
+      "strict_report_path": "historical-location:dark-strict-after-root183.json",
+      "strict_report_sha256": "1a2d128cd6e691063123cff37462ff79161598af1a674c076b02d9fe461936a1",
+      "status": "passed",
+      "assets_checked": 16698,
+      "pixel_exact_maps": 62,
+      "recorded_blocked_set_count": 5,
+      "recorded_generation_blocks": [
+        {
+          "object_id": "bubble-airship-bomb-rack",
+          "affected_views": [
+            "top"
+          ],
+          "status": "external-generation-blocked",
+          "complete": false
+        },
+        {
+          "object_id": "faction-battlefield-siege-engine-emplacement",
+          "affected_views": [
+            "rear"
+          ],
+          "status": "external-generation-blocked",
+          "complete": false
+        },
+        {
+          "object_id": "industry-menagerie-goblin-workbench",
+          "affected_views": [
+            "top"
+          ],
+          "status": "external-generation-blocked",
+          "complete": false
+        },
+        {
+          "object_id": "industry-menagerie-improvised-cannon-emplacement",
+          "affected_views": [
+            "top",
+            "rear"
+          ],
+          "status": "external-generation-blocked",
+          "complete": false
+        },
+        {
+          "object_id": "industry-menagerie-kennel-cage-section",
+          "affected_views": [
+            "top"
+          ],
+          "status": "external-generation-blocked",
+          "complete": false
+        }
+      ],
+      "review_refresh_path": "historical-location:root183-review-refresh.json",
+      "review_refresh_sha256": "5762255c4e076e321b345e52bf0da040e03da770acbb84186e2f7ac03a5e330e",
+      "review_status": "passed"
+    },
+    "extracted_archive_validation": {
+      "status": "passed-before-publication",
+      "evidence": "The exporter stages each archive, calls verify_archive() which runs ZIP CRC, manifest file-set/hash checks, and validate(extracted_pack, require_views=True, allow_recorded_blocks=True), then atomically replaces reusable/index.json only after all staged downloads pass. The current index download row is the published record from that atomic commit.",
+      "exporter_path": "art-repository-relative:tools/export_pocket_collections.py",
+      "exporter_sha256": "5574d394e3a0aeea19f7e5605ecdc1759537da184fe635efbf6ca24a33d2edd3",
+      "callsite": "verify_archive(archive, Path(extracted), allow_recorded_blocks)",
+      "publication": "os.replace(temporary_index, index_path)",
+      "published_index_sha256": "94cb0cd6cf0b1cbb8b295b8f546ba1348c98c8f3811f30d879e183fcf637a2e7",
+      "download_row_id": "complete-library",
+      "asset_count": 16698,
+      "pixel_exact_maps": 62,
+      "archive_member_crc_checked_before_removal": true,
+      "archive_member_count_at_crc_check": 33639
+    },
+    "archive": {
+      "sha256": "8fd5e0a672e2c62ceb8bf04b429de442b952c649d4580fe7b3cb6a5337bc6ec0",
+      "bytes": 438685174,
+      "format": "multipart-zip",
+      "parts_manifest_path": "reusable/downloads/dungeon-after-dark-complete-library.zip.parts.json",
+      "parts_manifest_sha256": "59b02410b3754625f73d37f82281015a1b75dcac838c62b0c6fe5630e018adb0",
+      "parts": [
+        {
+          "path": "reusable/downloads/dungeon-after-dark-complete-library.zip.part-001",
+          "bytes": 99614719,
+          "sha256": "06ed3ff3747fab2e2f1f73aa54b1d1d54fc7d0a22317bcc1b3b18a18b2a50606",
+          "verified": true
+        },
+        {
+          "path": "reusable/downloads/dungeon-after-dark-complete-library.zip.part-002",
+          "bytes": 99614719,
+          "sha256": "b5c26cc99367e2f8182eb4135ee0ea940cdf7ee60113084f893917d300fdab6f",
+          "verified": true
+        },
+        {
+          "path": "reusable/downloads/dungeon-after-dark-complete-library.zip.part-003",
+          "bytes": 99614719,
+          "sha256": "460b0ac80d3a5d31552e38cf1bbf46bb81c4b677fdb5886f17e17a3605667c0b",
+          "verified": true
+        },
+        {
+          "path": "reusable/downloads/dungeon-after-dark-complete-library.zip.part-004",
+          "bytes": 99614719,
+          "sha256": "7ced6eacf5421be85ffe86704fddc65ef7f6c2b2fd63e96ed07c762ddc731604",
+          "verified": true
+        },
+        {
+          "path": "reusable/downloads/dungeon-after-dark-complete-library.zip.part-005",
+          "bytes": 40226298,
+          "sha256": "66e6099ab8a3415b1be78faf55ec6386e1071820c74a57e08fb862cd0facde49",
+          "verified": true
+        }
+      ],
+      "assembly_tool_path": "reusable/downloads/assemble_archive_parts.py",
+      "assembly_tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+      "assembled_copy_removed_after_sha_and_crc_receipt": true,
+      "parts_retained_for_reassembly": true
+    },
+    "artwork_changed": false
+  },
+  "scope_note": "Retained executed validation/export result. This document does not claim the final post-export/tag deleted-output replay has completed."
+}

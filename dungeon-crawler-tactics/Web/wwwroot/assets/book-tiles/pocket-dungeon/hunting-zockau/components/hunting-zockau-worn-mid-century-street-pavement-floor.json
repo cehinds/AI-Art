@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-worn-mid-century-street-pavement-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-worn-mid-century-street-pavement-floor",
+      "source_sha256": "5dff8ff4fe0fe9ac566c894879d8fa354f4dcae301cb37fb67aba4c426fdac3c",
+      "primary_source": {
+        "asset_id": "hunting-zockau-worn-mid-century-street-pavement-floor",
+        "path": "hunting-zockau/components/hunting-zockau-worn-mid-century-street-pavement-floor.png",
+        "sha256": "5dff8ff4fe0fe9ac566c894879d8fa354f4dcae301cb37fb67aba4c426fdac3c",
+        "rgba_sha256": "ea9f0ad598b4dbe96a78666c9a8287247a30a30e5981f2913549d7714ad3deff"
+      },
+      "image_hashes": {
+        "front": "0bad07d49f524a2ccb7ee8d74107558674ce9c14be901ba3ac7454537bcb05af",
+        "top": "c3a79aca6c0555be714b8f4e6c5ae93d4d66c73e45b84491bbaaf3b1e6452ab0",
+        "right": "b28bee78f9503646deb9d32e706f14e50f588e0fb8932de03add63ac1cfdc5f1",
+        "left": "b659ddae327ca49fc10a0c1f68534e23c5bd451964e50ef712f33eaa5d8ce544",
+        "bottom": "eb32500e238e56915d42228146bd8dfb8cf3681f1724983765417eac844c5e4a",
+        "rear": "6f5fb7237c06369ffc8eb00a0d2c6a0675b19adb3add1fd40fcc6bb3819af3fc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:25:03.183607+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-worn-mid-century-street-pavement-floor.png",
+          "sha256": "5dff8ff4fe0fe9ac566c894879d8fa354f4dcae301cb37fb67aba4c426fdac3c",
+          "rgba_sha256": "ea9f0ad598b4dbe96a78666c9a8287247a30a30e5981f2913549d7714ad3deff"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-zockau"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-cemetery-white-mausoleum-masonry-north-wall",
+      "source_sha256": "d5f025e84c1f48bbf71222551432f7bad928b4481d644e2f51644d32b87392e7",
+      "primary_source": {
+        "asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall",
+        "path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-north-wall.png",
+        "sha256": "d5f025e84c1f48bbf71222551432f7bad928b4481d644e2f51644d32b87392e7",
+        "rgba_sha256": "6801b9be2573c90845db84df065646ac9c76a0824ca3b75a88eb6a813fe0f856"
+      },
+      "image_hashes": {
+        "front": "a1cc911f8fa0e314fcebb8f5bd0b39c9cb47ca56342a6e308b7cf0a7f9ef2610",
+        "top": "37efd898f3e9c3dfb301f211ee75a125fb808be0c432053e59cf43dd2b0c4fda",
+        "right": "c97b86bd5c0d38fcd3a8ede3871454270dab1feff0a2e56cbd0b7f6a2a76c3a9",
+        "left": "2ca44b90af26514f3e5814bf56d800cdb9330d54fd521ef0f6cda594728db844",
+        "bottom": "241ce30a090e468e864fcb8110ceabd10efec61191efdc6ee9b1e17856e9e998",
+        "rear": "6bbab70b2efdc12f76f7aec23c0c456258d4c061a2d55e14cedf49980244f203"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T10:02:01.620794+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-cemetery/components/ghost-cemetery-white-mausoleum-masonry-north-wall.png",
+          "sha256": "d5f025e84c1f48bbf71222551432f7bad928b4481d644e2f51644d32b87392e7",
+          "rgba_sha256": "6801b9be2573c90845db84df065646ac9c76a0824ca3b75a88eb6a813fe0f856"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

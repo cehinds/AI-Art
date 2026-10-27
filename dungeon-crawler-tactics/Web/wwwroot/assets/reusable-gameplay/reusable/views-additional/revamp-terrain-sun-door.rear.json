@@ -3,12 +3,19 @@
   "name": "Sun door Rear",
   "kind": "tile",
   "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
     "gameplay",
-    "native-source-crop",
-    "sprite-frame",
-    "terrain",
     "inferred-view",
-    "rear"
+    "material:unspecified",
+    "native-source-crop",
+    "rear",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:doorway",
+    "terrain"
   ],
   "object_id": "revamp-terrain-sun-door",
   "view": "rear",
@@ -63,5 +70,42 @@
       ],
       "shared_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:doorway"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp-terrain-sun-door"
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "personal-space/components/personal-space-personal-space-portal-door.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-personal-space-portal-door.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-personal-space-portal-door",
+      "source_sha256": "f6aca0d1933f9dd3987d2f529ca5222f58625a4a2f76f92220161a163648b876",
+      "primary_source": {
+        "asset_id": "personal-space-personal-space-portal-door",
+        "path": "personal-space/components/personal-space-personal-space-portal-door.png",
+        "sha256": "f6aca0d1933f9dd3987d2f529ca5222f58625a4a2f76f92220161a163648b876",
+        "rgba_sha256": "6f97a61bc6f9e5bd1dfb1f1167bba1b5f2ef7de6802ba4fab57a0bbc60f2f7be"
+      },
+      "image_hashes": {
+        "front": "135088f8210c5855ab956c0764837039c235a80b7554c406bd2b536005ae807d",
+        "top": "64b69f7ecabdf27495aabcd465648f52cad324162210c0ca0d8c15cf4db31649",
+        "right": "91e1a56965374dc0a6e7cbae2f2d57c3b03338d88048d656ff9ac044705dedc8",
+        "left": "edf2db94e11c372a49003b2e0896f922f86ee5998da6027fc5cc9f67a702b2ce",
+        "bottom": "d39c39e63a065d9486033229745002b1385ccb7b3791940d915420992818966d",
+        "rear": "ef172b25af1dbea5c3832ad97b664408008178fcfa1b2df433d37f734ca8abc0"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T07:40:56.569380+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-personal-space-portal-door.png",
+          "sha256": "f6aca0d1933f9dd3987d2f529ca5222f58625a4a2f76f92220161a163648b876",
+          "rgba_sha256": "6f97a61bc6f9e5bd1dfb1f1167bba1b5f2ef7de6802ba4fab57a0bbc60f2f7be"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,

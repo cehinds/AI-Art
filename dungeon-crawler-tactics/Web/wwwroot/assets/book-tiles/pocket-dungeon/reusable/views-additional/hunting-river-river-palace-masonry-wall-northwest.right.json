@@ -3,12 +3,22 @@
   "name": "River Palace Masonry north wall right",
   "kind": "sprite",
   "tags": [
-    "hunting-river",
-    "wall",
     "art-adaptation",
-    "right",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "hunting-river",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "right",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/hunting-river-river-palace-masonry-wall-northwest.right.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "hunting-river/components/hunting-river-river-palace-masonry-wall-northwest.png",
     "source_sha256": "5de49ab0d20e0c4f68efd9900b87c94aed2234b9a82090ce8dc4972b16febf2f",
-    "generated_atlas": "raw/generated-atlases/river-palace-nw-ends-batch01-v3.png",
+    "generated_atlas": "reusable/views-additional/raw/generated-atlases/river-palace-nw-ends-batch01-v3.png",
     "generated_atlas_sha256": "ac57ff61222b4d3143dcd6c7ebd026362f5611e7ab8594a932c633efb1ddf664",
     "normalization": {
       "alpha_threshold": 245,
@@ -259,5 +269,45 @@
       },
       "notes": "Replace the narrow 24px side projection with a newly generated straight-on orthographic masonry end face that spans the inferred 49px wall depth and matches the accepted 86px front/rear height. Source-specific sandstone coping, blue masonry courses and stone base are preserved; no banner is visible on the perpendicular end."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "hunting-river-river-palace-masonry-wall-northwest"
+  }
 }

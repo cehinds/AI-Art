@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-tomb-relief-pillar.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-tomb-relief-pillar.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-tomb-relief-pillar",
+      "source_sha256": "de9913aebe819f89d6b1f99cf4ccceb2ffaf744a16be7123a81d6f0723d09ab0",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-tomb-relief-pillar",
+        "path": "bubble-necropolis/components/bubble-necropolis-tomb-relief-pillar.png",
+        "sha256": "de9913aebe819f89d6b1f99cf4ccceb2ffaf744a16be7123a81d6f0723d09ab0",
+        "rgba_sha256": "3d81773588a4d2e652442ff87b2abb0bd540f46dee6b74ce9bb23c3c557f1300"
+      },
+      "image_hashes": {
+        "front": "20c761326149e8dfdd3291a2b67fdaed3b5e3975390e3d748fad64bd3df385ed",
+        "top": "3a857f0fb55e4fbd14d3bd1da34af4fc9326cbc8332073d4fbcde47c83c03356",
+        "right": "bf35d57229e00642748d05bdcbf56493d2e89dfd52d9156033f483d51004f553",
+        "left": "19d07db80992516337b938a3200f9e52c5f1f8979fe3a29fa98aebb9e0590749",
+        "bottom": "e2ff47f48812c6061e78deeb016974e49bbaeb54fff1cba5d1743f5635aa73d7",
+        "rear": "c6c0cecd5cbdf7f1eca54dd544d3bd7bb290cd8510b8b476dfa86b314e1c5d75"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:42:06.023581+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-tomb-relief-pillar.png",
+          "sha256": "de9913aebe819f89d6b1f99cf4ccceb2ffaf744a16be7123a81d6f0723d09ab0",
+          "rgba_sha256": "3d81773588a4d2e652442ff87b2abb0bd540f46dee6b74ce9bb23c3c557f1300"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

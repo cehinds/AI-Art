@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "faction-larracos/components/faction-larracos-worn-drained-city-cobblestone-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-larracos-worn-drained-city-cobblestone-floor",
+      "source_sha256": "4cdf2ea82be3e5195b9e5787dd846380b77df6c4b5a7d68208dd1b87271a3559",
+      "primary_source": {
+        "asset_id": "faction-larracos-worn-drained-city-cobblestone-floor",
+        "path": "faction-larracos/components/faction-larracos-worn-drained-city-cobblestone-floor.png",
+        "sha256": "4cdf2ea82be3e5195b9e5787dd846380b77df6c4b5a7d68208dd1b87271a3559",
+        "rgba_sha256": "4a316a0f0e0b6ce667f51be6fd0bdb276230eaca1c6668619da00943787444f6"
+      },
+      "image_hashes": {
+        "front": "c239600862e81e4038dd2ebf5dc3e2bb4b1498efc92e7c3ac08ba5a0c1c885ea",
+        "top": "36bbdd3e7df2b462b73203af27410f58e917a7519cd9a8137f9f88c2c39e86f2",
+        "right": "fbb7bab7736d0bce6e4ded85ee26716d9d49ded7145efc3eb7819beb5f039296",
+        "left": "3c1921d74461e70aca6609af8b8046672d2ebc826c23951f884cdd3b91327f6a",
+        "bottom": "63e7057f4218e67493e393b7d858d67ecd8787b4252a64bbbc26441161327c64",
+        "rear": "916392c1202aeaf65e3aed9cb424077c87e5aa371bcbeeac9ed0be11ba0e2a7f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:35:12.072520+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-larracos/components/faction-larracos-worn-drained-city-cobblestone-floor.png",
+          "sha256": "4cdf2ea82be3e5195b9e5787dd846380b77df6c4b5a7d68208dd1b87271a3559",
+          "rgba_sha256": "4a316a0f0e0b6ce667f51be6fd0bdb276230eaca1c6668619da00943787444f6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "east": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "south": [
+      "join.floor",
+      "visual.faction-larracos"
+    ],
+    "west": [
+      "join.floor",
+      "visual.faction-larracos"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -52,7 +52,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp--mongo--mongo--attack.front"
@@ -77,19 +77,41 @@
       "status": "inferred",
       "asset_id": "revamp--mongo--mongo--attack.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp--mongo--mongo--attack",
+      "source_sha256": "c891304db27b9c76661522e43f3f44800ba4868f81cfe48ed020836473f3bd5f",
+      "primary_source": {
+        "asset_id": "revamp--mongo--mongo--attack",
+        "path": "reusable/native/revamp--mongo--mongo--attack.png",
+        "sha256": "c891304db27b9c76661522e43f3f44800ba4868f81cfe48ed020836473f3bd5f",
+        "rgba_sha256": "81ffdc3feb2cd2705fdcb658ffda2c91a3899ba35a825d520d5a007ce2adde07"
+      },
+      "image_hashes": {
+        "front": "9db7103c48b5cc68825b028f8eb1b44cc5232649a130aa3bdbb0bb2c5d0d89af",
+        "top": "7c4cb7624e43a70dca72bfc7e0170ea6770c1b71f65d923e4f90499f175ad6b4",
+        "right": "bccb013965f18e5f1db7d08ef7c3d26018cb330b47b13c3fafc4a3371e3fead6",
+        "left": "374e7990b032759057ec4ce75f4cd56b187ce5a61f9a79d0d7b4fae696af1d70",
+        "bottom": "203742f95d6c30a0031c34961455c44d2be6592b40dbc761c1453b7d3c241b0f",
+        "rear": "da5711552def26d5c9dfb0c841bc5a72f7a63bdf2c59f03b91a363da7518762d"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:27:53.379826+00:00",
+      "notes": [
+        "Blunt blue source muzzle, red feathered body/long tail and pose-specific wing spread retained across principal cameras. Slender overhead silhouette is plausible long-Y body/tail projection; hidden feather surfaces inferred."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "d54e5871c4a8492bb096fcbb7c4aed81e94a1cdfe1c8e2008cf5f548dd97098e",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp--mongo--mongo--attack.png",
+          "sha256": "c891304db27b9c76661522e43f3f44800ba4868f81cfe48ed020836473f3bd5f",
+          "rgba_sha256": "81ffdc3feb2cd2705fdcb658ffda2c91a3899ba35a825d520d5a007ce2adde07"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "revamp--mongo--mongo--attack",

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:city",
     "environment:dungeon",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-circus-big-top-entrance.png",
@@ -111,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -130,40 +142,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-circus-big-top-entrance.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-circus-big-top-entrance",
+      "source_sha256": "61fadf65332f31d366fb18f9b60ff8d78d3bd3ec50fa5f00c8efdfe60c70c65e",
+      "primary_source": {
+        "asset_id": "over-city-venues-circus-big-top-entrance",
+        "path": "over-city-venues/components/over-city-venues-circus-big-top-entrance.png",
+        "sha256": "61fadf65332f31d366fb18f9b60ff8d78d3bd3ec50fa5f00c8efdfe60c70c65e",
+        "rgba_sha256": "32986595772448ae4684885fcb404e583ddba099c7c6cacda617b3afe8e50b37"
+      },
+      "image_hashes": {
+        "front": "4dc75a7458f019a439bdb343417a7e3f926b5bd50fdac8aa05e4c8f4642ac954",
+        "top": "e6279d1151264f2ba2c68bb076b8864af464c862d630a19c2478a12dae1a17b2",
+        "right": "72ecb9e28650fdc7d142399a35b41a3759c766086fc154e473f7eab8ce015df7",
+        "left": "4e520c96abdc139bd04cf31e3e381c4f6b675979624d08c7e42ee6a169a4955f",
+        "bottom": "0131611051e7e71aebdc473aa85ed5ef011a231066aa4315471fb1018ebd2be4",
+        "rear": "cfa183cb63a6dd4a5e3e2cf2ad2b785e608b1657d42f797c8f3f6f84bc43bc6d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-circus-big-top-entrance.png",
+          "sha256": "61fadf65332f31d366fb18f9b60ff8d78d3bd3ec50fa5f00c8efdfe60c70c65e",
+          "rgba_sha256": "32986595772448ae4684885fcb404e583ddba099c7c6cacda617b3afe8e50b37"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:city",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,18 +235,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

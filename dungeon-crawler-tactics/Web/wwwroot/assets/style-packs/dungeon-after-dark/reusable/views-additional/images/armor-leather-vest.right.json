@@ -3,10 +3,22 @@
   "name": "Leather vest Right",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "generated",
+    "leather",
+    "material:leather",
+    "orthographic",
+    "role:screen",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui",
+    "vest"
   ],
   "image": {
     "path": "reusable/views-additional/images/armor-leather-vest.right.png",
@@ -64,7 +76,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-dilation2-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
@@ -73,5 +86,37 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/armor-leather-vest.right.json"
+  "metadata_path": "reusable/views-additional/images/armor-leather-vest.right.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "armor-leather-vest"
+  },
+  "attachment_generated_tags": [
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "leather",
+    "material:leather",
+    "role:screen",
+    "style:dungeon-after-dark",
+    "ui",
+    "vest"
+  ]
 }

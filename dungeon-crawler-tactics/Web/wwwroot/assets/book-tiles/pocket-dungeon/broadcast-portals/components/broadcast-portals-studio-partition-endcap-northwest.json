@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,11 +147,11 @@
       "asset_id": "broadcast-portals-studio-partition-endcap-northwest.top"
     },
     "right": {
-      "status": "generated",
+      "status": "inferred-symmetric-view-copy",
       "asset_id": "broadcast-portals-studio-partition-endcap-northwest.right"
     },
     "left": {
-      "status": "generated",
+      "status": "inferred-symmetric-view-copy",
       "asset_id": "broadcast-portals-studio-partition-endcap-northwest.left"
     },
     "bottom": {
@@ -150,7 +161,56 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-partition-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-partition-endcap-northwest",
+      "source_sha256": "46d9016a14b409ba6988d749be33baafe529290ce120b9b8b091e7e4830fd9f4",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-partition-endcap-northwest",
+        "path": "broadcast-portals/components/broadcast-portals-studio-partition-endcap-northwest.png",
+        "sha256": "46d9016a14b409ba6988d749be33baafe529290ce120b9b8b091e7e4830fd9f4",
+        "rgba_sha256": "c128894e55b021a55f71f0a26384dda80970f1b2c83b782443c3c775ab3f8303"
+      },
+      "image_hashes": {
+        "front": "592d4073b6cf1d7b74ec195d65dd68a7b1ab7d1348224ab8d926fbbfbd797611",
+        "top": "be340512209117806c3817a703b20f6b4314239ed1c3c465c01a9cffbf28c371",
+        "right": "592d4073b6cf1d7b74ec195d65dd68a7b1ab7d1348224ab8d926fbbfbd797611",
+        "left": "c419c5bf60e51190804dc4597dcc5a93e6d59e0c533e510065a899f72f363a82",
+        "bottom": "951faf95524278f998cef1b05384b23581c40ac2a6b45f10914f344be310168b",
+        "rear": "c419c5bf60e51190804dc4597dcc5a93e6d59e0c533e510065a899f72f363a82"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:55:25.300781+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-partition-endcap-northwest.png",
+          "sha256": "46d9016a14b409ba6988d749be33baafe529290ce120b9b8b091e7e4830fd9f4",
+          "rgba_sha256": "c128894e55b021a55f71f0a26384dda80970f1b2c83b782443c3c775ab3f8303"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -7,6 +7,7 @@
     "environment:unspecified",
     "gameplay",
     "hazard:water",
+    "inferred-view",
     "material:water",
     "native-source-crop",
     "role:provider",
@@ -14,7 +15,6 @@
     "style:gameplay",
     "surface:water",
     "terrain",
-    "inferred-view",
     "top"
   ],
   "object_id": "revamp-terrain-water-floor",
@@ -70,5 +70,32 @@
       ],
       "shared_scale": 1.0
     }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "hazard:water",
+    "material:water",
+    "role:provider",
+    "style:gameplay",
+    "surface:water"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:water"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "revamp-terrain-water-floor"
   }
 }

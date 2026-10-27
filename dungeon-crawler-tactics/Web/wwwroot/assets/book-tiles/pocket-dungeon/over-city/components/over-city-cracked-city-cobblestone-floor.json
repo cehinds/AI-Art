@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "over-city/components/over-city-cracked-city-cobblestone-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-cracked-city-cobblestone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-cracked-city-cobblestone-floor",
+      "source_sha256": "1e68158fcdbe6f3855980a6d8ad6a5c5ae05c3dce7ebd9b1e7ac7b88ab5ee7c3",
+      "primary_source": {
+        "asset_id": "over-city-cracked-city-cobblestone-floor",
+        "path": "over-city/components/over-city-cracked-city-cobblestone-floor.png",
+        "sha256": "1e68158fcdbe6f3855980a6d8ad6a5c5ae05c3dce7ebd9b1e7ac7b88ab5ee7c3",
+        "rgba_sha256": "8619c1e4deb75b8e23c2c271ad8b936a0f14e5e3ccf99c143b4ed2ca2d4b49b0"
+      },
+      "image_hashes": {
+        "front": "a2afa9c72429c4e784b9a83790ef5d0ae6077b14823bdf1674b115bc12020626",
+        "top": "897a14cc967045f4b5a1b456f0ea36d2f8774eb21ce36b215336331b9a994474",
+        "right": "e998da1d63191cb73dc6429fd76481881064cf2ad03ebeaad04423803a7f1895",
+        "left": "e998da1d63191cb73dc6429fd76481881064cf2ad03ebeaad04423803a7f1895",
+        "bottom": "ea459367ff32b9863ecaa19bd584c23d1ca62f2fedacce533417fa23f1d02335",
+        "rear": "28424649dbc3f752fba5c510282103c4ae19b61a82bce6aa756e75c83175f169"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:45:35.321374+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city/components/over-city-cracked-city-cobblestone-floor.png",
+          "sha256": "1e68158fcdbe6f3855980a6d8ad6a5c5ae05c3dce7ebd9b1e7ac7b88ab5ee7c3",
+          "rgba_sha256": "8619c1e4deb75b8e23c2c271ad8b936a0f14e5e3ccf99c143b4ed2ca2d4b49b0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "east": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "south": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "west": [
+      "join.floor",
+      "visual.over-city"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

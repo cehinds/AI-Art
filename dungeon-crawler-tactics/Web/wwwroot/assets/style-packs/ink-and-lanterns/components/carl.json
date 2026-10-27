@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "carl",
     "environment:unspecified",
     "existing",
@@ -107,11 +108,47 @@
     "rear": {
       "status": "inferred",
       "asset_id": "carl.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "carl",
+      "source_sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+      "primary_source": {
+        "asset_id": "carl",
+        "path": "components/carl.png",
+        "sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+        "rgba_sha256": "fd57caf1e4e59c7b0836ec861d07b5ea0dc7f141da5b14b32e76336683360eaf"
+      },
+      "image_hashes": {
+        "front": "4faa7b355d10275ee33cc9b07a857fa35bc85c4766eb6800e787f27ec934ffe0",
+        "top": "f054c084bf61f77cb66210b960224bd75b13abc998764136e3b44ade636e4fad",
+        "right": "cd8ca4e079dc96956120344edc75e29a0be5608d20e8d71d1dda58478301b411",
+        "left": "08f75b7949ca5eb4724df4f86c780fc461864a208c071af73459b1d8be79e278",
+        "bottom": "7eb133867937ec022914eaa18460ef9537772db7d673c8891a14a5c379bec410",
+        "rear": "8403e718c870ef8806183e421ff20921bb21db862e83417483136d9846d98e13"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:24:52.293203+00:00",
+      "notes": [
+        "Corrected current Carl has one complete body per view, stable neutral pose/costume, underside soles/belly clear."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/carl.png",
+          "sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+          "rgba_sha256": "fd57caf1e4e59c7b0836ec861d07b5ea0dc7f141da5b14b32e76336683360eaf"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -124,7 +161,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -139,7 +177,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

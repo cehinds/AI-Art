@@ -4,16 +4,17 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "baked-scene",
     "crafting",
     "environment:safe-room",
     "gameplay",
     "house-furnishing",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
-    "role:reconstruction",
+    "role:object",
     "style:gameplay",
-    "inferred-view",
     "top"
   ],
   "object_id": "menu-concepts-safe-room-services--crafting-purple-flask",
@@ -78,5 +79,39 @@
     "reference_source_sha256": "683b3b77e6411565a532f91c57c04dcff7ba58aa8e8171761bb60699441e8d26",
     "source_crop_path": "reusable/views-additional/raw/crafting-flask-3-top-component.png",
     "source_crop_sha256": "84a64cf7b0993306a9c7a71708b0e755888caf77c331c8f5176e7223a6f0ec37"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:safe-room",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "menu-concepts-safe-room-services--crafting-purple-flask"
   }
 }

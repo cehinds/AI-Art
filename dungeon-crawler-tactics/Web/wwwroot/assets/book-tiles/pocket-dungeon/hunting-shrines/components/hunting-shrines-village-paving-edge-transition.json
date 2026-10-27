@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-village-paving-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-village-paving-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-village-paving-edge-transition",
+      "source_sha256": "f24442a61cd7a8bc78d155f0d40c25063def1a1032f5d8ae2e855d6b3fa8a020",
+      "primary_source": {
+        "asset_id": "hunting-shrines-village-paving-edge-transition",
+        "path": "hunting-shrines/components/hunting-shrines-village-paving-edge-transition.png",
+        "sha256": "f24442a61cd7a8bc78d155f0d40c25063def1a1032f5d8ae2e855d6b3fa8a020",
+        "rgba_sha256": "f52cc1feb8099e3b232c90e8804962206b2130d5662c0404b864ecd1bdf3f02b"
+      },
+      "image_hashes": {
+        "front": "d7778185597e82889737ec7f735aad4bfe9ef15f4695fb9f6401ec2a3e7941a7",
+        "top": "d20111b8ade51f773a8f9cc8e0584ecc3095c88ea1d93abf102ceee0522c25ce",
+        "right": "c567bd35c4fddc94053df60be1f2bb31018e55c860ad31288a6e9ee317148911",
+        "left": "c8e55476584782c31a79bc5125bc07181fc236ca6b536b4998ffe017932b3be2",
+        "bottom": "578bf001d282b3393a3acd26a8f52ecff0cc7ba7fca7925e95c7422c36845c95",
+        "rear": "2e205332a53e4945f42ea767615815660bf23ecbdc0ace530a69e8d4863dcf9d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T08:27:08.326907+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-village-paving-edge-transition.png",
+          "sha256": "f24442a61cd7a8bc78d155f0d40c25063def1a1032f5d8ae2e855d6b3fa8a020",
+          "rgba_sha256": "f52cc1feb8099e3b232c90e8804962206b2130d5662c0404b864ecd1bdf3f02b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

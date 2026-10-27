@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "iron-tracks/components/iron-tracks-rail-crossroads.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-tracks-rail-crossroads.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-tracks-rail-crossroads",
+      "source_sha256": "c282b21fbd6eb2e0e32524b38b25084a279f38e0020df43585e6b3606403596a",
+      "primary_source": {
+        "asset_id": "iron-tracks-rail-crossroads",
+        "path": "iron-tracks/components/iron-tracks-rail-crossroads.png",
+        "sha256": "c282b21fbd6eb2e0e32524b38b25084a279f38e0020df43585e6b3606403596a",
+        "rgba_sha256": "84a3a8962472fe9c681637614cb7b85e6a88cfafd4ffa5828782f51b99e064ec"
+      },
+      "image_hashes": {
+        "front": "9cdf4b97829019a653ebcdcda073b6937b0b4874d15670bed634d57138259075",
+        "top": "39cd5f0cec7f361b2dfbc29e1ce03cb9d63f9d4cf225f09d092f387a6e1480ca",
+        "right": "7dcc00c2bf197101884f15d83d98baa2c3be78991da9216e2293f6a990b87fd8",
+        "left": "b71b8f08c6459fd8ee67e8939ce49fca6b6326e542ca53daf7b233b54f441a61",
+        "bottom": "69d4ed155d2a2ff0d653a98eac759d17988331133f303037e2cb77a53d4c6884",
+        "rear": "a07bfb1c57497dea6d47a3208a5ff7bacf34fce38f108180c03d3e0a78dcbb92"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T13:45:09.857568+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-tracks/components/iron-tracks-rail-crossroads.png",
+          "sha256": "c282b21fbd6eb2e0e32524b38b25084a279f38e0020df43585e6b3606403596a",
+          "rgba_sha256": "84a3a8962472fe9c681637614cb7b85e6a88cfafd4ffa5828782f51b99e064ec"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

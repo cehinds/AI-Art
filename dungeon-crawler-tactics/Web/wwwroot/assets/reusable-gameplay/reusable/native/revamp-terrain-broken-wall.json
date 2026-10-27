@@ -52,7 +52,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp-terrain-broken-wall.front"
@@ -77,19 +77,41 @@
       "status": "inferred",
       "asset_id": "revamp-terrain-broken-wall.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp-terrain-broken-wall",
+      "source_sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3",
+      "primary_source": {
+        "asset_id": "revamp-terrain-broken-wall",
+        "path": "reusable/native/revamp-terrain-broken-wall.png",
+        "sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3",
+        "rgba_sha256": "2f4b5a76d740c3f05b902dee0302a0bcee0c0a9ecf235e21bd5291e5d519231d"
+      },
+      "image_hashes": {
+        "front": "f1ccd74f2ef18c5234b2ccb0b6ef444f0a0aaa7b4602abae2c26e62810d48a0f",
+        "top": "4745fe93d55e31d84f6b2530ee7a5e5d22c5828d2c4299d77c24795a4fe31e3e",
+        "right": "2576c3cb17dec7fe8321f52853787681240b8ce845e2f373cf40d4e87d4908c0",
+        "left": "0d75d77f262adaab12bb8dc2f8a5134375e612f88ed097f6828d234c93cb122e",
+        "bottom": "1fab9612171ef77f4acd179109334e66a5b0e771ea5d25f508723bf672e78616",
+        "rear": "c5acca38ba3edcbfe27b837833d4bd3e90e421cf0e5e9f1d73c6ffb488f6ea18"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:54:53.820349+00:00",
+      "notes": [
+        "Corrected underside now opaque complete supporting square with no above-floor rubble visible through it; comparable plan extent to source overhead. Source wall/corner height and lighting/material retained across principal elevations, hidden base inferred."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "38c399081cb1b58e4465f50fea240b5bd2f14d11f5611839991d097285a3e292",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp-terrain-broken-wall.png",
+          "sha256": "e64a2f83adcc5976c245540dce14ae80cb7fca036a8d1f10a9fcc6efc8435ef3",
+          "rgba_sha256": "2f4b5a76d740c3f05b902dee0302a0bcee0c0a9ecf235e21bd5291e5d519231d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [

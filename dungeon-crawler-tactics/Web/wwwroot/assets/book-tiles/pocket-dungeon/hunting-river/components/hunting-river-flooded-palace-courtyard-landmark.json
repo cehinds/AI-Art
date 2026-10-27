@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:unspecified",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-flooded-palace-courtyard-landmark.png",
@@ -127,6 +128,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -146,40 +157,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-flooded-palace-courtyard-landmark.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-flooded-palace-courtyard-landmark",
+      "source_sha256": "f40c1cd2a5bf44563965eafdd79f98342137db0e824f039a11494233c6d462f7",
+      "primary_source": {
+        "asset_id": "hunting-river-flooded-palace-courtyard-landmark",
+        "path": "hunting-river/components/hunting-river-flooded-palace-courtyard-landmark.png",
+        "sha256": "f40c1cd2a5bf44563965eafdd79f98342137db0e824f039a11494233c6d462f7",
+        "rgba_sha256": "d944405395a41df7bd55362347630ec5b7be33c524e88cda005e8e3135acd7af"
+      },
+      "image_hashes": {
+        "front": "c4ce958d113026403cdabe0f5fc7e6fc6aefa2738ed6e2adfc736ccb6d944182",
+        "top": "30a24c65522f04be16d19507a95082a0424d9e747c164df0a794fd91f10b683a",
+        "right": "442ee30dbb73df89e6ea1a34b07305dfe2ef40aa71ec869f9dcfc2b2127e6959",
+        "left": "8912b9bc5b0ca709a68145d1486cd95f2982390b681478b78ab8d32017f5883a",
+        "bottom": "30735572dc1884c01e09a490db269801e36981b7f7154753a5f0d263d77ee3a0",
+        "rear": "5fadc4746e54796b1c744fa4cda580676b2880fbf50c1e3a88f4a2272627f0d9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T18:48:54.567969+00:00",
+      "notes": [
+        "Reviewed native source and all six opaque-composited normalized views. Inferred illustrative geometry accepted; no clear projection, identity, footprint or neighboring-component defect."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-flooded-palace-courtyard-landmark.png",
+          "sha256": "f40c1cd2a5bf44563965eafdd79f98342137db0e824f039a11494233c6d462f7",
+          "rgba_sha256": "d944405395a41df7bd55362347630ec5b7be33c524e88cda005e8e3135acd7af"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -188,18 +249,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

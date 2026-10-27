@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-jungle-earth-edge-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-jungle-earth-edge-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-jungle-earth-edge-transition",
+      "source_sha256": "75cd85d4ee7edaeadd64a9a430a4442957d5d11023fc8846b48605eb98714460",
+      "primary_source": {
+        "asset_id": "hunting-jungle-jungle-earth-edge-transition",
+        "path": "hunting-jungle/components/hunting-jungle-jungle-earth-edge-transition.png",
+        "sha256": "75cd85d4ee7edaeadd64a9a430a4442957d5d11023fc8846b48605eb98714460",
+        "rgba_sha256": "7ad020d4534d24ed6eda9c13819570833b2e22e513870bf0ef925a5aa78ab0c3"
+      },
+      "image_hashes": {
+        "front": "ff3c900e764f6802330d84a79693aa9c8ba0923b9a4698b0ad3778729a790cd3",
+        "top": "8757d6671e0ec4a708acc6c32dcc0252a131586404c23f0f9b1d3012321f3a2e",
+        "right": "e4dbee415dee603deb2c4cad3cf15f44ee7f1fef6b93ba96b78d43c2d414e742",
+        "left": "49aac379cfcdf55d4b7e7f953229296283f6ed635275d6199bf1c20f1737e513",
+        "bottom": "8daf4792db6d440821e3ee2d4f9642778b05c6f275da9219bf504ed0eeecebd1",
+        "rear": "b5d865cafe99bd9ad8abcf4a746dd4568f7e525f76d4e5b2aa2c016250563a38"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:06:36.522488+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-jungle-earth-edge-transition.png",
+          "sha256": "75cd85d4ee7edaeadd64a9a430a4442957d5d11023fc8846b48605eb98714460",
+          "rgba_sha256": "7ad020d4534d24ed6eda9c13819570833b2e22e513870bf0ef925a5aa78ab0c3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

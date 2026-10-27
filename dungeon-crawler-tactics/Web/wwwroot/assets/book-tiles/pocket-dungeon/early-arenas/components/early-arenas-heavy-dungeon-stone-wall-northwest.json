@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-heavy-dungeon-stone-wall-northwest",
+      "source_sha256": "945054ccaba62d4cdf78c7ea5b2634e8195b2e5f7c4c153a59becb80bf617a49",
+      "primary_source": {
+        "asset_id": "early-arenas-heavy-dungeon-stone-wall-northwest",
+        "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-wall-northwest.png",
+        "sha256": "945054ccaba62d4cdf78c7ea5b2634e8195b2e5f7c4c153a59becb80bf617a49",
+        "rgba_sha256": "6026d8ba07cb51f262674930515378e9d8985021484dc6835c6d974d8653b3b1"
+      },
+      "image_hashes": {
+        "front": "87c845a6aeb9ed44b95c02b75e8f75ed8c6beea07b8eeec84a6d67395242be92",
+        "top": "7a570f96555a7984e1d3140a67cdc630702d69fcd04504f8c7393f2de9c90002",
+        "right": "210595b5a7b13dcd29effcccdd46f761c16c4a2df8678375bb7c8f43c20d6d7c",
+        "left": "9adeca5b5d00d008040d9f6584a0ed00159c50f95b3090c1bc3fe99d6f611564",
+        "bottom": "62ffec10a3791d41a2d7cb7a2c2fb39534a725a560400a591957d697bf3070be",
+        "rear": "f71b1911e7012a0623691f55c52397e252cd184a7a268ed36a00a874f9dc21d7"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:08:29.349547+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-heavy-dungeon-stone-wall-northwest.png",
+          "sha256": "945054ccaba62d4cdf78c7ea5b2634e8195b2e5f7c4c153a59becb80bf617a49",
+          "rgba_sha256": "6026d8ba07cb51f262674930515378e9d8985021484dc6835c6d974d8653b3b1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

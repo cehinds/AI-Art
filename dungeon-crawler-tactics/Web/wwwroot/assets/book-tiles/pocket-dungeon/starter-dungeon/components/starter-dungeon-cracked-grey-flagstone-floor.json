@@ -16,7 +16,8 @@
     "role:provider",
     "starter-dungeon",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-cracked-grey-flagstone-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-cracked-grey-flagstone-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-cracked-grey-flagstone-floor",
+      "source_sha256": "b3238f4ed3ec34203a573912bfde9210750cc517ecf07abc18b4fd065cf059a5",
+      "primary_source": {
+        "asset_id": "starter-dungeon-cracked-grey-flagstone-floor",
+        "path": "starter-dungeon/components/starter-dungeon-cracked-grey-flagstone-floor.png",
+        "sha256": "b3238f4ed3ec34203a573912bfde9210750cc517ecf07abc18b4fd065cf059a5",
+        "rgba_sha256": "ffb11c62e678e0fd5637435440a732bf444f1ba13a3b0de4b1ff9434a91f8f71"
+      },
+      "image_hashes": {
+        "front": "69a4220fa93c99308b15835aa6d525270ed5ca312916b4a70417a9f896e6aeee",
+        "top": "24498903964aca82837ea0a9b1bf21bd27ef5eb5df196edc48284c87f8626b60",
+        "right": "180693b8bfd3d3a80916f6e760fbd4de2b2ddae5930fefe05709a2b749d79ea3",
+        "left": "9b4a5e538b7acd8a85ac806edf351b97037a22d340458b9b1c867ddfb177c099",
+        "bottom": "45b141d16031ff36126f33440611bdfcdd6eb9098c84aad1691d79566df5f491",
+        "rear": "8245c26455adc67b493d1de78f41b973cac52bbe602941f5a10fd5049b4685f8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:30:45.388394+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-cracked-grey-flagstone-floor.png",
+          "sha256": "b3238f4ed3ec34203a573912bfde9210750cc517ecf07abc18b4fd065cf059a5",
+          "rgba_sha256": "ffb11c62e678e0fd5637435440a732bf444f1ba13a3b0de4b1ff9434a91f8f71"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "east": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "south": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ],
+    "west": [
+      "join.floor",
+      "visual.starter-dungeon"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

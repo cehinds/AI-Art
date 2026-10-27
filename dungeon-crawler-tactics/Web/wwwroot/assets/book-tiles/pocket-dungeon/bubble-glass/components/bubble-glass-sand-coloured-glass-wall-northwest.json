@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-sand-coloured-glass-wall-northwest",
+      "source_sha256": "050bf74f63bb397e5a49724314134abf81ddbd65fd4ad80530cad5a3fabb1386",
+      "primary_source": {
+        "asset_id": "bubble-glass-sand-coloured-glass-wall-northwest",
+        "path": "bubble-glass/components/bubble-glass-sand-coloured-glass-wall-northwest.png",
+        "sha256": "050bf74f63bb397e5a49724314134abf81ddbd65fd4ad80530cad5a3fabb1386",
+        "rgba_sha256": "28f98fdc3a589cd3f9e02def440d5e44972b9d5bcc9a11ff697f732fe1901041"
+      },
+      "image_hashes": {
+        "front": "144e6dba4fde673760a46553ec906a646f0e2ffc35e042c1bd71c4b10d834d0d",
+        "top": "e454288fa389ad6354a64e83632ab42335e8defb9fe42d791e6dc3a9be90015e",
+        "right": "f53b0edad5ee033d54d48ad8ada2a94e2f2da51da38aa2865ad789b041984bea",
+        "left": "153959c4a1ec8937afeecc7548c723a6b279d4573d22f2b89389133292352773",
+        "bottom": "9c2e15ae570e89c546e03d84138f28e8f7ccd35cbceea615af0239fafd0c5069",
+        "rear": "553430c590960ba1464705c2002207e20afc5a5ab352382b74be71ff61a980f9"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:08:29.349547+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-sand-coloured-glass-wall-northwest.png",
+          "sha256": "050bf74f63bb397e5a49724314134abf81ddbd65fd4ad80530cad5a3fabb1386",
+          "rgba_sha256": "28f98fdc3a589cd3f9e02def440d5e44972b9d5bcc9a11ff697f732fe1901041"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

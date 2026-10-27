@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-painted-civic-stone-endcap-northwest",
+      "source_sha256": "cc6a75265cf46c9d0370018016223952000a5416ff6f61f4bfca3c1b5e6c02ce",
+      "primary_source": {
+        "asset_id": "over-city-venues-painted-civic-stone-endcap-northwest",
+        "path": "over-city-venues/components/over-city-venues-painted-civic-stone-endcap-northwest.png",
+        "sha256": "cc6a75265cf46c9d0370018016223952000a5416ff6f61f4bfca3c1b5e6c02ce",
+        "rgba_sha256": "dcb76785580994b5390df539d5ae0154be509abc88277c078763e247ad7a8c24"
+      },
+      "image_hashes": {
+        "front": "23e17050a0e8a4b28fd9b4c69b2ba87dd055e35d41adbb13b3f76e643f00b4b6",
+        "top": "ef42142353071f2a1f326829d21deea583029456822e9014a3ed40a0157eac41",
+        "right": "13995b89f27d57337fcfca9c61816dce05b77db299dcb3bc8012084fb4ea9fb9",
+        "left": "0eab7370663c499e4b5c5df74891249b7d936ab21df7d3af3ca48db5fe6faf52",
+        "bottom": "41bc2209e67d964adcd093ca851fe26db2fc6bd6435df33f490c8887be4e417c",
+        "rear": "6607a005eec50ffc4e190ccaa5f1dff545ef3d9fa48f15fa641a82421d817ccc"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:25:55.571013+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-painted-civic-stone-endcap-northwest.png",
+          "sha256": "cc6a75265cf46c9d0370018016223952000a5416ff6f61f4bfca3c1b5e6c02ce",
+          "rgba_sha256": "dcb76785580994b5390df539d5ae0154be509abc88277c078763e247ad7a8c24"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

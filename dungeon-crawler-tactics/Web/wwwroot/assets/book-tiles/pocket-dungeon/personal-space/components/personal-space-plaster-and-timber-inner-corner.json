@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "personal-space-plaster-and-timber-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "personal-space-plaster-and-timber-inner-corner",
+      "source_sha256": "c806b4d7a6ee2e258b5a4774f02166188cf629d34ce90cd6e8cee86cf84b19a9",
+      "primary_source": {
+        "asset_id": "personal-space-plaster-and-timber-inner-corner",
+        "path": "personal-space/components/personal-space-plaster-and-timber-inner-corner.png",
+        "sha256": "c806b4d7a6ee2e258b5a4774f02166188cf629d34ce90cd6e8cee86cf84b19a9",
+        "rgba_sha256": "667787db53139dfb6bcee5e47eef683dfcf0b44076ba01f70c8644bdfb2190a0"
+      },
+      "image_hashes": {
+        "front": "7087e6ee16f2b0636cea0facd0101f141bac204f650396c4c19f0f3ca67ed06b",
+        "top": "7c531cb1794e17cb730332de4d196803ecc545dc6253fa0611f2747c44ea888e",
+        "right": "bffd10f980fb547c5316a55d354227cde9a7be64b01e0fddceb236af4b8b401f",
+        "left": "a999a48336d3bc937b2548d8db66cb6759e267247db6269eb47f070dbbef9095",
+        "bottom": "07394e2e69d381541c1715f69d66b91428fe961b262822e6066e2194dea34e96",
+        "rear": "c5544b22049f9726eb8540fb2b046bfa365dce00daea484602f1c18e47e28af3"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:33:45.927280+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "personal-space/components/personal-space-plaster-and-timber-inner-corner.png",
+          "sha256": "c806b4d7a6ee2e258b5a4774f02166188cf629d34ce90cd6e8cee86cf84b19a9",
+          "rgba_sha256": "667787db53139dfb6bcee5e47eef683dfcf0b44076ba01f70c8644bdfb2190a0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

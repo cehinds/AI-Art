@@ -3,12 +3,22 @@
   "name": "Rail buffer stop front",
   "kind": "sprite",
   "tags": [
-    "iron-tracks",
-    "prop",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
     "front",
+    "inferred-view",
+    "iron-tracks",
+    "material:iron",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "prop",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/iron-tracks-rail-buffer-stop.front.png",
@@ -33,7 +43,7 @@
     "method": "generated",
     "source_image": "iron-tracks/components/iron-tracks-rail-buffer-stop.png",
     "source_sha256": "f19ac86eb12b87eb7beaf9ff6001cd933600f4f889946748192b4eb6c911038b",
-    "generated_atlas": "raw/candidates/rail-buffer-stop-ftr-v5/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/rail-buffer-stop-ftr-v5/generated-atlas.png",
     "generated_atlas_sha256": "6028117eba0e2d63a071ab2b8522d7c95c75553287748c7b8e83e471c00ba585",
     "generation_request": "raw/candidates/rail-buffer-stop-ftr-v5/request.json",
     "generation_request_sha256": "5004147254eddd08a89e109ada53d3d7d31fb215916d5938fbbf1cfe57a2abe9",
@@ -139,5 +149,44 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:iron",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-tracks-rail-buffer-stop"
+  }
 }

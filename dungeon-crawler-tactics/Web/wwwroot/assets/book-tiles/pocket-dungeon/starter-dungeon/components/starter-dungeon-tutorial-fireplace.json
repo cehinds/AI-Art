@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "material:unspecified",
@@ -16,7 +17,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-tutorial-fireplace.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-tutorial-fireplace.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-tutorial-fireplace",
+      "source_sha256": "f84aa9c95bf5dfac79186b0aae77b2b2129f685d6e888758aa47beec0ad7e02c",
+      "primary_source": {
+        "asset_id": "starter-dungeon-tutorial-fireplace",
+        "path": "starter-dungeon/components/starter-dungeon-tutorial-fireplace.png",
+        "sha256": "f84aa9c95bf5dfac79186b0aae77b2b2129f685d6e888758aa47beec0ad7e02c",
+        "rgba_sha256": "10c146fd3d4b63f2e258a03b64456dc66e1e33e152bc404fcca7fd14d3f05ac3"
+      },
+      "image_hashes": {
+        "front": "15e9ce0d21d7f45966a2814982ecefe959a29286f202029789077d7c4c7c800b",
+        "top": "07fb6cb7dc7c7f41e8d19bf41a380b8fc1d0c2a2bbe2e1ae5156cb23784dacf2",
+        "right": "ebdd531b20a70cdb5702763e78b150e5fbebf43c59b362ba22dba2e1394c9ab8",
+        "left": "529f993f9bc142364244db3abb8d3c7c134fc6064afb7e2a3fb3c8c05e2312dd",
+        "bottom": "76db6cc8034e4210399cdb2fd375c7d92bffaf3aaaffa71fd36cafc7e4e40681",
+        "rear": "e093d531d6c42a998dd7bc76e76a23b82b6122b27aa2de1a756bc1d6b4e93520"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:30:45.388394+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-tutorial-fireplace.png",
+          "sha256": "f84aa9c95bf5dfac79186b0aae77b2b2129f685d6e888758aa47beec0ad7e02c",
+          "rgba_sha256": "10c146fd3d4b63f2e258a03b64456dc66e1e33e152bc404fcca7fd14d3f05ac3"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

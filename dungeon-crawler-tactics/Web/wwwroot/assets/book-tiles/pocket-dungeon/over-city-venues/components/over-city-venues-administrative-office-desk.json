@@ -18,7 +18,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-administrative-office-desk.png",
@@ -112,6 +113,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -131,31 +142,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-administrative-office-desk.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-administrative-office-desk",
+      "source_sha256": "4152d187e40553bdc4aa51918d9f3de6afbc955ba2f7a7b87eed358697d07ba0",
+      "primary_source": {
+        "asset_id": "over-city-venues-administrative-office-desk",
+        "path": "over-city-venues/components/over-city-venues-administrative-office-desk.png",
+        "sha256": "4152d187e40553bdc4aa51918d9f3de6afbc955ba2f7a7b87eed358697d07ba0",
+        "rgba_sha256": "7b80d963c918d7e5f3678a27fccf2ffc24403acc6edcd5224775c03827c6f6de"
+      },
+      "image_hashes": {
+        "front": "eec0d807cfd733074d31b940d0bf5341e16a371730c4d0d97543ee333818722e",
+        "top": "8c54a7b156e2ab10ef86e8a6608b2ceb303599473a7baca0a1c24cc918e4934f",
+        "right": "289a1ca3e2daf2d018e992080ba68390edd6859727b7b0ac88359e4f921a9110",
+        "left": "4e26cfd26240a0dc1f7809cf0a97a6bee01587c02d201abcdd7a84f8ab8e8d7a",
+        "bottom": "01041802b0386b7251e94f189aeb9d890c040c83036c2ada35b09c7e27d5b336",
+        "rear": "bce242b023f8182534bab5b6dd592a50bd69c2836bde076dd28198de1e296b74"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:17:15.110282+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-administrative-office-desk.png",
+          "sha256": "4152d187e40553bdc4aa51918d9f3de6afbc955ba2f7a7b87eed358697d07ba0",
+          "rgba_sha256": "7b80d963c918d7e5f3678a27fccf2ffc24403acc6edcd5224775c03827c6f6de"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -165,7 +225,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -180,14 +241,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

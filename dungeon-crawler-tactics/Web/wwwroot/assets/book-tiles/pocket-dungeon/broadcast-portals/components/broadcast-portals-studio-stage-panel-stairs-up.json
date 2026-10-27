@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-stairs-up.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,7 +161,56 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-studio-stage-panel-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-studio-stage-panel-stairs-up",
+      "source_sha256": "e458d460284109317eab1d7b9039557aea5c0a738e66a026791ca3207c5655a9",
+      "primary_source": {
+        "asset_id": "broadcast-portals-studio-stage-panel-stairs-up",
+        "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-stairs-up.png",
+        "sha256": "e458d460284109317eab1d7b9039557aea5c0a738e66a026791ca3207c5655a9",
+        "rgba_sha256": "c1647cb858b36883cdef6458fbed7c68a33811e9b1cf49d7b7c0d8e031d51fb6"
+      },
+      "image_hashes": {
+        "front": "4760f21baf7ddc4a054fa3d38ca3a702b46e70318b4f2e5c5ee519641b22a1ff",
+        "top": "7a7faa88508d9b5a87602209e925339bac99313d59167603374de79fd2b1fc21",
+        "right": "bee5aababd6e35f15e258b4af63c942b6ce6aa8e0eeea9b267ad38e43754d4e7",
+        "left": "3b4e22f57fb9eb75001f8dcd99ea38e600f374dbef9b07435701d129f5779d71",
+        "bottom": "cb03f22e41e4aa3ffd1bfc1e8bda6b958a2ff24ede5f6216e24e887cdf9f74a0",
+        "rear": "e6221cd095de3651a3992a1c6ab1df97e496e4b694235c5e68a43fd9e637ec7b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:47:57.901895+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-studio-stage-panel-stairs-up.png",
+          "sha256": "e458d460284109317eab1d7b9039557aea5c0a738e66a026791ca3207c5655a9",
+          "rgba_sha256": "c1647cb858b36883cdef6458fbed7c68a33811e9b1cf49d7b7c0d8e031d51fb6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

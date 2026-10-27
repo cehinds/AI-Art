@@ -3,12 +3,22 @@
   "name": "Race Asphalt stairs down rear",
   "kind": "sprite",
   "tags": [
-    "race-circuits",
-    "stairs",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "race-circuits",
+    "rear",
+    "role:provider",
+    "stairs",
+    "style:pocket-dungeon",
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "reusable/views-additional/race-circuits-race-asphalt-stairs-down.rear.png",
@@ -33,11 +43,11 @@
     "method": "generated",
     "source_image": "race-circuits/components/race-circuits-race-asphalt-stairs-down.png",
     "source_sha256": "56054b10afaad0af34ad28ecfe53764d93d9624158ebaa73357b37ceef943694",
-    "generated_atlas": "raw/candidates/race-stair-rears-v3/generated-atlas.png",
+    "generated_atlas": "reusable/views-additional/raw/candidates/race-stair-rears-v3/generated-atlas.png",
     "generated_atlas_sha256": "d3982e2ad82ab7605b2265127df889d7209072e816eb36d2dbc54bd0acaf5514",
     "generation_request": "raw/candidates/race-stair-rears-v3/request.json",
     "generation_request_sha256": "be70fe2bdc674027e1c73146dad0e8cd92c6901e514748f802e00730d0845c0a",
-    "prompt": "Generate exactly TWO transparent-background orthographic REAR elevations in a two-cell atlas: UP stairs first, DOWN stairs second. Keep each object\u2019s own source identity and current accepted FRONT/TOP/RIGHT/LEFT/BOTTOM. The accepted FRONT silhouette defines total proportions: normalized bounds about 210px wide by 178px high. Your v1/v2 attempts were only about 210x120 after normalization; this is too short. Draw the REAR with the same full-height silhouette as FRONT, using a taller opaque support/back panel and full-height paired corner posts. This is a geometry generation; do not stretch the old artwork or widen the object.\n\nCamera is straight behind the stair flight, horizontal and orthographic. From this viewpoint, the forward treads are occluded. The back view is a closed, broad dark asphalt/steel rectangle about 210px wide by 178px high, bottom aligned at y=248, framed by two gray steel corner posts that both reach the same top height. The landing appears only as a thin narrow horizontal top edge. There must be no receding wedge and no parallel tread pattern. Preserve the rail caps and source hardware at the top/outer posts. For the DOWN source, preserve its own small source-specific red side sliver if it is visible from rear; do not transfer it to UP. Crisp pixel-art clusters, transparent background, no labels, no shadows, stray guides, or clipping.",
+    "prompt": "Generate exactly TWO transparent-background orthographic REAR elevations in a two-cell atlas: UP stairs first, DOWN stairs second. Keep each object’s own source identity and current accepted FRONT/TOP/RIGHT/LEFT/BOTTOM. The accepted FRONT silhouette defines total proportions: normalized bounds about 210px wide by 178px high. Your v1/v2 attempts were only about 210x120 after normalization; this is too short. Draw the REAR with the same full-height silhouette as FRONT, using a taller opaque support/back panel and full-height paired corner posts. This is a geometry generation; do not stretch the old artwork or widen the object.\n\nCamera is straight behind the stair flight, horizontal and orthographic. From this viewpoint, the forward treads are occluded. The back view is a closed, broad dark asphalt/steel rectangle about 210px wide by 178px high, bottom aligned at y=248, framed by two gray steel corner posts that both reach the same top height. The landing appears only as a thin narrow horizontal top edge. There must be no receding wedge and no parallel tread pattern. Preserve the rail caps and source hardware at the top/outer posts. For the DOWN source, preserve its own small source-specific red side sliver if it is visible from rear; do not transfer it to UP. Crisp pixel-art clusters, transparent background, no labels, no shadows, stray guides, or clipping.",
     "output_binding": {
       "path": "raw/candidates/race-stair-rears-v3/generated-atlas.png",
       "sha256": "d3982e2ad82ab7605b2265127df889d7209072e816eb36d2dbc54bd0acaf5514",
@@ -132,5 +142,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "race-circuits-race-asphalt-stairs-down"
+  }
 }

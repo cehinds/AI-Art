@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-stations",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-platform-end-ramp.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-platform-end-ramp.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "source-art-reused",
+      "asset_id": "iron-stations-platform-end-ramp.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-platform-end-ramp.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-platform-end-ramp.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "iron-stations-platform-end-ramp.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-platform-end-ramp.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-platform-end-ramp",
+      "source_sha256": "e11f099f1dae22be1994fecaa495701f6189ee92dc68ed28060de6b02e327c21",
+      "primary_source": {
+        "asset_id": "iron-stations-platform-end-ramp",
+        "path": "iron-stations/components/iron-stations-platform-end-ramp.png",
+        "sha256": "e11f099f1dae22be1994fecaa495701f6189ee92dc68ed28060de6b02e327c21",
+        "rgba_sha256": "2b3696ef4bc279ee87b0967a80d8e4cce417836e8c545651fd423f3e2215422f"
+      },
+      "image_hashes": {
+        "front": "c86f4411e42525c8f6a6cfb3f8f58b7162e84e76f402820bd0926ec7b4f44982",
+        "top": "9a0eed96395859d70bf889c3941e512c87be70cdac6805d299cf94e6dc87c127",
+        "right": "76e68f25e0aaca6b40b97665f58ca7b163cbe4d4809f2d11bc5ccb579c5a61b8",
+        "left": "fcc6dccaa32b2412803c8bfafda029748c73e092222d79d8d709eed211bc3efa",
+        "bottom": "7ed511077b06e9d1b58cfc8f046b281673d0a12d70f71513a0e377457e8b079d",
+        "rear": "8b20c7c4348b8186ffc298c0f88d371b41c79091cb8d1e4c5148b6c1e65d083c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T19:33:18.436952+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-platform-end-ramp.png",
+          "sha256": "e11f099f1dae22be1994fecaa495701f6189ee92dc68ed28060de6b02e327c21",
+          "rgba_sha256": "2b3696ef4bc279ee87b0967a80d8e4cce417836e8c545651fd423f3e2215422f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

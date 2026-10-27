@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--cryomancer.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--cryomancer.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--cryomancer",
+      "source_sha256": "c4a44075756354883bb356f10384a777bd2e4d07999374836d9d211685a6de4a",
+      "primary_source": {
+        "asset_id": "legacy--cryomancer",
+        "path": "reusable/native/legacy--cryomancer.png",
+        "sha256": "c4a44075756354883bb356f10384a777bd2e4d07999374836d9d211685a6de4a",
+        "rgba_sha256": "8441aff4620872180dd6e1e879ab1d029d3cdec3772ca2e569b73db3f7e76d04"
+      },
+      "image_hashes": {
+        "front": "e7f6cfb3264f1928ddc49d6c21203e9ea89c754b6868de242880e730ca6361f3",
+        "top": "978a422c98bb52fd92e922e757886ce4e91f75c141dca41b8908fa80c53a4c72",
+        "right": "2e7d3bafeb4894302040d4d7cc5517efad560402c04e22b8f9870145d2b5fa7c",
+        "left": "37a00ca70a37b44b386a63b7635db918046ac0ef35ace650ae583ea1da831102",
+        "bottom": "bb34a45740959027412018884bb85d17e8c3e2a2c4e46a2c78bb178bb2c222e3",
+        "rear": "0ae8ef2f8417c75e53b67a22894b8cb6a86e705f104f831f2b8c2da7d5b0fffe"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.153148+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--cryomancer.png",
+          "sha256": "c4a44075756354883bb356f10384a777bd2e4d07999374836d9d211685a6de4a",
+          "rgba_sha256": "8441aff4620872180dd6e1e879ab1d029d3cdec3772ca2e569b73db3f7e76d04"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

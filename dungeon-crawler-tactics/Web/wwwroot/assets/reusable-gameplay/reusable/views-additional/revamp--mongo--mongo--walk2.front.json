@@ -8,14 +8,14 @@
     "attachment:floor",
     "attachment:stairs",
     "environment:unspecified",
+    "front",
     "gameplay",
+    "inferred-view",
     "material:unspecified",
     "native-source-crop",
     "role:object",
     "sprite-frame",
-    "style:gameplay",
-    "inferred-view",
-    "front"
+    "style:gameplay"
   ],
   "object_id": "revamp--mongo--mongo--walk2",
   "view": "front",
@@ -77,5 +77,41 @@
     "source_image_sha256": "36864e46439df50b15f778fc4a80d45ecb973f86cfaa194093a4d27ac2e977e4",
     "generation_request_id": "exec-48c1e8fa-70e4-4f07-8101-e713c7b4c588",
     "generation_prompt": "reusable/views-additional/raw/ally-mongo-walk2-front-top-bottom-rear-v1.prompt.txt"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "revamp--mongo--mongo--walk2"
   }
 }

@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-zockau/components/hunting-zockau-town-park-bench.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-town-park-bench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-town-park-bench",
+      "source_sha256": "48f518b16d32e2e3f50319def8e9894d1dd903b53c5e04a356eee86f2fc06c4f",
+      "primary_source": {
+        "asset_id": "hunting-zockau-town-park-bench",
+        "path": "hunting-zockau/components/hunting-zockau-town-park-bench.png",
+        "sha256": "48f518b16d32e2e3f50319def8e9894d1dd903b53c5e04a356eee86f2fc06c4f",
+        "rgba_sha256": "7dd0de1e476b81c6a9ff61004cc6b89576c679b8d828ea2724eda316ad4dd369"
+      },
+      "image_hashes": {
+        "front": "769ade92674424e3a58e7c392c0b72dfe54b180c20fea532b2350c608b89feb7",
+        "top": "ad32ea65c81b9c01115e9e79dbe607a9db38adbb1184eaa7152de94f539cc048",
+        "right": "1576fdd5b8c698280752c9e0d617c6565266db8dfdf65ff3bde98835656b6108",
+        "left": "77c83912daa1f22df795e19d9badcce06978f2d285c318a5afef8cdfa44db356",
+        "bottom": "76f5770a9480e5fc74d24f057d3c8924e84d13070f6e172bb5e79d9fd1db00d2",
+        "rear": "7313a63633bb6a11fd8fc5c33a47f03f3bf6debeb421ee8a396e4c14f9abaf28"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:07:51.004838+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-town-park-bench.png",
+          "sha256": "48f518b16d32e2e3f50319def8e9894d1dd903b53c5e04a356eee86f2fc06c4f",
+          "rgba_sha256": "7dd0de1e476b81c6a9ff61004cc6b89576c679b8d828ea2724eda316ad4dd369"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

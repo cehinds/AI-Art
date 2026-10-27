@@ -16,7 +16,8 @@
     "race-circuits",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "race-circuits/components/race-circuits-painted-grid-asphalt-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "race-circuits-painted-grid-asphalt-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "race-circuits-painted-grid-asphalt-floor",
+      "source_sha256": "4c941b2f10d929fa39481127abde739fba979100355eff19f4325902756358b9",
+      "primary_source": {
+        "asset_id": "race-circuits-painted-grid-asphalt-floor",
+        "path": "race-circuits/components/race-circuits-painted-grid-asphalt-floor.png",
+        "sha256": "4c941b2f10d929fa39481127abde739fba979100355eff19f4325902756358b9",
+        "rgba_sha256": "dd0b3f62a0cc27b910b0bdafaab580cc640ec57a76501d4530dc4967e34bf292"
+      },
+      "image_hashes": {
+        "front": "6a2e594c580a3b187b9670b7bb29fe07fc9e0cf2eb991c6c4f9becb78a140d6d",
+        "top": "a723f0f90ff5072c2a2afb909c50b2adbc593331b7c6f07d6fa88819205e7bd2",
+        "right": "9e61ab405aaec81e065a4bd86d6f25195924674ba637b305c2b7c20531be910d",
+        "left": "6899ff4b4737b8db9ef5cf7abb2ae6e5db6b8574b3dd07e66ccb8ac6cc4dbdc2",
+        "bottom": "d234b3dd5984bae34953648f6e08f4c81d059de088aeb778a99bc4dfae832b1f",
+        "rear": "f12b9fa3d3c49802e66e64acb853cc99aafc0275ea315335a17af40fea0d33ef"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:29:03.212846+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "race-circuits/components/race-circuits-painted-grid-asphalt-floor.png",
+          "sha256": "4c941b2f10d929fa39481127abde739fba979100355eff19f4325902756358b9",
+          "rgba_sha256": "dd0b3f62a0cc27b910b0bdafaab580cc640ec57a76501d4530dc4967e34bf292"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "east": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "south": [
+      "join.floor",
+      "visual.race-circuits"
+    ],
+    "west": [
+      "join.floor",
+      "visual.race-circuits"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

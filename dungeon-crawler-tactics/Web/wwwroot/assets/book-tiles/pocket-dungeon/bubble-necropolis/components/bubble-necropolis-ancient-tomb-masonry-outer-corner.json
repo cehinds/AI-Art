@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner",
+      "source_sha256": "1a5c9638aa1a937b12bb38411ecd95823cdb19191dbbcd9fea98db3dcbfcc2a2",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-ancient-tomb-masonry-outer-corner",
+        "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-outer-corner.png",
+        "sha256": "1a5c9638aa1a937b12bb38411ecd95823cdb19191dbbcd9fea98db3dcbfcc2a2",
+        "rgba_sha256": "6a1d45cbfce555bfc087db0e06048e63a869091f612caa22a96049a77814c426"
+      },
+      "image_hashes": {
+        "front": "7452cbae4d37304aead139c82f43f36e846e1f2bec0cfd565926c4e47a8c1f46",
+        "top": "990ee4f0708593f523db5c87290c40a48f4e97361b2fb716b617574575874755",
+        "right": "fa982e885a18cc6264ec32454501ffd441f6ddbff65244e5b997fdce34f8d87d",
+        "left": "a8944ec5dde3a971ff5a298fac627196b3d2698ca584692ce2f46ad02a45baa6",
+        "bottom": "96406f696b58273b0fc17f2d08c216a4fa6f3de336aa5bf7657da5137974c7a7",
+        "rear": "b260478f307aaa0de71e2e3f3ba9333a8797654b6a3d4a1a2edd7d6e389e329f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:00:02.461074+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-outer-corner.png",
+          "sha256": "1a5c9638aa1a937b12bb38411ecd95823cdb19191dbbcd9fea98db3dcbfcc2a2",
+          "rgba_sha256": "6a1d45cbfce555bfc087db0e06048e63a869091f612caa22a96049a77814c426"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

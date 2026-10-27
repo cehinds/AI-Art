@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "ghost-havana",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "ghost-havana/components/ghost-havana-blank-street-sign.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-blank-street-sign.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-blank-street-sign",
+      "source_sha256": "d5ff3af9ed74fcb21aac5528c8a31fe05a458c3293fc37f661ef796c90ae216b",
+      "primary_source": {
+        "asset_id": "ghost-havana-blank-street-sign",
+        "path": "ghost-havana/components/ghost-havana-blank-street-sign.png",
+        "sha256": "d5ff3af9ed74fcb21aac5528c8a31fe05a458c3293fc37f661ef796c90ae216b",
+        "rgba_sha256": "6315fbbd1b0a71587441f7f6d33d207a7f09dc159eca15ba4302d7e47e8e1e27"
+      },
+      "image_hashes": {
+        "front": "4071061b6e1fbbb23f76b67d4173644fd2836eef342568217e5b94e03b9f7168",
+        "top": "d47797589189d2e2e096f9ee13d40356567621099dd72ee522fd56b807977371",
+        "right": "b9c55d60bd5752481bcf8d39f724042cd51cd1dcfc837339a664c7f253f2843b",
+        "left": "45fc2d21d62ecfef6874f9963857ab8e78c367a8b739a2e16cc5037b0455cac5",
+        "bottom": "36d62ef1dacee38abc569f88d08c0e4e83c3a15a9d07ae5d31787e2d046e31be",
+        "rear": "2700f53639d68f8397ee5d7119809f902b08eec564ce028ab9020a3a62fa64f6"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T12:34:42.351420+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-blank-street-sign.png",
+          "sha256": "d5ff3af9ed74fcb21aac5528c8a31fe05a458c3293fc37f661ef796c90ae216b",
+          "rgba_sha256": "6315fbbd1b0a71587441f7f6d33d207a7f09dc159eca15ba4302d7e47e8e1e27"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

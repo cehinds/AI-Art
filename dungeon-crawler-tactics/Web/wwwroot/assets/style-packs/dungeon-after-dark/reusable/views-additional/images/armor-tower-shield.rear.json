@@ -3,10 +3,22 @@
   "name": "Tower shield Rear",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "generated",
+    "material:unspecified",
+    "orthographic",
+    "role:screen",
+    "shield",
+    "six-view",
+    "style:dungeon-after-dark",
+    "tower",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/armor-tower-shield.rear.png",
@@ -61,14 +73,55 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "operation": "retained-snapshot-passthrough-v1",
+      "retained_snapshot_evidence": {
+        "schema_version": 1,
+        "method": "verified-retained-snapshot-v1",
+        "manifest_path": "reusable/views-additional/raw/retained-approved-output-snapshots-v1.json",
+        "manifest_sha256": "3e1824544a4a75c1bdbc46327b677affac291225294974bb02d1f8ff9ab5dc7b",
+        "object_id": "armor-tower-shield",
+        "view": "rear"
+      }
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
-    "notes": "Generated corrective rear projection at the established six-view scale; inferred surfaces, not recovered pixels."
+    "notes": "Generated corrective rear projection at the established six-view scale; inferred surfaces, not recovered pixels. Exact rebuild is bound to the distinct retained approved PNG snapshot; the historical atlas recipe did not reproduce current bytes. Exact rebuild is bound to a distinct retained approved PNG snapshot; active atlas generation is not claimed for this image."
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/armor-tower-shield.rear.json"
+  "metadata_path": "reusable/views-additional/images/armor-tower-shield.rear.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "armor-tower-shield"
+  },
+  "attachment_generated_tags": [
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "role:screen",
+    "shield",
+    "style:dungeon-after-dark",
+    "tower",
+    "ui"
+  ]
 }

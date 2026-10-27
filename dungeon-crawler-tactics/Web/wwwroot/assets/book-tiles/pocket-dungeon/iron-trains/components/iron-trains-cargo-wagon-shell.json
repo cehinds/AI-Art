@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "iron-trains",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-cargo-wagon-shell.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-cargo-wagon-shell.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-cargo-wagon-shell",
+      "source_sha256": "b6723a76e025bee4d3b05fe203ecd9befa9f4f58e12e89ec5d1f9c2e7a84fef4",
+      "primary_source": {
+        "asset_id": "iron-trains-cargo-wagon-shell",
+        "path": "iron-trains/components/iron-trains-cargo-wagon-shell.png",
+        "sha256": "b6723a76e025bee4d3b05fe203ecd9befa9f4f58e12e89ec5d1f9c2e7a84fef4",
+        "rgba_sha256": "def979b5277ce6e65df6a60afc8dbb8c7077bb82564fe22ed31c27403899f190"
+      },
+      "image_hashes": {
+        "front": "ec6754bf5f497bffe302a64c22fe2b106c9072472697c9531c371d05a90a73dc",
+        "top": "fbec32c4dd57f9bb291ded66946848c5cd65582b0fb6c71ca3ae9a1d97a5b506",
+        "right": "85a3c91a2a3a7013fcacdecb6370d3c55c74aa5dd86e29819085cb8ed55ce93d",
+        "left": "81f37ce0100b43e23b9cf9d781e79c268bb4d407853d417309503267208b2ae8",
+        "bottom": "64e1d4d67877e5f0a915b5dc49c7eec635ca92720f65d7443dd212069f80b2ea",
+        "rear": "f04ec7a38d7149de42f9e571ae55ed9a23df6460e17089a64d4749323cef05c1"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T22:56:46.925745+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-cargo-wagon-shell.png",
+          "sha256": "b6723a76e025bee4d3b05fe203ecd9befa9f4f58e12e89ec5d1f9c2e7a84fef4",
+          "rgba_sha256": "def979b5277ce6e65df6a60afc8dbb8c7077bb82564fe22ed31c27403899f190"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:iron",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

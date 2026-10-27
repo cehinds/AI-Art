@@ -9,15 +9,16 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
-    "hazard:water",
     "hunting-river",
     "material:wood",
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-river/components/hunting-river-wood-river-footbridge.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-river-wood-river-footbridge.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wood-river-footbridge.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wood-river-footbridge.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wood-river-footbridge.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-river-wood-river-footbridge.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "hunting-river-wood-river-footbridge.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-river-wood-river-footbridge",
+      "source_sha256": "6d4544d5d748fb7661645ea42084a95143799822fba5f293e955501150a477f9",
+      "primary_source": {
+        "asset_id": "hunting-river-wood-river-footbridge",
+        "path": "hunting-river/components/hunting-river-wood-river-footbridge.png",
+        "sha256": "6d4544d5d748fb7661645ea42084a95143799822fba5f293e955501150a477f9",
+        "rgba_sha256": "fb5df97770fb1f7bebf1451cd6c485bdf38fab24839cdfa1e3e620225c8bc553"
+      },
+      "image_hashes": {
+        "front": "1f0fa1138ab1f32c50e32eae9e8e29b73b25f0b896fbc5f99769e470d14246af",
+        "top": "8f8572937d563c530803efc60421849ebb3405fc5527ce071856bb28b723540e",
+        "right": "1f0fa1138ab1f32c50e32eae9e8e29b73b25f0b896fbc5f99769e470d14246af",
+        "left": "703a3a7a54fb47518d60f23279cd21b7d6d1c990957b455cd8238b6405f331d2",
+        "bottom": "049e4e40d2d9a52442724b0c6262468fdae11c84af9728e231b2f62516343e4b",
+        "rear": "703a3a7a54fb47518d60f23279cd21b7d6d1c990957b455cd8238b6405f331d2"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T09:32:57.261584+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-river/components/hunting-river-wood-river-footbridge.png",
+          "sha256": "6d4544d5d748fb7661645ea42084a95143799822fba5f293e955501150a477f9",
+          "rgba_sha256": "fb5df97770fb1f7bebf1451cd6c485bdf38fab24839cdfa1e3e620225c8bc553"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
-    "hazard:water",
     "material:wood",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-corner-transition.png",
@@ -119,6 +120,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -150,31 +161,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-sandstone-and-sand-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-sandstone-and-sand-corner-transition",
+      "source_sha256": "10d0861672c3be1033ce0b7f7bd96bc4e308d737634158e7d20c666375dc31c7",
+      "primary_source": {
+        "asset_id": "bubble-desert-sandstone-and-sand-corner-transition",
+        "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-corner-transition.png",
+        "sha256": "10d0861672c3be1033ce0b7f7bd96bc4e308d737634158e7d20c666375dc31c7",
+        "rgba_sha256": "6cbaf750b0a440c470de7fec3ef004214d1056c9e89a1d6d3435234420fe30b0"
+      },
+      "image_hashes": {
+        "front": "2b39b40e219c393bbdd1de0b028a170ff788b139f14d67600d32a75cbf414683",
+        "top": "73f17fed4a7d3fd5da3d3e1b744edea4dc9a750604e8fe061308fa41fe7b581c",
+        "right": "7c15e145e5a9aace91fca5f7e87cb32ed65275b61ad1eee1d44abdbff1201795",
+        "left": "65685a1f445cab0220ce2cb3bf6efbfa503c08363ef1061904c75b7ef2e5e807",
+        "bottom": "1f5ad21a8088e1e13e20e0e09c2e797dea992532478b91260899a1b2f4c75f85",
+        "rear": "10530a3e90be98a4b2373548fe02c45a329619b0a05e33cdc08dfbe8201d4774"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.911185+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-sandstone-and-sand-corner-transition.png",
+          "sha256": "10d0861672c3be1033ce0b7f7bd96bc4e308d737634158e7d20c666375dc31c7",
+          "rgba_sha256": "6cbaf750b0a440c470de7fec3ef004214d1056c9e89a1d6d3435234420fe30b0"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -183,7 +243,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

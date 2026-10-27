@@ -3,10 +3,22 @@
   "name": "Mage mantle Left",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "generated",
+    "mage",
+    "mantle",
+    "material:unspecified",
+    "orthographic",
+    "role:screen",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/armor-mage-mantle.left.png",
@@ -59,19 +71,86 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "input_group": {
+        "schema_version": 1,
+        "method": "process_object_local_cells_shared_scale",
+        "recipe_id": "object-local-cell-alpha-components-shared-scale-v1",
+        "source_atlas": "reusable/views-additional/raw/dad-equipment-09.png",
+        "source_atlas_sha256": "4f0cff6b7d63ea93296a4d0bdbf21e689d8bdaaf4b69976c3ac66d0284a21b83",
+        "cell_grid": {
+          "columns": 6,
+          "rows": 6,
+          "row_index": 3,
+          "cell_size_px": [
+            256,
+            171
+          ]
+        },
+        "alpha_threshold_exclusive": 32,
+        "component_connectivity": 4,
+        "minimum_component_area_px": 24,
+        "edge_touch_margin_px": 1,
+        "component_selection": "non-edge-touching-at-least-1-percent-largest-fallback-largest",
+        "cell_calibration": [
+          1.0,
+          1.0
+        ],
+        "shared_scale_formula": "204/max-width-or-height-of-all-six-extracted-cells-after-calibration",
+        "resampling": "nearest"
+      },
+      "operation": "retained-snapshot-passthrough-v1",
+      "retained_snapshot_evidence": {
+        "schema_version": 1,
+        "method": "verified-retained-snapshot-v1",
+        "manifest_path": "reusable/views-additional/raw/retained-approved-output-snapshots-v1.json",
+        "manifest_sha256": "3e1824544a4a75c1bdbc46327b677affac291225294974bb02d1f8ff9ab5dc7b",
+        "object_id": "armor-mage-mantle",
+        "view": "left"
+      }
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
-    "notes": "Locally isolated original generated view; neighboring alpha spill excluded, then all six views normalized with one shared isotropic scale.",
+    "notes": "Locally isolated original generated view; neighboring alpha spill excluded, then all six views normalized with one shared isotropic scale. Exact rebuild is bound to the distinct retained approved PNG snapshot; the historical atlas recipe did not reproduce current bytes. Exact rebuild is bound to a distinct retained approved PNG snapshot; active atlas generation is not claimed for this image.",
     "source_cell_calibration": [
       1.0,
-      1.0,
-      "isotropic"
+      1.0
     ]
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/armor-mage-mantle.left.json"
+  "metadata_path": "reusable/views-additional/images/armor-mage-mantle.left.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "armor-mage-mantle"
+  },
+  "attachment_generated_tags": [
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "mage",
+    "mantle",
+    "material:unspecified",
+    "role:screen",
+    "style:dungeon-after-dark",
+    "ui"
+  ]
 }

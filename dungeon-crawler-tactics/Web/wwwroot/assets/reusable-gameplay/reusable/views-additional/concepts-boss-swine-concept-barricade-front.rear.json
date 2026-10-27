@@ -4,17 +4,18 @@
   "kind": "sprite",
   "tags": [
     "attachment-tagged",
+    "attachment:floor",
     "baked-scene",
     "environment:unspecified",
     "gameplay",
+    "inferred-view",
     "material:steel",
     "material:wood",
     "native-source-crop",
     "prop",
-    "role:reconstruction",
-    "style:gameplay",
-    "inferred-view",
-    "rear"
+    "rear",
+    "role:object",
+    "style:gameplay"
   ],
   "object_id": "concepts-boss-swine-concept-barricade-front",
   "view": "rear",
@@ -74,5 +75,40 @@
     "source_view_asset": "concepts-boss-swine-concept-barricade-front.rear",
     "source_view_sha256": "4bb011c6be0489e256cc0f57efb37b150298bfd2619bfc0d1c9477e54ca2c574",
     "view_transform": "horizontal mirror (rigid world-X reflection)"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:steel",
+    "material:wood",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concepts-boss-swine-concept-barricade-front"
   }
 }

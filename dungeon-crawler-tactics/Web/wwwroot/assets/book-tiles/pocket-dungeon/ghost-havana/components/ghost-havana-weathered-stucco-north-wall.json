@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "ghost-havana-weathered-stucco-north-wall.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "ghost-havana-weathered-stucco-north-wall",
+      "source_sha256": "94fe7cefbbbd7e5873c76a19bcbabaf0e88a5c104e8f5ac42c74fe8cb297790d",
+      "primary_source": {
+        "asset_id": "ghost-havana-weathered-stucco-north-wall",
+        "path": "ghost-havana/components/ghost-havana-weathered-stucco-north-wall.png",
+        "sha256": "94fe7cefbbbd7e5873c76a19bcbabaf0e88a5c104e8f5ac42c74fe8cb297790d",
+        "rgba_sha256": "ffa29e29b0be53a25bae6ae44e9b84e45bc496849a4e04f4695f11203c96eb8b"
+      },
+      "image_hashes": {
+        "front": "5ace3d79f7021bd63a63b85b0a5100dddae0adc4e3971e5b242b70c196e7e618",
+        "top": "ff95fe93fff9eed014e66c0df3db837fefe218cbcbedac0f6636ac235a61dedb",
+        "right": "fa56cb9a27d4faf5983c7233975c57170367ba1dfc2c5fa615f66a45c097b0f6",
+        "left": "ae7197ca4fd2c9b809b04703fbb8b23d61fbce683796883317090d1e0ca81059",
+        "bottom": "1bea054bb3b4167b47c97854573ea217e6e8c122c7fe405582e391702d13ea17",
+        "rear": "01b5701ba75b62f99b304bdb5633c0ca9044c37aaee67c5abc3c9e9cf8ecb0ce"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T03:06:22.997551+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "ghost-havana/components/ghost-havana-weathered-stucco-north-wall.png",
+          "sha256": "94fe7cefbbbd7e5873c76a19bcbabaf0e88a5c104e8f5ac42c74fe8cb297790d",
+          "rgba_sha256": "ffa29e29b0be53a25bae6ae44e9b84e45bc496849a4e04f4695f11203c96eb8b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-gated-stone-bridge.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-gated-stone-bridge.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-gated-stone-bridge",
+      "source_sha256": "b22a8ee27dbbe1da2d10d21adc63c31584099991103c8e34bbcb2192b4002efd",
+      "primary_source": {
+        "asset_id": "early-arenas-gated-stone-bridge",
+        "path": "early-arenas/components/early-arenas-gated-stone-bridge.png",
+        "sha256": "b22a8ee27dbbe1da2d10d21adc63c31584099991103c8e34bbcb2192b4002efd",
+        "rgba_sha256": "60344bde24ece63db668a34c0c82b86ecffa5f48078c73ade193924b93d0356a"
+      },
+      "image_hashes": {
+        "front": "2a12194cd5264f41d716e1214e4c9704f702d0cf14de42c2345f11e9f310c33b",
+        "top": "e86f42caa4a8e6d4f1187782dcee0e80b641f3f84b2d1bb079e47a78dd39cfdb",
+        "right": "5f21075ac1ecc4da9ce8f1dd7c96b9ad08b117dcd56ce0634eb2ec6eb3a9f3db",
+        "left": "685f666a1ebdca01ed70a7cebf872ad5593d2e4caff9acc49e68021079e6986e",
+        "bottom": "a949d50cb0aa88bbf49320224e5b06d2c9708cff6bf8ef871d4cf2436ecfc7df",
+        "rear": "be7053ceb7499346f947d85040e47267ce95379aba01f407e2a4daa04e7920ce"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T18:18:14.253500+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-gated-stone-bridge.png",
+          "sha256": "b22a8ee27dbbe1da2d10d21adc63c31584099991103c8e34bbcb2192b4002efd",
+          "rgba_sha256": "60344bde24ece63db668a34c0c82b86ecffa5f48078c73ade193924b93d0356a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:stone",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

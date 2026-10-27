@@ -10,6 +10,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "bat",
     "cave",
     "environment:unspecified",
@@ -96,35 +97,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "cave-bat.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "cave-bat",
+      "source_sha256": "6bf60d3199ac1343f8f2de55c7a1dfc4b5c06f1c27f337eacd1b93b1ef8a5b40",
+      "primary_source": {
+        "asset_id": "cave-bat",
+        "path": "components/cave-bat.png",
+        "sha256": "6bf60d3199ac1343f8f2de55c7a1dfc4b5c06f1c27f337eacd1b93b1ef8a5b40",
+        "rgba_sha256": "e65cdde7fdce8aeb59fc98f5c4a5103386a401ca3db2a17c8e55d5cd83d34b52"
+      },
+      "image_hashes": {
+        "front": "e431a4de23d8c1f478a84b35f8a8e952c9e9ad395db41c9ea295e0b865c647a5",
+        "top": "2dae7ab120d831df509fcb456fac34e91e6c7afae97c4d124e6e3e9436a1a7f2",
+        "right": "25854da95f409a0117d631acc13552b54d03a00169f15c2982c29c15992a01bf",
+        "left": "8f67753aa990e0209f3b12489ecc0101c577f87918c2a35118bb0f64edd5ff45",
+        "bottom": "6a4d3cf01fd01c3434fce177a62543de66dfd69224456225538e56129c06661c",
+        "rear": "3eb6e19f7dd478c1d91f64266355d3f64a6365a7645106a14a7abc5a5a4fda94"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:14:56.311843+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/cave-bat.png",
+          "sha256": "6bf60d3199ac1343f8f2de55c7a1dfc4b5c06f1c27f337eacd1b93b1ef8a5b40",
+          "rgba_sha256": "e65cdde7fdce8aeb59fc98f5c4a5103386a401ca3db2a17c8e55d5cd83d34b52"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:unspecified",
     "material:unspecified",
     "role:object",
@@ -137,7 +174,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -152,7 +190,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "compatibility_group": "ink-and-lanterns--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

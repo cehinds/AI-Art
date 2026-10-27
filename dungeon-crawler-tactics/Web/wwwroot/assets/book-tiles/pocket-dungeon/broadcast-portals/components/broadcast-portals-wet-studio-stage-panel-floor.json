@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-wet-studio-stage-panel-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -195,7 +206,60 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-wet-studio-stage-panel-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-wet-studio-stage-panel-floor",
+      "source_sha256": "fe24c6b24460f2a8c828125e9540d09290ea46b26569b7a9f9e75fb2e8225b9a",
+      "primary_source": {
+        "asset_id": "broadcast-portals-wet-studio-stage-panel-floor",
+        "path": "broadcast-portals/components/broadcast-portals-wet-studio-stage-panel-floor.png",
+        "sha256": "fe24c6b24460f2a8c828125e9540d09290ea46b26569b7a9f9e75fb2e8225b9a",
+        "rgba_sha256": "7a64ded58b039b6f855f132aa75b277a0353313e47c9d281f5b31662427330c4"
+      },
+      "image_hashes": {
+        "front": "05d752112b2b266bf56f5c147acf7109ea2a8f58b566eb061b64c09d5393a4db",
+        "top": "b379be07cb6bf5c0df8bf9f8cd4384a721a3e9c9e86cf3d8316a43edfc6aae8e",
+        "right": "236d1a8febf79f319d41611476e59d5e1196120f71e29de3997ad7da9a8a785d",
+        "left": "90d4a50ec61b1ef11ac5c0e05d07f5ebe27146be83799bedab3fa86d045070c7",
+        "bottom": "dca43c4f2a5e2cd8d9c3d0c222e3e6df7697ce87689ff47fcdae4284d20d0dde",
+        "rear": "d54fc3a53dd368cc6845ae3252e448a25b92676ea02fcd7a4b724354a2a99c4b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:54:30.462705+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-wet-studio-stage-panel-floor.png",
+          "sha256": "fe24c6b24460f2a8c828125e9540d09290ea46b26569b7a9f9e75fb2e8225b9a",
+          "rgba_sha256": "7a64ded58b039b6f855f132aa75b277a0353313e47c9d281f5b31662427330c4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "east": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "south": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ],
+    "west": [
+      "join.floor",
+      "visual.broadcast-portals"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

@@ -17,7 +17,8 @@
     "prop",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "image": {
     "path": "clubs-guilds/components/clubs-guilds-mercenary-reception-desk.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "clubs-guilds-mercenary-reception-desk.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "clubs-guilds-mercenary-reception-desk",
+      "source_sha256": "7789f9b225aeac68575e936f9eb8d1f4a557d904b48d8d4675beac32480eeef4",
+      "primary_source": {
+        "asset_id": "clubs-guilds-mercenary-reception-desk",
+        "path": "clubs-guilds/components/clubs-guilds-mercenary-reception-desk.png",
+        "sha256": "7789f9b225aeac68575e936f9eb8d1f4a557d904b48d8d4675beac32480eeef4",
+        "rgba_sha256": "862037a154b8dddcfd41b2997779424f0d23a9c92093a0e7a122eea48ca78580"
+      },
+      "image_hashes": {
+        "front": "8868c96db2327e4f631af821be729988301b057dc3685fb6c479169d052b4a14",
+        "top": "a716bdfbb6f09d47fce5ae83a5776d617f734ad81e02a1ed5995ed4c87c92dd3",
+        "right": "2ee0819ce1d0d4ef786220c68ca23f65c9b5e1c647f3fec61441c65c6d4e671e",
+        "left": "aaf922d66740c5f33db4f5de8bcd582bbdad201911037710326b356af145c65e",
+        "bottom": "1ef90df1b767a6429ebb0b2dc46247e5161aff23abefecb075f435219e41dc3f",
+        "rear": "51c0a1aefffab848ccbf54e3603af1391d64701a67211b55d9f040ffb314fe06"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T21:57:51.231150+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "clubs-guilds/components/clubs-guilds-mercenary-reception-desk.png",
+          "sha256": "7789f9b225aeac68575e936f9eb8d1f4a557d904b48d8d4675beac32480eeef4",
+          "rgba_sha256": "862037a154b8dddcfd41b2997779424f0d23a9c92093a0e7a122eea48ca78580"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:tabletop"
+    "surface:tabletop",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:tabletop"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

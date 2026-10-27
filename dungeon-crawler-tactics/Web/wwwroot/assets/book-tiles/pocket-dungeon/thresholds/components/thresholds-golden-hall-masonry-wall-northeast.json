@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface:wall",
     "thresholds",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "thresholds-golden-hall-masonry-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "thresholds-golden-hall-masonry-wall-northeast",
+      "source_sha256": "35cb3bfbefabf05a77abfd640330f5df0e3c1b2aa30e1cafb6837d6d3f22b821",
+      "primary_source": {
+        "asset_id": "thresholds-golden-hall-masonry-wall-northeast",
+        "path": "thresholds/components/thresholds-golden-hall-masonry-wall-northeast.png",
+        "sha256": "35cb3bfbefabf05a77abfd640330f5df0e3c1b2aa30e1cafb6837d6d3f22b821",
+        "rgba_sha256": "d553a2880cebde42d3d00409e3698ae373bfb5ebb0995d143d7c6c856b326f43"
+      },
+      "image_hashes": {
+        "front": "6de7b6a2a8426b94aa781432536cfc4d812bf79a245e81265397a8412b42a275",
+        "top": "93d8da26127b08208e72bb6c44ce8003c31f2270c6352b57ad2590034a8a17f8",
+        "right": "3dea42c5908c144ae7cb5a7a182acb37976e678f37f0965c20e54c856a8002d5",
+        "left": "e0ea79542e06962f7a67aaa4e437921d2e3e1221aa3dd349e3112eed50fec3c1",
+        "bottom": "e0cf0d5e9baf94ea17e56786c3c702dea0a603c43db0f7d8e1e40f5c2473989c",
+        "rear": "e64b5fdf049bb4110bf7c89faca956a537f5f4774f24903673d624480cea57fb"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:13:41.527594+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "thresholds/components/thresholds-golden-hall-masonry-wall-northeast.png",
+          "sha256": "35cb3bfbefabf05a77abfd640330f5df0e3c1b2aa30e1cafb6837d6d3f22b821",
+          "rgba_sha256": "d553a2880cebde42d3d00409e3698ae373bfb5ebb0995d143d7c6c856b326f43"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:gold",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

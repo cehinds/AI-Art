@@ -51,7 +51,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "legacy--ranger.front"
@@ -76,19 +76,40 @@
       "status": "inferred",
       "asset_id": "legacy--ranger.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--ranger",
+      "source_sha256": "38c20546897374b4a7556b57baa6f33424d4009592759ae645d846e5284f72d4",
+      "primary_source": {
+        "asset_id": "legacy--ranger",
+        "path": "reusable/native/legacy--ranger.png",
+        "sha256": "38c20546897374b4a7556b57baa6f33424d4009592759ae645d846e5284f72d4",
+        "rgba_sha256": "28cd9d9a6d63baec46314ce50baa9488c6104419c7322bf6eeb1e942419a0a0f"
+      },
+      "image_hashes": {
+        "front": "ac1ed0ce248164c9b5d71383a02f0fcb940692904675e7121fe368336573f83d",
+        "top": "287263e5d7b88106cdb04ffcab287beeb2f1dca7d5495504257c123a7aa5f08b",
+        "right": "1611519b77f2f659170063d142ac842091d603c787be954a7579aba8cfbd5b32",
+        "left": "e278dc0894b0bb5eb1643d9a8d72fbccba4494e543378cadafc2ced9476c6cd9",
+        "bottom": "647f0812d0d2fbea6749fd49dc749b64ff17e5ad12fadd12b6ec2384599be41c",
+        "rear": "a370018685c6883137d282d1345c44958d33b1ed896de77ea8965c61db27b03b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:52:50.536654+00:00",
+      "notes": [
+        "Fresh corrected source+six: BOTTOM true torso/robeunderside with shoe soles, headgearoccluded; nativefront/sourcepixelidentity and isotropicallyconsistent bodywidth/sideheight, toolendcaps retained."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--ranger.png",
+          "sha256": "38c20546897374b4a7556b57baa6f33424d4009592759ae645d846e5284f72d4",
+          "rgba_sha256": "28cd9d9a6d63baec46314ce50baa9488c6104419c7322bf6eeb1e942419a0a0f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "pose": "standing",

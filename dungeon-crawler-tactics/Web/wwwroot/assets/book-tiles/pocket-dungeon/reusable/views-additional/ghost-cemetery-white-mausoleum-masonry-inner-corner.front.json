@@ -3,12 +3,22 @@
   "name": "White Mausoleum Masonry inner corner front",
   "kind": "sprite",
   "tags": [
-    "ghost-cemetery",
-    "wall",
     "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
     "front",
+    "ghost-cemetery",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/ghost-cemetery-white-mausoleum-masonry-inner-corner.front.png",
@@ -65,7 +75,7 @@
     "notes": "Pixel copy from independently accepted same-family outer-corner view under the 180-degree counterpart; inner source remains canonical.",
     "symmetric_alias_of": "rear",
     "symmetric_alias_object_id": "ghost-cemetery-white-mausoleum-masonry-outer-corner",
-    "symmetry_reason": "Inner footprint is the 180-degree counterpart of the accepted same-family outer corner. For each camera, use the opposite-facing outer projection (front\u2194rear, right\u2194left) to ground the full wall arm; retain inner source as canonical and preserve inner TOP/BOTTOM.",
+    "symmetry_reason": "Inner footprint is the 180-degree counterpart of the accepted same-family outer corner. For each camera, use the opposite-facing outer projection (front↔rear, right↔left) to ground the full wall arm; retain inner source as canonical and preserve inner TOP/BOTTOM.",
     "derivation_input": {
       "asset_id": "ghost-cemetery-white-mausoleum-masonry-outer-corner.rear",
       "object_id": "ghost-cemetery-white-mausoleum-masonry-outer-corner",
@@ -189,5 +199,45 @@
       },
       "notes": "Orthographic broad wall-arm elevation inferred from canonical corner plan; accepted TOP/BOTTOM are preserved. Raw atlas and request retained; inferred pixels are not recovered."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-cemetery-white-mausoleum-masonry-inner-corner"
+  }
 }

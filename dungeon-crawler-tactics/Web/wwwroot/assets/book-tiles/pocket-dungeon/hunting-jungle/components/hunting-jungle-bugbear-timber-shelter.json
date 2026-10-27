@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-jungle",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-jungle/components/hunting-jungle-bugbear-timber-shelter.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-jungle-bugbear-timber-shelter.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-jungle-bugbear-timber-shelter",
+      "source_sha256": "d8ff7cc3e92d78ce9c33d3373981539af19d6a2d883f53763d329c6318bd9ea1",
+      "primary_source": {
+        "asset_id": "hunting-jungle-bugbear-timber-shelter",
+        "path": "hunting-jungle/components/hunting-jungle-bugbear-timber-shelter.png",
+        "sha256": "d8ff7cc3e92d78ce9c33d3373981539af19d6a2d883f53763d329c6318bd9ea1",
+        "rgba_sha256": "d55399e116e5aba4c71c7bf11f25ab9e272c539db43411ee5aaa4a9831764adf"
+      },
+      "image_hashes": {
+        "front": "1cfd088e2a1b51cb4f26bd6717f4b8ad57c5db897568dca4ae4c3a00b75bd59c",
+        "top": "76374c290e58222978f406c21e512b493057906819ec8870c1934042b16219f0",
+        "right": "ce5deaf00041ff372ecf89dc542c769a2980d1fe108046cf2161c6568c2642cb",
+        "left": "b38410a6072200ca512a295007fe64416448062ffecd4589deb79bd0ebb9f0a9",
+        "bottom": "0d2f65708b5668815f2739649ec26c2248b69da9b49bd37003500f31fed72d31",
+        "rear": "595c96adb48ba2d16b991b2ef3a86312663aca70ecd4aa09994a65b214f2e2a4"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T17:45:10.425484+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-jungle/components/hunting-jungle-bugbear-timber-shelter.png",
+          "sha256": "d8ff7cc3e92d78ce9c33d3373981539af19d6a2d883f53763d329c6318bd9ea1",
+          "rgba_sha256": "d55399e116e5aba4c71c7bf11f25ab9e272c539db43411ee5aaa4a9831764adf"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

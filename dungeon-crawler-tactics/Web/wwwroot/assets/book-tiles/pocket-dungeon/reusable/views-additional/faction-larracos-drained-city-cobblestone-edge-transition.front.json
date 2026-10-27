@@ -3,12 +3,22 @@
   "name": "Drained City Cobblestone edge transition front",
   "kind": "tile",
   "tags": [
-    "faction-larracos",
-    "ground",
     "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:city",
+    "environment:dungeon",
+    "faction-larracos",
     "front",
+    "ground",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/faction-larracos-drained-city-cobblestone-edge-transition.front.png",
@@ -33,7 +43,7 @@
     "method": "inferred-family-view-donor",
     "source_image": "faction-larracos/components/faction-larracos-drained-city-cobblestone-edge-transition.png",
     "source_sha256": "4da4b4fbe326778e46f7c968efde02221265b032fde9deda8ee3ab2819f68342",
-    "generated_atlas": "raw/atlases/faction-larracos-natural-stone-profiles-v1.png",
+    "generated_atlas": "reusable/views-additional/raw/atlases/faction-larracos-natural-stone-profiles-v1.png",
     "generated_atlas_sha256": "173af4b860dc4c3506c91d53bc5f355fdf7ba15d11d704bb3d2ffeb410f4eaa8",
     "prompt_file": "reusable/views-additional/raw/prompts/faction-larracos-natural-stone-profiles-v1.txt",
     "normalization": {
@@ -165,5 +175,35 @@
       },
       "notes": "Replaced the source-identified natural cobble tile profile with a row-matched orthographic projection; removed the generic metal tray/bolts, retained the accepted TOP, and inferred a natural material-matched substrate underside."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "faction-larracos-drained-city-cobblestone-edge-transition"
+  }
 }

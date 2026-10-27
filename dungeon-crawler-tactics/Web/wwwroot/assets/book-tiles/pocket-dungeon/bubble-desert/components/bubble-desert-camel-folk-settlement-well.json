@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-desert",
     "environment:desert",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-camel-folk-settlement-well.png",
@@ -107,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,40 +138,91 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-camel-folk-settlement-well.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-camel-folk-settlement-well",
+      "source_sha256": "00bc82ce4f5548f9f43c86a10d1ff685f8825d4ae6efe392888c0ccf06991163",
+      "primary_source": {
+        "asset_id": "bubble-desert-camel-folk-settlement-well",
+        "path": "bubble-desert/components/bubble-desert-camel-folk-settlement-well.png",
+        "sha256": "00bc82ce4f5548f9f43c86a10d1ff685f8825d4ae6efe392888c0ccf06991163",
+        "rgba_sha256": "88b2ef1834a06977a12d47fbc9bc44d9a443ba82d31275312e47da2852cf9594"
+      },
+      "image_hashes": {
+        "front": "b5a11ab10a11a93bc2c15fc20f829a0eb27cdc130b6f25f0251230190d266c61",
+        "top": "db8d84663235c1f82224e850f748c27e41ff14d7f0994a84c692be1953f4f473",
+        "right": "fa8dd50dc246e9af5aa50b06b077ffd3aa94d73cdaa3c6a1b17d5f5db0da5ce6",
+        "left": "4ff0a75d476223f89c8d2f694183de81bd81007dfd2a3479f8d93f28a95d75ae",
+        "bottom": "da391aa94f31f41022447189699bd1fd90de9163c3d978ba1022e12d8d9e9d8b",
+        "rear": "47c0460913b44aa6d3b77b4832fc32390bdf8e0309561bd024ab778359818e9b"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:36:47.931951+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-camel-folk-settlement-well.png",
+          "sha256": "00bc82ce4f5548f9f43c86a10d1ff685f8825d4ae6efe392888c0ccf06991163",
+          "rgba_sha256": "88b2ef1834a06977a12d47fbc9bc44d9a443ba82d31275312e47da2852cf9594"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:desert",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -168,18 +231,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -52,7 +52,7 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
       "status": "inferred",
       "asset_id": "revamp--enemies--boss--hit.front"
@@ -77,19 +77,41 @@
       "status": "inferred",
       "asset_id": "revamp--enemies--boss--hit.rear"
     },
-    "reason": "Principal views exist but the set remains unapproved or unfinished.",
     "geometry_qa": {
-      "status": "independently-reviewed-pass",
-      "views": [
-        "front",
-        "top",
-        "right",
-        "left",
-        "bottom",
-        "rear"
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp--enemies--boss--hit",
+      "source_sha256": "0844638b174d335d7cef0a61be2b5847bc9471cf64e057babecc78b2a54c5e61",
+      "primary_source": {
+        "asset_id": "revamp--enemies--boss--hit",
+        "path": "reusable/native/revamp--enemies--boss--hit.png",
+        "sha256": "0844638b174d335d7cef0a61be2b5847bc9471cf64e057babecc78b2a54c5e61",
+        "rgba_sha256": "db3c39176a042b6737a6780ff3f9655ec65881b1fc97487148f6d9af59c9713f"
+      },
+      "image_hashes": {
+        "front": "fb21621d4cce92235d5765563100b318535ad362b3afe0dcdb0c44cf660ab942",
+        "top": "ab6c01a2ed03d6a48a05edaf210c7ed12df800d2ec2f0622d823c3b559cb4bc1",
+        "right": "b698f25d846b4f46c8ea761f59102d0fb2e6af784385efe7b4919111de0450e9",
+        "left": "a4b147352ac251945eb71baa6e0465c6fb565988b8a3cf5db0d06ed714dc3628",
+        "bottom": "fc19192408b25f0e99c18722d85b3398ac14f6727c6289de985a5bad334a3bd7",
+        "rear": "47fcb7d64acc017e5830e332959637178b892191887f44f8f72cb82e5afa98c4"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-26T00:48:07.668776+00:00",
+      "notes": [
+        "Head-on HIT now upright/backward-stagger with lowered feet matching source/profile pose; corrected front no longer underside/seated-like. Hidden armor/body surfaces inferred."
       ],
-      "notes": "Independent source-plus-six review passed exact current image hashes.",
-      "atlas_self_inspected": true
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "654ca80af0001f3fe9dfe81c72d7273db95e83c36019b5865a4054e2d7f6f825",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp--enemies--boss--hit.png",
+          "sha256": "0844638b174d335d7cef0a61be2b5847bc9471cf64e057babecc78b2a54c5e61",
+          "rgba_sha256": "db3c39176a042b6737a6780ff3f9655ec65881b1fc97487148f6d9af59c9713f"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "canonical_asset_id": "revamp--enemies--boss--hit",

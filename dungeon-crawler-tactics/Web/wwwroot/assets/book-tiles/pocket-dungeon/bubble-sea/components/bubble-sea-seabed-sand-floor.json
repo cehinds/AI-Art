@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "bubble-sea/components/bubble-sea-seabed-sand-floor.png",
@@ -140,6 +141,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -171,31 +182,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-sea-seabed-sand-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-seabed-sand-floor",
+      "source_sha256": "8fd24ef98007c867011780fa44d5573f9d31f046cbb68ad59af1aa086c2f1cc0",
+      "primary_source": {
+        "asset_id": "bubble-sea-seabed-sand-floor",
+        "path": "bubble-sea/components/bubble-sea-seabed-sand-floor.png",
+        "sha256": "8fd24ef98007c867011780fa44d5573f9d31f046cbb68ad59af1aa086c2f1cc0",
+        "rgba_sha256": "1191a684249646b936ac1485efdaabf245b079f4a5654850c8efa9f468c94723"
+      },
+      "image_hashes": {
+        "front": "d8d59588244f8c25de13f9b19548a9ade53cdb2ef7c6150b4cb25a1bdce75285",
+        "top": "49f6a150ffee2798b53645d5f98e0b26b307eae41035acb7aeedcbfa33c13515",
+        "right": "e9c00cf037b52e8f3c7c76d87ab5648b4095c52fab202b6ad6435dcddbe73036",
+        "left": "7b37e7f3d971b416c07d4e68cef72d777bed6fd88879ab03442230f34f5af0cc",
+        "bottom": "6dda462d4eecb2968435a15dc9fb013e2acb2035e2346b7d4a4a6e910345ce6f",
+        "rear": "fb43414f5a8662167bc51b3989ebbad654d8dc35ed5ea07e39a466e284266aeb"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:29:19.911501+00:00",
+      "notes": [
+        "Repaired plain physical substrate underside and corrected sea horizontal side profiles visually reviewed across all six views; raised border transitions treated as actual geometry. No remaining visible contamination."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-seabed-sand-floor.png",
+          "sha256": "8fd24ef98007c867011780fa44d5573f9d31f046cbb68ad59af1aa086c2f1cc0",
+          "rgba_sha256": "1191a684249646b936ac1485efdaabf245b079f4a5654850c8efa9f468c94723"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-sea"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -203,7 +267,8 @@
     "material:sand",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

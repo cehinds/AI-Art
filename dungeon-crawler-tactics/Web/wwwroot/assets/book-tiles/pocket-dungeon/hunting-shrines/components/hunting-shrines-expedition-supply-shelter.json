@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "hunting-shrines",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "hunting-shrines/components/hunting-shrines-expedition-supply-shelter.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-shrines-expedition-supply-shelter.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-shrines-expedition-supply-shelter",
+      "source_sha256": "5b62906666d0804c96746966a1fcad5258a65827b213731d9db000bfbee9f47f",
+      "primary_source": {
+        "asset_id": "hunting-shrines-expedition-supply-shelter",
+        "path": "hunting-shrines/components/hunting-shrines-expedition-supply-shelter.png",
+        "sha256": "5b62906666d0804c96746966a1fcad5258a65827b213731d9db000bfbee9f47f",
+        "rgba_sha256": "9fb03ea647274ee876c745a240787818eda852e1f38f70e90e72efca64b22202"
+      },
+      "image_hashes": {
+        "front": "2de4fbf4b1724caf27f91671b6484ebf522cf33ed08120916d05bbc6ebbe74b9",
+        "top": "3d56b16801f4c464dfa0af31c7ed4a381290cf384ce628b361e405cefcbf0e0f",
+        "right": "68f585159fc6d6b08666f3a12545da151d48886d050b65fb1c23ce03c19c29b1",
+        "left": "18d6a511284d187828591f3ffc6f45374d50cba6085cad83f5f637afdbe92bd2",
+        "bottom": "ae750014ed3534e66bf662650df848a2e812a2e22c338cf0e37dd25678aa587d",
+        "rear": "c22dde1cf6061b8d9dc2e993f902678a1f77b2d8ec8c302ea9ae405fb2f024c8"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T18:50:53.704239+00:00",
+      "notes": [
+        "Fresh source+six: canopy/roof plan, side silhouette, rear and inferred foundation underside preserve source identity and pose."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-shrines/components/hunting-shrines-expedition-supply-shelter.png",
+          "sha256": "5b62906666d0804c96746966a1fcad5258a65827b213731d9db000bfbee9f47f",
+          "rgba_sha256": "9fb03ea647274ee876c745a240787818eda852e1f38f70e90e72efca64b22202"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

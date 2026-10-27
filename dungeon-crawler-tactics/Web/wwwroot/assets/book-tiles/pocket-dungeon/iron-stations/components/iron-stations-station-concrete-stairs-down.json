@@ -17,7 +17,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-stations/components/iron-stations-station-concrete-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-concrete-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-station-concrete-stairs-down",
+      "source_sha256": "70bcc5fcf42996dce1fe3cf42a383d04ce8847b5e23e378c396f1a0b2cb465d5",
+      "primary_source": {
+        "asset_id": "iron-stations-station-concrete-stairs-down",
+        "path": "iron-stations/components/iron-stations-station-concrete-stairs-down.png",
+        "sha256": "70bcc5fcf42996dce1fe3cf42a383d04ce8847b5e23e378c396f1a0b2cb465d5",
+        "rgba_sha256": "829a01f9e495a085e9a1405ffb057cc397f08c1f3c52c89700accc315a0a5f8d"
+      },
+      "image_hashes": {
+        "front": "69e7d5db8f55b1b250d9f7000d43833a1b67757013fb4637249f1aa912693ad0",
+        "top": "a249f395dc3bd5b98a87fd3647ccdd9fc56a770cc7c969b0a023f25de4d01361",
+        "right": "83c36ee13733f31939b9317c5791f93dbb1284b9c35074e72ba05c9dd523bf18",
+        "left": "e17961441c30d29a609aa8914e5de5dd18e3f2e9f518d1bc8f9a5172a4c9f435",
+        "bottom": "97b00f700e5cc64630340fe48d60d021b090fadf200e6567e01cff297e1d3ef9",
+        "rear": "5f21b35e41ad3da004521a603c636a17723e5902acfb9c77dc3235f4ffc859b3"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T01:40:52.972654+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-station-concrete-stairs-down.png",
+          "sha256": "70bcc5fcf42996dce1fe3cf42a383d04ce8847b5e23e378c396f1a0b2cb465d5",
+          "rgba_sha256": "829a01f9e495a085e9a1405ffb057cc397f08c1f3c52c89700accc315a0a5f8d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

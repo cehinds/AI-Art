@@ -21,9 +21,16 @@
         "height": 1
       },
       "tags": [
-        "wall",
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "ne",
+        "role:provider",
         "stone",
-        "ne"
+        "style:gameplay",
+        "surface:wall",
+        "wall"
       ],
       "blocksMovement": true,
       "connections": [
@@ -38,7 +45,43 @@
           65.91,
           87.665
         ]
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:provider",
+        "style:gameplay",
+        "surface:wall"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "provider",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [
+          "surface:wall"
+        ],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "wall-nw",
@@ -56,9 +99,16 @@
         "height": 1
       },
       "tags": [
-        "wall",
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "nw",
+        "role:provider",
         "stone",
-        "nw"
+        "style:gameplay",
+        "surface:wall",
+        "wall"
       ],
       "blocksMovement": true,
       "connections": [
@@ -73,7 +123,43 @@
           79.75,
           54.1
         ]
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:provider",
+        "style:gameplay",
+        "surface:wall"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "provider",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [
+          "surface:wall"
+        ],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "wall-corner",
@@ -91,11 +177,54 @@
         "height": 1
       },
       "tags": [
-        "wall",
+        "attachment-tagged",
+        "attachment:floor",
+        "corner",
+        "environment:unspecified",
+        "material:stone",
+        "role:provider",
         "stone",
-        "corner"
+        "style:gameplay",
+        "surface:wall",
+        "wall"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:provider",
+        "style:gameplay",
+        "surface:wall"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "provider",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [
+          "surface:wall"
+        ],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "pillar",
@@ -113,10 +242,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
         "pillar",
-        "stone"
+        "role:object",
+        "stone",
+        "style:gameplay"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "door-closed-nw",
@@ -134,14 +302,45 @@
         "height": 1
       },
       "tags": [
-        "door",
+        "attachment-tagged",
+        "attachment:doorway",
         "closed",
-        "nw"
+        "door",
+        "environment:unspecified",
+        "material:unspecified",
+        "nw",
+        "role:object",
+        "style:gameplay"
       ],
       "blocksMovement": true,
       "connections": [
         "nw"
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:doorway"
+          ],
+          "all": [],
+          "none": []
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-8956a2ffbdee",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "door-open-nw",
@@ -159,14 +358,45 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:doorway",
         "door",
+        "environment:unspecified",
+        "material:unspecified",
+        "nw",
         "open",
-        "nw"
+        "role:object",
+        "style:gameplay"
       ],
       "blocksMovement": false,
       "connections": [
         "nw"
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:doorway"
+          ],
+          "all": [],
+          "none": []
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-8956a2ffbdee",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "door-closed-ne",
@@ -184,14 +414,45 @@
         "height": 1
       },
       "tags": [
-        "door",
+        "attachment-tagged",
+        "attachment:doorway",
         "closed",
-        "ne"
+        "door",
+        "environment:unspecified",
+        "material:unspecified",
+        "ne",
+        "role:object",
+        "style:gameplay"
       ],
       "blocksMovement": true,
       "connections": [
         "ne"
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:doorway"
+          ],
+          "all": [],
+          "none": []
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-8956a2ffbdee",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "door-open-ne",
@@ -209,14 +470,45 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:doorway",
         "door",
+        "environment:unspecified",
+        "material:unspecified",
+        "ne",
         "open",
-        "ne"
+        "role:object",
+        "style:gameplay"
       ],
       "blocksMovement": false,
       "connections": [
         "ne"
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:doorway"
+          ],
+          "all": [],
+          "none": []
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-8956a2ffbdee",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "torch",
@@ -234,11 +526,50 @@
         "height": 1
       },
       "tags": [
-        "torch",
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
         "fire",
-        "light"
+        "light",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay",
+        "torch"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "lever",
@@ -256,10 +587,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "interactive",
         "lever",
-        "interactive"
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "grate",
@@ -277,10 +647,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
         "grate",
-        "metal"
+        "material:metal",
+        "metal",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:metal",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "oil-overlay",
@@ -298,10 +707,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "flammable",
+        "material:unspecified",
         "oil",
-        "flammable"
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "water-overlay",
@@ -319,10 +767,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:water",
+        "role:object",
+        "style:gameplay",
         "water",
         "wet"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:water",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "moss",
@@ -340,10 +827,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "decal",
+        "environment:unspecified",
+        "material:moss",
         "moss",
-        "decal"
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:moss",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "rubble",
@@ -361,10 +887,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:object",
         "rubble",
-        "stone"
+        "stone",
+        "style:gameplay"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "stairs",
@@ -382,10 +947,53 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "exit",
+        "material:unspecified",
+        "role:provider",
         "stairs",
-        "exit"
+        "style:gameplay",
+        "surface:stairs"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:provider",
+        "style:gameplay",
+        "surface:stairs"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "provider",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [
+          "surface:stairs"
+        ],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "stone-a",
@@ -403,8 +1011,14 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "floor",
+        "material:stone",
+        "role:object",
         "stone",
-        "floor"
+        "style:gameplay"
       ],
       "blocksMovement": false,
       "sourceBox": [
@@ -412,7 +1026,40 @@
         41,
         853,
         466
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "stone-b",
@@ -430,8 +1077,14 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "floor",
+        "material:stone",
+        "role:object",
         "stone",
-        "floor"
+        "style:gameplay"
       ],
       "blocksMovement": false,
       "sourceBox": [
@@ -439,7 +1092,40 @@
         42,
         1738,
         465
-      ]
+      ],
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:stone",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "water-floor",
@@ -457,11 +1143,50 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "floor",
+        "material:water",
+        "role:object",
+        "style:gameplay",
         "water",
-        "wet",
-        "floor"
+        "wet"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:water",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "oil-floor",
@@ -479,11 +1204,50 @@
         "height": 1
       },
       "tags": [
-        "oil",
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
         "flammable",
-        "floor"
+        "floor",
+        "material:unspecified",
+        "oil",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "crate",
@@ -501,11 +1265,50 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
         "crate",
-        "wood",
-        "pushable"
+        "environment:unspecified",
+        "material:wood",
+        "pushable",
+        "role:object",
+        "style:gameplay",
+        "wood"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:wood",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "barrel",
@@ -523,11 +1326,50 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
         "barrel",
+        "environment:unspecified",
+        "explosive",
+        "material:unspecified",
         "oil",
-        "explosive"
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "chest",
@@ -545,10 +1387,49 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:floor",
         "chest",
-        "loot"
+        "environment:unspecified",
+        "loot",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "exit",
@@ -566,11 +1447,42 @@
         "height": 1
       },
       "tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "closed",
         "door",
+        "environment:unspecified",
         "exit",
-        "closed"
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": true
+      "blocksMovement": true,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:doorway",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:doorway"
+          ],
+          "all": [],
+          "none": []
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-8956a2ffbdee",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     },
     {
       "id": "fire-overlay",
@@ -588,11 +1500,54 @@
         "height": 1
       },
       "tags": [
-        "fire",
+        "attachment-tagged",
+        "attachment:floor",
         "burning",
-        "hazard"
+        "environment:unspecified",
+        "fire",
+        "hazard",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
       ],
-      "blocksMovement": false
+      "blocksMovement": false,
+      "attachment_generated_tags": [
+        "attachment-tagged",
+        "attachment:floor",
+        "environment:unspecified",
+        "material:unspecified",
+        "role:object",
+        "style:gameplay"
+      ],
+      "attachment": {
+        "schema_version": 1,
+        "authority": "editorial-semantic-inference",
+        "space": "world",
+        "role": "object",
+        "requires": {
+          "any": [
+            "surface:floor"
+          ],
+          "all": [],
+          "none": [
+            "hazard:water",
+            "hazard:lava",
+            "hazard:void",
+            "hazard:pit",
+            "hazard:chasm",
+            "surface:water",
+            "walkability:blocked"
+          ]
+        },
+        "provides": [],
+        "exclude_self": true,
+        "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+        "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+      }
     }
+  ],
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
   ]
 }

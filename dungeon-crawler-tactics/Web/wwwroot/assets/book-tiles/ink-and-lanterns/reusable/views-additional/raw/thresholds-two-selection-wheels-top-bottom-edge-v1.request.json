@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "request_id": "thresholds-two-selection-wheels-top-bottom-edge-v1",
+  "objects": [
+    "thresholds-opponent-selection-wheel",
+    "thresholds-quadrant-selection-wheel"
+  ],
+  "prompt": "Create a transparent orthographic atlas with exactly two rows and two columns. Rows are OBJECT A (Thresholds opponent selection wheel) and OBJECT B (Thresholds quadrant selection wheel). Columns are TOP then BOTTOM. The two supplied labeled reference sheets establish each object's native gold/bronze concentric-wheel face, stand, support thickness, footprint and current upright physical orientation; do not combine or swap object identities. The wheel disk is vertical in the FRONT/REAR plane (its broad circular face is visible frontally), so when the camera looks exactly down from +Z or up from -Z, show only the wheel's thin circular rim edge: a narrow horizontal gold/bronze line spanning the wheel's diameter, with small support/axle foot caps at the left and right ends as physically visible. TOP and BOTTOM must be edge-on projections, never show a full circle, radial quadrant face, upright disk, or isometric ellipse. Preserve each wheel's own concentric decorative band colors and overhang; BOTTOM is the reverse edge view, not a solid square plate. Strict axis-aligned fixed-world camera, no perspective. Keep each small plan centered and entirely inside its cell on transparent background with generous gutters, no labels inside cells and no shadows.",
+  "references": [
+    {
+      "object_id": "thresholds-opponent-selection-wheel",
+      "path": "reusable/views-additional/raw/qa-thresholds-opponent-selection-wheel-accepted-axes-reference-v1.png",
+      "sha256": "934815afd8c4f47154bbfa7cddaf7218347fd5f8f8ae097de172263984f0d7f9"
+    },
+    {
+      "object_id": "thresholds-quadrant-selection-wheel",
+      "path": "reusable/views-additional/raw/qa-thresholds-quadrant-selection-wheel-accepted-axes-reference-v1.png",
+      "sha256": "b97d3e5453b2fd85ba6cf9c00254db77e78fa3d98f088e4aaa89462959de20e7"
+    }
+  ],
+  "output_layout": {
+    "rows": 2,
+    "columns": 2,
+    "row_object_ids": [
+      "thresholds-opponent-selection-wheel",
+      "thresholds-quadrant-selection-wheel"
+    ],
+    "column_directions": [
+      "top",
+      "bottom"
+    ],
+    "transparent_background": true
+  },
+  "preserve_views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "request_saved_before_generation": true,
+  "generated_atlas": {
+    "path": "reusable/views-additional/raw/thresholds-two-selection-wheels-top-bottom-edge-v1-atlas.png",
+    "sha256": "e2115239ac92433f89dbcf348394b18ab3215b3c80d8a29dc18116476851a602",
+    "generator_output_path": "/workspace/generated_images/exec-3f01ff0c-a9f3-4749-b7e9-25c5711b9c2a.png"
+  },
+  "status": "generated; four candidates extracted for review"
+}

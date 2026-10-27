@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-stations-station-tiled-masonry-inner-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-stations-station-tiled-masonry-inner-corner",
+      "source_sha256": "007fd1010340e7c9650f00b612f82f034839853ef5f6d7f3dcdca8a9d9462f9c",
+      "primary_source": {
+        "asset_id": "iron-stations-station-tiled-masonry-inner-corner",
+        "path": "iron-stations/components/iron-stations-station-tiled-masonry-inner-corner.png",
+        "sha256": "007fd1010340e7c9650f00b612f82f034839853ef5f6d7f3dcdca8a9d9462f9c",
+        "rgba_sha256": "c45fe9bf670d2c8a5e36714aaf1526ee9f4b3339ce1b682b49f816a0c3e66eae"
+      },
+      "image_hashes": {
+        "front": "622fadc5c18652d1c5953d02688a0216f882307919e294ab79312811061868a6",
+        "top": "736f963c14480151bb9c5efdd1c351ba87c009bc95d7be58be615b218b589517",
+        "right": "631e836f5b093ef6ae512bca3a8b4975a94a0fef276f25a79a449fc26ba1487a",
+        "left": "061a96c0d84b4f73ea2f70b4d6abd2562b09b559c0117726974e6712fdd737b1",
+        "bottom": "bbdc69bb87197ef11bf0c94768b4fa5e19dfaf47d3874f5d2c092251171b8b15",
+        "rear": "a28f8844a45a3e83cbaf09c695a37365f1aa74d20228521ea1f5752b07a05126"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:56:42.562919+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-stations/components/iron-stations-station-tiled-masonry-inner-corner.png",
+          "sha256": "007fd1010340e7c9650f00b612f82f034839853ef5f6d7f3dcdca8a9d9462f9c",
+          "rgba_sha256": "c45fe9bf670d2c8a5e36714aaf1526ee9f4b3339ce1b682b49f816a0c3e66eae"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:iron",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

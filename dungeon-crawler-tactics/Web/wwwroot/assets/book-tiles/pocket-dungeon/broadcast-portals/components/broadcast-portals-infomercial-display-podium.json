@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "broadcast-portals",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "broadcast-portals/components/broadcast-portals-infomercial-display-podium.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,15 +161,66 @@
     "rear": {
       "status": "generated",
       "asset_id": "broadcast-portals-infomercial-display-podium.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "broadcast-portals-infomercial-display-podium",
+      "source_sha256": "4be7d442bfd60e0ea36564510ccdf9b16383c08a1483c1ecc4c27792b279b681",
+      "primary_source": {
+        "asset_id": "broadcast-portals-infomercial-display-podium",
+        "path": "broadcast-portals/components/broadcast-portals-infomercial-display-podium.png",
+        "sha256": "4be7d442bfd60e0ea36564510ccdf9b16383c08a1483c1ecc4c27792b279b681",
+        "rgba_sha256": "5df7225a48994015125b9f3bd3a0fafb7ea5ef827b1fe32cd383782d77bfec17"
+      },
+      "image_hashes": {
+        "front": "c8ccb82db8d5ae07ebea7a06d1fd8b9aebd0b82ceb97a16edc63ceb1abe0dd7d",
+        "top": "0e10070281d8897f8afd6a50db2a0822a2bd8944960fbdd038208f1d2b2f017a",
+        "right": "a5ac14171c6083a1a198259eabe9d690c1160e21f4adb3d76205376bd4919f3d",
+        "left": "7fdc7db01596fe33b00c66e9d1629cbc30fa428133d440fef973cc9dc03878ab",
+        "bottom": "1eb962095c6ed5f3413228b1e647c1de925f70cda8965cd9ea009f22610f88e9",
+        "rear": "0059741d2341a31431c20304e0e851d16e56de355266405a140cd579369d079b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:52:55.534425+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "broadcast-portals/components/broadcast-portals-infomercial-display-podium.png",
+          "sha256": "4be7d442bfd60e0ea36564510ccdf9b16383c08a1483c1ecc4c27792b279b681",
+          "rgba_sha256": "5df7225a48994015125b9f3bd3a0fafb7ea5ef827b1fe32cd383782d77bfec17"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

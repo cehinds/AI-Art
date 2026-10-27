@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-fortified-camp-gate.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-fortified-camp-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-fortified-camp-gate",
+      "source_sha256": "fa532fb53858141c3b8d2f2927f8a1f89a2d087d3d58ae43ce3c04bc5af89632",
+      "primary_source": {
+        "asset_id": "faction-battlefield-fortified-camp-gate",
+        "path": "faction-battlefield/components/faction-battlefield-fortified-camp-gate.png",
+        "sha256": "fa532fb53858141c3b8d2f2927f8a1f89a2d087d3d58ae43ce3c04bc5af89632",
+        "rgba_sha256": "c648b6516d6e9a47f077c26d2aceb52ba96fa4a933cf32b97ce7a15ac8980ab5"
+      },
+      "image_hashes": {
+        "front": "124ba8154dce1aa5ab86b081ac682ef728e03fe0dde0a0c9eb47c7ad35e38688",
+        "top": "c972cad9f482f8047cf306587d213d357854153ac629937395c3023f3dc0ae48",
+        "right": "57f7e045c8152971931f08de70aafe6a268f3146fa548b52582c4c1f08bebf68",
+        "left": "0aac1e0764d9f86ab6c81caba279eda26436d6498261efd4bbaba85e3d1c28a3",
+        "bottom": "d112dbf8bf18a31779567e73b3ecccb2e8109c30828aa40e85d9014433c1674f",
+        "rear": "63af643cfb2b5f1328b010188165cf3a98ca89dda947ec5952e9e43402b7d72d"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T17:29:02.968365+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-fortified-camp-gate.png",
+          "sha256": "fa532fb53858141c3b8d2f2927f8a1f89a2d087d3d58ae43ce3c04bc5af89632",
+          "rgba_sha256": "c648b6516d6e9a47f077c26d2aceb52ba96fa4a933cf32b97ce7a15ac8980ab5"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "bubble-necropolis",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-necropolis/components/bubble-necropolis-collapsed-burial-chamber-rubble.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-necropolis-collapsed-burial-chamber-rubble",
+      "source_sha256": "09046b99a483af750488a6f1961276c4862c18f0d398e0b4654f8f7e4cdfcbec",
+      "primary_source": {
+        "asset_id": "bubble-necropolis-collapsed-burial-chamber-rubble",
+        "path": "bubble-necropolis/components/bubble-necropolis-collapsed-burial-chamber-rubble.png",
+        "sha256": "09046b99a483af750488a6f1961276c4862c18f0d398e0b4654f8f7e4cdfcbec",
+        "rgba_sha256": "9ec866be672f65ea14c5103bec71318ab7405ba20025686fb4c6a74138ae68d4"
+      },
+      "image_hashes": {
+        "front": "cab1b6e02bb11001f4fcd18b9be8ebc79d7ae6efbeb25f58571185f05e999398",
+        "top": "bfaa1baae69dfed212d1a1430ffec3e45b46c4e1576d17ea370aec189b55aaa5",
+        "right": "b42088c1196fdc50261ec1fcdcca635c8873d17cede450dd5cd42eb622735a7a",
+        "left": "e94bdd988db27eff1d3face8a9be72eda85fb879a30ab016e831e47d6e8ad35e",
+        "bottom": "d7f2ff078e9a30a94cea70fd4e4c118d1db549955e38b6b51dab3769d3ff5250",
+        "rear": "c4ee45d7eb85beb0afb7d1e88bc107d8e9883de02b4681c6c404407f8413337f"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:42:06.023581+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-necropolis/components/bubble-necropolis-collapsed-burial-chamber-rubble.png",
+          "sha256": "09046b99a483af750488a6f1961276c4862c18f0d398e0b4654f8f7e4cdfcbec",
+          "rgba_sha256": "9ec866be672f65ea14c5103bec71318ab7405ba20025686fb4c6a74138ae68d4"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

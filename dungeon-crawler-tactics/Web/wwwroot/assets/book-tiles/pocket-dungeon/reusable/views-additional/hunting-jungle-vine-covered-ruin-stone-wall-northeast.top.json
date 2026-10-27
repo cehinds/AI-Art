@@ -3,12 +3,22 @@
   "name": "Vine Covered Ruin Stone west wall top",
   "kind": "sprite",
   "tags": [
-    "hunting-jungle",
-    "wall",
     "art-adaptation",
-    "top",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "hunting-jungle",
+    "inferred-view",
+    "material:stone",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "top",
+    "walkability:blocked",
+    "wall"
   ],
   "image": {
     "path": "reusable/views-additional/hunting-jungle-vine-covered-ruin-stone-wall-northeast.top.png",
@@ -73,11 +83,54 @@
         128,
         248
       ],
-      "resampling": "NEAREST"
+      "resampling": "NEAREST",
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "hunting-jungle-vine-covered-ruin-stone-wall-northeast",
+        "view": "top",
+        "source_path": "hunting-jungle/components/hunting-jungle-vine-covered-ruin-stone-wall-northeast.png",
+        "source_sha256": "c3db030edde7f448711769c92acaeb85ee3d4cfafe3ea831dc2174b1486728e0",
+        "atlas_path": "reusable/views-additional/raw/equipment-staging/group-12-jungle-ruinwall/raw-atlas.png",
+        "atlas_sha256": "c66282f49f1dbd235fc541c21d87551dee4d44506df567d40c835aa35a31b04a",
+        "active_output_sha256": "8f289a5883729bc68d6bbd32301e6715f1aab9e8cc9ba821fc47b844fccdb1fb",
+        "active_output_rgba_sha256": "bb14e9128be5f6a859663760d91f9d866dbfddfb2562aee3f584a2ee7e20a7bd",
+        "crop_bounds_xyxy": [
+          365,
+          109,
+          483,
+          637
+        ],
+        "resized_dimensions_px": [
+          39,
+          173
+        ],
+        "scale": 0.32765151515151514,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
     "notes": "Root-approved Equipment candidate installed verbatim. Canonical source identity retained; inferred orthographic views are not recovered pixels.",
     "geometry_guide": "reusable/views-additional/raw/equipment-staging/group-12-jungle-ruinwall/geometry-guide-long-y.png",
-    "geometry_guide_sha256": "387566d7ddc1de7bc1501969e2014d5dd0aab4375a55ab7ad810747f78931225"
+    "geometry_guide_sha256": "387566d7ddc1de7bc1501969e2014d5dd0aab4375a55ab7ad810747f78931225",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.32765151515151514
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -129,5 +182,45 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "hunting-jungle-vine-covered-ruin-stone-wall-northeast"
+  }
 }

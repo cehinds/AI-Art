@@ -17,6 +17,7 @@
     "starter-dungeon",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-dark-stone-block-endcap-northeast",
+      "source_sha256": "7e6204c2a77551fce4457f2c60a8bf3caeb15abd01937a03c550ef6141a380b1",
+      "primary_source": {
+        "asset_id": "starter-dungeon-dark-stone-block-endcap-northeast",
+        "path": "starter-dungeon/components/starter-dungeon-dark-stone-block-endcap-northeast.png",
+        "sha256": "7e6204c2a77551fce4457f2c60a8bf3caeb15abd01937a03c550ef6141a380b1",
+        "rgba_sha256": "28515b7667a828e96921a44dbafbdb9c51f5f70b1be9abc5d4d1b7f69f8ed443"
+      },
+      "image_hashes": {
+        "front": "a8d2e70256d417bb05734cc544c3ba48fb1fc60e8ac7218a7f5677dabb093650",
+        "top": "302e0c59c108750bcc8e4dfd232748e4f90dca6f2ee29663288f95adcab8561b",
+        "right": "ecb33528a6fd7cf47396db5e4961e568c766b18039c92249c2a2f0fd819d7e73",
+        "left": "745cb1c5c92a4d97a243d7bc66d476828b0631f49ae93176318889f45405b39a",
+        "bottom": "a784da7668e134e11169ffcc295c8ef9cc43ee3ab80512b07b128568bc9cc87f",
+        "rear": "b6ebb29e97aad09f4bbab3551d5de9f4ce40d1338bc53fb5376d212a551af60a"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T04:37:31.680882+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-dark-stone-block-endcap-northeast.png",
+          "sha256": "7e6204c2a77551fce4457f2c60a8bf3caeb15abd01937a03c550ef6141a380b1",
+          "rgba_sha256": "28515b7667a828e96921a44dbafbdb9c51f5f70b1be9abc5d4d1b7f69f8ed443"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "industry-menagerie/components/industry-menagerie-industrial-brick-stairs-up.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "industry-menagerie-industrial-brick-stairs-up.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "industry-menagerie-industrial-brick-stairs-up",
+      "source_sha256": "5296c1f97d81110b621e6e0ee05c69b244ca6ce928acda3eec4c130583bdb3f9",
+      "primary_source": {
+        "asset_id": "industry-menagerie-industrial-brick-stairs-up",
+        "path": "industry-menagerie/components/industry-menagerie-industrial-brick-stairs-up.png",
+        "sha256": "5296c1f97d81110b621e6e0ee05c69b244ca6ce928acda3eec4c130583bdb3f9",
+        "rgba_sha256": "2134ad8118c04e7af36331eb01580a9c44c24b3162a31ca24b40f53e8680706b"
+      },
+      "image_hashes": {
+        "front": "24856749d5c9b37454ef607ec9ff1d809a83945f19385bc29f5684d571ce0b38",
+        "top": "fad0502d02749d6e6fc227ad27af1cb194183d058309d80f70a523ea34ec149c",
+        "right": "0595cd16ec1490b2bc9fd43725c642ecfcc39b8d534804b6115ca06dea8eea67",
+        "left": "163f61de978a1792969b675320df2de62b0f3aba1924697d98808ed6a799d54d",
+        "bottom": "2dd189025cdb32e7001396de54898d2a89ff96f4795f2de6b216d8abf51778ec",
+        "rear": "c45f33ee6395ad892c8980f2870eda369ecd237db2415fde1a56797565d89114"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:42:57.085782+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "industry-menagerie/components/industry-menagerie-industrial-brick-stairs-up.png",
+          "sha256": "5296c1f97d81110b621e6e0ee05c69b244ca6ce928acda3eec4c130583bdb3f9",
+          "rgba_sha256": "2134ad8118c04e7af36331eb01580a9c44c24b3162a31ca24b40f53e8680706b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

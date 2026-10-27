@@ -16,7 +16,8 @@
     "role:provider",
     "starter-dungeon",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-corner-transition.png",
@@ -118,6 +119,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -149,31 +160,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-grey-flagstone-corner-transition.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-grey-flagstone-corner-transition",
+      "source_sha256": "ca7189ff3a34f13f58b3a286e6c8b26896925509394da5174d6f40bd1050c8e5",
+      "primary_source": {
+        "asset_id": "starter-dungeon-grey-flagstone-corner-transition",
+        "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-corner-transition.png",
+        "sha256": "ca7189ff3a34f13f58b3a286e6c8b26896925509394da5174d6f40bd1050c8e5",
+        "rgba_sha256": "63deeadb443f318225f3761ad0e300b0df97a65ac59e534bc12427e212f4270c"
+      },
+      "image_hashes": {
+        "front": "5f5e7933ec1a1ca21b197dd0005aa02ab09e97ee823857e4f5c289b28cf59914",
+        "top": "857761aded848ac839245756e3734717feb6e5ebb55e047eaefd0383ce826e9d",
+        "right": "582eb765a2df7b1fa533406b5cb9e768baf25ae6052df9476eb7f979e0e57166",
+        "left": "0698bd377bc84298d5e14ed0fc8020533a3c7e9512f826d6a1f2a45e1cc29890",
+        "bottom": "2d3c9452fa42d4a020d1fd7be731a305a649ef5b45525f779b80bd15f11f466a",
+        "rear": "43504a6d904e680e221840429c1da6b220c909c6358863ba623eda9e8ca52842"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T05:03:57.458567+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-grey-flagstone-corner-transition.png",
+          "sha256": "ca7189ff3a34f13f58b3a286e6c8b26896925509394da5174d6f40bd1050c8e5",
+          "rgba_sha256": "63deeadb443f318225f3761ad0e300b0df97a65ac59e534bc12427e212f4270c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -181,7 +241,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

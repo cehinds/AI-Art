@@ -3,12 +3,21 @@
   "name": "Worn mid century street pavement floor rear",
   "kind": "tile",
   "tags": [
-    "hunting-zockau",
-    "ground",
     "art-adaptation",
-    "rear",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "hunting-zockau",
+    "inferred-view",
+    "material:unspecified",
     "orthographic",
-    "inferred-view"
+    "pocket-dungeon",
+    "rear",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "reusable/views-additional/hunting-zockau-worn-mid-century-street-pavement-floor.rear.png",
@@ -67,9 +76,52 @@
       "anchor_px": [
         128,
         248
-      ]
+      ],
+      "scale_policy": "per-view-uniform",
+      "scale_evidence": {
+        "schema_version": 1,
+        "method": "reviewed-current-output-isotropic-v1",
+        "recipe_path": "reusable/views-additional/raw/scale-evidence/book-pocket-per-view-scale-evidence-47-groups-20261027.json",
+        "recipe_sha256": "c7bd6ca25ded277c298db639f2a8686940f337debd6bf6431d405dcc34606094",
+        "object_id": "hunting-zockau-worn-mid-century-street-pavement-floor",
+        "view": "rear",
+        "source_path": "hunting-zockau/components/hunting-zockau-worn-mid-century-street-pavement-floor.png",
+        "source_sha256": "5dff8ff4fe0fe9ac566c894879d8fa354f4dcae301cb37fb67aba4c426fdac3c",
+        "atlas_path": "reusable/views-additional/raw/atlases/hunting-zockau-pavement-repair-v1.png",
+        "atlas_sha256": "fd23289fe8bf86e8b67c1db16d93ee64ab0c9407fec0999ec88c37350f097442",
+        "active_output_sha256": "6f5fb7237c06369ffc8eb00a0d2c6a0675b19adb3add1fd40fcc6bb3819af3fc",
+        "active_output_rgba_sha256": "d3007c2f8d0b65c1c8d8fa5304bb1cddf152ed165da8a583090b322f05b42a10",
+        "crop_bounds_xyxy": [
+          1235,
+          280,
+          1486,
+          359
+        ],
+        "resized_dimensions_px": [
+          194,
+          61
+        ],
+        "scale": 0.7721518987341772,
+        "projection_scale": 1,
+        "verification_basis": "reviewed-current-output",
+        "review_record_path": "reusable/views-additional/raw/scale-evidence/book-pocket-root-review-47-current-20261027.json",
+        "review_record_sha256": "0265eeb9ef1ac56f583551267d7d5640147eaa67a8c3cb1f79b5f73e008aec36",
+        "replay_status": "not-replayed"
+      }
     },
-    "notes": "Generated source-specific paving slab view. Natural stone/earth substrate follows the corresponding original tile; geometry is inferred orthographic, not recovered pixels."
+    "notes": "Generated source-specific paving slab view. Natural stone/earth substrate follows the corresponding original tile; geometry is inferred orthographic, not recovered pixels.",
+    "normalization_scale_history": [
+      {
+        "recorded_from": "Pocket Book normalization evidence promotion 2026-10-27",
+        "prior_fields": [
+          {
+            "field": "normalization.scale",
+            "value": 0.7721518987341772
+          }
+        ],
+        "note": "The old shared-scale label is preserved as history; the active scale is per-view isotropic and bound by the exact source crop and current output evidence row."
+      }
+    ]
   },
   "geometry_qa": "cleared",
   "provenance_history": [
@@ -121,5 +173,34 @@
       },
       "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
     }
-  ]
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-zockau-worn-mid-century-street-pavement-floor"
+  }
 }

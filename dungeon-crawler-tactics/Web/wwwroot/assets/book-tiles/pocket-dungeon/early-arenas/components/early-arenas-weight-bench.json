@@ -16,7 +16,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-weight-bench.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-weight-bench.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-weight-bench",
+      "source_sha256": "a3dc282498235fc8490cc69de1996956234005775fa7e207e0a348eae23f2087",
+      "primary_source": {
+        "asset_id": "early-arenas-weight-bench",
+        "path": "early-arenas/components/early-arenas-weight-bench.png",
+        "sha256": "a3dc282498235fc8490cc69de1996956234005775fa7e207e0a348eae23f2087",
+        "rgba_sha256": "f5f43eed25862595d4807dedebd45b0bd231f3f857da6af00dbba971148b9acc"
+      },
+      "image_hashes": {
+        "front": "3db6dd639ab7d94afee7be08d72a4f918e8b2481918722425120ff3544cab804",
+        "top": "c3eb92cf8b95cb922d7066e4f23e51b61c004380a4d87e652536140cb9d1b3c6",
+        "right": "6b89dfb000ade1bea7fdf6a4000981e10598b45a2ac8b1cec2165a4fbd7b3784",
+        "left": "ba27132e687036561eb54a05ec3d9b3099d5dada8817b42be026fe2b55180764",
+        "bottom": "c813faed0f4c309be3ecdeedccc925a8fac4c02581a15946b449aabb37b35621",
+        "rear": "24717fa3a27b80fac89c1318aa0e02a07da49b2543fd0c34820fbbb3bafa320c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.447794+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-weight-bench.png",
+          "sha256": "a3dc282498235fc8490cc69de1996956234005775fa7e207e0a348eae23f2087",
+          "rgba_sha256": "f5f43eed25862595d4807dedebd45b0bd231f3f857da6af00dbba971148b9acc"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

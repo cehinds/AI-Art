@@ -17,6 +17,7 @@
     "style:pocket-dungeon",
     "surface-entry",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-symmetric-view-copy",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "surface-entry-urban-brick-endcap-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "surface-entry-urban-brick-endcap-northwest",
+      "source_sha256": "04e1c3a5cb387051dd1f980af84715b80a9441136e2ae403fe16aeefe5c64a3d",
+      "primary_source": {
+        "asset_id": "surface-entry-urban-brick-endcap-northwest",
+        "path": "surface-entry/components/surface-entry-urban-brick-endcap-northwest.png",
+        "sha256": "04e1c3a5cb387051dd1f980af84715b80a9441136e2ae403fe16aeefe5c64a3d",
+        "rgba_sha256": "451e06d08ffd080db45c0fb6e94ba1444b711690cbbfa108caada6745ef86f67"
+      },
+      "image_hashes": {
+        "front": "a466b6169851bf890fca600bafc6555c3de08837d643a5699d17bec780b24995",
+        "top": "98a523401dde195f7703c251c9d1e2974c776104b556a3a72c10d174207e6a27",
+        "right": "a466b6169851bf890fca600bafc6555c3de08837d643a5699d17bec780b24995",
+        "left": "e3debf0d613c8be39b69298cfe696b7e48e8ad8bdf01207c30a563583b9d7ae8",
+        "bottom": "fb971d449b91fe69e5ffb6c5301e63e41685d07b311922f37ba3bc52d06518c7",
+        "rear": "e3debf0d613c8be39b69298cfe696b7e48e8ad8bdf01207c30a563583b9d7ae8"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:59:12.170822+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "surface-entry/components/surface-entry-urban-brick-endcap-northwest.png",
+          "sha256": "04e1c3a5cb387051dd1f980af84715b80a9441136e2ae403fe16aeefe5c64a3d",
+          "rgba_sha256": "451e06d08ffd080db45c0fb6e94ba1444b711690cbbfa108caada6745ef86f67"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

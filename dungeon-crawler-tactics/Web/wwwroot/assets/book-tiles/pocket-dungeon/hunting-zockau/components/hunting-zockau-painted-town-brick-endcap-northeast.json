@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "hunting-zockau-painted-town-brick-endcap-northeast",
+      "source_sha256": "dd31f8d399ba30553ba04f9299a85aa7945b2f2ac8ae685dd9d73e916f617bdc",
+      "primary_source": {
+        "asset_id": "hunting-zockau-painted-town-brick-endcap-northeast",
+        "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-endcap-northeast.png",
+        "sha256": "dd31f8d399ba30553ba04f9299a85aa7945b2f2ac8ae685dd9d73e916f617bdc",
+        "rgba_sha256": "cc024d0e7c1495db44293055b32ae23d3e5bf6b547591b6207904a63768d44fe"
+      },
+      "image_hashes": {
+        "front": "15c2540243f76d4ec49cffdc7f404cfd1e2809ed6ef4bea0d08f616720c398ca",
+        "top": "7b4d0b1455057a2404a148083da743376cfe6664c4fcd8789cc5daba48ce79ab",
+        "right": "eadaee770d2bd8485ff0a6a23513fcc973b8e7f16c3321f9b80049733e6cb0b9",
+        "left": "dc19145c2ea17a64cbe2e8026350def04d45363d69195dd39b67767e53433ec9",
+        "bottom": "62ae2734d9023f9a8915ea8cc5590d760c2d96770513f38c5cc56e1adff83a92",
+        "rear": "ec975a785631ac0bc8ca6ea07ff90c5cb9489288803086d48ae1023f5edbf3ec"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:07:51.004838+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "hunting-zockau/components/hunting-zockau-painted-town-brick-endcap-northeast.png",
+          "sha256": "dd31f8d399ba30553ba04f9299a85aa7945b2f2ac8ae685dd9d73e916f617bdc",
+          "rgba_sha256": "cc024d0e7c1495db44293055b32ae23d3e5bf6b547591b6207904a63768d44fe"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "material:brick",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +235,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

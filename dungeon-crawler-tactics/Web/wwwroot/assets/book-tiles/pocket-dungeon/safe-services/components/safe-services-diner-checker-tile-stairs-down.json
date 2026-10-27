@@ -17,7 +17,8 @@
     "safe-services",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "safe-services/components/safe-services-diner-checker-tile-stairs-down.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,81 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "safe-services-diner-checker-tile-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "safe-services-diner-checker-tile-stairs-down",
+      "source_sha256": "b00ec9613cfe8ae9060ec11f3e3dad6ab61a781865afb330e441517194ab1296",
+      "primary_source": {
+        "asset_id": "safe-services-diner-checker-tile-stairs-down",
+        "path": "safe-services/components/safe-services-diner-checker-tile-stairs-down.png",
+        "sha256": "b00ec9613cfe8ae9060ec11f3e3dad6ab61a781865afb330e441517194ab1296",
+        "rgba_sha256": "79f6147e212fdb796da1a976f78c3af703dd8244ceb14a26daef2fe41cd8384d"
+      },
+      "image_hashes": {
+        "front": "77d8937e13b2b04f2ea18ba557ced8ddb1bfa4bd625e905475024c27ee632279",
+        "top": "7a5648a7cb5c346eeedcc4ae17c608bb44280c4beae02cacbb93599a8e529361",
+        "right": "35531cc62334f58f191d5154895d8f75ec2d2dad066c80e35bef97b365efc3ef",
+        "left": "ff913cc08454d7a7bb3c49320038d9885c6bbad3f6bf947f6c371737dd57b8d9",
+        "bottom": "1d08fc8becbfc3e1ee54f07e667442cebb2e4be3a802f142efe9aec61f50f05e",
+        "rear": "a16f4fa489dbe002ca79e6f99c9250b4a38575a7106dc69bef9e51613a168cbf"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T00:57:05.863334+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art.",
+        "Rear horizontal bands are accepted as flat vertical support courses/panels, with no receding top-plane steps. Moderate illustrative elevation differences are accepted; this is not calibrated CAD geometry."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "safe-services/components/safe-services-diner-checker-tile-stairs-down.png",
+          "sha256": "b00ec9613cfe8ae9060ec11f3e3dad6ab61a781865afb330e441517194ab1296",
+          "rgba_sha256": "79f6147e212fdb796da1a976f78c3af703dd8244ceb14a26daef2fe41cd8384d"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +220,8 @@
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,14 +236,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -3,10 +3,16 @@
   "name": "Chest Scene Patch Bottom",
   "kind": "prop",
   "tags": [
-    "six-view",
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "generated",
+    "material:unspecified",
     "orthographic",
     "prop",
-    "generated"
+    "role:object",
+    "six-view",
+    "style:dungeon-after-dark"
   ],
   "image": {
     "path": "reusable/views-additional/images/concept-new--chest-scene-patch.bottom.png",
@@ -59,14 +65,57 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "operation": "retained-snapshot-passthrough-v1",
+      "retained_snapshot_evidence": {
+        "schema_version": 1,
+        "method": "verified-retained-snapshot-v1",
+        "manifest_path": "reusable/views-additional/raw/retained-approved-output-snapshots-v1.json",
+        "manifest_sha256": "3e1824544a4a75c1bdbc46327b677affac291225294974bb02d1f8ff9ab5dc7b",
+        "object_id": "concept-new--chest-scene-patch",
+        "view": "bottom"
+      }
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
-    "notes": "Generated corrective bottom projection at the established six-view scale; inferred surfaces, not recovered pixels."
+    "notes": "Generated corrective bottom projection at the established six-view scale; inferred surfaces, not recovered pixels. Exact rebuild is bound to the distinct retained approved PNG snapshot; the historical atlas recipe did not reproduce current bytes. Exact rebuild is bound to a distinct retained approved PNG snapshot; active atlas generation is not claimed for this image."
   },
   "anchor_px": [
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/concept-new--chest-scene-patch.bottom.json"
+  "metadata_path": "reusable/views-additional/images/concept-new--chest-scene-patch.bottom.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "concept-new--chest-scene-patch"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ]
 }

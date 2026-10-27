@@ -8,6 +8,7 @@
   "tags": [
     "art-adaptation",
     "attachment-tagged",
+    "attachment:floor",
     "book-location",
     "bubble-desert",
     "door",
@@ -17,7 +18,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-open-doorway.png",
@@ -112,6 +114,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -136,40 +148,93 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-desert-adobe-desert-plaster-open-doorway",
+      "source_sha256": "cfcefcb9c9d2de2a092a9a80a1ec86e55525ecb6fff3c6b616f9f5097c9892f1",
+      "primary_source": {
+        "asset_id": "bubble-desert-adobe-desert-plaster-open-doorway",
+        "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-open-doorway.png",
+        "sha256": "cfcefcb9c9d2de2a092a9a80a1ec86e55525ecb6fff3c6b616f9f5097c9892f1",
+        "rgba_sha256": "10d4fcc657cbcd72c45337031bdcb14a42675d9e66939fa3dda1723160267cf8"
+      },
+      "image_hashes": {
+        "front": "4e2ee7e0d66322e178c405f4689fd97ddc00b106cd25c6a9317614c625f6f2e8",
+        "top": "85b9b8bc2f40749cbdac4e64e72cb9535ba85cb8af28438a36b84b3e06216577",
+        "right": "e53ea7e794590dc3af063fc7204bf8b398ba5e57bf67d378c312f8dc06921350",
+        "left": "94253c302ad9adc27f152f60b359cf865c32535be27b3b888b825227d97873b9",
+        "bottom": "c081e689360f0d0ba287ab5ee85b4859d8a6508c7e0a665affbf157f8271f816",
+        "rear": "22375972d24fb92ca83fd2e84a438e53036f32260790b6859d6f465e03505673"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T14:33:45.899423+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-open-doorway.png",
+          "sha256": "cfcefcb9c9d2de2a092a9a80a1ec86e55525ecb6fff3c6b616f9f5097c9892f1",
+          "rgba_sha256": "10d4fcc657cbcd72c45337031bdcb14a42675d9e66939fa3dda1723160267cf8"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
+    "attachment:floor",
     "environment:desert",
     "environment:dungeon",
     "material:unspecified",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:doorway"
+    "surface:doorway",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -177,15 +242,25 @@
     "space": "world",
     "role": "provider",
     "requires": {
-      "any": [],
+      "any": [
+        "surface:floor"
+      ],
       "all": [],
-      "none": []
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
     },
     "provides": [
       "surface:doorway"
     ],
     "exclude_self": true,
-    "compatibility_group": null,
-    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required."
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

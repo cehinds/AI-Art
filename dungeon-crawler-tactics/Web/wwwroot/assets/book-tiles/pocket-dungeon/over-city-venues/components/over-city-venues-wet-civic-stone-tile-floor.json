@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "image": {
     "path": "over-city-venues/components/over-city-venues-wet-civic-stone-tile-floor.png",
@@ -141,6 +142,16 @@
         "sampleAlphaThreshold": 128
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "floor",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -172,31 +183,84 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "over-city-venues-wet-civic-stone-tile-floor.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "over-city-venues-wet-civic-stone-tile-floor",
+      "source_sha256": "bb280522e970729f17651c62163e2c6607135e1ab5853119a2bcd4b60455a6a7",
+      "primary_source": {
+        "asset_id": "over-city-venues-wet-civic-stone-tile-floor",
+        "path": "over-city-venues/components/over-city-venues-wet-civic-stone-tile-floor.png",
+        "sha256": "bb280522e970729f17651c62163e2c6607135e1ab5853119a2bcd4b60455a6a7",
+        "rgba_sha256": "0089bedeac57f46e6cea0136fe89c49b141de5215b8fc920bbbda0e13d8820c6"
+      },
+      "image_hashes": {
+        "front": "b4a2397193dcc88e5e75bbb37d916f0bd69a590f40c2abd8d7eac83d1feadf0a",
+        "top": "6ecc9c2db7be96c3a9179c967e7cffc52d96def160fe991932d4fbd4b75a5753",
+        "right": "201f6f7cca3fa897a70cf6ddf302fb2aa10da7873aa4ced55dbc561fc2eb1d44",
+        "left": "2c388a3ea75ea86c37321b6f223ca2acb261233faf7168b6bb49a7adcf944c6a",
+        "bottom": "a3a20c00a68606232768ffa8a2a30c304e13247fe91e01dfb6bc8602df3fa488",
+        "rear": "c3ea5ae9c84caf8418d1c27643bd4c656be1c43f1215458df592448dba23eede"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:26:33.183518+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "over-city-venues/components/over-city-venues-wet-civic-stone-tile-floor.png",
+          "sha256": "bb280522e970729f17651c62163e2c6607135e1ab5853119a2bcd4b60455a6a7",
+          "rgba_sha256": "0089bedeac57f46e6cea0136fe89c49b141de5215b8fc920bbbda0e13d8820c6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.over-city-venues"
+    ],
+    "east": [
+      "join.floor",
+      "visual.over-city-venues"
+    ],
+    "south": [
+      "join.floor",
+      "visual.over-city-venues"
+    ],
+    "west": [
+      "join.floor",
+      "visual.over-city-venues"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -205,7 +269,8 @@
     "material:stone",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:floor"
+    "surface:floor",
+    "walkability:allowed"
   ],
   "attachment": {
     "schema_version": 1,

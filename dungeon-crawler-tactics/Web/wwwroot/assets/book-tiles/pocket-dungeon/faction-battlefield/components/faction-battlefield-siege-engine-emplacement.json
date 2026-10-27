@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "environment:dungeon",
     "faction-battlefield",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "faction-battlefield/components/faction-battlefield-siege-engine-emplacement.png",
@@ -106,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,39 +137,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "faction-battlefield-siege-engine-emplacement.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "faction-battlefield-siege-engine-emplacement",
+      "source_sha256": "b129e06b427a48271297f610c42d2d60c441ef38815456211931599ba9f7a548",
+      "primary_source": {
+        "asset_id": "faction-battlefield-siege-engine-emplacement",
+        "path": "faction-battlefield/components/faction-battlefield-siege-engine-emplacement.png",
+        "sha256": "b129e06b427a48271297f610c42d2d60c441ef38815456211931599ba9f7a548",
+        "rgba_sha256": "c03bb468becec76ad48ffdfceedc9c25a74db80fd2729f1d3f0f9c9235b66ccb"
+      },
+      "image_hashes": {
+        "front": "8a74641db2e65947d45eb55f2f339bdf3e95e1ab0eb75e787ed8a2bf05cb1a76",
+        "top": "324b60c4b7de6e7d4d00a75d0b0d6e4a429e3e4e863c9297a39d422b36c45a50",
+        "right": "25a8248c0b8ac887b7799b66f0e1dbe5a913cccfba4e52386c44650a80e95fe0",
+        "left": "8b291411a76f493bd7bcbcb9589fe4e971b9fca385d5cf07ada4a4da083e3478",
+        "bottom": "8e59459cd5b5142588f4d9b6dcb2124398890b5d6d3efae215dff984af71bc9a",
+        "rear": "65d15666be4c0912f36fd87ef74dc22e68cd58add3d8ccc4920fbb2d54aaf937"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.611442+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "faction-battlefield/components/faction-battlefield-siege-engine-emplacement.png",
+          "sha256": "b129e06b427a48271297f610c42d2d60c441ef38815456211931599ba9f7a548",
+          "rgba_sha256": "c03bb468becec76ad48ffdfceedc9c25a74db80fd2729f1d3f0f9c9235b66ccb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -166,18 +229,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

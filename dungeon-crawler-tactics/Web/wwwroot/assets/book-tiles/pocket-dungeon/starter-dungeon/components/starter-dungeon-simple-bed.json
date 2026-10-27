@@ -16,7 +16,8 @@
     "prop",
     "role:object",
     "starter-dungeon",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "starter-dungeon/components/starter-dungeon-simple-bed.png",
@@ -106,6 +107,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -125,31 +136,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "starter-dungeon-simple-bed.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "starter-dungeon-simple-bed",
+      "source_sha256": "e66471e06b97347e6b5735d9507f68a51726b1817d0937ec25dc1b536509faf4",
+      "primary_source": {
+        "asset_id": "starter-dungeon-simple-bed",
+        "path": "starter-dungeon/components/starter-dungeon-simple-bed.png",
+        "sha256": "e66471e06b97347e6b5735d9507f68a51726b1817d0937ec25dc1b536509faf4",
+        "rgba_sha256": "c23f4587bfc42babc5375c09f1d8069f8ef4885d4853812271efdc1508350395"
+      },
+      "image_hashes": {
+        "front": "d0ed02c82dd17fe9f470696f3f0ad0bb04bb1162ed3eb2ac9dff754d5bfc2301",
+        "top": "3e688e5e4cb15fbb0dddcad74c2ae070f0981d62b443746264f21f0da6d3ae8c",
+        "right": "ad4a30a107c3721be02d0008ad9e90969357b1c55a1075a77a46a4f4da75cb8b",
+        "left": "7856902cbf550d36de362a05515fa7e8c1c82b1ccf0ac6529f41e446ca2dada2",
+        "bottom": "f84d525dd10656e0703926c3c9b52b89b244fac96a0eaee5288f8f52df6d668f",
+        "rear": "5ae3573e1da562476a972de7b1e72b1e055402a08d9fdd768554e9c826a89042"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T11:13:41.527594+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "starter-dungeon/components/starter-dungeon-simple-bed.png",
+          "sha256": "e66471e06b97347e6b5735d9507f68a51726b1817d0937ec25dc1b536509faf4",
+          "rgba_sha256": "c23f4587bfc42babc5375c09f1d8069f8ef4885d4853812271efdc1508350395"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -157,7 +217,8 @@
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -172,12 +233,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

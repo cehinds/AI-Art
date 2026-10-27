@@ -18,6 +18,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -124,6 +125,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "north-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "x",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -148,31 +159,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-riveted-carriage-metal-wall-northwest",
+      "source_sha256": "f44bc2868fadbbcb6d8d4d7cf1fd88c2ec50bab50317ff9ef06db68f9946aba6",
+      "primary_source": {
+        "asset_id": "iron-trains-riveted-carriage-metal-wall-northwest",
+        "path": "iron-trains/components/iron-trains-riveted-carriage-metal-wall-northwest.png",
+        "sha256": "f44bc2868fadbbcb6d8d4d7cf1fd88c2ec50bab50317ff9ef06db68f9946aba6",
+        "rgba_sha256": "85f5346aa26e9b441a48295c745b544ab2f6de797ffe9926c93abffc8cc2ff68"
+      },
+      "image_hashes": {
+        "front": "d721fbea308eaacd92597d462676f0d175b1409d9db49839c60157c53eeac9ae",
+        "top": "163c3f73b4f0c493dc30d7a8c05b4c9343c467c34c3e8fdea0e27c1a4337af65",
+        "right": "e351051dd9038f06e19da6f5c869d06d1670bc65eaac2ab94f848a700f9c3ef6",
+        "left": "aa5dea14d642663cbb81cfc582d0f0edd039e4dd1d8a2cbd817f6d241b03a765",
+        "bottom": "e4945b1b88e9c1ebed183a225c77c3560b9135da216c1b990c54c1559b6ecd65",
+        "rear": "d6b245f71cbf2288509daa867e1a23d7f86156f92c20d0671aa1e2818e74ae0c"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T02:56:57.411739+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-riveted-carriage-metal-wall-northwest.png",
+          "sha256": "f44bc2868fadbbcb6d8d4d7cf1fd88c2ec50bab50317ff9ef06db68f9946aba6",
+          "rgba_sha256": "85f5346aa26e9b441a48295c745b544ab2f6de797ffe9926c93abffc8cc2ff68"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -182,7 +242,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -197,14 +258,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

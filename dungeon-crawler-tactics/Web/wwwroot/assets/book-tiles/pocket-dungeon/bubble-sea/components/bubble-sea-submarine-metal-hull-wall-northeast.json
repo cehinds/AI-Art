@@ -17,6 +17,7 @@
     "role:provider",
     "style:pocket-dungeon",
     "surface:wall",
+    "walkability:blocked",
     "wall"
   ],
   "image": {
@@ -123,6 +124,16 @@
         }
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "west-wall",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": "y",
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -147,31 +158,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred-family-view-donor",
+      "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-sea-submarine-metal-hull-wall-northeast",
+      "source_sha256": "aea38b3213a2e5a961fe9b1b7e38524299eb8e05d1cdee2ca7da86be9213fb72",
+      "primary_source": {
+        "asset_id": "bubble-sea-submarine-metal-hull-wall-northeast",
+        "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-wall-northeast.png",
+        "sha256": "aea38b3213a2e5a961fe9b1b7e38524299eb8e05d1cdee2ca7da86be9213fb72",
+        "rgba_sha256": "009c62dd2861c69f33c571f2c7013970a12ab436ca0712ec63d905333c703ec1"
+      },
+      "image_hashes": {
+        "front": "b87f3967572cbb982957e6dbca77337e9c767a228a83b50ba42179d80a6aa74e",
+        "top": "18f8dc44ec8cedfa345bee94cdb4a723d15bb9e6613739da2c93129af819c29d",
+        "right": "95bb90af22d79a93965b103088370a792276d14bf3b92a1fa7de482df7a89944",
+        "left": "54b0fa1a9b85f9f3846ebfbb4570def4c73369f8e4ea0a0a4f3c55e5c8a59e21",
+        "bottom": "d757f8f72cdc5f91065381130ccdff4506a7795275df7aefa02020fde38b8525",
+        "rear": "c4ba16ee9929e24b5dfb66116b92006dd5ab7738aa17cf6f2655f4c074c77276"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T16:09:11.553969+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-sea/components/bubble-sea-submarine-metal-hull-wall-northeast.png",
+          "sha256": "aea38b3213a2e5a961fe9b1b7e38524299eb8e05d1cdee2ca7da86be9213fb72",
+          "rgba_sha256": "009c62dd2861c69f33c571f2c7013970a12ab436ca0712ec63d905333c703ec1"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -180,7 +240,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:wall"
+    "surface:wall",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -195,14 +256,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:wall"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

@@ -3,10 +3,22 @@
   "name": "Scale mail Bottom",
   "kind": "equipment",
   "tags": [
-    "six-view",
-    "orthographic",
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
     "equipment",
-    "generated"
+    "existing",
+    "generated",
+    "mail",
+    "material:unspecified",
+    "orthographic",
+    "role:screen",
+    "scale",
+    "six-view",
+    "style:dungeon-after-dark",
+    "ui"
   ],
   "image": {
     "path": "reusable/views-additional/images/armor-scale-mail.bottom.png",
@@ -61,7 +73,8 @@
       "frame_size": [
         256,
         256
-      ]
+      ],
+      "component_selection": "global-centroid-alpha-components-spill-mask-dilation2-v1"
     },
     "rebuild_command": "python3 reusable/views-additional/build_all.py",
     "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
@@ -70,5 +83,37 @@
     128,
     128
   ],
-  "metadata_path": "reusable/views-additional/images/armor-scale-mail.bottom.json"
+  "metadata_path": "reusable/views-additional/images/armor-scale-mail.bottom.json",
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "screen",
+    "role": "screen",
+    "requires": {
+      "any": [],
+      "all": [
+        "surface:screen"
+      ],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Screen-space composition only; world tile attachment does not apply.",
+    "inherited_from": "armor-scale-mail"
+  },
+  "attachment_generated_tags": [
+    "armor",
+    "attachment-tagged",
+    "attachment:screen",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "existing",
+    "mail",
+    "material:unspecified",
+    "role:screen",
+    "scale",
+    "style:dungeon-after-dark",
+    "ui"
+  ]
 }

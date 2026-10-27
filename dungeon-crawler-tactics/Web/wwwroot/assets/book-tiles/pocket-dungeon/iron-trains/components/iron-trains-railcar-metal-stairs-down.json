@@ -18,7 +18,8 @@
     "role:provider",
     "stairs",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "image": {
     "path": "iron-trains/components/iron-trains-railcar-metal-stairs-down.png",
@@ -108,6 +109,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "overlay",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -127,31 +138,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "iron-trains-railcar-metal-stairs-down.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "iron-trains-railcar-metal-stairs-down",
+      "source_sha256": "84f8911128e5011d4e50140cef97bb7183bed446c1897aa00d14ea6c9ad6281d",
+      "primary_source": {
+        "asset_id": "iron-trains-railcar-metal-stairs-down",
+        "path": "iron-trains/components/iron-trains-railcar-metal-stairs-down.png",
+        "sha256": "84f8911128e5011d4e50140cef97bb7183bed446c1897aa00d14ea6c9ad6281d",
+        "rgba_sha256": "9899954de846508e016a63d38bf390578b157b9d4105226297a13fdeb0ec415b"
+      },
+      "image_hashes": {
+        "front": "51a66eddf4d7f4a8f14aa74efda12c461cfe94e98be0ae24c2d409d764163180",
+        "top": "555c274ae6b47e5aa32cb76d53b9f1e85457904209427cb1842a1bea6b37b2f8",
+        "right": "59179598d875152a4af95edb6262476d440c207919e71abf94c5e45b7e983de6",
+        "left": "8587cf1023c8cf68d07dd94ae583489710d2aedc7e14d3e95176a85be4315b6c",
+        "bottom": "3575b0861eb0e5ca2f46eb6b9d0c12532b286ce7cca215100673be28a1a493a9",
+        "rear": "9f3dead47524bfd9ba389865fbd2f59d15be74255d3ec13a03fdd12f655a6860"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-26T06:22:04.933369+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "iron-trains/components/iron-trains-railcar-metal-stairs-down.png",
+          "sha256": "84f8911128e5011d4e50140cef97bb7183bed446c1897aa00d14ea6c9ad6281d",
+          "rgba_sha256": "9899954de846508e016a63d38bf390578b157b9d4105226297a13fdeb0ec415b"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -161,7 +221,8 @@
     "material:metal",
     "role:provider",
     "style:pocket-dungeon",
-    "surface:stairs"
+    "surface:stairs",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -176,14 +237,18 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [
       "surface:stairs"
     ],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

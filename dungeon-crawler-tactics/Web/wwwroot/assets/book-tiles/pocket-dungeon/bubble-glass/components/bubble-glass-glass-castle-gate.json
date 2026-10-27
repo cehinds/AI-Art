@@ -17,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "bubble-glass/components/bubble-glass-glass-castle-gate.png",
@@ -107,6 +108,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -126,31 +137,80 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "bubble-glass-glass-castle-gate.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bubble-glass-glass-castle-gate",
+      "source_sha256": "c3f0277ffeef72f72b488c51dd91784a4f9fb02ffbbebce92b47ce5aca3e21c1",
+      "primary_source": {
+        "asset_id": "bubble-glass-glass-castle-gate",
+        "path": "bubble-glass/components/bubble-glass-glass-castle-gate.png",
+        "sha256": "c3f0277ffeef72f72b488c51dd91784a4f9fb02ffbbebce92b47ce5aca3e21c1",
+        "rgba_sha256": "79ca4f51bf2a9653eb213d34bdb2dd4d77b2d06dc3a43ec95833d50c7d13caf6"
+      },
+      "image_hashes": {
+        "front": "c66673c4de727f580932f58ac90998cc90694dec90fffbfbaefd100b922ad941",
+        "top": "596998c351e1a763b7de758f4f88fc495a6a661d76a007c5959d04395dc4729c",
+        "right": "28e34fa4505de045b21f10a13d04bbee9239996dcb8eaa105808543ce8d0639c",
+        "left": "c80f39516f6bdf5ac724ea75899ad81b1ea00a7ab0a16a30fd7c5e784c80f205",
+        "bottom": "6c8c20f5cba7577408a1bc74ce28be583d20f080394db7624085dca159779551",
+        "rear": "0f8a9d7c6ec3bbcdd00f38de7768065449b234a5f82fa6923d90d35bc2164c89"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:41:36.776513+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "bubble-glass/components/bubble-glass-glass-castle-gate.png",
+          "sha256": "c3f0277ffeef72f72b488c51dd91784a4f9fb02ffbbebce92b47ce5aca3e21c1",
+          "rgba_sha256": "79ca4f51bf2a9653eb213d34bdb2dd4d77b2d06dc3a43ec95833d50c7d13caf6"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
@@ -159,7 +219,8 @@
     "environment:dungeon",
     "material:glass",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -174,12 +235,16 @@
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

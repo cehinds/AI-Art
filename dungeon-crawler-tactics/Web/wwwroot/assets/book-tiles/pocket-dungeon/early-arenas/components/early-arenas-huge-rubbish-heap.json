@@ -9,6 +9,7 @@
     "art-adaptation",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "book-location",
     "early-arenas",
     "environment:dungeon",
@@ -16,7 +17,8 @@
     "pocket-dungeon",
     "prop",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "image": {
     "path": "early-arenas/components/early-arenas-huge-rubbish-heap.png",
@@ -110,6 +112,16 @@
         ]
       }
     },
+    "source_projection": "Hybrid gameplay map projection; image axes are not uniformly world elevation axes.",
+    "physical_frame": {
+      "square_layout": "prop",
+      "world_up": "+Z",
+      "map_x": "+X",
+      "map_y": "+Y",
+      "wall_extent_axis": null,
+      "interpretation": "north-wall extends along world X; west-wall extends along world Y. The vertical west-wall map strip is not a tall post. L wall corners encode plan footprints.",
+      "qualification": "Role-based intended frame for inferred illustrative views, not calibrated 3D geometry or evidence that generated views passed review."
+    },
     "notes": "Existing normalized gameplay export reused unchanged. Resampling and opaque ground matting prevent treating it as exact native source pixels."
   },
   "procedural": {
@@ -129,39 +141,90 @@
   },
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "generated",
+      "asset_id": "early-arenas-huge-rubbish-heap.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "early-arenas-huge-rubbish-heap",
+      "source_sha256": "f71cec57ac119c07b274d6a20a06ad1a3bf2f0ee5ee39802f7199afc66ef34b3",
+      "primary_source": {
+        "asset_id": "early-arenas-huge-rubbish-heap",
+        "path": "early-arenas/components/early-arenas-huge-rubbish-heap.png",
+        "sha256": "f71cec57ac119c07b274d6a20a06ad1a3bf2f0ee5ee39802f7199afc66ef34b3",
+        "rgba_sha256": "c9366a01fcd067103f6b89876270e460410b389caf6f95824e38995b6be9e286"
+      },
+      "image_hashes": {
+        "front": "df45dd770de22d7444c513696259eae2987f2bc791a34fcd34e7128e304b64ab",
+        "top": "9a211328f0daef11d12acd2e6cec48275c7819c8c869bbfc9b7065d2da88fcba",
+        "right": "f535eb1fefbabb203db1cd879f63f189e5d45591fbc9a095fa37a46ac8b1da32",
+        "left": "f130d546fa4e4b19641c24bfa0a7f4e4fe9121de155ff557b7635314159183a9",
+        "bottom": "165dab572829d965de73f9abf8c33b880c7372c0f2a19f6b95f16184d5b0ab14",
+        "rear": "4b41233b6c6295877a1b3eed6b4cb2baf5c3ffcf8488e662c8b88409c145c5aa"
+      },
+      "reviewer": "root",
+      "reviewed_at": "2026-10-25T23:16:32.447794+00:00",
+      "notes": [
+        "Whole source-plus-six set independently reviewed; source identity, principal silhouettes and approximate scale accepted for inferred illustrative art."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "early-arenas/components/early-arenas-huge-rubbish-heap.png",
+          "sha256": "f71cec57ac119c07b274d6a20a06ad1a3bf2f0ee5ee39802f7199afc66ef34b3",
+          "rgba_sha256": "c9366a01fcd067103f6b89876270e460410b389caf6f95824e38995b6be9e286"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:tabletop",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
-    "style:pocket-dungeon"
+    "style:pocket-dungeon",
+    "walkability:blocked"
   ],
   "attachment": {
     "schema_version": 1,
@@ -170,18 +233,23 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:tabletop"
       ],
       "all": [],
       "none": [
         "hazard:water",
         "hazard:lava",
-        "surface:water"
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
       ]
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "pocket-dungeon--attachment-46e844fdba8c",
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }

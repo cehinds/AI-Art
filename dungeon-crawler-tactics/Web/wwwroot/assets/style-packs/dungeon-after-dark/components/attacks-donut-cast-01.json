@@ -11,6 +11,7 @@
     "actors",
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "attacks",
     "cast",
     "donut",
@@ -97,35 +98,71 @@
   ],
   "views": {
     "applicable": true,
-    "complete": false,
+    "complete": true,
     "front": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.front"
     },
     "top": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.top"
     },
     "right": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.right"
     },
     "left": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.left"
     },
     "bottom": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.bottom"
     },
     "rear": {
-      "status": "missing",
-      "asset_id": null
+      "status": "inferred",
+      "asset_id": "attacks-donut-cast-01.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "attacks-donut-cast-01",
+      "source_sha256": "cef5dc5c056084799cc238ad59faa6a0b5eaea61cdaebc814efcc901d2f45437",
+      "primary_source": {
+        "asset_id": "attacks-donut-cast-01",
+        "path": "components/attacks-donut-cast-01.png",
+        "sha256": "cef5dc5c056084799cc238ad59faa6a0b5eaea61cdaebc814efcc901d2f45437",
+        "rgba_sha256": "2fb5f9388f7ddb67178a9565ffb77688201da9865566e52b3648c458129eec56"
+      },
+      "image_hashes": {
+        "front": "dc15a3b3c98dfa696ce07ffafcabdf8efe3a1f196e8a911ef06878a419a3bd3c",
+        "top": "a91c4ceae431de9bba113c41c1ecc794d040e2b127e7d906bf1b9c6bc5e8a8a0",
+        "right": "a64cd299d4a15452c27650755287eca070152801868343c2ae561b09910e6f08",
+        "left": "a76863ead1ec5f4cf4b784a6d0ffc98eec0658860b8b053039196a43ab6d0369",
+        "bottom": "30bb337f9e8f58b7e1d8b780cd753307fad3625ba3812491f52a5967df22b858",
+        "rear": "8b5de787cdac0d171a9ca0e9dc2fe4a93da78e46950cd1f77d5798d65c56a74f"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:08:19.049081+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/attacks-donut-cast-01.png",
+          "sha256": "cef5dc5c056084799cc238ad59faa6a0b5eaea61cdaebc814efcc901d2f45437",
+          "rgba_sha256": "2fb5f9388f7ddb67178a9565ffb77688201da9865566e52b3648c458129eec56"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
     }
   },
   "attachment_generated_tags": [
     "attachment-tagged",
     "attachment:floor",
+    "attachment:stairs",
     "environment:dungeon",
     "material:unspecified",
     "role:object",
@@ -138,7 +175,8 @@
     "role": "object",
     "requires": {
       "any": [
-        "surface:floor"
+        "surface:floor",
+        "surface:stairs"
       ],
       "all": [],
       "none": [
@@ -153,7 +191,7 @@
     },
     "provides": [],
     "exclude_self": true,
-    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "compatibility_group": "dungeon-after-dark--attachment-266967d8921f",
     "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
   }
 }
