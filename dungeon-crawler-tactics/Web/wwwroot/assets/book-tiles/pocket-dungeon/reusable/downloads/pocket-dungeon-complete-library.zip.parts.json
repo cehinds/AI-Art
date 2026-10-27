@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "kind": "multipart-zip",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document",
+    "multipart-archive"
+  ],
+  "archive": {
+    "file": "pocket-dungeon-complete-library.zip",
+    "bytes": 341226284,
+    "sha256": "db70b3b86f2091df264ce4b74f94f04b715d79ea6c6a455328d909526e5fa058"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "file": "pocket-dungeon-complete-library.zip.part-001",
+      "bytes": 99614719,
+      "sha256": "16a61d31b15e2755c97cc149ec3a4378c51e7d735f2c4c6107cede5b5b2e8c5d"
+    },
+    {
+      "number": 2,
+      "file": "pocket-dungeon-complete-library.zip.part-002",
+      "bytes": 99614719,
+      "sha256": "7e49d149d2c072cb4c50a3a184b2e2eeaf0e3e3bd0210036070fd7a506ab698b"
+    },
+    {
+      "number": 3,
+      "file": "pocket-dungeon-complete-library.zip.part-003",
+      "bytes": 99614719,
+      "sha256": "f6387d6dffc2f875b5d13a096c8e8ae453330bba2e358b7f90e8f946d6f10e96"
+    },
+    {
+      "number": 4,
+      "file": "pocket-dungeon-complete-library.zip.part-004",
+      "bytes": 42382127,
+      "sha256": "6147812fb999b27c9cf96ee55f934a91a43d71cad2704d2b6f62aa03f69cad0d"
+    }
+  ],
+  "assembly": {
+    "operation": "concatenate-in-listed-order",
+    "tool": "assemble_archive_parts.py",
+    "command": "python assemble_archive_parts.py pocket-dungeon-complete-library.zip.parts.json --output pocket-dungeon-complete-library.zip",
+    "note": "Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.",
+    "tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+    "tool_bytes": 3115
+  }
+}

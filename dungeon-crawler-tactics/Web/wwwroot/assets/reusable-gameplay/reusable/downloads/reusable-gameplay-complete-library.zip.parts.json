@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "multipart-zip",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document",
+    "multipart-archive"
+  ],
+  "archive": {
+    "file": "reusable-gameplay-complete-library.zip",
+    "bytes": 277354302,
+    "sha256": "f4c41957470f2897a3ed675447ab6b9c53c5d88832919dc255ba9f552f67e685"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "file": "reusable-gameplay-complete-library.zip.part-001",
+      "bytes": 99614719,
+      "sha256": "b8b2cffd4fb5df27da23c6443918806b8ba97c1c612b963b4ddf851bfba964cc"
+    },
+    {
+      "number": 2,
+      "file": "reusable-gameplay-complete-library.zip.part-002",
+      "bytes": 99614719,
+      "sha256": "d03a685b73afb4dd875c5c6bbde37a183ea72dea2850b171214cd998222ef818"
+    },
+    {
+      "number": 3,
+      "file": "reusable-gameplay-complete-library.zip.part-003",
+      "bytes": 78124864,
+      "sha256": "2080bf882fe22262bbc91822db75ccbf7edb1402aba2a57a5eda6cd50bd8523f"
+    }
+  ],
+  "assembly": {
+    "operation": "concatenate-in-listed-order",
+    "tool": "assemble_archive_parts.py",
+    "command": "python assemble_archive_parts.py reusable-gameplay-complete-library.zip.parts.json --output reusable-gameplay-complete-library.zip",
+    "note": "Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.",
+    "tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+    "tool_bytes": 3115
+  }
+}
