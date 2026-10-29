@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "id": "drainage-corner-rear",
+  "name": "Shallow stone drainage channel corner rear",
+  "kind": "prop",
+  "category": "terrain",
+  "attachment_namespace": "gameplay",
+  "tags": [
+    "art-style:pocket-dungeon",
+    "attachment-tagged",
+    "attachment:floor",
+    "drainage",
+    "dungeon",
+    "environment:dungeon",
+    "expansion",
+    "material:stone",
+    "metadata-document",
+    "pocket-dungeon",
+    "role:object",
+    "stone",
+    "style:gameplay",
+    "view:rear",
+    "visual_style:pocket-dungeon"
+  ],
+  "image": {
+    "path": "tiles/corner/rear.png",
+    "width": 512,
+    "height": 512,
+    "content_box_px": [
+      64,
+      225,
+      384,
+      62
+    ],
+    "sha256": "1aacae8e7502054490762a8de193631c891e764c2a52f70aa773a856faf094ea"
+  },
+  "metadata_path": "tiles/corner/rear.json",
+  "view": "rear",
+  "object_id": "drainage-corner",
+  "provenance": {
+    "method": "imagegen-source-crop",
+    "source_image": "source/corner-corrected-sheet.png",
+    "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+    "crop_px": [
+      65,
+      852,
+      381,
+      62
+    ],
+    "recipe": "source/recipe.json",
+    "prompt": "source/corner-corrected-prompt.txt",
+    "prompt_sha256": "db3735d9b3142cb5099634466f62837d26dad90a3084a11126e8407702a71617",
+    "alpha_cleanup_counts": {
+      "alpha_below_threshold_pixels_removed": 756,
+      "secondary_components_removed": 0,
+      "secondary_component_pixels_removed": 0,
+      "retained_component_count": 1
+    },
+    "normalization": {
+      "method": "nearest-width-centered-canvas",
+      "canvas_px": [
+        512,
+        512
+      ],
+      "target_width_px": 384,
+      "crop_bounds_alpha_min": 16,
+      "alpha_cleanup": "Set alpha1..15 to0, then discard only secondary8-connected components <=4sourcepixels; largest alwayspreserved; RGB unchanged",
+      "aspect_ratio": "preserved",
+      "alpha_threshold": 16,
+      "remove_secondary_components_max_px": 4
+    }
+  },
+  "placement": {
+    "footprint_cells": [
+      1,
+      1
+    ],
+    "anchor_normalized": [
+      0.5,
+      0.5
+    ],
+    "anchor_status": "authored-layout-center; qualified illustrative contact review",
+    "support_tile_ids": [
+      "style-pack-pocket-dungeon::stone-floor"
+    ],
+    "compatibility_authority": "editorial surface:floor; qualified illustrative geometry review; no runtime collision claim",
+    "connection_edges": [
+      "N",
+      "E"
+    ],
+    "connection_coordinate_system": "top view: north up, east right",
+    "rotation_degrees_clockwise": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "rotation_rule": "logical edges rotate clockwise; raster rotation permitted for top view only",
+    "visual_alignment_status": "qualified-reviewed-with-grid-seams-and-port-offsets"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:stone",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  },
+  "review_status": "qualified-reviewed"
+}
