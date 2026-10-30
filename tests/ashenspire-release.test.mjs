@@ -86,6 +86,27 @@ test('v25 retries enforce the actual frozen snapshot and high/light artifact has
     }
   }finally{rmSync(dir,{recursive:true,force:true});}
 });
+test('reviewed additions preserve the complete frozen baseline and reject unexpected records',()=>{
+  const dir=mkdtempSync(join(tmpdir(),'release-additions-'));
+  try{
+    const {manifest}=frozenFixture(dir);
+    const asset={path:'assets-display/card-cutouts/cue.test.png',bytes:12,sha256:'a'.repeat(64)};
+    mkdirSync(join(dir,'provenance/AshenSpire'),{recursive:true});
+    writeFileSync(join(dir,'provenance/AshenSpire/reviewed-card-cutouts.json'),JSON.stringify({assets:{test:asset}}));
+    writeFileSync(join(dir,'release.json'),JSON.stringify({version:25,preserveMigratedAssetBytes:true,reviewedCardCutouts:true}));
+    manifest.assets[asset.path]={common:{...asset}};manifest.count++;
+    const save=()=>writeFileSync(join(dir,'art-manifest.json'),JSON.stringify(manifest));save();
+    assert.equal(verifyMigrationSnapshot(dir),true);
+    manifest.assets[asset.path].common.bytes++;save();
+    assert.throws(()=>verifyMigrationSnapshot(dir),/Reviewed display addition changed/);
+    manifest.assets[asset.path].common.bytes--;
+    manifest.assets['assets-display/card-cutouts/extra.png']={common:{...asset,path:'assets-display/card-cutouts/extra.png'}};manifest.count++;save();
+    assert.throws(()=>verifyMigrationSnapshot(dir),/Display manifest count/);
+    delete manifest.assets['assets-display/card-cutouts/extra.png'];manifest.count--;
+    manifest.assets['assets/fixture.webp'].high.bytes++;save();
+    assert.throws(()=>verifyMigrationSnapshot(dir),/Existing high records/);
+  }finally{rmSync(dir,{recursive:true,force:true});}
+});
 test('missing or mistyped migration policy fails closed; only an explicit false lifts the freeze',async()=>{
   const dir=mkdtempSync(join(tmpdir(),'release-invalid-policy-'));
   try{
