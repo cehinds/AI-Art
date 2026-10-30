@@ -97,7 +97,22 @@ export function verifyMigrationSnapshot(root = ROOT) {
   const config = readReleaseConfig(root);
   if (!config.preserveMigratedAssetBytes) return false;
   const contract = JSON.parse(readFileSync(resolve(root, CONTRACT), 'utf8'));
-  verifyDisplayManifest(JSON.parse(readFileSync(resolve(root, 'art-manifest.json'), 'utf8')), contract);
+  const manifest = JSON.parse(readFileSync(resolve(root, 'art-manifest.json'), 'utf8'));
+  // A reviewed additive export does not unfreeze any migrated byte. Verify its
+  // exact records, then verify the complete original snapshot independently.
+  if (config.reviewedCardCutouts === true) {
+    const additions = JSON.parse(readFileSync(resolve(root, 'provenance/AshenSpire/reviewed-card-cutouts.json'), 'utf8')).assets;
+    const seen = new Set();
+    for (const asset of Object.values(additions)) {
+      if (!/^assets-display\/card-cutouts\/[A-Za-z0-9.]+\.png$/.test(asset.path) || seen.has(asset.path)) throw new Error('Invalid reviewed display addition');
+      seen.add(asset.path);
+      const expected = {common:{path:asset.path,bytes:asset.bytes,sha256:asset.sha256}};
+      if (JSON.stringify(manifest.assets[asset.path]) !== JSON.stringify(expected)) throw new Error('Reviewed display addition changed: '+asset.path);
+      delete manifest.assets[asset.path];
+      manifest.count--;
+    }
+  } else if (config.reviewedCardCutouts !== undefined) throw new Error('reviewedCardCutouts must be true when present');
+  verifyDisplayManifest(manifest, contract);
   return true;
 }
 export async function verifyFrozenArchives(root, version) {
