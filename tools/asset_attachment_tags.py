@@ -403,6 +403,63 @@ def is_verified_portable_archive(archive):
     return True
 
 
+def verified_hud_documents(root):
+    """Recognize a provenance-bound HUD extraction with byte-identical ZIP.
+
+    Ordinary UI metadata remains enrichable. Broken recognized evidence fails
+    before writes instead of silently invalidating a reviewed archive.
+    """
+    base = root / 'hud-components'
+    path = base / 'manifest.json'
+    if not path.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    if (doc.get('schemaVersion') != 1
+            or doc.get('representation') != 'Visible source fragments; hidden pixels are absent.'
+            or not isinstance(doc.get('layers'), list) or not doc['layers']
+            or not isinstance(doc.get('groups'), list) or not doc['groups']
+            or not isinstance(doc.get('fragmentManifestSha256'), str)):
+        return set()
+    project = root.parents[2]
+    def bound_file(relative, expected, directory):
+        if not isinstance(relative, str) or not isinstance(expected, str):
+            raise ValueError('Invalid HUD evidence file/hash')
+        target = (directory / relative).resolve()
+        if (not target.is_relative_to(directory.resolve())
+                or re.fullmatch(r'[0-9a-f]{64}', expected) is None
+                or not target.is_file() or target.is_symlink()
+                or hashlib.sha256(target.read_bytes()).hexdigest() != expected):
+            raise ValueError(f'Invalid HUD evidence digest: {relative}')
+        return target
+    bound_file(doc.get('source'), doc.get('sourceSha256'), project)
+    original = json.loads(bound_file(doc.get('fragmentManifest'), doc['fragmentManifestSha256'], project).read_text())
+    by_id = {layer['id']: layer for layer in original['layers']}
+    for layer in doc['layers']:
+        source = by_id.get(layer.get('id'), {})
+        digest = layer.get('componentSha256')
+        if (layer.get('sha256') != digest or source.get('componentSha256') != digest
+                or layer.get('provenance') != source.get('provenance')
+                or layer.get('provenance', {}).get('kind') != 'literal-source-pixels'):
+            raise ValueError('Invalid HUD fragment provenance')
+        bound_file(layer.get('file'), digest, base)
+    verification = doc.get('verification', {})
+    if (verification.get('changedPixels') != 0 or verification.get('maxChannelError') != 0
+            or verification.get('transparentRgbNormalized') is not True):
+        raise ValueError('Invalid HUD replay evidence')
+    package = base / 'hud-components.zip'
+    with ZipFile(package) as archive:
+        infos = archive.infolist()
+        names = {info.filename for info in infos}
+        files = {p.relative_to(base).as_posix(): p for p in base.rglob('*')
+                 if p.is_file() and p != package}
+        if len(infos) != len(names) or names != set(files):
+            raise ValueError('Incomplete HUD archive evidence')
+        for name, local in files.items():
+            if local.is_symlink() or archive.read(name) != local.read_bytes():
+                raise ValueError(f'Invalid HUD archive member: {name}')
+    return {path}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -478,7 +535,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
