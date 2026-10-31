@@ -285,6 +285,36 @@ def enrich_document(doc, style, by_id=None):
     return doc
 
 
+def is_source_fragment_evidence(doc):
+    """Recognize literal-pixel reconstruction evidence, not reusable assets.
+
+    Component hashes and source provenance bind this manifest to QA and its
+    downloadable archive. Editorial attachment enrichment must preserve bytes.
+    """
+    if not isinstance(doc, dict) or doc.get('schemaVersion') != 1:
+        return False
+    source_hash = doc.get('sourceSha256')
+    layers = doc.get('layers')
+    return (isinstance(source_hash, str)
+        and re.fullmatch(r'[0-9a-f]{64}', source_hash) is not None
+        and isinstance(doc.get('source'), str)
+        and isinstance(doc.get('canvas'), list) and len(doc['canvas']) == 2
+        and doc.get('representation') == 'visible source fragments; occluded pixels are absent, not inferred'
+        and isinstance(layers, list) and bool(layers)
+        and any(isinstance(layer, dict) and layer.get('file') for layer in layers)
+        and all(isinstance(layer, dict) and (
+            (layer.get('visiblePixels') == 0
+             and layer.get('visibility') == 'fully occluded'
+             and 'file' not in layer and 'componentSha256' not in layer)
+            or (isinstance(layer.get('file'), str)
+            and layer['file'].endswith('.png')
+            and isinstance(layer.get('componentSha256'), str)
+            and re.fullmatch(r'[0-9a-f]{64}', layer['componentSha256']) is not None
+            and layer.get('provenance', {}).get('kind') == 'literal-source-pixels'
+            and layer['provenance'].get('sourceSha256') == source_hash))
+            for layer in layers))
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -403,6 +433,9 @@ def apply(root=DEFAULT_ASSETS, check=False):
             preserved_generation_documents += 1
             continue
         doc = json.loads(path.read_text())
+        if is_source_fragment_evidence(doc):
+            preserved_generation_documents += 1
+            continue
         local = next((items for pack, items in by_pack if path.is_relative_to(pack)), {})
         style = next((style_of(pack) for pack, items in by_pack if path.is_relative_to(pack)), 'gameplay')
         if path == root / 'style-packs/catalog.json':
