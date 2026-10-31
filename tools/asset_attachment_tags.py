@@ -386,7 +386,21 @@ def is_verified_portable_archive(archive):
     if 'package-manifest.json' not in archive.namelist():
         return False
     doc = json.loads(archive.read('package-manifest.json'))
-    if doc.get('schemaVersion') != 1 or not isinstance(doc.get('sha256'), dict):
+    if doc.get('schemaVersion') != 1:
+        return False
+    if isinstance(doc.get('members'), list):
+        members = doc['members']
+        if (not members or not all(isinstance(m, dict) and isinstance(m.get('file'), str)
+                and isinstance(m.get('bytes'), int) and m['bytes'] >= 0 for m in members)):
+            raise ValueError('Invalid portable package membership records')
+        if len({m['file'] for m in members}) != len(members):
+            raise ValueError('Duplicate portable package membership')
+        for member in members:
+            if len(archive.read(member['file'])) != member['bytes']:
+                raise ValueError('Invalid portable package member byte count')
+        doc = {**doc, 'sha256': {m['file']: m.get('sha256') for m in members},
+               'requiredEntries': [m['file'] for m in members]}
+    if not isinstance(doc.get('sha256'), dict):
         return False
     names = {info.filename for info in archive.infolist() if not info.is_dir()}
     if any(Path(name).is_absolute() or '..' in Path(name).parts for name in names):
@@ -458,6 +472,64 @@ def verified_hud_documents(root):
             if local.is_symlink() or archive.read(name) != local.read_bytes():
                 raise ValueError(f'Invalid HUD archive member: {name}')
     return {path}
+
+
+def verified_reusable_hud_documents(root):
+    """Preserve reconstructed UI evidence only with complete hash membership.
+
+    This typed pack records newly generated material separately from literal
+    source fragments. Hashes establish immutability, not visual approval.
+    """
+    base = root / 'hud-reusable'
+    manifest = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not manifest.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(manifest.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or not isinstance(doc.get('assets'), list) or not doc['assets']
+            or not isinstance(doc.get('materials'), dict) or not doc['materials']
+            or not isinstance(doc.get('sourceManifest'), str)):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid reusable HUD evidence record')
+        path = directory / relative
+        if (not path.resolve().is_relative_to(directory.resolve()) or path.is_symlink()
+                or not path.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid reusable HUD evidence path: {relative}')
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid reusable HUD evidence digest: {relative}')
+        return path
+    project = root.parents[2]
+    verify_file(project, doc['sourceManifest'], doc.get('sourceManifestSha256'))
+    for material in doc['materials'].values():
+        verify_file(base, material.get('file'), material.get('sha256'))
+        verify_file(project, material.get('originalFile'), material.get('originalSha256'))
+    for asset in doc['assets']:
+        if not isinstance(asset.get('provenance', {}).get('kind'), str):
+            raise ValueError('Missing reusable HUD asset provenance')
+        verify_file(base, asset.get('file'), asset.get('sha256'))
+    listed = {}
+    for member in proof['members']:
+        path = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if path in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid reusable HUD membership')
+        listed[path] = member
+    package = base / 'hud-reusable.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete reusable HUD membership')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid reusable HUD package evidence')
+        for path in [receipt, *listed]:
+            if archive.read(path.relative_to(base).as_posix()) != path.read_bytes():
+                raise ValueError('Reusable HUD archive/source bytes differ')
+    return {receipt} | {path for path in listed if path.suffix == '.json'}
 
 
 def registry_libraries(root):
@@ -535,7 +607,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
