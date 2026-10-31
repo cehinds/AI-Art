@@ -1,6 +1,6 @@
 # Component Art V1 review catalog
 
-This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, WorldComponentsV2 seam corrections, InteriorComponentsV2 room components, InteriorDetailsV3 reference refinements, and InteriorDetailsV4 wall and rug revisions. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
+This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, WorldComponentsV2 seam corrections, InteriorComponentsV2 room components, InteriorDetailsV3 reference refinements, InteriorDetailsV4 wall and rug revisions, TerrainComponentsV3, and ShopInteriorsV1. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
 
 ## Status
 
@@ -10,7 +10,7 @@ WorldComponentsV1 has known visual limitations: the coast set is a continuous is
 
 Altair building facades and roofs are separated as transparent, same-canvas layers; assembled previews are included for checking the full forms. Signs and terrain props are included from the Altair manifest. This catalog is an inventory view, not an approval of every building detail against the PR map.
 
-Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, 68 WorldComponentsV2, 166 InteriorComponentsV2, 9 InteriorDetailsV3, and 5 InteriorDetailsV4 (434 unique PNGs total, including preserved earlier outputs).
+Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, 68 WorldComponentsV2, 166 InteriorComponentsV2, 9 InteriorDetailsV3, 5 InteriorDetailsV4, 55 TerrainComponentsV3, and 50 ShopInteriorsV1 (539 unique production PNG paths total, including reused components and layered room proofs).
 
 ## Refresh
 
@@ -46,3 +46,9 @@ The [focused interior refinement](../../Review/interior-details-v3/index.html) c
 ## InteriorDetailsV4 — 2026-10-31
 
 The [wall and rug revision](../../Review/interior-details-v4/index.html) contains five whole components: three rugs, Hilda's tall wall with dark overhead timber, and Scott's wide wall strip with unequal bays. [Original-reference / V4 comparisons](../../References/InteriorDetailsV4/Comparison/index.html) show authentic screenshot crops beside the new native exports. The pass reduces added rug grids and restores reference wall proportions. Occluded rug areas remain inferred, and the designs retain differences in motif density and color. No new seamless tiling or game integration is claimed. Earlier packs remain unchanged.
+
+## Terrain and shop pass — 2026-10-31
+
+[TerrainComponentsV3](../../Review/terrain-components-v3/index.html) supplies 55 PNGs: four ground materials, sixteen dirt-road masks, sixteen cobble-road masks, sixteen river masks, two city trees and one overworld forest field. Directional tags and source records accompany the tiles. Roads, rivers and declared floor boundaries have independent four-pixel join checks; forest boundaries are diagnostic only. The dirt roads are optional authored assets, not evidence that the sampled retail overworld route has roads.
+
+[ShopInteriorsV1](../../Review/shop-interiors-v1/index.html) contains nine new components, sixteen byte-preserved reused components, and five layered room proposals (weapons, armor, items, combined magic, temple). Ordinary shops share their red floor, wall and counter kit; stock displays and NPCs vary. The temple uses a distinct stone/blue treatment. Static PNG attendants and proposed occupancy metadata do not implement game behavior. [Reference comparisons](../../References/TerrainShopPassV1/Comparison/index.html) distinguish observed retail details from proposals. Game integration remains on hold.

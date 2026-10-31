@@ -1,0 +1,2676 @@
+{
+  "schemaVersion": 3,
+  "kit": "terrain-components-v3",
+  "status": "assets-only-candidates-not-integrated",
+  "configSha256": "fc92705e346075bef00426e96f82ee40f58958b52cecc8df3a5fe077b145c84b",
+  "sources": [
+    {
+      "file": "ArtSource/TerrainComponentsV3/ground-materials-master.png",
+      "sha256": "5f9e6f4bfaa68289c8596e74fffa279f8237ba4a68125deca2d4bb6b6a1cccb9",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sha256": "10e8d17c725f37d9decbc17694025bf85f319449b008c185a94031f332a30124",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sha256": "84ea103d35eca98bf883f1a2a6ce540366233687452737f067cd2f9a39062e69",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/city-conifer-master.png",
+      "sha256": "ac790b6dde46015a2498bc675ccec6f4ec11db13594d0ddd02677ef94668fb66",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/city-broadleaf-master.png",
+      "sha256": "e26ba492b00c84d3042e030372b68ce8fd67122b43124bba733f62b67707bca8",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/forest-field-master.png",
+      "sha256": "6293645ba8fca9bdb4cd5f7b448eaae1102020ee8f7601dc42ffed1a3adc526a",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV3/generation-prompts.json",
+      "sha256": "6138ec13347f5189a1d420097d03422959ebdae0274c1d65898ba54331d01028"
+    }
+  ],
+  "assets": [
+    {
+      "id": "floors/grass",
+      "file": "Assets/Art/Production/TerrainComponentsV3/floors/grass.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "64a8f4cb4beff91408b87606fc069548ff74abf0c17a03d3dded8e5d9167891c",
+      "family": "floor",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV3/ground-materials-master.png",
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 256,
+        "height": 256
+      },
+      "normalization": "whole material crop nearest32 plus reflected4px two-dimensional source bands",
+      "layer": "ground",
+      "collisionIntent": "walkable ground; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "ground",
+        "grass",
+        "repeatable-native32"
+      ]
+    },
+    {
+      "id": "floors/city-cobble",
+      "file": "Assets/Art/Production/TerrainComponentsV3/floors/city-cobble.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6fb68d2ec3672b6207ca6b2552297cccbe439c38f5d22e490ae8139344286d21",
+      "family": "floor",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV3/ground-materials-master.png",
+      "sourceCrop": {
+        "left": 627,
+        "top": 0,
+        "width": 627,
+        "height": 627
+      },
+      "normalization": "whole material crop nearest32 plus reflected4px two-dimensional source bands",
+      "layer": "ground",
+      "collisionIntent": "walkable ground; runtime integration deferred",
+      "ports": {
+        "N": "city-cobble",
+        "E": "city-cobble",
+        "S": "city-cobble",
+        "W": "city-cobble"
+      },
+      "tags": [
+        "ground",
+        "city-cobble",
+        "repeatable-native32"
+      ]
+    },
+    {
+      "id": "floors/shop-flagstone",
+      "file": "Assets/Art/Production/TerrainComponentsV3/floors/shop-flagstone.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c9acdfc91abc7a56bb68d30b17e34aee483d9d0c5bef5022f9e85ed57dd88c41",
+      "family": "floor",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV3/ground-materials-master.png",
+      "sourceCrop": {
+        "left": 0,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      },
+      "normalization": "whole material crop nearest32 plus reflected4px two-dimensional source bands",
+      "layer": "ground",
+      "collisionIntent": "walkable ground; runtime integration deferred",
+      "ports": {
+        "N": "shop-flagstone",
+        "E": "shop-flagstone",
+        "S": "shop-flagstone",
+        "W": "shop-flagstone"
+      },
+      "tags": [
+        "ground",
+        "shop-flagstone",
+        "repeatable-native32"
+      ]
+    },
+    {
+      "id": "floors/dirt-field",
+      "file": "Assets/Art/Production/TerrainComponentsV3/floors/dirt-field.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e96ca3396614d43cb21867a1f80a568edf48268cc20e78d04551c7c7379fd460",
+      "family": "floor",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV3/ground-materials-master.png",
+      "sourceCrop": {
+        "left": 627,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      },
+      "normalization": "whole material crop nearest32 plus reflected4px two-dimensional source bands",
+      "layer": "ground",
+      "collisionIntent": "walkable ground; runtime integration deferred",
+      "ports": {
+        "N": "dirt-field",
+        "E": "dirt-field",
+        "S": "dirt-field",
+        "W": "dirt-field"
+      },
+      "tags": [
+        "ground",
+        "dirt-field",
+        "repeatable-native32"
+      ]
+    },
+    {
+      "id": "dirt-road/0",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "048788c23cb6938ca75f6a406d374f487d7ceb0e86206fa474d138a02b25f85a",
+      "family": "dirt-road",
+      "mask": 0,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 24890,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "isolated"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/1",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "97af6d413b1a566468da742b097f5d69d758aa9030d4b9e36f40116eda98d3a5",
+      "family": "dirt-road",
+      "mask": 1,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 20943,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "end",
+        "end-n"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/2",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8ca20d0b9298f2d401f4f77fe2381c88ce64f30d5394e3bfd44e4f8090904fd1",
+      "family": "dirt-road",
+      "mask": 2,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22377,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "dirt-road-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "end",
+        "end-e"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/3",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b9bc8a49e6a47202d9228423f59d574fbc7bc82e38936f4e9dbebd41c1ef7005",
+      "family": "dirt-road",
+      "mask": 3,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27140,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "dirt-road-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "corner",
+        "corner-ne"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/4",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "46d3ff9d6a96143b7d1b27d47e551446770b76e3f4c455ab7ac3651550bb11ae",
+      "family": "dirt-road",
+      "mask": 4,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 21380,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "dirt-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "end",
+        "end-s"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/5",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2e6747f18e9787a8d7a8d668b47d663e33ede6250d1047a0b385902e0fcea782",
+      "family": "dirt-road",
+      "mask": 5,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 28357,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "grass",
+        "S": "dirt-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "straight",
+        "straight-ns"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/6",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "49073ba97c1fcdb39b95a7b019e8d63951c362bf6809c228384763573a5a78fd",
+      "family": "dirt-road",
+      "mask": 6,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27327,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "dirt-road-open",
+        "S": "dirt-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "corner",
+        "corner-se"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/7",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5f9aa3d592c03dd0d771361e57fdede7ab6f7f5c4969b0235adc65ce9cb20095",
+      "family": "dirt-road",
+      "mask": 7,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 37968,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "dirt-road-open",
+        "S": "dirt-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "t-junction",
+        "t-open-nes"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/8",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2e673d454bf6cf93c60cb3b2adad0fa618ec55be2e859ce679ca17586f030c25",
+      "family": "dirt-road",
+      "mask": 8,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22151,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "end",
+        "end-w"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/9",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c999824508a3fc4125f793afd67af7f89b5db0132f0f180054191c4c8442f43f",
+      "family": "dirt-road",
+      "mask": 9,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27285,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "corner",
+        "corner-nw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/10",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8463f7794a928e5a458975da01b893fe8244d486812377ed92089648d72bf3ae",
+      "family": "dirt-road",
+      "mask": 10,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 28225,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "dirt-road-open",
+        "S": "grass",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "straight",
+        "straight-ew"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/11",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "131c16c073128c0614c496ac26f0b3fda99e19951283d1e924186b20f17f7641",
+      "family": "dirt-road",
+      "mask": 11,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38135,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "dirt-road-open",
+        "S": "grass",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "t-junction",
+        "t-open-new"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/12",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c8745616c2a3989c24d19f686d96bdc5be8d564ab45cf169a76e996a12f0c313",
+      "family": "dirt-road",
+      "mask": 12,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27364,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "dirt-road-open",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "corner",
+        "corner-sw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/13",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "211769a2f6bdb6bc329f9b19af62cd3a7521852c92166e851701e3ecec51190e",
+      "family": "dirt-road",
+      "mask": 13,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38328,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "grass",
+        "S": "dirt-road-open",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "t-junction",
+        "t-open-nsw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/14",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "905e26ea04aca356fe84641094130a45ea775efae94fd8bcd57e9026b19506a5",
+      "family": "dirt-road",
+      "mask": 14,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38280,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "dirt-road-open",
+        "S": "dirt-road-open",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "t-junction",
+        "t-open-esw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "dirt-road/15",
+      "file": "Assets/Art/Production/TerrainComponentsV3/dirt-road/15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3fcd9308487ff66432115f94f5f5e6f4e4cdea9f97e0b2a84238a065332d191c",
+      "family": "dirt-road",
+      "mask": 15,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 47938,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "dirt-road-open",
+        "E": "dirt-road-open",
+        "S": "dirt-road-open",
+        "W": "dirt-road-open"
+      },
+      "tags": [
+        "native32",
+        "dirt-road",
+        "cross"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/0",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2594d9377778a4f6d4be4232803b976f2cb9cb43cabe8daadc54dcd3a06d82fc",
+      "family": "cobble-road",
+      "mask": 0,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 24890,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "isolated"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/1",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "92301cb5390ab5db2261770139db88f735b6163e23ceedb21bcbc3dd8dc8f809",
+      "family": "cobble-road",
+      "mask": 1,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 20943,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "end",
+        "end-n"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/2",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7beeafe0b74d141baa6537d99ddb3784c3119929c41802e6ace7909045baceff",
+      "family": "cobble-road",
+      "mask": 2,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22377,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "cobble-road-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "end",
+        "end-e"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/3",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9da3679998938f91ba424d5a4e397df85e2f85dcb878e221cfca7608fa932864",
+      "family": "cobble-road",
+      "mask": 3,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27140,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "cobble-road-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "corner",
+        "corner-ne"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/4",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8d1a630bc6d351de37ddeae1cab4b854027b6a4086367611381b039a46f235ed",
+      "family": "cobble-road",
+      "mask": 4,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 21380,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "cobble-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "end",
+        "end-s"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/5",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "756630e552034c89aa49245989b0c2f2e2e8f244b0a1055dd805888482840ab4",
+      "family": "cobble-road",
+      "mask": 5,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 28357,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "grass",
+        "S": "cobble-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "straight",
+        "straight-ns"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/6",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3b0dd0d60832edcd37616b51343e5c96911449ae5dac6751bcbd86f3082c6d1c",
+      "family": "cobble-road",
+      "mask": 6,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27327,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "cobble-road-open",
+        "S": "cobble-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "corner",
+        "corner-se"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/7",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "cb0d8c932261050e942f5d0eb5825a842179f6b936fe1bb255f54a25830e8d95",
+      "family": "cobble-road",
+      "mask": 7,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 37968,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "cobble-road-open",
+        "S": "cobble-road-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "t-junction",
+        "t-open-nes"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/8",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "024ce14b02b153ce5995abf6ad90e3980035c8a56d35699c18d4b084e526e173",
+      "family": "cobble-road",
+      "mask": 8,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22151,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "end",
+        "end-w"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/9",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "66417c226b1876cfd861ef4d7e0cbd20d098b2df2eac35cdbb2bd1ec69e25923",
+      "family": "cobble-road",
+      "mask": 9,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27285,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "corner",
+        "corner-nw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/10",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a6af60006c16b2e12a5642fba856437bdadf82f4bbecd732f53d43f53721fdca",
+      "family": "cobble-road",
+      "mask": 10,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 28225,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "cobble-road-open",
+        "S": "grass",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "straight",
+        "straight-ew"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/11",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2f880434f972e4d492c1bb855a44d501a9ed27899377a1207430adb533c1357a",
+      "family": "cobble-road",
+      "mask": 11,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38135,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "cobble-road-open",
+        "S": "grass",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "t-junction",
+        "t-open-new"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/12",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "066e31b95cb282c19afcd63691a3c142da8d5b05221de1522c698ddaa6d972e4",
+      "family": "cobble-road",
+      "mask": 12,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27364,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "cobble-road-open",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "corner",
+        "corner-sw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/13",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8ba66a02b7907237d8ed6c16d8f89eb03b69c9917bc3a5996aea93c23d0ab1c5",
+      "family": "cobble-road",
+      "mask": 13,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38328,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "grass",
+        "S": "cobble-road-open",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "t-junction",
+        "t-open-nsw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/14",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a2dc496a8d33b4231d39687bdd0cbac50ba166adf82bd0827d2313b8f6835d94",
+      "family": "cobble-road",
+      "mask": 14,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38280,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "grass",
+        "E": "cobble-road-open",
+        "S": "cobble-road-open",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "t-junction",
+        "t-open-esw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "cobble-road/15",
+      "file": "Assets/Art/Production/TerrainComponentsV3/cobble-road/15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5cc8522356225049ceef70f907fa09c5943732d54deedef1ad0ba0023644126f",
+      "family": "cobble-road",
+      "mask": 15,
+      "source": "ArtSource/TerrainComponentsV3/road-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 47938,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": "Authored road interior mask eroded1px; shared cobble texture substituted inside, original transition contour retained",
+      "layer": "ground",
+      "collisionIntent": "walkable road; runtime integration deferred",
+      "ports": {
+        "N": "cobble-road-open",
+        "E": "cobble-road-open",
+        "S": "cobble-road-open",
+        "W": "cobble-road-open"
+      },
+      "tags": [
+        "native32",
+        "cobble-road",
+        "cross"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/0",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "dfbe5b27238806713c0c5388616b37c7b062b7a54fb6f7c3226a75ffb67afe3f",
+      "family": "river",
+      "mask": 0,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 26927,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "isolated"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/1",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ffba808a4de47e25345a1954ad2a68d85ebe0f78917ae01d4b81291695b22a81",
+      "family": "river",
+      "mask": 1,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22161,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "end",
+        "end-n"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/2",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8958de41d18a32c166c42692eb21aca098043e309b742cfb2af3e624ac9c4878",
+      "family": "river",
+      "mask": 2,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 3,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22808,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "river-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "end",
+        "end-e"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/3",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "29b91cb4cc15505d9e0d6ed9eead6383eac19895ee088330648cc1645a23dde3",
+      "family": "river",
+      "mask": 3,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 3,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 26493,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 0
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "grass",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "corner",
+        "corner-ne"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/4",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5af2207ba5c8a4a14bf7a3df3f6b53173072ba93cc64df5c7d74e27e3d688002",
+      "family": "river",
+      "mask": 4,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 21262,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "river-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "end",
+        "end-s"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/5",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0fbc0be0aa1752cb9f1cd507233b38de443b36655a2c8374553409ed32105e79",
+      "family": "river",
+      "mask": 5,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 26369,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "grass",
+        "S": "river-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "straight",
+        "straight-ns"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/6",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d78deeff42f3123dc10949e7763886e837e4634787fc2992f4f32c4ff5ccff70",
+      "family": "river",
+      "mask": 6,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 316,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 25958,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "corner",
+        "corner-se"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/7",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f4dea9a6967d58b60a4f38932ea78db0f485e0d85031ec01abdd388888e28dc8",
+      "family": "river",
+      "mask": 7,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 316,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 36212,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 1
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "grass"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "t-junction",
+        "t-open-nes"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/8",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "dbd24c7230dd694ef58ff5a60cc51e19452cc079c9bfc0477a7c17b23aac3be7",
+      "family": "river",
+      "mask": 8,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 22736,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "grass",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "end",
+        "end-w"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/9",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a02e8a6f0f33d9192706c7fa9d265e5926d70a214599637a162fdec21b155a57",
+      "family": "river",
+      "mask": 9,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 27599,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "grass",
+        "S": "grass",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "corner",
+        "corner-nw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/10",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4e59a38c2a3f28a948cf8e659574df84c0e365442a29f0f1bfe82dc817124625",
+      "family": "river",
+      "mask": 10,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 630,
+        "width": 307,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 26721,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "river-open",
+        "S": "grass",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "straight",
+        "straight-ew"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/11",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bb30af68a8c2c169e0ef1a40685d7cb09bb0a6267aa12761e26647fa376e443a",
+      "family": "river",
+      "mask": 11,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 630,
+        "width": 308,
+        "height": 307
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 37810,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 2
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "grass",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "t-junction",
+        "t-open-new"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/12",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "edb777b53390624bcf0be21fc84a04aa865926ae2aac3bd2f7c16a456b9ab951",
+      "family": "river",
+      "mask": 12,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 3,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 28363,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 0,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "grass",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "corner",
+        "corner-sw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/13",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bd90bbbe5db4bc9389a69598f7dc80afc2e2403a83f3f4526c66d7bd2967c137",
+      "family": "river",
+      "mask": 13,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 316,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 39322,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 1,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "grass",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "t-junction",
+        "t-open-nsw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/14",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "58a6284b9108dee052192434680cea2088ba079014020e6ef673420a7d537aac",
+      "family": "river",
+      "mask": 14,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 630,
+        "top": 943,
+        "width": 307,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 38235,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 2,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "grass",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "t-junction",
+        "t-open-esw"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "river/15",
+      "file": "Assets/Art/Production/TerrainComponentsV3/river/15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d91984d9361bf08652388f944020dc6e6a60b1725bce0c2a259f4eb384ec3f29",
+      "family": "river",
+      "mask": 15,
+      "source": "ArtSource/TerrainComponentsV3/river-atlas-master.png",
+      "sourceCrop": {
+        "left": 943,
+        "top": 943,
+        "width": 308,
+        "height": 308
+      },
+      "sourceAlphaAudit": {
+        "threshold": 128,
+        "components": 1,
+        "primaryPixels": 47913,
+        "removedDetachedPixels": 0,
+        "policy": "primary connected authored path; discarded detached alpha specks under0.5percent; raw master retained"
+      },
+      "sourceCell": {
+        "column": 3,
+        "row": 3
+      },
+      "normalization": "declared atlas slot nearest32; source alpha foreground composited onto shared grass; canonical4px two-dimensional portal source strips",
+      "materialSubstitution": null,
+      "layer": "ground",
+      "collisionIntent": "water blocked; bridge overlays require game rules; not integrated",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "native32",
+        "river",
+        "cross"
+      ],
+      "portalMaskBits": {
+        "N": 1,
+        "E": 2,
+        "S": 4,
+        "W": 8
+      }
+    },
+    {
+      "id": "trees/city-conifer",
+      "file": "Assets/Art/Production/TerrainComponentsV3/trees/city-conifer.png",
+      "width": 48,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "dd2fac30b80caa57bc336d80d0106b34700d9437193ad32723cd109c63dbc8b1",
+      "family": "city-tree",
+      "alpha": "cutout",
+      "source": "ArtSource/TerrainComponentsV3/city-conifer-master.png",
+      "sourceCrop": {
+        "left": 236,
+        "top": 112,
+        "width": 650,
+        "height": 1224
+      },
+      "nativePlacement": {
+        "left": 7,
+        "top": 2,
+        "width": 33,
+        "height": 62
+      },
+      "anchor": "bottom-center",
+      "layer": "canopy-overlay",
+      "collisionIntent": "solid trunk intent only; no runtime collider generated",
+      "ports": null,
+      "tags": [
+        "city-tree",
+        "city-conifer",
+        "distinct-silhouette",
+        "cutout"
+      ]
+    },
+    {
+      "id": "trees/city-broadleaf",
+      "file": "Assets/Art/Production/TerrainComponentsV3/trees/city-broadleaf.png",
+      "width": 64,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "dbe914dd74e73a7f8e9c654f52b680553760777957853c185bccffee76b73130",
+      "family": "city-tree",
+      "alpha": "cutout",
+      "source": "ArtSource/TerrainComponentsV3/city-broadleaf-master.png",
+      "sourceCrop": {
+        "left": 207,
+        "top": 160,
+        "width": 846,
+        "height": 957
+      },
+      "nativePlacement": {
+        "left": 4,
+        "top": 2,
+        "width": 55,
+        "height": 62
+      },
+      "anchor": "bottom-center",
+      "layer": "canopy-overlay",
+      "collisionIntent": "solid trunk intent only; no runtime collider generated",
+      "ports": null,
+      "tags": [
+        "city-tree",
+        "city-broadleaf",
+        "distinct-silhouette",
+        "cutout"
+      ]
+    },
+    {
+      "id": "forest/overworld",
+      "file": "Assets/Art/Production/TerrainComponentsV3/forest/overworld.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c8404dc54bf89e4642bd6b161b4c6ac346ea20dc5f6ebe84120615e72dc20a57",
+      "family": "overworld-forest",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV3/forest-field-master.png",
+      "sourceCrop": {
+        "left": 416,
+        "top": 416,
+        "width": 627,
+        "height": 627
+      },
+      "layer": "ground-and-canopy-composite",
+      "collisionIntent": "forest terrain intent; game-specific traversal deferred",
+      "ports": {
+        "N": "forest-as-authored",
+        "E": "forest-as-authored",
+        "S": "forest-as-authored",
+        "W": "forest-as-authored"
+      },
+      "edgeContract": "diagnostic-only; full source field preserved without a destructive grass frame",
+      "tags": [
+        "overworld-forest",
+        "native32",
+        "distinct-from-city-tree"
+      ]
+    }
+  ],
+  "alphaContract": "Opaque ground; binary128 city-tree alpha with zero invisible RGB",
+  "segmentation": "Transparent authored atlas foreground is composited over shared grass; primary alpha components retain geometry. Opaque fallback grass selection uses G>R, G>B, R>B. Cobble road swaps only eroded inner source mask.",
+  "edgeContract": "Complete4px RGBA bands for declared compatible grass/network portals; source strips retain2D texture. Whole cobble/flagstone floors are separate materials, not narrow-road plaza adapters.",
+  "limits": "No game integration, pathfinding, collision, bridge gameplay, Unity import or retail parity validation.",
+  "dependencies": [
+    {
+      "file": "Assets/Art/Production/WorldComponentsV1/stone-bridge/span-ew.png",
+      "sha256": "f4a850e5a9fb49c7533fa7efd1158a430c5ed04a7afada6374007927a4e8e683",
+      "purpose": "Unchanged V1 bridge candidate visual overlay only; endpoints and traversal not certified"
+    }
+  ]
+}

@@ -13,6 +13,8 @@ const packs = {
   interiorV2: path.join(root, 'Assets/Art/Production/InteriorComponentsV2/manifest.json'),
   details: path.join(root, 'Assets/Art/Production/InteriorDetailsV3/manifest.json'),
   detailsV4: path.join(root, 'Assets/Art/Production/InteriorDetailsV4/manifest.json'),
+  terrainV3: path.join(root, 'Assets/Art/Production/TerrainComponentsV3/manifest.json'),
+  shops: path.join(root, 'Assets/Art/Production/ShopInteriorsV1/manifest.json'),
 };
 
 function readManifest(file) {
@@ -72,6 +74,17 @@ function interiorCards(j) {
 function interiorV2Cards(j, pack = 'InteriorComponentsV2') {
   return (j?.assets || []).map(x=>({id:x.id,label:x.id,file:x.file,category:'interior',detail:x.width+'×'+x.height+'px · '+x.family,pack}));
 }
+
+function terrainV3Cards(j) {
+  return (j?.assets || []).map(x=>({id:x.id,label:x.id,file:x.file,category:x.family==='river'?'water':x.family==='city-tree'||x.family==='cobble-road'||x.id.includes('city-cobble')?'city':x.id.includes('shop-flagstone')?'interior':'world',detail:x.width+'×'+x.height+'px · '+x.family,pack:'TerrainComponentsV3'}));
+}
+function shopCards(j) {
+  if(!j)return [];
+  const components=(j.components||[]).map(x=>({id:x.id,label:x.id,file:x.file,category:'interior',detail:x.width+'×'+x.height+'px · '+x.kind,pack:'ShopInteriorsV1'}));
+  const rooms=(j.rooms||[]).map(r=>({id:'room-'+r.id,label:r.id+' room proposal',file:r.outputs.composite.file,category:'interior',detail:'Layered asset proof · '+r.referenceBasis,pack:'ShopInteriorsV1',children:Object.entries(r.outputs).filter(([name])=>name!=='composite').map(([name,x])=>({id:r.id+'-'+name,label:r.id+' '+name,file:x.file,category:'interior',detail:x.width+'×'+x.height+'px',pack:'ShopInteriorsV1'}))}));
+  return [...components,...rooms];
+}
+
 const manifests = Object.fromEntries(Object.entries(packs).map(([k,v]) => [k,readManifest(v)]));
 const groups = {
   world: [...openingCards(manifests.opening), ...worldCards(manifests.world), ...altairCards(manifests.altair).filter(x=>x.category==='world')].filter(x=>x.category==='world'),
@@ -80,11 +93,13 @@ const groups = {
   interior: [...interiorCards(manifests.interior).filter(x=>x.category==='interior'), ...interiorV2Cards(manifests.interiorV2), ...interiorV2Cards(manifests.details, 'InteriorDetailsV3'), ...interiorV2Cards(manifests.detailsV4, 'InteriorDetailsV4')],
   ui: interiorCards(manifests.interior).filter(x=>x.category==='ui'),
 };
+for(const card of terrainV3Cards(manifests.terrainV3))groups[card.category].push(card);
+groups.interior.push(...shopCards(manifests.shops));
 const allCards = Object.values(groups).flat();
 const uniqueFiles = new Set(allCards.flatMap(x=>[x.file,...(x.children||[]).map(c=>c.file)]).filter(Boolean));
 const interiorManifestCount = Object.keys(manifests.interior?.components || {}).length;
 const interiorPngCount = new Set(Object.values(manifests.interior?.components || {}).flatMap(x=>[x.file,...Object.values(x.layers||{}).map(y=>y.file),...Object.values(x.slices||{}).map(y=>y.file)]).filter(Boolean)).size;
-const packPngCounts = {AltairKitV1:altairCards(manifests.altair).length,OpeningWorldV1:openingCards(manifests.opening).length,WorldComponentsV1:worldCards(manifests.world).length,WorldComponentsV2:worldCards(manifests.seams, 'WorldComponentsV2').length,InteriorComponentsV1:interiorPngCount,InteriorComponentsV2:interiorV2Cards(manifests.interiorV2).length,InteriorDetailsV3:interiorV2Cards(manifests.details, 'InteriorDetailsV3').length,InteriorDetailsV4:interiorV2Cards(manifests.detailsV4, 'InteriorDetailsV4').length};
+const packPngCounts = {AltairKitV1:altairCards(manifests.altair).length,OpeningWorldV1:openingCards(manifests.opening).length,WorldComponentsV1:worldCards(manifests.world).length,WorldComponentsV2:worldCards(manifests.seams, 'WorldComponentsV2').length,InteriorComponentsV1:interiorPngCount,InteriorComponentsV2:interiorV2Cards(manifests.interiorV2).length,InteriorDetailsV3:interiorV2Cards(manifests.details, 'InteriorDetailsV3').length,InteriorDetailsV4:interiorV2Cards(manifests.detailsV4, 'InteriorDetailsV4').length,TerrainComponentsV3:terrainV3Cards(manifests.terrainV3).length,ShopInteriorsV1:shopCards(manifests.shops).reduce((n,c)=>n+1+(c.children||[]).length,0)};
 const categoryTitles = {world:'World terrain, vegetation and settlements',water:'Water, coasts, rivers and bridge candidates',city:'Altair buildings, signs and props',interior:'Interior walls, floors and furniture',ui:'UI panels and controls'};
 const knownCounts = Object.fromEntries(Object.entries(groups).map(([k,v])=>[k,v.length]));
 const total = allCards.length;
@@ -102,6 +117,9 @@ const links = [
   ['Original vs V3 side-by-side','../../References/InteriorDetailsV3/Comparison/index.html'],
   ['V4 wall and rug refinements','../interior-details-v4/index.html'],
   ['Original vs V4 side-by-side','../../References/InteriorDetailsV4/Comparison/index.html'],
+  ['Revised terrain and connections','../terrain-components-v3/index.html'],
+  ['Shop and temple starter rooms','../shop-interiors-v1/index.html'],
+  ['Terrain and shop reference boards','../../References/TerrainShopPassV1/Comparison/index.html'],
   ['World layer comparison','../world-layer-comparison-v1/index.html'],
   ['WorldComponentsV1 visual limits','../../Docs/WorldComponentsV1/visual-review.md'],
 ].map(([a,b])=>`<a href="${b}">${a}</a>`);

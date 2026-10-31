@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-31",
+  "method": "Built-in image_gen reference-guided generation and targeted altar edit",
+  "scope": "Assets-only review candidates; no game integration",
+  "references": "References/TerrainShopPassV1/Comparison/crop-register.json",
+  "generations": [
+    {
+      "id": "ground-materials",
+      "savedAs": "ground-materials-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-daef84f1-d852-4fbf-bc84-a345089fdcf4.png",
+      "prompt": "Create ONE square 2x2 material texture atlas for FFII Pixel Remaster-like tiles, four equal squares with NO gutters, labels, borders or gridlines. References supply authentic game colors/materials only. Upper left muted cool green/olive grass with tiny irregular clustered leaf pixels and subdued bluegreen shadow, not neon yellowlime. Upper right warm beige/gray small irregular flat cobblestones, shallow umber cracks, no protruding rocks, closely matching citypaving reference. Lower left interior warm ochre/tan flagstone floor, irregular rectangularstones and quiet brown mortar, match floorreference. Lower right muted tan ochre compacted dirt path texture, sparse tiny pebbles and coarsepixel flecks, no grass. Each quadrant entire seamless texture field, flat overhead orthographic, uniformlighting, no bevel aroundquadrants,no objects, no paths cutthrough, no horizon, no text. Intended eachquadrant32x32native forgame, use crisp chunky handplacedpixel clusters, no photographicnoise or smoothgradients. Four materials should share restrained original FFII gamepalette. Make edgepatterns repeatable oppositeedges eachquadrant.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/WorldComponentsV2/Comparison/reference-crops/ffii-pr-river.png",
+        "C:/repos/AI-Art-FF2/References/AltairKitV1/sources/pr-town-materials.jpg",
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/scott-warm-stone-floor-clear.png"
+      ],
+      "transparentBackground": false,
+      "selection": "Selected source for normalization and review"
+    },
+    {
+      "id": "road-atlas",
+      "savedAs": "road-atlas-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-8c1e9b68-82fa-4ba5-8cb2-e29d9701b72f.png",
+      "prompt": "Use reference ONLY for exact4x4 row-major connection geometry, replace every blue river and pale bank with a compact mutedtan dirtpath. Export ONE square4x4 atlas, equalcellspacing no gutters, TRANSPARENT background everywhere outside paths, no gridlines. Nativeeachcell32x32, wholeatlas128x128conceptually. Path width12nativepx at eachportal, pathcenter exactlycellcenter. Row1cells: isolatedroundpatch; north-only roundedend; east-only roundedend; northeastroundedbend. Row2: south-onlyend; northsouthstraight; eastsouthbend; north-east-southT. Row3: west-onlyend; north-westbend; eastweststraight; north-east-westT. Row4: southwestbend; north-south-westT; east-south-westT; fourwaycross. Everyrequiredportreachescellboundarycenter withsame12pxwidth. Allunlistededgesemptyalpha. Texture dusty beige/ochre earthsparsepebbles, thinsoftdarkerbrownpixelcontour insidepath, no whiteoutline, no grass. Rounded inner/outer corners notlargecircles. Crisp gamepixelart;flatmaterial no embossed3D or shadow; exactlysamegeometryplacementasreferencebuttransparentbackground anddirtinsteadwater. No letters.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/ArtSource/WorldComponentsV2/river-master.png"
+      ],
+      "transparentBackground": true,
+      "selection": "Selected source for normalization and review"
+    },
+    {
+      "id": "river-atlas",
+      "savedAs": "river-atlas-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-8b483a99-7701-4ea3-8344-bb2cacc1535c.png",
+      "prompt": "Edit first4x4riveratlas to match SECONDoriginalFFIIriverreference materialpalette. Preserve exact16cellconnectiontopology andregistration in4x4square, no gutters. RemoveALLgrassbackground totransparency. Eachcell32x32native, centeredrivercore10pxwide; bank/fringecombinednomore2pxoneachside. Reduce broadcream outlines: replacewithverythin mutedochrebrown landlip1px plus pale bluewateredge1px, no white/yellowthickhalo. Core mediumdeepcobaltbluewith sparse smallhorizontal lighterbluepixelripples, notneonelectricbluecyan. Allopenriverportscenteredidentically acrosscellborders. Row1: isolatedpond,Nend,Eend,NEbend. Row2:Send,NSstraight,ESbend,NEST. Row3:Wend,NWbend,EWstraight,NEWT. Row4:SWbend,NSWT,ESWT,NESWcross. Preserve authoredroundedcurves andconsistentchannelwidth; fullstraightreachesedge. Outsidewaterandbank mustbetransparent; don'trendercheckerboardorgridlines, no grass,no solidbackground,no labels. Onecoherentpixelartspritesheet practicalfortileconnection.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/ArtSource/WorldComponentsV2/river-master.png",
+        "C:/repos/AI-Art-FF2/References/WorldComponentsV2/Comparison/reference-crops/ffii-pr-river.png"
+      ],
+      "transparentBackground": true,
+      "selection": "Selected source for normalization and review"
+    },
+    {
+      "id": "city-conifer",
+      "savedAs": "city-conifer-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-1935af54-3c55-4dfb-b100-fad31c6739b1.png",
+      "prompt": "Create one isolated town-scale conifer tree sprite matching the pointed evergreen pixel-art silhouette in this FFII Pixel Remaster reference, but at town object scale. Transparentbackground, one treeonly, front/topdown JRPGprojection no isometricangle. Intended48x64native; layered tapering darkpinegreenbranches, pointedtop, mediumoliveleafhighlights clustered onupperleft, visible short reddishbrowntrunk centeredbottom. Roughly2:3widthheight, crispsteppedoutline, threeirregular tieredboughs notroundball. Verydarkgreenunderside, no neonlime, no snow, no castshadowoutside, no grounddisc, no text. Clearseparateobject allbrancheswithintransparentmargin. GBA-level pixeldefinition matchingexistingFFIIstyledgameart, notsmoothpaint or highresolutionrealisticfoliage.",
+      "referenceInputs": [
+        "C:/repos/AI-Remake-FF2/AssetWork/TerrainShopPassV1/ReferenceReview/crops/overworld-conifer-forest.png"
+      ],
+      "transparentBackground": true,
+      "selection": "Selected source for normalization and review"
+    },
+    {
+      "id": "city-broadleaf",
+      "savedAs": "city-broadleaf-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-80d5f4c7-16b6-490f-86e6-3f04c1120603.png",
+      "prompt": "Create one isolated town shade tree sprite for a FFII Pixel Remaster-style city tileset. Use reference mutedgreenpixelpalette only, change shape to broadleaf rounded asymmetric canopy with3-4 largeleafclusters andshortforkedbrowntrunk. Transparentbackground, singleobject, no scenery/shadowdisc. Intended64x64native. TopdownJRPGfront-facingprojection, crown wider than trunk, deepforestgreenshadows under branches, olivegreen andsubduedsagehighlights onupperleft. Chunkypixelclusters andsteppededges, no smoothblur, no finephotographicnoise, no neonlime. Tree reads clearlyat64px andcanlayerabovegrass; margin transparent allaround. No text or labels.",
+      "referenceInputs": [
+        "C:/repos/AI-Remake-FF2/AssetWork/TerrainShopPassV1/ReferenceReview/crops/overworld-conifer-forest.png"
+      ],
+      "transparentBackground": true,
+      "selection": "Selected source for normalization and review"
+    },
+    {
+      "id": "forest-field",
+      "savedAs": "forest-field-master.png",
+      "generatedPath": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-c96e5caf-5f5f-458f-b7ad-281938b5589e.png",
+      "prompt": "Recreate dense overworldconiferforest pattern from reference as ONE square repeatable pixelarttile, isolatedtreecanopies withtransparentgaps forgrass toshowthrough. Native32x32tile, crisp original JRPGpixelart notindividualrealistictrees. Patternis staggeredrows ofsmall darkpointedevergreen crowns packedclosely, eachcrown roughlynative6-8pixelswide, aboutfourcrownsacross andthree staggeredrows. Colorforestgreennearblackoutline, olive/emeraldcenterhighlights, no brightyellow tips. Edgetrees mayclipsooppositeedgesrepeatcontinuously; patternflatorthographicworldmap no perspective. Transparentnegative gaps, no opaquegrassbase,no river,no coast,no mountains,no text,no atlasgrid. Repeattexture asallforestoverlay, notstandalonegroup withemptyborder. Match reference distinctivechevron/pointedcrowns.",
+      "referenceInputs": [
+        "C:/repos/AI-Remake-FF2/AssetWork/TerrainShopPassV1/ReferenceReview/crops/overworld-conifer-forest.png"
+      ],
+      "transparentBackground": true,
+      "selection": "Selected source for normalization and review"
+    }
+  ]
+}
