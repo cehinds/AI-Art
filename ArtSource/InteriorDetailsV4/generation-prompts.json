@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-31",
+  "method": "Built-in image_gen; five reference-guided initial generations, two targeted rug edits and one wall-bay correction",
+  "scope": "Assets only, no game integration",
+  "referenceRecords": "References/InteriorDetailsV4/Comparison/source-crops/source-crops.json",
+  "generations": [
+    {
+      "id": "hilda-wall",
+      "sourceFile": "exec-664df487-2225-4076-8bd5-e8380101e5f6.png",
+      "savedAs": "hilda-wall-master.png",
+      "prompt": "Create a refined reusable pixel-art interior wall component by reconstructing this FFII Pixel Remaster reference crop. Output ONLY the wall artwork edge-to-edge, tall rectangular 1:2 aspect, no labels, no surrounding scene. Very faithful structural proportions and subdued brown palette: upper 34 percent consists of deep near-black horizontal timber cavities with stacked dark walnut beams and small reddish-brown pixel highlights; middle 38 percent is one aged cream plaster panel with large irregular pale gold pixel clusters and a heavy dark reddish timber frame; bottom 28 percent is low dark recessed wood wainscot with one broad rectangular inset and partial narrow inset at left as in reference, black base shadow. Match reference chunky game pixels, angular steps, uneven highlights, flat front-facing orthographic view. No invented windows, doors, furniture or ornate carving. Do not replace dark ceiling stack with a thin decorative light trim. No smooth gradient, photorealism or vector-clean surfaces. Design must read at native64x128 pixels, though output can be a crisp enlarged master. Render all areas opaque. Original crop is reference to recreate, not to paste. Keep exact tall-panel silhouette and darker muted contrast.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/hilda-wall-uncovered-panel.png"
+      ],
+      "transparentBackground": false
+    },
+    {
+      "id": "scott-wall",
+      "sourceFile": "exec-c7f85a50-783c-44b6-949d-21e4fea43fb5.png",
+      "savedAs": "scott-wall-master.png",
+      "prompt": "Reconstruct the supplied FFII Pixel Remaster refuge wall strip as one refined game-ready pixel-art component. Output ONLY an opaque rectangular wall strip with2:1 width:height, edge-to-edge, no frame outside asset, no words or scene. Match source arrangement and proportions: chunky light warm-brown top timber caps across top12%; warm ivory flat plaster panels middle62%; dark vertical wooden slat wainscoting bottom26%, black base seam. Across width reproduce unequal bays from source: medium cream bay on left, notably narrow bay center-left, broad bay on right, dark reddish timber uprights separating them. Not an evenly repeated wall, no equal-width bays. Uprights have cream diagonal/specular pixel flecks; slats have irregular amber strokes on darkbrown. Reference palette: ivory, dusty tan, muted orange brown, deep dark brown outlines. Reduce blank plaster height vs prior tall wall; source strip is wide and squat. Crisp chunky nearest-neighbor pixel clusters appropriate for128x64 native, no finegrain, no gradients, no perspective, no objects, no text. Preserve all floor-facing edges fully opaque.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/scott-timber-cream-wall-panels.png"
+      ],
+      "transparentBackground": false
+    },
+    {
+      "id": "hilda-rug",
+      "sourceFile": "exec-f24062d5-cb36-4d94-98e5-93c126e824a1.png",
+      "savedAs": "hilda-rug-master.png",
+      "prompt": "Reconstruct a complete rectangular FFII Pixel Remaster Hilda audience carpet using this original TOP RIGHT CORNER crop as exact decorative reference. Transparent background, single rug seen from directly above, no perspective, no shadow, no furniture, no words. Full rug width:height=4:5; pixelart intended native128x160. Recreate dark crimson/ruby field with visibly chunky irregular mottled scarlet pixel clusters, not noisy finegrain. Border precisely resembles source: subdued ochre-gold outer line, thin dark-red separator, one main broad ochre band with TWO rows of staggered dark-crimson square/checker teeth and stepped inner triangular fringe. Use large readable square pixels and restrained gold instead of bright orange-yellow. Border total about9nativepixels; no extra nested ornate bands, no rosettes, floral shapes, tassels or filigree. Extend visible source top/right edging consistently around all four sides with clean square corner turns. Complete rug fills canvas with just a narrow transparent margin. Do not merely reproduce corner crop: infer full rectangular carpet with empty red center. Crisp old-school pixelart, no antialiasing.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/hilda-red-gold-rug-border.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "scott-rug",
+      "sourceFile": "exec-390362d7-d51c-473f-9033-d68ff5af2357.png",
+      "savedAs": "iterations/scott-rug-first-pass.png",
+      "prompt": "Create ONLY the complete blue/cream woven rug visible beneath furniture in this original FFII Pixel Remaster room screenshot. Transparent background; remove every bed, person, crate, table, bubble, wall. Full rug tall rectangle3:4 aspect intended96x128native. Use actual visible rug as motif reference; occluded sections continue the visible woven design, do not add a new decoration. Muted warm ivory dominant, dusty slateblue and grayblue pattern, thin dark navy border accents. Border is compact source-like nested stepped lines and small zigzag/triangle sequence. Center has staggered fine interlocking diagonal diamond lattice with small diamond-centered woven knots at crossings and sparse horizontal broken crossbars; cream negative space. NO heavy dark orthogonal square grid, NO large outlined circular flower/rosette medallions, no extra large central medallion. Pattern should be delicate uneven chunky game-pixel weave, not regular vectorgrid. Some diagonal diamond shapes form naturally via interlacing. Keep edge pattern stronger than interior; interiorblue line work subtle and open. Rectangular flat topdown crisppixelart, no perspective, no shadow, no gradients; rugfillscanvas withnarrowtransparentmargin.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/scott-blue-cream-rug-context.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "tobul-rug",
+      "sourceFile": "exec-7f9c7d77-f43d-43e9-b94e-35dee6a2990b.png",
+      "savedAs": "iterations/tobul-rug-first-pass.png",
+      "prompt": "Reconstruct a full wide rectangular woven rug from this original FFII Pixel Remaster cream/lilac rug detail. Isolate ONLY a complete rug on transparency, topdown straight orthographic, width:height5:3, intended160x96nativepixels. Faithfully match delicate fine muted mauve/lilac interlocking DIAGONAL diamond lattice across a pale warmcream dominant field, staggered offset diamonds with tiny pixel cross-knots inside. Use aboutfive diamonds across andthree staggered rows, thin brokenpixel strokes with plentycreamspace. Do NOT add darkorthogonalgrid, heavy rings, large rosettes, floral medallions or thick bold diamond outlines. Border fromsource: thin double purple inner keyline then cream strip containing small stepped lilac triangles/zigzags, lilac thin outer rails. Overall subdued lowcontrast, cream muchmoreabundantthanpurple. No extra orange, gold or saturatedpink. No longfringe/tassels; squarecleanedges. Rendercrisp native-scale pixelclusters, nofineblur orsmoothgradient. Extend provided corner/partialpattern tofullrug preserving same motifs. No scene,furniture,text,shadow. Verynarrowtransparentmargin.",
+      "referenceInputs": [
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/tobul-lilac-cream-rug-clear.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "scott-rug-final",
+      "sourceFile": "exec-5fed7e68-fe50-4a9c-b62a-177600ce62c7.png",
+      "savedAs": "scott-rug-master.png",
+      "prompt": "Edit image1 (new isolated rug) using image2 ORIGINAL GAME as the reference. Keep complete isolated rectangular rug, transparentbackground, sameorientation andoverallshape. Change ONLY pattern weight and colors to closely match reference's exposed textile. The current rug has far too much heavy darkteal/navy and too many solid horizontal gridbars. Replace all interior darkteal with soft gray-slateblue; erase the heavy horizontal straightgrid dividers entirely. Make the entire centerwoven outlines thin, broken, singlepixel-like threads around small nested diamonds, not thick octagonal badges. Add overlapping offset diagonal lattice toconnect diamonds, no distinct square compartments. Cream dominates75% ofcenter. Border reducebrightviolet to muted gray-lavender/slate andslightlythinneredging; outsideedge mayretain thin darknavyline. Texture sparsecoarsepixelclusters notsmoothvector. No additional rows of ornaments, no furniture. Do not copycharactersorbedfromreference; fillhiddenportion with continuation ofvisiblethinlattice. Native96x128gamepixelart readabilty; do not make enlarged chunky navyflowers. This is a fidelitycorrection, keepoverallrugfootprint.",
+      "referenceInputs": [
+        "C:/Users/const/.codex/generated_images/01a16f90-9a1d-7252-9043-55448912149e/exec-390362d7-d51c-473f-9033-d68ff5af2357.png",
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/scott-blue-cream-rug-context.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "tobul-rug-final",
+      "sourceFile": "exec-27733273-322b-4290-8c43-81451e702fd7.png",
+      "savedAs": "tobul-rug-master.png",
+      "prompt": "Edit image1 newfullrug to match finerwovenpattern inimage2 ORIGINAL GAME crop. Keep wideshaperectangle, transparentbackground, topdown, palettecream/mutedlilac andallborders. Currentinterior diamonds are too simple and bold. Replaceinterior with delicate overlapping double-diagonal diamond lattice: fine singlepixel-width graymauve threads, small nesteddiamondknots and tiny steppedcrosses, broken horizontal weaveflecks atintersections like original. Keepcreamdominant, thinnercontrast than currentdarkpurpleoutlines. No largerings, noheavybordergrowth, noextra colors, nofringe. Preserve roughly5diamondsacross3rows butweave themtogether withstaggered diagonalhalfdiamonds ratherthan separate geometricdiamonds. Original hasmorefinewoveninterlacing andlesssoliduniformoutlines. Crispoldschoolpixelart for160x96native, no blur or gradients. Do not justpaste thecrop; extend originalvisiblemotifacrossfullrug.",
+      "referenceInputs": [
+        "C:/Users/const/.codex/generated_images/01a16f90-9a1d-7252-9043-55448912149e/exec-7f9c7d77-f43d-43e9-b94e-35dee6a2990b.png",
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/tobul-lilac-cream-rug-clear.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "scott-wall-final",
+      "sourceFile": "exec-dddec95b-4569-4373-9a62-e3b84fe46bec.png",
+      "savedAs": "iterations/scott-wall-three-bay-rejected.png",
+      "prompt": "Edit the FIRST image (new pixel-art wall) to match the exact bay rhythm of the SECOND image (original FFII screenshot wall crop). There are too many cream panels now. Rebuild the whole opaque 2:1 rectangular strip with EXACTLY THREE PLASTER BAYS total, not six: medium-width cream bay on the LEFT (about26% of usable panel widths), NARROW cream bay in the MIDDLE (about20%), and widest cream bay on RIGHT (about54%). Three cream rectangles, four main vertical framing posts. No extra small panels, no slim cream slivers at edges, no ornamental extra dividers. Match reference cream height61%, top timber cap13%, bottom darkwoodverticalslats26%. Preserve current chunky pixel-art texture and ivory / warmbrown palette, but mute orange timber slightly toward dusty reddishbrown. Top has chunky segmentedcream/timber cap; bottom slats mayrepeat independentofbigbays. Main center cream fills clean anduniform. Wholecomponent exactly2:1wide rectangular edge-to-edge opaque, intended128x64native. No furniture,text,floor,perspective. Main goal is precisely THREE UNEQUAL bays as original, with broadrightbay. Keepcountersandotherassetsabsent.",
+      "referenceInputs": [
+        "C:/Users/const/.codex/generated_images/01a16f90-9a1d-7252-9043-55448912149e/exec-c7f85a50-783c-44b6-949d-21e4fea43fb5.png",
+        "C:/repos/AI-Art-FF2/References/InteriorDetailsV3/Comparison/source-crops/scott-timber-cream-wall-panels.png"
+      ],
+      "transparentBackground": false,
+      "selection": "Rejected after enlarged reference inspection showed narrow plaster inserts between the three main bays; original V4 generation preserves those real details better."
+    }
+  ],
+  "preservedDuplicates": [
+    {
+      "file": "iterations/scott-wall-first-pass.png",
+      "sameAs": "scott-wall-master.png",
+      "reason": "Preserved during iteration; the first pass was selected again after final side-by-side review."
+    }
+  ]
+}
