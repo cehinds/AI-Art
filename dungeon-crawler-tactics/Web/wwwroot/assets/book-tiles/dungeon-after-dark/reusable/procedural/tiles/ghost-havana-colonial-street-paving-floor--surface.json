@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-havana-colonial-street-paving-floor--surface",
+  "name": "Colonial Street Paving floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ghost-havana",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/ghost-havana-colonial-street-paving-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "b0debe1922213a1057954a9300c62318866693bd4b4c0758d8d4a7b8187ab484",
+    "rgba_sha256": "4288bbc2aa2d46cc2a521d5a6838731047e36cca238c949f856029a71cbdcefc"
+  },
+  "metadata_path": "reusable/procedural/tiles/ghost-havana-colonial-street-paving-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "ghost-havana-colonial-street-paving-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "ghost-havana/components/ghost-havana-colonial-street-paving-floor.png",
+    "source_sha256": "4bbd8d4d38c241c52e5e8ba1ee629b31348f3d6219dbdc44926d1cc3979d7dde",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "east": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "south": [
+      "join.floor",
+      "visual.ghost-havana"
+    ],
+    "west": [
+      "join.floor",
+      "visual.ghost-havana"
+    ]
+  },
+  "canonical_asset_id": "ghost-havana-colonial-street-paving-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "ghost-havana-colonial-street-paving-floor"
+  }
+}

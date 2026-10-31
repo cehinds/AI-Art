@@ -1,0 +1,163 @@
+{
+  "id": "surface-entry-apartment-window-wall.front",
+  "name": "Apartment window wall front",
+  "kind": "sprite",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "front",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface-entry",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/views-additional/surface-entry-apartment-window-wall.front.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "36e241da18c879b86625a9848a1aba3e8a027b2f24cac493842c9837d1c53937",
+    "rgba_sha256": "535a6aef4d05fc110e904a6dc3f405922a9ff24e2bfad1c044087cfc5b2a45fa"
+  },
+  "object_id": "surface-entry-apartment-window-wall",
+  "view": "front",
+  "metadata_path": "reusable/views-additional/surface-entry-apartment-window-wall.front.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "individual principal-view image; grouped in this object view_set"
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "surface-entry/components/surface-entry-apartment-window-wall.png",
+    "generated_atlas": "reusable/views-additional/raw/atlases/surface-entry-batch-03.png",
+    "generated_atlas_sha256": "3b80934b325b778a0f856209225282da780b1036fa71c72c80e00be05b47a23e",
+    "reference_sheet": "reusable/views-additional/raw/source-refs/surface-entry-batch-03.png",
+    "prompt_file": "reusable/views-additional/raw/prompts/surface-entry-batch-03.txt",
+    "normalization": {
+      "alpha_threshold": 245,
+      "minimum_component_area": 4,
+      "component_policy": "group opaque connected components by nearest logical row/column center; preserve full bounds",
+      "component_group": [
+        {
+          "label": 57,
+          "area": 18163,
+          "centroid": [
+            117.52364697461873,
+            921.1136926719155
+          ],
+          "bbox": [
+            44,
+            857,
+            192,
+            986
+          ]
+        },
+        {
+          "label": 77,
+          "area": 7,
+          "centroid": [
+            89.0,
+            1044.0
+          ],
+          "bbox": [
+            89,
+            1041,
+            90,
+            1048
+          ]
+        }
+      ],
+      "shared_scale": 1.1518324607329844,
+      "source_crop_size": [
+        148,
+        191
+      ],
+      "render_size": [
+        170,
+        220
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations.",
+    "cleanup": {
+      "method": "retain-largest-connected-alpha-component-at-threshold-245",
+      "input_before": "reusable/views-additional/raw/targeted-cleanups/surface-entry-apartment-window-wall.front.before.png",
+      "input_sha256": "0469676086f30fb7dea55a9b14342de5025f7ba736189d8759e20299ec1bcae3",
+      "output_sha256": "36e241da18c879b86625a9848a1aba3e8a027b2f24cac493842c9837d1c53937",
+      "remove_bbox": null,
+      "removed_components": [
+        {
+          "pixels": 8,
+          "bbox": [
+            95,
+            240,
+            96,
+            248
+          ]
+        }
+      ]
+    }
+  },
+  "geometry_qa": "cleared",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-apartment-window-wall"
+  }
+}

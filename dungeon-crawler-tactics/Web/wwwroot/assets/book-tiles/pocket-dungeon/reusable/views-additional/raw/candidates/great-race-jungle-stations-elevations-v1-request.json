@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "batch_id": "pocket-elevations-great-race-jungle-stations-v1",
+  "status": "imagegen-output-captured",
+  "objects": [
+    "great-race-transition-fractured-maze-slab",
+    "hunting-jungle-bugbear-timber-shelter",
+    "iron-stations-platform-edge-segment"
+  ],
+  "requested_views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "atlas_layout": {
+    "columns": [
+      "front",
+      "top",
+      "right",
+      "left",
+      "bottom",
+      "rear"
+    ],
+    "rows": [
+      "great-race-transition-fractured-maze-slab",
+      "hunting-jungle-bugbear-timber-shelter",
+      "iron-stations-platform-edge-segment"
+    ],
+    "cells": 18
+  },
+  "reference_contact": "/tmp/pocket-elevation-batch-contact.png",
+  "prompt": "Create a transparent-background pixel-art atlas in the SAME Pocket Dungeon style, palette, outline weight, and cluster scale as the attached labeled source-plus-six contact sheet. It has exactly 6 columns in this order: FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR; exactly 3 rows in this order: (1) great-race fractured-maze ground slab, (2) jungle bugbear timber shelter, (3) iron-stations platform edge segment. Every cell contains one complete isolated view of the same physical source object in that row, centered with generous transparent margins. Strict axis-aligned orthographic projection, camera aligned exactly to world axes, no isometric/perspective/foreshortening, no rotation of the object between views, no shadows or labels, no neighboring-cell bleed.\n\nFor all rows, FRONT and REAR are views along the same horizontal axis from opposite directions; RIGHT and LEFT are views along the perpendicular horizontal axis from opposite directions; TOP looks straight down (+Z); BOTTOM looks straight up from below (-Z). All horizontal projections must show only the appropriate silhouette, cap, or underside; do not show the broad TOP surface in FRONT/REAR/RIGHT/LEFT.\n\nRow 1: the source is a low horizontal rubble/stone slab with scattered cyan crystal-like stone chunks. Keep that identity and scattered arrangement. TOP/BOTTOM may show the corresponding plan. FRONT/RIGHT/LEFT/REAR are low horizontal stone side profiles across the full width with plausible slab depth and small rubble silhouettes; never place the full top map plane upright, never make tall piles or isolated vertical columns.\n\nRow 2: the source is a small upright log-and-timber shelter with a red canopy/roof, spiked log corners, two barrels, and a front doorway. Preserve exactly this shelter identity and its attached props. Make FRONT a straight-on facade with the doorway and canopy edge, REAR the opposite straight-on timber wall under the same roof, RIGHT and LEFT the straight side walls at the same physical height, TOP the roof plan, BOTTOM the plausible ground/support footprint. No diagonal corner views, no two facade planes visible together, no invented windows or extra barrels.\n\nRow 3: the source is a horizontal railway platform edge segment with gray stone deck, bright yellow tactile strip and dark metal/wood support. Keep the same material and source pattern. FRONT/REAR show a low horizontal slab edge; RIGHT/LEFT show low horizontal perpendicular edge profiles, not tall posts or broad upright panels. TOP is the deck plan, BOTTOM the physical underside with supports. Keep the tactile surface on TOP and occluded from below, with consistent slab thickness and footprint.\n\nMaintain coherent proportions and repeated details across each row; draw only inferred unseen surfaces conservatively from the supplied source and current views.",
+  "reference_contact_sha256": "aed4161fba7bc73d2850d058598d565af2c185116c942b433801eff3462ab000",
+  "output_path": "/workspace/generated_images/exec-b7e397df-877b-4507-956f-2c996a768d54.png",
+  "output_sha256": "798112a55baa1c40f15c3220522b590e732c89b50a9ea49a5e8a9fcb78498b92",
+  "raw_atlas_path": "raw/candidates/great-race-jungle-stations-elevations-v1-raw-atlas.png",
+  "raw_atlas_sha256": "798112a55baa1c40f15c3220522b590e732c89b50a9ea49a5e8a9fcb78498b92",
+  "raw_dimensions": [
+    1915,
+    821
+  ]
+}

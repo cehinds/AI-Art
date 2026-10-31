@@ -1,0 +1,863 @@
+{
+  "batch": "faction-corners-batch01",
+  "tool": "image_gen.imagegen",
+  "tool_request_id": null,
+  "generated_path": "/workspace/generated_images/exec-72285e6c-93f7-43ab-b43c-9f56e9efa631.png",
+  "staged_raw_path": "raw/faction-corners-batch01-atlas.png",
+  "raw_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+  "raw_dimensions": [
+    1774,
+    887
+  ],
+  "prompt_path": "../prompts/faction-corners-batch01.prompt.json",
+  "prompt_text": "Use reference 1 only as simple silhouette/camera diagram; reference 2 is a verified approved same-kit geometry/view guide; reference 3 is the exact target source contact and controls all materials, fortification design and identity. Generate one transparent pixel-art atlas with TWO rows (outer corner first, inner corner second) and FOUR equal cells per row, columns FRONT, RIGHT, LEFT, REAR. These four are true level 90-degree elevations with vertical axis world Z, and all four show a broad rectangular joined wall face at the same total height; no isometric corners, no L silhouette, no standalone narrow post, no visible top surface. The physical object is a compact L-footprint corner of two perpendicular joined fortification wings. From each camera, show the face-on branch as a broad rectangular elevation and only the physically visible narrow end of the perpendicular branch; maintain consistent dimensions and corner orientation across opposite directions. Preserve target source identity: earth-toned field walls, timber braces, sandbag or plank supports, capstones and any red banner exactly as each row source supports. Do not duplicate, drop or move distinctive hardware. Hidden faces are conservative inferences. No extra props, no text, no shadows beyond the sprite, no cell spill. Crisp orthographic pixel art, transparent background.",
+  "input_refs": [
+    {
+      "path": "references/common-corner-silhouette-guide.png",
+      "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+    },
+    {
+      "path": "references/faction-approved-guides.png",
+      "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+    },
+    {
+      "path": "references/faction-corner-sources.png",
+      "sha256": "9c10f27c09a25d4a8070c3661304ee9c6acee92dfe438428382ce413ee1ce7a0"
+    }
+  ],
+  "layout": "4 columns x 2 rows; outer then inner; columns front,right,left,rear",
+  "component_policy": "full-atlas alpha threshold >=64/255, 4-connected components; assign by centroid to each logical cell, keep largest component by pixel area, use complete global component bounds even if crossing cell boundary",
+  "qa": "Visually reviewed raw atlas. All four cells show broad wall elevations rather than single posts or L elevations. Main world-Z height is consistent within object; source-specific banners/braces remain. Candidate pending Page current-hash review.",
+  "objects": [
+    {
+      "object_id": "faction-battlefield-reinforced-field-fortification-outer-corner",
+      "affected_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ],
+      "preserve_views": [
+        "top",
+        "bottom"
+      ],
+      "source": {
+        "path": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-outer-corner.png",
+        "sha256": "1153af9280e102cf53883239ea80ec97bb89616c7b5477907456ecbe5ebae5cf"
+      },
+      "base_current_six": {
+        "front": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.front.png",
+          "sha256": "570238e8b69d28137e7a3ec25967c827fb01db5c9477e05f13881f91d2fa44d0"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.top.png",
+          "sha256": "111d6b5e8796cc93e8648c751b76b236e695c9f633303063b5e0a5af9bee3a87"
+        },
+        "right": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.right.png",
+          "sha256": "6fcce15d6d50d177a48f958d548c3b32fd1d9eba42aced9cbd69ff5ba56b5058"
+        },
+        "left": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.left.png",
+          "sha256": "ad87a51668309094f7a67d48502053fb0bc8ebc0717121aab09a5ea5a07c5218"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.bottom.png",
+          "sha256": "466a38bdaebbf7d130d1f46dec97e52f08394a423d4ad33eea70ece07037aaf5"
+        },
+        "rear": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.rear.png",
+          "sha256": "92c72afe0ae4efa66b18e4bc839c234a5e44c2acc63912f5f26de825b469af74"
+        }
+      },
+      "candidate_views": {
+        "front": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.front",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.front.png",
+          "sha256": "fe27ee2acfb36456f18342216b2180055466aa3eff9e6c9e943e2778a9b0ff41"
+        },
+        "right": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.right",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.right.png",
+          "sha256": "62748cc50dbaff8c0f31e87a56e03ae14849ccd8a6d0fef6dce8adf0cf0bae29"
+        },
+        "left": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.left",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.left.png",
+          "sha256": "e3e5bd317b47af688e049478ff4aad615cec09e642a00775ec79d903cdec0b31"
+        },
+        "rear": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.rear",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.rear.png",
+          "sha256": "2718ac33bd8d46f7a66fee93f4830800972b29e5284dd0f02eb69a158120c811"
+        }
+      },
+      "full_candidate_contact_views": {
+        "front": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.front",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.front.png",
+          "sha256": "fe27ee2acfb36456f18342216b2180055466aa3eff9e6c9e943e2778a9b0ff41"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.top.png",
+          "sha256": "111d6b5e8796cc93e8648c751b76b236e695c9f633303063b5e0a5af9bee3a87",
+          "source": "preserved current base"
+        },
+        "right": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.right",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.right.png",
+          "sha256": "62748cc50dbaff8c0f31e87a56e03ae14849ccd8a6d0fef6dce8adf0cf0bae29"
+        },
+        "left": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.left",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.left.png",
+          "sha256": "e3e5bd317b47af688e049478ff4aad615cec09e642a00775ec79d903cdec0b31"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-outer-corner.bottom.png",
+          "sha256": "466a38bdaebbf7d130d1f46dec97e52f08394a423d4ad33eea70ece07037aaf5",
+          "source": "preserved current base"
+        },
+        "rear": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.rear",
+          "path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.rear.png",
+          "sha256": "2718ac33bd8d46f7a66fee93f4830800972b29e5284dd0f02eb69a158120c811"
+        }
+      },
+      "status": "candidate-only-pending-Page-review",
+      "shared_isotropic_scale": 0.577375921790851,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "cell_qa": {
+        "front": {
+          "component_label": 5,
+          "area_pixels": 88698,
+          "bbox_global_xyxy": [
+            47,
+            516,
+            405,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "right": {
+          "component_label": 6,
+          "area_pixels": 88505,
+          "bbox_global_xyxy": [
+            493,
+            516,
+            849,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "left": {
+          "component_label": 7,
+          "area_pixels": 88437,
+          "bbox_global_xyxy": [
+            926,
+            516,
+            1282,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "rear": {
+          "component_label": 8,
+          "area_pixels": 88851,
+          "bbox_global_xyxy": [
+            1369,
+            516,
+            1727,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        }
+      }
+    },
+    {
+      "object_id": "faction-battlefield-reinforced-field-fortification-inner-corner",
+      "affected_views": [
+        "front",
+        "right",
+        "left",
+        "rear"
+      ],
+      "preserve_views": [
+        "top",
+        "bottom"
+      ],
+      "source": {
+        "path": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-inner-corner.png",
+        "sha256": "b197952c88f038ac7a4b3b11f2e9680296321ca3bc8028c41b8ebd7ebbfe349a"
+      },
+      "base_current_six": {
+        "front": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.front.png",
+          "sha256": "df8a556eb8f4662f4d0f480b1cc2ecce6b9bef5b4db6c0cd2d0905771b06ed4a"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.top.png",
+          "sha256": "5492bfaab68a0be65638f16bbfac2e4993369100cbd592581aa2a1b79b988b46"
+        },
+        "right": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.right.png",
+          "sha256": "ecc6e0309f414e07595a1ee6ee414eabb764352c3a8c1d31662788e35d3f452d"
+        },
+        "left": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.left.png",
+          "sha256": "045ac746be9622a2f6fea08a9718a0db9c5a0a0418f97552c979c79e6e776c29"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.bottom.png",
+          "sha256": "40d7d9fab531f40fd5373e64cfdd63e0c5b6ebd734c4ee72df3943c4870ffcce"
+        },
+        "rear": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.rear.png",
+          "sha256": "3ceb6831ae86c733a7f0e76396299e1329d9724b9805301bfe4892e3b03b2e0a"
+        }
+      },
+      "candidate_views": {
+        "front": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.front",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.front.png",
+          "sha256": "07d8ba0536a08e71c89b8833fb2bb3e9d5cab133ca9cd3238263da1fa6821bc0"
+        },
+        "right": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.right",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.right.png",
+          "sha256": "793027990558cb74aa69b55957d931f9be3cb0b4dd33d348f5d476deb7547789"
+        },
+        "left": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.left",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.left.png",
+          "sha256": "c6c38f9ec8b9b198bc12caf57153f6957b3862844145e23c2deecdbcfed3dd72"
+        },
+        "rear": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.rear",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.rear.png",
+          "sha256": "7a76d6faa26758e13daf987f1148ad2747ed795a99455b7353f999c87ce6d5a3"
+        }
+      },
+      "full_candidate_contact_views": {
+        "front": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.front",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.front.png",
+          "sha256": "07d8ba0536a08e71c89b8833fb2bb3e9d5cab133ca9cd3238263da1fa6821bc0"
+        },
+        "top": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.top.png",
+          "sha256": "5492bfaab68a0be65638f16bbfac2e4993369100cbd592581aa2a1b79b988b46",
+          "source": "preserved current base"
+        },
+        "right": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.right",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.right.png",
+          "sha256": "793027990558cb74aa69b55957d931f9be3cb0b4dd33d348f5d476deb7547789"
+        },
+        "left": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.left",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.left.png",
+          "sha256": "c6c38f9ec8b9b198bc12caf57153f6957b3862844145e23c2deecdbcfed3dd72"
+        },
+        "bottom": {
+          "path": "reusable/views-additional/images/faction-battlefield-reinforced-field-fortification-inner-corner.bottom.png",
+          "sha256": "40d7d9fab531f40fd5373e64cfdd63e0c5b6ebd734c4ee72df3943c4870ffcce",
+          "source": "preserved current base"
+        },
+        "rear": {
+          "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.rear",
+          "path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.rear.png",
+          "sha256": "7a76d6faa26758e13daf987f1148ad2747ed795a99455b7353f999c87ce6d5a3"
+        }
+      },
+      "status": "candidate-only-pending-Page-review",
+      "shared_isotropic_scale": 0.5773988585775895,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "cell_qa": {
+        "front": {
+          "component_label": 5,
+          "area_pixels": 88698,
+          "bbox_global_xyxy": [
+            47,
+            516,
+            405,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "right": {
+          "component_label": 6,
+          "area_pixels": 88505,
+          "bbox_global_xyxy": [
+            493,
+            516,
+            849,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "left": {
+          "component_label": 7,
+          "area_pixels": 88437,
+          "bbox_global_xyxy": [
+            926,
+            516,
+            1282,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "rear": {
+          "component_label": 8,
+          "area_pixels": 88851,
+          "bbox_global_xyxy": [
+            1369,
+            516,
+            1727,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.front",
+      "object_id": "faction-battlefield-reinforced-field-fortification-outer-corner",
+      "view": "front",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.front.png",
+      "sha256": "fe27ee2acfb36456f18342216b2180055466aa3eff9e6c9e943e2778a9b0ff41",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-outer-corner.png",
+        "source_sha256": "1153af9280e102cf53883239ea80ec97bb89616c7b5477907456ecbe5ebae5cf",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 1,
+          "area_pixels": 73826,
+          "bbox_global_xyxy": [
+            41,
+            103,
+            403,
+            382
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.577375921790851,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          165.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          23,
+          47
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.right",
+      "object_id": "faction-battlefield-reinforced-field-fortification-outer-corner",
+      "view": "right",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.right.png",
+      "sha256": "62748cc50dbaff8c0f31e87a56e03ae14849ccd8a6d0fef6dce8adf0cf0bae29",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-outer-corner.png",
+        "source_sha256": "1153af9280e102cf53883239ea80ec97bb89616c7b5477907456ecbe5ebae5cf",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 4,
+          "area_pixels": 72126,
+          "bbox_global_xyxy": [
+            491,
+            104,
+            856,
+            372
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            0,
+            886,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.577375921790851,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          165.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          22,
+          50
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.left",
+      "object_id": "faction-battlefield-reinforced-field-fortification-outer-corner",
+      "view": "left",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.left.png",
+      "sha256": "e3e5bd317b47af688e049478ff4aad615cec09e642a00775ec79d903cdec0b31",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-outer-corner.png",
+        "source_sha256": "1153af9280e102cf53883239ea80ec97bb89616c7b5477907456ecbe5ebae5cf",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 2,
+          "area_pixels": 71927,
+          "bbox_global_xyxy": [
+            918,
+            103,
+            1282,
+            372
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            0,
+            1329,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.577375921790851,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          165.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          23,
+          50
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-outer-corner.rear",
+      "object_id": "faction-battlefield-reinforced-field-fortification-outer-corner",
+      "view": "rear",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-outer-corner.rear.png",
+      "sha256": "2718ac33bd8d46f7a66fee93f4830800972b29e5284dd0f02eb69a158120c811",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-outer-corner.png",
+        "source_sha256": "1153af9280e102cf53883239ea80ec97bb89616c7b5477907456ecbe5ebae5cf",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 3,
+          "area_pixels": 74195,
+          "bbox_global_xyxy": [
+            1369,
+            103,
+            1733,
+            382
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            0,
+            1772,
+            443
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.577375921790851,
+        "target_source_front_rear_extent_mean_px": [
+          204.0,
+          165.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          23,
+          47
+        ]
+      },
+      "row_object_id": "faction-battlefield-reinforced-field-fortification-outer-corner"
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.front",
+      "object_id": "faction-battlefield-reinforced-field-fortification-inner-corner",
+      "view": "front",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.front.png",
+      "sha256": "07d8ba0536a08e71c89b8833fb2bb3e9d5cab133ca9cd3238263da1fa6821bc0",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-inner-corner.png",
+        "source_sha256": "b197952c88f038ac7a4b3b11f2e9680296321ca3bc8028c41b8ebd7ebbfe349a",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 5,
+          "area_pixels": 88698,
+          "bbox_global_xyxy": [
+            47,
+            516,
+            405,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            0,
+            443,
+            443,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5773988585775895,
+        "target_source_front_rear_extent_mean_px": [
+          203.0,
+          180.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          24,
+          39
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.right",
+      "object_id": "faction-battlefield-reinforced-field-fortification-inner-corner",
+      "view": "right",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.right.png",
+      "sha256": "793027990558cb74aa69b55957d931f9be3cb0b4dd33d348f5d476deb7547789",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-inner-corner.png",
+        "source_sha256": "b197952c88f038ac7a4b3b11f2e9680296321ca3bc8028c41b8ebd7ebbfe349a",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 6,
+          "area_pixels": 88505,
+          "bbox_global_xyxy": [
+            493,
+            516,
+            849,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            443,
+            443,
+            886,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5773988585775895,
+        "target_source_front_rear_extent_mean_px": [
+          203.0,
+          180.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          25,
+          39
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.left",
+      "object_id": "faction-battlefield-reinforced-field-fortification-inner-corner",
+      "view": "left",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.left.png",
+      "sha256": "c6c38f9ec8b9b198bc12caf57153f6957b3862844145e23c2deecdbcfed3dd72",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-inner-corner.png",
+        "source_sha256": "b197952c88f038ac7a4b3b11f2e9680296321ca3bc8028c41b8ebd7ebbfe349a",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 7,
+          "area_pixels": 88437,
+          "bbox_global_xyxy": [
+            926,
+            516,
+            1282,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            886,
+            443,
+            1329,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5773988585775895,
+        "target_source_front_rear_extent_mean_px": [
+          203.0,
+          180.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          25,
+          39
+        ]
+      }
+    },
+    {
+      "asset_id": "faction-battlefield-reinforced-field-fortification-inner-corner.rear",
+      "object_id": "faction-battlefield-reinforced-field-fortification-inner-corner",
+      "view": "rear",
+      "candidate_path": "images/faction-battlefield-reinforced-field-fortification-inner-corner.rear.png",
+      "sha256": "7a76d6faa26758e13daf987f1148ad2747ed795a99455b7353f999c87ce6d5a3",
+      "width": 256,
+      "height": 256,
+      "anchor_px": [
+        128,
+        128
+      ],
+      "provenance": {
+        "method": "generated",
+        "source_image": "faction-battlefield/components/faction-battlefield-reinforced-field-fortification-inner-corner.png",
+        "source_sha256": "b197952c88f038ac7a4b3b11f2e9680296321ca3bc8028c41b8ebd7ebbfe349a",
+        "generated_atlas_path": "raw/faction-corners-batch01-atlas.png",
+        "generated_atlas_sha256": "e7999aed80b2e90a28180388067728a0bd10b84f7fed417c95fee8691be42882",
+        "geometry_guides": [
+          {
+            "path": "references/common-corner-silhouette-guide.png",
+            "sha256": "6cc689eb80ee10f06f6ebf26d663c5ac3fc46a6e4f5ca28243c59facbeeab63a"
+          },
+          {
+            "path": "references/faction-approved-guides.png",
+            "sha256": "bc814bb341797c569f42ebd56c37e312fbf65cef4205e459a0c12bacfc0d4a82"
+          }
+        ],
+        "notes": "Hidden surfaces inferred; not recovered source pixels."
+      },
+      "normalization": {
+        "raw_component": {
+          "component_label": 8,
+          "area_pixels": 88851,
+          "bbox_global_xyxy": [
+            1369,
+            516,
+            1727,
+            823
+          ],
+          "nominal_cell_xyxy": [
+            1329,
+            443,
+            1772,
+            886
+          ],
+          "crosses_cell": false
+        },
+        "shared_isotropic_scale": 0.5773988585775895,
+        "target_source_front_rear_extent_mean_px": [
+          203.0,
+          180.5
+        ],
+        "resampling": "NEAREST",
+        "offset_px": [
+          24,
+          39
+        ]
+      },
+      "row_object_id": "faction-battlefield-reinforced-field-fortification-inner-corner"
+    }
+  ]
+}

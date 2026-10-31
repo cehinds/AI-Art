@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "object_id": "iron-trains-passenger-bench",
+  "view": "top",
+  "status": "rejected-candidate",
+  "prompt": "Create one true TOP orthographic plan of the exact Iron Trains passenger bench from the first reference. Use the second reference only for a top-down bench shape guide: narrow seat depth, long bench axis, three seat regions, and thin backrest edge. Preserve the target's dark iron end rails and worn reddish-brown wood (no red upholstery, no yellow trim). Directly overhead camera, not a front/elevated view. Show the seating surface as a shallow rectangle with three horizontal plank sections; put the three broad upright backrest boards edge-on as a narrow strip along only one long edge. Iron arm/leg structures appear as thin side footprints at the two ends. Never show the broad face of the backrest, a tall wall, or a side profile. Match source support count and spacing. Transparent background, centered full shape on a 256x256 canvas. Inferred orthographic view; not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/qa-iron-trains-passenger-bench-current-source-six-pre-repair.png",
+      "sha256": "440abb16b6a8f669eb63519dff6355947a3e83c6e40c38dcec11d5cd150c7e00",
+      "role": "canonical target source identity/material and current view context"
+    },
+    {
+      "path": "../pocket-dungeon/reusable/views-additional/iron-trains-passenger-bench.top.png",
+      "sha256": "5c4a66c82d78d994994be0483483ce3df0bb121a4eded23d22f800dafa20fe9c",
+      "role": "independently approved same-object top-down shape guide only; do not copy its material/style"
+    }
+  ],
+  "geometry_constraints": [
+    "top-down seat surface",
+    "shallow plan ratio",
+    "backrest edge-on only",
+    "iron structure thin side footprints",
+    "no red upholstery/yellow trim"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/iron-trains-passenger-bench-top-v3-atlas.png",
+  "generated_atlas_sha256": "d97aa119850183982f2265ee4fc9352e7061518e1d256f573171727e0d2a82e7",
+  "generation_call_id": "exec-a5061918-a10c-4298-b67a-0e9f2562b0ef",
+  "rejection_reason": "geometry guide did not prevent the generated atlas from presenting broad backrest boards"
+}

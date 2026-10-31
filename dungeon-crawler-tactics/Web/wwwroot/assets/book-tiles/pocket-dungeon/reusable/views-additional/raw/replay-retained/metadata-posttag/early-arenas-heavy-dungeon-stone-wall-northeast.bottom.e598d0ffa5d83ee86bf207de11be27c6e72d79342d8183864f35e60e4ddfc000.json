@@ -1,0 +1,150 @@
+{
+  "id": "early-arenas-heavy-dungeon-stone-wall-northeast.bottom",
+  "name": "Heavy Dungeon Stone west wall bottom",
+  "kind": "sprite",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bottom",
+    "early-arenas",
+    "environment:dungeon",
+    "inferred-view",
+    "material:stone",
+    "orthographic",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/views-additional/early-arenas-heavy-dungeon-stone-wall-northeast.bottom.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "09ebb5707fbcfe23a5072d0f502d80d74cd8668dd1c340cdbb46b0a1193d0b65",
+    "rgba_sha256": "cf2884e0ec7c696531f9456b13e92bb092db3ed7e5fa20488a74c1447cd3c09c"
+  },
+  "object_id": "early-arenas-heavy-dungeon-stone-wall-northeast",
+  "view": "bottom",
+  "metadata_path": "reusable/views-additional/early-arenas-heavy-dungeon-stone-wall-northeast.bottom.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "individual principal-view image; grouped in this object view_set"
+  },
+  "provenance": {
+    "method": "inferred-family-view-donor",
+    "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-wall-northeast.png",
+    "source_sha256": "40272674fe22b6d7237153f5bcb0d6189e8ab81263af1378fe8213fcc2020550",
+    "family_donor_object_id": "early-arenas-heavy-dungeon-stone-wall-northwest",
+    "family_donor_view": "bottom",
+    "derivation_input": {
+      "image_path": "early-arenas-heavy-dungeon-stone-wall-northwest.bottom.png",
+      "image_sha256": "62ffec10a3791d41a2d7cb7a2c2fb39534a725a560400a591957d697bf3070be",
+      "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-wall-northwest.png",
+      "source_sha256": "945054ccaba62d4cdf78c7ea5b2634e8195b2e5f7c4c153a59becb80bf617a49"
+    },
+    "transform": "rotate-90-ccw",
+    "candidate_path": "raw/candidates/wall-ne-orientations-v1/early-arenas-heavy-dungeon-stone-wall-northeast.bottom.candidate.png",
+    "candidate_sha256": "09ebb5707fbcfe23a5072d0f502d80d74cd8668dd1c340cdbb46b0a1193d0b65",
+    "notes": "Same style, canonical source images and material/detail identity match per NW/NE contact. North-wall (NW) plan axis extends X; west-wall (NE) plan axis extends Y. Remap orthographic elevation directions; rotate XY plans 90 degrees CCW to align long axis and target front/side orientation. Target source binding remains canonical NE source; donor source, view hashes and transformations are recorded per target leaf. Independent root scoped acceptance is recorded for early-arenas-heavy-dungeon-stone-wall-northeast.bottom; install exact staged bytes."
+  },
+  "geometry_qa": "pending-review",
+  "provenance_history": [
+    {
+      "method": "generated",
+      "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-wall-northeast.png",
+      "generated_atlas": "reusable/views-additional/raw/atlases/early-arenas-batch-02.png",
+      "generated_atlas_sha256": "5dfb9866152c6c6cc41689504d55da643a26c38a0fa09db8ac42ea62cb57abcf",
+      "reference_sheet": "reusable/views-additional/raw/source-refs/early-arenas-batch-02.png",
+      "prompt_file": "reusable/views-additional/raw/prompts/early-arenas-batch-02.txt",
+      "normalization": {
+        "alpha_threshold": 245,
+        "minimum_component_area": 4,
+        "component_policy": "group opaque connected components by nearest logical row/column center; preserve full bounds",
+        "component_group": [
+          {
+            "label": 20,
+            "area": 2859,
+            "centroid": [
+              945.7572577824415,
+              335.14760405736274
+            ],
+            "bbox": [
+              918,
+              309,
+              975,
+              362
+            ]
+          }
+        ],
+        "shared_scale": 1.375,
+        "source_crop_size": [
+          57,
+          53
+        ],
+        "render_size": [
+          78,
+          73
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "resampling": "NEAREST",
+        "anchor_px": [
+          128,
+          248
+        ]
+      },
+      "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
+    }
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:dungeon",
+    "material:stone",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "early-arenas-heavy-dungeon-stone-wall-northeast"
+  }
+}

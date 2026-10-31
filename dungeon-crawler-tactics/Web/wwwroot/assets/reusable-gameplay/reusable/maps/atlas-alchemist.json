@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-alchemist",
+  "label": "Alchemist source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/alchemist.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "85aee5d090b0a49f30c3471d57f00e6ecdaae122db226a5db137cb81fac681dd",
+    "rgba_sha256": "ed584058225477a833caccfda34f6897037a2d236c2fe571d5fd2f35b18c1bab"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--alchemist",
+      "path": "reusable/native/legacy--alchemist.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "ed584058225477a833caccfda34f6897037a2d236c2fe571d5fd2f35b18c1bab",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 7152,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 7152,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

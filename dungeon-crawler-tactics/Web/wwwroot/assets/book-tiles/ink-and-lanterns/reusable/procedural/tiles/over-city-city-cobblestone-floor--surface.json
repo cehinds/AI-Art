@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "over-city-city-cobblestone-floor--surface",
+  "name": "City Cobblestone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:city",
+    "ground",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "over-city",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/over-city-city-cobblestone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "55e6b286131958e552a9c5f0dc15d1805a4436d810426ebc5d8972f167453610",
+    "rgba_sha256": "69c9c337a08e6d30a9ec5612f609c64f103401d803a864002a204c1147e6e7f1"
+  },
+  "metadata_path": "reusable/procedural/tiles/over-city-city-cobblestone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "over-city-city-cobblestone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "over-city/components/over-city-city-cobblestone-floor.png",
+    "source_sha256": "1333c05e70b423be0f5a608b49ed7564216befb4621c3f2a2c3440c2cce094b0",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "east": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "south": [
+      "join.floor",
+      "visual.over-city"
+    ],
+    "west": [
+      "join.floor",
+      "visual.over-city"
+    ]
+  },
+  "canonical_asset_id": "over-city-city-cobblestone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:city",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "over-city-city-cobblestone-floor"
+  }
+}

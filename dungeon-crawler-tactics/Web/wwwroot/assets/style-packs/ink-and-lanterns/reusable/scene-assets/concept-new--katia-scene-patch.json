@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-new--katia-scene-patch",
+  "name": "Katia Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "katia-scene-patch",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:ink-and-lanterns"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-new--katia-scene-patch.png",
+    "width": 113,
+    "height": 123,
+    "sha256": "8d9b3da45ec26d7a12cf8e2bc24914300927061e5ba729ca757a6d3db4bec596",
+    "rgba_sha256": "894981b32d72c9cefb00f8d01d0e38f6337ed8c5a7112289a67dcf7a175a8e96"
+  },
+  "metadata_path": "reusable/scene-assets/concept-new--katia-scene-patch.json",
+  "anchor_px": [
+    56.5,
+    123
+  ],
+  "view": "source",
+  "object_id": "katia",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/new.png",
+    "source_sha256": "7da18c17f6d06594b72d84fe4d2103dce06c7d7949f8addc0bd26c5d5cbbac7e",
+    "source_rect": [
+      948,
+      327,
+      113,
+      123
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "katia.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "katia.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "katia.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "katia.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "katia.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "katia.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "katia",
+      "source_sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+      "primary_source": {
+        "asset_id": "katia",
+        "path": "components/katia.png",
+        "sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+        "rgba_sha256": "0afb64806c2acb3e2826870c2ec8146205832c2aafb2ce8327368ea1ccc5a09a"
+      },
+      "image_hashes": {
+        "front": "0a8760789c2f796e067d15fcacb851cd3b03d594de3c04db8810c214e5c8f767",
+        "top": "6eb66fe3c5cc4938ba90e87365708b3217ae6df6132209b683d44affbfc981fe",
+        "right": "9ce1b2bdf117febe9ad55a41fffb72ed21467d83b76e9afb93a55907da336e7e",
+        "left": "bf8adb3354131f631a2e09eec88b951dadcb89ee6f4d6577173d27678bf0e95d",
+        "bottom": "2ec207f45902f5a5c2f672db188f158cd2c589607171e29e5e3dd84ee6f557ed",
+        "rear": "f677fe3ed82a6ede75e07f51fec05806108841449d25ebf7f0af78db77bcc077"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:24:52.297692+00:00",
+      "notes": [
+        "Corrected current Katia has one complete body per view, stable neutral pose/costume, underside soles/belly clear."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/katia.png",
+          "sha256": "4950ccbbac005d223d079b9bb52f7fd7caf68f8a37d4807dedd9c48a138e02a5",
+          "rgba_sha256": "0afb64806c2acb3e2826870c2ec8146205832c2aafb2ce8327368ea1ccc5a09a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "katia",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/new.png",
+      "rect": [
+        948,
+        327,
+        113,
+        123
+      ]
+    },
+    "category": "actor"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

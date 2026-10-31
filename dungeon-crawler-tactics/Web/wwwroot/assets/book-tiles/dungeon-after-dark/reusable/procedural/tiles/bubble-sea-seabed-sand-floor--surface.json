@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-seabed-sand-floor--surface",
+  "name": "Seabed sand floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-sea",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:sand",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-sea-seabed-sand-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "e1d30d2eafa7484d7f46ee4582861c407ebbf3af45bf8522a2341bcb3b2d18c7",
+    "rgba_sha256": "a585329218ee50efec2f7851724eba32b598f263f5edbcbccd5370bd7d6521b1"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-sea-seabed-sand-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-sea-seabed-sand-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-sea/components/bubble-sea-seabed-sand-floor.png",
+    "source_sha256": "d0eb38a96721ae96f21632384ff79714f3c145eaa9ca4cbb3afbbbdbe007446d",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-sea"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-sea"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-seabed-sand-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:sand",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-sea-seabed-sand-floor"
+  }
+}

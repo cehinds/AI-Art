@@ -1,0 +1,166 @@
+{
+  "id": "iron-tracks-rail-ballast-stairs-up.rear",
+  "name": "Rail Ballast stairs up Rear",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "generated",
+    "iron-tracks",
+    "material:iron",
+    "orthographic",
+    "role:provider",
+    "six-view",
+    "sprite",
+    "stairs",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/views-additional/images/iron-tracks-rail-ballast-stairs-up.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "f0823d228d30bb2703763051319140629615e512e0162713fe7fd28239bd453f",
+    "rgba_sha256": "0c41a21c58fd95262a65a4a0382830dac5759821f9436c870297950a66dc5876"
+  },
+  "object_id": "iron-tracks-rail-ballast-stairs-up",
+  "source": {
+    "object_id": "iron-tracks-rail-ballast-stairs-up",
+    "category": "stairs",
+    "source_image": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
+    "source_sha256": "1505f08f87c958cb4b8c88f01848b4b2f14263e41ee58b53106ec1ddc971d494"
+  },
+  "view": "rear",
+  "provenance": {
+    "method": "targeted-imagegen-orthographic-view",
+    "source_image": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
+    "source_sha256": "1505f08f87c958cb4b8c88f01848b4b2f14263e41ee58b53106ec1ddc971d494",
+    "prompt_path": "prompts/iron-tracks-stair-rear-bottom-v3/iron-tracks-rail-ballast-stairs-up.rear.txt",
+    "prompt_sha256": "01032da877aeaa21f64dae6c0b8338bd5e72ecea7d3704ce6b4f215e7d8e7a2d",
+    "raw_generation_path": "candidates/iron-tracks-stair-rear-bottom-v3/raw/iron-tracks-rail-ballast-stairs-up.rear.raw.png",
+    "raw_generation_sha256": "6bd12c35408c76288cf687881c31d1096e40fc5f6bc65d3627a835f115b97ebf",
+    "view": "rear",
+    "normalization": {
+      "crop_bbox_alpha64": [
+        206,
+        287,
+        1048,
+        971
+      ],
+      "uniform_scale": 0.21377672209026127,
+      "resized_dimensions": [
+        180,
+        146
+      ],
+      "frame_size": [
+        256,
+        256
+      ],
+      "resampling": "nearest",
+      "anchor_px": [
+        128,
+        128
+      ],
+      "distortion": "none; aspect ratio preserved"
+    },
+    "notes": "Rear support and substrate are inferred hidden structure, not recovered pixels."
+  },
+  "anchor_px": [
+    128,
+    128
+  ],
+  "metadata_path": "reusable/views-additional/images/iron-tracks-rail-ballast-stairs-up.rear.json",
+  "provenance_history": [
+    {
+      "candidate_id": "iron-tracks-stair-rear-bottom-v3",
+      "previous_provenance": {
+        "method": "generated",
+        "source_image": "iron-tracks/components/iron-tracks-rail-ballast-stairs-up.png",
+        "source_contact_sheet": "reusable/views-additional/contacts/078-iron-tracks-02.png",
+        "source_contact_sheet_sha256": "27bbc2ef6997a04219b5abbb6e5e20c1b3a78dc3b6a34203683935aa5ff60ade",
+        "generated_atlas": "reusable/views-additional/raw/078-iron-tracks-02.png",
+        "generated_atlas_sha256": "8d1c0b401ea17a14e902fdb4f5bc5089737eb0b78289b0c93cf360c834066451",
+        "prompt_path": "reusable/views-additional/prompts/078-iron-tracks-02.txt",
+        "prompt_sha256": "109b8f204583f4cf0fc6620f6c9f312e9548ad32ffb24a9c7cb406738ebb26df",
+        "source_rect": {
+          "cell": [
+            1280,
+            341,
+            256,
+            171
+          ],
+          "alpha_bounds": [
+            1282,
+            363,
+            157,
+            123
+          ],
+          "component_count": 1,
+          "component_areas": [
+            19122
+          ],
+          "components_outside_cell": []
+        },
+        "normalization": {
+          "scale": 1.1657142857142857,
+          "offset_px": [
+            36,
+            56
+          ],
+          "resampling": "nearest",
+          "frame_size": [
+            256,
+            256
+          ]
+        },
+        "rebuild_command": "python3 reusable/views-additional/build_all.py",
+        "notes": "Generated orthographic view; surfaces absent from the source view are inferred, not recovered pixels."
+      },
+      "previous_image_sha256": "82cffef709661939aff5225d9bc1f4cb34675cb83ce9dc8c872f5a049bf0cf58"
+    }
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "iron-tracks-rail-ballast-stairs-up"
+  }
+}

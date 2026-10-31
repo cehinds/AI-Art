@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import hashlib,importlib.util,json
+from pathlib import Path
+from PIL import Image,ImageDraw
+import struct
+ROOT=Path(__file__).resolve().parents[4];OUT=ROOT/'reusable/views-additional';B=OUT/'raw/candidates/jungle-bugbear-shelter-orthographic-v1';OID='hunting-jungle-bugbear-timber-shelter';sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest();rgba=lambda im:hashlib.sha256(struct.pack('>II',*im.size)+im.convert('RGBA').tobytes()).hexdigest()
+manifest=json.loads((B/'candidate-manifest.json').read_text());row=manifest['objects'][0];reqp=OUT/'raw/candidates/jungle-bugbear-shelter-orthographic-v1-request.json';req=json.loads(reqp.read_text());raw=OUT/manifest['raw_atlas_path'];src=ROOT/row['source_image']
+if sha(raw)!=manifest['raw_atlas_sha256'] or sha(src)!=row['source_sha256']:raise RuntimeError('raw/source hash mismatch')
+idxp=OUT/'set-index.json';idx=json.loads(idxp.read_text());corrp=OUT/'corrections.json';corr=json.loads(corrp.read_text());ops=[]
+for v in ('front','right','left','rear'):
+ rec=row['candidates'][v];cand=OUT/rec['path'];target=OUT/f'{OID}.{v}.png';before=row['source_view_hashes'][v]
+ if sha(target)!=before or sha(cand)!=rec['sha256']:raise RuntimeError(f'{OID}.{v} current/candidate hash mismatch')
+ prov={'method':'generated','source_image':row['source_image'],'source_sha256':row['source_sha256'],'generated_atlas':str(raw.relative_to(OUT)),'generated_atlas_sha256':manifest['raw_atlas_sha256'],'generation_request':str(reqp.relative_to(OUT)),'generation_request_sha256':sha(reqp),'prompt':req['prompt'],'output_binding':{'path':req['output_path'],'sha256':manifest['raw_atlas_sha256']},'candidate_recipe':str((B/'candidate-manifest.json').relative_to(OUT)),'candidate_recipe_sha256':sha(B/'candidate-manifest.json'),'normalization':rec,'reference_inputs':[{'path':req['reference_sheet'],'sha256':req['reference_sheet_sha256'],'role':'native source identity and accepted plan references; canonical TOP/BOTTOM retained'}],'anchor_px':[128,248],'notes':'Root-scoped-accepted orthographic log-shelter elevation; pending whole-set review.'}
+ ops.append({'type':'install-view-candidate','object_id':OID,'view':v,'before_sha256':before,'candidate_path':rec['path'],'candidate_sha256':rec['sha256'],'canonical_source_image':row['source_image'],'canonical_source_sha256':row['source_sha256'],'donor_object_id':OID,'donor_view':'top','donor_image_path':str(raw.relative_to(OUT)),'donor_image_sha256':manifest['raw_atlas_sha256'],'transform':{'method':'full-atlas component crop and uniform plan-axis calibration','scale':rec['scale'],'render_size':rec['render_size'],'resampling':'NEAREST'},'reason':'Install root-scoped-accepted Jungle Bugbear shelter orthographic elevations; retain approved TOP/BOTTOM.','provenance':prov})
+backup=OUT/'raw/targeted-repairs/jungle-bugbear-shelter-orthographic-v1-backup';backup.mkdir(parents=True,exist_ok=True);spec=importlib.util.spec_from_file_location('vf',OUT/'apply_deterministic_view_fixes.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+for op in ops:print(mod.apply(op,idx,backup))
+for op in ops:
+ if not any(x.get('type')==op['type'] and x.get('object_id')==OID and x.get('view')==op['view'] and x.get('candidate_sha256')==op['candidate_sha256'] for x in corr['operations']):corr['operations'].append(op)
+s=next(x for x in idx['view_sets'] if x['object_id']==OID);s['complete']=False;s['geometry_qa']='pending-review';s['qa_replay_gate']={'status':'pending-review','reason':'Four scoped elevations installed; fresh whole-set current-hash review pending.','proof_reviewed_at':None}
+tmp=idxp.with_suffix('.json.tmp');tmp.write_text(json.dumps(idx,indent=2)+'\n');tmp.replace(idxp);corrp.write_text(json.dumps(corr,indent=2)+'\n')
+canvas=Image.new('RGBA',(7*256,256),(235,235,235,255));d=ImageDraw.Draw(canvas);simg=Image.open(src).convert('RGBA');simg.thumbnail((220,220),Image.Resampling.NEAREST);canvas.alpha_composite(simg,((256-simg.width)//2,(256-simg.height)//2));d.text((5,4),'source',fill='black');views=[]
+for col,v in enumerate(['front','top','right','left','bottom','rear'],1):
+ p=OUT/f'{OID}.{v}.png';im=Image.open(p).convert('RGBA');canvas.alpha_composite(im,(col*256,0));d.text((col*256+4,4),v,fill='black');views.append({'view':v,'path':str(p.relative_to(ROOT)),'sha256':sha(p),'rgba_sha256':rgba(im),'alpha_bbox':list(im.getchannel('A').getbbox()) if im.getchannel('A').getbbox() else None})
+contact=B/'postinstall-source-plus-six.png';canvas.convert('RGB').save(contact);proof={'schema_version':1,'object_id':OID,'source_path':row['source_image'],'source_sha256':sha(src),'contact_path':str(contact.relative_to(OUT)),'contact_sha256':sha(contact),'views':views,'status':'pending-independent-whole-set-review'};(B/'postinstall-source-plus-six.json').write_text(json.dumps(proof,indent=2)+'\n');print(json.dumps(proof,indent=2))

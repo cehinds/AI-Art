@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+from PIL import Image
+import hashlib,json,os
+BASE='/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark';C=BASE+'/reusable/views-additional/candidates/equipment-dark-stairs-successor-20261026';raw=C+'/raw/personal-wood-stairs-rear-atlas-v1.png';rawsha=hashlib.sha256(open(raw,'rb').read()).hexdigest();H=json.load(open('/workspace/scratch/equipment-dark-eight-stairs-successor-handoff-20261026.json'));ids=['personal-space-warm-wood-plank-stairs-up','personal-space-warm-wood-plank-stairs-down'];im=Image.open(raw).convert('RGBA');assert im.size==(887,1774)
+def sha(p):return hashlib.sha256(open(p,'rb').read()).hexdigest()
+assets=[];records=[]
+for r,oid in enumerate(ids):
+ y0=round(r*im.height/2);y1=round((r+1)*im.height/2);cell=im.crop((0,y0,im.width,y1));a=cell.getchannel('A');bbox=a.point(lambda x:255 if x>=64 else 0).getbbox();assert bbox
+ part=cell.crop(bbox);obj=next(o for o in H['objects'] if o['object_id']==oid); heights=[]
+ for v in ('front','right','left'):
+  b=Image.open(obj['views'][v]['path']).convert('RGBA').getchannel('A').point(lambda p:255 if p>=64 else 0).getbbox();heights.append(b[3]-b[1])
+ target=round(sum(heights)/len(heights));scale=target/part.height;sz=(round(part.width*scale),target);part=part.resize(sz,Image.Resampling.NEAREST);can=Image.new('RGBA',(256,256),(0,0,0,0));can.alpha_composite(part,((256-sz[0])//2,(256-sz[1])//2));p=f'{C}/images/{oid}.rear.png';can.save(p);src=obj['source'];assets.append({'asset_id':oid+'.rear','object_id':oid,'view':'rear','candidate_path':'images/'+oid+'.rear.png','sha256':sha(p),'width':256,'height':256,'anchor_px':[128,128],'provenance':{'method':'generated' if r==0 else 'reused','source_image':os.path.relpath(src['path'],BASE),'source_sha256':src['sha256'],'generated_atlas_path':'raw/personal-wood-stairs-rear-atlas-v1.png','generated_atlas_sha256':rawsha,'inferred_symmetry_alias_of':ids[0]+'.rear' if r else None,'notes':'Inferred closed wooden rear support face with full vertical slat backing; preserves source wood palette, outer rails and common elevation height. Same-kit hidden rear construction is illustrative.'},'normalization':{'raw_cell_xyxy':[0,y0,im.width,y1],'raw_alpha_bbox_xyxy':list(bbox),'raw_alpha_threshold':64,'target_z_px':target,'uniform_isotropic_scale':scale,'resampling':'NEAREST','normalized_size_px':list(sz),'offset_px':[(256-sz[0])//2,(256-sz[1])//2]}});records.append({'object_id':oid,'bbox':list(bbox),'target_z_px':target,'size':list(sz),'scale':scale,'sha256':assets[-1]['sha256']})
+# merge candidate bottom assets and bindings
+bottom=json.load(open(C+'/personal-wood-stairs-bottom-v1-candidate.json')); assets=bottom['assets']+assets
+man={'created_at':'2026-10-26','scope':'book-tiles/dungeon-after-dark','assignment':'candidate-only; Page sole reviewer, Dark sole installer','batch':'equipment-dark-stairs-personal-wood-bottom-rear-v1','raw_manifest':'raw/personal-wood-stairs-bottom-request-v4.json','assets':assets,'normalization_records':bottom['normalization_records']+records,'source_bindings':bottom['source_bindings']}
+p=C+'/personal-wood-stairs-bottom-rear-v1-candidate.json';json.dump(man,open(p,'w'),indent=2);print(p,sha(p))

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-airship-cracked-scrap-metal-deck-floor--surface",
+  "name": "Cracked scrap metal deck floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-airship",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-airship-cracked-scrap-metal-deck-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "ea81422997e263fa9d10528081845958e7c437066bdc1ba966f01d760d2fe745",
+    "rgba_sha256": "93268dd7638e0660c715e098f42df42607323b82272196c9c97cafdbe8ba1517"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-airship-cracked-scrap-metal-deck-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-airship-cracked-scrap-metal-deck-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-airship/components/bubble-airship-cracked-scrap-metal-deck-floor.png",
+    "source_sha256": "821d5321f786e918ecd38a92c5965eed1fb7f78c9e81d8b0be3dcd72fd13d8be",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-airship"
+    ]
+  },
+  "canonical_asset_id": "bubble-airship-cracked-scrap-metal-deck-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-airship-cracked-scrap-metal-deck-floor"
+  }
+}

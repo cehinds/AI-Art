@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "thresholds-gold-brick-floor--surface",
+  "name": "Gold Brick floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:brick",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "thresholds",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/thresholds-gold-brick-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d130524af4dc80bd6e16f4d2b99460491f0d53e31afa6f744dc68116340206e8",
+    "rgba_sha256": "04a638a535665dd2ab09003c06dd97a6a84365a6cc7ea41e0fff406264983ece"
+  },
+  "metadata_path": "reusable/procedural/tiles/thresholds-gold-brick-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "thresholds-gold-brick-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "thresholds/components/thresholds-gold-brick-floor.png",
+    "source_sha256": "cc424c3d343a59612d08b38707aaddff4926a5a01e57d64801c44223a24f1b36",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.thresholds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.thresholds"
+    ]
+  },
+  "canonical_asset_id": "thresholds-gold-brick-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:brick",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "thresholds-gold-brick-floor"
+  }
+}

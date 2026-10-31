@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generation_status": "failed-background-preflight",
+  "method": "imagegen-source-guided-atlas",
+  "atlas": "book-objects-0403-0408-source-guided-atlas.png",
+  "source_contact": "book-objects-0403-0408-source-contact.png",
+  "source_contact_sha256": "8290525ee25cc6b98e1f9f2a36cb0c1d22be1b9750ffcdc68b51a3b553ea8093",
+  "source_ids": [
+    "hunting-zockau-three-storey-diner-club-facade--native",
+    "hunting-zockau-small-pub-with-broken-sign--native",
+    "hunting-zockau-town-park-bench--native",
+    "hunting-zockau-narrow-alley-barricade--native",
+    "hunting-zockau-public-park-stairwell--native",
+    "hunting-zockau-shop-display-window--native"
+  ],
+  "grid": [
+    6,
+    6
+  ],
+  "columns": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "prompt": "Transparent 6x6 atlas in exact rows and directions. Source reference sheet contains the six labeled objects in row order; preserve all motifs, colors, state, parts and materials. Rows: three-storey diner facade; small pub with broken sign; town park bench; narrow alley barricade with barrel; public park stairwell with iron gate and lantern; shop display window. Columns fixed orthographic front, top, right, left, bottom, rear, no perspective, world up fixed. Keep all six views of a row same geometry at shared isotropic size. Buildings: front/rear broad facade, top shallow roof plan with chimneys, side narrow building depth, bottom foundation footprint, do not put upright facade on top/bottom. Bench top seat slats, bottom underside/support legs, sides/rear coherent frame. Barricade footprint retains both posts/barrel/debris; bottom plausible base. Stairwell top gate/steps plan, front/rear upright entrance frame, sides consistent height and depth, bottom structural base, no upper face under solid ground. Display window top awning/canopy plan, not full display face; bottom shallow base, rear solid back. One object per cell, transparent background.",
+  "background_correction": "Remove only the flat brown/green atlas background; preserve every visible object pixel and transparent gaps.",
+  "retry_prompt": "Re-generated with source contact. Must contain true alpha transparency; no backdrop, no shadow, no canvas color, no gradient, no checkerboard. Treat each object as isolated cutout; preserve row and view layout.",
+  "failed_atlases": [
+    {
+      "path": "book-objects-0403-0408-source-guided-atlas.png",
+      "sha256": "113dd75a543f574285509e4b5f30c73a9bf2d847c122830803c06fb7c6788193",
+      "reason": "opaque brown/green backdrop; not indexed"
+    },
+    {
+      "path": "book-objects-0403-0408-source-guided-atlas-v2.png",
+      "sha256": "0b60f0bb91d2a913dd6a34db501d4ba9f8281aabd11df6a3aa619b888110ee21",
+      "reason": "retry still has opaque backdrop; not indexed"
+    }
+  ]
+}

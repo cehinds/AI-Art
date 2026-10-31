@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "multipart-zip",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document",
+    "multipart-archive"
+  ],
+  "archive": {
+    "file": "dungeon-after-dark-complete-library.zip",
+    "bytes": 287538313,
+    "sha256": "440bda14711072305ec80d6e1b0240d3bb929942bdc6fd5f3967d736f6ddff93"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "file": "dungeon-after-dark-complete-library.zip.part-001",
+      "bytes": 99614719,
+      "sha256": "6879e8ff593b41058d1ea6f823dcdaa8131119951e7cee42d8bd3a346157b8be"
+    },
+    {
+      "number": 2,
+      "file": "dungeon-after-dark-complete-library.zip.part-002",
+      "bytes": 99614719,
+      "sha256": "2f5e9fcceb9fbf1ba413212e0f74c8ffda2f0fae09f0b85553abe8892dfc85d3"
+    },
+    {
+      "number": 3,
+      "file": "dungeon-after-dark-complete-library.zip.part-003",
+      "bytes": 88308875,
+      "sha256": "3b3276c8d21ab9f645b6ea60bc14c0e2d7db8933a5cc289263ec8db8c97892b0"
+    }
+  ],
+  "assembly": {
+    "operation": "concatenate-in-listed-order",
+    "tool": "assemble_archive_parts.py",
+    "command": "python assemble_archive_parts.py dungeon-after-dark-complete-library.zip.parts.json --output dungeon-after-dark-complete-library.zip",
+    "note": "Download every part beside this JSON. Assemble and verify the ZIP before extracting it into its own directory.",
+    "tool_sha256": "f5297413da9b5b09699913ea93173d33da3e1f17b1b7aa36b87d9062e167d1df",
+    "tool_bytes": 3115
+  }
+}

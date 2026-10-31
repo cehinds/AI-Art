@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "object_id": "ghost-havana-ghost-traffic-road-barrier",
+  "view": "top",
+  "status": "rejected-after-independent-source-review",
+  "prompt": "Create only the TOP view of this Ghost Havana red-and-white striped road barrier, viewed directly vertically from above in an axis-aligned orthographic camera. The source depicts a horizontal lift-arm barrier with a striped long arm and two support posts/bases. Overhead, show the long arm as a narrow horizontal rectangle with thin red/white stripe bands across its width; do not show the broad frontal stripe face or a diagonal perspective. Keep both support bases as square/rectangular footprint shapes at the correct ends and include the hinge/rotor footprint. Preserve exact count and relative spacing from the source. The source-plus-six reference is for identity/material and current context; only TOP is being corrected. Transparent background, full object centered in 256x256, no crop, no new props. Inferred top projection, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "ghost-havana/components/ghost-havana-ghost-traffic-road-barrier.png",
+      "sha256": "020133a6e90032e2f894e70998765bfcde98918c346b9251c8c9b0b3a8d30278",
+      "role": "canonical source identity/material"
+    },
+    {
+      "path": "reusable/views-additional/qa-ghost-havana-ghost-traffic-road-barrier-current-source-six-pre-repair.png",
+      "sha256": "385f184f65bcb1d0ae7479eb4894943e618fadcb90f7f27e5dfbca060a78ab7a",
+      "role": "source plus current six; replace TOP only"
+    }
+  ],
+  "geometry_constraints": [
+    "overhead camera",
+    "long narrow arm plan",
+    "two support base footprints",
+    "no broad upright stripe face"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/ghost-havana-ghost-traffic-road-barrier-top-v1-atlas.png",
+  "generated_atlas_sha256": "62489bcfac38f8419dbe25c9a4060aa932e2966955a00ec47119d1c0646d9200",
+  "generation_call_id": "imagegen-response-current-exec",
+  "rejection_reason": "Rejected: broad striped face remains visible; it also derives from an incorrect two-pedestal gate interpretation."
+}

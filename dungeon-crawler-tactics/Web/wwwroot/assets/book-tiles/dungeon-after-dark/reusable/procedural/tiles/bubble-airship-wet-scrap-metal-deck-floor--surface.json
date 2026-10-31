@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-airship-wet-scrap-metal-deck-floor--surface",
+  "name": "Wet scrap metal deck floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-airship",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-airship-wet-scrap-metal-deck-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "612ac2b3a05428066970dbb3b8794b7734f06159cc996a03d11465e5ad5fe88f",
+    "rgba_sha256": "31c15a8dd0f6e10d3d4b349f1be559d806ff9b275df2d7418f1b1ab185a330bd"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-airship-wet-scrap-metal-deck-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-airship-wet-scrap-metal-deck-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-airship/components/bubble-airship-wet-scrap-metal-deck-floor.png",
+    "source_sha256": "2a2114a8446c827a808b04aa34b3878b67799ee2a230cedcbca6aeabf60b725a",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-airship"
+    ]
+  },
+  "canonical_asset_id": "bubble-airship-wet-scrap-metal-deck-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:metal",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-airship-wet-scrap-metal-deck-floor"
+  }
+}

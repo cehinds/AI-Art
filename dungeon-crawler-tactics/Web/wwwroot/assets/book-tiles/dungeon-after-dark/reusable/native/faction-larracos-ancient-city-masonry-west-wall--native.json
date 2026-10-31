@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "faction-larracos-ancient-city-masonry-west-wall--native",
+  "name": "Ancient City Masonry west wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "faction-larracos",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/faction-larracos-ancient-city-masonry-west-wall--native.png",
+    "width": 69,
+    "height": 193,
+    "sha256": "7925971252558e7fa8603753e84ebe5a30f0f9a17a4814a3e61fff868794ebf7",
+    "rgba_sha256": "2242a1428f830e5e4b3db1921ee208c8f8eacc0d19878b0329a25722dc344fb1"
+  },
+  "metadata_path": "reusable/native/faction-larracos-ancient-city-masonry-west-wall--native.json",
+  "anchor_px": [
+    34.5,
+    193
+  ],
+  "object_id": "faction-larracos-ancient-city-masonry-west-wall",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/faction-larracos.png",
+    "source_sha256": "cb592894f49f9e6201bdfd0abea930b7f41905328272cd45a2a82f2a1c966cf3",
+    "source_rect": [
+      371,
+      275,
+      69,
+      193
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
+  },
+  "canonical_asset_id": "faction-larracos-ancient-city-masonry-west-wall",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "faction-larracos-ancient-city-masonry-west-wall"
+  }
+}

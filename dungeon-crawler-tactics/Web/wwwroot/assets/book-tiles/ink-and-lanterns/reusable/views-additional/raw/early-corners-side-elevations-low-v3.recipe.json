@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-geometry-template-edit-side-elevations-only",
+  "request_id": "early-corners-side-elevations-low-v3",
+  "raw_atlas": "reusable/views-additional/raw/early-corners-side-elevations-low-v3-2x2.png",
+  "source_generation_atlas": "reusable/views-additional/raw/early-corners-side-elevations-low-v3.png",
+  "source_generation_atlas_sha256": "375e2723213d56c7d1bdc8baaac5edc1ff65934c3da08110e7ae5a37fb309803",
+  "atlas": "early-corners-side-elevations-low-v3-2x2.png",
+  "atlas_sha256": "00dfe80327b6519bfafd13caeaca722f126be1a4dff470817de12050ef622de2",
+  "grid": {
+    "columns": 2,
+    "rows": 2
+  },
+  "views": [
+    "right",
+    "left"
+  ],
+  "shared_scale_override": 0.34,
+  "objects": [
+    {
+      "row": 0,
+      "id": "early-arenas-heavy-dungeon-stone-outer-corner",
+      "name": "Heavy dungeon stone outer corner",
+      "kind": "wall-corner",
+      "tags": [
+        "early-arenas",
+        "wall",
+        "corner"
+      ],
+      "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-outer-corner.png",
+      "replace_views": [
+        "right",
+        "left"
+      ],
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "outer-corner"
+      },
+      "source_sha256": "265873b7cb2b196ddc898f36dcdc46f94fd071e48131bb055f5f0e6f156bc9e3"
+    },
+    {
+      "row": 1,
+      "id": "early-arenas-heavy-dungeon-stone-inner-corner",
+      "name": "Heavy dungeon stone inner corner",
+      "kind": "wall-corner",
+      "tags": [
+        "early-arenas",
+        "wall",
+        "corner"
+      ],
+      "source_image": "early-arenas/components/early-arenas-heavy-dungeon-stone-inner-corner.png",
+      "replace_views": [
+        "right",
+        "left"
+      ],
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "inner-corner"
+      },
+      "source_sha256": "6a6559c28b7573bd5bbb303a1804a70253f31897b340c01b6bc16cfcd8c533a8"
+    }
+  ],
+  "source_images": [
+    "reusable/native/early-arenas-heavy-dungeon-stone-outer-corner--native.png",
+    "reusable/native/early-arenas-heavy-dungeon-stone-inner-corner--native.png"
+  ],
+  "source_image_sha256": [
+    "0b53f0628e1498c6f35ade0867f7c7bda9e9aec342a9d247f8037a0123cca208",
+    "472ab74f41fdacfff81ec009f29af4f3a367b23cca1174e94f987364d8162639"
+  ],
+  "reference_images": [
+    "reusable/views-additional/raw/book-objects-geometry-guide-061-outer-corner-six.png",
+    "reusable/native/early-arenas-heavy-dungeon-stone-outer-corner--native.png",
+    "reusable/native/early-arenas-heavy-dungeon-stone-inner-corner--native.png"
+  ],
+  "reference_image_sha256": [
+    "01a79164b72c4e444c157cde81f178af66ddbb4823759b51a752daa67a088207",
+    "0b53f0628e1498c6f35ade0867f7c7bda9e9aec342a9d247f8037a0123cca208",
+    "472ab74f41fdacfff81ec009f29af4f3a367b23cca1174e94f987364d8162639"
+  ],
+  "prompt": "Repair only the SIDE ELEVATION silhouettes shown by the geometry template reference. Create one horizontal row of exactly four separate isolated transparent-background pixel-art panels ordered: OUTER-CORNER RIGHT SIDE, OUTER-CORNER LEFT SIDE, INNER-CORNER RIGHT SIDE, INNER-CORNER LEFT SIDE. Geometry template reference 1 is an approved six-view outer wall-corner guide: use its broad, low rectangular wall side elevations as the exact shape and scale target, with a common low height of three masonry courses. References 2 and 3 show the actual pale stone/moss material identity for the outer and inner Early Arenas corners respectively. Repaint the template material using the matching pale ochre-gray stone blocks, dark mortar, subtle moss from the appropriate actual source; preserve each source's block size, color, wear and moss pattern. Do not copy the template's brick colors. Each of the four outputs must be a broad rectangular upright wall elevation, exactly three low masonry courses high, full horizontal arm-width, matching the low height of the already-approved front elevations. No upright L shapes, no posts, no corner seen from above, no overhead plan, no perspective, no tall 6-course panels, no height mismatch. Inner and outer variants should keep their corresponding source stone appearance. Left/right are opposite sides at identical Z height; mirror only the corner orientation if necessary while keeping course height and width consistent. Transparent background, four equal square cells, no labels, grid, ground, shadows or extra objects; one complete full-face side panel per cell, centered and uncropped."
+}

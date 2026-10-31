@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-sun-door",
+  "name": "Sun door",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:doorway",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-sun-door.png",
+    "width": 324,
+    "height": 346,
+    "sha256": "3ad85618300ac90dce263e6b033601bb102add51e538f9478ce0ea07ed572504",
+    "rgba_sha256": "8c3fca51d3a04a76a7f4d58ccbeb2ba897b81acdafd06d59aa682c66f2d44617"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-sun-door.json",
+  "anchor_px": [
+    162.0,
+    346
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-sun-door",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      1097,
+      724,
+      324,
+      346
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-sun-door.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp-terrain-sun-door",
+      "source_sha256": "3ad85618300ac90dce263e6b033601bb102add51e538f9478ce0ea07ed572504",
+      "primary_source": {
+        "asset_id": "revamp-terrain-sun-door",
+        "path": "reusable/native/revamp-terrain-sun-door.png",
+        "sha256": "3ad85618300ac90dce263e6b033601bb102add51e538f9478ce0ea07ed572504",
+        "rgba_sha256": "8c3fca51d3a04a76a7f4d58ccbeb2ba897b81acdafd06d59aa682c66f2d44617"
+      },
+      "image_hashes": {
+        "front": "c98aa7e263e7b3bc3354ccdbc50e984443bc288c5ad627fc8557fbe6d469d478",
+        "top": "f0160e72ba3b34bb03aecd58ef9972510cf5a5023304069ed80c93b49591d5a1",
+        "right": "de4432931fa8c4be85d5216ee56308027e3d89b80bb166efa38170f881f96244",
+        "left": "486a82c46ce6688e0de02a8aceee531ec03d13e4fc8228bbc4d7ee9de1e2a70a",
+        "bottom": "bc24f043f7bdf738524872d1dea9a5966f5d5c100caffb73d62234111163ddcb",
+        "rear": "80643d1fa73abfc1142945493783521827768075e8c144cc5911bebd546ac1d8"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T21:58:55.840336+00:00",
+      "notes": [
+        "Exact native source and all six projections reviewed; flat principal crate faces, barrel/chest/door identity and hidden material coherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "d2636c0c3d62d0050f9f34c235684267273a51fbfcc95c06ac135d4733059cdd",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp-terrain-sun-door.png",
+          "sha256": "3ad85618300ac90dce263e6b033601bb102add51e538f9478ce0ea07ed572504",
+          "rgba_sha256": "8c3fca51d3a04a76a7f4d58ccbeb2ba897b81acdafd06d59aa682c66f2d44617"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:doorway"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

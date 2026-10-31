@@ -1,0 +1,135 @@
+{
+  "id": "roads-stone-bridge-straight.bottom",
+  "name": "Stone bridge straight bottom",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bottom",
+    "bridge",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "material:stone",
+    "orthographic",
+    "pocket-dungeon",
+    "roads",
+    "role:object",
+    "stone",
+    "straight",
+    "structure",
+    "structures",
+    "style:pocket-dungeon"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/roads-stone-bridge-straight.bottom.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "9bda93c0419cf85de6bdc623d1cf177486ffb9860dcad6ae112168129e3fec9a",
+    "rgba_sha256": "e57da0d6258e4e70c755802b4551d1fb9cf1c2550ae27b4230749b0a4fed2870"
+  },
+  "object_id": "roads-stone-bridge-straight",
+  "view": "bottom",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/roads-stone-bridge-straight.png",
+    "source_image_sha256": "700e71d8d264f134ba3a0bdb9eeef0170de85fedd9a9e64cb05d07b115d322b7",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-stone-bridge-straight.png",
+        "sha256": "700e71d8d264f134ba3a0bdb9eeef0170de85fedd9a9e64cb05d07b115d322b7"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/roads-batch05.png",
+    "generated_atlas_sha256": "161c27ca562f6340d38c95be6943b070676ec311a83dd4e9a0022547f7837077",
+    "crop_bounds_px": {
+      "logical_cell": [
+        1183,
+        0,
+        1478,
+        296
+      ],
+      "complete_component_bounds_atlas": [
+        1228,
+        28,
+        1436,
+        269
+      ],
+      "component_labels": [
+        {
+          "label": 2,
+          "pixels": 43445,
+          "bounds_atlas": [
+            1228,
+            28,
+            1436,
+            269
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.7829181494661922,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/roads-stone-bridge-straight.bottom.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "bridge",
+    "environment:dungeon",
+    "existing",
+    "material:stone",
+    "pocket-dungeon",
+    "role:object",
+    "stone",
+    "straight",
+    "structure",
+    "structures",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "roads-stone-bridge-straight"
+  }
+}

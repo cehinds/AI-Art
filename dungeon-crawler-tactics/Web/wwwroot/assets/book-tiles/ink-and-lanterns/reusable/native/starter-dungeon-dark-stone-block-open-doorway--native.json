@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "starter-dungeon-dark-stone-block-open-doorway--native",
+  "name": "Dark Stone Block open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:dungeon",
+    "ink-and-lanterns",
+    "material:stone",
+    "role:provider",
+    "starter-dungeon",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/starter-dungeon-dark-stone-block-open-doorway--native.png",
+    "width": 200,
+    "height": 219,
+    "sha256": "01df08468ff5aac2b135e7af3ca84540c117cc69ba50780e648c32dceb6c10cb",
+    "rgba_sha256": "b1126d081e7a97686026211d84336d08c1f0112244efe623748dd3dc959cb8b7"
+  },
+  "metadata_path": "reusable/native/starter-dungeon-dark-stone-block-open-doorway--native.json",
+  "anchor_px": [
+    100.0,
+    219
+  ],
+  "object_id": "starter-dungeon-dark-stone-block-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/starter-dungeon.png",
+    "source_sha256": "7f0da8e92acec7f48a4ba0748ad2c222013579fbedb6579a7935233cf136c05f",
+    "source_rect": [
+      52,
+      487,
+      200,
+      219
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "starter-dungeon-dark-stone-block-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "starter-dungeon-dark-stone-block-open-doorway"
+  }
+}

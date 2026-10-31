@@ -1,0 +1,41 @@
+{
+  "batch_id": "iron-tracks-junctions-v3-20261026",
+  "status": "rejected-atlas-geometry-before-extraction",
+  "object_ids": [
+    "iron-tracks-rail-curve",
+    "iron-tracks-rail-t-junction",
+    "iron-tracks-rail-crossroads",
+    "iron-tracks-rail-siding-junction"
+  ],
+  "sources": [
+    {
+      "object_id": "iron-tracks-rail-curve",
+      "path": "iron-tracks/components/iron-tracks-rail-curve.png",
+      "sha256": "086278991c26f9174bee93deeae1a34220f77c0d5c71404aab35c4a202e36bee"
+    },
+    {
+      "object_id": "iron-tracks-rail-t-junction",
+      "path": "iron-tracks/components/iron-tracks-rail-t-junction.png",
+      "sha256": "253e26fadef2d248cb9c982d524dfcb7009b34b2e425530358d60f3748cefa85"
+    },
+    {
+      "object_id": "iron-tracks-rail-crossroads",
+      "path": "iron-tracks/components/iron-tracks-rail-crossroads.png",
+      "sha256": "c282b21fbd6eb2e0e32524b38b25084a279f38e0020df43585e6b3606403596a"
+    },
+    {
+      "object_id": "iron-tracks-rail-siding-junction",
+      "path": "iron-tracks/components/iron-tracks-rail-siding-junction.png",
+      "sha256": "620909b43f186c1f73d1e61db63dfc7fcc643b384414e25b57f5d92b888e525c"
+    }
+  ],
+  "prompt": "Transparent pixel-art asset atlas, exactly 1536x1024 pixels, exact grid 6 equal columns by 4 equal rows, each cell 256x256. Absolutely no lettering, captions, labels, gridlines, background, shadows, or text anywhere. Each cell has exactly one centered object with generous clear transparent margin, entire silhouette within the cell. Column sequence FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. Row sequence follows the four supplied source images exactly: curve, T-junction, crossroads, siding-junction. Same object identity, pixel-art finish, gray iron rails, amber brown timber ties, dark stony ballast. These are flat ground tiles with a directly overhead TOP and full-footprint BOTTOM, never raised platforms. Axis-aligned orthographic views only, no isometric or perspective.\n\nTopology comes only from each row's own source plan. The track rails are two parallel narrow rails on timber ties. A rail pair crossing a tile edge appears in FRONT/REAR/RIGHT/LEFT as exactly two separate short steel end caps at the matching along-edge positions, separated by ballast/timber. Do NOT draw a continuous silver stripe on an edge when the rails cross it. Rails that run parallel to the viewed edge and are visibly at that perimeter can be a continuous low rail profile. Never render rails as upright posts. The curve: show rail end pairs only on the two connected edges indicated by the curved track, with the correct two edges empty; TOP preserves curved track. T junction: pair at each of its three connected edges, no pair at closed edge. Crossroads: pair at all four edges, two separate ends on every profile. Siding: main through rail pairs on both opposing through-edges plus one branch pair only on its branch edge; opposing edge remains only through-pair. Opposite view profiles reverse along-edge location correctly. Keep TOP motifs and track routes visibly distinct by row, BOTTOM is plain full XY stone/wood ballast substrate with no upper-facing rails. No additional posts, signs, rivets, or objects.",
+  "reference_images": [
+    "iron-tracks/components/iron-tracks-rail-curve.png",
+    "iron-tracks/components/iron-tracks-rail-t-junction.png",
+    "iron-tracks/components/iron-tracks-rail-crossroads.png",
+    "iron-tracks/components/iron-tracks-rail-siding-junction.png",
+    "reusable/views-additional/raw/candidates/iron-tracks-rail-six-v1/iron-tracks-rail-straight-northeast-southwest.candidate-source-plus-six.png"
+  ],
+  "reason": "Output has correct no-label connected components but RIGHT/LEFT are tall narrow panels instead of wide shallow edge projections; topology detail also needs independent row review. Not installed."
+}

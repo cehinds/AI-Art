@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-seabed-sand-stairs-up--native",
+  "name": "Seabed Sand stairs up (native source crop)",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-sea",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:sand",
+    "role:provider",
+    "stairs",
+    "style:ink-and-lanterns",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-sea-seabed-sand-stairs-up--native.png",
+    "width": 197,
+    "height": 208,
+    "sha256": "b8bea0f66bbcb1e0ec1cd8501c233617070763bc5707d53877bd0bc703b28037",
+    "rgba_sha256": "c45bd706a74222dd6b6ac5750054dd2d4ca70088192bc8cad63587b6fdf8f595"
+  },
+  "metadata_path": "reusable/native/bubble-sea-seabed-sand-stairs-up--native.json",
+  "anchor_px": [
+    98.5,
+    208
+  ],
+  "object_id": "bubble-sea-seabed-sand-stairs-up",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-sea.png",
+    "source_sha256": "9278a0365e42ae8fec425d06c3a12c55e661340a43357045d423e3c4b81968a1",
+    "source_rect": [
+      550,
+      497,
+      197,
+      208
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-seabed-sand-stairs-up",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:sand",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-sea-seabed-sand-stairs-up"
+  }
+}

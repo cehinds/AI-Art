@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "race-circuits-track-hazard-barrier--native",
+  "name": "Track hazard barrier (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "prop",
+    "race-circuits",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/race-circuits-track-hazard-barrier--native.png",
+    "width": 232,
+    "height": 134,
+    "sha256": "515f26cdc858b9f12f9234255abc60693bd7d1dc4def8f1badfa359b7fbd7ab7",
+    "rgba_sha256": "2dba5fba94e80982a4422e7f57f670003f20fcdb468017b74c18702b1cc4d24f"
+  },
+  "metadata_path": "reusable/native/race-circuits-track-hazard-barrier--native.json",
+  "anchor_px": [
+    116.0,
+    134
+  ],
+  "object_id": "race-circuits-track-hazard-barrier",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/race-circuits.png",
+    "source_sha256": "2f9754496929806875950c829945d998fe4337dbaa64a537a1f68d251c32699a",
+    "source_rect": [
+      778,
+      818,
+      232,
+      134
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "race-circuits-track-hazard-barrier",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "race-circuits-track-hazard-barrier"
+  }
+}

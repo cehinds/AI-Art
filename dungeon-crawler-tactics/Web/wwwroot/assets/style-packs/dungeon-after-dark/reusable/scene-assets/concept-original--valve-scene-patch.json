@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-original--valve-scene-patch",
+  "name": "Valve Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:dungeon-after-dark",
+    "valve-scene-patch"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-original--valve-scene-patch.png",
+    "width": 60,
+    "height": 84,
+    "sha256": "2e403bd115251703382877e42faa1180c89a4ff657c8248f65dc204cff8bd921",
+    "rgba_sha256": "c647506866d3be1b463c9e95b9fdac80a3a4f0a5a2b05a5f8f75778b5efd4764"
+  },
+  "metadata_path": "reusable/scene-assets/concept-original--valve-scene-patch.json",
+  "anchor_px": [
+    30.0,
+    84
+  ],
+  "view": "source",
+  "object_id": "valve",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/original.png",
+    "source_sha256": "07829edc58f5eddbb3ff9dee0352dd69fe40d6e768156e9c4fc627415da8253b",
+    "source_rect": [
+      486,
+      403,
+      60,
+      84
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "valve.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "valve.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "valve.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "valve.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "valve.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "valve.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "valve",
+      "source_sha256": "d3ff115ab2961d72e0c774822fdaef2b2c239a15c14f9d642af0f5653a321058",
+      "primary_source": {
+        "asset_id": "valve",
+        "path": "components/valve.png",
+        "sha256": "d3ff115ab2961d72e0c774822fdaef2b2c239a15c14f9d642af0f5653a321058",
+        "rgba_sha256": "357fed5d4a0431f43e24d16a57c3ba870d17092f05aebd61e40c3be4d8357524"
+      },
+      "image_hashes": {
+        "front": "d2aff0285139a1316ba86d074ae596d622cfc3dea13f562d7db83081215a687d",
+        "top": "2b71467555902ab0c178d004d05337b7e18d11cafdd12c84a57b08c5c5c9d191",
+        "right": "9db9d552c845d51b50bcd0aa74a943832da5feec00bbe68bb3d8cebe57b2148f",
+        "left": "fd936bed657a2fc7344aa93900b964f162ecc7b4f767f352d539a2da93efe405",
+        "bottom": "00a79cf2d61fad6791225d96331c07f6a2eca4eb4b195ff7013d3222663f0bd4",
+        "rear": "3132d1213376156613138d8f6d7a6ffef4b65d823642cdfbaea846f2c70d7c5b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T20:45:46.711892+00:00",
+      "notes": [
+        "Fresh source+six repair: TOP/BOTTOM thinwheel-edge plusbasefootprint, verticalstemproperlyforeshortened, sourcewheelbody andsideplanes coherent."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/valve.png",
+          "sha256": "d3ff115ab2961d72e0c774822fdaef2b2c239a15c14f9d642af0f5653a321058",
+          "rgba_sha256": "357fed5d4a0431f43e24d16a57c3ba870d17092f05aebd61e40c3be4d8357524"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "valve",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/original.png",
+      "rect": [
+        486,
+        403,
+        60,
+        84
+      ]
+    },
+    "category": "prop"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

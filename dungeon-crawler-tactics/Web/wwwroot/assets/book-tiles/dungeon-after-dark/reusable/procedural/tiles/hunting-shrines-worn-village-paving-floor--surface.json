@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-shrines-worn-village-paving-floor--surface",
+  "name": "Worn village paving floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "hunting-shrines",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-shrines-worn-village-paving-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "de0ac137da9393621442cb80e1fc433d39e6ae90bf0470b37c3f50e45aefa538",
+    "rgba_sha256": "92b97b179e8b86dd9d7fafb5ce7eebc9f84500cfc4dae572ed591973302b4a0c"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-shrines-worn-village-paving-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-shrines-worn-village-paving-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-shrines/components/hunting-shrines-worn-village-paving-floor.png",
+    "source_sha256": "6afab0370b9732293ee5f5d4ffc2230dea195e7b6b08b14d34db33f22f5701f1",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-shrines"
+    ]
+  },
+  "canonical_asset_id": "hunting-shrines-worn-village-paving-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-shrines-worn-village-paving-floor"
+  }
+}

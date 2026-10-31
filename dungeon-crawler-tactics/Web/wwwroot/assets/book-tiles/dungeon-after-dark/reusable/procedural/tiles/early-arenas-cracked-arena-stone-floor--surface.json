@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-cracked-arena-stone-floor--surface",
+  "name": "Cracked arena stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "early-arenas",
+    "environment:dungeon",
+    "ground",
+    "material:stone",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/early-arenas-cracked-arena-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "c5bc1a10d521887141d86189f2afe57a30154e1c2570a652f1a2dafe3ead52e1",
+    "rgba_sha256": "d4168ebdc9a874456424d8bd5313e330ecc6a49a8c4dd070636d033346cb3821"
+  },
+  "metadata_path": "reusable/procedural/tiles/early-arenas-cracked-arena-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "early-arenas-cracked-arena-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "early-arenas/components/early-arenas-cracked-arena-stone-floor.png",
+    "source_sha256": "8ccb7d4b3c61514717930a3dc923354bda9a7078ba4012667893a9ca4fe3afaa",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "east": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "south": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "west": [
+      "join.floor",
+      "visual.early-arenas"
+    ]
+  },
+  "canonical_asset_id": "early-arenas-cracked-arena-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:stone",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "early-arenas-cracked-arena-stone-floor"
+  }
+}

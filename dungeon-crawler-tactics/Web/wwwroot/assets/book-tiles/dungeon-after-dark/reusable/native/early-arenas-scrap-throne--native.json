@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-scrap-throne--native",
+  "name": "Scrap throne (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "dungeon-after-dark",
+    "early-arenas",
+    "environment:dungeon",
+    "material:unspecified",
+    "prop",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/early-arenas-scrap-throne--native.png",
+    "width": 211,
+    "height": 224,
+    "sha256": "424921d4c33b8357ccea7f93ea6274c309bc784469581732b24940f72bbdd072",
+    "rgba_sha256": "e7f7b096cbdaf13733f0f167ae6162856ba7a5b4348526188c23b1c2444379b9"
+  },
+  "metadata_path": "reusable/native/early-arenas-scrap-throne--native.json",
+  "anchor_px": [
+    105.5,
+    224
+  ],
+  "object_id": "early-arenas-scrap-throne",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/early-arenas.png",
+    "source_sha256": "d6f80497ddeeba9698547d8f535640d1b7bb162cd8f8b60f1ec4cbfc3b1eff6a",
+    "source_rect": [
+      1300,
+      496,
+      211,
+      224
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "early-arenas-scrap-throne",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "early-arenas-scrap-throne"
+  }
+}

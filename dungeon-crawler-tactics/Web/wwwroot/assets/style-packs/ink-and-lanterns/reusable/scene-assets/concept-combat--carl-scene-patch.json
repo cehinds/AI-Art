@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-combat--carl-scene-patch",
+  "name": "Carl Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "carl-scene-patch",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:ink-and-lanterns"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-combat--carl-scene-patch.png",
+    "width": 157,
+    "height": 179,
+    "sha256": "f2aaf288c6d2f7efe153cc253d3c5848796f9cbe454d7d2f0a077345c90319e2",
+    "rgba_sha256": "5b1598b4ea242502923874691a2b922f77ecf4a344ae6f5db7c9fffe0bc3fe23"
+  },
+  "metadata_path": "reusable/scene-assets/concept-combat--carl-scene-patch.json",
+  "anchor_px": [
+    78.5,
+    179
+  ],
+  "view": "source",
+  "object_id": "carl",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/combat.png",
+    "source_sha256": "d7e4289c78c00327bc297dddefc5dd58f2a34fdf31ceb5201e1ad8d84dddfa24",
+    "source_rect": [
+      150,
+      324,
+      157,
+      179
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "carl.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "carl.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "carl.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "carl.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "carl.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "carl.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "carl",
+      "source_sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+      "primary_source": {
+        "asset_id": "carl",
+        "path": "components/carl.png",
+        "sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+        "rgba_sha256": "fd57caf1e4e59c7b0836ec861d07b5ea0dc7f141da5b14b32e76336683360eaf"
+      },
+      "image_hashes": {
+        "front": "4faa7b355d10275ee33cc9b07a857fa35bc85c4766eb6800e787f27ec934ffe0",
+        "top": "f054c084bf61f77cb66210b960224bd75b13abc998764136e3b44ade636e4fad",
+        "right": "cd8ca4e079dc96956120344edc75e29a0be5608d20e8d71d1dda58478301b411",
+        "left": "08f75b7949ca5eb4724df4f86c780fc461864a208c071af73459b1d8be79e278",
+        "bottom": "7eb133867937ec022914eaa18460ef9537772db7d673c8891a14a5c379bec410",
+        "rear": "8403e718c870ef8806183e421ff20921bb21db862e83417483136d9846d98e13"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:24:52.293203+00:00",
+      "notes": [
+        "Corrected current Carl has one complete body per view, stable neutral pose/costume, underside soles/belly clear."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/carl.png",
+          "sha256": "b363c5f49399ea7a7e9adf7b563e26b5afbcd31eadae1c6b18cc4184e38176a0",
+          "rgba_sha256": "fd57caf1e4e59c7b0836ec861d07b5ea0dc7f141da5b14b32e76336683360eaf"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "carl",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/combat.png",
+      "rect": [
+        150,
+        324,
+        157,
+        179
+      ]
+    },
+    "category": "actor"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

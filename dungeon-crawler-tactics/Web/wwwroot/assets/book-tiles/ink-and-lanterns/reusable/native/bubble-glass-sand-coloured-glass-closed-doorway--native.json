@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-glass-sand-coloured-glass-closed-doorway--native",
+  "name": "Sand Coloured Glass closed doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-glass",
+    "door",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:glass",
+    "material:sand",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-glass-sand-coloured-glass-closed-doorway--native.png",
+    "width": 206,
+    "height": 232,
+    "sha256": "3745a33a03973c39bfbbd736583056bf34a46c3185a690a88fb82264b484f542",
+    "rgba_sha256": "8a8f51bcbd9b4e48c1af8a3ccf99333375dd37bd1bdc802ffaf1b060925f597d"
+  },
+  "metadata_path": "reusable/native/bubble-glass-sand-coloured-glass-closed-doorway--native.json",
+  "anchor_px": [
+    103.0,
+    232
+  ],
+  "object_id": "bubble-glass-sand-coloured-glass-closed-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-glass.png",
+    "source_sha256": "d444bfd21363ec91ae411127287e662959df8d6041e3a336844294da8705bb19",
+    "source_rect": [
+      301,
+      471,
+      206,
+      232
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "bubble-glass-sand-coloured-glass-closed-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:glass",
+    "material:sand",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-glass-sand-coloured-glass-closed-doorway"
+  }
+}

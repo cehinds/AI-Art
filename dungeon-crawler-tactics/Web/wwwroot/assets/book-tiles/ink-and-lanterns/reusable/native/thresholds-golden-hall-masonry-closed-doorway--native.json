@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "thresholds-golden-hall-masonry-closed-doorway--native",
+  "name": "Golden Hall Masonry closed doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "thresholds",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/thresholds-golden-hall-masonry-closed-doorway--native.png",
+    "width": 214,
+    "height": 215,
+    "sha256": "0cae4504c6b3398fc4821b73ce1282f32819e9bbfcc8828fd2e4717fc941f927",
+    "rgba_sha256": "0557d3573a8ece94f620c12acdb78f28d5eb92718e046db1df148e0a9e03564e"
+  },
+  "metadata_path": "reusable/native/thresholds-golden-hall-masonry-closed-doorway--native.json",
+  "anchor_px": [
+    107.0,
+    215
+  ],
+  "object_id": "thresholds-golden-hall-masonry-closed-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/thresholds.png",
+    "source_sha256": "4286b6a93e579ab96724fe26978a981265d5d0bc0946ed6fe9def45de7282635",
+    "source_rect": [
+      287,
+      469,
+      214,
+      215
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.closed"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "thresholds-golden-hall-masonry-closed-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:gold",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "thresholds-golden-hall-masonry-closed-doorway"
+  }
+}

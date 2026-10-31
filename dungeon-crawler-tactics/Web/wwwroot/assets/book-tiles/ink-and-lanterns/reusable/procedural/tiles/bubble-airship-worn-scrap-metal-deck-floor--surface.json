@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-airship-worn-scrap-metal-deck-floor--surface",
+  "name": "Worn scrap metal deck floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "bubble-airship",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:metal",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/bubble-airship-worn-scrap-metal-deck-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "6fc7add9c7673876be4e21c47f141c924a373d61147ace351763063be661bed3",
+    "rgba_sha256": "95712f7de4063c7edb74488a2a58f530f41d6db3777a216b129b3849ad2d875a"
+  },
+  "metadata_path": "reusable/procedural/tiles/bubble-airship-worn-scrap-metal-deck-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "bubble-airship-worn-scrap-metal-deck-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "bubble-airship/components/bubble-airship-worn-scrap-metal-deck-floor.png",
+    "source_sha256": "132d0ad70ba063428e2706885648218078021c6d619b8f6d1ed8cf0d85dea8cd",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "east": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "south": [
+      "join.floor",
+      "visual.bubble-airship"
+    ],
+    "west": [
+      "join.floor",
+      "visual.bubble-airship"
+    ]
+  },
+  "canonical_asset_id": "bubble-airship-worn-scrap-metal-deck-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:metal",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "bubble-airship-worn-scrap-metal-deck-floor"
+  }
+}

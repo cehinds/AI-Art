@@ -1,0 +1,69 @@
+{
+  "candidate_only": true,
+  "candidate_version": "v5-mask",
+  "canonical_top_input": "reusable/views-additional/images/faction-larracos-drained-city-cobblestone-corner-transition.top.png",
+  "canonical_top_sha256": "f44ee5adedc27e0175b31afd013bd385a89b5188d741e8425ff0a009e7b931b7",
+  "compositing": "Keep canonical TOP input pixels unchanged outside mask; inside mask replace with generated stone underside texture. This retains external water, brass drain at lower-left, right pipes, coral, and all source placements outside the upper-left support.",
+  "external_fixture_exclusions": [
+    {
+      "bbox_xyxy_inclusive": [
+        171,
+        44,
+        209,
+        82
+      ],
+      "purpose": "preserve upper-right brass pipe cover and adjacent attached details from exact TOP base",
+      "shape": "ellipse"
+    },
+    {
+      "bbox_xyxy_inclusive": [
+        167,
+        108,
+        209,
+        150
+      ],
+      "purpose": "preserve lower-right brass pipe cover and adjacent attached details from exact TOP base",
+      "shape": "ellipse"
+    }
+  ],
+  "generated_stone_texture_input": "reusable/views-additional/candidates/core-dark-six-substrates-20261026/raw/faction-larracos-drained-city-cobblestone-corner-transition.bottom-underside-texture-v5.png",
+  "generated_texture_request": "reusable/views-additional/candidates/core-dark-six-substrates-20261026/raw/faction-larracos-drained-city-cobblestone-corner-transition.bottom-underside-texture-v5.request.json",
+  "generated_texture_request_id": "exec-d4669470-3e9b-4744-86f7-d662ef88e5f6",
+  "generated_texture_request_sha256": "b4e68fb1a794642371fe1b939102f2846dfc4adcdd4ae2254ee03a1c91b096dd",
+  "generated_texture_sha256": "88af96627c9ad4af11310d4572a2c96f6bab959201f95ebcdaab70e643b30049",
+  "mask_construction": "Binary mask authored against the current TOP/canonical geometry: rectangle x=38..177,y=42..131 for the upper-left paving block, with round external brass fixtures cut out around their visible TOP footprints. No support mask extends down into the lower open-water/drain region.",
+  "mask_path": "reusable/views-additional/candidates/core-dark-six-substrates-20261026/faction-larracos-drained-city-cobblestone-corner-transition.bottom-masonry-mask-v5.png",
+  "mask_polygon_xyxy_inclusive": [
+    38,
+    42,
+    177,
+    131
+  ],
+  "mask_sha256": "4584236a9ad8b5bfcf8c1f5bb18e5627c4bf9285a0cd5825f71c048c5767f552",
+  "object_id": "faction-larracos-drained-city-cobblestone-corner-transition",
+  "output_dimensions": [
+    256,
+    256
+  ],
+  "output_rgba_sha256": "438a38b3e3f3aa20559b107860814103919a159cc07a05b7862e5ec410e27400",
+  "output_sha256": "6530a7ba1e44ef50b79e417beb338a5260fa78d396547d02a569028e991d3039",
+  "production_files_used_as_inputs": false,
+  "resized_dimensions": [
+    140,
+    86
+  ],
+  "schema": "core-dark-larracos-corner-masked-underside-recipe-v1",
+  "texture_crop_xyxy": [
+    235,
+    421,
+    1019,
+    903
+  ],
+  "texture_offset": [
+    38,
+    44
+  ],
+  "texture_resize": "uniform scale, nearest-neighbor, centered in support mask bounding rectangle",
+  "uniform_scale": 0.17857142857142858,
+  "view": "bottom"
+}

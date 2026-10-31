@@ -1,0 +1,133 @@
+{
+  "id": "treasure-altar.right",
+  "name": "Treasure altar right",
+  "kind": "sprite",
+  "tags": [
+    "altar",
+    "attachment-tagged",
+    "attachment:floor",
+    "biomes",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "right",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:tabletop",
+    "treasure"
+  ],
+  "object_id": "treasure-altar",
+  "view": "right",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/treasure-altar.right.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "43fadd197030faaef5598769d550db0973534f68f2ef7a0a2b03521d41e33603",
+    "rgba_sha256": "bee1228a530be82d55eeea9e075337d20607f6fc0217d9e1206ba5641da2f7ad"
+  },
+  "metadata_path": "reusable/views-services/treasure-altar.right.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/treasure-altar.png",
+    "source_image_sha256": "56a6bdf78146086a27784a3696e359acb4505edb02866ccd7f8291aa81565dbc",
+    "generated_atlas": "reusable/views-services/atlas-biome-props.png",
+    "generated_atlas_sha256": "70221d93852424b749d1bfe0e09495abecc2e4c0aac8022f4688b99b537e2ef9",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Make a 6-column x 4-row transparent orthographic pixel-art atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly crystal-cluster, mushroom-cluster, waystone, treasure-altar matching reference order. Each cell one complete centered object. Keep exact source identity, shape, recognizable details, colors and proportions; consistent object between views. True orthographic views, top straight down and rear opposite front; infer hidden surfaces. No labels, scenery, ground plane, shadows, perspective, borders, grid marks. Crisp pixel art, transparent background.",
+      "reference_images": [
+        "components/crystal-cluster.png",
+        "components/mushroom-cluster.png",
+        "components/waystone.png",
+        "components/treasure-altar.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        2
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        160
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        560,
+        774,
+        209,
+        220
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8461538461538461,
+      "render_size_px": [
+        177,
+        186
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:tabletop"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:tabletop"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "treasure-altar"
+  }
+}

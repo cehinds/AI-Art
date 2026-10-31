@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--necromancer",
+  "name": "necromancer",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "necromancer",
+    "necromancer.png",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--necromancer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "acf11720e56b39f6bafdb98c87ae03c621a25959934ea9c4d773eb01fbfd1f55",
+    "rgba_sha256": "c281257caa7193e9eb16d1a52c9b23a072bf4f94ebaa9138ccf9c0cec95e1955"
+  },
+  "metadata_path": "reusable/native/legacy--necromancer.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--necromancer",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/necromancer.png",
+    "source_sha256": "18e1fe7bbf014f15c8ce733fec30b9282c1f6529dd924809bef7f33c71bb6194",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--necromancer.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--necromancer",
+      "source_sha256": "acf11720e56b39f6bafdb98c87ae03c621a25959934ea9c4d773eb01fbfd1f55",
+      "primary_source": {
+        "asset_id": "legacy--necromancer",
+        "path": "reusable/native/legacy--necromancer.png",
+        "sha256": "acf11720e56b39f6bafdb98c87ae03c621a25959934ea9c4d773eb01fbfd1f55",
+        "rgba_sha256": "c281257caa7193e9eb16d1a52c9b23a072bf4f94ebaa9138ccf9c0cec95e1955"
+      },
+      "image_hashes": {
+        "front": "f2a1f1ef3ba1117ff2a51926f6ff0095450b9a436c93124289ef4ac3c8a4f5cd",
+        "top": "9ca63e6d6d9cdc1c2cea8649ebdbdfb8fc496a203782417ac5959cec993b332d",
+        "right": "a01767fed95ed6a2f999690fb1cafae53f5125a12a696d230dd4fa43c61c5c6d",
+        "left": "366bb35cc17baa0d3302ce22ab0420542ec82e9d461c58fbd4193dd383cd45a9",
+        "bottom": "fd0ca389d90d9d0bbfa3cfbb70aa84b9fd1a1a5ef10239c9cbec0b3fbdc846c3",
+        "rear": "2f136b9b25abb2d38ea146c5007402041b78a4e42f9c0e604a1fe71c6c899a23"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:52:50.536007+00:00",
+      "notes": [
+        "Fresh corrected source+six: BOTTOM true torso/robeunderside with shoe soles, headgearoccluded; nativefront/sourcepixelidentity and isotropicallyconsistent bodywidth/sideheight, toolendcaps retained."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--necromancer.png",
+          "sha256": "acf11720e56b39f6bafdb98c87ae03c621a25959934ea9c4d773eb01fbfd1f55",
+          "rgba_sha256": "c281257caa7193e9eb16d1a52c9b23a072bf4f94ebaa9138ccf9c0cec95e1955"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--necromancer",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

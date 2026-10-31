@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-original--katia-scene-patch",
+  "name": "Katia Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "katia-scene-patch",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-original--katia-scene-patch.png",
+    "width": 175,
+    "height": 195,
+    "sha256": "654009f83addd141869b78a753efeae77dec28a5055b2e46b2ac0a1662f39c80",
+    "rgba_sha256": "8a7189ea13a92eec89d31f0fc56a8b7f260f55bf75808eea070dea3cd7811ef4"
+  },
+  "metadata_path": "reusable/scene-assets/concept-original--katia-scene-patch.json",
+  "anchor_px": [
+    87.5,
+    195
+  ],
+  "view": "source",
+  "object_id": "katia",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/original.png",
+    "source_sha256": "07829edc58f5eddbb3ff9dee0352dd69fe40d6e768156e9c4fc627415da8253b",
+    "source_rect": [
+      545,
+      525,
+      175,
+      195
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "katia.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "katia.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "katia.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "katia.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "katia.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "katia.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "katia",
+      "source_sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+      "primary_source": {
+        "asset_id": "katia",
+        "path": "components/katia.png",
+        "sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+        "rgba_sha256": "20c152e7855f15b5b16a59606d722db2345cbeca05f6605f481bf60a5ffdecc2"
+      },
+      "image_hashes": {
+        "front": "4d0a77cf79730b2029e4693b4c9e1be7a06cc577e1756afdab130ec5777febe8",
+        "top": "abc77a8ccab1f583057fb9ef4be5805f8533200f9307b27345e5392e3d600692",
+        "right": "d699a69ef20ff00327a9baf4049fe3b73f92b64da0ae8cba446948ec4f615dc4",
+        "left": "aee144fd62dc120e77e14e2f1046d2b16fca23e00bf1f3b6ce761dd875b74deb",
+        "bottom": "d1ad662391e98191a5a237135b1bb97886dcc98f8b5a1faefd7164e68aa3a622",
+        "rear": "35cf3a83e767f49f56ed969ce4c3e1d03cb9fc796140323a283887f136c5f151"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:09:53.137715+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/katia.png",
+          "sha256": "1e2c17b266642e7ae966860bf4f5b424192b2d9639b72c96eb34ef58756d1a41",
+          "rgba_sha256": "20c152e7855f15b5b16a59606d722db2345cbeca05f6605f481bf60a5ffdecc2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "katia",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/original.png",
+      "rect": [
+        545,
+        525,
+        175,
+        195
+      ]
+    },
+    "category": "actor"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

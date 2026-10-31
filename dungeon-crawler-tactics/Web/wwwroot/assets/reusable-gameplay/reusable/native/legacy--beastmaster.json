@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--beastmaster",
+  "name": "beastmaster",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "beastmaster",
+    "beastmaster.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--beastmaster.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+    "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+  },
+  "metadata_path": "reusable/native/legacy--beastmaster.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--beastmaster",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/beastmaster.png",
+    "source_sha256": "13d6256e85667d1c24968ce06483aee380bcf0fe34263ae4548caf94f8f5bd29",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--beastmaster.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--beastmaster",
+      "source_sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+      "primary_source": {
+        "asset_id": "legacy--beastmaster",
+        "path": "reusable/native/legacy--beastmaster.png",
+        "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+        "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+      },
+      "image_hashes": {
+        "front": "e4a97ee1a14f7c41cc98d1b48bfed5b4836e03cac0db4cf472b1ac9c4d6b2a60",
+        "top": "ea858577c818f653d193e59aa836a0945407b6659b638f28b74ba0ba522fb262",
+        "right": "7a247e41b61b61f7b0f6e79f1556902f41c1e38946c45f2bc988c8dad34336f1",
+        "left": "9796acef3d1b2f8b87c34d86be719e47bad5f7c4d9445ea21ada1d2d8feb9b8b",
+        "bottom": "67ed1f073e1d83dc6ddd3702a4ece467cee0f109ff4e67bcea30384b0cf28039",
+        "rear": "00e716ceac5e840c877353a213350201ac919e573cb1e49c11dc8c0966c1a915"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.152520+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--beastmaster.png",
+          "sha256": "6099216cc4c53c798b0c0af2a3371066b09ec6b8bb2b34b186a1e7efe54ce607",
+          "rgba_sha256": "d9764c5b7bbe50114267fe6fafa6a2ea89d0e2c37d0c1014287c1dbb781dd1bb"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--beastmaster",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "scenario-props--parts--native-parts",
+  "name": "parts native source",
+  "kind": "sprite",
+  "category": "source-variant",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "parts",
+    "role:object",
+    "scenario-props",
+    "source-atlas",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/scenario-props--parts--native-parts.png",
+    "width": 444,
+    "height": 444,
+    "sha256": "f5c916d8fd14c6b39a7acb9c753d25f24e9fed9ef3c8b5b429b020eaf388305a",
+    "rgba_sha256": "4a2b7c9df892d96b47b1fa282d732c264a632da0ae548197ee374bf804cdcd42"
+  },
+  "metadata_path": "reusable/native/scenario-props--parts--native-parts.json",
+  "anchor_px": [
+    222.0,
+    444
+  ],
+  "view": "native-pose",
+  "object_id": "scenario-props--parts--native-parts",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/scenario-props/source-atlas.png",
+    "source_sha256": "d07f80230260ac8e2f85761c9ad4cded3f49578569b50b6ed24f3c335eafaf1a",
+    "source_rect": [
+      1330,
+      0,
+      444,
+      444
+    ],
+    "mask": null,
+    "notes": "Exact native source window; normalized companion is the canonical gameplay object."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "scenario-props--parts",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "parts",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "scenario-props--parts"
+  }
+}

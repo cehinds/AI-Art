@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "clubs-guilds-club-carpet-floor--surface",
+  "name": "Club Carpet floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "clubs-guilds",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/clubs-guilds-club-carpet-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "d743aa94f1ded09ba4af51819c2b39c8ba57cbd9e75b0df97a8c529e5a3de75b",
+    "rgba_sha256": "c7ac606be063bd19c87b57a27309d2a40df2caa3157b0d0d2d4bbba62063087e"
+  },
+  "metadata_path": "reusable/procedural/tiles/clubs-guilds-club-carpet-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "clubs-guilds-club-carpet-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "clubs-guilds/components/clubs-guilds-club-carpet-floor.png",
+    "source_sha256": "3fcbb6914676cf8c5acdeb549bbafc126388fe797e85dcd32f769bc1e7f3f3b9",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "east": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "south": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ],
+    "west": [
+      "join.floor",
+      "visual.clubs-guilds"
+    ]
+  },
+  "canonical_asset_id": "clubs-guilds-club-carpet-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "clubs-guilds-club-carpet-floor"
+  }
+}

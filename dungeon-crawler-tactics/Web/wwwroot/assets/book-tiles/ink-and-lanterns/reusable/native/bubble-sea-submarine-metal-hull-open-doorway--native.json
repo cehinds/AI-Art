@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-sea-submarine-metal-hull-open-doorway--native",
+  "name": "Submarine Metal Hull open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-sea",
+    "door",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:metal",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-sea-submarine-metal-hull-open-doorway--native.png",
+    "width": 231,
+    "height": 217,
+    "sha256": "86c696dcab8946eb9ae3b8d82723408c95715af3af6ccc0aebccd85750a7ab4d",
+    "rgba_sha256": "97fd3b33b37b944573db2c9383cf230d03402098a19577c0d128955f5dfc3e6a"
+  },
+  "metadata_path": "reusable/native/bubble-sea-submarine-metal-hull-open-doorway--native.json",
+  "anchor_px": [
+    115.5,
+    217
+  ],
+  "object_id": "bubble-sea-submarine-metal-hull-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-sea.png",
+    "source_sha256": "9278a0365e42ae8fec425d06c3a12c55e661340a43357045d423e3c4b81968a1",
+    "source_rect": [
+      36,
+      493,
+      231,
+      217
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "bubble-sea-submarine-metal-hull-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:metal",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-sea-submarine-metal-hull-open-doorway"
+  }
+}

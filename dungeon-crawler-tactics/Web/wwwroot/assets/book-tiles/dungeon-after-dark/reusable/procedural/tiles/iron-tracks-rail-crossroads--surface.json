@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-tracks-rail-crossroads--surface",
+  "name": "Rail crossroads (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "iron-tracks",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-tracks-rail-crossroads--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "8da7d1befa58c2f5935b96adac1e231992f109fcd7b9a42444f9b70a33d63f23",
+    "rgba_sha256": "b356d7fddd264973a0f5afe19de9c0e18262fb9d780ca8f761d7c2e2f2c5baa2"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-tracks-rail-crossroads--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-tracks-rail-crossroads",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-tracks/components/iron-tracks-rail-crossroads.png",
+    "source_sha256": "4d2f5445ec7ae2e80a552ff0b9c993d99beaa08b6a0e7b08f7fd5fa3d765e4b9",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.manual"
+    ],
+    "east": [
+      "join.manual"
+    ],
+    "south": [
+      "join.manual"
+    ],
+    "west": [
+      "join.manual"
+    ]
+  },
+  "canonical_asset_id": "iron-tracks-rail-crossroads",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-tracks-rail-crossroads"
+  }
+}

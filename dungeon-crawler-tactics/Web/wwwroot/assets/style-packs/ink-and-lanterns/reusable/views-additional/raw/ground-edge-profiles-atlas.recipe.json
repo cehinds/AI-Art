@@ -1,0 +1,94 @@
+{
+  "raw_atlas": "reusable/views-additional/raw/ground-edge-profiles-atlas.png",
+  "grid": {
+    "columns": 2,
+    "rows": 3
+  },
+  "views": [
+    "front",
+    "rear"
+  ],
+  "alpha_threshold": 245,
+  "min_component_ratio": 0.02,
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "transparent_background": true,
+    "prompt_file": "reusable/views-additional/raw/ground-edge-profiles-atlas.generation.json",
+    "source_images": [
+      "components/grate.png",
+      "components/caverns-underground-lake-edge.png",
+      "components/caverns-underground-lake-corner.png"
+    ]
+  },
+  "objects": [
+    {
+      "row": 0,
+      "id": "grate",
+      "name": "Floor grate",
+      "kind": "tile",
+      "tags": [
+        "attachment-tagged",
+        "environment:unspecified",
+        "existing",
+        "grate",
+        "ink-and-lanterns",
+        "material:unspecified",
+        "role:provider",
+        "style:ink-and-lanterns",
+        "surface:floor",
+        "terrain",
+        "world"
+      ],
+      "source_image": "components/grate.png",
+      "status": "accepted"
+    },
+    {
+      "row": 1,
+      "id": "caverns-underground-lake-edge",
+      "name": "Underground lake edge",
+      "kind": "tile",
+      "tags": [
+        "attachment-tagged",
+        "caverns",
+        "edge",
+        "environment:unspecified",
+        "existing",
+        "ground",
+        "ink-and-lanterns",
+        "lake",
+        "material:unspecified",
+        "role:provider",
+        "style:ink-and-lanterns",
+        "surface:floor",
+        "terrain",
+        "underground"
+      ],
+      "source_image": "components/caverns-underground-lake-edge.png",
+      "status": "accepted"
+    },
+    {
+      "row": 2,
+      "id": "caverns-underground-lake-corner",
+      "name": "Underground lake corner",
+      "kind": "tile",
+      "tags": [
+        "attachment-tagged",
+        "caverns",
+        "corner",
+        "environment:unspecified",
+        "existing",
+        "ground",
+        "ink-and-lanterns",
+        "lake",
+        "material:unspecified",
+        "role:provider",
+        "style:ink-and-lanterns",
+        "surface:floor",
+        "terrain",
+        "underground"
+      ],
+      "source_image": "components/caverns-underground-lake-corner.png",
+      "status": "accepted"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "batch_id": "iron-tracks-junctions-v4-20261026",
+  "status": "prepared-before-generation",
+  "object_ids": [
+    "iron-tracks-rail-curve",
+    "iron-tracks-rail-t-junction",
+    "iron-tracks-rail-crossroads",
+    "iron-tracks-rail-siding-junction"
+  ],
+  "sources": [
+    "iron-tracks/components/iron-tracks-rail-curve.png",
+    "iron-tracks/components/iron-tracks-rail-t-junction.png",
+    "iron-tracks/components/iron-tracks-rail-crossroads.png",
+    "iron-tracks/components/iron-tracks-rail-siding-junction.png"
+  ],
+  "references": [
+    "iron-tracks/components/iron-tracks-rail-curve.png",
+    "iron-tracks/components/iron-tracks-rail-t-junction.png",
+    "iron-tracks/components/iron-tracks-rail-crossroads.png",
+    "iron-tracks/components/iron-tracks-rail-siding-junction.png",
+    "reusable/views-additional/raw/candidates/iron-tracks-rail-six-v1/iron-tracks-rail-straight-northeast-southwest.candidate-source-plus-six.png"
+  ],
+  "prompt": "Transparent pixel-art atlas, 1536x1024, exact 6 columns x 4 rows (256 square cells), no text, no labels, no grid lines, no scenery or background, one object centered in each cell, clear transparent margins. Column order FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. Row order matches the four source refs: CURVE, T-JUNCTION, CROSSROADS, SIDING. Orthographic pixel art, no perspective/isometric. Use the supplied reference source images as exact track topology and the straight-track contact for visual rail/stone style. Preserve gray steel paired rails, orange-brown ties, gray cobbled ballast.\n\nIMPORTANT geometry for every tile: TOP and BOTTOM are full square horizontal plan faces around 180x180 pixels inside their cells. FRONT, RIGHT, LEFT, REAR are all horizontal ground-level edge silhouettes: each view is a WIDE shallow rectangle approximately 180 pixels wide and 65 pixels high. All four edges have the SAME LOW Z thickness. Never make a tall or narrow vertical panel; never rotate the tile upright. The object lies flat on the ground, so a side view is a long thin slab. The four edge profiles differ only in which tracks/ends intersect that physical boundary.\n\nAt every boundary, show exact rail exits implied by that row's TOP. A pair of rails crossing an edge makes two separated short gray steel cross-section caps along the width of the shallow profile; do not connect those two caps with a silver line. Timber/stone edge fills the rest. If rail runs parallel along a viewed edge, show two thin parallel rail edges only if visible at the perimeter. No vertical bollards or posts. Crossroads has a pair of caps on all four edges. T-junction has pairs on its three connected edges and no pair on the closed edge. Curve has endpoints on its two adjacent connected edges and none on other edges. Siding has paired ends on both through-edges and its branch edge, but no branch pair on the opposite edge. Reverse the cap positions accurately in opposite views. TOP faithfully shows each original track routing. BOTTOM is plain full-footprint cobbled ballast underside with no visible upper rail or tie faces."
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "request_id": "bubble-necropolis-closed-doorway-side-geometry-v1",
+  "status": "generated-atlas-rejected-internal-qa",
+  "object_id": "bubble-necropolis-ancient-tomb-masonry-closed-doorway",
+  "views": [
+    "right",
+    "left"
+  ],
+  "prompt": "Create a clean two-panel orthographic side-view atlas from the supplied references. The FIRST reference is a root-approved side elevation geometry template for a closed stone doorway: preserve its exact shallow depth, full shared vertical height, framing, and narrow jamb silhouette. The SECOND reference is the canonical target Ink source and controls all material, identity, palette, and ornament. Render two isolated views on transparent background, RIGHT then LEFT, with generous transparent gutter and no touching components. Both are narrow end-on side elevations: shallow doorway depth matching the newly accepted thin overhead lintel/jamb plan, full jamb height consistent with target FRONT/REAR, gold-cream carved stone with target source style. Do not widen the side into a broad facade, do not show a front-facing door or wing emblem, do not add a threshold, extra posts, unrelated hardware, perspective, or oblique camera. Keep closed-door state implicit as opaque volume; only side-visible masonry and narrow dark door depth may show. Orthographic, inferred illustration, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "book-tiles/dungeon-after-dark/reusable/views-additional/images/thresholds-golden-hall-masonry-closed-doorway.right.png",
+      "sha256": "7c128e10a1e59bbb07172bc994df3d108ca582f883e4ed486958915a1657d2a3",
+      "role": "approved geometry template only"
+    },
+    {
+      "path": "bubble-necropolis/components/bubble-necropolis-ancient-tomb-masonry-closed-doorway.png",
+      "sha256": "f6aea905718aa4990301f87bbb06cf5e6d60624d3a2f3c42592b5fc54474875a",
+      "role": "canonical Ink identity and material authority"
+    }
+  ],
+  "generated_atlas": "raw/bubble-necropolis-closed-doorway-side-geometry-v1-atlas.png",
+  "generated_atlas_sha256": "7e1f567fea16d98992fae81453f152bbfbe06ace0826fb4a1cbd541e51e4c58c",
+  "generation_call_id": "exec-700e286e-b7ef-4cda-9e42-6364bf8cb9e0",
+  "internal_qa_failure": "The two output cells still show broad decorated frontal jamb faces, not narrow end-on side elevations. They do not match the accepted shallow top depth and would repeat front-facing ornament in RIGHT/LEFT. Keep existing live views unchanged; regenerate with a true side-profile geometry primary reference."
+}

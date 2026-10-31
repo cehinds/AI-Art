@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "root-dark-frame-cleanup-v2-ticket-gate",
+  "status": "candidate-only; Root review required",
+  "reviewer": "root",
+  "source_and_six_contact_proof": {
+    "path": "/tmp/root111-dark-frame-cleanup6.png.json",
+    "sha256": "450c46b68e12fd703788ef1349a5fd855227ff9a129753621f1c351d5eb02907"
+  },
+  "supersedes_candidates": [
+    "reusable/views-additional/candidates/root-dark-frame-cleanup-v1/iron-stations-ticket-gate.left.candidate.png",
+    "reusable/views-additional/candidates/root-dark-frame-cleanup-v1/iron-stations-ticket-gate.bottom.candidate.png"
+  ],
+  "object": {
+    "object_id": "iron-stations-ticket-gate",
+    "source": {
+      "path": "iron-stations/components/iron-stations-ticket-gate.png",
+      "sha256": "aee04ece2b6834cfe8b1763cb898c3f28a8b6532e9cf76c5e5c262f24878b570"
+    },
+    "all_six_current": {
+      "front": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.front.png",
+        "sha256": "63e3610ffcc732a22e92e4642f7f7779baceca84317523a1c63b75c699cc8552"
+      },
+      "top": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.top.png",
+        "sha256": "d9afdd687fbb82f9d4a7c028a875e1130efa73a5e836b3e2bab6f15f71d9c241"
+      },
+      "right": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.right.png",
+        "sha256": "3277abd039b1235d67c56aa217a23a263cd8d818929f0a3e411fe301934dfbcc"
+      },
+      "left": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.left.png",
+        "sha256": "3dfd4a0e545e43fd81f4752f3ba7f12b22df90b57b667e66c57f392210ca49de"
+      },
+      "bottom": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.bottom.png",
+        "sha256": "0a68c6289eae9e8d473f12f43b5eacb9a67fb20e43d5caee1e397b2137d2826f"
+      },
+      "rear": {
+        "path": "reusable/views-additional/images/iron-stations-ticket-gate.rear.png",
+        "sha256": "bce2eab76868f54ffc6ca628570ed19a673b06f7f836d756c26f3015a7c2b5db"
+      }
+    },
+    "affected_views": [
+      {
+        "view": "left",
+        "base_path": "reusable/views-additional/images/iron-stations-ticket-gate.left.png",
+        "base_sha256": "3dfd4a0e545e43fd81f4752f3ba7f12b22df90b57b667e66c57f392210ca49de",
+        "candidate_path": "candidates/root-dark-frame-cleanup-v2/iron-stations-ticket-gate.left.candidate-v2.png",
+        "candidate_sha256": "7978499d87afb2e78102bb148b9ec892b5438a8aea41f87c0f4650f2ae9fdf04",
+        "operation": "remove detached alpha component at x192:231,y95:161; preserve actual housing",
+        "raw_input_path": "reusable/views-additional/images/iron-stations-ticket-gate.left.png",
+        "raw_input_sha256": "3dfd4a0e545e43fd81f4752f3ba7f12b22df90b57b667e66c57f392210ca49de",
+        "tool_request_id": null,
+        "local_request_label": "deterministic-ticket-gate-geometry-fix-v2"
+      },
+      {
+        "view": "bottom",
+        "base_path": "reusable/views-additional/images/iron-stations-ticket-gate.bottom.png",
+        "base_sha256": "0a68c6289eae9e8d473f12f43b5eacb9a67fb20e43d5caee1e397b2137d2826f",
+        "candidate_path": "candidates/root-dark-frame-cleanup-v2/iron-stations-ticket-gate.bottom.candidate-v2.png",
+        "candidate_sha256": "3b97c2f7fd0acb2887199c281c7304cf0b10bff1ebeb0932bb903f78891fde26",
+        "operation": "retain 38x65px plate size; place same-target plates at x47,109,171 (centers 66,128,190) matching TOP housing centers; insert cyan connector footprints copied from TOP gaps x81:112 and144:175; no stretching",
+        "raw_input_path": "reusable/views-additional/images/iron-stations-ticket-gate.bottom.png",
+        "raw_input_sha256": "0a68c6289eae9e8d473f12f43b5eacb9a67fb20e43d5caee1e397b2137d2826f",
+        "tool_request_id": null,
+        "local_request_label": "deterministic-ticket-gate-geometry-fix-v2"
+      }
+    ]
+  },
+  "contact": {
+    "path": "qa/root-dark-frame-cleanup-v2-ticket-gate-source-current-candidates.png",
+    "sha256": "00cac866159e0e7f6a404f4c2f0322c05df6a6a3394f2a2fc3a615a30543d778"
+  },
+  "rebuild_script_path": "reusable/views-additional/raw/frame-cleanup-20261026/rebuild_ticket_gate_v2.py",
+  "rebuild_script_sha256": "d2da8a25e31ea991bbd2be594a297cff108257b4ee0a65f1b36d28e2146a6ec6",
+  "reproducibility": "python3 reusable/views-additional/raw/frame-cleanup-20261026/rebuild_ticket_gate_v2.py"
+}

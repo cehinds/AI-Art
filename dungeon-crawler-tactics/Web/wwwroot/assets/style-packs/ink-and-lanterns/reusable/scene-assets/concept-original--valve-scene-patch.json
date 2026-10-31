@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-original--valve-scene-patch",
+  "name": "Valve Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:ink-and-lanterns",
+    "valve-scene-patch"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-original--valve-scene-patch.png",
+    "width": 66,
+    "height": 81,
+    "sha256": "2490c92f117c9f662704eb026646bf4761c20887d32efff5e8fa40f805b1059d",
+    "rgba_sha256": "dcf6c58be8b2f1c316104691f37c6e09d43e4485b3106275654f4cff4cb621b1"
+  },
+  "metadata_path": "reusable/scene-assets/concept-original--valve-scene-patch.json",
+  "anchor_px": [
+    33.0,
+    81
+  ],
+  "view": "source",
+  "object_id": "valve",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/original.png",
+    "source_sha256": "f845cead795db68583af60c83a0e7752e98357463a06ef7ab9a228cbb820df99",
+    "source_rect": [
+      318,
+      287,
+      66,
+      81
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "valve.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "valve.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "valve.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "valve.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "valve.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "valve.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "valve",
+      "source_sha256": "9f0b17af4009d72932725e434a76c3562ec88494d67406dbdd9961d604889aba",
+      "primary_source": {
+        "asset_id": "valve",
+        "path": "components/valve.png",
+        "sha256": "9f0b17af4009d72932725e434a76c3562ec88494d67406dbdd9961d604889aba",
+        "rgba_sha256": "08168bc9b59cc132b0637d9a4056f9fe22d5e3e8bd8734032f72561d9e6d7862"
+      },
+      "image_hashes": {
+        "front": "8fe1b5a2ede981db5dc8b3ab8ba49b25936f10d1e35a92ec329d63e7eeb982a2",
+        "top": "9b408e683fb0c3a715f9ab25112d25d35bbc350e3e670e8cbecfd8a0e82041ec",
+        "right": "f0e92c7716823a435dbadba77f0832db39de7717afb081b2ce804e6cd60e3dbd",
+        "left": "c96b9ed555de3671d191366b218e989b2e502afc8ad2d101235c9b697a938aee",
+        "bottom": "be99f9c76871dd082854f3683d382b16bd19e10674861df3bb51bba9c37f10bf",
+        "rear": "a64667e938748e8d197382632590f2e0b09e10e67cfbffa694c6763148c87c90"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:30:55.587924+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/valve.png",
+          "sha256": "9f0b17af4009d72932725e434a76c3562ec88494d67406dbdd9961d604889aba",
+          "rgba_sha256": "08168bc9b59cc132b0637d9a4056f9fe22d5e3e8bd8734032f72561d9e6d7862"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "valve",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/original.png",
+      "rect": [
+        318,
+        287,
+        66,
+        81
+      ]
+    },
+    "category": "prop"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

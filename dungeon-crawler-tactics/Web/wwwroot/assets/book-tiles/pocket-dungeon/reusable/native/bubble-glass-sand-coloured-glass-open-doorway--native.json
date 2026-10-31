@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "bubble-glass-sand-coloured-glass-open-doorway--native",
+  "name": "Sand Coloured Glass open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "bubble-glass",
+    "door",
+    "environment:dungeon",
+    "material:glass",
+    "material:sand",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/bubble-glass-sand-coloured-glass-open-doorway--native.png",
+    "width": 202,
+    "height": 207,
+    "sha256": "e128dda18174ec1194ef7094121eb15da6f6495de7698d57c47cc98934902e60",
+    "rgba_sha256": "f251b0139ef27f69918e544ce1075e5c9af3fd30deca111df9aa1062f3ea4d2f"
+  },
+  "metadata_path": "reusable/native/bubble-glass-sand-coloured-glass-open-doorway--native.json",
+  "anchor_px": [
+    101.0,
+    207
+  ],
+  "object_id": "bubble-glass-sand-coloured-glass-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/bubble-glass.png",
+    "source_sha256": "183d29e17c627544061bf7a4ab5f1758ec4f84d0cf6c22895cedbda685390d3b",
+    "source_rect": [
+      44,
+      501,
+      202,
+      207
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "bubble-glass-sand-coloured-glass-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:glass",
+    "material:sand",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "bubble-glass-sand-coloured-glass-open-doorway"
+  }
+}

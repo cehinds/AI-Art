@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-cemetery-flagstone-stairs-down--native",
+  "name": "Cemetery Flagstone stairs down (native source crop)",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "material:unspecified",
+    "role:provider",
+    "stairs",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/ghost-cemetery-cemetery-flagstone-stairs-down--native.png",
+    "width": 192,
+    "height": 200,
+    "sha256": "9fcc91cce8798bd46aaa4985d439e09bbe4ad401681625e27a8418a8253190ce",
+    "rgba_sha256": "6cb2620023d5bdea897fdabc71ea5474aed031031086e5c65c80f0a49fa4ae54"
+  },
+  "metadata_path": "reusable/native/ghost-cemetery-cemetery-flagstone-stairs-down--native.json",
+  "anchor_px": [
+    96.0,
+    200
+  ],
+  "object_id": "ghost-cemetery-cemetery-flagstone-stairs-down",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/ghost-cemetery.png",
+    "source_sha256": "2945b07e5f67b07632ff51a11e079e127bfa03722b30a9e7449cc92e423d8dbe",
+    "source_rect": [
+      791,
+      491,
+      192,
+      200
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "ghost-cemetery-cemetery-flagstone-stairs-down",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-cemetery-cemetery-flagstone-stairs-down"
+  }
+}

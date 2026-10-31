@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "surface-entry-urban-brick-open-doorway--native",
+  "name": "Urban Brick open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface-entry",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/surface-entry-urban-brick-open-doorway--native.png",
+    "width": 215,
+    "height": 219,
+    "sha256": "3f6a62a83b9a9f857c20ba2f63481f3a4224b355b18c9d3bf0084893645c2ece",
+    "rgba_sha256": "537f0de6bfd49de6c2258f7ca521d5a830594471b0cf5201e8b79b0fa12d513c"
+  },
+  "metadata_path": "reusable/native/surface-entry-urban-brick-open-doorway--native.json",
+  "anchor_px": [
+    107.5,
+    219
+  ],
+  "object_id": "surface-entry-urban-brick-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/surface-entry.png",
+    "source_sha256": "0bf8164e1bc4e63b83cf249597b686156d418fb7b4b9278ecb5392e703b7aaa5",
+    "source_rect": [
+      31,
+      486,
+      215,
+      219
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "surface-entry-urban-brick-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-urban-brick-open-doorway"
+  }
+}

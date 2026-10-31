@@ -1,0 +1,23 @@
+"""Install source-faithful round-planter plant views from retained generated atlas."""
+from pathlib import Path
+import hashlib,json,struct
+import numpy as np
+from PIL import Image
+from scipy import ndimage
+HERE=Path(__file__).resolve().parent;PACK=HERE.parents[1];INDEX=HERE/'set-index.json';ATLAS_REL='reusable/views-additional/raw/crafting-potted-plant-round-planter-atlas.png';OID='menu-concepts-safe-room-services--crafting-potted-plant';REQ='exec-bca4e696-e4d4-4cb3-a35d-804773a5ddaf';THRESHOLD=245
+def sha(b):return hashlib.sha256(b).hexdigest()
+def file_sha(p):return sha(p.read_bytes())
+def rgba_sha(im):return sha(struct.pack('>II',*im.size)+im.convert('RGBA').tobytes())
+atlasp=PACK/ATLAS_REL;atlas=Image.open(atlasp).convert('RGBA');a=np.asarray(atlas);labels,_=ndimage.label(a[:,:,3]>=THRESHOLD,np.ones((3,3),dtype=np.uint8))
+idx=json.loads(INDEX.read_text());assets={a['id']:a for a in idx['assets']};side=Image.open(PACK/assets[f'{OID}.right']['image']['path']).convert('RGBA').getchannel('A').getbbox();target_z=side[3]-side[1];scale=None;summary={}
+for col,view in enumerate(('front','top','right','left','bottom','rear')):
+ x0=round(col*atlas.width/6);x1=round((col+1)*atlas.width/6);local=labels[:,x0:x1];counts=np.bincount(local.ravel());counts[0]=0;lab=int(counts.argmax());ys,xs=np.where(local==lab);sx=int(xs[len(xs)//2]+x0);sy=int(ys[len(ys)//2]);glab=int(labels[sy,sx]);ys,xs=np.where(labels==glab);bounds=[int(xs.min()),int(ys.min()),int(xs.max()+1),int(ys.max()+1)];mask=labels[bounds[1]:bounds[3],bounds[0]:bounds[2]]==glab;piece=atlas.crop(tuple(bounds));piece.putalpha(Image.fromarray((mask*255).astype(np.uint8)))
+ if scale is None:scale=target_z/piece.height
+ size=(max(1,round(piece.width*scale)),max(1,round(piece.height*scale)));piece=piece.resize(size,Image.Resampling.NEAREST);crop_rel=f'reusable/views-additional/raw/crafting-potted-plant-{view}-round-pot-projection.png';crop=PACK/crop_rel;piece.save(crop,optimize=True);offset=(128-size[0]//2,128-size[1]//2);frame=Image.new('RGBA',(256,256));frame.alpha_composite(piece,offset)
+ aid=f'{OID}.{view}';meta=json.loads((PACK/assets[aid]['metadata_path']).read_text());out=PACK/meta['image']['path'];frame.save(out,optimize=True);rec_rel=f'reusable/views-additional/raw/crafting-potted-plant-{view}-round-pot.recipe.json';note='Inferred fixed-pose orthographic view of the source leafy plant in a round wooden barrel planter. Hidden surfaces are illustrative, not recovered pixels; the planter is kept round, never square.'
+ meta['image']['sha256']=file_sha(out);meta['image']['rgba_sha256']=rgba_sha(frame);prov=meta['provenance'];prov.update({'method':'generated','source_image':'reusable/native/menu-concepts-safe-room-services--crafting-potted-plant.png','source_atlas':ATLAS_REL,'source_atlas_sha256':file_sha(atlasp),'generation_request_id':REQ,'generation_recipe':rec_rel,'source_crop_path':crop_rel,'source_crop_sha256':file_sha(crop),'crop_bounds_px':{'selection_mode':'global_alpha_component','alpha_threshold':THRESHOLD,'global_component_label':glab,'alpha_bounds_global':bounds,'atlas_cell':{'column':col,'row':0,'columns':6,'rows':1},'common_uniform_scale':scale,'resized_bounds_px':list(size),'canvas_offset_px':list(offset),'anchor_px':[128,128]},'notes':note})
+ recipe={'operation':'extract-global-component-common-uniform-scale','request_id':REQ,'input_atlas':ATLAS_REL,'input_sha256':file_sha(atlasp),'alpha_threshold':THRESHOLD,'cell':{'column':col,'row':0,'columns':6,'rows':1},'global_component_label':glab,'component_bounds_px':bounds,'common_uniform_scale':scale,'target_height_from_existing_side_px':target_z,'resized_bounds_px':list(size),'canvas_offset_px':list(offset),'anchor_px':[128,128],'source_image':'reusable/native/menu-concepts-safe-room-services--crafting-potted-plant.png','output_crop':crop_rel,'output_id':aid,'notes':note}
+ (PACK/rec_rel).write_text(json.dumps(recipe,indent=2)+'\n');(PACK/meta['metadata_path']).write_text(json.dumps(meta,indent=2)+'\n');assets[aid]=meta;summary[view]={'size':size,'bbox':frame.getchannel('A').getbbox(),'sha256':meta['image']['sha256']}
+for group in idx['view_sets']:
+ if group['object_id']==OID:group['complete']=False;group['geometry_qa']={'status':'pending-review','views':['front','top','right','left','bottom','rear'],'atlas_self_inspected':True,'notes':'Round barrel planter and inferred hidden projections await independent canonical-source review.'};group['notes']='Replaced square planter with round wooden barrel pot; all six projections refreshed.'
+idx['assets']=[assets[a['id']] for a in idx['assets']];INDEX.write_text(json.dumps(idx,indent=2)+'\n');print(json.dumps({'target_z_px':target_z,'scale':scale,'views':summary},indent=2))

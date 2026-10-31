@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--boss",
+  "name": "boss",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "boss",
+    "boss.png",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--boss.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "a36474e3aadbfca78f3cee0467bc9548898c2a998fef0176988b8bf791a263cc",
+    "rgba_sha256": "9547e7eeca21e3b144456c3e061ee103bb16d5edc5b85e3b461ef7566acc3f57"
+  },
+  "metadata_path": "reusable/native/legacy--boss.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--boss",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/boss.png",
+    "source_sha256": "3ed7dd05ea6d300f60472b3972bbaf6fd7fdaa24ee7b987daef1f4907a58e1a1",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--boss.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--boss",
+      "source_sha256": "a36474e3aadbfca78f3cee0467bc9548898c2a998fef0176988b8bf791a263cc",
+      "primary_source": {
+        "asset_id": "legacy--boss",
+        "path": "reusable/native/legacy--boss.png",
+        "sha256": "a36474e3aadbfca78f3cee0467bc9548898c2a998fef0176988b8bf791a263cc",
+        "rgba_sha256": "9547e7eeca21e3b144456c3e061ee103bb16d5edc5b85e3b461ef7566acc3f57"
+      },
+      "image_hashes": {
+        "front": "ea4c284a2a728546540d0b1826fb430575e79da4cbfde211929aa97104b30aea",
+        "top": "8a0cd95e5ce52100e91a0acad7e97bb53eb6bcd317dc4fc58f09ab3900c5461e",
+        "right": "1bdb7983d8d80b7b34012f150f52bbd5cd4603f2e72d0413866bff1a619a9aa4",
+        "left": "558b086f9f9a370202b47f1ccca58b2d11ff1cafea431e4960fa1e1f71894aee",
+        "bottom": "06db435f071331473cdb311117a2c55870c8ccbde33f81110c98c29eb827ef2c",
+        "rear": "abc9daf57a3cf21fece749bcd6ec68385264ef57a4e90404e1b85f973644e0cd"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:24:08.152741+00:00",
+      "notes": [
+        "Fresh corrected source+six: nativefront retained, lateralworldheights consistent, separatelycorrected TOP/BOTTOM isotropically calibrated to samephysicalbodywidth. Actual bodyunderside/soleviews restored, staffweaponendcaps foreshortened, sourcepixelidentity preserved."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--boss.png",
+          "sha256": "a36474e3aadbfca78f3cee0467bc9548898c2a998fef0176988b8bf791a263cc",
+          "rgba_sha256": "9547e7eeca21e3b144456c3e061ee103bb16d5edc5b85e3b461ef7566acc3f57"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--boss",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

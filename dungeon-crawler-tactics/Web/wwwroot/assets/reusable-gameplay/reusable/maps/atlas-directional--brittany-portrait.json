@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-directional--brittany-portrait",
+  "label": "Directional--Brittany-Portrait source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/directional/brittany-portrait.png",
+    "width": 128,
+    "height": 144,
+    "sha256": "bf720fbe51d990992319b35fd68d53f1da7b4094f1e0659dfb2afc2d8ed551ee",
+    "rgba_sha256": "de35ad4851bc1c400f3a8dd29a15fa493238dc977e7b9738b1325964eca2c5bf"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 144,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "residual-fcf6523aca1e769e6a37",
+      "path": "reusable/residuals/fcf6523aca1e769e6a37.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 0
+    },
+    {
+      "asset_id": "residual-ece75ab0b918abc706fd",
+      "path": "reusable/residuals/ece75ab0b918abc706fd.png",
+      "x": 64,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 1
+    },
+    {
+      "asset_id": "residual-8b9b6b4a30d6168dd7ee",
+      "path": "reusable/residuals/8b9b6b4a30d6168dd7ee.png",
+      "x": 0,
+      "y": 64,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 2
+    },
+    {
+      "asset_id": "residual-80e207abe0eebebd05e8",
+      "path": "reusable/residuals/80e207abe0eebebd05e8.png",
+      "x": 64,
+      "y": 64,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "replace",
+      "role": "residual",
+      "z": 3
+    },
+    {
+      "asset_id": "directional--brittany-portrait",
+      "path": "reusable/native/directional--brittany-portrait.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 4
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "de35ad4851bc1c400f3a8dd29a15fa493238dc977e7b9738b1325964eca2c5bf",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 4,
+    "semantic_visible_pixel_count": 2530,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 2530,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

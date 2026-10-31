@@ -1,0 +1,14 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "grid": {"columns": 6, "rows": 4},
+  "views": ["front", "top", "right", "left", "bottom", "rear"],
+  "objects": ["stone-floor", "water-floor", "wall-back", "wall-side"],
+  "source_images": [
+    "components/stone-floor.png",
+    "components/water-floor.png",
+    "components/wall-back.png",
+    "components/wall-side.png"
+  ],
+  "prompt": "Orthographic technical sprite atlas on transparent background, EXACTLY 6 columns x 4 rows, one centered object per cell. Columns in this order: FRONT (camera axis perpendicular to front plane, straight elevation), TOP (camera vertically overhead, zero tilt), RIGHT (straight elevation looking at right end), LEFT (straight elevation looking at left end), BOTTOM (straight underneath), REAR (straight elevation perpendicular to back plane). Rows: 1 pale tan square flagstone floor slab from reference1; 2 square shallow teal water floor tile with lily pads from reference2; 3 broad straight ivy-draped flagstone wall segment from reference3; 4 broad straight ivy-draped wall segment from reference4. Orthographic cameras must be axis-aligned with NO perspective, NO isometric angle, NO three-quarter angle, NO tilted camera. CRITICAL for rows 1 and 2: FRONT, RIGHT, LEFT, REAR views show ONLY the thin vertical tile edge as a narrow horizontal strip; the top surface is completely hidden in these elevations. TOP and BOTTOM are square views. CRITICAL for rows 3 and 4: FRONT and REAR show the full horizontal length of the wall, not a single pillar; RIGHT and LEFT show the narrow end face; TOP shows the long rectangular capstones. Keep the same physical dimensions, surface layout, moss and ivy across the six views. Use fine dark ink outlines and layered gouache paint like references. No fake mirrored sides; draw plausible distinct surfaces. No labels, dividers, scenery, floor shadows, background, overlap, or clipped objects. Center each view inside its cell, high detail. Target atlas at least 1536x1024."
+}

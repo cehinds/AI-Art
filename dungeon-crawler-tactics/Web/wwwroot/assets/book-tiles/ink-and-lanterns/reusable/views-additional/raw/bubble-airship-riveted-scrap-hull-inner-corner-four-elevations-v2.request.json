@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-airship-riveted-scrap-hull-inner-corner",
+  "views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "status": "rejected_after_self_qa",
+  "prompt": "Use the first image only for the exact rusty orange target material, panel seams and bolted square end plates. It is a hybrid map-plan icon, so its L silhouette must NOT appear in these outputs. Use the second image solely as geometry calibration: it shows this exact same-design straight wall in valid orthographic broad face views and thin end views. Generate a transparent 4-column atlas for the target bubble airship riveted scrap hull inner corner with, left to right, FRONT, RIGHT, LEFT, REAR. All four columns must be full-height broad rectangular upright wall elevations, like the straight wall guide's broad front/rear faces. Each camera looks squarely at one face of one of the two perpendicular arms; no corner junction silhouette in any view, no thin isolated post, no horizontal bar, no visible top plan, no perspective. The two arms are equal-height masonry/metal wall runs joined at 90 degrees in the unseen L plan. Show the broad rusty orange riveted wall face with its dark lower border and square bolted terminal/end plates; keep identical shared Z height and similar wall span across all four images. Do not copy the guide's blue/orange colors, use the target's rust palette. The existing TOP and BOTTOM L-shaped plans will be preserved separately. Four individual upright orthographic views separated into equal columns, complete centered silhouettes, no text. Inferred illustration, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-inner-corner.png",
+      "sha256": "4b80b6b255f14808fa3b38c214f8a9bb4fcbf54d4c4d93732dab51560c48ccb0",
+      "role": "canonical target identity and palette only"
+    },
+    {
+      "path": "external-geometry-guide/bubble-airship-riveted-scrap-hull-wall-northwest-indexed-source-six.png",
+      "sha256": "b204f67841f61540f390282ea697e22bd5c8a7d0507e353b567bc197931e3749",
+      "role": "same-design accepted straight-wall elevation geometry only; palette must not transfer"
+    }
+  ],
+  "geometry_constraints": [
+    "four broad upright rectangular orthographic elevations",
+    "shared wall height and scale across all four",
+    "no L or corner glyph in elevations",
+    "target rusty orange palette",
+    "preserve separate existing TOP/BOTTOM L plans"
+  ],
+  "raw_atlas": "bubble-airship-riveted-scrap-hull-inner-corner-four-elevations-v2-atlas.png",
+  "generated_atlas_sha256": "5610436bf0a38b91d6aa06672234c1c21b59027f62bfc1e72badee2741f567a2",
+  "qa_reason": "Atlas retained narrow end-post views and did not produce the required broad four-sided elevations; none installed."
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "directional--mongo--ne--walk1",
+  "name": "directional mongo ne walk1",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "directional",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "mongo",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/directional--mongo--ne--walk1.png",
+    "width": 128,
+    "height": 144,
+    "sha256": "8932fd4ab8a4464d130c82f6c57b465c4f2e1e6b7611c8c128c8933df1799c4b",
+    "rgba_sha256": "347f421851047a22e1f070cc5517ebfb26d23cdc94fb3ae02f460efd5ffa036e"
+  },
+  "metadata_path": "reusable/native/directional--mongo--ne--walk1.json",
+  "anchor_px": [
+    64.0,
+    144
+  ],
+  "view": "animation-camera",
+  "object_id": "directional--mongo--se--walk1",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/directional/mongo.png",
+    "source_sha256": "c639e4b4c57f175b70ff359accc2839b0436c3348eb3a03473ce09f67ac8a729",
+    "source_rect": [
+      256,
+      144,
+      128,
+      144
+    ],
+    "mask": null,
+    "notes": "Lossless native-pixel extraction."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate camera or native crop of the same physical pose; principal views attach to canonical_asset_id."
+  },
+  "canonical_asset_id": "directional--mongo--se--walk1",
+  "pose": "walk1",
+  "source_direction": "ne",
+  "character_id": "directional--mongo",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "directional--mongo--se--walk1"
+  }
+}

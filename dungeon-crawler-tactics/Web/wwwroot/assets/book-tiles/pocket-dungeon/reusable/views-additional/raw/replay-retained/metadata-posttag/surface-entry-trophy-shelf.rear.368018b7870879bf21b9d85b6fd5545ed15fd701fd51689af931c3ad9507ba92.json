@@ -1,0 +1,187 @@
+{
+  "id": "surface-entry-trophy-shelf.rear",
+  "name": "Trophy shelf rear",
+  "kind": "sprite",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "rear",
+    "role:object",
+    "style:pocket-dungeon",
+    "surface-entry",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/views-additional/surface-entry-trophy-shelf.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "b823bcdcad19a974f9120305757aed1a16203bff86398386cfdf02ad3310e87b",
+    "rgba_sha256": "1cafc996c6466e7cc7b791d672f3aaa305b7bf3988cb8261d389b82f89491c61"
+  },
+  "object_id": "surface-entry-trophy-shelf",
+  "view": "rear",
+  "metadata_path": "reusable/views-additional/surface-entry-trophy-shelf.rear.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "individual principal-view image; grouped in this object view_set"
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "surface-entry/components/surface-entry-trophy-shelf.png",
+    "source_sha256": "1a16fbe2b330f9d44a096a4401ef56fa7629e020c6c86e41c90d4d84e2b360a0",
+    "generated_atlas": "reusable/views-additional/raw/candidates/trophy-shelf-rear-v4/generated-rear.png",
+    "generated_atlas_sha256": "2a42824304ac8a98114507f86cdb82a4352fc99720aaab7e8a2ef7b801c0e8aa",
+    "generation_request": "raw/candidates/trophy-shelf-rear-v4/request.json",
+    "generation_request_sha256": "f6afdd40efae708de99efff1ca82350e239d77d6fa3506e427a0a755bcf076d7",
+    "prompt": "Generate ONE transparent-background, crisp pixel-art orthographic REAR view of the exact Surface Entry Trophy Shelf in the attached contact. The contact includes canonical source, current accepted principal views and an earlier REAR silhouette reference. Source identity and accepted FRONT determine the full object dimensions. This object is a tall freestanding three-row bookcase, not a short wall shelf. The REAR sprite must occupy a full square-like footprint: about 176 px wide by 176 px high at 256x256, bottom aligned to y=248. Do not shorten it or anisotropically stretch it.\n\nCamera is straight-on from directly behind (-Y), orthographic, level. Preserve the entire tall bookcase: two full-height side posts from top to floor, a closed continuous warm-brown wooden backboard spanning the full height behind the three source shelf rows, and subtle horizontal shelf/back seams at the corresponding three-row heights. The base and top rails stay at the same Z positions as FRONT. Keep full height from the highest source plant/photo/cup to the bottom corner feet; common X width matches accepted FRONT (176 px native alpha bounds), overall alpha extent approximately 176x176.\n\nAt the top edge, retain exactly these three top-shelf projections in source order and scale: drooping green plant at left, ONE gold cup near center, and the back of the framed photograph near right. The lower-shelf small gold ornament is occluded and must be absent. Do not show the photo face. Do not remove or shrink the three-row bookcase body. No open cubby/rack/single shelf, no full frontal image, no extra ornament, no perspective, shadows, labels, detached guides, or clipping. Use the same wood tone, gold corner hardware, plant green, and gold cup as the supplied source/elevations.",
+    "output_binding": {
+      "path": "raw/candidates/trophy-shelf-rear-v4/generated-rear.png",
+      "sha256": "2a42824304ac8a98114507f86cdb82a4352fc99720aaab7e8a2ef7b801c0e8aa",
+      "output_hint": "/workspace/generated_images/exec-afb67ae8-86ad-4221-ae81-a0cd8cea7519.png"
+    },
+    "candidate_recipe": "raw/candidates/trophy-shelf-rear-v4/candidate-recipe-v4.json",
+    "candidate_recipe_sha256": "53c591f1482ff2ea359380182e7100ee398daff2f0556c502af8c0e0f19d8b13",
+    "normalization": {
+      "base_candidate": {
+        "alpha_threshold": 64,
+        "largest_component_pixels": 586310,
+        "component_bbox": [
+          241,
+          219,
+          1013,
+          1082
+        ],
+        "detached_component_count_discarded": 0,
+        "uniform_scale_to_front_width": 0.22797927461139897,
+        "render_size": [
+          176,
+          197
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "resampling": "NEAREST",
+        "anchor_px": [
+          128,
+          248
+        ]
+      },
+      "postprocess": "exact horizontal mirror, no resampling"
+    },
+    "derivation_input": {
+      "path": "raw/candidates/trophy-shelf-rear-v4/rear.candidate-v4.png",
+      "sha256": "9b5b66e3ac479fbda325a3518d4bef204665518886e4d60317042d655288cbfe",
+      "operation": "horizontal mirror"
+    },
+    "axis_correction": {
+      "method": "exact-horizontal-mirror",
+      "reason": "REAR viewpoint reverses screen X: source FRONT plant-left/frame-right becomes plant-right/frame-left"
+    },
+    "notes": "Install root-authorized exact horizontal mirror of full-height v4 rear to reverse screen X for the rear camera."
+  },
+  "geometry_qa": "pending-review",
+  "provenance_history": [
+    {
+      "method": "generated",
+      "source_image": "surface-entry/components/surface-entry-trophy-shelf.png",
+      "generated_atlas": "reusable/views-additional/raw/atlases/surface-entry-batch-03.png",
+      "generated_atlas_sha256": "3b80934b325b778a0f856209225282da780b1036fa71c72c80e00be05b47a23e",
+      "reference_sheet": "reusable/views-additional/raw/source-refs/surface-entry-batch-03.png",
+      "prompt_file": "reusable/views-additional/raw/prompts/surface-entry-batch-03.txt",
+      "normalization": {
+        "alpha_threshold": 245,
+        "minimum_component_area": 4,
+        "component_policy": "group opaque connected components by nearest logical row/column center; preserve full bounds",
+        "component_group": [
+          {
+            "label": 69,
+            "area": 17570,
+            "centroid": [
+              1135.8814456459875,
+              1108.971656232214
+            ],
+            "bbox": [
+              1064,
+              1035,
+              1209,
+              1179
+            ]
+          }
+        ],
+        "shared_scale": 1.2359550561797752,
+        "source_crop_size": [
+          145,
+          144
+        ],
+        "render_size": [
+          179,
+          178
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "resampling": "NEAREST",
+        "anchor_px": [
+          128,
+          248
+        ]
+      },
+      "notes": "Inferred orthographic surfaces, not recovered pixels. Hidden faces and slab depth are conservative extrapolations."
+    }
+  ],
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:object",
+    "style:pocket-dungeon",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "surface-entry-trophy-shelf"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-scenario-props--bench",
+  "label": "Scenario-Props--Bench source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/scenario-props/bench.png",
+    "width": 128,
+    "height": 144,
+    "sha256": "e0a1924834d1608abcd7cc03b855af63550b48853f9d5adeef5ef261f6636df0",
+    "rgba_sha256": "67d4c9ae6e5e29b4c26f0ad7d6bb6da55a9578281bf59c165fa1c432a10b14f4"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 144,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "scenario-props--bench",
+      "path": "reusable/native/scenario-props--bench.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "67d4c9ae6e5e29b4c26f0ad7d6bb6da55a9578281bf59c165fa1c432a10b14f4",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 5051,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 5051,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

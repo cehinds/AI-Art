@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "surface-entry-worn-wet-city-pavement-floor--surface",
+  "name": "Worn wet city pavement floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "ground",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface-entry",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/surface-entry-worn-wet-city-pavement-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "fb36c40f632d62e763804d96eb861a509c6aea26c501dfeff0e37b7c3e70c18c",
+    "rgba_sha256": "8b2952af7a9799a0b1132960099ee272d72cb5f1ceb01ff96360b4905aca78d4"
+  },
+  "metadata_path": "reusable/procedural/tiles/surface-entry-worn-wet-city-pavement-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "surface-entry-worn-wet-city-pavement-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "surface-entry/components/surface-entry-worn-wet-city-pavement-floor.png",
+    "source_sha256": "5a2f32b4709faafee0a2ec8cfeac0e7911613c30cb078d05b6c1f2795c75ab33",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "east": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "south": [
+      "join.floor",
+      "visual.surface-entry"
+    ],
+    "west": [
+      "join.floor",
+      "visual.surface-entry"
+    ]
+  },
+  "canonical_asset_id": "surface-entry-worn-wet-city-pavement-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "surface-entry-worn-wet-city-pavement-floor"
+  }
+}

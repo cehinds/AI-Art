@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "parade-horribles-worn-yellow-brick-road-floor--surface",
+  "name": "Worn yellow brick road floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:brick",
+    "parade-horribles",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/parade-horribles-worn-yellow-brick-road-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "83594050b2a00c2f3fb1392d804dc5c25781cc1d3263e5c547e9cbe14055af6e",
+    "rgba_sha256": "55814e296f4aa8c264ed9d3c282d567e64112ece5e84b560020cb1ec3ec9ec3a"
+  },
+  "metadata_path": "reusable/procedural/tiles/parade-horribles-worn-yellow-brick-road-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "parade-horribles-worn-yellow-brick-road-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "parade-horribles/components/parade-horribles-worn-yellow-brick-road-floor.png",
+    "source_sha256": "fb7cba05881533da588e47b5413d53d4e6a86b05644e5492fe398b1c6790a37e",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "east": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "south": [
+      "join.floor",
+      "visual.parade-horribles"
+    ],
+    "west": [
+      "join.floor",
+      "visual.parade-horribles"
+    ]
+  },
+  "canonical_asset_id": "parade-horribles-worn-yellow-brick-road-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:brick",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "parade-horribles-worn-yellow-brick-road-floor"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "iron-tracks-rail-curve--surface",
+  "name": "Rail curve (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "iron-tracks",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/iron-tracks-rail-curve--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "e8882951929692be7c7d094fb7f014877fd8fbe4ed75aad9b58cc8552fde2742",
+    "rgba_sha256": "89319b695b56fbf2f95dd8645693ec63e11618df31d4a089303d9e9c9add8a37"
+  },
+  "metadata_path": "reusable/procedural/tiles/iron-tracks-rail-curve--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "iron-tracks-rail-curve",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "iron-tracks/components/iron-tracks-rail-curve.png",
+    "source_sha256": "952e64217c8b8d7d9102ce3728dff2ffb381be566eeeb83ec930ad526b454b72",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "east": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "south": [
+      "join.floor",
+      "visual.iron-tracks"
+    ],
+    "west": [
+      "join.floor",
+      "visual.iron-tracks"
+    ]
+  },
+  "canonical_asset_id": "iron-tracks-rail-curve",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:iron",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "iron-tracks-rail-curve"
+  }
+}

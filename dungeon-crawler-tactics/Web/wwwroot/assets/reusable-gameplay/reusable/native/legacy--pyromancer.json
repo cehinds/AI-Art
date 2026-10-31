@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--pyromancer",
+  "name": "pyromancer",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "pyromancer",
+    "pyromancer.png",
+    "role:object",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--pyromancer.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "68d051fdc5ba5b5863d648983090321c6b644287434e2944e8709bdf3b7025ff",
+    "rgba_sha256": "b33668f6eb9503b8f45429cc029767e6ad693683a6626d5a5f0c2832e3652a8a"
+  },
+  "metadata_path": "reusable/native/legacy--pyromancer.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--pyromancer",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/pyromancer.png",
+    "source_sha256": "f505b7741375950da9d6684c17246461e202650ce37824e92299720d01737450",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--pyromancer.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--pyromancer",
+      "source_sha256": "68d051fdc5ba5b5863d648983090321c6b644287434e2944e8709bdf3b7025ff",
+      "primary_source": {
+        "asset_id": "legacy--pyromancer",
+        "path": "reusable/native/legacy--pyromancer.png",
+        "sha256": "68d051fdc5ba5b5863d648983090321c6b644287434e2944e8709bdf3b7025ff",
+        "rgba_sha256": "b33668f6eb9503b8f45429cc029767e6ad693683a6626d5a5f0c2832e3652a8a"
+      },
+      "image_hashes": {
+        "front": "1942fcb514bf79500f538b75e7c7ec2cd3c0e652c6928ebd0bebcda06b8ff06e",
+        "top": "f4e7b5cbed3b3b3f4d7a1a9c939561972d3ca32f1300d341c4cfe98b9568c78c",
+        "right": "ac9b1ed55164f0cb2034e544bdf02ed623884e95ccaf8d0e0d4a6171d4d98ddf",
+        "left": "034a1850b2629811209bbfec377af830787f135aa74c7af0a46c21006228d942",
+        "bottom": "dc9b18409db9ba16bb032b0f8be0264662c94cb853df981ec47e1c2494042024",
+        "rear": "c6e663f643a88c226779ae403bd7329e2b51c7166f1a61e9910af676ec174001"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:52:50.536325+00:00",
+      "notes": [
+        "Fresh corrected source+six: BOTTOM true torso/robeunderside with shoe soles, headgearoccluded; nativefront/sourcepixelidentity and isotropicallyconsistent bodywidth/sideheight, toolendcaps retained."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--pyromancer.png",
+          "sha256": "68d051fdc5ba5b5863d648983090321c6b644287434e2944e8709bdf3b7025ff",
+          "rgba_sha256": "b33668f6eb9503b8f45429cc029767e6ad693683a6626d5a5f0c2832e3652a8a"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--pyromancer",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

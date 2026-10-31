@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-desert-desert-tavern-doorway",
+  "views": [
+    "bottom"
+  ],
+  "status": "rejected_after_footprint_self_qa",
+  "prompt": "Create only one isolated transparent orthographic BOTTOM view of the exact desert tavern doorway tile shown in the references. The first image is the canonical object source; the second image is the authoritative overhead TOP footprint; the third is a rejected underside concept for material hints only, not its proportions. Match the TOP's entire plan footprint: a wide shallow rectangle with width:depth approximately 1.4:1, not a narrow strip. The silhouette must span the same left-right width and front-back depth as the TOP. Show two distinct round barrel base disks at the far left and right, separated by a broad central underside of dark brown wooden boards spanning the full depth; include the small sandstone threshold footprint at the doorway. Two barrels are circles seen straight from below, with flat circular wooden bottoms and concentric plank rings/center plugs, no side slats. The central board area must have several visible parallel board rows extending from front to rear, so it occupies substantial plan depth. Opaque structure blocks all upper objects: no facade, no door, no arch opening, no awning or red cloth, no barrel sides, no upper face. No generic square tray, no added supports, no perspective, no oblique side faces. Keep the authentic illustrated texture and palette from the source. Center one complete crisp silhouette, no text. This is inferred illustration, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "bubble-desert/components/bubble-desert-desert-tavern-doorway.png",
+      "role": "canonical source identity"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-desert-tavern-doorway.top.png",
+      "role": "authoritative XY plan footprint"
+    },
+    {
+      "path": "reusable/views-additional/raw/bubble-desert-desert-tavern-doorway-bottom-v2-atlas-rejected.png",
+      "role": "material reference only; rejected footprint"
+    }
+  ],
+  "geometry_constraints": [
+    "strict orthographic underside plan",
+    "width:depth approximately 1.4:1 matching accepted top",
+    "two circular barrel bottoms at left/right",
+    "central wooden underside spans full depth",
+    "no upper faces or facade"
+  ],
+  "generated_atlas": "bubble-desert-desert-tavern-doorway-bottom-v3-atlas.png",
+  "generated_atlas_sha256": "f6fd2da75a634bb03c7cd2b6ba8451591a8f52eba2bae3954a8883c9e74c82d0",
+  "qa_reason": "Rejected after self-QA: correct underside object identity, but complete alpha footprint remains too shallow relative to accepted TOP; do not install."
+}

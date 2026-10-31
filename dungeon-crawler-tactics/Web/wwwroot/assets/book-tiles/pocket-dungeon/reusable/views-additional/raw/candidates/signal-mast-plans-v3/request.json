@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "batch_id": "signal-mast-plans-v3",
+  "object_id": "iron-tracks-rail-signal-mast",
+  "views": [
+    "top",
+    "bottom"
+  ],
+  "status": "request-prepared",
+  "contact_path": "raw/candidates/signal-mast-plans-v3/source-and-horizontal-elevations.png",
+  "contact_sha256": "bdac0092f4ac5b9201c4652175d02a70449ee79d7e27e1a140664a198dd8b42c",
+  "source_path": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
+  "source_sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5",
+  "current_live_hashes": {
+    "front": "9751b97d5068320986f5fdafc87a13a7459b06330c44fa47aa4f0ecf052537e4",
+    "top": "ca375419fbdc47c36497da5906dc05c063e466d9ad4192a2bd4aca02419a3723",
+    "right": "6a35723b4fd723f3c13692cfcbd87c695563faf77bfc1145c8d9de21a9664173",
+    "left": "abd2475e693b42fcb20978c2e80315489f5fe235fc1bbce897a472d627c9baec",
+    "bottom": "4c931575612ea7186fcf1c8470e95e734776369ab01bc3586dc079e7047178b9",
+    "rear": "6d950a0562969a2b5e2be373cf7bf9c35429abdc7baec863b581830ee8e5fd99"
+  },
+  "geometry_material_inputs": [
+    {
+      "label": "canonical source",
+      "path": "iron-tracks/components/iron-tracks-rail-signal-mast.png",
+      "sha256": "9469d4a13290795f0d1c5c64d74970610bceec366425182726e402b6726076f5"
+    },
+    {
+      "label": "accepted FRONT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.front.png",
+      "sha256": "9751b97d5068320986f5fdafc87a13a7459b06330c44fa47aa4f0ecf052537e4"
+    },
+    {
+      "label": "accepted RIGHT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.right.png",
+      "sha256": "6a35723b4fd723f3c13692cfcbd87c695563faf77bfc1145c8d9de21a9664173"
+    },
+    {
+      "label": "accepted LEFT",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.left.png",
+      "sha256": "abd2475e693b42fcb20978c2e80315489f5fe235fc1bbce897a472d627c9baec"
+    },
+    {
+      "label": "accepted REAR",
+      "path": "reusable/views-additional/iron-tracks-rail-signal-mast.rear.png",
+      "sha256": "6d950a0562969a2b5e2be373cf7bf9c35429abdc7baec863b581830ee8e5fd99"
+    }
+  ],
+  "prompt": "Generate a transparent-background pixel-art atlas exactly TWO square cells side-by-side, TOP then BOTTOM, for the exact Iron Tracks signal mast in the source. Native source and accepted FRONT/RIGHT/LEFT/REAR in the attached labeled contact control identity and relative offsets. Principal views must be genuinely horizontal plan projections: TOP camera directly above from +Z; BOTTOM directly below from -Z. This object is physically a tall mast, but these two views show only XY footprints, NEVER its tall vertical silhouette. Use explicit plan axes: X is screen left-to-right in the plan; Y is depth; Z is vertical. Final full object X span in TOP/BOTTOM should be about 118px at 256 canvas, matching the FRONT full width; keep depth under 90px.\n\nTOP, looking straight down: the red upper horizontal signal barrel is the highest Z and occludes the lower green light at exactly the same XY, so draw ONLY ONE compact dark-gray rounded barrel-roof footprint on the LEFT side of the footprint, with a tiny red lens rim on its forward Y edge. Do NOT show two lamps, stacked signal cylinders, vertical pole shaft, full ladder/rungs, or frontal lamp faces. To its RIGHT draw one small round pole-cap footprint, then farther RIGHT only two compact ladder rail-end/footprints (not the full upright ladder). Keep these three footprints laid out horizontally across X: lamp on left, pole near center, ladder on right.\n\nBOTTOM, looking straight up: lower green lamp is lowest Z and similarly occludes red lamp; draw only ONE compact dark rounded lamp-underside footprint on the LEFT, one small pole/baseplate footprint beneath the pole near center-right, and two small ladder-foot/end footprints farther right. No stacked pair of lamps and no vertical pole or ladder view. Keep both cells on the same X/Y orientation and 118px full width, shallow plan depth.\n\nUse only source materials/colors (dark steel, tiny signal red/green edge, gray baseplate). Isolated object footprints, transparent background, no labels, perspective, shadows, stray guides, clipped pixels, or full upright silhouettes. Crisp pixel-art clusters."
+}

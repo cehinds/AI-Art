@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "object_id": "iron-trains-passenger-bench",
+  "view": "top",
+  "status": "rejected-candidate",
+  "prompt": "Create one isolated TOP view for the Iron Trains passenger bench, seen straight down from directly overhead. Geometry is critical: the bench length is long left-to-right, but total seat depth is shallow, about one third of its length. Show ONLY one horizontal seat surface plank spanning the length and its narrow supports/leg footprints; the 3-board upright backrest must be edge-on from above and appear only as a thin narrow strip behind the seat, NEVER as a broad three-board panel. Armrests appear as short side-edge/rounded-end footprints, not curled front-facing brackets. The current top in the reference is wrong; source bench front/rear views reveal the upright backrest and the narrow seat. Preserve dark iron side rails, worn reddish-brown wood, and the source support count. Do not depict a tall broad wooden wall, multiple stacked planks across the full depth, perspective, or the bench side profile. Center complete shallow plan on transparent 256x256 canvas with clear margin. Inferred orthographic view, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/qa-iron-trains-passenger-bench-current-source-six-pre-repair.png",
+      "sha256": "440abb16b6a8f669eb63519dff6355947a3e83c6e40c38dcec11d5cd150c7e00",
+      "role": "canonical source embedded in first cell; current views included for orientation"
+    }
+  ],
+  "geometry_constraints": [
+    "plan length left-right",
+    "seat depth about one third length",
+    "single horizontal seat surface",
+    "upright backrest only thin edge strip",
+    "do not show broad three-board backrest face"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/iron-trains-passenger-bench-top-v2-atlas.png",
+  "generated_atlas_sha256": "73853da5178f7634a8f52d68d936ff4c9ca654654b490a2f098a0734dbfb233b",
+  "generation_call_id": "exec-0f2fe9ff-8e8b-42d8-93b3-354f61881130",
+  "rejection_reason": "candidate again presents a full-height broad backrest-like wall rather than a shallow seat plan"
+}

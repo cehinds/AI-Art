@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "personal-space-alchemy-station--native",
+  "name": "Alchemy station (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "personal-space",
+    "prop",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/personal-space-alchemy-station--native.png",
+    "width": 234,
+    "height": 222,
+    "sha256": "77b78f104abf77ea147c49366dcb52d205a711d374a0f26b096f057394cd2560",
+    "rgba_sha256": "99946fc6eec3039057df3a938db1f3bec48c1127db9c9f455b4555ec71c6f9cc"
+  },
+  "metadata_path": "reusable/native/personal-space-alchemy-station--native.json",
+  "anchor_px": [
+    117.0,
+    222
+  ],
+  "object_id": "personal-space-alchemy-station",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/personal-space.png",
+    "source_sha256": "32f5099a4fee09b9b5eec6b115f00b5964bbe738194e83edbfa4229f1a07a89c",
+    "source_rect": [
+      278,
+      767,
+      234,
+      222
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "personal-space-alchemy-station",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "personal-space-alchemy-station"
+  }
+}

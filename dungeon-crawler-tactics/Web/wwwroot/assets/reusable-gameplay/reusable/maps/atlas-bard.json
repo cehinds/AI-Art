@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-bard",
+  "label": "Bard source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/bard.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "26efc4e2c411042b8525d3fabca649096e792383568790d457f88a5d6be944c6",
+    "rgba_sha256": "39939c8fb8dbc7d7688910ace016d08cb8e0e8a064f39dac1060edbeab0a0c4c"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--bard",
+      "path": "reusable/native/legacy--bard.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "39939c8fb8dbc7d7688910ace016d08cb8e0e8a064f39dac1060edbeab0a0c4c",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 7648,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 7648,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

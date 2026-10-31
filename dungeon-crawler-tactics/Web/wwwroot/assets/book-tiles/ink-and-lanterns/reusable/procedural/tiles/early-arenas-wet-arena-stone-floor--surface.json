@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "early-arenas-wet-arena-stone-floor--surface",
+  "name": "Wet arena stone floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "early-arenas",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/early-arenas-wet-arena-stone-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "1b44f1ff50dc9faf0ca3cfa3b1a21f7e64ec101dab74a70e474f194585a6c60c",
+    "rgba_sha256": "6dfc21f7f1ca5cee1c488e84024a94fc539847db2ca256b625aba526cdd1fe41"
+  },
+  "metadata_path": "reusable/procedural/tiles/early-arenas-wet-arena-stone-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "early-arenas-wet-arena-stone-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "early-arenas/components/early-arenas-wet-arena-stone-floor.png",
+    "source_sha256": "996f24e80d0e514cc00fd9bfa150273bae5a524498952983d0671d5eb8ed25a7",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "east": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "south": [
+      "join.floor",
+      "visual.early-arenas"
+    ],
+    "west": [
+      "join.floor",
+      "visual.early-arenas"
+    ]
+  },
+  "canonical_asset_id": "early-arenas-wet-arena-stone-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:stone",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "early-arenas-wet-arena-stone-floor"
+  }
+}

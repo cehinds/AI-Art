@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "object_id": "iron-trains-passenger-bench",
+      "direction": "top",
+      "candidate_path": "reusable/views-additional/raw/iron-trains-passenger-bench.top.candidate.overhead-compose-v2.png",
+      "candidate_sha256": "c12268b307a63701230f1ce606eb95998be93bd9a57e817a89386504040fa806",
+      "source_path": "iron-trains/components/iron-trains-passenger-bench.png",
+      "source_sha256": "1c4e875c644f7c1b7facb3ef506c79cfa3eabc74fc34f8dc4449a841b67150d1",
+      "expected_live_sha256": "2f295cb08235ad94dcbd3799007893a6be5c0b56510ad2b7b477b5c869a17129",
+      "method": "same-object source-view composition; preserve seat plane and support footprint, replace upright backrest field with narrow accepted FRONT top-edge crop",
+      "operations": [
+        {
+          "input_path": "reusable/views-additional/iron-trains-passenger-bench.top.png",
+          "input_sha256": "48f1011a2e305d1611331a3bce483725e2fe5764696c8bfa7e7199dd0c9145ba",
+          "operation": "keep lower seat surface and side-arm/support pixels; clear center rectangle x48:208,y78:125"
+        },
+        {
+          "input_path": "reusable/views-additional/iron-trains-passenger-bench.front.png",
+          "input_sha256": "0de35943e5a626cd72cbf14a63cf153e352dc7ba50f0175b910d2e34da86b328",
+          "operation": "crop [37,53,219,61] as narrow backrest edge and composite at x37,y116"
+        }
+      ]
+    },
+    {
+      "object_id": "iron-trains-train-control-console",
+      "direction": "top",
+      "candidate_path": "reusable/views-additional/raw/iron-trains-train-control-console.top.candidate.overhead-compose-v2.png",
+      "candidate_sha256": "516298937e6733e71bc529955127b91e809218fde7ee32d99fc49b2ab4e2792f",
+      "source_path": "iron-trains/components/iron-trains-train-control-console.png",
+      "source_sha256": "4ed175a426115c20fd701c88cb8eef6004ec8daa80ce367c703ce3195c963f39",
+      "expected_live_sha256": "97c2e869459697fd8303ff69a6e7213c67c730e542c858d79b6e77e09653973b",
+      "method": "same-object geometry composition; preserve horizontal control deck and casing, remove broad blank vertical gauge-panel face, retain its narrow back edge",
+      "operations": [
+        {
+          "input_path": "reusable/views-additional/iron-trains-train-control-console.top.png",
+          "input_sha256": "2734f2f9a23d93fd3c73e29e164e819ec0ed0962358592bed39e4b60b3d0887f",
+          "operation": "clear only blank panel interior x74:183,y68:108; preserve surrounding casing and control deck"
+        }
+      ]
+    }
+  ],
+  "contact_path": "reusable/views-additional/qa-overhead-props-batch1b-compose-v2-source-current-six.png",
+  "contact_sha256": "b85e1079752cba25c0e7f7ea43d5cc91b7df5d0019e95ceb24ec327cbb6d652a",
+  "status": "composed candidates; root review pending"
+}

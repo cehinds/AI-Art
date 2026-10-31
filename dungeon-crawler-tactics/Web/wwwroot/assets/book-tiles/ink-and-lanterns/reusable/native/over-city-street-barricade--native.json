@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "over-city-street-barricade--native",
+  "name": "Street barricade (native source crop)",
+  "kind": "sprite",
+  "category": "prop",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "environment:city",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "over-city",
+    "prop",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/over-city-street-barricade--native.png",
+    "width": 263,
+    "height": 181,
+    "sha256": "ca84b5d207b19a40ac2120a42604cfaa260adc23284afe3d07d6bbbd24b873fd",
+    "rgba_sha256": "23971587a1a4b329c59d0b7cb11749253cf299b7bfded07f346309db6792b76f"
+  },
+  "metadata_path": "reusable/native/over-city-street-barricade--native.json",
+  "anchor_px": [
+    131.5,
+    181
+  ],
+  "object_id": "over-city-street-barricade",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/over-city.png",
+    "source_sha256": "ff4b48142f3f42373b446a61c4bd7b2243d4cde882deeaafaa6996e84183e939",
+    "source_rect": [
+      238,
+      795,
+      263,
+      181
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "over-city-street-barricade",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "material:unspecified",
+    "role:object",
+    "style:ink-and-lanterns",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "ink-and-lanterns--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "over-city-street-barricade"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "object_id": "faction-larracos-drained-city-cobblestone-stairs-down",
+  "view": "rear",
+  "status": "rejected-candidate",
+  "prompt": "Create only the REAR view of this down stair flight in true axis-aligned orthographic projection, looking at the opaque back side from behind. It is a stone staircase with side retaining walls; from REAR, do not show any upper tread surfaces or the forward-facing flight. Show the closed rear stone backing / inclined solid stone mass and the backs of the two side parapets, with gray cobbles, mossy olive edges, and consistent blockwork from the source. Preserve the UP/DOWN direction and highest/lowest end positions shown in the source and current accepted views. The rear silhouette may be a solid trapezoidal or stepped backing, but must be a back surface rather than the front stair treads. No perspective, no face-on treads, no scene background. Transparent background, complete centered rear silhouette on a 256x256 view. Inferred orthographic view, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/qa-faction-larracos-drained-city-cobblestone-stairs-down-current-source-six-pre-repair.png",
+      "sha256": "84ad7316c08d40b228443bcb5e06654a44cab804eb7a4268f0a99f6397a21d2b",
+      "role": "source and six views; preserve stair direction/material while replacing only rear"
+    }
+  ],
+  "geometry_constraints": [
+    "rear camera from behind flight",
+    "opaque back structure",
+    "no visible upper treads",
+    "retain side parapets",
+    "preserve up/down orientation"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/faction-larracos-drained-city-cobblestone-stairs-down-rear-v1-atlas.png",
+  "generated_atlas_sha256": "ee108f01918f54140b740e273f9098a248adec8abf86d9dc4da410492aae47ab",
+  "generation_call_id": "exec-48b0a26e-776e-4985-969e-be8a8605916a",
+  "rejection_reason": "The generated views still show the upper tread surfaces; they do not depict the opaque rear backing."
+}

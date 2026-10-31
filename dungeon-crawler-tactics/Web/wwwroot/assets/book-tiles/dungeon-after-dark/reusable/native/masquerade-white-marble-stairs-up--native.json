@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "masquerade-white-marble-stairs-up--native",
+  "name": "White Marble stairs up (native source crop)",
+  "kind": "sprite",
+  "category": "stairs",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "masquerade",
+    "material:unspecified",
+    "role:provider",
+    "stairs",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/masquerade-white-marble-stairs-up--native.png",
+    "width": 191,
+    "height": 198,
+    "sha256": "088b79b30cdf1b17ec2dfb950107f2ff655aa0aff409549e8d248971a8322e5a",
+    "rgba_sha256": "36b73438f361aa9884a480a74f5dc22a762256de63779a9046004fe7f9464dbf"
+  },
+  "metadata_path": "reusable/native/masquerade-white-marble-stairs-up--native.json",
+  "anchor_px": [
+    95.5,
+    198
+  ],
+  "object_id": "masquerade-white-marble-stairs-up",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/masquerade.png",
+    "source_sha256": "468124824275586ee166b193810282b0c82b7ef3ea0aed666c89f68796cf522e",
+    "source_rect": [
+      546,
+      489,
+      191,
+      198
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.overlay"
+    ],
+    "east": [
+      "join.overlay"
+    ],
+    "south": [
+      "join.overlay"
+    ],
+    "west": [
+      "join.overlay"
+    ]
+  },
+  "canonical_asset_id": "masquerade-white-marble-stairs-up",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:stairs",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:stairs"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "masquerade-white-marble-stairs-up"
+  }
+}

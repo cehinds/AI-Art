@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-white-mausoleum-masonry-open-doorway--native",
+  "name": "White Mausoleum Masonry open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/ghost-cemetery-white-mausoleum-masonry-open-doorway--native.png",
+    "width": 221,
+    "height": 203,
+    "sha256": "32bd669ee9ae4212c04c8b712cd61a0d446bd84f579fe0a458b8a9706e006965",
+    "rgba_sha256": "e450ac0a723f547a4538c893aaf4d5a70864b67a6c1a5114c67437e495664cba"
+  },
+  "metadata_path": "reusable/native/ghost-cemetery-white-mausoleum-masonry-open-doorway--native.json",
+  "anchor_px": [
+    110.5,
+    203
+  ],
+  "object_id": "ghost-cemetery-white-mausoleum-masonry-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/ghost-cemetery.png",
+    "source_sha256": "2945b07e5f67b07632ff51a11e079e127bfa03722b30a9e7449cc92e423d8dbe",
+    "source_rect": [
+      34,
+      488,
+      221,
+      203
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "ghost-cemetery-white-mausoleum-masonry-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-cemetery-white-mausoleum-masonry-open-doorway"
+  }
+}

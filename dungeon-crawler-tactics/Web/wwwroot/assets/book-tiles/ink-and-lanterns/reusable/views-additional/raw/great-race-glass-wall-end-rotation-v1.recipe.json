@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "task": "correct Great Race glass wall short-end elevations",
+  "method": "Rotate each horizontal strip 90 degrees so its gold end caps become upper/lower wall caps, then uniformly nearest-neighbor scale to accepted FRONT/REAR shared maximum-Z. Preserve aspect, all detail and directions outside RIGHT/LEFT. Raw prior candidates retained.",
+  "object_id": "great-race-transition-glass-maze-wall-northwest",
+  "source_image": "great-race-transition/components/great-race-transition-glass-maze-wall-northwest.png",
+  "source_sha256": "04e9dac7a0459cd4e11a2d5591b63111749b4a472fb985f4d8ff047e3e95f6a7",
+  "reference_views": [
+    "front",
+    "rear"
+  ],
+  "reference_heights_px": [
+    109,
+    109
+  ],
+  "target_height_px": 109,
+  "views": [
+    {
+      "view": "right",
+      "prior_sha256": "389541ccf3cc71020c00ef19a11a59aa87b7d0ce7dffd51efade1374dfb95225",
+      "snapshot": "raw/before-glass-wall-end-rotation-right.png",
+      "rotation_degrees_ccw": -90,
+      "scale": 0.53431372549,
+      "output_sha256": "7e3cc0da2a6469ebff21c1363b623cbae88273eb2edd9c879417c25c1d17cf74",
+      "rgba_sha256": "229a06e7baa10882b501218754760e5c811493b40ae5eeeb3af96c122a86db75"
+    },
+    {
+      "view": "left",
+      "prior_sha256": "09a69bbc51c6e0e052161c29f353249ab27953da6c7d86159491f3e202262fab",
+      "snapshot": "raw/before-glass-wall-end-rotation-left.png",
+      "rotation_degrees_ccw": 90,
+      "scale": 0.529126213592,
+      "output_sha256": "3eed26014f86838726ae334b2c67f97120b4e35011457fa77e206e947e967bbe",
+      "rgba_sha256": "140dace03dbed63fd668a7771dff7f00ebe67b85f94ab6524e551f0c6bf6a6bc"
+    }
+  ]
+}

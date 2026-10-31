@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "concepts-tile-authoring-closed-door-palette-tile",
+  "name": "Closed door palette tile",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:doorway",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/concepts-tile-authoring-closed-door-palette-tile.png",
+    "width": 98,
+    "height": 91,
+    "sha256": "23b743d9a531058919b557040d803af2c0128a903378eae32b92bd54f09a3189",
+    "rgba_sha256": "3a3327d07bda73c23f2ad5d347f5766b518c4589822c243b66d4ccb7b1569cbd"
+  },
+  "metadata_path": "reusable/native/concepts-tile-authoring-closed-door-palette-tile.json",
+  "anchor_px": [
+    49.0,
+    91
+  ],
+  "view": "source",
+  "object_id": "concepts-tile-authoring-closed-door-palette-tile",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/concepts/tile-authoring.png",
+    "source_sha256": "b67d93f26a736f09c30de7254b1b86e2ca7be853eb3cca20f6382c833d4b2907",
+    "source_rect": [
+      259,
+      282,
+      98,
+      91
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect or non-physical source region; no independent physical principal views."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:doorway"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

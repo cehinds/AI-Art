@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-original--rat-middle-scene-patch",
+  "name": "Rat Middle Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "native-pixels",
+    "rat-middle-scene-patch",
+    "role:reconstruction",
+    "scene-reference",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-original--rat-middle-scene-patch.png",
+    "width": 136,
+    "height": 137,
+    "sha256": "bb8f4ebd1f898828b903a25c918966cfa7a23359a13e473250cbbb383489f143",
+    "rgba_sha256": "bb20b36038248134d59d04eecb18b1a4a5ff459da1400a2fe21d4627c947d9be"
+  },
+  "metadata_path": "reusable/scene-assets/concept-original--rat-middle-scene-patch.json",
+  "anchor_px": [
+    68.0,
+    137
+  ],
+  "view": "source",
+  "object_id": "rat",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/original.png",
+    "source_sha256": "07829edc58f5eddbb3ff9dee0352dd69fe40d6e768156e9c4fc627415da8253b",
+    "source_rect": [
+      968,
+      340,
+      136,
+      137
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "rat.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "rat.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "rat.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "rat.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "rat.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "rat.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "rat",
+      "source_sha256": "3bcbfb3f9ac098a09d60fe68c9d5306bc57eb06a0b75d83aa0f330f89a6d39fa",
+      "primary_source": {
+        "asset_id": "rat",
+        "path": "components/rat.png",
+        "sha256": "3bcbfb3f9ac098a09d60fe68c9d5306bc57eb06a0b75d83aa0f330f89a6d39fa",
+        "rgba_sha256": "ef6f35552068f717af5148babf4d6dc15799fbaeb1e3af2e602ac3e4cb60cc4e"
+      },
+      "image_hashes": {
+        "front": "2f30ee162b64b9d912cd38e489e1e0d30cd0981cc75972342e2547a95a79e811",
+        "top": "099bc473375f8e3d148db6a43a101e2f90a5859339adccdb4bf6303ec5d5ae92",
+        "right": "87b96a0cac254787dd8639608f39668dfbbd0dfbaa2746abdb2d1199bd146072",
+        "left": "0225601d6bbb32451548e3833d74bb5c56cd1e13507d873a3c6e4c37f92606e7",
+        "bottom": "415368830c5cf1dbfde80a5d3bfcf85d5fbed924ab2a6ecc7dd19cda163c8d90",
+        "rear": "32ca425454d4acf4e530f26c9af722754b8f30c30a5fd9dddad8fb8616131aa8"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T16:59:57.476247+00:00",
+      "notes": [
+        "Fresh corrected top contains one rat; bottom underside pads/belly coherent; all six views reviewed."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/rat.png",
+          "sha256": "3bcbfb3f9ac098a09d60fe68c9d5306bc57eb06a0b75d83aa0f330f89a6d39fa",
+          "rgba_sha256": "ef6f35552068f717af5148babf4d6dc15799fbaeb1e3af2e602ac3e4cb60cc4e"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "rat",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/original.png",
+      "rect": [
+        968,
+        340,
+        136,
+        137
+      ]
+    },
+    "category": "actor"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

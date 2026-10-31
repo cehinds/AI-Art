@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "request_id": "floor-hatch-closed-right-left-end-ring-correction-v4",
+  "object_id": "floor-hatch-closed",
+  "views": [
+    "right",
+    "left"
+  ],
+  "created_at_utc": "2026-10-27T01:02:00Z",
+  "prompt": "Create a transparent-background contact atlas with exactly two views of this hatch, RIGHT in left cell and LEFT in right cell. Use all four references: the native source and TOP define the handle's physical position; the current RIGHT and LEFT PNGs are the authoritative shape, pixel scale, dimensions, body thickness, colors and line style. Make each corrected side profile retain the current profile's exact approximately 141px wide by 41px tall proportion after normalization: the main frame is a flat shallow band, not a 5:1 long line. This is a careful edit of the two current profiles, not a redesign. Change only where the lifting ring appears along the horizontal frame. In RIGHT, show the ring edge-on near screen-left, on the front-facing end indicated by the source and TOP. In LEFT, show the same small ring edge-on near screen-right, the opposite camera end. Keep both current frame lengths, vertical heights, two square end plates, two warm rivets, dark mottled iron body and warm metal rim. Put the little raised loop just above the frame at the specified endpoint; do not place it centered. The side views remain level axis-aligned orthographic with no visible top plane, no perspective and no isometric angle. Output two separate centered profiles on transparent background with enough gutter; no text, checkerboard, labels, borders, shadows, or extra elements.",
+  "reference_inputs": [
+    {
+      "path": "components/floor-hatch-closed.png",
+      "sha256": "29f4f8e8c7fb358b2985ce53a17cea54c90dd07c5a32428043d8a7f8b2f92cfc",
+      "role": "canonical source for top-view handle placement/material identity"
+    },
+    {
+      "path": "reusable/views-additional/floor-hatch-closed.top.png",
+      "sha256": "d7f170465ac550401b395f2254d0143f30161323fd62be86d4ecf3c99280aebb",
+      "role": "current plan showing lifting ring near the FRONT edge"
+    },
+    {
+      "path": "reusable/views-additional/floor-hatch-closed.right.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1",
+      "role": "current exact size and profile style for RIGHT correction"
+    },
+    {
+      "path": "reusable/views-additional/floor-hatch-closed.left.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df",
+      "role": "current exact size and profile style for LEFT correction"
+    }
+  ],
+  "current_views": {
+    "front": {
+      "path": "reusable/views-additional/floor-hatch-closed.front.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "top": {
+      "path": "reusable/views-additional/floor-hatch-closed.top.png",
+      "sha256": "d7f170465ac550401b395f2254d0143f30161323fd62be86d4ecf3c99280aebb"
+    },
+    "right": {
+      "path": "reusable/views-additional/floor-hatch-closed.right.png",
+      "sha256": "b136705d386cb681d18f93e76f6e55fe9678fcb417907065cf151cc7747367e1"
+    },
+    "left": {
+      "path": "reusable/views-additional/floor-hatch-closed.left.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    },
+    "bottom": {
+      "path": "reusable/views-additional/floor-hatch-closed.bottom.png",
+      "sha256": "08f8e7102e0c201692860e5170338fc12840d1d42d60625311bf80e68fa620aa"
+    },
+    "rear": {
+      "path": "reusable/views-additional/floor-hatch-closed.rear.png",
+      "sha256": "4e290222294d83cbb63304190417e3348a66c18216689ba24ad4ea10784365df"
+    }
+  },
+  "preserve_views": [
+    "front",
+    "top",
+    "bottom",
+    "rear"
+  ],
+  "target_layout": {
+    "columns": 2,
+    "rows": 1,
+    "column_order": [
+      "right",
+      "left"
+    ],
+    "transparent_gutters": true
+  },
+  "status": "request-recorded-before-imagegen",
+  "supersedes_request": "reusable/views-additional/raw/floor-hatch-closed-right-left-end-ring-correction-v3.request.json",
+  "superseded_attempts": [
+    {
+      "attempt": 1,
+      "request": "v1",
+      "output_path": "reusable/views-additional/raw/floor-hatch-closed-right-left-end-ring-correction-v1-atlas.png",
+      "output_sha256": "3980b6092e05a1c075effed0a68bdcf29c61af65b7391ecab59473adf3c9d689",
+      "reason": "Ring position correct; profile aspect too thin (~6.2:1) versus current view (~3.4:1)."
+    },
+    {
+      "attempt": 2,
+      "request": "v2",
+      "output_path": "reusable/views-additional/raw/floor-hatch-closed-right-left-end-ring-correction-v2-atlas.png",
+      "reason": "Not yet generated."
+    },
+    {
+      "attempt": 3,
+      "request": "v3",
+      "output_path": "reusable/views-additional/raw/floor-hatch-closed-right-left-end-ring-correction-v3-atlas.png",
+      "output_sha256": "9e4288b82c49c6d8c0ebdfa770fb1a21c1e71c9d8a1fd0cd14ace735608107bc",
+      "reason": "Ring positions correct, but imagegen again produced a profile around 5.5:1, substantially thinner than the current accepted 3.4:1 profile; rejected before normalization."
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "over-city-weathered-city-masonry-open-doorway--native",
+  "name": "Weathered City Masonry open doorway (native source crop)",
+  "kind": "sprite",
+  "category": "door",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "door",
+    "dungeon-after-dark",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "over-city",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "image": {
+    "path": "reusable/native/over-city-weathered-city-masonry-open-doorway--native.png",
+    "width": 218,
+    "height": 192,
+    "sha256": "ccb524416cfed82d743c06db03ac753f23b075516b4ea9740552b83c1638693b",
+    "rgba_sha256": "a205ac270e88e655cfac51d120f24fe994a60bfcc1fd05073b2c48ed2a65b3bf"
+  },
+  "metadata_path": "reusable/native/over-city-weathered-city-masonry-open-doorway--native.json",
+  "anchor_px": [
+    109.0,
+    192
+  ],
+  "object_id": "over-city-weathered-city-masonry-open-doorway",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/over-city.png",
+    "source_sha256": "0ca5d6e995dede4222ee5b20155605ea0d07bf13f3326aea01fb9452299e1eab",
+    "source_rect": [
+      38,
+      527,
+      218,
+      192
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "portal.open"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor",
+      "portal.open"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "over-city-weathered-city-masonry-open-doorway",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:city",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:doorway",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:doorway"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "over-city-weathered-city-masonry-open-doorway"
+  }
+}

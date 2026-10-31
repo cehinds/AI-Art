@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-direct-source-six-view-per-row",
+  "request_id": "masquerade-white-marble-stairs-pair-six-view-v1",
+  "raw_atlas": "reusable/views-additional/raw/masquerade-white-marble-stairs-pair-six-view-v1.png",
+  "atlas": "masquerade-white-marble-stairs-pair-six-view-v1.png",
+  "atlas_sha256": "6fe8e148a498285fb3f5cbc140e2e2b585de55ea9abed734a9c25daff71b1b74",
+  "grid": {
+    "columns": 6,
+    "rows": 2
+  },
+  "views": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "objects": [
+    {
+      "row": 0,
+      "id": "masquerade-white-marble-stairs-up",
+      "name": "White marble stairs up",
+      "kind": "stair",
+      "tags": [
+        "masquerade",
+        "stair"
+      ],
+      "source_image": "masquerade/components/masquerade-white-marble-stairs-up.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "stairs"
+      }
+    },
+    {
+      "row": 1,
+      "id": "masquerade-white-marble-stairs-down",
+      "name": "White marble stairs down",
+      "kind": "stair",
+      "tags": [
+        "masquerade",
+        "stair"
+      ],
+      "source_image": "masquerade/components/masquerade-white-marble-stairs-down.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "stairs"
+      }
+    }
+  ],
+  "source_images": [
+    "masquerade/components/masquerade-white-marble-stairs-up.png",
+    "masquerade/components/masquerade-white-marble-stairs-down.png"
+  ],
+  "source_image_sha256": [
+    "0172d155df8fbc327900286c8dfbbeffe528f4369ba3ff6ebf91df04d91a80fe",
+    "274983dff54a662071dec4af287817008cf63dba92a975751b2849b7d60c20b1"
+  ],
+  "prompt": "Create exactly two rows by six columns in a transparent-background pixel art atlas. Each row is one object with six axis-aligned orthographic views in order FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. Row 1 is the white marble stairs-up from source image 1; row 2 is stairs-down from source image 2. Keep the two states distinct: stairs-up rises in the direction shown in its source; stairs-down descends in the direction shown in its source. Preserve pale white/cream marble steps, gray shadowed risers, gold orb finials on four corner posts, same footprint and materials. FRONT/REAR low edge elevations; TOP is true overhead view of tread layout and four corner posts, not a frontal staircase; RIGHT/LEFT are opposite side elevations showing coherent stair slope and same height; BOTTOM is the solid marble support underside matching footprint, not top treads. Keep full object centered in each square cell, transparent gutters, no text, grid, background, extra props or clipping. Do not rotate any object between views or swap row identities. Orthographic pixel-art, no perspective."
+}

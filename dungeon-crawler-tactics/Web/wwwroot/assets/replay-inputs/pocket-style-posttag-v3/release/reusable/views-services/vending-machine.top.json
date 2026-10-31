@@ -1,0 +1,132 @@
+{
+  "id": "vending-machine.top",
+  "name": "Potion vending machine top",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:dungeon",
+    "existing",
+    "inferred-view",
+    "isolated",
+    "machine",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "prop",
+    "props",
+    "role:object",
+    "services",
+    "style:pocket-dungeon",
+    "top",
+    "vending"
+  ],
+  "object_id": "vending-machine",
+  "view": "top",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-services/vending-machine.top.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "5d9c10416d0f129c25209d6f9c723e5bf24b2a7b96eb2b8c6375e717bc8e2859",
+    "rgba_sha256": "e39d6b9d07e7e4604d892d6ce716942dee0a7a859f420c81b59ae41a33190cf8"
+  },
+  "metadata_path": "reusable/views-services/vending-machine.top.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Directional member of a generated six-view object set."
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/vending-machine.png",
+    "source_image_sha256": "8d68119190d6c593686888d0fb2b0dd18bd935f054aeaa4348395fcc04ee70d0",
+    "generated_atlas": "reusable/views-services/atlas-services-a.png",
+    "generated_atlas_sha256": "3974284307b0e30ccc2aabd7d26043709de1c9c766353b91623a04ec0ffc6f19",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a transparent 6-column x 4-row orthographic pixel-art game asset atlas. Columns exactly front, top, right, left, bottom, rear. Rows exactly merchant-stall, mailbox, notice-board, vending-machine matching corresponding supplied source images. Every cell contains one complete, centered object. Preserve exact object identity, proportions, materials, colors, and recognizable decoration from that object's reference. True orthographic directions; top down, bottom underside, rear opposite front. Infer hidden surfaces coherently. No labels, scenery, floor/shadows, perspective, borders or grid marks. Crisp pixel-art, transparent background.",
+      "reference_images": [
+        "components/merchant-stall.png",
+        "components/mailbox.png",
+        "components/notice-board.png",
+        "components/vending-machine.png"
+      ]
+    },
+    "normalization": {
+      "cell_centroid_assignment": [
+        3,
+        1
+      ],
+      "alpha_threshold": 245,
+      "component_labels": [
+        65
+      ],
+      "component_policy": "largest centroid-assigned component plus nearby detached alpha components within 34 px; whole component bounds, not nominal cell crop",
+      "cell_rect": [
+        309,
+        790,
+        234,
+        144
+      ],
+      "atlas_edge_touch": false,
+      "shared_scale": 0.8835341365461847,
+      "render_size_px": [
+        207,
+        127
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated directional reconstruction with inferred hidden surfaces; not recovered source geometry. Low alpha glow and fringe were removed by alpha thresholding."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:tabletop",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:tabletop"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-b197584e6b40",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "vending-machine"
+  }
+}

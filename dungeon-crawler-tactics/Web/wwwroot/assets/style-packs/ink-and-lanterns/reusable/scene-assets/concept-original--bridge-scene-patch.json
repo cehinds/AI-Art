@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-original--bridge-scene-patch",
+  "name": "Bridge Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "structure",
+  "tags": [
+    "attachment-tagged",
+    "bridge-scene-patch",
+    "environment:unspecified",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:ink-and-lanterns"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-original--bridge-scene-patch.png",
+    "width": 189,
+    "height": 180,
+    "sha256": "ce4f4e8d8577faa8a4bbd38953f76a910187993ea3d24feb7526b92512e86e0c",
+    "rgba_sha256": "ca34ac1d55af4cccf0c0b1d68cc1193ba6d8daa789132ab8ced2a65f3944dfeb"
+  },
+  "metadata_path": "reusable/scene-assets/concept-original--bridge-scene-patch.json",
+  "anchor_px": [
+    94.5,
+    180
+  ],
+  "view": "source",
+  "object_id": "bridge",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/original.png",
+    "source_sha256": "f845cead795db68583af60c83a0e7752e98357463a06ef7ab9a228cbb820df99",
+    "source_rect": [
+      874,
+      456,
+      189,
+      180
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "bridge.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "bridge.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "bridge.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "bridge.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "bridge.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "bridge.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "bridge",
+      "source_sha256": "920863b22fd9736ca1de78d7e23d567080e9bce122b667feacbc1a9f8ae1ac33",
+      "primary_source": {
+        "asset_id": "bridge",
+        "path": "components/bridge.png",
+        "sha256": "920863b22fd9736ca1de78d7e23d567080e9bce122b667feacbc1a9f8ae1ac33",
+        "rgba_sha256": "aac04a39ff1baad4b60888a4f5b9d6d41dac217d139b89547faa4c178617bdb2"
+      },
+      "image_hashes": {
+        "front": "452c600b807264acc7fba519ab86b7ed6b52237ea9f6e0b633cab1b2a5ab569f",
+        "top": "067ebbcc7922b9c93b426bc5f7d69292d9437ce8fdded18b5a1da1287f1b17aa",
+        "right": "b1f1493dbd6217110ff8f1c4cbb1bed0b95be482065ad78547c7fd898924152f",
+        "left": "492ebe861fc2f31aea15fd6bfcc34257138c47f2e498f49529fe0e3d93499031",
+        "bottom": "3655ebd6d063fa2c19694d69509fe4c18156aaa84d500910b8d43edc5705fda9",
+        "rear": "5ff84f587be920f66b4f362cd1d3e0d68fc5e0099584a180ef110f1ad3494b81"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T17:30:55.591120+00:00",
+      "notes": [
+        "Reviewed source and all six normalized principal views on checkerboard; no visible axis, clipping or duplication defects."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/bridge.png",
+          "sha256": "920863b22fd9736ca1de78d7e23d567080e9bce122b667feacbc1a9f8ae1ac33",
+          "rgba_sha256": "aac04a39ff1baad4b60888a4f5b9d6d41dac217d139b89547faa4c178617bdb2"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "bridge",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/original.png",
+      "rect": [
+        874,
+        456,
+        189,
+        180
+      ]
+    },
+    "category": "structure"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:ink-and-lanterns"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

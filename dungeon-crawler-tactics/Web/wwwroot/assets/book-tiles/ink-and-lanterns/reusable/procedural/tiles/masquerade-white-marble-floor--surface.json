@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "masquerade-white-marble-floor--surface",
+  "name": "White Marble floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "ink-and-lanterns",
+    "masquerade",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/masquerade-white-marble-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "aa010688b44a0344e21c9688c26d8d50a57dad4db39dad3fa2cfc6c453e6cd3a",
+    "rgba_sha256": "f44118b79027769097742c7c23182c04680085de31d8cc9faadbcc937f97ee81"
+  },
+  "metadata_path": "reusable/procedural/tiles/masquerade-white-marble-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "masquerade-white-marble-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "masquerade/components/masquerade-white-marble-floor.png",
+    "source_sha256": "f8d71f5a459cf1f8d9b0bf2e83babca5b269f556fe7c4aa0c1e764689da66187",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
+  },
+  "canonical_asset_id": "masquerade-white-marble-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "masquerade-white-marble-floor"
+  }
+}

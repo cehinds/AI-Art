@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "revamp-terrain-wall-corner",
+  "name": "Wall corner",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:provider",
+    "sprite-frame",
+    "style:gameplay",
+    "surface:wall",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/revamp-terrain-wall-corner.png",
+    "width": 362,
+    "height": 362,
+    "sha256": "03742a666e36ff6e04b3aa37b87b1cdc4384062bec1025a998f48f5823e47a20",
+    "rgba_sha256": "140e9c693f72ca8cede0620642f6de50052f81c3ffeeb7c60fb8b09f3eaf9283"
+  },
+  "metadata_path": "reusable/native/revamp-terrain-wall-corner.json",
+  "anchor_px": [
+    181.0,
+    362
+  ],
+  "view": "source",
+  "object_id": "revamp-terrain-wall-corner",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/revamp/terrain.png",
+    "source_sha256": "f87caf6ce89f3b7d712a5c6450df19519af4082c3b9b75a1916fe457f013f867",
+    "source_rect": [
+      0,
+      362,
+      362,
+      362
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "revamp-terrain-wall-corner.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "revamp-terrain-wall-corner",
+      "source_sha256": "03742a666e36ff6e04b3aa37b87b1cdc4384062bec1025a998f48f5823e47a20",
+      "primary_source": {
+        "asset_id": "revamp-terrain-wall-corner",
+        "path": "reusable/native/revamp-terrain-wall-corner.png",
+        "sha256": "03742a666e36ff6e04b3aa37b87b1cdc4384062bec1025a998f48f5823e47a20",
+        "rgba_sha256": "140e9c693f72ca8cede0620642f6de50052f81c3ffeeb7c60fb8b09f3eaf9283"
+      },
+      "image_hashes": {
+        "front": "af83735ab64db3bc4484bb379b3345f50c3259faaf18e7a06410f25a2789eb85",
+        "top": "0210547dfe3c6e4d9b3dad17e0ea2c859f3d30d149bda335779b16876a29c3e7",
+        "right": "683c29f4b0a8b6f143e4471d04ad968d4805b4f9b4550715e26c08f9dbd0048a",
+        "left": "ab5809ef821d1aec9892ba9149ca91e13debb6174f426c4768d075e6f8a84420",
+        "bottom": "facb44c1ab5021d200570510e3ab470cdc737a16dad689caca132b57a3866596",
+        "rear": "29bda899186f3b4bb44fc3a232c5fd93d0607e908227e3f94296f5a153ae9b1b"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T21:58:38.826145+00:00",
+      "notes": [
+        "Exact native source identity and all six projections reviewed; flat ground thin elevations, opaque inferred undersides, and corner full-height principal wings/plan footprint coherent. Modest illustrative dimension variation accepted."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "verified-capture-manifest",
+        "capture_manifest_sha256": "84d912a89ddee4d8a8ae512df358d6ae9d08b599d390ce67fd3d5de7449267b5",
+        "reviewed_reference": {
+          "path": "reusable/native/revamp-terrain-wall-corner.png",
+          "sha256": "03742a666e36ff6e04b3aa37b87b1cdc4384062bec1025a998f48f5823e47a20",
+          "rgba_sha256": "140e9c693f72ca8cede0620642f6de50052f81c3ffeeb7c60fb8b09f3eaf9283"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:gameplay",
+    "surface:wall"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

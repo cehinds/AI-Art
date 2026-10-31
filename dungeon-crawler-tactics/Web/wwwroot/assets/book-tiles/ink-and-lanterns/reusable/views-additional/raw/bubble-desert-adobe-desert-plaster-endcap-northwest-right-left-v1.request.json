@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-desert-adobe-desert-plaster-endcap-northwest",
+  "views": [
+    "right",
+    "left"
+  ],
+  "status": "generated-atlas-pending-self-qa",
+  "prompt": "Create a transparent two-column atlas for only the RIGHT and LEFT orthographic views of this exact Northwest sandstone endcap. The first reference is the canonical source identity: a compact square sandstone cap with a small dark brown wooden peg protruding from exactly one X-side. The next three references show the accepted FRONT, REAR, and TOP scale/material/footprint. Preserve those views unchanged. Both requested side views are broad square sandstone endcap faces, same size and elevation as FRONT/REAR; do not make thin tall strips or oblique two-face posts. Camera RIGHT looks directly along the peg's world X axis toward its end: show the broad flat sandstone face and the small square dark wood peg end-on, attached at one consistent side location. Camera LEFT looks at the opposite broad sandstone face; the cap itself occludes the peg, so show no protruding sideways peg on that side. The peg remains fixed along one world X direction, not duplicated or rotated with each camera. Exactly two equal atlas columns, first RIGHT, second LEFT, transparent gutter, one centered complete square face per column. No perspective, no top surface, no side-by-side oblique planes, no extra pegs, no text. Match source sandstone/rock texture and inferred wood peg color. Inferred orthographic art, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "bubble-desert/components/bubble-desert-adobe-desert-plaster-endcap-northwest.png",
+      "sha256": "d93a4e2dc326f350faf81518fab83ecf62cb21fe7b5d75690f76db2bd61f4334",
+      "role": "canonical source identity and peg axis"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-adobe-desert-plaster-endcap-northwest.front.png",
+      "sha256": "d02d04b53d6ee00c5e66fcb5b85bd48f380439021f7299f59e6f46bb559370fa",
+      "role": "accepted broad principal face/scale"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-adobe-desert-plaster-endcap-northwest.rear.png",
+      "sha256": "81a838043837ee2d420919d7adf2a94cd80a8e0c95578673834ea71fd1ea13aa",
+      "role": "accepted reverse face/scale"
+    },
+    {
+      "path": "reusable/views-additional/bubble-desert-adobe-desert-plaster-endcap-northwest.top.png",
+      "sha256": "c438ab49db7b09787a6ebc0d3f459a7f51af31e3eac8b6747d6ef417a8f89efa",
+      "role": "accepted top plan and peg position"
+    }
+  ],
+  "geometry_constraints": [
+    "RIGHT: end-on peg on broad square plaster face",
+    "LEFT: peg occluded behind broad square plaster face",
+    "broad side faces same scale/height as FRONT/REAR",
+    "peg fixed world X, not duplicated",
+    "no oblique view"
+  ],
+  "generated_atlas": "bubble-desert-adobe-desert-plaster-endcap-northwest-right-left-v1-atlas.png",
+  "generated_atlas_sha256": "7b42cace77f02e44f8d43e70fa05325c012c7fcd8910472e099954b83208cbf4"
+}

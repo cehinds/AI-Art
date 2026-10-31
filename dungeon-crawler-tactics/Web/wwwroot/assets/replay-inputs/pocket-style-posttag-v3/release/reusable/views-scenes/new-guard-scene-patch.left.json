@@ -1,0 +1,119 @@
+{
+  "id": "new-guard-scene-patch.left",
+  "name": "New Guard left",
+  "kind": "sprite",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "inferred-view",
+    "isolated",
+    "left",
+    "material:unspecified",
+    "orthographic",
+    "role:object",
+    "scene-object",
+    "style:pocket-dungeon"
+  ],
+  "object_id": "new-guard-scene-patch",
+  "view": "left",
+  "reusable": true,
+  "image": {
+    "path": "reusable/views-scenes/new-guard-scene-patch.left.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "af65efda48e60b0cee0d0edc9670c7941860a0d5712621459236ade4bc5a93df",
+    "rgba_sha256": "bac8e0966fc5ce2e52724b04a8cb19b846f9d37a7bd6778a712ab7d324b0e1c7"
+  },
+  "metadata_path": "reusable/views-scenes/new-guard-scene-patch.left.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "single directional sprite; belongs to six-view object set"
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "reusable/scene-assets/new-guard-scene-patch.png",
+    "generated_atlas": "reusable/views-scenes/raw/exec-461ccd53-595c-4d0d-be44-d6139254401a.png",
+    "generated_atlas_sha256": "9b4e43e4cbfd6400a37afbe924a3a3eeff093d91d0890c9d74f3d8ed15d4d1a7",
+    "generation_parameters": {
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Create a production pixel-art sprite atlas from the attached exact scene reference cutouts. TRANSPARENT BACKGROUND. Layout exactly 3 rows and SIX equal columns. One object identity per row, in reference attachment order: new-frog-vendor, new-merchant, new-guard. SIX columns precisely FRONT, TOP (overhead), RIGHT side, LEFT side, BOTTOM (underside), REAR. Six distinct orthographic principal views of SAME physical object, not poses, not isometric duplicates. Each cell has one complete isolated object with generous transparent margins, equal common physical scale across views of each row; never clip, no labels, text, borders, shadows on ground, scenery or extra objects. Crisp low-res pixel clusters, dark purple outlines, cream/turquoise/gold warm palette matches references. Recover visible identity conservatively, infer hidden surfaces consistently. For NPCs render complete full-body character standing neutral, including frog vendor purple scarf/goggles, brown merchant goggles/clothes, uniform rat guard navy cap/coat/backpack, rescued disheveled brown-haired crawler ragged clothes. For turnstile isolate gold clockwork barrier assembly lamps and posts only. House-entry is freestanding wooden yellow door and wood frame plus house pictogram sign, no surrounding walls/plants. Machine is orange brass vending/control cabinet with cyan gear screen; omit overlapping hero and prompt bubble. Merchant stall is red/cream awning wooden booth and goods, omit people and cat. Frog stall purple/cream awning booth with potions and lanterns, omit frog. Merchant cart wooden four-wheel small goods cart with jars, omit merchant. Produce cart red/cream awning fruit vendor push-cart with fruit integrated, omit surrounding ground. All six views must show the SAME row object.",
+      "reference_images": [
+        "reusable/scene-assets/new-frog-vendor-scene-patch.png",
+        "reusable/scene-assets/new-merchant-scene-patch.png",
+        "reusable/scene-assets/new-guard-scene-patch.png"
+      ]
+    },
+    "normalization": {
+      "cell_rect": [
+        799,
+        640,
+        223,
+        337
+      ],
+      "alpha_threshold": 245,
+      "connected_component_policy": "global-major-components-ordered-by-row-and-column",
+      "alpha_bbox": [
+        0,
+        0,
+        223,
+        337
+      ],
+      "shared_scale": 0.6528189910979229,
+      "render_size_px": [
+        146,
+        220
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Generated isolation and inferred hidden surfaces. Not exact recovered pixels, not source geometry. Soft alpha haze removed by deterministic threshold."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:pocket-dungeon"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "pocket-dungeon--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry. This clean view is an inferred proxy for a baked source crop, not an exact recovered hidden surface.",
+    "inferred_proxy_for": "new-guard-scene-patch"
+  }
+}

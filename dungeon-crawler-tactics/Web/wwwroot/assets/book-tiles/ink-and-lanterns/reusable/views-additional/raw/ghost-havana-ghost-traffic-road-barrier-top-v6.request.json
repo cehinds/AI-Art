@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "object_id": "ghost-havana-ghost-traffic-road-barrier",
+  "view": "top",
+  "status": "generated-atlas-ready-for-normalization",
+  "prompt": "Edit the exact TOP plan of this concrete Jersey barrier using the supplied bottom-view footprint image as the fixed geometry template. Keep its outer width, depth, taper, and handle positions exactly the same as that image (about a 2.37:1 width-to-depth ratio). Repaint the interior to show the TOP surface of the same solid barrier: a narrow central longitudinal ridge and two broad upward-visible sloped concrete flanks, with the canonical red/white warning paint on the flanks and the two lifting loops near the ends. Preserve one solid concrete mass across the whole footprint. This is an edit of the supplied plan: do not change the outer silhouette, do not narrow it, do not create a thin arm, and do not add metal plates or gate hardware. Camera strictly vertical, no perspective. Transparent 256x256 background. Use the canonical source only for object/material identity; bottom-view geometry is authoritative. Inferred top view, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "reusable/views-additional/ghost-havana-ghost-traffic-road-barrier.bottom.png",
+      "sha256": "49830424223239b9b193c6a15d41469e39b45bf4be5ffa1b779e83265537b5ed",
+      "role": "primary exact footprint/outline and handle-position geometry template"
+    },
+    {
+      "path": "ghost-havana/components/ghost-havana-ghost-traffic-road-barrier.png",
+      "sha256": "020133a6e90032e2f894e70998765bfcde98918c346b9251c8c9b0b3a8d30278",
+      "role": "canonical solid concrete identity, stripe paint and surface appearance"
+    }
+  ],
+  "geometry_constraints": [
+    "preserve input bottom silhouette and outer dimensions exactly",
+    "same approximate 2.37:1 footprint",
+    "solid concrete mass with central ridge and sloped painted flanks",
+    "no gate hardware or thin arm",
+    "strict vertical orthographic camera"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/ghost-havana-ghost-traffic-road-barrier-top-v6-atlas.png",
+  "generated_atlas_sha256": "d86fff71f2690675cdec389e3b3524cded5a5271a64a35e5399527e88d756c85",
+  "generation_call_id": "imagegen-response-current-exec"
+}

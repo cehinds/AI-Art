@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-airship-riveted-scrap-hull-closed-doorway",
+  "view": "top",
+  "status": "generated-atlas-ready-for-normalization",
+  "prompt": "Create only the TOP principal view of this CLOSED arched airship-hull doorway, from a camera looking straight down vertically. The red arched door leaf and its wheel are vertical front-facing planes. From above, their broad decorated front faces are edge-on and MUST NOT be visible. Render only the narrow top/thickness projection of the vertical door assembly: a long horizontal rusted iron/door-edge strip, the narrow upper ridge of the arched header, and compact rectangular jamb footprints at the two ends. Maintain an approximately 224px X span by 60px Y depth, matching the narrow RIGHT/LEFT depth. The closed red door face is hidden from this top camera; do not draw a broad red panel. The circular wheel may appear only as a tiny edge-on oval protruding at the near edge, never as a full wheel face. Keep rusted riveted metal and red door edge palette. No lamps, no front-facing arch, no broad painted plane, no perspective. Transparent 256x256 canvas, complete centered. Inferred top projection, not recovered pixels or calibrated 3D.",
+  "reference_inputs": [
+    {
+      "path": "bubble-airship/components/bubble-airship-riveted-scrap-hull-closed-doorway.png",
+      "sha256": "911bc5b72bbe445b3a1508c0e843ca5518301f8ca23e7434075ebad3d8270c1e",
+      "role": "canonical red door, iron frame, rust identity"
+    },
+    {
+      "path": "reusable/views-additional/qa-bubble-airship-closed-door-source-six-top-repair-v1.png",
+      "sha256": "9fda9f610807ca1aad3ed30cb860f5cd24f4856164c6bb07aa8aa27cf5ffc2f0",
+      "role": "source plus current six; use accepted front and narrow right/left elevations for geometry, correct top only"
+    }
+  ],
+  "geometry_constraints": [
+    "true overhead camera",
+    "vertical red door face hidden edge-on",
+    "narrow wall thickness plane about224x60",
+    "jamb end footprints remain",
+    "wheel only edge-on oval if visible"
+  ],
+  "generated_atlas": "reusable/views-additional/raw/bubble-airship-riveted-scrap-hull-closed-doorway-top-v1-atlas.png",
+  "generated_atlas_sha256": "7fb416ee3d83866a736ab9fabd11b9919835e7ecea0bbe4949501c85010b2278",
+  "generation_call_id": "imagegen-response-current-exec"
+}

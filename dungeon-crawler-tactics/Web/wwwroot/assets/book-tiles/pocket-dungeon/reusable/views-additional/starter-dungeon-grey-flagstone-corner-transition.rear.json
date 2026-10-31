@@ -1,0 +1,137 @@
+{
+  "id": "starter-dungeon-grey-flagstone-corner-transition.rear",
+  "name": "Grey Flagstone corner transition rear",
+  "kind": "tile",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "ground",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "pocket-dungeon",
+    "rear",
+    "role:provider",
+    "starter-dungeon",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/views-additional/starter-dungeon-grey-flagstone-corner-transition.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "43504a6d904e680e221840429c1da6b220c909c6358863ba623eda9e8ca52842",
+    "rgba_sha256": "9c1d8455725cc74e96fb46439be3ac586c80b7fa453bfe3aaa9d5ae2e78e3547"
+  },
+  "object_id": "starter-dungeon-grey-flagstone-corner-transition",
+  "view": "rear",
+  "metadata_path": "reusable/views-additional/starter-dungeon-grey-flagstone-corner-transition.rear.json",
+  "anchor_px": [
+    128,
+    248
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "individual principal-view image; grouped in this object view_set"
+  },
+  "provenance": {
+    "method": "generated",
+    "source_image": "starter-dungeon/components/starter-dungeon-grey-flagstone-corner-transition.png",
+    "generated_atlas": "reusable/views-additional/raw/atlases/starter-dungeon-batch-01.png",
+    "generated_atlas_sha256": "f128279b92e74bf51281e148181aef3affaab70ef15116d191f361643fe33018",
+    "reference_sheet": "reusable/views-additional/raw/source-refs/starter-dungeon-batch-01.png",
+    "prompt_file": "reusable/views-additional/raw/prompts/starter-dungeon-batch-01.txt",
+    "normalization": {
+      "alpha_threshold": 245,
+      "minimum_component_area": 4,
+      "component_policy": "group opaque connected components by nearest logical row/column center; preserve full bounds",
+      "component_group": [
+        {
+          "label": 52,
+          "area": 7512,
+          "centroid": [
+            1132.8024494142705,
+            1106.6634717784877
+          ],
+          "bbox": [
+            1060,
+            1082,
+            1218,
+            1136
+          ]
+        }
+      ],
+      "shared_scale": 1.3924050632911393,
+      "source_crop_size": [
+        158,
+        54
+      ],
+      "render_size": [
+        220,
+        75
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "resampling": "NEAREST",
+      "anchor_px": [
+        128,
+        248
+      ]
+    },
+    "notes": "Canonical target source identity retained. Edge geometry is borrowed from accepted same-material tile projections; underside uses the target L footprint mirrored for below-view.",
+    "repair_steps": [
+      {
+        "operation": "cross-object same-material floor-edge alias",
+        "donor_object_id": "starter-dungeon-grey-flagstone-edge-transition",
+        "donor_view": "rear",
+        "donor_path": "reusable/views-additional/starter-dungeon-grey-flagstone-edge-transition.rear.png",
+        "donor_sha256": "43504a6d904e680e221840429c1da6b220c909c6358863ba623eda9e8ca52842",
+        "reason": "Both objects are flat grey flagstone tiles in the same kit; target only needs low slab edge elevations, while its notched L footprint remains in TOP/BOTTOM."
+      },
+      {
+        "operation": "cross-object same-material floor-edge alias",
+        "donor_object_id": "starter-dungeon-grey-flagstone-edge-transition",
+        "donor_view": "rear",
+        "donor_path": "reusable/views-additional/starter-dungeon-grey-flagstone-edge-transition.rear.png",
+        "donor_sha256": "43504a6d904e680e221840429c1da6b220c909c6358863ba623eda9e8ca52842",
+        "reason": "Both objects are flat grey flagstone tiles in the same kit; target only needs low slab edge elevations, while its notched L footprint remains in TOP/BOTTOM."
+      }
+    ]
+  },
+  "geometry_qa": "cleared",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "book-location",
+    "environment:dungeon",
+    "material:unspecified",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "starter-dungeon-grey-flagstone-corner-transition"
+  }
+}

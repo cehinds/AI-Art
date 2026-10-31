@@ -1,0 +1,1095 @@
+{
+  "schema_version": 1,
+  "batch": "stairs-06-sea-surface",
+  "role": "candidate-only",
+  "write_scope": "book-tiles/ink-and-lanterns/reusable/views-additional/raw/core-staging-stairs",
+  "no_live_writes": true,
+  "raw_atlases": [
+    {
+      "path": "sea-surface-stairs-edits-atlas.png",
+      "sha256": "e90fa95b2292f8307b5880d2ba6aff8391eae4645d2a67264413a3c92f53ec0c",
+      "size_wh": [
+        1254,
+        1254
+      ],
+      "request": {
+        "request_id": "exec-906f4d15-1da6-4ed5-a668-e045ced76c3d",
+        "prompt": "Strict orthographic 3x3 atlas; outputs: Sea UP TOP, Surface Wet UP REAR, Surface Wet UP BOTTOM, Surface Wet DOWN REAR. The Surface UP REAR cell contained the wrong front tread view and is explicitly rejected; it is not installed. Other outputs are candidate only."
+      }
+    },
+    {
+      "path": "surface-wet-up-rear-atlas.png",
+      "sha256": "7569106e5019104aaadd88b8bad134160e94458f71f1700e274e23157275da9b",
+      "size_wh": [
+        1254,
+        1254
+      ],
+      "request": {
+        "request_id": "exec-9fbbda75-3a10-4d24-bc21-a8f26b871e39",
+        "prompt": "One isolated square transparent sprite, strict orthographic rear elevation of Surface Wet City Pavement stairs UP: full-width level structural back panel, no upper treads, no diagonal brace; inferred hidden face."
+      }
+    }
+  ],
+  "sets": [
+    {
+      "object_id": "bubble-sea-seabed-sand-stairs-up",
+      "source": {
+        "path": "bubble-sea/components/bubble-sea-seabed-sand-stairs-up.png",
+        "sha256": "e92d9bf3288f0b0dce9be15ab2cf1235ccb168160bf12e504a8e6c890f091c88",
+        "rgba_sha256": "27694d3ac8b71157c6ee69078f97daf792eb7d76507740eb5dc81103f27185e8"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.front",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.front.png",
+          "sha256": "f7c766f8f7481ae4a6f6f501f7c941153be8063c7b677282006698cf183d6fd0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            16,
+            20,
+            239,
+            235
+          ]
+        },
+        "top": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.top",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.top.png",
+          "sha256": "349574bdd214ba763fb42299a05d3a88349e8dfbcd0c17898799777902cbb8fc",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            21,
+            15,
+            234,
+            240
+          ]
+        },
+        "right": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.right",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.right.png",
+          "sha256": "74cea05be502f6dbbb502a606dee300b5cf974324831e690189ffba836a43de1",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            38,
+            240,
+            218
+          ]
+        },
+        "left": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.left",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.left.png",
+          "sha256": "91a19aa263f19062cf47ea7ef87f08a5c89a387d2b76d1f3518e98d316e50c01",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            37,
+            240,
+            218
+          ]
+        },
+        "bottom": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.bottom",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.bottom.png",
+          "sha256": "b55ac9441c6b5d8627007e407d51b188ba257c97a0113dda7e9557f1b6ff6e50",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            25,
+            244,
+            230
+          ]
+        },
+        "rear": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.rear",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.rear.png",
+          "sha256": "4400ebf4062dee8bcaae81d7184f79b269907d81c649050e2c5eaaf5de4a77e0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            24,
+            240,
+            232
+          ]
+        }
+      },
+      "review_evidence": [
+        {
+          "ledger": "page",
+          "status": "issues",
+          "reviewed_at": "2026-10-25T18:40:13.305356+00:00",
+          "source_sha256": null,
+          "source_matches": null,
+          "all_six_match": true,
+          "affected_views": null,
+          "notes": [
+            "TOP repeats frontal tread risers rather than overhead tread surfaces: source shows stairs rising in depth; underside now plain substrate is plausible."
+          ],
+          "contact_path": null,
+          "contact_sha256": null
+        },
+        {
+          "ledger": "merged-review",
+          "status": "needs-correction",
+          "review": {
+            "reviewer": "page_inventory",
+            "reviewed_at": "2026-10-25T18:40:13.305356+00:00",
+            "status": "issues",
+            "notes": [
+              "TOP repeats frontal tread risers rather than overhead tread surfaces: source shows stairs rising in depth; underside now plain substrate is plausible."
+            ],
+            "affected_views": []
+          }
+        }
+      ],
+      "candidate_views": {
+        "top": {
+          "candidate_path": "candidates/sea-surface-v1/bubble-sea-seabed-sand-stairs-up.top.candidate.png",
+          "candidate_sha256": "705b3bd8d07822a2ed6946609f7f3e88005377fc34c7a439a10100b44b2c8ddf",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            21,
+            21,
+            234,
+            235
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-stair-view-edit",
+            "raw_atlas_path": "sea-surface-stairs-edits-atlas.png",
+            "raw_atlas_sha256": "e90fa95b2292f8307b5880d2ba6aff8391eae4645d2a67264413a3c92f53ec0c",
+            "request_id": "exec-906f4d15-1da6-4ed5-a668-e045ced76c3d",
+            "source_path": "bubble-sea/components/bubble-sea-seabed-sand-stairs-up.png",
+            "source_sha256": "e92d9bf3288f0b0dce9be15ab2cf1235ccb168160bf12e504a8e6c890f091c88",
+            "raw_component_bbox_xyxy": [
+              468,
+              66,
+              785,
+              385
+            ],
+            "raw_component_size_wh": [
+              317,
+              319
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic scale; elevations matched to unchanged current F/R/L median common Z and ground; plans uniformly fit existing top footprint on 256x256 canvas",
+            "uniform_scale": 0.6719242902208202,
+            "resized_wh": [
+              213,
+              214
+            ],
+            "canvas_offset_xy": [
+              21,
+              21
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_z_px": null,
+            "ground_line_y": null,
+            "note": "Candidate only; hidden surfaces explicitly inferred. The Surface UP REAR component from the first atlas was rejected because it repeated the front treads; this separate targeted rear generation replaces it."
+          }
+        }
+      },
+      "retained_views": {
+        "front": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.front",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.front.png",
+          "sha256": "f7c766f8f7481ae4a6f6f501f7c941153be8063c7b677282006698cf183d6fd0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            16,
+            20,
+            239,
+            235
+          ]
+        },
+        "right": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.right",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.right.png",
+          "sha256": "74cea05be502f6dbbb502a606dee300b5cf974324831e690189ffba836a43de1",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            38,
+            240,
+            218
+          ]
+        },
+        "left": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.left",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.left.png",
+          "sha256": "91a19aa263f19062cf47ea7ef87f08a5c89a387d2b76d1f3518e98d316e50c01",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            37,
+            240,
+            218
+          ]
+        },
+        "bottom": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.bottom",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.bottom.png",
+          "sha256": "b55ac9441c6b5d8627007e407d51b188ba257c97a0113dda7e9557f1b6ff6e50",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            12,
+            25,
+            244,
+            230
+          ]
+        },
+        "rear": {
+          "asset_id": "bubble-sea-seabed-sand-stairs-up.rear",
+          "path": "reusable/views-additional/bubble-sea-seabed-sand-stairs-up.rear.png",
+          "sha256": "4400ebf4062dee8bcaae81d7184f79b269907d81c649050e2c5eaaf5de4a77e0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            15,
+            24,
+            240,
+            232
+          ]
+        }
+      },
+      "contact_path": "bubble-sea-seabed-sand-stairs-up.top.candidate-source-current-six.png",
+      "contact_sha256": "228112d10e1955b21e9ccdba8fd86127d4a87987ea56c7f7013547f01250fc0a",
+      "normalization_note": "sea over-head plan"
+    },
+    {
+      "object_id": "surface-entry-wet-city-pavement-stairs-up",
+      "source": {
+        "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+        "sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+        "rgba_sha256": "6ceb152589e5ddb4706bc690cf1548e342bba2061d75876f3324c3b5969a5d47"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.front.png",
+          "sha256": "85fd3573c2ef3f5c9ae54bdd3566ccbf6caec05ec22439778c2df4f4d7fdaa2e",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            41,
+            229,
+            216
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.top.png",
+          "sha256": "fb0eb71e5416bf13fdc8b7ede636040a93098915410f134088fde3f6c6d7d55d",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            26,
+            39,
+            230,
+            217
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.right.png",
+          "sha256": "aac59651ab1772c468bdaf787ab9e6e83178a00934c59dc6a75a6aa7d872220c",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            46,
+            215,
+            211
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.left.png",
+          "sha256": "1c3b7f4ec2e30f4c47ecb492f02c9947cf76d48a80c311a208ca8852687933db",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            45,
+            216,
+            211
+          ]
+        },
+        "bottom": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.bottom",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.bottom.png",
+          "sha256": "95b75937922e074524bbbde74aa1e0858337918cac9d5437ac1a9ce537ae896a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            29,
+            45,
+            228,
+            211
+          ]
+        },
+        "rear": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.rear",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.rear.png",
+          "sha256": "96b4a91b19553fa62b64ab96c02c6ea8c41c55a89a304228032c7af792fd8bc8",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            42,
+            228,
+            215
+          ]
+        }
+      },
+      "review_evidence": [
+        {
+          "ledger": "page",
+          "status": "issues",
+          "reviewed_at": "2026-10-26T00:22:10.486143+00:00",
+          "source_sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+          "source_matches": true,
+          "all_six_match": true,
+          "affected_views": [
+            "bottom",
+            "rear"
+          ],
+          "notes": [
+            "BOTTOM repeats upper exposed stair treads instead of supporting underside; REAR repeats FRONT tread plane instead opposite support elevation."
+          ],
+          "contact_path": null,
+          "contact_sha256": null
+        },
+        {
+          "ledger": "merged-review",
+          "status": "needs-correction",
+          "review": {
+            "reviewer": "page_inventory",
+            "reviewed_at": "2026-10-26T00:22:10.486143+00:00",
+            "status": "issues",
+            "notes": [
+              "BOTTOM repeats upper exposed stair treads instead of supporting underside; REAR repeats FRONT tread plane instead opposite support elevation."
+            ],
+            "affected_views": [
+              "bottom",
+              "rear"
+            ]
+          }
+        }
+      ],
+      "candidate_views": {
+        "bottom": {
+          "candidate_path": "candidates/sea-surface-v1/surface-entry-wet-city-pavement-stairs-up.bottom.candidate.png",
+          "candidate_sha256": "036acbe22fea0f87a34ddf2950125105490a79792b52f43f9b6925820aefb04d",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            26,
+            39,
+            229,
+            217
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-stair-view-edit",
+            "raw_atlas_path": "sea-surface-stairs-edits-atlas.png",
+            "raw_atlas_sha256": "e90fa95b2292f8307b5880d2ba6aff8391eae4645d2a67264413a3c92f53ec0c",
+            "request_id": "exec-906f4d15-1da6-4ed5-a668-e045ced76c3d",
+            "source_path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+            "source_sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+            "raw_component_bbox_xyxy": [
+              465,
+              488,
+              789,
+              772
+            ],
+            "raw_component_size_wh": [
+              324,
+              284
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic scale; elevations matched to unchanged current F/R/L median common Z and ground; plans uniformly fit existing top footprint on 256x256 canvas",
+            "uniform_scale": 0.6267605633802817,
+            "resized_wh": [
+              203,
+              178
+            ],
+            "canvas_offset_xy": [
+              26,
+              39
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_z_px": null,
+            "ground_line_y": null,
+            "note": "Candidate only; hidden surfaces explicitly inferred. The Surface UP REAR component from the first atlas was rejected because it repeated the front treads; this separate targeted rear generation replaces it."
+          }
+        }
+      },
+      "retained_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.front.png",
+          "sha256": "85fd3573c2ef3f5c9ae54bdd3566ccbf6caec05ec22439778c2df4f4d7fdaa2e",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            41,
+            229,
+            216
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.top.png",
+          "sha256": "fb0eb71e5416bf13fdc8b7ede636040a93098915410f134088fde3f6c6d7d55d",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            26,
+            39,
+            230,
+            217
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.right.png",
+          "sha256": "aac59651ab1772c468bdaf787ab9e6e83178a00934c59dc6a75a6aa7d872220c",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            46,
+            215,
+            211
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.left.png",
+          "sha256": "1c3b7f4ec2e30f4c47ecb492f02c9947cf76d48a80c311a208ca8852687933db",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            45,
+            216,
+            211
+          ]
+        },
+        "rear": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.rear",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.rear.png",
+          "sha256": "96b4a91b19553fa62b64ab96c02c6ea8c41c55a89a304228032c7af792fd8bc8",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            42,
+            228,
+            215
+          ]
+        }
+      },
+      "contact_path": "surface-entry-wet-city-pavement-stairs-up.bottom.candidate-source-current-six.png",
+      "contact_sha256": "f47012ef14f678ff4f272ec00694901ae28866aeda10b2553168c7abaa33d3dc",
+      "normalization_note": "opaque wet-stone underside"
+    },
+    {
+      "object_id": "surface-entry-wet-city-pavement-stairs-down",
+      "source": {
+        "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-down.png",
+        "sha256": "8e25eb37d7e3f286c6ee18407654ac4bfe78f11612c5f41a61da4f4c325cdab2",
+        "rgba_sha256": "575b20f5f4f311e77b63d954426611ea12f5395c9b4446cd7afef4013b4fd87f"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.front.png",
+          "sha256": "8ff03a11e40dcc901f3503c4b4890bfbd9330d86969f46c87b96bfa00823e23a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            29,
+            37,
+            228,
+            220
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.top.png",
+          "sha256": "846c8556c69ffe88f5305991ed4fd54f9483a28a1a69546c577c050da8d459bf",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            25,
+            36,
+            232,
+            220
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.right.png",
+          "sha256": "33b9bcd123b00ff63082a0851f3bfe23ecca75fa1229a98116079cf020cabde4",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            41,
+            215,
+            216
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.left.png",
+          "sha256": "dc281c770cb1f145b30c859ce9000b947be6bd7a76b5878d242d14ddd9c3fe05",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            42,
+            215,
+            215
+          ]
+        },
+        "bottom": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.bottom",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.bottom.png",
+          "sha256": "87680391b1a9a9c1981d4d9b55babba2f929d93d47e06d9be725ec6799ad5ec0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            43,
+            228,
+            213
+          ]
+        },
+        "rear": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.rear",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.rear.png",
+          "sha256": "bd4919ae94ac2a9634a77d9a917891a99946639dc64347eff7c4e0480a159513",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            37,
+            228,
+            220
+          ]
+        }
+      },
+      "review_evidence": [
+        {
+          "ledger": "page",
+          "status": "issues",
+          "reviewed_at": "2026-10-26T00:22:10.639903+00:00",
+          "source_sha256": "8e25eb37d7e3f286c6ee18407654ac4bfe78f11612c5f41a61da4f4c325cdab2",
+          "source_matches": true,
+          "all_six_match": true,
+          "affected_views": [
+            "rear"
+          ],
+          "notes": [
+            "REAR repeats FRONT exposed descending stair/tread plane rather than opaque opposite support/end geometry. Bottom brace treated as explicitly inferred opaque structural underside."
+          ],
+          "contact_path": null,
+          "contact_sha256": null
+        },
+        {
+          "ledger": "merged-review",
+          "status": "needs-correction",
+          "review": {
+            "reviewer": "page_inventory",
+            "reviewed_at": "2026-10-26T00:22:10.639903+00:00",
+            "status": "issues",
+            "notes": [
+              "REAR repeats FRONT exposed descending stair/tread plane rather than opaque opposite support/end geometry. Bottom brace treated as explicitly inferred opaque structural underside."
+            ],
+            "affected_views": [
+              "rear"
+            ]
+          }
+        }
+      ],
+      "candidate_views": {
+        "rear": {
+          "candidate_path": "candidates/sea-surface-v1/surface-entry-wet-city-pavement-stairs-down.rear.candidate.png",
+          "candidate_sha256": "28641ac890b449f5bdad33e8353fc80bb9092a1b032dc460e804c0f0dc319bc9",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            23,
+            41,
+            232,
+            216
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-stair-view-edit",
+            "raw_atlas_path": "sea-surface-stairs-edits-atlas.png",
+            "raw_atlas_sha256": "e90fa95b2292f8307b5880d2ba6aff8391eae4645d2a67264413a3c92f53ec0c",
+            "request_id": "exec-906f4d15-1da6-4ed5-a668-e045ced76c3d",
+            "source_path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-down.png",
+            "source_sha256": "8e25eb37d7e3f286c6ee18407654ac4bfe78f11612c5f41a61da4f4c325cdab2",
+            "raw_component_bbox_xyxy": [
+              851,
+              880,
+              1191,
+              1165
+            ],
+            "raw_component_size_wh": [
+              340,
+              285
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic scale; elevations matched to unchanged current F/R/L median common Z and ground; plans uniformly fit existing top footprint on 256x256 canvas",
+            "uniform_scale": 0.6140350877192983,
+            "resized_wh": [
+              209,
+              175
+            ],
+            "canvas_offset_xy": [
+              23,
+              41
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_z_px": 175,
+            "ground_line_y": 216,
+            "note": "Candidate only; hidden surfaces explicitly inferred. The Surface UP REAR component from the first atlas was rejected because it repeated the front treads; this separate targeted rear generation replaces it."
+          }
+        }
+      },
+      "retained_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.front.png",
+          "sha256": "8ff03a11e40dcc901f3503c4b4890bfbd9330d86969f46c87b96bfa00823e23a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            29,
+            37,
+            228,
+            220
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.top.png",
+          "sha256": "846c8556c69ffe88f5305991ed4fd54f9483a28a1a69546c577c050da8d459bf",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            25,
+            36,
+            232,
+            220
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.right.png",
+          "sha256": "33b9bcd123b00ff63082a0851f3bfe23ecca75fa1229a98116079cf020cabde4",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            41,
+            215,
+            216
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.left.png",
+          "sha256": "dc281c770cb1f145b30c859ce9000b947be6bd7a76b5878d242d14ddd9c3fe05",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            42,
+            215,
+            215
+          ]
+        },
+        "bottom": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-down.bottom",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-down.bottom.png",
+          "sha256": "87680391b1a9a9c1981d4d9b55babba2f929d93d47e06d9be725ec6799ad5ec0",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            43,
+            228,
+            213
+          ]
+        }
+      },
+      "contact_path": "surface-entry-wet-city-pavement-stairs-down.rear.candidate-source-current-six.png",
+      "contact_sha256": "4953a7fcfd0c5e9466787123076f42b922a1a8538182974991204a5ce3f85424",
+      "normalization_note": "rear closed support; diagonal bracing is inferred"
+    },
+    {
+      "object_id": "surface-entry-wet-city-pavement-stairs-up",
+      "source": {
+        "path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+        "sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+        "rgba_sha256": "6ceb152589e5ddb4706bc690cf1548e342bba2061d75876f3324c3b5969a5d47"
+      },
+      "current_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.front.png",
+          "sha256": "85fd3573c2ef3f5c9ae54bdd3566ccbf6caec05ec22439778c2df4f4d7fdaa2e",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            41,
+            229,
+            216
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.top.png",
+          "sha256": "fb0eb71e5416bf13fdc8b7ede636040a93098915410f134088fde3f6c6d7d55d",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            26,
+            39,
+            230,
+            217
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.right.png",
+          "sha256": "aac59651ab1772c468bdaf787ab9e6e83178a00934c59dc6a75a6aa7d872220c",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            46,
+            215,
+            211
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.left.png",
+          "sha256": "1c3b7f4ec2e30f4c47ecb492f02c9947cf76d48a80c311a208ca8852687933db",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            45,
+            216,
+            211
+          ]
+        },
+        "bottom": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.bottom",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.bottom.png",
+          "sha256": "95b75937922e074524bbbde74aa1e0858337918cac9d5437ac1a9ce537ae896a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            29,
+            45,
+            228,
+            211
+          ]
+        },
+        "rear": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.rear",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.rear.png",
+          "sha256": "96b4a91b19553fa62b64ab96c02c6ea8c41c55a89a304228032c7af792fd8bc8",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            42,
+            228,
+            215
+          ]
+        }
+      },
+      "review_evidence": [
+        {
+          "ledger": "page",
+          "status": "issues",
+          "reviewed_at": "2026-10-26T00:22:10.486143+00:00",
+          "source_sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+          "source_matches": true,
+          "all_six_match": true,
+          "affected_views": [
+            "bottom",
+            "rear"
+          ],
+          "notes": [
+            "BOTTOM repeats upper exposed stair treads instead of supporting underside; REAR repeats FRONT tread plane instead opposite support elevation."
+          ],
+          "contact_path": null,
+          "contact_sha256": null
+        },
+        {
+          "ledger": "merged-review",
+          "status": "needs-correction",
+          "review": {
+            "reviewer": "page_inventory",
+            "reviewed_at": "2026-10-26T00:22:10.486143+00:00",
+            "status": "issues",
+            "notes": [
+              "BOTTOM repeats upper exposed stair treads instead of supporting underside; REAR repeats FRONT tread plane instead opposite support elevation."
+            ],
+            "affected_views": [
+              "bottom",
+              "rear"
+            ]
+          }
+        }
+      ],
+      "candidate_views": {
+        "rear": {
+          "candidate_path": "candidates/sea-surface-v1/surface-entry-wet-city-pavement-stairs-up.rear.candidate.png",
+          "candidate_sha256": "77c19a8011a7b921c246160744a00cd3c3fa4763737ff80c338013c451593e11",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            2,
+            73,
+            254,
+            211
+          ],
+          "derivation": {
+            "method": "imagegen-orthographic-stair-view-edit",
+            "raw_atlas_path": "surface-wet-up-rear-atlas.png",
+            "raw_atlas_sha256": "7569106e5019104aaadd88b8bad134160e94458f71f1700e274e23157275da9b",
+            "request_id": "exec-9fbbda75-3a10-4d24-bc21-a8f26b871e39",
+            "source_path": "surface-entry/components/surface-entry-wet-city-pavement-stairs-up.png",
+            "source_sha256": "1dc86f91210ee30b67967bcf3fbc1e65274438a5263ece7ed4eee94118695d89",
+            "raw_component_bbox_xyxy": [
+              163,
+              375,
+              1091,
+              885
+            ],
+            "raw_component_size_wh": [
+              928,
+              510
+            ],
+            "alpha_threshold": 16,
+            "normalization": "NEAREST isotropic scale; elevations matched to unchanged current F/R/L median common Z and ground; plans uniformly fit existing top footprint on 256x256 canvas",
+            "uniform_scale": 0.27155172413793105,
+            "resized_wh": [
+              252,
+              138
+            ],
+            "canvas_offset_xy": [
+              2,
+              73
+            ],
+            "anchor_px": [
+              128,
+              128
+            ],
+            "target_z_px": 166,
+            "ground_line_y": 211,
+            "note": "Candidate only; hidden surfaces explicitly inferred. The Surface UP REAR component from the first atlas was rejected because it repeated the front treads; this separate targeted rear generation replaces it."
+          }
+        }
+      },
+      "retained_views": {
+        "front": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.front",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.front.png",
+          "sha256": "85fd3573c2ef3f5c9ae54bdd3566ccbf6caec05ec22439778c2df4f4d7fdaa2e",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            28,
+            41,
+            229,
+            216
+          ]
+        },
+        "top": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.top",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.top.png",
+          "sha256": "fb0eb71e5416bf13fdc8b7ede636040a93098915410f134088fde3f6c6d7d55d",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            26,
+            39,
+            230,
+            217
+          ]
+        },
+        "right": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.right",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.right.png",
+          "sha256": "aac59651ab1772c468bdaf787ab9e6e83178a00934c59dc6a75a6aa7d872220c",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            46,
+            215,
+            211
+          ]
+        },
+        "left": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.left",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.left.png",
+          "sha256": "1c3b7f4ec2e30f4c47ecb492f02c9947cf76d48a80c311a208ca8852687933db",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            41,
+            45,
+            216,
+            211
+          ]
+        },
+        "bottom": {
+          "asset_id": "surface-entry-wet-city-pavement-stairs-up.bottom",
+          "path": "reusable/views-additional/surface-entry-wet-city-pavement-stairs-up.bottom.png",
+          "sha256": "95b75937922e074524bbbde74aa1e0858337918cac9d5437ac1a9ce537ae896a",
+          "size_wh": [
+            256,
+            256
+          ],
+          "alpha_bbox_xyxy": [
+            29,
+            45,
+            228,
+            211
+          ]
+        }
+      },
+      "contact_path": "surface-entry-wet-city-pavement-stairs-up.rear.candidate-source-current-six.png",
+      "contact_sha256": "43cd412f260fbef1f4aaddb1e2751ba72684e66ee59a3e626304aba6e8019264",
+      "normalization_note": "rear closed support, no upper treads"
+    }
+  ]
+}

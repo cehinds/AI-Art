@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "request_id": "iron-tracks-tunnel-stone-inner-corner-rear-v1",
+  "object_id": "iron-tracks-tunnel-stone-inner-corner",
+  "direction": "rear",
+  "created_at_utc": "2026-10-27T00:18:57.586257+00:00",
+  "prompt": "Create ONE transparent pixel-art sprite: the principal REAR orthographic elevation of the exact stone inner-corner wall object shown in the references. The native source is a horizontal XY plan shaped like an L: three stone blocks across the X arm, then a perpendicular arm running away in +Y at the RIGHT end. The existing FRONT view shows the broad three-block wall face with the return appearing at screen-left because it is viewed from the opposite side. For this REAR view, show the same broad three-block wall face at the same height and scale, but the perpendicular return must appear at screen-RIGHT (opposite screen side from FRONT), as required by the reversed camera. Keep a straight level top edge and four horizontal stone courses; the return is a narrow perpendicular end wall with matching visible height. Match the source's pale tan/cream rough stone blocks, dark outlines, block scale, and worn pixel-art shading. Use the existing source+six contact for palette and body proportions, but obey the source L-plan and reverse-camera direction. Camera is exactly level and axis-aligned, no perspective, no isometric angle, no top plane, no visible L-shaped plan silhouette, no extra tall corner post, no doorway, no props, no text, no shadow. Center the entire wall+right-side return on a transparent square canvas, using approximately the same visible width and height as the current FRONT wall. Output only this one rear view.",
+  "reference_inputs": [
+    {
+      "path": "iron-tracks/components/iron-tracks-tunnel-stone-inner-corner.png",
+      "sha256": "011bf9ce3b58e45cc469b0954d02200810ed67c18e98427a3148b94971499eed",
+      "role": "canonical native L-plan source"
+    },
+    {
+      "path": "reusable/views-additional/raw/iron-tracks-tunnel-stone-inner-corner-rear-v1-source-six-reference.png",
+      "sha256": "0ae61703420cfa4ede52b7e0ff7215b7ae46cdb7f2b7b245b4cf268be1f77eb0",
+      "role": "current source plus six-view geometry/style context"
+    }
+  ],
+  "current_views": {
+    "front": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.front",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.front.png",
+      "sha256": "329316f772e9f5cbd3115cdb800019295ca575737f45fbf751ef1249b6bd8367"
+    },
+    "top": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.top",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.top.png",
+      "sha256": "9083466e711da6c3db265075e26f10fc0d9155baf33245578b9af14fb905c25f"
+    },
+    "right": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.right",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.right.png",
+      "sha256": "cacd1285482df0f1dadfb539999956a34d85c145445767160bee3aa00bcd99fb"
+    },
+    "left": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.left",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.left.png",
+      "sha256": "bec66dc8bd1835809122fc5bf9c9fe2a1389330ced9bf910bc68fd6fc3ac65c3"
+    },
+    "bottom": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.bottom",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.bottom.png",
+      "sha256": "18019464b1ed71212e342a67b1515a6a7f1d48be10edf2510ce287f8ab493afe"
+    },
+    "rear": {
+      "asset_id": "iron-tracks-tunnel-stone-inner-corner.rear",
+      "path": "reusable/views-additional/iron-tracks-tunnel-stone-inner-corner.rear.png",
+      "sha256": "329316f772e9f5cbd3115cdb800019295ca575737f45fbf751ef1249b6bd8367"
+    }
+  },
+  "target_direction": "rear",
+  "preserve_directions": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom"
+  ],
+  "status": "request-recorded-before-imagegen",
+  "superseded_attempts": [
+    {
+      "attempt": 1,
+      "status": "imagegen returned an inline image data URL but that transient response was not persisted to a file before the turn boundary; superseded by a path-mapped retry",
+      "output_hash": "not-recorded"
+    }
+  ]
+}

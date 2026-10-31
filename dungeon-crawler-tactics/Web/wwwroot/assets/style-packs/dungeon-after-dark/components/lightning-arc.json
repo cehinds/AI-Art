@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "lightning-arc",
+  "name": "Lightning arc",
+  "kind": "effect",
+  "category": "effect",
+  "tags": [
+    "arc",
+    "attachment-tagged",
+    "attachment:floor",
+    "dungeon-after-dark",
+    "effect",
+    "effects",
+    "environment:dungeon",
+    "existing",
+    "expansion",
+    "lightning",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "components/lightning-arc.png",
+    "width": 294,
+    "height": 244,
+    "sha256": "e589b2daf3f63e422cdf220bd53ac46b66d08f185181fec7ead236243b261fc6",
+    "rgba_sha256": "9780bef541c002823f603ce22a10400bc2ce4a66f5168cb2a8e0430a3be1b883"
+  },
+  "metadata_path": "components/lightning-arc.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/expansion.png",
+    "source_sha256": "95e954878f6ebfd0019c53448b658e3cbe13de8e248b2f524e3e474eec19866f",
+    "source_rect": [
+      262,
+      759,
+      286,
+      236
+    ],
+    "extraction": {
+      "sheet": "expansion",
+      "cell": {
+        "column": 1,
+        "row": 3,
+        "index": 19
+      },
+      "bounds": {
+        "x": 262,
+        "y": 759,
+        "width": 286,
+        "height": 236
+      },
+      "region": [
+        260,
+        757,
+        550,
+        997
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            266,
+            761
+          ],
+          [
+            536,
+            784
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    147.0,
+    122.0
+  ],
+  "object_id": "lightning-arc",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

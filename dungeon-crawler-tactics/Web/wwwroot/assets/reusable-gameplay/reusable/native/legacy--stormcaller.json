@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "legacy--stormcaller",
+  "name": "stormcaller",
+  "kind": "sprite",
+  "category": "actor",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "role:object",
+    "stormcaller",
+    "stormcaller.png",
+    "style:gameplay"
+  ],
+  "image": {
+    "path": "reusable/native/legacy--stormcaller.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "20cf2accbafc9a8fb0a9671356c124b46eba579d25a50ce9587895321bd77540",
+    "rgba_sha256": "faee8ff8698a24dc5e6727dd658c6a11049f32b4b01e2313094a95c7d1dab936"
+  },
+  "metadata_path": "reusable/native/legacy--stormcaller.json",
+  "anchor_px": [
+    64.0,
+    128
+  ],
+  "view": "source",
+  "object_id": "legacy--stormcaller",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/stormcaller.png",
+    "source_sha256": "96fba2742d718b8e9bd278f82ab7df68f0a4e3d6daf990ed956e831d9571ed02",
+    "source_rect": [
+      0,
+      0,
+      128,
+      128
+    ],
+    "mask": null,
+    "notes": "Original standalone front-facing gameplay sprite, reused without modifying pixels. Other views require inferred geometry."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "legacy--stormcaller.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "legacy--stormcaller",
+      "source_sha256": "20cf2accbafc9a8fb0a9671356c124b46eba579d25a50ce9587895321bd77540",
+      "primary_source": {
+        "asset_id": "legacy--stormcaller",
+        "path": "reusable/native/legacy--stormcaller.png",
+        "sha256": "20cf2accbafc9a8fb0a9671356c124b46eba579d25a50ce9587895321bd77540",
+        "rgba_sha256": "faee8ff8698a24dc5e6727dd658c6a11049f32b4b01e2313094a95c7d1dab936"
+      },
+      "image_hashes": {
+        "front": "546cad4479ee7d964106ad5f032954ad4339bfc506ddb4c1c160e3c8388de06c",
+        "top": "fa513e94e50bc7e5b42040e246afbb61fffdd2eb408c55e85364c68c3ad8fb9b",
+        "right": "d9f8b477de4101ea9bec93b2263ad657d0866fb86cb6b5320c07bfcab95959ac",
+        "left": "83c891201a800a9fb56a28948e668443819a4ce24856d04f98c56197cfd9a244",
+        "bottom": "d60fb8148bf8232dd69af925aebde30b3fbefc7f8cc9b9bfc774688a4869e38d",
+        "rear": "1680937cb859c4b06bcd819b69bd73afc267fb8493909fdc94ca1fbaab73895e"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T19:52:50.537317+00:00",
+      "notes": [
+        "Fresh corrected source+six: BOTTOM true torso/robeunderside with shoe soles, headgearoccluded; nativefront/sourcepixelidentity and isotropicallyconsistent bodywidth/sideheight, toolendcaps retained."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "reusable/native/legacy--stormcaller.png",
+          "sha256": "20cf2accbafc9a8fb0a9671356c124b46eba579d25a50ce9587895321bd77540",
+          "rgba_sha256": "faee8ff8698a24dc5e6727dd658c6a11049f32b4b01e2313094a95c7d1dab936"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "pose": "standing",
+  "source_direction": "front",
+  "character_id": "legacy--stormcaller",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "attachment:stairs",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor",
+        "surface:stairs"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-266967d8921f",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

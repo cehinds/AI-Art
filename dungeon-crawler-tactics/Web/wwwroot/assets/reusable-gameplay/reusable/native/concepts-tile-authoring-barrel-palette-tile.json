@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "concepts-tile-authoring-barrel-palette-tile",
+  "name": "Barrel palette tile",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/concepts-tile-authoring-barrel-palette-tile.png",
+    "width": 98,
+    "height": 91,
+    "sha256": "fcc12493444da3b6902fd58d6127cbbb4457e8f17a6fbd7c9aee56755c3628a1",
+    "rgba_sha256": "3b119e2e55848cd09fde806f9de22c8332dba367382c55da2b709f6aa3b7089f"
+  },
+  "metadata_path": "reusable/native/concepts-tile-authoring-barrel-palette-tile.json",
+  "anchor_px": [
+    49.0,
+    91
+  ],
+  "view": "source",
+  "object_id": "concepts-tile-authoring-barrel-palette-tile",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/concepts/tile-authoring.png",
+    "source_sha256": "b67d93f26a736f09c30de7254b1b86e2ca7be853eb3cca20f6382c833d4b2907",
+    "source_rect": [
+      259,
+      416,
+      98,
+      91
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect or non-physical source region; no independent physical principal views."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "raw_atlas": "reusable/views-additional/raw/house-batch-03-shells-atlas-v1.png",
+  "grid": {
+    "columns": 6,
+    "rows": 2
+  },
+  "alpha_threshold": 245,
+  "min_component_ratio": 0.01,
+  "objects": [
+    {
+      "id": "house-bedroom--left-wall-shell",
+      "row": 1,
+      "views": [
+        "top",
+        "bottom"
+      ],
+      "view_rotations_deg": {
+        "top": 90,
+        "bottom": 90
+      },
+      "shared_scale": 1.0,
+      "notes": "Rotate only the plan views 90 degrees in-plane so the wall shell long axis aligns with world Y; preserve accepted elevation views and XY footprint. Source shell is inferred from furnished room crop."
+    }
+  ],
+  "generation": {
+    "tool": "deterministic PIL nearest-neighbor rotation",
+    "source_recipe": "reusable/views-additional/raw/house-batch-03-shells-v1.recipe.json",
+    "note": "Projection camera output preserved; only principal plan view sprites rotated 90 degrees."
+  }
+}

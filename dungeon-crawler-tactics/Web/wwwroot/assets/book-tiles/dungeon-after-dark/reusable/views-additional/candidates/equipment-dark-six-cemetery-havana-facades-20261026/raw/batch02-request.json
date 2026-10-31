@@ -1,0 +1,30 @@
+{
+  "request_type": "imagegen",
+  "request_id": null,
+  "object_ids": [
+    "ghost-cemetery-temple-of-yemaya-shrine",
+    "ghost-havana-el-capitolio-entrance-facade",
+    "ghost-havana-old-havana-arcade-frontage"
+  ],
+  "requested_views": [
+    "top",
+    "bottom"
+  ],
+  "references": [
+    {
+      "path": "/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/equipment-dark-six-cemetery-havana-facades-20261026/contacts/batch02-source-six.png",
+      "sha256": "070bdc6173a0093893cc2828381fedb230692c47e88c6a9332a18beeb619f222"
+    }
+  ],
+  "prompt": "Create one transparent-background sprite atlas in crisp pixel-art style. Use the provided source+six contact as the ONLY authority for identity, materials, palette, object count, layout, and source-supported landmarks. Row order: ghost-cemetery-temple-of-yemaya-shrine; ghost-havana-el-capitolio-entrance-facade; ghost-havana-old-havana-arcade-frontage. Each reference row shows the native source and current FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR views. The TOP/BOTTOM views are the targets to correct; preserve all approved source views as identity and physical-shape authority. Do not use isometric angles or copy a broad frontal face into the overhead plane.\n\nOutput exactly a 6-column x 3-row atlas with square cells, no labels or gutters, columns in this order: FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR; rows in the order above. Each object must be completely isolated, centered, unclipped, and surrounded by transparent padding. Strict axis-aligned orthographic views. Front/rear are broad elevations, right/left are edge elevations, TOP looks straight down along +Z and BOTTOM straight up along -Z. Keep view scale consistent within each object. The four existing non-target directions are context only; do not redesign their content. Generate coherent top/bottom geometry as inferred illustrations based on the accepted side thickness, native source layout, and occlusion.\n\nRow 1 Yemaya shrine: preserve source blue-water-and-stone shrine identity and four gold corner caps with circular center. TOP is a shallow shrine/crown footprint with narrow rear shell rim, rear statue/head close to the back, forward semicircular basin and steps, side candles; do not lay the frontal radial shell ribs or full blue deity face into XY. BOTTOM is a narrow opaque stone support footprint corresponding to side thickness, with only structurally visible undersides; no frontal deity/water face, no broad square plate.\n\nRow 2 El Capitolio entrance facade: source FRONT/REAR are broad facade elevations with a centered gold dome, palms at the sides, and long building face. TOP must be broad X and shallow Y: roof/cornice footprint with centered circular dome cap of source-supported diameter, and palms as small compact crown/end marks only. Do not lay the full frontal dome/wings into XY or invent a deep cross-building footprint. BOTTOM remains a narrow shallow underside consistent with retained source BOTTOM and side depth; no frontal facade in the underside. If this row is context-only for one target column, preserve plausible matching TOP/BOTTOM.\n\nRow 3 Old Havana arcade frontage: preserve the source's long gold-and-teal multi-story facade, balcony and window count, and rooftop finials. TOP is a long-X shallow roof/coping plan matching retained side/BOTTOM depth; finials are compact overhead marks at their fixed positions. Do not make a broad square roof, full facade, or upright windows visible from above. BOTTOM is a thin support/stone underside matching the accepted base depth and source material, no frontal elevations.\n\nEven though the atlas shows all six columns, final candidates will use only shrine TOP/BOTTOM and Capitolio/Arcade TOP. Maintain exact source-supported counts and landmarks. Use clean pixel-art contours, with no stray islands outside each complete silhouette.",
+  "transparent_background": true,
+  "response": {
+    "original_generated_path": "/workspace/generated_images/exec-13c4f992-9255-4a45-a08d-fead25d6f048.png",
+    "retained_raw_path": "/workspace/AI-Art/dungeon-crawler-tactics/Web/wwwroot/assets/book-tiles/dungeon-after-dark/reusable/views-additional/candidates/equipment-dark-six-cemetery-havana-facades-20261026/raw/batch02-atlas.png",
+    "sha256": "40487bbd150fee375d36124b76d0f914e1e39fcb4b5a31a4b9baef226a3a5543",
+    "mime_type": "image/png",
+    "tool_returned_output_hint": "Generated images are saved to /workspace/generated_images as /workspace/generated_images/exec-13c4f992-9255-4a45-a08d-fead25d6f048.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "image_url_base64_length": 2699830,
+    "binding_note": "Exact generated path from this imagegen response was copied immediately and bound to its request in the same awaited execution; tool did not provide a request ID."
+  }
+}

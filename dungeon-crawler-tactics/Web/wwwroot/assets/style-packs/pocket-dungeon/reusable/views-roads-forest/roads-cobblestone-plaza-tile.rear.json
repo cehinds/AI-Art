@@ -1,0 +1,127 @@
+{
+  "id": "roads-cobblestone-plaza-tile.rear",
+  "name": "Cobblestone plaza tile rear",
+  "kind": "tile",
+  "tags": [
+    "attachment-tagged",
+    "cobblestone",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "inferred-view",
+    "material:unspecified",
+    "orthographic",
+    "plaza",
+    "pocket-dungeon",
+    "rear",
+    "roads",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "terrain",
+    "tile"
+  ],
+  "image": {
+    "path": "reusable/views-roads-forest/roads-cobblestone-plaza-tile.rear.png",
+    "width": 256,
+    "height": 256,
+    "sha256": "bd76777971f68c44e4903aade8454545342927437fd2e2c418b25adee97c192f",
+    "rgba_sha256": "a8e74fa214b35fc7acbe3a462e7057c9c28accf7afb62562b3c1437c7a8403e7"
+  },
+  "object_id": "roads-cobblestone-plaza-tile",
+  "view": "rear",
+  "provenance": {
+    "method": "generated",
+    "source_image": "components/roads-cobblestone-plaza-tile.png",
+    "source_image_sha256": "88cdcf7bab87f7de8c1dbd072e64c4b8042508e5db9363e7433eb6e16d420791",
+    "referenced_source_images": [
+      {
+        "path": "components/roads-cobblestone-plaza-tile.png",
+        "sha256": "88cdcf7bab87f7de8c1dbd072e64c4b8042508e5db9363e7433eb6e16d420791"
+      }
+    ],
+    "generated_atlas": "reusable/views-roads-forest/raw/roads-batch03.png",
+    "generated_atlas_sha256": "29dc6817360062d983a8f09aaaa58fc251fd2127d1b133520eed02e752ac8acc",
+    "crop_bounds_px": {
+      "logical_cell": [
+        1478,
+        0,
+        1774,
+        296
+      ],
+      "complete_component_bounds_atlas": [
+        1495,
+        82,
+        1768,
+        271
+      ],
+      "component_labels": [
+        {
+          "label": 4,
+          "pixels": 32947,
+          "bounds_atlas": [
+            1495,
+            82,
+            1768,
+            271
+          ]
+        }
+      ]
+    },
+    "cell_extraction": "8-connected alpha components across the full atlas; component centroid assigned to nearest logical row and column center; all retained component bounds are composited, including bounds crossing nominal cell edges",
+    "normalization": {
+      "method": "nearest-neighbor",
+      "shared_scale_per_object": 0.8029197080291971,
+      "max_long_side_px": 220,
+      "canvas_px": [
+        256,
+        256
+      ],
+      "anchor_px": [
+        128,
+        248
+      ],
+      "alpha_island_filter": "8-connected over atlas, assign by centroid; retain slot components >= max(8px, 8% of largest assigned component)",
+      "background_cleanup": "if atlas is fully opaque, flood neutral near-gray pixels (channel range <=8, mean >=205) connected to atlas boundary using 4-connectivity"
+    },
+    "notes": "Generated inferred orthographic view; hidden surfaces extrapolated conservatively, not recovered source pixels."
+  },
+  "anchor_px": [
+    128,
+    248
+  ],
+  "metadata_path": "reusable/views-roads-forest/roads-cobblestone-plaza-tile.rear.json",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "cobblestone",
+    "environment:dungeon",
+    "existing",
+    "ground",
+    "material:unspecified",
+    "plaza",
+    "pocket-dungeon",
+    "role:provider",
+    "style:pocket-dungeon",
+    "surface:floor",
+    "terrain",
+    "tile"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "roads-cobblestone-plaza-tile"
+  }
+}

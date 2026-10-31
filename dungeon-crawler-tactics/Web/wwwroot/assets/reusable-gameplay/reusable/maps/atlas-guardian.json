@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "atlas-guardian",
+  "label": "Guardian source atlas",
+  "kind": "atlas",
+  "source": {
+    "path": "reusable/sources/guardian.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "5b0ac268fcd389507b257cc66b9af18e55a95cd524a285bd47c85fc7112975b4",
+    "rgba_sha256": "b5fda88efd5a7c200c68802b9cd388a2520eef2a4b4346b45f219989adbf5dd1"
+  },
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "background": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "coordinate_system": "Pixels; top-left origin; x right, y down; integer placement. Rotation clockwise, then place transformed top-left at x,y.",
+  "blend_modes": {
+    "replace": "Copy full rectangle, including alpha-zero RGB.",
+    "masked-replace": "Copy exact RGBA only where asset alpha > 0; binary mask, no alpha compositing.",
+    "source-over": "Pillow Image.alpha_composite RGBA."
+  },
+  "layers": [
+    {
+      "asset_id": "legacy--guardian",
+      "path": "reusable/native/legacy--guardian.png",
+      "x": 0,
+      "y": 0,
+      "rotation_deg": 0,
+      "scale": 1,
+      "blend": "masked-replace",
+      "role": "semantic",
+      "z": 0
+    }
+  ],
+  "pixel_exact": true,
+  "verification": {
+    "rgba_sha256": "b5fda88efd5a7c200c68802b9cd388a2520eef2a4b4346b45f219989adbf5dd1",
+    "differing_pixels": 0
+  },
+  "statistics": {
+    "semantic_placement_count": 1,
+    "residual_placement_count": 0,
+    "semantic_visible_pixel_count": 8016,
+    "residual_visible_pixel_count": 0,
+    "source_visible_pixel_count": 8016,
+    "semantic_visible_coverage": 1.0
+  },
+  "notes": "Residual patches preserve exact original pixels and are not procedural dungeon tiles. Hidden RGB is retained for byte-exact decoded RGBA reconstruction.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

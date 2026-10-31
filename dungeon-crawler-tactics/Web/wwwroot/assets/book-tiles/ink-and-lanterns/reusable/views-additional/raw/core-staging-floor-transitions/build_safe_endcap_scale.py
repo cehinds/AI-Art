@@ -1,0 +1,18 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib,os
+D=Path(__file__).resolve().parent;PACK=D.parents[3];sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();V=('front','top','right','left','bottom','rear');oid='safe-services-cream-service-tile-endcap-northeast';H=json.loads((D/'current-floor-transition-handoff.json').read_text());row=next(x for x in H['objects'] if x['object_id']==oid);src=PACK/row['source']['path'];assert sha(src)==row['source']['sha256'];cur=row['live_views'];curr={}
+for v,r in cur.items():
+ p=PACK/r['path'];assert sha(p)==r['sha256'],(v,'current drift')
+ with Image.open(p) as im:curr[v]={**r,'size_wh':list(im.size),'alpha_bbox_xyxy':list(im.convert('RGBA').getchannel('A').getbbox() or (0,0,0,0))}
+front=Image.open(PACK/cur['front']['path']).convert('RGBA'); rear=Image.open(PACK/cur['rear']['path']).convert('RGBA');fb=front.getchannel('A').getbbox();rb=rear.getchannel('A').getbbox();targetz=round((fb[3]-fb[1]+rb[3]-rb[1])/2)
+outdir=D/'candidates'/'safe-endcap-scale-v2';outdir.mkdir(parents=True,exist_ok=True);cand={}
+for v in ('right','left'):
+ ref=cur[v];im=Image.open(PACK/ref['path']).convert('RGBA');bbox=im.getchannel('A').getbbox();crop=im.crop(bbox);scale=targetz/crop.height;w=round(crop.width*scale);h=round(crop.height*scale);off=((256-w)//2,(256-h)//2);res=crop.resize((w,h),Image.Resampling.NEAREST);can=Image.new('RGBA',(256,256),(0,0,0,0));can.alpha_composite(res,off);out=outdir/f'{oid}.{v}.candidate.png';can.save(out,optimize=False);ab=list(can.getchannel('A').getbbox());assert 0<ab[0]<ab[2]<256 and 0<ab[1]<ab[3]<256
+ cand[v]={'candidate_path':str(out.relative_to(D)),'candidate_sha256':sha(out),'size_wh':[256,256],'alpha_bbox_xyxy':ab,'derivation':{'method':'uniform-current-profile-calibration','source_path':row['source']['path'],'source_sha256':row['source']['sha256'],'input_current_path':ref['path'],'input_current_sha256':ref['sha256'],'input_alpha_bbox_xyxy':list(bbox),'crop_xyxy':list(bbox),'uniform_scale':scale,'resized_wh':[w,h],'offset_xy':list(off),'anchor_px':[128,128],'resampling':'NEAREST','target_shared_Z_height_px':targetz,'note':'Uniformly resizes each current side profile so its Z height matches FRONT/REAR; width shrinks by the same factor, matching the narrow top-plan depth. No drawing or anisotropic deformation.'}}
+cp=D/f'{oid}.candidate-source-current-six-v2.png';ct=Image.new('RGBA',(13*164,350),(42,42,46,255));draw=ImageDraw.Draw(ct);panels=[('SOURCE',src)]+[(f'CURRENT-{v.upper()}',PACK/cur[v]['path']) for v in V]
+for v in V:panels.append((f'CAND-{v.upper()}',D/cand[v]['candidate_path'] if v in cand else PACK/cur[v]['path']))
+for j,(label,p) in enumerate(panels):
+ q=Image.open(p).convert('RGBA');q.thumbnail((128,280),Image.Resampling.NEAREST);ct.alpha_composite(q,(j*164+18+(128-q.width)//2,42+(280-q.height)//2));draw.text((j*164+2,20),label,fill='white')
+ct.save(cp,optimize=False);report={'schema_version':1,'batch':'floor-transitions-safe-endcap-scale-v2','role':'candidate-only','write_scope':'book-tiles/ink-and-lanterns/reusable/views-additional/raw/core-staging-floor-transitions','no_live_writes':True,'object_id':oid,'source':row['source'],'source_actual_sha256':sha(src),'current_views':curr,'preserved_views':{v:curr[v] for v in V if v not in cand},'candidate_views':cand,'contact_path':cp.name,'contact_sha256':sha(cp),'derivation':'Uniform-scale correction only; front/top/left? existing accepted siblings stay byte-identical.'}
+(D/f'staged-{oid}-v2.json').write_text(json.dumps(report,indent=2)+'\n');print(oid,'targetZ',targetz,'contact',cp.name,sha(cp),cand)

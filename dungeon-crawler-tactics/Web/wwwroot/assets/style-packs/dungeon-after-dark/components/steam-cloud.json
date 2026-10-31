@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "steam-cloud",
+  "name": "Steam cloud",
+  "kind": "effect",
+  "category": "effect",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "cloud",
+    "dungeon-after-dark",
+    "effect",
+    "effects",
+    "environment:dungeon",
+    "existing",
+    "material:unspecified",
+    "role:object",
+    "services",
+    "steam",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "components/steam-cloud.png",
+    "width": 222,
+    "height": 224,
+    "sha256": "41458e6333100572a688407d71cca389db18f6930f16ee63c4b93dfb370fa8fd",
+    "rgba_sha256": "4dd7f5cc95fee2b589d5797841476a7df866fd4815651c0db0b8b09bf1aa60ea"
+  },
+  "metadata_path": "components/steam-cloud.json",
+  "provenance": {
+    "method": "existing",
+    "original_generation": "imagegen",
+    "source_image": "source/services.png",
+    "source_sha256": "f76c1c497b8e82bc6ac04126082cd9bf6cb0aabc417b2079f3289ef40786b22f",
+    "source_rect": [
+      1053,
+      796,
+      214,
+      216
+    ],
+    "extraction": {
+      "sheet": "services",
+      "cell": {
+        "column": 4,
+        "row": 3,
+        "index": 22
+      },
+      "bounds": {
+        "x": 1053,
+        "y": 796,
+        "width": 214,
+        "height": 216
+      },
+      "region": [
+        1051,
+        794,
+        1269,
+        1014
+      ],
+      "mask": {
+        "method": "connected-alpha-islands",
+        "threshold": 16,
+        "connectivity": 8,
+        "seeds": [
+          [
+            1148,
+            798
+          ],
+          [
+            1164,
+            967
+          ]
+        ],
+        "fringePixels": 2
+      }
+    },
+    "padding_px": 4,
+    "license_record": "README.md",
+    "notes": "Unmodified pre-existing native-pixel extraction; original provenance retained in manifest.json. Repository inclusion does not establish a new licence."
+  },
+  "anchor_px": [
+    111.0,
+    112.0
+  ],
+  "object_id": "steam-cloud",
+  "view": "source",
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "procedural": {
+    "eligible": false,
+    "reason": "Concept extraction; seam, collision, and directional review required."
+  },
+  "reuse_constraints": [
+    "Preserve native pixels and existing alpha.",
+    "Logical footprint is placement guidance, not a collision shape.",
+    "Physical objects are not six-view complete unless explicitly reviewed."
+  ],
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect, illustration, or reconstruction pixels; six physical object views do not apply."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:object",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "broadcast-portals-studio-partition-wall-northeast--native",
+  "name": "Studio Partition west wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "broadcast-portals",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/broadcast-portals-studio-partition-wall-northeast--native.png",
+    "width": 48,
+    "height": 191,
+    "sha256": "0af6a34cda41754eaba6b8e07129dc3fd5610bcf52918958ca262f1c0c1cf0ac",
+    "rgba_sha256": "028982cc547b4fc8294fad7fa30f93421a2fe63156e25971d5ad0ffa85da0319"
+  },
+  "metadata_path": "reusable/native/broadcast-portals-studio-partition-wall-northeast--native.json",
+  "anchor_px": [
+    24.0,
+    191
+  ],
+  "object_id": "broadcast-portals-studio-partition-wall-northeast",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/broadcast-portals.png",
+    "source_sha256": "e28e1aa2cafeb4f905a7df4a36d7dd805b18b146d7fd2bf77b125d6e73bb1ef5",
+    "source_rect": [
+      391,
+      280,
+      48,
+      191
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.wall"
+    ],
+    "east": [
+      "join.floor"
+    ],
+    "south": [
+      "join.wall"
+    ],
+    "west": [
+      "join.exterior"
+    ]
+  },
+  "canonical_asset_id": "broadcast-portals-studio-partition-wall-northeast",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "broadcast-portals-studio-partition-wall-northeast"
+  }
+}

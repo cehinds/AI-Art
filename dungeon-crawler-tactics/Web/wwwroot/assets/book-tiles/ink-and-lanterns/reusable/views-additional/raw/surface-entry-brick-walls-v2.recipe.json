@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-direct-source-six-view-per-row",
+  "request_id": "surface-entry-brick-walls-v2",
+  "raw_atlas": "reusable/views-additional/raw/surface-entry-brick-walls-v2.png",
+  "atlas": "surface-entry-brick-walls-v2.png",
+  "atlas_sha256": "579dec6490fa81228d07a3b097db9749055f7d239d85c83d4c373c958621a904",
+  "grid": {
+    "columns": 6,
+    "rows": 5
+  },
+  "views": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "objects": [
+    {
+      "row": 0,
+      "id": "surface-entry-urban-brick-wall-northwest",
+      "name": "Urban Brick Wall Northwest",
+      "kind": "wall",
+      "tags": [
+        "surface-entry",
+        "wall"
+      ],
+      "source_image": "surface-entry/components/surface-entry-urban-brick-wall-northwest.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "north-wall"
+      }
+    },
+    {
+      "row": 1,
+      "id": "surface-entry-urban-brick-wall-northeast",
+      "name": "Urban Brick Wall Northeast",
+      "kind": "wall",
+      "tags": [
+        "surface-entry",
+        "wall"
+      ],
+      "source_image": "surface-entry/components/surface-entry-urban-brick-wall-northeast.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "west-wall"
+      }
+    },
+    {
+      "row": 2,
+      "id": "surface-entry-urban-brick-outer-corner",
+      "name": "Urban Brick Outer Corner",
+      "kind": "corner",
+      "tags": [
+        "surface-entry",
+        "corner"
+      ],
+      "source_image": "surface-entry/components/surface-entry-urban-brick-outer-corner.png",
+      "geometry_qa": {
+        "status": "pending-correction",
+        "squareLayout": "corner"
+      }
+    },
+    {
+      "row": 3,
+      "id": "surface-entry-urban-brick-inner-corner",
+      "name": "Urban Brick Inner Corner",
+      "kind": "corner",
+      "tags": [
+        "surface-entry",
+        "corner"
+      ],
+      "source_image": "surface-entry/components/surface-entry-urban-brick-inner-corner.png",
+      "geometry_qa": {
+        "status": "pending-correction",
+        "squareLayout": "corner"
+      }
+    },
+    {
+      "row": 4,
+      "id": "surface-entry-urban-brick-endcap-northwest",
+      "name": "Urban Brick Endcap Northwest",
+      "kind": "endcap",
+      "tags": [
+        "surface-entry",
+        "endcap"
+      ],
+      "source_image": "surface-entry/components/surface-entry-urban-brick-endcap-northwest.png",
+      "geometry_qa": {
+        "status": "pending-review",
+        "squareLayout": "endcap"
+      }
+    }
+  ],
+  "source_images": [
+    "surface-entry/components/surface-entry-urban-brick-wall-northwest.png",
+    "surface-entry/components/surface-entry-urban-brick-wall-northeast.png",
+    "surface-entry/components/surface-entry-urban-brick-outer-corner.png",
+    "surface-entry/components/surface-entry-urban-brick-inner-corner.png",
+    "surface-entry/components/surface-entry-urban-brick-endcap-northwest.png"
+  ],
+  "source_image_sha256": [
+    "f6a71a2530dc224dd2f96872eb957f16fe3fe9bb38d1a40d8748b35ba38f2f66",
+    "8c3e158a80595ab562254048087b8d9be53622a0248ba5edc97bc5db92884f70",
+    "63f271487b1e685f0c3ab09c7dcefea546bccb2c9f95047e3b872417fa75ae2a",
+    "f6fa0d0e04354bfb6f1adaa28fba8c85c59cd6434f038b3cd8d0f0271801c15a",
+    "574af352732a972c55a85d331bd960d370f544e1a42dc0407275cd45c2943b71"
+  ],
+  "prompt": "The output MUST have exactly FIVE HORIZONTAL OBJECT ROWS and SIX VERTICAL VIEW COLUMNS (wide 5 rows x 6 columns, not 6 rows). Every horizontal row is one object in source-reference order; columns left-to-right are FRONT, TOP, RIGHT, LEFT, BOTTOM, REAR. No labels, text, titles, numbers, grid marks, borders, or backgrounds. Use supplied cutouts in order: northwest wall, northeast wall, outer corner, inner corner, northwest endcap. Preserve actual brick/moss/stone source colors. NW wall runs world X: front/rear broad long faces, right/left narrow ends; NE runs world Y: front/rear thin ends, right/left broad faces. All elevation heights match. Corners only L-shaped from above/below; all four elevations are straight rectangular faces. Endcap scale/thickness consistent across views. Isolated complete sprite centered within each transparent cell, no shadows, no perspective."
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "ghost-cemetery-white-mausoleum-masonry-north-wall--native",
+  "name": "White Mausoleum Masonry north wall (native source crop)",
+  "kind": "sprite",
+  "category": "wall",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "attachment:floor",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ghost-cemetery",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked",
+    "wall"
+  ],
+  "image": {
+    "path": "reusable/native/ghost-cemetery-white-mausoleum-masonry-north-wall--native.png",
+    "width": 249,
+    "height": 166,
+    "sha256": "330dfb84b81b72f9066100dc2e1bdc067efb7d3c7751ff89f7aaf62d652f29f6",
+    "rgba_sha256": "d479f1472f37e9ab3a7dab7069d29a08e42c7197f33ff756c412d8b89a32c74b"
+  },
+  "metadata_path": "reusable/native/ghost-cemetery-white-mausoleum-masonry-north-wall--native.json",
+  "anchor_px": [
+    124.5,
+    166
+  ],
+  "object_id": "ghost-cemetery-white-mausoleum-masonry-north-wall",
+  "view": "native-source",
+  "reusable": false,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/ghost-cemetery.png",
+    "source_sha256": "2945b07e5f67b07632ff51a11e079e127bfa03722b30a9e7449cc92e423d8dbe",
+    "source_rect": [
+      26,
+      289,
+      249,
+      166
+    ],
+    "notes": "Lossless bounding rectangle, including native transparent pixels. Companion to normalized gameplay export; not resampled."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Use the normalized companion for grid placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Alternate native crop of the same object; principal views are attached to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.exterior"
+    ],
+    "east": [
+      "join.wall"
+    ],
+    "south": [
+      "join.floor"
+    ],
+    "west": [
+      "join.wall"
+    ]
+  },
+  "canonical_asset_id": "ghost-cemetery-white-mausoleum-masonry-north-wall",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:wall",
+    "walkability:blocked"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [
+      "surface:wall"
+    ],
+    "exclude_self": true,
+    "compatibility_group": "dungeon-after-dark--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry.",
+    "inherited_from": "ghost-cemetery-white-mausoleum-masonry-north-wall"
+  }
+}

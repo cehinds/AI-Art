@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "managed_by": "reusable-scene-extraction-v1",
+  "id": "concept-combat--hazard-barrel-scene-patch",
+  "name": "Hazard Barrel Scene Patch",
+  "kind": "reconstruction_patch",
+  "category": "prop",
+  "tags": [
+    "attachment-tagged",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "hazard-barrel-scene-patch",
+    "material:unspecified",
+    "native-pixels",
+    "role:reconstruction",
+    "scene-reference",
+    "style:dungeon-after-dark"
+  ],
+  "image": {
+    "path": "reusable/scene-assets/concept-combat--hazard-barrel-scene-patch.png",
+    "width": 80,
+    "height": 104,
+    "sha256": "91b8fc4374bdac4c8a821da46b585639e8eaa6e2f2e8843cfc279d2a720c3710",
+    "rgba_sha256": "42cce1c7cfea7b8ae0387a7c1e90b7dedfbd91b9dda889e3cac4b7a9ce9385dc"
+  },
+  "metadata_path": "reusable/scene-assets/concept-combat--hazard-barrel-scene-patch.json",
+  "anchor_px": [
+    40.0,
+    104
+  ],
+  "view": "source",
+  "object_id": "barrel",
+  "reusable": false,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "concepts/combat.png",
+    "source_sha256": "4616af08c55732db79dec5e3c6f5f1c3900318b40da8b79621b366762ff502ec",
+    "source_rect": [
+      1218,
+      459,
+      80,
+      104
+    ],
+    "mask": null,
+    "notes": "Baked scene pixels include ground, lighting and possible neighbors; not an isolated object or hidden-surface recovery. Physical scene reference; clean principal views are tracked separately."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": true,
+    "complete": true,
+    "front": {
+      "status": "inferred",
+      "asset_id": "barrel.front"
+    },
+    "top": {
+      "status": "inferred",
+      "asset_id": "barrel.top"
+    },
+    "right": {
+      "status": "inferred",
+      "asset_id": "barrel.right"
+    },
+    "left": {
+      "status": "inferred",
+      "asset_id": "barrel.left"
+    },
+    "bottom": {
+      "status": "inferred",
+      "asset_id": "barrel.bottom"
+    },
+    "rear": {
+      "status": "inferred",
+      "asset_id": "barrel.rear"
+    },
+    "geometry_qa": {
+      "status": "passed",
+      "evidence": "reusable/view-review.json",
+      "object_id": "barrel",
+      "source_sha256": "fb245063655c8c4aba39c7d423877ce69dabeaf207bcd94c3b5b372f1a11cdeb",
+      "primary_source": {
+        "asset_id": "barrel",
+        "path": "components/barrel.png",
+        "sha256": "fb245063655c8c4aba39c7d423877ce69dabeaf207bcd94c3b5b372f1a11cdeb",
+        "rgba_sha256": "4b0729c6202f4eefd8b6a9c3c7f71631036018a7a71714c3b35d97d96d6e1a9c"
+      },
+      "image_hashes": {
+        "front": "b55e875597b92114615f3e7b090cc643c60b506de43aa0859dbc120d1bcbbfdc",
+        "top": "b9c3d3282f982d3caec4a1cffdb5b719f5e9aed457caa63c71a25c65365e0ed5",
+        "right": "a7b664b256e9bedfbe9ccb326b7fe138d7aaf233ff6817ec4926d668e8c37f4d",
+        "left": "c517893986d1c2cb6bf595ac2349474bdbb4cbf931903baa5ebb579662dac3bc",
+        "bottom": "fa00a3d424a410b1a8903f5615fab9b124f62036e98cc6bb5115e2b3aedadf01",
+        "rear": "5caeffeeace98a16e6196ee661a1882c0769aea991e7d473672bf2c03d6b903d"
+      },
+      "reviewer": "page_inventory",
+      "reviewed_at": "2026-10-25T18:43:45.447748+00:00",
+      "notes": [
+        "Fresh source plus six-view contact on checker: consistent silhouette, coherent principal faces and plausible inferred hidden surfaces; legitimate symmetry accepted."
+      ],
+      "affected_views": [],
+      "source_evidence": {
+        "method": "direct-reviewed-source",
+        "reviewed_reference": {
+          "path": "components/barrel.png",
+          "sha256": "fb245063655c8c4aba39c7d423877ce69dabeaf207bcd94c3b5b372f1a11cdeb",
+          "rgba_sha256": "4b0729c6202f4eefd8b6a9c3c7f71631036018a7a71714c3b35d97d96d6e1a9c"
+        },
+        "equivalence": "Exact decoded width, height and RGBA equality with canonical primary crop."
+      }
+    }
+  },
+  "association": {
+    "object_id": "barrel",
+    "physical": true,
+    "decision": "existing-identity",
+    "reason": "Visually reviewed matching character identity/costume or matching physical design; scene pose and baked light are not claimed as recovered geometry.",
+    "source": {
+      "path": "concepts/combat.png",
+      "rect": [
+        1218,
+        459,
+        80,
+        104
+      ]
+    },
+    "category": "prop"
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:reconstruction",
+    "style:dungeon-after-dark"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "reconstruction",
+    "role": "reconstruction",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Baked source or residual crop: exact reconstruction only; no procedural attachment claim."
+  }
+}

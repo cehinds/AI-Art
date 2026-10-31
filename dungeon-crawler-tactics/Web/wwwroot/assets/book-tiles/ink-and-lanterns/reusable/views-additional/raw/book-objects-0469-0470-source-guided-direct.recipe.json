@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "generation_status": "complete",
+  "method": "imagegen-source-guided-2x6-atlas-direct-component-refs",
+  "atlas": "book-objects-0469-0470-source-guided-2x6.png",
+  "source_images": [
+    "iron-tracks/components/iron-tracks-tunnel-stone-open-doorway.png",
+    "iron-tracks/components/iron-tracks-tunnel-stone-closed-doorway.png"
+  ],
+  "source_image_sha256": [
+    "f9504b1cf993f4e121eed9bf2a4e59004ef356c931bcd79c4aa8865d4a27912c",
+    "1b03a8c37d4f3430cd92734512462aedb77b3e5143fb452e06f57ee656f44f5e"
+  ],
+  "source_ids": [
+    "iron-tracks-tunnel-stone-open-doorway--native",
+    "iron-tracks-tunnel-stone-closed-doorway--native"
+  ],
+  "grid": [
+    2,
+    6
+  ],
+  "columns": [
+    "front",
+    "top",
+    "right",
+    "left",
+    "bottom",
+    "rear"
+  ],
+  "prompt": "Two rows of six isolated orthographic cutouts. Reference PNGs are exact transparent native source components in row order; preserve soot-gray brick, pale stone lintel and green stripe. True transparent alpha, no background, shadow, labels. Views front top right left bottom rear, fixed world up. Open doorway remains open through front/rear; closed doorway has same brown door panel front/rear. Top shallow arch crown/depth footprint, bottom threshold/base footprint, never full facade. Sides show consistent shallow wall thickness. No perspective, shared proportions per row.",
+  "atlas_sha256": "035d3cae3c714ec30be6bf7fac94421203a0a0137c740516f42a01a7bfb6e293",
+  "normalization_adapter": {
+    "padded_atlas": "book-objects-0469-0470-extracted-6x6.png",
+    "sha256": "974c9103ab4f086820a537d3d808617a3602a9d464f90d577d12358fdd096f1c",
+    "operation": "extract each source view connected component by centroid in native 2x6 grid and center it unchanged in a transparent 6x6 cell grid"
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "kind": "reconstruction-and-rebuild-guide",
+  "status": "instructions; final seven-pack replay evidence remains separately gated",
+  "path_base": "assets unless artifact explicitly uses art-repository",
+  "registry": {
+    "path": "reusable-library.json",
+    "path_base": "assets",
+    "bytes": 1987,
+    "sha256": "7b403bcbcb6316c8096ce492a490ef42e6a6eba992d4e40476405dc5e8165d3d"
+  },
+  "dependencies": {
+    "python": "Validated with Python 3.12.14",
+    "install_command": "python -m pip install -r tools/pocket-requirements.txt",
+    "pinned_image_packages": {
+      "Pillow": "12.3.0",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "repository_tools": "Use tools and pinned requirements from the same exact AI-Art revision as these assets."
+  },
+  "map_reconstruction": {
+    "tool": {
+      "path": "tools/render_pocket_map.py",
+      "path_base": "art-repository",
+      "bytes": 3183,
+      "sha256": "d520faba130bc283fcb575cc4e5b82d67b906144e1894238438a07a44ba57268"
+    },
+    "list_command": "python tools/render_pocket_map.py --pack <assets>/<pack_root> --list",
+    "render_command": "python tools/render_pocket_map.py --pack <assets>/<pack_root> --map <map-id-or-pack-relative-json> --output <external-output.png>",
+    "schema_location": "Each library catalog maps[] row points to pack-relative layered map JSON; layers reference semantic assets and residual patches.",
+    "limitation": "Exact source image reconstruction may require residual patches. Residual patches do not constitute semantic procedural geometry."
+  },
+  "procedural_and_mixing": {
+    "tool": {
+      "path": "tools/render_art_remix.py",
+      "path_base": "art-repository",
+      "bytes": 7582,
+      "sha256": "bd7c681bde83c19adcb7933a4b21dbc7e11e58bb5c4182be4a9ab9338798f31d"
+    },
+    "command": "python tools/render_art_remix.py --assets <assets> --input <saved-remix.json> --output <external-output.png> --art-commit <exact-Art-SHA>",
+    "book_sample_recipes": [
+      {
+        "path": "book-tiles/pocket-dungeon/reusable/procedural/sample.json",
+        "path_base": "assets",
+        "bytes": 31637,
+        "sha256": "8e6f37d08ca3f15c2baf36c672345f9ed044e54e2e1e9c462949303431528099"
+      },
+      {
+        "path": "book-tiles/ink-and-lanterns/reusable/procedural/sample.json",
+        "path_base": "assets",
+        "bytes": 31639,
+        "sha256": "d404589570a65cc1857138c9b01c49d088b9301e099a72cb433e3fd843dec6d1"
+      },
+      {
+        "path": "book-tiles/dungeon-after-dark/reusable/procedural/sample.json",
+        "path_base": "assets",
+        "bytes": 31641,
+        "sha256": "6ccc694bb5c4af18c8d6929c31e68d6106f746a21f28c7902718edf3e1b28321"
+      }
+    ],
+    "scope": "Saved remix JSON and procedural sample recipes describe semantic asset selection/placement; they are distinct from exact original map reconstruction."
+  },
+  "attachments": {
+    "rules": {
+      "path": "attachment-rules.json",
+      "path_base": "assets",
+      "bytes": 2436966,
+      "sha256": "c7b372c99563a3363895f935a695d28ec71f1d928c05abd7b70e96b6e9b8e965"
+    },
+    "scope": "Per-asset attachment JSON references editorial roles, compatible groups and provider suggestions. Tags do not guarantee collision or physical fit."
+  },
+  "directional_replay": [
+    {
+      "library_id": "style-pack-pocket-dungeon",
+      "pack_root": "style-packs/pocket-dungeon",
+      "catalog": {
+        "path": "style-packs/pocket-dungeon/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 29254700,
+        "sha256": "43bf4247261dfead3b1259279c87edd306aac3449b614cc9a1056f5c368200f3"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "style-packs/pocket-dungeon/reusable/replay_all.py",
+        "path_base": "assets",
+        "bytes": 19776,
+        "sha256": "ffa0c5664cc67f1835f6b02162d114d103561cbaf90b8ab25981a9b348940385"
+      },
+      "commands": [
+        "python -B <assets>/style-packs/pocket-dungeon/reusable/replay_all.py prepare-copy --source-pack <assets>/style-packs/pocket-dungeon --isolated-pack <new-isolated-pack> --archive <assets>/replay-inputs/pocket-style-posttag-v3",
+        "python -B <assets>/style-packs/pocket-dungeon/reusable/replay_all.py replay --isolated-pack <new-isolated-pack> --archive <assets>/replay-inputs/pocket-style-posttag-v3",
+        "python -B <assets>/style-packs/pocket-dungeon/reusable/replay_all.py verify --isolated-pack <new-isolated-pack> --archive <assets>/replay-inputs/pocket-style-posttag-v3"
+      ],
+      "metadata_method": "Use the included frozen archive; capture is historical and need not be repeated. Member/input paths are relative; canonical_pack_root_at_capture is descriptive history. Retained-copy fallback file counts include JSON and PNG, not exclusively image derivations.",
+      "inputs": [
+        {
+          "path": "replay-inputs/pocket-style-posttag-v3/archive-manifest.json",
+          "path_base": "assets",
+          "bytes": 2459841,
+          "sha256": "8712f273c7eaaf89169c4b805206a2ccbbc11beabbd6925d94976398777e774a"
+        },
+        {
+          "path": "replay-inputs/pocket-style-posttag-v3/replay-report.json",
+          "path_base": "assets",
+          "bytes": 1807698,
+          "sha256": "73d784c9786bed6e6a01afec253b89891ef10563d1b5d6384acfa8694468c625"
+        }
+      ]
+    },
+    {
+      "library_id": "book-tiles-pocket-dungeon",
+      "pack_root": "book-tiles/pocket-dungeon",
+      "catalog": {
+        "path": "book-tiles/pocket-dungeon/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 64530963,
+        "sha256": "9bdeab8b89db08af0f8f5ce8e115fe6634760c6f5547bac2ecbb49892bcab45b"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "book-tiles/pocket-dungeon/reusable/views-additional/split_atlas.py",
+        "path_base": "assets",
+        "bytes": 16163,
+        "sha256": "999207341ff86e91667e6f71e85d18e89a07f181220b66a6c17813dde08bbb82"
+      },
+      "inputs": [
+        {
+          "path": "book-tiles/pocket-dungeon/reusable/views-additional/replay-baseline.json",
+          "path_base": "assets",
+          "bytes": 16828815,
+          "sha256": "cbbe3fa9165473aace89eb95631de321f62818542d9fb316fdb22deae4a0a5ed"
+        },
+        {
+          "path": "book-tiles/pocket-dungeon/reusable/views-additional/raw/replay-retained/replay-retained-manifest.json",
+          "path_base": "assets",
+          "bytes": 6136837,
+          "sha256": "ed465ca30e7a8ac990ee2b289208457460e26e6ea02698bedce54ab5db08e354"
+        }
+      ],
+      "commands": [
+        "Copy the complete pack, including retained raw inputs, to <new-isolated-pack>.",
+        "python <new-isolated-pack>/reusable/views-additional/mark_isolated_replay_copy.py --canonical-pack <assets>/book-tiles/pocket-dungeon --confirm-isolated-copy",
+        "python <new-isolated-pack>/reusable/views-additional/split_atlas.py --empty-output-replay"
+      ],
+      "metadata_method": "Marker-bound isolated deletion/rebuild verifies indexed PNGs and metadata against retained baseline. Never run empty-output mode on canonical assets."
+    },
+    {
+      "library_id": "style-pack-ink-and-lanterns",
+      "pack_root": "style-packs/ink-and-lanterns",
+      "catalog": {
+        "path": "style-packs/ink-and-lanterns/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 30832270,
+        "sha256": "3c30dc624b71a8f93fa825614e1426fe23caaa90e5635bb821dcd82fe26d1987"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "tools/replay_frozen_library.py",
+        "path_base": "art-repository",
+        "bytes": 24051,
+        "sha256": "522a98f5d7879aabfd45b43f080cf02d3626435c964f40c9265c01608acb51c0"
+      },
+      "inputs": [
+        {
+          "path": "replay-inputs/runbook.json",
+          "path_base": "assets",
+          "bytes": 2436,
+          "sha256": "b7f39272fee74444da9ca19051dec01059c253bf60d2829771315f4eea4e1153"
+        },
+        {
+          "path": "replay-inputs/receipts/style-ink/frozen-receipt.json",
+          "path_base": "assets",
+          "bytes": 3558987,
+          "sha256": "e3689abf341a352bfe87a24227a798af9b570db5ee1c9c38a9db51e222443450"
+        }
+      ],
+      "commands": [
+        "python tools/replay_frozen_library.py replay style-ink --pack-freeze-confirmed PACK_FREEZE_CONFIRMED --isolated-output <new-isolated-output>"
+      ],
+      "metadata_method": "Frozen metadata byte snapshots are restored before replay and re-emitted after PNG comparison; this is explicitly distinct from image-atlas derivation."
+    },
+    {
+      "library_id": "book-tiles-ink-and-lanterns",
+      "pack_root": "book-tiles/ink-and-lanterns",
+      "catalog": {
+        "path": "book-tiles/ink-and-lanterns/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 60466801,
+        "sha256": "a8fe45bf5302487a58bfaba3b2bb6625794fef91d3d0ff42b7247dce500c29f7"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "book-tiles/ink-and-lanterns/reusable/views-additional/replay_current_index.py",
+        "path_base": "assets",
+        "bytes": 31121,
+        "sha256": "ecb7e4428bb25a695c5c46226d785703a1d977e2df233beac33301d5f54a3e62"
+      },
+      "inputs": [
+        {
+          "path": "book-tiles/ink-and-lanterns/reusable/views-additional/raw/replay-retained/ink-book-posttag-portable-manifest-v3.json",
+          "path_base": "assets",
+          "bytes": 12326444,
+          "sha256": "46365aa3cdd7eea9e774db7d43861739b1b41a6c6883fc284857a891a3a614ba"
+        },
+        {
+          "path": "book-tiles/ink-and-lanterns/reusable/views-additional/raw/replay-retained/ink-book-metadata-snapshot-v1.json",
+          "path_base": "assets",
+          "bytes": 1092257,
+          "sha256": "fcd4add3e1e0bf1bc60d1c162b6c3c0342eea3d8d1b013746d98f1094f8a5097"
+        },
+        {
+          "path": "book-tiles/ink-and-lanterns/reusable/views-additional/raw/replay-retained/ink-book-metadata-snapshot-v1.zip",
+          "path_base": "assets",
+          "bytes": 11408454,
+          "sha256": "3825a5f32d5ae5edadb0cfb79a976cd0303f798c414d71e98af7927ea7d705c2"
+        }
+      ],
+      "commands": [
+        "python <assets>/book-tiles/ink-and-lanterns/reusable/views-additional/replay_current_index.py <assets>/book-tiles/ink-and-lanterns/reusable/views-additional/raw/replay-retained/ink-book-posttag-portable-manifest-v3.json --output <new-isolated-output>",
+        "From the copied pack root: python3 -B reusable/views-additional/restore_metadata_snapshot.py reusable/views-additional/raw/replay-retained/ink-book-metadata-snapshot-v1.json reusable/views-additional/raw/replay-retained/ink-book-metadata-snapshot-v1.zip --output-dir <same-isolated-output>"
+      ],
+      "metadata_method": "Exact retained approved JSON snapshots: 4464 sidecars plus main and worker indexes; 4466 files tested byte-exact. Not metadata derived from source art.",
+      "metadata_restore_tool": {
+        "path": "book-tiles/ink-and-lanterns/reusable/views-additional/restore_metadata_snapshot.py",
+        "path_base": "assets",
+        "bytes": 7202,
+        "sha256": "1c6568d51fa700d4f76ffd71d1ed9dae3e58bbdbb68d9b46e7f86f5b89a30a2a"
+      },
+      "optional_precheck": "--verify-live-inputs verifies existing production PNG hashes; omit it for the primary deleted-output replay, where those PNGs may be absent."
+    },
+    {
+      "library_id": "style-pack-dungeon-after-dark",
+      "pack_root": "style-packs/dungeon-after-dark",
+      "catalog": {
+        "path": "style-packs/dungeon-after-dark/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 31440455,
+        "sha256": "1dab2ee983b432858e8aabdeaf1e2a045427b8e6904b0c6ec82c5d13bec264e5"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "tools/replay_frozen_library.py",
+        "path_base": "art-repository",
+        "bytes": 24051,
+        "sha256": "522a98f5d7879aabfd45b43f080cf02d3626435c964f40c9265c01608acb51c0"
+      },
+      "inputs": [
+        {
+          "path": "replay-inputs/runbook.json",
+          "path_base": "assets",
+          "bytes": 2436,
+          "sha256": "b7f39272fee74444da9ca19051dec01059c253bf60d2829771315f4eea4e1153"
+        },
+        {
+          "path": "replay-inputs/receipts/style-dark/frozen-receipt.json",
+          "path_base": "assets",
+          "bytes": 3590869,
+          "sha256": "c57bde6f57ec77669fd9f000dfa1051f98674e60d5a399f8b470046a1b00aafc"
+        }
+      ],
+      "commands": [
+        "python tools/replay_frozen_library.py replay style-dark --pack-freeze-confirmed PACK_FREEZE_CONFIRMED --isolated-output <new-isolated-output>"
+      ],
+      "metadata_method": "Frozen metadata byte snapshots are restored before replay and re-emitted after PNG comparison; this is explicitly distinct from image-atlas derivation."
+    },
+    {
+      "library_id": "book-tiles-dungeon-after-dark",
+      "pack_root": "book-tiles/dungeon-after-dark",
+      "catalog": {
+        "path": "book-tiles/dungeon-after-dark/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 65080945,
+        "sha256": "94cb0cd6cf0b1cbb8b295b8f546ba1348c98c8f3811f30d879e183fcf637a2e7"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "tools/replay_frozen_library.py",
+        "path_base": "art-repository",
+        "bytes": 24051,
+        "sha256": "522a98f5d7879aabfd45b43f080cf02d3626435c964f40c9265c01608acb51c0"
+      },
+      "inputs": [
+        {
+          "path": "replay-inputs/runbook.json",
+          "path_base": "assets",
+          "bytes": 2436,
+          "sha256": "b7f39272fee74444da9ca19051dec01059c253bf60d2829771315f4eea4e1153"
+        },
+        {
+          "path": "replay-inputs/receipts/book-dark/frozen-receipt.json",
+          "path_base": "assets",
+          "bytes": 10284251,
+          "sha256": "1aaef9da5e37ef33ae3d11877a5aa521ed53c3e7a3a530d4f81d3a95f8abfa84"
+        }
+      ],
+      "commands": [
+        "python tools/replay_frozen_library.py replay book-dark --pack-freeze-confirmed PACK_FREEZE_CONFIRMED --isolated-output <new-isolated-output>"
+      ],
+      "metadata_method": "Frozen metadata byte snapshots are restored before replay and re-emitted after PNG comparison; this is explicitly distinct from image-atlas derivation.",
+      "replay_implementation": [
+        {
+          "path": "book-tiles/dungeon-after-dark/reusable/views-additional/build_all.py",
+          "path_base": "assets",
+          "bytes": 5648,
+          "sha256": "353f8f3ba91c5417303299b2f744831f925d2dd64d1305dc1d5dc7a5940c3eb2"
+        },
+        {
+          "path": "book-tiles/dungeon-after-dark/reusable/views-additional/repair-mappings/replay_retained_approved_pngs_v1.py",
+          "path_base": "assets",
+          "bytes": 7323,
+          "sha256": "826301eebb68a71a0ff8f57dddbccfe1e4f7f4fac590bb1f4c30b1d43b3d7d7a"
+        },
+        {
+          "path": "book-tiles/dungeon-after-dark/reusable/views-additional/repair-mappings/retained-approved-pngs-v1.json",
+          "path_base": "assets",
+          "bytes": 131855,
+          "sha256": "08a0f7cefb092b6b98feff9c218a872b4c3e026d7821c6fa67f8a188dad3d5a8"
+        },
+        {
+          "path": "book-tiles/dungeon-after-dark/reusable/views-additional/repair-mappings/replay_canonical_json_v3.py",
+          "path_base": "assets",
+          "bytes": 4279,
+          "sha256": "6787ce1cb42143458c3a7229f0ee5415fadc1d6cfbfcf0129aeb59a9b98bc827"
+        }
+      ],
+      "retained_output_note": "97 approved PNG targets have explicit hash-bound retained-output restoration to cover replay recipe gaps. They are not claimed as raw-derived regeneration. The cold replay validates final bytes/RGBA and metadata separately."
+    },
+    {
+      "library_id": "gameplay",
+      "pack_root": "reusable-gameplay",
+      "catalog": {
+        "path": "reusable-gameplay/reusable/index.json",
+        "path_base": "assets",
+        "bytes": 50565573,
+        "sha256": "fb413b78da4e65cc636c01dc87ad1c27d74b31c874b46c874e09ad817550f332"
+      },
+      "working_directory": "AI-Art repository root",
+      "output_requirement": "Use a new disposable isolated directory outside canonical assets. Commands with <...> require explicit user-selected paths.",
+      "tool": {
+        "path": "tools/replay_frozen_library.py",
+        "path_base": "art-repository",
+        "bytes": 24051,
+        "sha256": "522a98f5d7879aabfd45b43f080cf02d3626435c964f40c9265c01608acb51c0"
+      },
+      "inputs": [
+        {
+          "path": "replay-inputs/runbook.json",
+          "path_base": "assets",
+          "bytes": 2436,
+          "sha256": "b7f39272fee74444da9ca19051dec01059c253bf60d2829771315f4eea4e1153"
+        },
+        {
+          "path": "replay-inputs/receipts/reusable-gameplay/frozen-receipt.json",
+          "path_base": "assets",
+          "bytes": 5304095,
+          "sha256": "8833ab68b93306995a106e4489c53bc329ffdc85218ed4c5bf9afe839bff0d6b"
+        }
+      ],
+      "commands": [
+        "python tools/replay_frozen_library.py replay reusable-gameplay --pack-freeze-confirmed PACK_FREEZE_CONFIRMED --isolated-output <new-isolated-output>"
+      ],
+      "metadata_method": "Frozen metadata byte snapshots are restored before replay and re-emitted after PNG comparison; this is explicitly distinct from image-atlas derivation."
+    }
+  ],
+  "unavailable": {
+    "sets": 15,
+    "directions": 25,
+    "policy": "Generation-block reports in each affected catalog bind exact unavailable directions. Reference images stay incomplete/unapproved; unaffected hash-approved directions can remain usable. Replaying a stored reference does not approve it."
+  },
+  "provenance_distinctions": [
+    "Atlas cropping/uniform transforms replay existing generated raw pixels; no model call is repeated.",
+    "Immutable PNG fallback restoration is exact retained output replay, not raw-atlas regeneration.",
+    "Metadata snapshot restoration preserves approved JSON bytes and does not infer JSON from PNGs.",
+    "Unseen directional surfaces are inferred illustrations, not measured CAD."
+  ],
+  "evidence": "release-evidence/seven-pack-replay-summary.json",
+  "archive_instructions": "Each library catalog downloads[] has one complete-library bundle. For multipart ZIPs, download JSON manifest, all ordered parts and assembly helper together. The helper validates each part and assembled hash before extraction.",
+  "publication": "This guide and release evidence live outside validated pack archives. Publication must preserve their bytes and include them in the final asset index; final release-validation.json links their hashes.",
+  "tags": [
+    "attachment-tagged",
+    "metadata-document"
+  ]
+}

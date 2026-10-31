@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "concepts-tile-authoring-crate-palette-tile",
+  "name": "Crate palette tile",
+  "kind": "tile",
+  "category": "terrain",
+  "tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "gameplay",
+    "material:unspecified",
+    "native-source-crop",
+    "role:object",
+    "sprite-frame",
+    "style:gameplay",
+    "terrain"
+  ],
+  "image": {
+    "path": "reusable/native/concepts-tile-authoring-crate-palette-tile.png",
+    "width": 98,
+    "height": 91,
+    "sha256": "a52eb5f6cda245a00acb2324648ca6873f15356b8159da4d1fdb16583c2b02e1",
+    "rgba_sha256": "001cb388d8b83fae47e65af9faed26358cef7c5ceff0917ed07a0f642ab2cc73"
+  },
+  "metadata_path": "reusable/native/concepts-tile-authoring-crate-palette-tile.json",
+  "anchor_px": [
+    49.0,
+    91
+  ],
+  "view": "source",
+  "object_id": "concepts-tile-authoring-crate-palette-tile",
+  "reusable": true,
+  "provenance": {
+    "method": "extracted",
+    "source_image": "reusable/sources/concepts/tile-authoring.png",
+    "source_sha256": "b67d93f26a736f09c30de7254b1b86e2ca7be853eb3cca20f6382c833d4b2907",
+    "source_rect": [
+      143,
+      416,
+      98,
+      91
+    ],
+    "mask": null,
+    "notes": "Native source rectangle; preserves authored RGBA. Transparent atlas cell cropped to visible alpha bounds."
+  },
+  "procedural": {
+    "eligible": false,
+    "reason": "Review scale, seams and collision before procedural placement."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Screen-space graphic, effect or non-physical source region; no independent physical principal views."
+  },
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "attachment:floor",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:object",
+    "style:gameplay"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "object",
+    "requires": {
+      "any": [
+        "surface:floor"
+      ],
+      "all": [],
+      "none": [
+        "hazard:water",
+        "hazard:lava",
+        "hazard:void",
+        "hazard:pit",
+        "hazard:chasm",
+        "surface:water",
+        "walkability:blocked"
+      ]
+    },
+    "provides": [],
+    "exclude_self": true,
+    "compatibility_group": "gameplay--attachment-c8bafd5dd8d7",
+    "reason": "Editorial semantic suggestion; does not establish runtime placement, collision, seam, scale, or support geometry."
+  }
+}

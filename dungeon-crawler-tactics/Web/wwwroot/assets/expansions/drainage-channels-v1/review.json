@@ -1,0 +1,768 @@
+{
+  "schema_version": 1,
+  "status": "qualified-pass",
+  "reviewer": "independent drainage_review agent; not artist or integration agent",
+  "review_date_utc": "2026-10-29",
+  "scope": [
+    "new drainage-channels-v1 expansion only",
+    "three corrected original RGBA sheets composited on checkerboard",
+    "all 21 normalized exported views",
+    "example map rendered from actual top-view tiles",
+    "logical opening topology and rendered channel alignment",
+    "post-cleanup exact-pixel reconstruction and alpha component verification"
+  ],
+  "records": [
+    {
+      "asset_id": "drainage-straight-isometric",
+      "sha256": "45a58306469514e15c521564d003fa3531477f1157d929e7359a0dae4dba36a8",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Isometric trough and raised stone banks agree with N/S opening topology; no contradictory extra outlet.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 13368,
+        "secondary_components_removed": 2,
+        "secondary_component_pixels_removed": 2,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-front",
+      "sha256": "859d43fa2a9dacfdb59b49ec18b54c080159869e6c11068a6036c7048d72da40",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Flat orthographic S profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 444,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-top",
+      "sha256": "0d5ec9663beeb728d52b9a824de28a09b6b0f0b394ad3acfda71f3701414b813",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Axis-aligned square plan; dark trough connects exactly the declared N/S edges; remaining edges solid.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 760,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-right",
+      "sha256": "990e7c4abd15767ac9b6c37bee1389da7ecd52f88fd9ff85e70cb0ecd1e163e6",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Flat orthographic E profile: solid unnotched rectangle, matching closed edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 24,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-left",
+      "sha256": "f894ffcea1c257e62041b319a630c795baa3fbc0cfe6b03bacf4d3e9777db2c6",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Flat orthographic W profile: solid unnotched rectangle, matching closed edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 11,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-bottom",
+      "sha256": "65a57fc52a341c60d5fa877eb1d41b2994a315a3d73db6cf620b9fb9158c0f31",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Solid square underside with no channel or visible side faces.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 343,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-straight-rear",
+      "sha256": "ad262f52acd7809b515a30b87e20e811158a097788fc872bda61097bb44580a4",
+      "status": "qualified-pass",
+      "source_image": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "findings": [
+        "Flat orthographic N profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 494,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-isometric",
+      "sha256": "bbd74fa1fc34cec6e59bfbe654aaa058a483691f924b1b8d2a1dec4986f7d7b0",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Isometric trough and raised stone banks agree with N/E opening topology; no contradictory extra outlet.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "East outlet lies slightly below the exact midpoint in the top plan; compatible openings overlap but are not perfectly centered."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 8868,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-front",
+      "sha256": "9d5fba25dd762538472af4d723c1a1b83e429a4a8a007b73f8829958d7571417",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Flat orthographic S profile: solid unnotched rectangle, matching closed edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 243,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-top",
+      "sha256": "cda2d45fac5f7012c574ea503a3368dbef23071e80a40668dc511f3358d0f375",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Axis-aligned square plan; dark trough connects exactly the declared N/E edges; remaining edges solid.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection.",
+        "East outlet lies slightly below the exact midpoint in the top plan; compatible openings overlap but are not perfectly centered."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 1054,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-right",
+      "sha256": "8eb706c27a0a8e865f342a07b72f1c5d10d4b839f2cf8d4ad73f9d78346a5bed",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Flat orthographic E profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 578,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-left",
+      "sha256": "52b5d6b77d8b0b3a3c45abe86d93ad53f9ae03aeb57e83234e76aeff010e4ffc",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Flat orthographic W profile: solid unnotched rectangle, matching closed edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 213,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-bottom",
+      "sha256": "cec25e7bb867540be82c1bfa8a52d3ead8c1f39a10ab109f76f0835866c48722",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Solid square underside with no channel or visible side faces.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 300,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-corner-rear",
+      "sha256": "1aacae8e7502054490762a8de193631c891e764c2a52f70aa773a856faf094ea",
+      "status": "qualified-pass",
+      "source_image": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "findings": [
+        "Flat orthographic N profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 756,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-isometric",
+      "sha256": "bb37b4a8cad3467270541ad06c9ce0be40db68efddeb16687f199a3478dd6703",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Isometric trough and raised stone banks agree with N/E/W opening topology; no contradictory extra outlet.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 8023,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-front",
+      "sha256": "569b1ed7621e8feb487c4426fb03d68c2ca6a6db8745952180d5bc413fbf00d6",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Flat orthographic S profile: solid unnotched rectangle, matching closed edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 193,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-top",
+      "sha256": "05d3336649e643b0057b5713172d568773086cdeaa52ef04d0a3343bb12dd836",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Axis-aligned square plan; dark trough connects exactly the declared N/E/W edges; remaining edges solid.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 901,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-right",
+      "sha256": "53d17fb8a1c51cd12a7f8c9fec33c0dbebdbc6071bd9fae4291e658f8d423e92",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Flat orthographic E profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 381,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-left",
+      "sha256": "6ae3ccaf2ebc254f4b670fafaf95513b33d001145e6df6bd64365494637507fc",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Flat orthographic W profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views.",
+        "Left profile is visibly taller than front/rear profiles after width normalization."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 528,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-bottom",
+      "sha256": "6fb9b1c715c7133d5082e367a2b73760483cbe680386710d0f8ae507d18c118d",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Solid square underside with no channel or visible side faces.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Source crop explicitly normalized to square; not an exact measured orthographic projection."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 236,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    },
+    {
+      "asset_id": "drainage-tee-rear",
+      "sha256": "f2f99f0790a56ef8140e1bd147428136db202449fe25a653da463007e9d5d4d0",
+      "status": "qualified-pass",
+      "source_image": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "findings": [
+        "Flat orthographic N profile: one centered upper notch, matching open edge.",
+        "Post-cleanup alpha check: no alpha 1–15 pixels, one 8-connected visible component, and fully transparent canvas border; no visible silhouette change in updated contact review."
+      ],
+      "limitations": [
+        "Profile thickness is approximately consistent game art, not identical measured slab height across views."
+      ],
+      "checks": {
+        "topology": "pass",
+        "view_projection_readability": "pass",
+        "material_consistency": "pass",
+        "visible_clipping": "pass",
+        "canvas_border_nonzero_alpha_pixels": 0,
+        "alpha_1_to15_pixels": 0,
+        "alpha_ge16_8connected_components": 1,
+        "alpha_ge16_pixels_outside_main_component": 0,
+        "deterministic_cleanup_reproduction": "exact RGBA pixel equality",
+        "source_png_unchanged": true
+      },
+      "cleanup_counts_independently_verified": {
+        "alpha_below_threshold_pixels_removed": 761,
+        "secondary_components_removed": 0,
+        "secondary_component_pixels_removed": 0,
+        "retained_component_count": 1
+      }
+    }
+  ],
+  "map_sha256": "9294fdbba6076339d75fcdfcb1eab8d09f1f31b58142fe55f3f28781eb7fc23f",
+  "map_review": {
+    "status": "qualified-pass",
+    "finding": "Actual top-view sprites form a visually continuous rectangular channel loop, with the tee east branch intentionally ending at the external boundary. Dark outlines, width changes and small offsets remain visible at joins.",
+    "logical_topology": "8 reciprocal internal joins and 1 declared open boundary; agrees with visual render",
+    "alignment_report_sha256": "916a56db2f7027428e74e78f90492e2ab9df315c59e1ee8b78334eadf068ae3b",
+    "alignment_report_assessment": "Integration-provided inward RGB-span heuristic supports visual review; does not prove exact-border channel pixels or seamlessness.",
+    "measured_join_count": 8,
+    "minimum_overlap_fraction_of_narrower": 0.76,
+    "maximum_center_offset_px_at128_cell": 7.0,
+    "pixel_seamless": false
+  },
+  "approval": {
+    "decision": "qualified-pass",
+    "meaning": "Usable stylized 3-object, 21-view drainage expansion with the documented geometry limitations. Cleaned alpha verified. This does not certify exact technical projection, perfectly centered ports, or seamless tiling.",
+    "approved_scope": "Only the exact final PNG hashes and example PNG hash listed here. Metadata acceptance or publication remains with root coordinator.",
+    "conditions": [
+      "Preserve geometry qualifications in package review metadata.",
+      "Do not describe as CAD-accurate, perfectly seamless, or identical measured scale across all views."
+    ],
+    "strict_requirements_not_met": [
+      "Exact center of corner east outlet",
+      "Identical measured profile thickness across all orthographic views"
+    ]
+  },
+  "source_evidence": [
+    {
+      "shape": "straight",
+      "source_path": "source/straight-corrected-sheet.png",
+      "source_sha256": "d7a37adf0259eb7103e6c077419285b8ab5a2d805a7d58aa26902146beefa21c",
+      "contact_review_path": "previews/straight-contact.png",
+      "contact_sha256": "819d4a0eaa90a37ba82264865097cbedbb6187f6d0fc67f9a879df50ea746fed"
+    },
+    {
+      "shape": "corner",
+      "source_path": "source/corner-corrected-sheet.png",
+      "source_sha256": "04ec45a79070a7c522a24dce86c3ea44a43284956b5d7603eb086040281a40d9",
+      "contact_review_path": "previews/corner-contact.png",
+      "contact_sha256": "6063f1ab6c2e348182a294edf127e90f3263da3bd8ea1b15e06ade4cd9b889dd"
+    },
+    {
+      "shape": "tee",
+      "source_path": "source/tee-corrected-sheet.png",
+      "source_sha256": "b874aab3816acd423b6b55fb1e05dbc424a71c7f71b5408a2ff4b18a74abc828",
+      "contact_review_path": "previews/tee-contact.png",
+      "contact_sha256": "ea46e916bfe561bd52498d965dd8e1962f2f3710bf6ac553f9ba4883e3c0e4ae"
+    }
+  ],
+  "excluded_scope": [
+    "All seven existing release libraries",
+    "All 25 older generation-blocked views"
+  ],
+  "tags": [
+    "attachment-tagged",
+    "independent-review",
+    "metadata-document"
+  ],
+  "cleanup_recheck": {
+    "status": "pass",
+    "method": "Independently reconstructed threshold alpha<16 to zero plus removal of secondary 8-connected components <=4 source pixels, then nearest-neighbor normalization; all 21 final RGBA arrays match exactly. All source hashes unchanged. Inspected all three latest checkerboard contacts and latest map.",
+    "source_pixels_alpha1to15_removed_total": 38479,
+    "secondary_components_removed_total": 2,
+    "secondary_component_pixels_removed_total": 2,
+    "finals_with_low_alpha_pixels": 0,
+    "finals_with_secondary_components": 0,
+    "geometry_qualifications": "unchanged"
+  },
+  "root_approval": {
+    "status": "approved-qualified",
+    "reviewer": "root coordinator",
+    "basis": "Inspected all three normalized contacts and actual example map; independent post-cleanup review verifies every PNG hash, exact extraction replay, clean alpha and single connected sprite components.",
+    "approved_use": [
+      "stylized game asset reference views",
+      "top-view procedural channel layouts with recorded rotations and connection edges"
+    ],
+    "conditions": [
+      "Retain visible grid seams and measured outlet offset qualifications.",
+      "Do not claim measured CAD projections, identical profile thickness or pixel-seamless tiling.",
+      "Only top-view sprites may be raster-rotated for procedural placement."
+    ],
+    "historical_release": "Existing seven-library release and 25 unavailable directions unchanged."
+  }
+}

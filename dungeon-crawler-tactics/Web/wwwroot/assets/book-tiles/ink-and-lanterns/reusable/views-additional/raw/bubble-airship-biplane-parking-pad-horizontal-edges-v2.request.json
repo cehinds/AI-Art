@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "object_id": "bubble-airship-biplane-parking-pad",
+  "views": [
+    "front",
+    "right",
+    "left",
+    "rear"
+  ],
+  "status": "generated-atlas-pending-self-qa",
+  "prompt": "Create a transparent four-column atlas showing FOUR strict horizontal principal edge elevations of the exact square biplane landing pad in the references, left-to-right FRONT, RIGHT, LEFT, REAR. The source and TOP show the pad is a flat square deck with a painted circular landing ring and four short corner posts; TOP and BOTTOM will remain unchanged. In every requested view, the camera is perfectly level at deck height, perpendicular to one edge. Show the deck as a thin horizontal wood-and-metal slab spanning the full width of the square plan, matching the top view's approximately 226 px width after normalization. Show TWO short sturdy corner support posts extending vertically DOWN from the underside of the deck, one near each end, with their feet at the bottom. The posts must point down in image-space from the deck; do not make arms, braces or posts point sideways. The upper circular painted pad is mostly occluded by the horizontal edge; do not show the full circle from the side. The bottom reference is underside construction texture only; do not repeat the full cross-braced underside. Keep source wood/metal texture, square bolted corner blocks and golden caster/post details. One thin, level horizontal deck silhouette per column, with the two feet below it; no perspective, no slanted top faces, no vertical tall posts, no horizontal legs, no text. Each orthographic view is inferred illustration, not recovered pixels or calibrated 3D.",
+  "transparent_background": true,
+  "reference_inputs": [
+    {
+      "path": "bubble-airship/components/bubble-airship-biplane-parking-pad.png",
+      "sha256": "8dbd080d9d6580b98632506a1a7baae0ee03f14ffc6812a9f2c984d96e56aa64",
+      "role": "canonical source identity"
+    },
+    {
+      "path": "reusable/views-additional/bubble-airship-biplane-parking-pad.top.png",
+      "sha256": "bc98dee67e9a0da0f05960de220ebc7db60000966eae73e0ece10c8d4d861068",
+      "role": "authoritative overhead square pad footprint and support placements"
+    },
+    {
+      "path": "reusable/views-additional/bubble-airship-biplane-parking-pad.bottom.png",
+      "sha256": "3fb9622b97902b95405670dc5049e7f10147b8fa29196720312b28de3ca06b83",
+      "role": "underside material and support structure only"
+    }
+  ],
+  "geometry_constraints": [
+    "four strict level horizontal edge profiles",
+    "thin deck same full XY width as top plan",
+    "two support posts extend vertically downward from underside",
+    "feet at bottom",
+    "no full upper painted circle from side",
+    "no beams or legs projecting sideways",
+    "no change to top or bottom"
+  ],
+  "generated_atlas": "bubble-airship-biplane-parking-pad-horizontal-edges-v2-atlas.png",
+  "generated_atlas_sha256": "257b1dc42ee0dd2d6863e6d4472b53ca8dc12562ac3cc964a56a1c1b47fd19c8"
+}

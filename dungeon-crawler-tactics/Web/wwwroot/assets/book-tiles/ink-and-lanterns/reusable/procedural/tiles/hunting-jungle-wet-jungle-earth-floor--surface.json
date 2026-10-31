@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "hunting-jungle-wet-jungle-earth-floor--surface",
+  "name": "Wet jungle earth floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "environment:unspecified",
+    "ground",
+    "hunting-jungle",
+    "ink-and-lanterns",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/hunting-jungle-wet-jungle-earth-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "ba5b675a203669364175fb316486c4f44effbcb4c02f7a9a0c5edd4aa7ef72b4",
+    "rgba_sha256": "53541feb84d12bce5d2517681fa97e60fa595deb94ce5618edef6e12a5fc4911"
+  },
+  "metadata_path": "reusable/procedural/tiles/hunting-jungle-wet-jungle-earth-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "hunting-jungle-wet-jungle-earth-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "hunting-jungle/components/hunting-jungle-wet-jungle-earth-floor.png",
+    "source_sha256": "b7200e063177de730b896a14f9661487edb0fc08f73ff1cc9dcd2fa00045d830",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "east": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "south": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ],
+    "west": [
+      "join.floor",
+      "visual.hunting-jungle"
+    ]
+  },
+  "canonical_asset_id": "hunting-jungle-wet-jungle-earth-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:unspecified",
+    "material:unspecified",
+    "role:provider",
+    "style:ink-and-lanterns",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "hunting-jungle-wet-jungle-earth-floor"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "managed_by": "pocket-reusable-v1",
+  "id": "masquerade-worn-white-marble-floor--surface",
+  "name": "Worn white marble floor (128px square surface)",
+  "kind": "terrain_tile",
+  "category": "ground",
+  "tags": [
+    "art-adaptation",
+    "attachment-tagged",
+    "book-location",
+    "dungeon-after-dark",
+    "environment:dungeon",
+    "ground",
+    "masquerade",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "image": {
+    "path": "reusable/procedural/tiles/masquerade-worn-white-marble-floor--surface.png",
+    "width": 128,
+    "height": 128,
+    "sha256": "45b2f54f5e056913eb06feb86918846dedb9baf8a7b10f2da6cb6f3e718ced38",
+    "rgba_sha256": "0916e55590f5aacd040437af36f1151e3fc2ae486dbd60f6ede45a37e5097fa2"
+  },
+  "metadata_path": "reusable/procedural/tiles/masquerade-worn-white-marble-floor--surface.json",
+  "anchor_px": [
+    0,
+    0
+  ],
+  "object_id": "masquerade-worn-white-marble-floor",
+  "view": "normalized-surface",
+  "reusable": true,
+  "footprint_tiles": [
+    1,
+    1
+  ],
+  "provenance": {
+    "method": "extracted",
+    "source_image": "masquerade/components/masquerade-worn-white-marble-floor.png",
+    "source_sha256": "b45fda20d3be3ff9e2cfe56d922bf7815bc83896caf2d37a4862dbe2cab29a2a",
+    "source_rect": [
+      64,
+      128,
+      128,
+      128
+    ],
+    "notes": "Exact crop of the existing normalized gameplay export, not native source-atlas pixels. No additional resampling."
+  },
+  "procedural": {
+    "eligible": true,
+    "cell_size_px": 128,
+    "walkable": true,
+    "connections": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "edge_policy": "Authored side tags govern connections. Manual transition surfaces require placement review; visible repeat seams remain possible."
+  },
+  "views": {
+    "applicable": false,
+    "complete": true,
+    "reason": "Surface crop variant; physical tile views attach to canonical_asset_id."
+  },
+  "edges": {
+    "north": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "east": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "south": [
+      "join.floor",
+      "visual.masquerade"
+    ],
+    "west": [
+      "join.floor",
+      "visual.masquerade"
+    ]
+  },
+  "canonical_asset_id": "masquerade-worn-white-marble-floor",
+  "attachment_generated_tags": [
+    "attachment-tagged",
+    "environment:dungeon",
+    "material:unspecified",
+    "role:provider",
+    "style:dungeon-after-dark",
+    "surface:floor",
+    "walkability:allowed"
+  ],
+  "attachment": {
+    "schema_version": 1,
+    "authority": "editorial-semantic-inference",
+    "space": "world",
+    "role": "provider",
+    "requires": {
+      "any": [],
+      "all": [],
+      "none": []
+    },
+    "provides": [
+      "surface:floor"
+    ],
+    "exclude_self": true,
+    "compatibility_group": null,
+    "reason": "Base surface provider; authored layout defines support and adjacency. No parent tile required.",
+    "inherited_from": "masquerade-worn-white-marble-floor"
+  }
+}
