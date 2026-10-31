@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "id": "bed-layers-v1",
+  "title": "Sickbed layer and occlusion staging",
+  "canvas": [
+    214,
+    398
+  ],
+  "workflow": [
+    {
+      "step": "components",
+      "status": "selected-existing-components"
+    },
+    {
+      "step": "isolate",
+      "status": "mechanical-alpha-trim-crop-and-nearest-scale-only"
+    },
+    {
+      "step": "split-layers",
+      "status": "visible-crop-decomposition"
+    },
+    {
+      "step": "interpolate-hidden",
+      "status": "none; no hidden mattress or frame pixels reconstructed"
+    }
+  ],
+  "source": {
+    "file": "sources/white-sickbed.png",
+    "sha256": "db1e9d98b3497bbf76f4d8627cf87799efe8cf6798d10c0bd586300be3e39a9f",
+    "originalFile": "AssetWork/InteriorRefinementV5/components/white-sickbed.png",
+    "visibility": "existing cropped component artwork; visible source pixels",
+    "note": "Existing bed pixels retained as rear backing. It is not a clean reconstruction of hidden mattress/frame pixels."
+  },
+  "actorProxy": {
+    "file": "sources/firion-down-02.png",
+    "sha256": "f926e7480f532196f934d48f45e2083f8eca696857346fa19246f9ecf63c8141",
+    "originalFile": "C:/repos/AI-Art-FF2/Assets/Art/Production/RemasterExpansion/field/firion/down-02.png",
+    "label": "Higher-resolution Firion down sprite; standing pose is only an occlusion proxy, not an authentic lying Scott pose.",
+    "sourceSize": [
+      64,
+      64
+    ],
+    "alphaCrop": [
+      15,
+      5,
+      41,
+      57
+    ],
+    "trimmedSize": [
+      41,
+      57
+    ],
+    "renderSize": [
+      80,
+      140
+    ],
+    "at": [
+      67,
+      64
+    ]
+  },
+  "dialogueBubble": {
+    "master": "sources/books-jug-bubble-master.png",
+    "masterSha256": "79b91f192d1d98c15ba4b8c57243bc21e820649edb1359615d64979315d17e47",
+    "prompt": "sources/books-jug-bubble-prompt.txt",
+    "promptSha256": "af614365b1e8ff5eaf0322d5fcd4559c7f360d561eb611bfd84863f6b951c730",
+    "sourceCrop": [
+      762,
+      930,
+      337,
+      257
+    ],
+    "normalizedSize": [
+      64,
+      48
+    ],
+    "at": [
+      75,
+      17
+    ],
+    "note": "Generated standalone bubble cropped from supplied master; exact prompt retained alongside the source."
+  },
+  "layers": [
+    {
+      "id": "rear-backing",
+      "file": "rear-backing.png",
+      "at": [
+        0,
+        0
+      ],
+      "z": 0,
+      "canvasSize": [
+        214,
+        398
+      ],
+      "sourceVisibility": "existing visible bed crop; concealed pixels in this full component are not treated as cleanly reconstructed"
+    },
+    {
+      "id": "actor-proxy",
+      "file": "actor-proxy.png",
+      "at": [
+        0,
+        0
+      ],
+      "z": 1,
+      "canvasSize": [
+        214,
+        398
+      ],
+      "spriteAt": [
+        67,
+        64
+      ],
+      "spriteSize": [
+        80,
+        140
+      ],
+      "sourceVisibility": "existing Firion sprite"
+    },
+    {
+      "id": "sheets",
+      "file": "sheet-overlay.png",
+      "at": [
+        0,
+        0
+      ],
+      "z": 2,
+      "canvasSize": [
+        214,
+        398
+      ],
+      "sourceCrop": [
+        12,
+        122,
+        190,
+        176
+      ],
+      "placement": [
+        12,
+        122
+      ],
+      "sourceVisibility": "visible bed crop; placed at source coordinate without hidden-pixel reconstruction"
+    },
+    {
+      "id": "foreground-footboard",
+      "file": "foreground-footboard.png",
+      "at": [
+        0,
+        0
+      ],
+      "z": 3,
+      "canvasSize": [
+        214,
+        398
+      ],
+      "sourceCrop": [
+        0,
+        278,
+        214,
+        120
+      ],
+      "sourceVisibility": "visible crop from existing bed component"
+    },
+    {
+      "id": "dialogue-bubble",
+      "file": "dialogue-slot.png",
+      "at": [
+        0,
+        0
+      ],
+      "z": 4,
+      "canvasSize": [
+        214,
+        398
+      ],
+      "spriteAt": [
+        75,
+        17
+      ],
+      "spriteSize": [
+        64,
+        48
+      ],
+      "sourceVisibility": "cropped standalone generated artwork"
+    }
+  ],
+  "stages": [
+    "stage-01-backing.png",
+    "stage-02-actor.png",
+    "stage-03-sheets.png",
+    "stage-04-footboard.png"
+  ],
+  "output": "assembled.png",
+  "caveats": [
+    "The sheet and footboard layers are source crops; backing still includes the existing bed pixels behind them.",
+    "No hidden mattress/frame reconstruction is present.",
+    "Firion is a standing proxy for confirming occlusion only."
+  ]
+}

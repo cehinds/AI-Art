@@ -1,0 +1,1 @@
+const fs=require('fs'),p=__dirname+'/kit.json',d=JSON.parse(fs.readFileSync(p));d.entries=d.entries.filter(e=>!e.id.startsWith('grass-new')&&!e.id.startsWith('stone-paving')&&!e.id.startsWith('earth-ground')&&!e.id.startsWith('city-wall-'));d.matchedProofs=d.matchedProofs.filter(e=>e.id==='grass-registered-phase-2x2');fs.writeFileSync(p,JSON.stringify(d,null,2)+'\n');

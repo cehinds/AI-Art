@@ -65,3 +65,11 @@ The [wall and rug revision](../../Review/interior-details-v4/index.html) contain
 ## Rooms assembled from the existing library
 
 [Three room comparisons](../../Review/room-assemblies-v1/index.html) show Tobul, Scott’s refuge, and the unobscured portion of Hilda’s audience room beside original captures at equal viewport sizes. Each room is built from individual saved PNG components, with copied source inputs, placement/scale/crop records and five reconstructable layers. These are assembly proofs rather than newly generated whole-room illustrations. Remaining furniture, material and border differences are labeled. Assets only; no game integration.
+
+## Furniture, rug and layered shop refinement
+
+[Scott and Hilda comparisons](../../Review/room-assemblies-v2/index.html) use seven new independent components with the same reference crops and unchanged room shells. Scott receives a white sickbed, square table, compact seats, flat crates and separate small furniture. Hilda receives a narrower patterned border. Details remain candidates rather than exact retail copies.
+
+[Layered shop kit](../../Review/shop-layered-tiles-v3/index.html) separates structural surfaces, front faces, timber parts and display/tool overlays. It records an authored 16px grid, supported joins and remaining limitations; no undocumented retail tile-size or universal seam guarantee is asserted. Original sources, prompts, layer proofs and verification are retained. Assets only; no gameplay integration.
+
+The [labeled decomposition review](../../Review/scene-decomposition-v1/index.html) preserves supplied reference excerpts separately from generated assets. Seeded component regions, isolation crops, layer relationships and inferred/unknown fields are inspectable and reproducible. [Bed layers](../../Review/bed-layers-v1/index.html) demonstrate rear frame, dynamic actor slot, sheets, foreground footboard and topmost dialogue; the actor is an occlusion proxy. [City layers](../../Review/city-layered-icons-v1/index.html) cover buildings, ground and city walls, with separately labeled inferred facade pixels where supplied.

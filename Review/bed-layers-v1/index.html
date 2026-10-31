@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bed Layers V1</title>
+<style>
+  body{margin:24px;background:#202a34;color:#f3f5f6;font:14px system-ui,sans-serif}
+  h1{font-size:20px;margin:0 0 8px}p{color:#c7d0d8;max-width:780px;line-height:1.5}
+  .controls{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0}
+  label{display:flex;align-items:center;gap:6px;background:#303d49;padding:8px 10px;border-radius:5px}
+  .stage{position:relative;width:min(428px,90vw);aspect-ratio:214/398;background-color:#58616a;background-image:linear-gradient(45deg,#757e86 25%,transparent 25%),linear-gradient(-45deg,#757e86 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#757e86 75%),linear-gradient(-45deg,transparent 75%,#757e86 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}
+  .stage img{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;object-fit:fill;pointer-events:none}
+  .note{font-size:12px}
+  .proof{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.proof figure{margin:0;width:150px}.proof img{display:block;width:100%;height:auto;image-rendering:pixelated;background:#58616a}.proof figcaption{font-size:12px;color:#c7d0d8;margin-top:5px}
+</style>
+<h1>Sickbed layer gallery</h1>
+<p>Toggle independent layers to inspect occlusion. The final dialogue layer uses the supplied generated bubble crop. The actor is a standing Firion proxy, not a lying-pose reconstruction.</p>
+<div class="controls" id="controls"></div>
+<div class="stage" id="stage"></div>
+<p class="note">Layer order: rear backing → actor proxy → sheet crop → foreground footboard → dialogue bubble.</p>
+<div class="proof">
+  <figure><img src="stage-01-backing.png" alt="Rear bed backing"><figcaption>1 · Rear backing</figcaption></figure>
+  <figure><img src="stage-02-actor.png" alt="Actor proxy before sheets"><figcaption>2 · Actor before sheets</figcaption></figure>
+  <figure><img src="stage-03-sheets.png" alt="Sheets covering actor body"><figcaption>3 · Sheets cover body</figcaption></figure>
+  <figure><img src="stage-04-footboard.png" alt="Foreground footboard stage"><figcaption>4 · Footboard over sheets</figcaption></figure>
+  <figure><img src="assembled.png" alt="Current assembled bed"><figcaption>5 · Final with dialogue bubble</figcaption></figure>
+</div>
+<script>
+const layers=[
+  ['rear-backing','Rear bed backing',0],
+  ['actor-proxy','Firion proxy',1],
+  ['sheet-overlay','Sheet overlay crop',2],
+  ['foreground-footboard','Foreground footboard crop',3],
+  ['dialogue-slot','Dialogue bubble slot',4]
+];
+const controls=document.querySelector('#controls'),stage=document.querySelector('#stage');
+for(const [file,label,z] of layers){
+  const key=file==='sheet-overlay'?'sheet-overlay':file;
+  const input=document.createElement('input');input.type='checkbox';input.checked=true;
+  const wrap=document.createElement('label');wrap.append(input,document.createTextNode(label));controls.append(wrap);
+  const img=document.createElement('img');img.src=`${key}.png`;img.alt='';img.style.zIndex=z;stage.append(img);
+  input.addEventListener('change',()=>img.hidden=!input.checked);
+}
+</script>
+</html>

@@ -109,6 +109,11 @@ for(const [key,pack] of [['terrainV4','TerrainComponentsV4'],['shopsV2','ShopInt
     groups[category].push({id,label:id,file,category,detail:x.width+'×'+x.height+'px · '+(x.kind||x.family||'candidate'),pack,children});
   }
 }
+for(const pack of ['InteriorRefinementV5','ShopLayeredTilesV3','BedLayersV1','CityLayeredIconsV1']) {
+ const j=readManifest(path.join(root,'Assets/Art/Production',pack,'manifest.json'));
+ const category=pack==='CityLayeredIconsV1'?'city':'interior';
+ for(const x of j?.assets||[])groups[category].push({id:x.id,label:x.id,file:x.file,category,detail:(x.renderLayer||x.layer||x.kind||'layered component candidate'),pack});
+}
 const allCards = Object.values(groups).flat();
 const uniqueFiles = new Set(allCards.flatMap(x=>[x.file,...(x.children||[]).map(c=>c.file)]).filter(Boolean));
 const interiorManifestCount = Object.keys(manifests.interior?.components || {}).length;
@@ -122,6 +127,11 @@ const total = allCards.length;
 const missingPacks = Object.entries(manifests).filter(([,v])=>!v).map(([k])=>k);
 const docs = '../../Docs/ComponentArtV1/README.md';
 const links = [
+  ['Labeled reference decomposition','../scene-decomposition-v1/index.html'],
+  ['Scott furniture and Hilda rug refinement','../room-assemblies-v2/index.html'],
+  ['Layered shop tiles and overlays','../shop-layered-tiles-v3/index.html'],
+  ['Bed occlusion layers','../bed-layers-v1/index.html'],
+  ['City, ground and wall layers','../city-layered-icons-v1/index.html'],
   ['Rooms assembled from existing PNGs','../room-assemblies-v1/index.html'],
   ['AltairKitV1 gallery','../altair-kit-v1/index.html'],
   ['OpeningWorldV1 contact sheet','../opening-world-v1/contact-sheet.png'],
