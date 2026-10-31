@@ -60,3 +60,8 @@ The [wall and rug revision](../../Review/interior-details-v4/index.html) contain
 [ShopInteriorsV2](../../Review/shop-interiors-v2/index.html) uses the fixed Tobul screenshot viewport: wall stock, broad L-counter, merchant, chest, workshop fixtures and rug retain the reference proportions. Armor, item and magic rooms adapt this shared layout; they are not verified copies of other retail rooms. Scene layers contain only visible pixels, with no hidden surface reconstruction. Separate transparent prop extractions and labeled material/context samples are included.
 
 [Matched-scale comparisons](../../References/PaletteDensityPassV2/Comparison/index.html) show original captures, revised rooms, and individual interior components at the same displayed dimensions. Prior packs are preserved. Assets only; no Unity integration or build.
+
+
+## Rooms assembled from the existing library
+
+[Three room comparisons](../../Review/room-assemblies-v1/index.html) show Tobul, Scott’s refuge, and the unobscured portion of Hilda’s audience room beside original captures at equal viewport sizes. Each room is built from individual saved PNG components, with copied source inputs, placement/scale/crop records and five reconstructable layers. These are assembly proofs rather than newly generated whole-room illustrations. Remaining furniture, material and border differences are labeled. Assets only; no game integration.

@@ -122,6 +122,7 @@ const total = allCards.length;
 const missingPacks = Object.entries(manifests).filter(([,v])=>!v).map(([k])=>k);
 const docs = '../../Docs/ComponentArtV1/README.md';
 const links = [
+  ['Rooms assembled from existing PNGs','../room-assemblies-v1/index.html'],
   ['AltairKitV1 gallery','../altair-kit-v1/index.html'],
   ['OpeningWorldV1 contact sheet','../opening-world-v1/contact-sheet.png'],
   ['WorldComponentsV1 gallery','../world-components-v1/index.html'],
