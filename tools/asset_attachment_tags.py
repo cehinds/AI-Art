@@ -676,6 +676,77 @@ def verified_reference_layer_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_completed_layer_documents(root):
+    """Preserve complete-component evidence bound to sources and full package.
+
+    Completion and hidden surfaces are inferred declarations, independently
+    reviewed by pack QA; hash validation never upgrades them to source truth.
+    """
+    base = root / 'completed-layers'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or doc.get('coordinateSystem') != 'native pixels, top-left origin'
+            or not isinstance(doc.get('assets'), list) or not doc['assets']
+            or not isinstance(doc.get('instances'), list) or not doc['instances']
+            or not isinstance(doc.get('layers'), list) or not doc['layers']
+            or not isinstance(doc.get('counts'), dict)):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid completed layer evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid completed layer evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid completed layer evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    if json.loads((base / 'recipe.json').read_text()) != doc:
+        raise ValueError('Completed layer recipe/manifest differ')
+    asset_ids = set()
+    for asset in doc['assets']:
+        provenance = asset.get('provenance', {})
+        if (not isinstance(provenance.get('kind'), str) or asset.get('id') in asset_ids
+                or asset.get('complete') is not True or asset.get('fullComponent') is not True):
+            raise ValueError('Invalid completed layer asset provenance')
+        asset_ids.add(asset.get('id'))
+        verify_file(base, asset.get('file'), asset.get('sha256'))
+        verify_file(project, provenance.get('sourceFile'), provenance.get('sha256'))
+        if asset.get('nativeFile'):
+            verify_file(base, asset['nativeFile'], asset.get('nativeSha256'))
+    if any(instance.get('assetId') not in asset_ids for instance in doc['instances']):
+        raise ValueError('Invalid completed layer instance reference')
+    architecture = doc.get('architectureSource', {})
+    verify_file(project, architecture.get('file'), architecture.get('sha256'))
+    for study in doc.get('studies', []):
+        verify_file(base, study.get('file'), study.get('sha256'))
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid completed layer membership')
+        listed[target] = member
+    package = base / 'completed-layers.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete completed layer membership')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid completed layer package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Completed layer archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -751,7 +822,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
