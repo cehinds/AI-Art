@@ -1,0 +1,399 @@
+{
+  "referenceOnly": true,
+  "coordinateOrigin": "top-left of the named source PNG; x increases right and y increases down; rectangles are source-pixel crops",
+  "categories": [
+    {
+      "id": "ground",
+      "label": "Ground and grass",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-02.png",
+        "rect": {
+          "x": 200,
+          "y": 130,
+          "width": 90,
+          "height": 60
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 540,
+          "y": 225,
+          "width": 90,
+          "height": 60
+        }
+      },
+      "reading": "PR grass has fine, dense pixel texture and broad value/color patches. The BEFORE map ground is brighter, with isolated high-frequency speckle. Compare fill texture and value grouping; the source frames use different zooms and cannot establish exact colors.",
+      "asset": {
+        "id": "world-ground-grassland-center-32",
+        "layer": "ground/base",
+        "nativeSize": "32x32 tile; 4 seamless edges",
+        "ports": "repeat north/east/south/west",
+        "gap": "Candidate OpeningWorldV1 grass is available at 32x32 with repeat ports on all edges; compare it to PR texture. It is not integrated into the game.",
+        "candidates": [
+          "Assets/Art/Production/OpeningWorldV1/grass.png"
+        ],
+        "status": "Generated OpeningWorldV1 candidate; not game-integrated."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/ground-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/ground-before.png"
+      }
+    },
+    {
+      "id": "ocean",
+      "label": "Ocean surface",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-02.png",
+        "rect": {
+          "x": 205,
+          "y": 0,
+          "width": 205,
+          "height": 95
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 5,
+          "y": 140,
+          "width": 145,
+          "height": 145
+        }
+      },
+      "reading": "PR water reads as continuous blue animated surface with fine light ripples. The supplied current capture is explicitly BEFORE the ocean fix and shows a strong regular grid/streak pattern; it is only a baseline, not evidence about the post-fix build.",
+      "asset": {
+        "id": "world-water-ocean-32x32-4f",
+        "layer": "water/surface",
+        "nativeSize": "32x32 tile, four-frame loop (128x32 strip or four 32x32 files)",
+        "ports": "seamless repeat north/east/south/west; phase-compatible neighboring tiles",
+        "gap": "Recompare against a post-fix native screenshot before changing water art.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/deepwater-01.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/deepwater-02.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/deepwater-03.png"
+        ],
+        "status": "Existing art; renderer uses frozen unbuilt UV crop x=3..31; BEFORE screenshot predates it."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/ocean-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/ocean-before.png"
+      }
+    },
+    {
+      "id": "coast",
+      "label": "Coast and beach",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-01.png",
+        "rect": {
+          "x": 0,
+          "y": 80,
+          "width": 160,
+          "height": 125
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 95,
+          "y": 205,
+          "width": 185,
+          "height": 190
+        }
+      },
+      "reading": "PR beaches form a very narrow, irregular tan fringe along the waterline. The BEFORE map has broad, blocky sandy steps. Keep the land silhouette as authored geography and add a thin edge/foam treatment without expanding land.",
+      "asset": {
+        "id": "OpeningWorldV1 coast edge band",
+        "layer": "water base + shore-edge overlay",
+        "nativeSize": "32x32 tile with a 20% shore-edge band",
+        "ports": "land/water edge orientation is carried separately; shoreline edge band is transparent over the water base",
+        "gap": "Eight directional existing shore tiles are available, while new coast art is planned under WorldComponentsV1. The active/unbuilt world contract uses water base plus a 20% shore-edge band; compare only after native QA.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/shore-n.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/shore-e.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/shore-s.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/shore-w.png"
+        ],
+        "status": "Existing edge tiles; new replacement planned under WorldComponentsV1; no native post-fix QA yet."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/coast-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/coast-before.png"
+      }
+    },
+    {
+      "id": "forest",
+      "label": "Forest canopy and floor",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-03.png",
+        "rect": {
+          "x": 350,
+          "y": 160,
+          "width": 120,
+          "height": 130
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 270,
+          "y": 215,
+          "width": 170,
+          "height": 180
+        }
+      },
+      "reading": "PR forests are packed, separate dark conifers with pointed crowns and visible gaps between trees; forest floor remains a distinct green layer. The BEFORE map reads as a single mottled hedge mass.",
+      "asset": {
+        "id": "OpeningWorldV1 conifer 32x48 + forest hedge canopy",
+        "layer": "forest-floor + two staggered conifer sprites per logical cell; town hedge canopy is separate",
+        "nativeSize": "conifer 32x48; grass/forest floor 32x32",
+        "ports": "conifer sprites are transparent overlays; floor repeats; town hedge has its own edge/turn ports",
+        "gap": "Candidate conifer and renderer contract are available in OpeningWorldV1; test two staggered trees per logical cell against PR density. Art is not integrated into the game.",
+        "candidates": [
+          "Assets/Art/Production/OpeningWorldV1/conifer.png"
+        ],
+        "status": "Generated OpeningWorldV1 candidate; two staggered conifers per logical cell is a renderer contract; not game-integrated."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/forest-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/forest-before.png"
+      }
+    },
+    {
+      "id": "mountains",
+      "label": "Mountain peaks",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-02.png",
+        "rect": {
+          "x": 475,
+          "y": 168,
+          "width": 150,
+          "height": 125
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 690,
+          "y": 90,
+          "width": 190,
+          "height": 48
+        }
+      },
+      "reading": "PR mountains use repeated triangular peaks with crisp light-facing facets and dark separations. Only a narrow, partly UI-adjacent mountain strip is visible in the current BEFORE capture, so its full mountain treatment is not established.",
+      "asset": {
+        "id": "world-mountain-peak-32",
+        "layer": "terrain/mountain + edge-shadow",
+        "nativeSize": "32x32 peak tile set with straight edges and outer/inner corners; larger 2x2 clusters optional",
+        "ports": "solid peak center; cardinal/diagonal silhouette ports for connected ridgelines",
+        "gap": "Build separate peak and slope tiles; keep mountain outlines crisp and avoid noisy all-over rock fill.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/tiles/overworld/mountain-01.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/overworld/mountain-02.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/overworld/mountain-03.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/overworld/mountain-04.png"
+        ],
+        "status": "Existing mountain tiles; new visual variants planned under WorldComponentsV1; supplied BEFORE crop is too narrow for a full visual audit."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/mountains-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/mountains-before.png"
+      }
+    },
+    {
+      "id": "river",
+      "label": "River channel",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-03.png",
+        "rect": {
+          "x": 35,
+          "y": 0,
+          "width": 130,
+          "height": 270
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 300,
+          "y": 93,
+          "width": 245,
+          "height": 105
+        }
+      },
+      "reading": "PR rivers are narrow, winding blue channels with a thin green/brown bank and fine white highlights. The current capture shows a more tile-stepped blue stream with brown/orange borders; compare river width, bank continuity, and bends.",
+      "asset": {
+        "id": "world-river-channel-32",
+        "layer": "water/river + bank/shore",
+        "nativeSize": "32x32 center, straight N/E/S/W, four bends, four tees, cross and mouth tiles",
+        "ports": "N/E/S/W water ports; bank overlay follows all exposed land edges",
+        "gap": "Provide every connectivity shape and keep water and bank as independently replaceable layers.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-source.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-ns.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-ew.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-bend-ne.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-bend-se.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-bend-sw.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-bend-nw.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-t-n.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-t-e.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-t-s.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-t-w.png",
+          "Assets/Art/Production/RemasterExpansion/world-tiles/river-expansion02/river-cross.png"
+        ],
+        "status": "Existing masks/frames encode river connectivity; new river-edge components planned under WorldComponentsV1; not game-integrated."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/river-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/river-before.png"
+      }
+    },
+    {
+      "id": "bridge",
+      "label": "River bridge",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-02.png",
+        "rect": {
+          "x": 280,
+          "y": 225,
+          "width": 70,
+          "height": 70
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 300,
+          "y": 88,
+          "width": 82,
+          "height": 58
+        },
+        "note": "This crossing is partly under the top HUD in the supplied BEFORE view."
+      },
+      "reading": "The PR crossing reads as a narrow gray stone span with a clear road deck and squared abutments. The existing AI-Art coast bridge candidates are wooden blue-plank tiles, so they should not be described as stone or assumed visually equivalent.",
+      "asset": {
+        "id": "world-bridge-stone-ns-32 / world-bridge-stone-ew-32",
+        "layer": "bridge/deck + abutments",
+        "nativeSize": "32x32 directional tile pair; 32x64 variant only if one-tile depth is insufficient",
+        "ports": "road ports at both bridge ends; river remains continuous under span; shore abutment ports on both banks",
+        "gap": "Generate a gray stone bridge pair and keep its deck separate from river and bank layers.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/bridge-horizontal.png",
+          "Assets/Art/Production/RemasterExpansion/tiles/coast/bridge-vertical.png"
+        ],
+        "status": "Existing tiles are wood; PR reference shows gray stone. New stone bridge assets planned under WorldComponentsV1."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/bridge-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/bridge-before.png"
+      }
+    },
+    {
+      "id": "settlement",
+      "label": "Walled settlement marker",
+      "reference": {
+        "file": "source-frames/pr-gatrea-to-fynn-05.png",
+        "rect": {
+          "x": 335,
+          "y": 0,
+          "width": 140,
+          "height": 205
+        }
+      },
+      "current": null,
+      "reading": "The PR Fynn map marker is a walled cluster of blue-roof buildings with an interior keep, not a lone house. The crop avoids most of the top-right minimap overlay. No walled settlement is visible in the supplied current BEFORE viewport, so this is a target-shape comparison only.",
+      "asset": {
+        "id": "OpeningWorldV1 Altair town 5x4 / Fynn town 5x6",
+        "layer": "settlement wall + roof clusters + keep + gate",
+        "nativeSize": "Altair 160x128 (5x4 32px tiles); Fynn 160x192 (5x6)",
+        "ports": "bottom-center anchor immediately above the gate cell; wall perimeter has a south gate opening",
+        "gap": "Candidate Altair 160x128 and Fynn 160x192 walled markers are available; align a bottom-center anchor above the gate. Art is not integrated into the game.",
+        "candidates": [
+          "Assets/Art/Production/OpeningWorldV1/altair-town.png",
+          "Assets/Art/Production/OpeningWorldV1/fynn-town.png"
+        ],
+        "status": "Generated OpeningWorldV1 candidates; not game-integrated."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/settlement-pr.png",
+        "current": null
+      }
+    },
+    {
+      "id": "actors",
+      "label": "Overworld actor",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-03.png",
+        "rect": {
+          "x": 292,
+          "y": 132,
+          "width": 48,
+          "height": 62
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 485,
+          "y": 285,
+          "width": 62,
+          "height": 68
+        }
+      },
+      "reading": "The PR overworld places a small party-leader sprite over terrain; the supplied current screenshot shows a visibly larger clustered avatar. Keep actor size/readability independent of land tiles, forest canopy, and UI.",
+      "asset": {
+        "id": "world-actor-party-leader-16x24-4dir",
+        "layer": "actor/sprite",
+        "nativeSize": "16x24 per frame; 4 directions x idle/walk frames",
+        "ports": "bottom-center foot anchor; no terrain edge ports",
+        "gap": "Use a compact leader/party marker and preserve a separate foot anchor and animation sheet.",
+        "currentAssets": [
+          "Assets/Art/Production/RemasterExpansion/field/firion/down-01.png",
+          "Assets/Art/Production/RemasterExpansion/field/firion/left-01.png",
+          "Assets/Art/Production/RemasterExpansion/field/firion/right-01.png",
+          "Assets/Art/Production/RemasterExpansion/field/firion/up-01.png"
+        ],
+        "status": "Existing directional actor sheets; screenshot comparison is visual only."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/actors-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/actors-before.png"
+      }
+    },
+    {
+      "id": "ui",
+      "label": "Screen-space map UI",
+      "reference": {
+        "file": "source-frames/pr-altair-to-gatrea-02.png",
+        "rect": {
+          "x": 474,
+          "y": 15,
+          "width": 153,
+          "height": 140
+        }
+      },
+      "current": {
+        "file": "source-frames/current-altair-coast-before-ocean-fix.png",
+        "rect": {
+          "x": 8,
+          "y": 45,
+          "width": 1000,
+          "height": 48
+        }
+      },
+      "reading": "The PR route captures include a top-right world-map inset. The current game has top objective/title/menu bars and a bottom control bar. These belong to screen-space UI, not the world terrain layer stack.",
+      "asset": {
+        "id": "world-ui-minimap-panel",
+        "layer": "screen-space/minimap + HUD",
+        "nativeSize": "layout-sized UI panel; not a terrain tile",
+        "ports": "anchors to viewport corners; independent of camera/world coordinates",
+        "gap": "Keep minimap and objective/control chrome outside all ground, coast, water, settlement, and actor passes."
+      },
+      "generatedCrops": {
+        "reference": "../../References/WorldLayerComparisonV1/crops/ui-pr.png",
+        "current": "../../References/WorldLayerComparisonV1/crops/ui-before.png"
+      }
+    }
+  ]
+}

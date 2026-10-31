@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "kit": "opening-world-v1",
+  "tileSize": 32,
+  "alphaThreshold": 128,
+  "sourcePolicy": "New AI-generated artwork using attributed gameplay references. Source crops below refer to generated masters, never screenshot pixels.",
+  "references": [
+    {
+      "url": "https://cdn.vorxu.com/images/final-fantasy-2-pixel-remaster/walkthrough/altair-and-fynn/altair-to-gatrea.mp4",
+      "scope": "Conifer silhouette, Altair settlement scale, palette, shoreline"
+    },
+    {
+      "url": "https://cdn.vorxu.com/images/final-fantasy-2-pixel-remaster/walkthrough/altair-and-fynn/gatrea-to-fynn.mp4",
+      "scope": "Fynn blue-roof castle-city silhouette and ground palette"
+    }
+  ],
+  "assets": [
+    {
+      "id": "conifer",
+      "source": "conifer.png",
+      "width": 32,
+      "height": 48,
+      "fit": "fill",
+      "layer": "vegetation",
+      "anchor": "bottom-center",
+      "semantic": [
+        "forest",
+        "conifer",
+        "overworld"
+      ],
+      "collision": "inherited from world terrain"
+    },
+    {
+      "id": "altair-town",
+      "source": "altair-town.png",
+      "width": 160,
+      "height": 128,
+      "fit": "contain",
+      "layer": "settlement",
+      "anchor": "south gate bottom-center",
+      "semantic": [
+        "town",
+        "walled",
+        "altair"
+      ],
+      "collision": "portal owned by game map"
+    },
+    {
+      "id": "fynn-town",
+      "source": "fynn-town.png",
+      "width": 160,
+      "height": 192,
+      "fit": "contain",
+      "layer": "settlement",
+      "anchor": "south gate bottom-center",
+      "semantic": [
+        "town",
+        "castle",
+        "fynn"
+      ],
+      "collision": "portal owned by game map"
+    },
+    {
+      "id": "grass",
+      "source": "grass.png",
+      "width": 32,
+      "height": 32,
+      "fit": "fill",
+      "opaque": true,
+      "layer": "ground",
+      "anchor": "top-left",
+      "semantic": [
+        "grass",
+        "field",
+        "overworld"
+      ],
+      "edges": {
+        "north": "grass",
+        "east": "grass",
+        "south": "grass",
+        "west": "grass"
+      },
+      "collision": "walkable ground; game owns encounter rules"
+    }
+  ]
+}

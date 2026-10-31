@@ -1,0 +1,1150 @@
+{
+  "schemaVersion": 1,
+  "kit": "world-components-v1",
+  "status": "candidate-assets-complete-unintegrated",
+  "sourcePolicy": "Preserve generated masters byte-for-byte. References inform component geometry and palette only. No game integration in this asset pass.",
+  "normalization": "Terrain atlases: group crop, nearest whole-atlas resize, then cells. Explicit isolated cutout atlases: original grid slots, alpha>=128 silhouette crop per object, nearest aspect-preserving fit to native canvas, bottom-center anchor.",
+  "portConvention": "North/south material profiles run west-to-east; east/west profiles run north-to-south. Port strings are semantic declarations, not proof of seamless pixels.",
+  "sheets": [
+    {
+      "id": "coast",
+      "source": "ArtSource/WorldComponentsV1/coast-island-master.png",
+      "generatedImage": "exec-8c0a5b55-2a6e-4aab-bb89-f4d8bbf15dd5",
+      "columns": 3,
+      "rows": 3,
+      "tileSize": 32,
+      "sourceRole": "continuous-island-grass-center-water-exterior",
+      "tiles": [
+        {
+          "id": "nw",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "convex-land-northwest",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water",
+            "east": "water|bank|grass",
+            "south": "water|bank|grass",
+            "west": "water"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "n",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "north-land-edge",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water",
+            "east": "water|bank|grass",
+            "south": "grass",
+            "west": "water|bank|grass"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "ne",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "convex-land-northeast",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water",
+            "east": "water",
+            "south": "grass|bank|water",
+            "west": "water|bank|grass"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "w",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "west-land-edge",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water|bank|grass",
+            "east": "grass",
+            "south": "water|bank|grass",
+            "west": "water"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "grass",
+          "terrain": "grass",
+          "layer": "ground",
+          "cornerRole": "fill",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass",
+            "south": "grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "e",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "east-land-edge",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water",
+            "east": "water",
+            "south": "grass|bank|water",
+            "west": "grass"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "sw",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "convex-land-southwest",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water|bank|grass",
+            "east": "grass|bank|water",
+            "south": "water",
+            "west": "water"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "s",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "south-land-edge",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|bank|water",
+            "south": "water",
+            "west": "grass|bank|water"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        },
+        {
+          "id": "se",
+          "terrain": "grass-to-sea",
+          "layer": "ground",
+          "cornerRole": "convex-land-southeast",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water",
+            "east": "water",
+            "south": "water",
+            "west": "grass|bank|water"
+          },
+          "collision": "not-assigned; asset-only candidate",
+          "visualStatus": "needs-adjacency-review"
+        }
+      ]
+    },
+    {
+      "id": "river",
+      "source": "ArtSource/WorldComponentsV1/river-mask-master.png",
+      "generatedImage": "exec-c07bd6ef-d462-4065-b22e-dd97cb62c9bf",
+      "columns": 4,
+      "rows": 4,
+      "tileSize": 32,
+      "maskConvention": "Row-major 0..15; N1 E2 S4 W8",
+      "tiles": [
+        {
+          "id": "mask-00",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "isolated-pool",
+          "flowMask": 0,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass",
+            "south": "grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-01",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-end",
+          "flowMask": 1,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass",
+            "south": "grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-02",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-end",
+          "flowMask": 2,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-03",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-bend",
+          "flowMask": 3,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-04",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-end",
+          "flowMask": 4,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-05",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-straight",
+          "flowMask": 5,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-06",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-bend",
+          "flowMask": 6,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-07",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-t-junction",
+          "flowMask": 7,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-08",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-end",
+          "flowMask": 8,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass",
+            "south": "grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-09",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-bend",
+          "flowMask": 9,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass",
+            "south": "grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-10",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-straight",
+          "flowMask": 10,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-11",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-t-junction",
+          "flowMask": 11,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-12",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-bend",
+          "flowMask": 12,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-13",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-t-junction",
+          "flowMask": 13,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-14",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-t-junction",
+          "flowMask": 14,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        },
+        {
+          "id": "mask-15",
+          "terrain": "river-on-grass",
+          "layer": "ground",
+          "cornerRole": "river-cross",
+          "flowMask": 15,
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|bank|water|bank|grass",
+            "east": "grass|bank|water|bank|grass",
+            "south": "grass|bank|water|bank|grass",
+            "west": "grass|bank|water|bank|grass"
+          },
+          "collision": "not-assigned; game would own water traversal rules",
+          "visualStatus": "candidate-port-widths-vary"
+        }
+      ]
+    },
+    {
+      "id": "stone-bridge",
+      "kind": "cutout-atlas",
+      "source": "ArtSource/WorldComponentsV1/stone-bridges-master.png",
+      "generatedImage": "exec-cae781cb-327f-4a50-8b9f-e7fddf92ed67",
+      "columns": 2,
+      "rows": 2,
+      "tileSize": 64,
+      "padding": 2,
+      "alphaThreshold": 128,
+      "tiles": [
+        {
+          "id": "span-ns",
+          "terrain": "stone-bridge",
+          "layer": "structure-overlay",
+          "cornerRole": "complete-span",
+          "variantRole": "stone-span",
+          "walkMask": 5,
+          "waterFlowMask": 10,
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "stone-walkway",
+            "east": "water-underlay",
+            "south": "stone-walkway",
+            "west": "water-underlay"
+          },
+          "collision": "none; game would own crossing and bank placement",
+          "visualStatus": "candidate-overlay-endpoints-unapproved"
+        },
+        {
+          "id": "span-ew",
+          "terrain": "stone-bridge",
+          "layer": "structure-overlay",
+          "cornerRole": "complete-span",
+          "variantRole": "stone-span",
+          "walkMask": 10,
+          "waterFlowMask": 5,
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "water-underlay",
+            "east": "stone-walkway",
+            "south": "water-underlay",
+            "west": "stone-walkway"
+          },
+          "collision": "none; game would own crossing and bank placement",
+          "visualStatus": "candidate-overlay-endpoints-unapproved"
+        },
+        {
+          "id": "abutment-ns-candidate",
+          "terrain": "stone-bridge",
+          "layer": "structure-overlay",
+          "cornerRole": "abutment-candidate-not-certified-join",
+          "variantRole": "short-span-like-abutment-candidate",
+          "walkMask": 5,
+          "waterFlowMask": 10,
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "stone-walkway",
+            "east": "water-underlay",
+            "south": "stone-walkway",
+            "west": "water-underlay"
+          },
+          "collision": "none; game would own crossing and bank placement",
+          "visualStatus": "candidate-overlay-endpoints-unapproved"
+        },
+        {
+          "id": "abutment-ew-candidate",
+          "terrain": "stone-bridge",
+          "layer": "structure-overlay",
+          "cornerRole": "abutment-candidate-not-certified-join",
+          "variantRole": "short-span-like-abutment-candidate",
+          "walkMask": 10,
+          "waterFlowMask": 5,
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "water-underlay",
+            "east": "stone-walkway",
+            "south": "water-underlay",
+            "west": "stone-walkway"
+          },
+          "collision": "none; game would own crossing and bank placement",
+          "visualStatus": "candidate-overlay-endpoints-unapproved"
+        }
+      ]
+    },
+    {
+      "id": "mountain",
+      "kind": "cutout-atlas",
+      "source": "ArtSource/WorldComponentsV1/gold-rock-mountains-master.png",
+      "generatedImage": "exec-fee63bbd-ca97-42aa-ae77-01737e079050",
+      "columns": 2,
+      "rows": 2,
+      "tileSize": 64,
+      "padding": 2,
+      "alphaThreshold": 128,
+      "tiles": [
+        {
+          "id": "cluster-01",
+          "terrain": "gold-rock-mountain",
+          "layer": "terrain-prop",
+          "cornerRole": "isolated-rock-cluster-variant",
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "transparent-overlay",
+            "east": "transparent-overlay",
+            "south": "rock-footprint-overlay",
+            "west": "transparent-overlay"
+          },
+          "collision": "none; asset only, game would own mountain blocking",
+          "visualStatus": "cluster-candidate-not-ridge-autotile"
+        },
+        {
+          "id": "cluster-02",
+          "terrain": "gold-rock-mountain",
+          "layer": "terrain-prop",
+          "cornerRole": "isolated-rock-cluster-variant",
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "transparent-overlay",
+            "east": "transparent-overlay",
+            "south": "rock-footprint-overlay",
+            "west": "transparent-overlay"
+          },
+          "collision": "none; asset only, game would own mountain blocking",
+          "visualStatus": "cluster-candidate-not-ridge-autotile"
+        },
+        {
+          "id": "cluster-03",
+          "terrain": "gold-rock-mountain",
+          "layer": "terrain-prop",
+          "cornerRole": "isolated-rock-cluster-variant",
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "transparent-overlay",
+            "east": "transparent-overlay",
+            "south": "rock-footprint-overlay",
+            "west": "transparent-overlay"
+          },
+          "collision": "none; asset only, game would own mountain blocking",
+          "visualStatus": "cluster-candidate-not-ridge-autotile"
+        },
+        {
+          "id": "cluster-04",
+          "terrain": "gold-rock-mountain",
+          "layer": "terrain-prop",
+          "cornerRole": "isolated-rock-cluster-variant",
+          "anchor": {
+            "x": 0.5,
+            "y": 1,
+            "space": "normalized-canvas"
+          },
+          "ports": {
+            "north": "transparent-overlay",
+            "east": "transparent-overlay",
+            "south": "rock-footprint-overlay",
+            "west": "transparent-overlay"
+          },
+          "collision": "none; asset only, game would own mountain blocking",
+          "visualStatus": "cluster-candidate-not-ridge-autotile"
+        }
+      ]
+    },
+    {
+      "id": "ocean",
+      "source": "ArtSource/WorldComponentsV1/coast-island-master.png",
+      "generatedImage": "exec-8c0a5b55-2a6e-4aab-bb89-f4d8bbf15dd5",
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 128,
+        "height": 128
+      },
+      "columns": 1,
+      "rows": 1,
+      "tileSize": 32,
+      "sourceRole": "unobstructed-outer-water-corner",
+      "tiles": [
+        {
+          "id": "deepwater",
+          "terrain": "open-water",
+          "layer": "ground",
+          "cornerRole": "fill",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "water",
+            "east": "water",
+            "south": "water",
+            "west": "water"
+          },
+          "collision": "not assigned; game would own water traversal",
+          "visualStatus": "candidate-repeat-phase-unapproved"
+        }
+      ]
+    },
+    {
+      "id": "cliff",
+      "source": "ArtSource/WorldComponentsV1/natural-cliff-edges-master.png",
+      "generatedImage": "exec-a8b1f297-6970-43de-9b04-acc7f36cbc03",
+      "columns": 2,
+      "rows": 2,
+      "tileSize": 32,
+      "sourceRole": "grass-plateau-natural-earth-scarp-cardinal-edges",
+      "tiles": [
+        {
+          "id": "s",
+          "terrain": "grass-plateau-to-earth-scarp",
+          "layer": "terrain-edge",
+          "cornerRole": "cardinal-scarp-edge",
+          "highSide": "north",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass",
+            "east": "grass|rock-rim|earth",
+            "south": "earth",
+            "west": "grass|rock-rim|earth"
+          },
+          "collision": "not-assigned; asset only, game would own elevation and stairs",
+          "visualStatus": "candidate-cardinal-repeat-not-autotile-complete"
+        },
+        {
+          "id": "n",
+          "terrain": "grass-plateau-to-earth-scarp",
+          "layer": "terrain-edge",
+          "cornerRole": "cardinal-scarp-edge",
+          "highSide": "south",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "earth",
+            "east": "earth|rock-rim|grass",
+            "south": "grass",
+            "west": "earth|rock-rim|grass"
+          },
+          "collision": "not-assigned; asset only, game would own elevation and stairs",
+          "visualStatus": "candidate-cardinal-repeat-not-autotile-complete"
+        },
+        {
+          "id": "e",
+          "terrain": "grass-plateau-to-earth-scarp",
+          "layer": "terrain-edge",
+          "cornerRole": "cardinal-scarp-edge",
+          "highSide": "west",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "grass|rock-rim|earth",
+            "east": "earth",
+            "south": "grass|rock-rim|earth",
+            "west": "grass"
+          },
+          "collision": "not-assigned; asset only, game would own elevation and stairs",
+          "visualStatus": "candidate-cardinal-repeat-not-autotile-complete"
+        },
+        {
+          "id": "w",
+          "terrain": "grass-plateau-to-earth-scarp",
+          "layer": "terrain-edge",
+          "cornerRole": "cardinal-scarp-edge",
+          "highSide": "east",
+          "anchor": {
+            "x": 0,
+            "y": 0,
+            "space": "tile-top-left"
+          },
+          "ports": {
+            "north": "earth|rock-rim|grass",
+            "east": "grass",
+            "south": "earth|rock-rim|grass",
+            "west": "earth"
+          },
+          "collision": "not-assigned; asset only, game would own elevation and stairs",
+          "visualStatus": "candidate-cardinal-repeat-not-autotile-complete"
+        }
+      ]
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "coast-original-island",
+      "tileSize": 32,
+      "cells": [
+        [
+          "coast/nw",
+          "coast/n",
+          "coast/ne"
+        ],
+        [
+          "coast/w",
+          "coast/grass",
+          "coast/e"
+        ],
+        [
+          "coast/sw",
+          "coast/s",
+          "coast/se"
+        ]
+      ],
+      "notes": "Original 3x3 island registration. Thin bank and foam stay between grass and water; compare against extended island."
+    },
+    {
+      "id": "coast-extended-island",
+      "tileSize": 32,
+      "cells": [
+        [
+          "coast/nw",
+          "coast/n",
+          "coast/n",
+          "coast/n",
+          "coast/ne"
+        ],
+        [
+          "coast/w",
+          "coast/grass",
+          "coast/grass",
+          "coast/grass",
+          "coast/e"
+        ],
+        [
+          "coast/w",
+          "coast/grass",
+          "coast/grass",
+          "coast/grass",
+          "coast/e"
+        ],
+        [
+          "coast/sw",
+          "coast/s",
+          "coast/s",
+          "coast/s",
+          "coast/se"
+        ]
+      ],
+      "notes": "Repeated edges and center expose phase, boundary and terrain-width discontinuities; not certified seamless."
+    },
+    {
+      "id": "river-loop",
+      "tileSize": 32,
+      "cells": [
+        [
+          "river/mask-06",
+          "river/mask-10",
+          "river/mask-12"
+        ],
+        [
+          "river/mask-05",
+          "coast/grass",
+          "river/mask-05"
+        ],
+        [
+          "river/mask-03",
+          "river/mask-10",
+          "river/mask-09"
+        ]
+      ],
+      "notes": "Closed loop from actual bends and straight native tiles; inspect channel width and bank alignment at every join."
+    },
+    {
+      "id": "river-cross-branches",
+      "tileSize": 32,
+      "cells": [
+        [
+          "coast/grass",
+          "river/mask-04",
+          "coast/grass"
+        ],
+        [
+          "river/mask-02",
+          "river/mask-15",
+          "river/mask-08"
+        ],
+        [
+          "coast/grass",
+          "river/mask-01",
+          "coast/grass"
+        ]
+      ],
+      "notes": "Cross with four endcaps. Grass comes from the separate coast atlas, so palette mismatch is intentionally visible."
+    },
+    {
+      "id": "river-northsouth-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "river/mask-05",
+          "river/mask-05"
+        ],
+        [
+          "river/mask-05",
+          "river/mask-05"
+        ],
+        [
+          "river/mask-05",
+          "river/mask-05"
+        ],
+        [
+          "river/mask-05",
+          "river/mask-05"
+        ]
+      ],
+      "notes": "Repeated vertical straights show bank-width, line and phase continuity; two adjacent channels are an inspection fixture."
+    },
+    {
+      "id": "river-eastwest-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "river/mask-10",
+          "river/mask-10",
+          "river/mask-10",
+          "river/mask-10"
+        ]
+      ],
+      "notes": "Repeated horizontal straight channel reveals exact native joins."
+    },
+    {
+      "id": "ocean-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater"
+        ],
+        [
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater"
+        ],
+        [
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater"
+        ],
+        [
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater",
+          "ocean/deepwater"
+        ]
+      ],
+      "notes": "Unobstructed source water crop repeated in both axes. Inspect wave phase and border repetition; no seamlessness certification."
+    },
+    {
+      "id": "stone-bridge-candidates",
+      "tileSize": 64,
+      "background": "#28617e",
+      "cells": [
+        [
+          "stone-bridge/span-ns",
+          "stone-bridge/span-ew"
+        ],
+        [
+          "stone-bridge/abutment-ns-candidate",
+          "stone-bridge/abutment-ew-candidate"
+        ]
+      ],
+      "notes": "Native isolated stone bridge candidates on a contrasting review background. Abutments still resemble complete short spans, not verified attachable ends."
+    },
+    {
+      "id": "mountain-cluster-variants",
+      "tileSize": 64,
+      "background": "#3d7e3b",
+      "cells": [
+        [
+          "mountain/cluster-01",
+          "mountain/cluster-02"
+        ],
+        [
+          "mountain/cluster-03",
+          "mountain/cluster-04"
+        ]
+      ],
+      "notes": "Four isolated gold-rock cluster variants. Shape, baseline and alpha review; this is not a certified edge-joining ridge set."
+    },
+    {
+      "id": "cliff-cardinal-inventory",
+      "tileSize": 32,
+      "cells": [
+        [
+          "cliff/s",
+          "cliff/n"
+        ],
+        [
+          "cliff/e",
+          "cliff/w"
+        ]
+      ],
+      "notes": "Original four cardinal scarp roles: south/north/east/west; inspect raised-grass side and natural earth face."
+    },
+    {
+      "id": "cliff-south-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "cliff/s",
+          "cliff/s",
+          "cliff/s",
+          "cliff/s",
+          "cliff/s"
+        ]
+      ],
+      "notes": "South-facing ledge repeated horizontally: plateau is NORTH. Inspect edge phase, grass/earth balance and rock lip."
+    },
+    {
+      "id": "cliff-north-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "cliff/n",
+          "cliff/n",
+          "cliff/n",
+          "cliff/n",
+          "cliff/n"
+        ]
+      ],
+      "notes": "North-facing ledge repeated horizontally: plateau is SOUTH. Adjacent runs are candidates, not certified seamless."
+    },
+    {
+      "id": "cliff-east-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "cliff/e"
+        ],
+        [
+          "cliff/e"
+        ],
+        [
+          "cliff/e"
+        ],
+        [
+          "cliff/e"
+        ],
+        [
+          "cliff/e"
+        ]
+      ],
+      "notes": "East-facing scarp repeated vertically: plateau is WEST."
+    },
+    {
+      "id": "cliff-west-repeat",
+      "tileSize": 32,
+      "cells": [
+        [
+          "cliff/w"
+        ],
+        [
+          "cliff/w"
+        ],
+        [
+          "cliff/w"
+        ],
+        [
+          "cliff/w"
+        ],
+        [
+          "cliff/w"
+        ]
+      ],
+      "notes": "West-facing scarp repeated vertically: plateau is EAST."
+    }
+  ],
+  "pendingFamilies": [],
+  "references": [
+    {
+      "url": "https://cdn.vorxu.com/images/final-fantasy-2-pixel-remaster/walkthrough/altair-and-fynn/altair-to-gatrea.mp4",
+      "scope": "Narrow pale shoreline, blue water and opening grass/river palette"
+    },
+    {
+      "url": "https://cdn.vorxu.com/images/final-fantasy-2-pixel-remaster/walkthrough/altair-and-fynn/gatrea-to-fynn.mp4",
+      "scope": "River/bridge and lake-to-forest geography"
+    }
+  ],
+  "uncertainties": [
+    "The convex-island coast atlas lacks concave land corners and one-cell islands; a separate open-water candidate is cropped from the preserved outer-water corner.",
+    "River open ports vary in width and bank position. Metadata describes intended topology, not pixel-perfect compatible edges.",
+    "Atlas cells are candidates for assembly; native-size edge and repeat proofs must be inspected before any WFC/seamless claim.",
+    "Stone bridge abutment candidates still resemble complete short spans; modular endpoint joins are not certified.",
+    "Mountain outputs are transparent isolated cluster variants, not a validated connected ridge autotile set.",
+    "Deepwater is a clean outer-water crop from the preserved coast master; its repeat phase and exact joins are unapproved.",
+    "Cliff family supplies cardinal scarp edges only; convex/concave corners, stair cuts and exact ground-color compatibility remain unverified."
+  ],
+  "generationPrompts": "ArtSource/WorldComponentsV1/generation-prompts.json"
+}

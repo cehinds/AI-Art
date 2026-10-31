@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "kit": "altair-kit-v1",
+  "tileSize": 32,
+  "coordinateSystem": "Source-pixel coordinates; origin at canvas top-left; x increases right and y increases down.",
+  "layerOrder": [
+    "ground",
+    "terrain-edge",
+    "facade",
+    "roof",
+    "trim",
+    "detail",
+    "sign"
+  ],
+  "splitRule": "The complete generated building cutout is preserved as source. A hand-authored black/white roof mask separates existing source pixels into derived facade and roof layers; black pixels remain facade, white pixels become roof. Transparent margins are alpha-trimmed and layers are resized to the declared tile footprint with nearest-neighbor sampling.",
+  "dependencies": [
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/tiles/town/wall-cream-a.png",
+      "sha256": "3b2e661ebe4a758ce0e2a3719b8c899486695d853f6da3c548a9c41b68531222",
+      "role": "courtyard wall face; native 32x32 tile; preserve existing asset by reference"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/tiles/town/wall-cream-b.png",
+      "sha256": "b147bf52c2cff041ef7dda947cc4a647a6a7e36fedf7de07c74f876eb5cc7d71",
+      "role": "courtyard wall alternate face; native 32x32 tile; preserve existing asset by reference"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/world-tiles/terrace-expansion02/terrace-n.png",
+      "sha256": "7231c64d57cbc951c37e29e03e41be9404d2a0a40f24826246b696f79375bfa4",
+      "role": "terrain edge candidate; native 64x64 tile"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/world-tiles/terrace-expansion02/terrace-s.png",
+      "sha256": "76236e68b5a6d8e2f750ac9dabb5c06f85de43f32fbf7919fb7be2cf09cc3938",
+      "role": "terrain edge candidate; native 64x64 tile"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/world-tiles/terrace-expansion02/terrace-e.png",
+      "sha256": "9481467d07831a895b6e7e3456c9c472a0455b49f315b2f4b329a66b8269976c",
+      "role": "terrain edge candidate; native 64x64 tile"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/world-tiles/terrace-expansion02/terrace-w.png",
+      "sha256": "aaa2b8c3235285360a3e4d6d71c80ee653d71de10039bf3c2fb17f80139f9c92",
+      "role": "terrain edge candidate; native 64x64 tile"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/tiles/coast/bridge-vertical.png",
+      "sha256": "275b249584536224908a09ac595e6650057e0bd0affa6eb64f8b94fd0238cd4b",
+      "role": "vertical wooden bridge tile for opening river crossing; native 32x32"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/tiles/coast/bridge-horizontal.png",
+      "sha256": "d7ef4f901c600fffb818c5bab855bbad5900dc9cceb18a160438b5fe90794c11",
+      "role": "horizontal wooden bridge tile for opening river crossing; native 32x32"
+    },
+    {
+      "file": "Assets/Art/Production/Batch01/structures/16-stairs-down.png",
+      "sha256": "ff914b313aa2db6fc4a557a9f75cf39d69e954c591aae10dc25bc09fbfef0b9c",
+      "role": "existing 16x16 stairs-down sprite; visually dungeon-dark and not recommended for Altair without palette adjustment"
+    },
+    {
+      "file": "Assets/Art/Production/RemasterExpansion/tiles/castle/stairs.png",
+      "sha256": "1164659e5f7bfe47f36271fe04e58db17eb62bfbf4c835ed2bca173cb99132af",
+      "role": "existing 32x32 castle stair; visually dark stone and not recommended for Altair without palette adjustment"
+    }
+  ],
+  "objects": [
+    {
+      "id": "item-shop",
+      "name": "Item Shop",
+      "role": "narrow shop shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/narrow-shop.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/narrow-shop-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 3,
+        "height": 5
+      },
+      "anchor": {
+        "x": 48,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 96,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Generated shell shape; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "inn",
+      "name": "Inn",
+      "role": "wide inn shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/inn.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/inn-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 5,
+        "height": 5
+      },
+      "anchor": {
+        "x": 110,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 160,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Generated shell shape; door anchor estimated from generated image; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "headquarters",
+      "name": "Headquarters",
+      "role": "L-shaped headquarters, hall plus doorless southeast wing",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/headquarters-l-source-v4.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/headquarters-l-roof-mask-v4.png"
+      },
+      "tileFootprint": {
+        "width": 7,
+        "height": 9
+      },
+      "anchor": {
+        "x": 112,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 0,
+        "width": 224,
+        "height": 288
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "HQ main door centered at x3.5/7; lower wing has no extra door and preserves southwest transparent notch x<4,y>=5.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs",
+      "composition": {
+        "main": {
+          "source": "ArtSource/AltairKitV1/sources/headquarters-centered.png",
+          "output": {
+            "x": 0,
+            "y": 0,
+            "width": 224,
+            "height": 160
+          }
+        },
+        "wing": {
+          "source": "ArtSource/AltairKitV1/sources/headquarters-centered.png",
+          "intermediateCanvas": {
+            "width": 224,
+            "height": 160
+          },
+          "crop": {
+            "x": 0,
+            "y": 3,
+            "width": 96,
+            "height": 157
+          },
+          "output": {
+            "x": 128,
+            "y": 128,
+            "width": 96,
+            "height": 160
+          },
+          "notes": "alpha >=128 bounding crop of left 3/7 doorless hall section, then nearest resize to 96x160 at y128"
+        }
+      }
+    },
+    {
+      "id": "sanctuary",
+      "name": "Sanctuary",
+      "role": "chapel shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/sanctuary.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/sanctuary-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 7,
+        "height": 5
+      },
+      "anchor": {
+        "x": 112,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 224,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Generated shell shape; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "magic-shop",
+      "name": "Magic Shop",
+      "role": "narrow shop shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/narrow-shop.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/narrow-shop-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 3,
+        "height": 5
+      },
+      "anchor": {
+        "x": 48,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 96,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Shared narrow-shell source; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "armor-shop",
+      "name": "Armor Shop",
+      "role": "wide shop shell mirrored to place door at map cell 1",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/inn.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/inn-roof-mask.png"
+      },
+      "flipX": true,
+      "tileFootprint": {
+        "width": 5,
+        "height": 5
+      },
+      "anchor": {
+        "x": 50,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 160,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Shared inn shell mirrored for binder door alignment; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "home",
+      "name": "Home",
+      "role": "narrow house shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/narrow-shop.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/narrow-shop-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 3,
+        "height": 5
+      },
+      "anchor": {
+        "x": 48,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 96,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Shared narrow-shell source; Altair-specific details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "weapon-shop",
+      "name": "Weapon Shop",
+      "role": "wide shop shell mirrored to place door at map cell 1",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/inn.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/inn-roof-mask.png"
+      },
+      "flipX": true,
+      "tileFootprint": {
+        "width": 5,
+        "height": 5
+      },
+      "anchor": {
+        "x": 50,
+        "y": 160
+      },
+      "footprint": {
+        "x": 0,
+        "y": 128,
+        "width": 160,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Shared inn shell mirrored for binder door alignment; Altair-specific sign/details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    },
+    {
+      "id": "smithy",
+      "name": "Smithy",
+      "role": "narrow house shell",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/narrow-shop.png"
+      },
+      "roofMask": {
+        "path": "ArtSource/AltairKitV1/masks/narrow-shop-roof-mask.png"
+      },
+      "tileFootprint": {
+        "width": 3,
+        "height": 4
+      },
+      "anchor": {
+        "x": 48,
+        "y": 128
+      },
+      "footprint": {
+        "x": 0,
+        "y": 96,
+        "width": 96,
+        "height": 32
+      },
+      "collision": {
+        "type": "none"
+      },
+      "reference": "Shared narrow-shell source; Altair-specific details remain unverified.",
+      "runtimeCollision": "AI-Remake-FF2/Assets/FF2/Core/AltairTownPlan.cs"
+    }
+  ],
+  "extras": [
+    {
+      "id": "item",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 90,
+        "y": 84,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Potion icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "inn",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 592,
+        "y": 84,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Bed icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "sanctuary",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 1093,
+        "y": 84,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Star icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "magic",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 90,
+        "y": 584,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Wand icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "armor",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 592,
+        "y": 584,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Shield icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "weapon",
+      "kind": "signs",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/signs-raw.png"
+      },
+      "crop": {
+        "x": 1093,
+        "y": 584,
+        "width": 354,
+        "height": 354
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "flatten": {
+        "background": {
+          "r": 139,
+          "g": 90,
+          "b": 32
+        }
+      },
+      "notes": "Sword icon plaque; crop excludes outer glow."
+    },
+    {
+      "id": "fountain",
+      "kind": "props",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/fountain-raw.png"
+      },
+      "size": {
+        "width": 64,
+        "height": 64
+      },
+      "notes": "Alpha-trimmed generated fountain, nearest-neighbor resized to 64×64."
+    },
+    {
+      "id": "steps",
+      "kind": "terrain",
+      "source": {
+        "path": "ArtSource/AltairKitV1/sources/steps-raw.png"
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "notes": "Opaque cream sandstone outdoor stair tile; horizontal treads connect beside copies; vertical north-south traversal"
+    }
+  ],
+  "cropAlphaThreshold": 128
+}

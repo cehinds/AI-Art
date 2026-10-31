@@ -1,0 +1,130 @@
+{
+  "kit": "altair-kit-v1",
+  "generatedOn": "2026-10-30",
+  "generationTool": "image_gen",
+  "generatedBy": "root agent",
+  "promptRecords": "Original image_gen prompts are preserved in generation-prompts.json.",
+  "rawSources": [
+    {
+      "file": "sources/narrow-shop.png",
+      "outputId": "exec-4123d316-428c-421e-ba13-de8a50605d1d",
+      "sha256": "1e933dbdddacc594f3eeaa9ba686e5bebe937295a1fd1eb49c4d4812b9821f2f",
+      "usedFor": [
+        "item-shop",
+        "magic-shop",
+        "home",
+        "smithy",
+        "headquarters wing source archive; current wing uses centered HQ strip"
+      ]
+    },
+    {
+      "file": "sources/inn.png",
+      "outputId": "exec-6e27e0a4-a65a-4639-ac49-cc38343b9452",
+      "sha256": "e4b3249f462a2f663ce0c63f92a60599395c7127f2a31740cddc9dd259ba039b",
+      "usedFor": [
+        "inn",
+        "armor-shop mirrored",
+        "weapon-shop mirrored"
+      ]
+    },
+    {
+      "file": "sources/sanctuary.png",
+      "outputId": "exec-41b9e676-4f17-402e-900a-1383c68a1c2c",
+      "sha256": "88aa2e80954876e7321e6c5428f0d221141e2e7ffb6163bfb7a7bc01e0ede387",
+      "usedFor": [
+        "sanctuary"
+      ]
+    },
+    {
+      "file": "sources/headquarters.png",
+      "outputId": "exec-c83b1cfc-1d96-4c0b-8847-45b21cdf2c20",
+      "sha256": "7a83d34af6c6d5c1bbc171919e218fe9a51a512f419fe75925996a265216f43f",
+      "status": "preserved; rejected for off-center doorway"
+    },
+    {
+      "file": "sources/headquarters-centered.png",
+      "outputId": "exec-0b18014f-c207-4d38-b649-6180119d4384",
+      "sha256": "6af245b294db8502cc06288e229d8aa32d2e7ad6214b41e22d2abccc679dc504",
+      "usedFor": [
+        "headquarters main hall and doorless L wing source"
+      ]
+    },
+    {
+      "file": "sources/signs-raw.png",
+      "outputId": "exec-8223dd71-68c0-4e16-81ff-3da7d65af4ba",
+      "sha256": "6fc6b51ad4aa7a306172e99ec4b977ed6dfb4a2399d9ecfcd01636f88333b3cb",
+      "usedFor": [
+        "six cropped 32x32 opaque sign plaques"
+      ]
+    },
+    {
+      "file": "sources/fountain-raw.png",
+      "outputId": "exec-cfbe0c58-0130-4fe4-bd6e-dc0d751ed7d3",
+      "sha256": "06fbec74b76bef2a2a5c3cc93f8753711918925edc6738aca09997ede73c8aa1",
+      "usedFor": [
+        "fountain prop, alpha-trimmed and resized 64x64"
+      ]
+    },
+    {
+      "file": "sources/steps-raw.png",
+      "outputId": "exec-8005dba0-2889-4e18-9f96-1acac19b65cb",
+      "sha256": "1cdc1da7fa71cd802c8a3003c738ef6bfe6322114d8075d910eb654db5556328",
+      "usedFor": [
+        "terrain/steps.png"
+      ]
+    }
+  ],
+  "derivedMasks": {
+    "narrow-shop-roof-mask.png": "binary horizontal eave split at 55% of alpha-trimmed source height",
+    "inn-roof-mask.png": "binary horizontal eave split at 50% of alpha-trimmed source height",
+    "sanctuary-roof-mask.png": "binary horizontal eave split at 52% of alpha-trimmed source height",
+    "headquarters-l-roof-mask-v2.png": "main hall roof through y=90 of 160px normalized height; wing roof through y=218 on the 224x288 canvas",
+    "headquarters-l-roof-mask-v3.png": "main hall roof through y=90; separately alpha-trimmed wing roof through y=212 on 224x288 canvas",
+    "headquarters-l-roof-mask-v4.png": "main hall roof through y=90; alpha-threshold-trimmed wing roof through y=212 on 224x288 canvas"
+  },
+  "derivedComposite": {
+    "headquarters-l-source-v2.png": "superseded by V3 after reviewing HQ contact sheet; its wing retained transparent roofline padding",
+    "headquarters-l-source-v3.png": "superseded after threshold-aware normalization; current source is V4",
+    "headquarters-l-source-v4.png": "224x288 canvas; alpha>=128-trimmed centered HQ main normalized to 224x160 at (0,0); left hall strip alpha>=128 crop x0,y3,w96,h157 nearest resized to 96x160 at (128,128); doorless wing overlaps main, southwest notch remains transparent"
+  },
+  "signCropSourceRectangles": {
+    "item": {
+      "x": 90,
+      "y": 84,
+      "width": 354,
+      "height": 354
+    },
+    "inn": {
+      "x": 592,
+      "y": 84,
+      "width": 354,
+      "height": 354
+    },
+    "sanctuary": {
+      "x": 1093,
+      "y": 84,
+      "width": 354,
+      "height": 354
+    },
+    "magic": {
+      "x": 90,
+      "y": 584,
+      "width": 354,
+      "height": 354
+    },
+    "armor": {
+      "x": 592,
+      "y": 584,
+      "width": 354,
+      "height": 354
+    },
+    "weapon": {
+      "x": 1093,
+      "y": 584,
+      "width": 354,
+      "height": 354
+    }
+  },
+  "promptFile": "generation-prompts.json",
+  "cropAlphaThreshold": 128
+}

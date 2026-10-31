@@ -1,0 +1,225 @@
+{
+  "status": "Asset-only phase; no new game integration. Proposed native dimensions are authoring contracts, not extracted retail engine metadata.",
+  "worldPixelsPerTile": 32,
+  "productionRoot": "Assets/Art/Production/InteriorComponentsV1/",
+  "preserveRawMastersUnder": "ArtSource/InteriorComponentsV1/sources/",
+  "normalization": "Nearest-neighbor only; opaque cells retain complete crop; cutout cells use alpha>=128 trim, binary alpha, aspect-preserving fit and bottom-center anchor.",
+  "components": [
+    {
+      "id": "north-wall-center",
+      "priority": "P0",
+      "path": "walls/north-center.png",
+      "size": [
+        32,
+        64
+      ],
+      "alpha": "opaque",
+      "contract": "horizontal repeat; side posts align; bottom is floor junction",
+      "reference": "PR Scott / Tobul north walls"
+    },
+    {
+      "id": "warm-flagstone",
+      "priority": "P1",
+      "path": "floors/warm-flagstone.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha": "opaque",
+      "contract": "repeat both axes; no border or objects",
+      "reference": "PR Scott floor"
+    },
+    {
+      "id": "red-carpet-field",
+      "priority": "P1",
+      "path": "floors/red-carpet-field.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha": "opaque",
+      "contract": "repeat both axes; no medallion or border",
+      "reference": "PR Tobul floor field"
+    },
+    {
+      "id": "shop-rug",
+      "priority": "P1",
+      "path": "rugs/shop-cream-lilac.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha": "opaque",
+      "contract": "constant border; cream/lilac geometric weave",
+      "reference": "PR Tobul customer rug"
+    },
+    {
+      "id": "refuge-rug",
+      "priority": "P1",
+      "path": "rugs/refuge-blue-cream.png",
+      "size": [
+        64,
+        96
+      ],
+      "alpha": "opaque",
+      "contract": "constant border; blue/cream geometric weave",
+      "reference": "PR Scott bed niche"
+    },
+    {
+      "id": "counter-straight",
+      "priority": "P1",
+      "path": "props/counter-straight.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "bottom-center base anchor; front face and top",
+      "reference": "PR Tobul service counter"
+    },
+    {
+      "id": "counter-corner",
+      "priority": "P1",
+      "path": "props/counter-corner.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "L join; match straight counter top/front",
+      "reference": "PR Tobul service counter"
+    },
+    {
+      "id": "forge",
+      "priority": "P1",
+      "path": "props/forge.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "base anchor; transparent background; no characters",
+      "reference": "PR Tobul east work bay"
+    },
+    {
+      "id": "tall-bookshelf",
+      "priority": "P2",
+      "path": "props/tall-bookshelf.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "upright shelf at furniture scale; bottom-center base",
+      "reference": "PR Scott north-east shelf"
+    },
+    {
+      "id": "bed",
+      "priority": "P2",
+      "path": "props/bed.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "single bed; bottom-center footprint; no occupant",
+      "reference": "PR Scott bed"
+    },
+    {
+      "id": "turquoise-throne",
+      "priority": "P2",
+      "path": "props/turquoise-throne.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "front-facing backrest; bottom-center base",
+      "reference": "PR Hilda throne pair"
+    },
+    {
+      "id": "storage-crates",
+      "priority": "P2",
+      "path": "props/storage-crates.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "stacked crates, bottom-center base",
+      "reference": "PR Scott storage"
+    },
+    {
+      "id": "small-table",
+      "priority": "P2",
+      "path": "props/small-table.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha": "cutout",
+      "contract": "table and proportional front legs, bottom-center",
+      "reference": "PR Scott sitting area"
+    },
+    {
+      "id": "dialogue-frame",
+      "priority": "P1",
+      "path": "ui/dialogue-frame.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha": "opaque",
+      "contract": "silver/light teal rim; cobalt to navy; 8px nine-slice border",
+      "reference": "PR Hilda top dialogue"
+    },
+    {
+      "id": "speaker-tab",
+      "priority": "P1",
+      "path": "ui/speaker-tab.png",
+      "size": [
+        96,
+        24
+      ],
+      "alpha": "cutout",
+      "contract": "blank tab; no text; cobalt face; border",
+      "reference": "PR Hilda speaker tab"
+    },
+    {
+      "id": "menu-panel",
+      "priority": "P2",
+      "path": "ui/menu-panel.png",
+      "size": [
+        96,
+        96
+      ],
+      "alpha": "opaque",
+      "contract": "silver frame; cobalt/navy center; 8px nine-slice",
+      "reference": "PR status sidebar / main panel"
+    },
+    {
+      "id": "proficiency-gauge",
+      "priority": "P2",
+      "path": "ui/proficiency-gauge.png",
+      "size": [
+        64,
+        8
+      ],
+      "alpha": "opaque",
+      "contract": "light border, empty navy track, separable warm fill later",
+      "reference": "PR status gauges"
+    },
+    {
+      "id": "approved-cursor-option-10",
+      "priority": "REUSE",
+      "path": "Assets/Art/Production/BattleUiV4/menu-hand-right.png",
+      "size": [
+        32,
+        24
+      ],
+      "alpha": "existing",
+      "contract": "preserve exact existing bytes/hotspot; no replacement",
+      "reference": "User approved option 10, CombatInputValidation.md"
+    }
+  ]
+}
