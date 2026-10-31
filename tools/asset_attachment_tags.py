@@ -315,6 +315,94 @@ def is_source_fragment_evidence(doc):
             for layer in layers))
 
 
+def verified_reconstruction_documents(root):
+    """Preserve byte-bound build products only after checking their receipt.
+
+    This is deliberately a typed release contract, not a directory exemption.
+    Unlisted JSON and incomplete receipts still receive editorial enrichment.
+    A recognized receipt with broken hashes fails closed before any writes.
+    """
+    base = root / 'concept-reconstruction'
+    receipt = base / 'build-report.json'
+    if not receipt.is_file():
+        return set()
+    report = json.loads(receipt.read_text())
+    outputs = report.get('outputs')
+    required = {'manifest.json', 'derived/catalog.json', 'derived/validation.json',
+                'procedural/recipe.json', 'concept-generator.zip',
+                'combat-concept-components.zip', 'combat-concept.ora',
+                'reconstructed.png', 'diff.png', 'coverage-map.png'}
+    if (report.get('schemaVersion') != 1 or not isinstance(outputs, dict)
+            or not required <= outputs.keys()
+            or report.get('sourceReplay') != {'unassignedPixels': 0, 'changedPixels': 0}
+            or not isinstance(report.get('status'), str)):
+        return set()
+    preserved = {receipt}
+    for name, digest in outputs.items():
+        path = (base / name).resolve()
+        if (not path.is_relative_to(base.resolve()) or not isinstance(digest, str)
+                or re.fullmatch(r'[0-9a-f]{64}', digest) is None
+                or not path.is_file() or path.is_symlink()
+                or hashlib.sha256(path.read_bytes()).hexdigest() != digest):
+            raise ValueError(f'Invalid reconstruction build evidence: {name}')
+        if path.suffix == '.json':
+            preserved.add(path)
+    # Evidence declares a catalog and executable recipe, rather than merely
+    # providing a hash for an arbitrary asset manifest.
+    catalog = json.loads((base / 'derived/catalog.json').read_text())
+    recipe = json.loads((base / 'procedural/recipe.json').read_text())
+    if (catalog.get('schemaVersion') != 1 or not isinstance(catalog.get('assets'), list)
+            or not catalog['assets'] or not isinstance(catalog.get('roles'), dict)
+            or recipe.get('schemaVersion') != 2
+            or not isinstance(recipe.get('$schema'), str)
+            or not isinstance(recipe.get('entities'), list)):
+        raise ValueError('Invalid reconstruction catalog/recipe evidence types')
+    stats = base / 'stats.json'
+    if stats.is_file():
+        statistics = json.loads(stats.read_text())
+        manifest = json.loads((base / 'manifest.json').read_text())
+        expected_keys = {'sourceSha256', 'unassignedPixels', 'changedPixels', 'maxChannelError', 'categoryStats'}
+        if (set(statistics) == expected_keys
+                and all(statistics[key] == manifest.get(key) for key in expected_keys)):
+            preserved.add(stats)
+    reproducibility = base / 'reproducibility-report.json'
+    if reproducibility.is_file():
+        proof = json.loads(reproducibility.read_text())
+        archive_names = {'combat-concept-components.zip', 'concept-generator.zip', 'combat-concept.ora'}
+        if (proof.get('schemaVersion') != 1 or proof.get('verdict') != 'PASS'
+                or proof.get('aggregateOutputsEqual') != len(outputs)
+                or not isinstance(proof.get('sharedAssetFilesEqual'), int)
+                or proof['sharedAssetFilesEqual'] <= 0
+                or proof.get('archives') != {name: outputs[name] for name in archive_names}
+                or proof.get('portableUnpackTest', {}).get('packageHashes') != 'PASS'
+                or proof.get('portableUnpackTest', {}).get('repeatedOutputBytes') != 'PASS'):
+            raise ValueError('Invalid reconstruction reproducibility evidence')
+        preserved.add(reproducibility)
+    return preserved
+
+
+def is_verified_portable_archive(archive):
+    """A complete hash manifest binds every portable member to its package."""
+    if 'package-manifest.json' not in archive.namelist():
+        return False
+    doc = json.loads(archive.read('package-manifest.json'))
+    if doc.get('schemaVersion') != 1 or not isinstance(doc.get('sha256'), dict):
+        return False
+    names = {info.filename for info in archive.infolist() if not info.is_dir()}
+    if any(Path(name).is_absolute() or '..' in Path(name).parts for name in names):
+        raise ValueError('Unsafe portable package member')
+    hashes = doc['sha256']
+    if (set(hashes) != names - {'package-manifest.json'}
+            or not isinstance(doc.get('requiredEntries'), list)
+            or not set(doc['requiredEntries']) <= names):
+        raise ValueError('Incomplete portable package manifest')
+    for name, digest in hashes.items():
+        if (not isinstance(digest, str) or re.fullmatch(r'[0-9a-f]{64}', digest) is None
+                or hashlib.sha256(archive.read(name)).hexdigest() != digest):
+            raise ValueError(f'Invalid portable package member digest: {name}')
+    return True
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -390,6 +478,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
+    verified_documents = verified_reconstruction_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
@@ -433,7 +522,7 @@ def apply(root=DEFAULT_ASSETS, check=False):
             preserved_generation_documents += 1
             continue
         doc = json.loads(path.read_text())
-        if is_source_fragment_evidence(doc):
+        if path in verified_documents or is_source_fragment_evidence(doc):
             preserved_generation_documents += 1
             continue
         local = next((items for pack, items in by_pack if path.is_relative_to(pack)), {})
@@ -518,6 +607,9 @@ def refresh_legacy_archives(root=DEFAULT_ASSETS, check=False):
         with ZipFile(path) as archive:
             infos = archive.infolist()
             if len({i.filename for i in infos}) != len(infos):raise ValueError(f'Duplicate archive members: {relative}')
+            # A portable build is self-contained and hash-bound; external JSON
+            # substitutions would invalidate its manifest and build receipt.
+            if is_verified_portable_archive(archive):continue
             for info in infos:
                 name = Path(info.filename)
                 if name.is_absolute() or '..' in name.parts:raise ValueError(f'Unsafe archive member: {relative}')
