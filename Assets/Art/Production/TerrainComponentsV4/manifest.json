@@ -1,0 +1,2074 @@
+{
+  "schemaVersion": 4,
+  "kit": "terrain-components-v4",
+  "status": "palette-density-reference-review-only",
+  "configSha256": "ddcdde90103fd13646a08e067f646c0b8992de68da97c21c3c8548fe19206685",
+  "sources": [
+    {
+      "file": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sha256": "f5cf308d3c968ee426b408e7930e7af7bb463a634bc5089ae3a95f57c5e219aa",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/river-scene-refined-review-master.png",
+      "sha256": "76106b250cb8203e82217b3dad5220cfe8da6a4d623c128df2c08f0ac3ef1c60",
+      "width": 870,
+      "height": 1808
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sha256": "1ec96ad68f6e128b71f80e2726d9553b3b48eeeade827262cec6d6c6ab28b80f",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/iterations/river-narrow-first-pass.png",
+      "sha256": "cf4cb167cb23614633401ffd3ab9835a1cfa90e0eacece89335ccc5d18c6d358",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/design-guides/river-width-layout-guide.png",
+      "sha256": "9e304c22609129398fc16e6d2ff07b81433f0ce43d3a0abcb91a9ec7a4e503ce",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/design-guides/river-width-layout-guide.svg",
+      "sha256": "ae94de88d5137b59ebb819a172e69408dda96b1058a9ba8405076c041c1b1a5c",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/generation-prompts.json",
+      "sha256": "06c75df1b38e8f31aa5a711c3d32d6062b8e427ab16998ba6ac4004e20fb9be2"
+    },
+    {
+      "file": "ArtSource/TerrainComponentsV4/iterations/river-scene-first-master.png",
+      "sha256": "5688518f941b03589ca56f87e399fec55802957f3b192f82c416ca3fd2c92ff5",
+      "width": 870,
+      "height": 1807
+    }
+  ],
+  "assets": [
+    {
+      "id": "grass/material-64",
+      "file": "Assets/Art/Production/TerrainComponentsV4/grass/material-64.png",
+      "width": 64,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "0dc9b3311c6e6e282c74bdb9447411e467a7c5f1b09497c6c544293494ae13fa",
+      "family": "grass-material",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 627,
+        "height": 627
+      },
+      "normalization": "selected half-source627px crop at64 preserving coarser2px grain; reflected4px source strips at32-grid and64-wrap connections",
+      "layer": "ground",
+      "collisionIntent": "walkable grass intent; no integration",
+      "logicalTileSpan": [
+        2,
+        2
+      ],
+      "statistics": {
+        "meanRgb": [
+          105.07,
+          178.8,
+          54.61
+        ],
+        "medianRgb": [
+          92,
+          169,
+          54
+        ]
+      },
+      "sourceStatisticsAt64": {
+        "meanRgb": [
+          105.03,
+          178.91,
+          54.45
+        ],
+        "medianRgb": [
+          91,
+          169,
+          54
+        ]
+      },
+      "tags": [
+        "grass",
+        "bright-lime",
+        "64px-texture-pitch"
+      ]
+    },
+    {
+      "id": "grass/phase-0-0",
+      "file": "Assets/Art/Production/TerrainComponentsV4/grass/phase-0-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "805c224bd66157ca4198785f3e93b9eb3672ff1a8450db632ab8beb51648aee5",
+      "family": "grass-phase",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sourceNativeCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 32,
+        "height": 32
+      },
+      "phase": [
+        0,
+        0
+      ],
+      "ports": {
+        "N": "grass-ywrap-x0",
+        "S": "grass-ymiddle-x0",
+        "W": "grass-xwrap-y0",
+        "E": "grass-xmiddle-y0"
+      },
+      "layer": "ground",
+      "collisionIntent": "walkable grass intent; no integration",
+      "tags": [
+        "grass",
+        "32px-logical-tile",
+        "registered64px-phase"
+      ]
+    },
+    {
+      "id": "grass/phase-1-0",
+      "file": "Assets/Art/Production/TerrainComponentsV4/grass/phase-1-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2c7ce91f6d2fe3c7030b074077b8c9c5fc7486211096d29760b83fbff54c6739",
+      "family": "grass-phase",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sourceNativeCrop": {
+        "left": 32,
+        "top": 0,
+        "width": 32,
+        "height": 32
+      },
+      "phase": [
+        1,
+        0
+      ],
+      "ports": {
+        "N": "grass-ywrap-x1",
+        "S": "grass-ymiddle-x1",
+        "W": "grass-xmiddle-y0",
+        "E": "grass-xwrap-y0"
+      },
+      "layer": "ground",
+      "collisionIntent": "walkable grass intent; no integration",
+      "tags": [
+        "grass",
+        "32px-logical-tile",
+        "registered64px-phase"
+      ]
+    },
+    {
+      "id": "grass/phase-0-1",
+      "file": "Assets/Art/Production/TerrainComponentsV4/grass/phase-0-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0946adb1652bd929a7b4c7e3af3f153b417d8d8e9efb0ad52011684c31276e95",
+      "family": "grass-phase",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sourceNativeCrop": {
+        "left": 0,
+        "top": 32,
+        "width": 32,
+        "height": 32
+      },
+      "phase": [
+        0,
+        1
+      ],
+      "ports": {
+        "N": "grass-ymiddle-x0",
+        "S": "grass-ywrap-x0",
+        "W": "grass-xwrap-y1",
+        "E": "grass-xmiddle-y1"
+      },
+      "layer": "ground",
+      "collisionIntent": "walkable grass intent; no integration",
+      "tags": [
+        "grass",
+        "32px-logical-tile",
+        "registered64px-phase"
+      ]
+    },
+    {
+      "id": "grass/phase-1-1",
+      "file": "Assets/Art/Production/TerrainComponentsV4/grass/phase-1-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c52045f59ee61828a2fa1eb04b1f94fa27335c7e5b61883641cf5e1e2b92e7c1",
+      "family": "grass-phase",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/grass-master.png",
+      "sourceNativeCrop": {
+        "left": 32,
+        "top": 32,
+        "width": 32,
+        "height": 32
+      },
+      "phase": [
+        1,
+        1
+      ],
+      "ports": {
+        "N": "grass-ymiddle-x1",
+        "S": "grass-ywrap-x1",
+        "W": "grass-xmiddle-y1",
+        "E": "grass-xwrap-y1"
+      },
+      "layer": "ground",
+      "collisionIntent": "walkable grass intent; no integration",
+      "tags": [
+        "grass",
+        "32px-logical-tile",
+        "registered64px-phase"
+      ]
+    },
+    {
+      "id": "ground/woodland-32",
+      "file": "Assets/Art/Production/TerrainComponentsV4/ground/woodland-32.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "abb6e3653f7837f7a1af8cc9677f3288d67395efd3e9eff0b784ad5f25634d3f",
+      "family": "woodland-ground",
+      "alpha": "opaque",
+      "source": "ArtSource/TerrainComponentsV4/river-scene-refined-review-master.png",
+      "sourceOperations": [
+        {
+          "operation": "whole scene nearest resize",
+          "width": 130,
+          "height": 270
+        },
+        {
+          "operation": "clean nonriver/nontree crop",
+          "left": 0,
+          "top": 95,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "operation": "reflected4px source edge bands"
+        }
+      ],
+      "layer": "ground",
+      "collisionIntent": "walkable woodland ground intent only",
+      "ports": {
+        "N": "woodland",
+        "E": "woodland",
+        "S": "woodland",
+        "W": "woodland"
+      },
+      "statistics": {
+        "meanRgb": [
+          37.3,
+          99.49,
+          89.44
+        ],
+        "medianRgb": [
+          28,
+          92,
+          91
+        ]
+      },
+      "tags": [
+        "woodland-ground",
+        "generated-scene-material-crop",
+        "32px-logical-tile"
+      ]
+    },
+    {
+      "id": "river/0",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4c3b7f696f7f8b66e79fc8ae28d15199b88de33bb8068b7fad38cec940fd0fe8",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 0,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 44,
+        "top": 32,
+        "width": 420,
+        "height": 420
+      },
+      "sourceCell": [
+        0,
+        0
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 76939,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "clear",
+        "S": "clear",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "pond"
+      ]
+    },
+    {
+      "id": "river/1",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a63ba061a2672359dd966cbf3fa4330e029dd3bbb4897357eb0331e5e64a801a",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 1,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "N end: straight top half and authored pond bottom half",
+      "sourceComponents": [
+        {
+          "cell": 0,
+          "sourceCrop": {
+            "left": 44,
+            "top": 32,
+            "width": 420,
+            "height": 420
+          },
+          "sourceCell": [
+            0,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 76939,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "clear",
+        "S": "clear",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "end"
+      ]
+    },
+    {
+      "id": "river/2",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "de6358b40e54e2a1de214fb56e6e002b87980f0790d18c3edee3ce4514fb7483",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 2,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "N end: straight top half and authored pond bottom half",
+      "sourceComponents": [
+        {
+          "cell": 0,
+          "sourceCrop": {
+            "left": 44,
+            "top": 32,
+            "width": 420,
+            "height": 420
+          },
+          "sourceCell": [
+            0,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 76939,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 90,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "river-open",
+        "S": "clear",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "end"
+      ]
+    },
+    {
+      "id": "river/3",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6125646a95d6fa1f88d8d5b3b0e5d96e8c71abf1c61c716813b3a15f9c15ec3d",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 3,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 48,
+        "top": 608,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        0,
+        1
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 74383,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "clear",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "corner"
+      ]
+    },
+    {
+      "id": "river/4",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e8f0a66c1e06d467fb807f5c41f02c9bd84e1eb91a1bd9381a348cc9c3e6e2b4",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 4,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "N end: straight top half and authored pond bottom half",
+      "sourceComponents": [
+        {
+          "cell": 0,
+          "sourceCrop": {
+            "left": 44,
+            "top": 32,
+            "width": 420,
+            "height": 420
+          },
+          "sourceCell": [
+            0,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 76939,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 180,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "clear",
+        "S": "river-open",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "end"
+      ]
+    },
+    {
+      "id": "river/5",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "509eb00742c275c06845841cba7866b6d6f0fc144790caa1a5a5fc5b88ea8d97",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 5,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 1096,
+        "top": 84,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        2,
+        0
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 92055,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "clear",
+        "S": "river-open",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "straight"
+      ]
+    },
+    {
+      "id": "river/6",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d0c84045453f0070ca4906dcdb4421dd5ab779f73815a12f9f8345bab50d49cc",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 6,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 48,
+        "top": 608,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        0,
+        1
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 74383,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 90,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "corner"
+      ]
+    },
+    {
+      "id": "river/7",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "61e6f26ef5d81c44f7b16914afd7e9623c2682a75552e40374bc2320e8c97c68",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 7,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "NES T: straight left half and rotated authored bend right quarters",
+      "sourceComponents": [
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 3,
+          "sourceCrop": {
+            "left": 48,
+            "top": 608,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            0,
+            1
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 74383,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "clear"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "t-junction"
+      ]
+    },
+    {
+      "id": "river/8",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "31a3d0159023ab11c3b568f614948b554661430eb2b3b9bcf6567d5bbe43c7fb",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 8,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "N end: straight top half and authored pond bottom half",
+      "sourceComponents": [
+        {
+          "cell": 0,
+          "sourceCrop": {
+            "left": 44,
+            "top": 32,
+            "width": 420,
+            "height": 420
+          },
+          "sourceCell": [
+            0,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 76939,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 270,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "clear",
+        "S": "clear",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "end"
+      ]
+    },
+    {
+      "id": "river/9",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "145550c160f3be2d95fa069dc7dd48e0a3becc8479fbd99c36756a5fc49b97b2",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 9,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 48,
+        "top": 608,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        0,
+        1
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 74383,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 270,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "clear",
+        "S": "clear",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "corner"
+      ]
+    },
+    {
+      "id": "river/10",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "49400c155ad79a61fe25177932bbd92765e520e9c24fc7f43835daa13cf365d4",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 10,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 1096,
+        "top": 84,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        2,
+        0
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 92055,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 90,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "river-open",
+        "S": "clear",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "straight"
+      ]
+    },
+    {
+      "id": "river/11",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d0576c4be9753a158bb97432785e827b8ac83f5a4186cce848538b570de2ddb4",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 11,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "NES T: straight left half and rotated authored bend right quarters",
+      "sourceComponents": [
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 3,
+          "sourceCrop": {
+            "left": 48,
+            "top": 608,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            0,
+            1
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 74383,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 270,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "clear",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "t-junction"
+      ]
+    },
+    {
+      "id": "river/12",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "dc6576188fc91114d7722e3584052a474d19f6c0cc04fb88ac7aab798f84b884",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 12,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": {
+        "left": 48,
+        "top": 608,
+        "width": 350,
+        "height": 350
+      },
+      "sourceCell": [
+        0,
+        1
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "primaryPixels": 74383,
+        "removedDetachedPixels": 0
+      },
+      "rotationClockwise": 180,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "clear",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "corner"
+      ]
+    },
+    {
+      "id": "river/13",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ed4fb1bcb1652ee4d40ceefd5676c0777fedc5010a5de07a255e76f40ad298d6",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 13,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "NES T: straight left half and rotated authored bend right quarters",
+      "sourceComponents": [
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 3,
+          "sourceCrop": {
+            "left": 48,
+            "top": 608,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            0,
+            1
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 74383,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 180,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "clear",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "t-junction"
+      ]
+    },
+    {
+      "id": "river/14",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0f195d1fc72d44a05f1b0720679ed9e6bcc57ab643756684f2d7b2c96fb700b5",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 14,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "NES T: straight left half and rotated authored bend right quarters",
+      "sourceComponents": [
+        {
+          "cell": 2,
+          "sourceCrop": {
+            "left": 1096,
+            "top": 84,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            2,
+            0
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 92055,
+            "removedDetachedPixels": 0
+          }
+        },
+        {
+          "cell": 3,
+          "sourceCrop": {
+            "left": 48,
+            "top": 608,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            0,
+            1
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 74383,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 90,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "clear",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "t-junction"
+      ]
+    },
+    {
+      "id": "river/15",
+      "file": "Assets/Art/Production/TerrainComponentsV4/river/15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e0efea5356257799aae506212e0e6e05624ed49609fd18d59f5bd85edcb22d2b",
+      "family": "river-overlay",
+      "alpha": "cutout",
+      "mask": 15,
+      "source": "ArtSource/TerrainComponentsV4/river-wide-shapes-master.png",
+      "sourceCrop": null,
+      "assembly": "Cross: four rotated authored bend corner quadrants",
+      "sourceComponents": [
+        {
+          "cell": 3,
+          "sourceCrop": {
+            "left": 48,
+            "top": 608,
+            "width": 350,
+            "height": 350
+          },
+          "sourceCell": [
+            0,
+            1
+          ],
+          "alphaAudit": {
+            "threshold": 128,
+            "primaryPixels": 74383,
+            "removedDetachedPixels": 0
+          }
+        }
+      ],
+      "alphaAudit": {
+        "threshold": 128,
+        "policy": "source half/quadrant assembly; no synthetic colors or painted geometry"
+      },
+      "rotationClockwise": 0,
+      "normalization": "authored wide canonical shape nearest32, rotations to16 cardinal masks; shared4px two-dimensional alpha connector strips",
+      "layer": "water-overlay-on-independent-grass",
+      "collisionIntent": "water blocked intent only; no runtime integration",
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      },
+      "tags": [
+        "river",
+        "wide-reference-cell",
+        "cross"
+      ]
+    }
+  ],
+  "referenceTargets": {
+    "grassMeanRgb": [
+      103,
+      169,
+      59
+    ],
+    "grassMedianRgb": [
+      100,
+      168,
+      54
+    ],
+    "riverCorePx": [
+      18,
+      22
+    ],
+    "referenceViewport": {
+      "width": 130,
+      "height": 205,
+      "sourceCrop": {
+        "x": 0,
+        "y": 65
+      }
+    }
+  },
+  "layerModel": "Bright field grass64 with four registered32px phase crops; woodland32 river-biome ground;16 transparent32px river overlays independent of either material.",
+  "limits": "Reference means guide review, not code recoloring. No screenshot pixels in production. No game/Unity integration or retail1:1 guarantee.",
+  "dependencies": [
+    {
+      "file": "ArtSource/TerrainComponentsV3/forest-field-master.png",
+      "sha256": "6293645ba8fca9bdb4cd5f7b448eaae1102020ee8f7601dc42ffed1a3adc526a",
+      "purpose": "Unchanged authored forest alpha source, cropped32 for review context only; not V4 production art"
+    },
+    {
+      "file": "Assets/Art/Production/WorldComponentsV1/stone-bridge/span-ew.png",
+      "sha256": "f4a850e5a9fb49c7533fa7efd1158a430c5ed04a7afada6374007927a4e8e683",
+      "purpose": "Unchanged V1 bridge, resized32 for review context only; no collision claim"
+    }
+  ],
+  "review": {
+    "proofs": [
+      {
+        "id": "winding-130x205",
+        "groundCells": [
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ]
+        ],
+        "riverCells": [
+          [
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/3",
+            "river/10",
+            "river/10"
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "viewport": {
+          "left": 16,
+          "top": 16,
+          "width": 130,
+          "height": 205
+        },
+        "notes": "Logical32px tile reconstruction at matched reference viewport. Forest/bridge are unchanged QA context dependencies. Not original map-data extraction."
+      },
+      {
+        "id": "canonical-130x270",
+        "groundCells": [
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ]
+        ],
+        "riverCells": [
+          [
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            "river/3",
+            "river/10",
+            "river/12",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null
+          ]
+        ],
+        "viewport": {
+          "left": 16,
+          "top": 16,
+          "width": 130,
+          "height": 270
+        },
+        "notes": "Logical32px tile reconstruction at matched reference viewport. Forest/bridge are unchanged QA context dependencies. Not original map-data extraction."
+      },
+      {
+        "id": "secondary-seam-grid",
+        "groundCells": [
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ],
+          [
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32",
+            "ground/woodland-32"
+          ]
+        ],
+        "riverCells": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/4",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "river/2",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/15",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/8",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/4",
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/7",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/15",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/10",
+            "river/8",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "river/1",
+            null,
+            null,
+            null,
+            null,
+            "river/5",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/1",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "river/0",
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "notes": "Mechanical join fixture only; not the main visual comparison."
+      }
+    ],
+    "sceneReconstruction": "river-scene-reconstruction-130x270.png is separate review-only generated scene, never tile-assembled or production."
+  }
+}

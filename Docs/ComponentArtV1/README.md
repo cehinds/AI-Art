@@ -52,3 +52,11 @@ The [wall and rug revision](../../Review/interior-details-v4/index.html) contain
 [TerrainComponentsV3](../../Review/terrain-components-v3/index.html) supplies 55 PNGs: four ground materials, sixteen dirt-road masks, sixteen cobble-road masks, sixteen river masks, two city trees and one overworld forest field. Directional tags and source records accompany the tiles. Roads, rivers and declared floor boundaries have independent four-pixel join checks; forest boundaries are diagnostic only. The dirt roads are optional authored assets, not evidence that the sampled retail overworld route has roads.
 
 [ShopInteriorsV1](../../Review/shop-interiors-v1/index.html) contains nine new components, sixteen byte-preserved reused components, and five layered room proposals (weapons, armor, items, combined magic, temple). Ordinary shops share their red floor, wall and counter kit; stock displays and NPCs vary. The temple uses a distinct stone/blue treatment. Static PNG attendants and proposed occupancy metadata do not implement game behavior. [Reference comparisons](../../References/TerrainShopPassV1/Comparison/index.html) distinguish observed retail details from proposals. Game integration remains on hold.
+
+## Palette and layout correction
+
+[TerrainComponentsV4](../../Review/terrain-components-v4/index.html) revises the grass palette and river scale against preserved gameplay crops. Connection measurements and remaining limitations are recorded in its verification receipt. A separate static river reconstruction is explicitly distinguished from the tile-assembled proof.
+
+[ShopInteriorsV2](../../Review/shop-interiors-v2/index.html) uses the fixed Tobul screenshot viewport: wall stock, broad L-counter, merchant, chest, workshop fixtures and rug retain the reference proportions. Armor, item and magic rooms adapt this shared layout; they are not verified copies of other retail rooms. Scene layers contain only visible pixels, with no hidden surface reconstruction. Separate transparent prop extractions and labeled material/context samples are included.
+
+[Matched-scale comparisons](../../References/PaletteDensityPassV2/Comparison/index.html) show original captures, revised rooms, and individual interior components at the same displayed dimensions. Prior packs are preserved. Assets only; no Unity integration or build.

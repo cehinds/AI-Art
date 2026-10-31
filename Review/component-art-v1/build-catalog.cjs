@@ -15,6 +15,8 @@ const packs = {
   detailsV4: path.join(root, 'Assets/Art/Production/InteriorDetailsV4/manifest.json'),
   terrainV3: path.join(root, 'Assets/Art/Production/TerrainComponentsV3/manifest.json'),
   shops: path.join(root, 'Assets/Art/Production/ShopInteriorsV1/manifest.json'),
+  terrainV4: path.join(root, 'Assets/Art/Production/TerrainComponentsV4/manifest.json'),
+  shopsV2: path.join(root, 'Assets/Art/Production/ShopInteriorsV2/manifest.json'),
 };
 
 function readManifest(file) {
@@ -95,6 +97,18 @@ const groups = {
 };
 for(const card of terrainV3Cards(manifests.terrainV3))groups[card.category].push(card);
 groups.interior.push(...shopCards(manifests.shops));
+for(const [key,pack] of [['terrainV4','TerrainComponentsV4'],['shopsV2','ShopInteriorsV2']]) {
+  for(const x of manifests[key]?.assets || []) {
+    const file=x.file||x.path;
+    if(!file)throw Error('Asset without path in '+pack);
+    const isScene=key==='shopsV2'&&file.includes('/scenes/');
+    if(isScene&&!file.endsWith('/composite.png'))continue;
+    const id=x.id||file.slice(file.indexOf(pack)+pack.length+1).replaceAll('/',' · ');
+    const category=key==='shopsV2'?'interior':/river|water/.test(file)?'water':'world';
+    const children=isScene?(manifests[key].assets||[]).filter(y=>path.dirname(y.path)===path.dirname(file)&&y.path!==file).map(y=>({id:y.path,label:path.basename(y.path,'.png')+' visible layer',file:y.path,category,detail:y.width+'×'+y.height+'px · hidden pixels absent',pack})):[];
+    groups[category].push({id,label:id,file,category,detail:x.width+'×'+x.height+'px · '+(x.kind||x.family||'candidate'),pack,children});
+  }
+}
 const allCards = Object.values(groups).flat();
 const uniqueFiles = new Set(allCards.flatMap(x=>[x.file,...(x.children||[]).map(c=>c.file)]).filter(Boolean));
 const interiorManifestCount = Object.keys(manifests.interior?.components || {}).length;
@@ -102,6 +116,8 @@ const interiorPngCount = new Set(Object.values(manifests.interior?.components ||
 const packPngCounts = {AltairKitV1:altairCards(manifests.altair).length,OpeningWorldV1:openingCards(manifests.opening).length,WorldComponentsV1:worldCards(manifests.world).length,WorldComponentsV2:worldCards(manifests.seams, 'WorldComponentsV2').length,InteriorComponentsV1:interiorPngCount,InteriorComponentsV2:interiorV2Cards(manifests.interiorV2).length,InteriorDetailsV3:interiorV2Cards(manifests.details, 'InteriorDetailsV3').length,InteriorDetailsV4:interiorV2Cards(manifests.detailsV4, 'InteriorDetailsV4').length,TerrainComponentsV3:terrainV3Cards(manifests.terrainV3).length,ShopInteriorsV1:shopCards(manifests.shops).reduce((n,c)=>n+1+(c.children||[]).length,0)};
 const categoryTitles = {world:'World terrain, vegetation and settlements',water:'Water, coasts, rivers and bridge candidates',city:'Altair buildings, signs and props',interior:'Interior walls, floors and furniture',ui:'UI panels and controls'};
 const knownCounts = Object.fromEntries(Object.entries(groups).map(([k,v])=>[k,v.length]));
+packPngCounts.TerrainComponentsV4=(manifests.terrainV4?.assets||[]).length;
+packPngCounts.ShopInteriorsV2=(manifests.shopsV2?.assets||[]).length;
 const total = allCards.length;
 const missingPacks = Object.entries(manifests).filter(([,v])=>!v).map(([k])=>k);
 const docs = '../../Docs/ComponentArtV1/README.md';
@@ -120,6 +136,9 @@ const links = [
   ['Revised terrain and connections','../terrain-components-v3/index.html'],
   ['Shop and temple starter rooms','../shop-interiors-v1/index.html'],
   ['Terrain and shop reference boards','../../References/TerrainShopPassV1/Comparison/index.html'],
+  ['V4 grass and river palette pass','../terrain-components-v4/index.html'],
+  ['V2 reference-layout shops and components','../shop-interiors-v2/index.html'],
+  ['Matched-scale original / recreation boards','../../References/PaletteDensityPassV2/Comparison/index.html'],
   ['World layer comparison','../world-layer-comparison-v1/index.html'],
   ['WorldComponentsV1 visual limits','../../Docs/WorldComponentsV1/visual-review.md'],
 ].map(([a,b])=>`<a href="${b}">${a}</a>`);

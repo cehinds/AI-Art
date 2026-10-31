@@ -1,0 +1,79 @@
+{
+  "mode": "built-in image_gen",
+  "parentRecordSha256": "56813a387967b2d4c4bf0a1cb3d6dee29e42e7fcb5ebf769cf96084076bde902",
+  "scope": "Terrain-only5-record subset; exact prompt and generatedFile text retained. Status/portable paths added after QA.",
+  "designGuides": [
+    {
+      "file": "design-guides/river-width-layout-guide.png",
+      "role": "generation geometry guide only, not production artwork"
+    },
+    {
+      "file": "design-guides/river-width-layout-guide.svg",
+      "role": "editable generation geometry guide only, not production artwork"
+    }
+  ],
+  "generations": [
+    {
+      "id": "grass",
+      "prompt": "Use case: style-transfer. Create a seamless grass ground texture asset closely matching the attached FINAL FANTASY II Pixel Remaster grass reference, not a reinterpretation. Reference image1 is the palette and texture target. Entire image is only grass, edge to edge, no border, no objects, no symbols. Bright medium yellow-green base, light lime and yellow-green short dashes and small blotches, restrained olive shadows. Keep overall brightness and color almost exactly like reference. Absolutely no blue, teal, dark green outlines, winding loops, large leaves, individual blades, realistic grass, or random multicolor noise. Make a single 64 by64 logical pixel texture shown at exact16x nearest-neighbor scale on a1024x1024 canvas. Sparse irregular clusters of2-4 logical pixels and scattered1pixel highlights. Crisp square pixel clusters, no antialiasing, no gradients. Texture must wrap left/right and top/bottom. Similar low contrast to reference. This is game production art, not a comparison board.",
+      "paths": [
+        "C:/repos/AI-Art-FF2/References/TerrainShopPassV1/Comparison/crops/overworld-grass.png"
+      ],
+      "transparent": false,
+      "tool": "image_gen.imagegen",
+      "generatedFile": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-45750f79-e571-45d6-a0ce-eee3ca78bf84.png",
+      "status": "selected production grass source",
+      "savedAs": "grass-master.png"
+    },
+    {
+      "id": "river-atlas",
+      "prompt": "Use case: stylized-concept. Asset: transparent pixelart river autotile atlas closely matching FFII Pixel Remaster. Attached image1 is actual reference for cobaltwater, thinolivegreen earthbanks and tiny white/silver edgehighlights; do not include its bridge trees grassbackground. Build EXACTLY4by4 equalcells on transparent background with NO gutters NO labels. Logicalatlas128x128, cells32x32, upscaled8x with crisp squarepixels. Eachcell has only riverwater+bank, groundoutside transparent. Flow exits exactedgecenter. Watercore20of32px wide, thin1pixelolivebank eachside, total22width. Water saturatedroyal/cobalt blue approximately #1548a9 with restrained #2364be ripples; no teal/cyanwater. Bank thin mutedolivegreen notthickorangeborder. Tiny scatteredwhitehighlights notcontinuousfoam. Connections row-major by mask N1E2S4W8: row1 isolatedroundpond, northdeadend, eastdeadend, north-eastbend; row2 southdeadend, north-southstraight, east-southbend, north-east-southT; row3 westdeadend, north-westbend, east-weststraight, north-east-westT; row4 south-westbend, north-south-westT, east-south-westT, NSEWcross. Deadend caprounded; turnsroundedinside/outside notsquarepipes. Matchingwaterwidth/colorsatall exits. Cells closedatnon-exitedges, withoutisolatedfloatingbankpieces. Match reference's calm simple retrographicwater, not highdetail illustration.",
+      "paths": [
+        "C:/repos/AI-Art-FF2/References/TerrainShopPassV1/Comparison/crops/ffii-pr-river.png"
+      ],
+      "transparent": true,
+      "tool": "image_gen.imagegen",
+      "generatedFile": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-4465200d-2ef4-4a3e-85b4-998b6f1ce373.png",
+      "status": "rejected narrow/wrong-topology atlas; preserved iteration",
+      "savedAs": "iterations/river-narrow-first-pass.png"
+    },
+    {
+      "id": "river-wide",
+      "paths": [
+        "C:/repos/AI-Remake-FF2/AssetWork/PaletteDensityPassV2/GenerationInputs/river-width-layout-guide.png",
+        "C:/repos/AI-Art-FF2/References/TerrainShopPassV1/Comparison/crops/ffii-pr-river.png"
+      ],
+      "transparent": true,
+      "prompt": "Use case: sketch-to-render. Create a pixelart river autotile atlas using image1 as EXACT GEOMETRY GUIDE, image2 as the actual FFII Pixel Remaster water/bank style reference. The geometryguide is not finishedart; convertit to reference-style pixelart without narrowing the river. Preserve6shapes inexact3columns2rows, eachsquarecell32logicalpixels. Total96x64logicalpixels; deliver1152x768 nearest-neighborpixelart. EachrivercoreMUST20logicalpixelswide outof32 at exits, nearlyTWO THIRDS ofeverycell, exactlylikegeometryguide. Outlineonly1logicalpixel mutedolive bank, occasionaltinywhiteglints oninneredge. Riverblue saturatedcobalt #1548a9 and #205aba, simple restrainedlightbluepixelripples. Outside allshapes transparent; removegrayguidebackground. Preserveedgecenter exits; clipatcelledges nogutter. Toprow pond,Ndeadend,NSstraight; bottomrow NEroundedbend,NESTjunction,NSEWcross. No extra shapes, no labels, no bridge trees grass. No thinpipewater, cyanwater, brown/orangewidebanks, glossytexture, smoothvectorcurves. Lowresolution squarepixel clusters likeactualgame. IMPORTANT doNOTshrink shapes toleavegaps: thewaterwidth/geometryguideisstrict.",
+      "tool": "image_gen.imagegen",
+      "generatedFile": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-de7b94f9-2ac1-49a5-957c-60d67f93a3bf.png",
+      "status": "selected production source: pool/straight/bend crops and source-fragment assemblies",
+      "savedAs": "river-wide-shapes-master.png"
+    },
+    {
+      "id": "river-scene",
+      "paths": [
+        "C:/repos/AI-Art-FF2/References/TerrainShopPassV1/Comparison/crops/ffii-pr-river.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Recreate the attached FFII Pixel Remaster river crop at near1:1 visual fidelity as pixelart source artwork. Preserve EXACT composition, width, colors and scale: riverchannel enters fromtopataboutx30pxrelative130pxwideimage, shortgraystonebridgeatupperpart, cobaltbluewaterbendsrightandthen followsrightedge, thinolivegreenbank and tinywhiteedgeglints, darkteal/green woodlandground, pointedconifers inbottomleft. Same130:270aspectratio. Keepwaterwidth18-22logicalpixels relative130widecrop, exactlylikeattached, notthinnerwiresornarrowcanals. Noaddedjuncturesorponds. Keeporiginaldarkcobaltblue, notbrightcyan. No enlargedfoam, wideorangeborder, shinywaves. Simplerepeatedpixelclusters, logicalpixelart130x270 upscaledintegernearest to~520x1080. No smoothing, painterlydetailorgradients, no UI,text,labels,characters. This is a faithful static reference reconstruction for assetanalysis, not a changedmaplayout.",
+      "tool": "image_gen.imagegen",
+      "generatedFile": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-c714696a-6ef1-49de-a653-eda1909cf4c3.png",
+      "status": "superseded review-only reconstruction; never production",
+      "savedAs": "iterations/river-scene-first-master.png"
+    },
+    {
+      "id": "river-scene-refined",
+      "paths": [
+        "C:/repos/AI-Remake-FF2/AssetWork/PaletteDensityPassV2/Incoming/river-scene-master.png",
+        "C:/repos/AI-Art-FF2/References/TerrainShopPassV1/Comparison/crops/ffii-pr-river.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Image1 is our newriverreconstruction edit target. Image2 is originalFFIIgame reference paletteandscale. Change ONLY image1's cyan wateredge and overbrightgreenbank: remove the thick electriccyanoutline, replace with a thin subdued lightblue rim1logicalpixel wide with sparsesmallwhiteglints exactlylike image2. Restore image2's mutedolive fringe and darkbluegreenwoodlandground, noextra saturationbrightnessorcontrast. Keep every riverturn and bridge andtree andallobjectpositions/framing/scale unchanged. Water remainsdarkroyalcobaltblue. Preserve130:270aspectratio and130x270logicalpixelartgrid, crispintegerpixelart. No newobjects, no newlayout, no broadwhitefoamborder. Goalveryclose1:1originalpalettenotfreshstylization.",
+      "tool": "image_gen.imagegen",
+      "generatedFile": "C:\\Users\\const\\.codex\\generated_images\\01a16f90-9a1d-7252-9043-55448912149e\\exec-ebe8af19-bd3b-48c7-99c2-f228d962935d.png",
+      "status": "Selected generated scene: whole scene is review-only; clean nonriver/nontree crop supplies production woodland ground",
+      "savedAs": "river-scene-refined-review-master.png"
+    }
+  ]
+}
