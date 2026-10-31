@@ -532,6 +532,79 @@ def verified_reusable_hud_documents(root):
     return {receipt} | {path for path in listed if path.suffix == '.json'}
 
 
+def verified_map_grid_documents(root):
+    """Protect a complete source-bound comparison/reconstruction release.
+
+    Recognition uses explicit grid/component/source contracts. Every local
+    member and portable archive byte must verify before preserving any JSON.
+    This establishes evidence integrity, not reconstructed-art quality.
+    """
+    base = root / 'map-grid-pass'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('version') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or not isinstance(doc.get('components'), list) or not doc['components']
+            or not isinstance(doc.get('sources'), list) or not doc['sources']
+            or doc.get('grid') != {'columns': 6, 'rows': 4, 'cellSize': 256, 'subgrid': 2, 'moduleSize': 128}):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid map grid evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid map grid evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid map grid evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    source_ids = set()
+    for source in doc['sources']:
+        if not isinstance(source.get('provenance'), str) or source.get('id') in source_ids:
+            raise ValueError('Invalid map grid source provenance')
+        source_ids.add(source.get('id'))
+        verify_file(project, source.get('path'), source.get('sha256'))
+    for component in doc['components']:
+        if not component.get('provenance') or component.get('sourceId') not in source_ids:
+            raise ValueError('Invalid map grid component provenance')
+        verify_file(base, component.get('path'), component.get('sha256'))
+        if component.get('nativePath'):
+            verify_file(base, component['nativePath'], component.get('nativeSha256'))
+    environment = doc.get('environmentReconstruction', {})
+    if (environment.get('reusableComponent') is not False
+            or not isinstance(environment.get('originalLayers'), list)
+            or not environment['originalLayers'] or not isinstance(environment.get('provenance'), str)):
+        raise ValueError('Invalid map grid environment evidence')
+    verify_file(project, environment.get('sourceManifest'), environment.get('sourceManifestSha256'))
+    for layer in environment['originalLayers']:
+        if layer.get('provenance') != 'original-visible':
+            raise ValueError('Invalid map grid literal-layer provenance')
+        verify_file(project, layer.get('file'), layer.get('sha256'))
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid map grid membership')
+        listed[target] = member
+    package = base / 'map-grid-pass.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete map grid membership')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid map grid package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Map grid archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -607,7 +680,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
