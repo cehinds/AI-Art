@@ -383,9 +383,10 @@ def verified_reconstruction_documents(root):
 
 def is_verified_portable_archive(archive):
     """A complete hash manifest binds every portable member to its package."""
-    if 'package-manifest.json' not in archive.namelist():
+    manifest_name = next((name for name in ('package-manifest.json', 'package-hashes.json') if name in archive.namelist()), None)
+    if manifest_name is None:
         return False
-    doc = json.loads(archive.read('package-manifest.json'))
+    doc = json.loads(archive.read(manifest_name))
     if doc.get('schemaVersion') != 1:
         return False
     if isinstance(doc.get('members'), list):
@@ -406,7 +407,7 @@ def is_verified_portable_archive(archive):
     if any(Path(name).is_absolute() or '..' in Path(name).parts for name in names):
         raise ValueError('Unsafe portable package member')
     hashes = doc['sha256']
-    if (set(hashes) != names - {'package-manifest.json'}
+    if (set(hashes) != names - {manifest_name}
             or not isinstance(doc.get('requiredEntries'), list)
             or not set(doc['requiredEntries']) <= names):
         raise ValueError('Incomplete portable package manifest')
@@ -833,6 +834,83 @@ def verified_wall_component_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_exploration_component_documents(root):
+    """Preserve a source-bound exploration export with exact byte closure.
+
+    Context crops, clean surface patches and inferred whole-object alternates
+    retain distinct provenance. Decoded-pixel crop/dedup claims are separately
+    checked by independent pack QA; this check binds their reviewed bytes.
+    """
+    base = root / 'exploration-components'
+    path = base / 'manifest.json'
+    receipt = base / 'package-hashes.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    algorithm = 'SHA256 of dimensions plus decoded RGBA bytes; equality requires identical dimensions and pixels'
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or doc.get('title') != 'Exploration components'
+            or not isinstance(doc.get('components'), list) or not doc['components']
+            or doc.get('deduplication', {}).get('algorithm') != algorithm
+            or not isinstance(doc.get('counts'), dict)):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid exploration component evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid exploration component evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid exploration component evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid exploration component membership')
+        listed[target] = member
+    ids, reused = set(), []
+    counts = {kind: 0 for kind in ('inferred-restored-whole-object', 'context-containing-reference-crop', 'visible-clean-surface-patch')}
+    for component in doc['components']:
+        provenance = component.get('provenance', {})
+        kind = provenance.get('kind')
+        target = base / component['path']
+        if (kind not in counts or not isinstance(component.get('id'), str) or component['id'] in ids
+                or target not in listed or not isinstance(component.get('pixelHash'), str)
+                or re.fullmatch(r'[0-9a-f]{64}', component['pixelHash']) is None
+                or component.get('deduplication') not in ('new', 'exact-existing')):
+            raise ValueError('Invalid exploration component provenance')
+        ids.add(component['id']); counts[kind] += 1
+        verify_file(base, provenance.get('sourceInPackage'), provenance.get('sourceSha256'))
+        if component['deduplication'] == 'exact-existing':
+            verify_file(project, component.get('existingPath'), hashlib.sha256(target.read_bytes()).hexdigest())
+            reused.append({'id': component['id'], 'existingPath': component['existingPath'], 'pixelHash': component['pixelHash']})
+    if (doc['counts'] != counts or doc['deduplication'].get('reused') != reused
+            or doc['deduplication'].get('newCount') != len(ids) - len(reused)):
+        raise ValueError('Invalid exploration provenance/dedup counts')
+    recipe = json.loads((base / 'room-recipe.json').read_text())
+    if (recipe.get('schemaVersion') != 1 or recipe.get('surface', {}).get('componentId') not in ids
+            or not isinstance(recipe.get('placements'), list)
+            or any(item.get('componentId') not in ids for item in recipe['placements'])):
+        raise ValueError('Invalid exploration recipe references')
+    package = base / 'exploration-components.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete exploration component membership')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid exploration component package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Exploration component archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -908,7 +986,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
