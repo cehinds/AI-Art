@@ -605,6 +605,77 @@ def verified_map_grid_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_reference_layer_documents(root):
+    """Keep native-position reconstruction evidence immutable after binding.
+
+    Complete source/layer digests and inventory closure are required. Exact
+    visual replay is separately validated by the pack's independent tests.
+    """
+    base = root / 'reference-layers'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or not isinstance(doc.get('layers'), list) or not doc['layers']
+            or not isinstance(doc.get('originalFragments'), list) or not doc['originalFragments']
+            or doc.get('coordinateSystem') != 'native reference pixels; top-left origin; no scale, rotation or snapping'
+            or not isinstance(doc.get('groups'), list) or not doc['groups']):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid reference layer evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid reference layer evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid reference layer evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    verify_file(project, doc.get('source'), doc.get('sourceSha256'))
+    original_path = verify_file(project, 'Web/wwwroot/assets/concept-reconstruction/manifest.json', doc.get('sourceManifestSha256'))
+    original = json.loads(original_path.read_text())
+    expected_fragments = [{'id': layer['id'], 'file': layer.get('file'), 'offset': layer.get('offset'),
+                           'size': layer.get('size'), 'visiblePixels': layer.get('visiblePixels', 0),
+                           'sha256': layer.get('componentSha256')} for layer in original['layers']]
+    if doc['originalFragments'] != expected_fragments:
+        raise ValueError('Reference layer original inventory differs')
+    for layer in doc['layers']:
+        if layer.get('kind') not in ('original-visible', 'context-restoration', 'inferred-underpaint'):
+            raise ValueError('Invalid reference layer provenance kind')
+        verify_file(base, layer.get('file'), layer.get('sha256'))
+        source = layer.get('sourceRef', {})
+        verify_file(project, source.get('file'), source.get('sha256'))
+    validation = doc.get('validation', {})
+    if (validation.get('changedRgbaPixels') != 0 or validation.get('maxChannelDifference') != 0
+            or validation.get('sourceFragmentCount') != sum(bool(layer.get('file')) for layer in expected_fragments)
+            or validation.get('sourceAnnotationCount') != len(expected_fragments)
+            or validation.get('exportedLayerCount') != len(doc['layers'])):
+        raise ValueError('Invalid reference layer replay evidence')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid reference layer membership')
+        listed[target] = member
+    package = base / 'reference-layers.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete reference layer membership')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid reference layer package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Reference layer archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -680,7 +751,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
