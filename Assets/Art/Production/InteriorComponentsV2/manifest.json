@@ -1,0 +1,4239 @@
+{
+  "normalization": {
+    "floor": "32px nearest material panels; four-pixel reflected source boundary bands preserve two-dimensional interiors",
+    "faces": "three equal512x1024 panels to32x64; shared four-pixel horizontal source connectors; bottom anchored",
+    "caps": "per-slot alpha bounds to32x12/12x32 aligned named edges; convex32x32; concave authored convex-joint12px subcrop",
+    "rugs": "three47-mask transparent overlays; outer512px sourcepanel to32, straight256px fragments to16; inner128px joint to8 placedin16field quadrant; canonical4px source bands",
+    "stairs": "per-half alpha bounds nearest32x64/32square"
+  },
+  "alphaContract": "Floors and north faces opaque. Cutcaps, carpets and stairs binary alpha by128 threshold; invisible RGB cleared tozero. Preserved raw masters retain original alpha.",
+  "schemaVersion": 2,
+  "kit": "interior-components-v2",
+  "status": "assets-only-candidate-not-integrated",
+  "configSha256": "163320a9afafb689db52f350156865551ab3e5eef94f7ecc612ed6cd83e20d69",
+  "sources": [
+    {
+      "file": "ArtSource/InteriorComponentsV2/materials-master.png",
+      "sha256": "4768331081f60aa28fb4386b921419b7f5df61b568bdef91da9b250ee4b90155"
+    },
+    {
+      "file": "ArtSource/InteriorComponentsV2/north-faces-master.png",
+      "sha256": "d6641e97dea23f1d57584a8376a2a9ee7f4589f8f872e6b5a140dea843c646a4"
+    },
+    {
+      "file": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sha256": "7ea58ac496fda2cd2940e93f529067214be6372a661f60414abd5269913f109b"
+    },
+    {
+      "file": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "sha256": "a30f2d4f9d67fca4e3c8484a46c86f1938768786b3e81d460e10917aa6a3d506"
+    },
+    {
+      "file": "ArtSource/InteriorComponentsV2/stairs-master.png",
+      "sha256": "e6b5384e09ec0d2fa5092a0cd2933a6aa22d667acac13b8df2f7dd27706ededf"
+    },
+    {
+      "file": "ArtSource/InteriorComponentsV2/generation-prompts.json",
+      "sha256": "7573204e8f397a66ba9e199ed0f81a581c5c6aa6af2f55ec1a60a8d6b485255c"
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/turquoise-throne.png",
+      "sha256": "402201f8200d69d6551e1f144915a3e4216ea2d002f98c83e64b3d91cd32c65c",
+      "id": "turquoise-throne",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/bed.png",
+      "sha256": "b167d8ab458247f6b61cc9abdd229cdee4f643b8728007192714fcdcb9f799fe",
+      "id": "bed",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/tall-bookshelf.png",
+      "sha256": "ce2fa1867dbf57935248e281d5456a034bf75597029c6834c396831593a4600d",
+      "id": "tall-bookshelf",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/forge.png",
+      "sha256": "94bfea149db911af5b108a1bdd8646bae67140c30afad2cc098ba1dc4562e2ab",
+      "id": "forge",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/counter-straight.png",
+      "sha256": "8b1d34fbbef275320d4f45f774ed19a9162afa82ec6f905ef6cca3b7110e4b2e",
+      "id": "counter-straight",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/counter-corner.png",
+      "sha256": "8f0601b894a7cb3b635defaaaa6686a7cb3218931d02279783170f2de8beb78c",
+      "id": "counter-corner",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/round-table.png",
+      "sha256": "8f72c7885dca863b69842ac3d44a34b057285301b1e0cb0a88d2d3ceb8d3c159",
+      "id": "round-table",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    },
+    {
+      "file": "Assets/Art/Production/InteriorComponentsV1/props/red-chair.png",
+      "sha256": "5bdafe81a7d196ba34cd42c46c0eae3b960374d6884120674db9ad3c8b90eea7",
+      "id": "red-chair",
+      "purpose": "unchanged V1 furniture review dependency; joins not modified"
+    }
+  ],
+  "assets": [
+    {
+      "id": "floors/warm-flagstone",
+      "file": "Assets/Art/Production/InteriorComponentsV2/floors/warm-flagstone.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7d3315951b36e82bccb88fbf9a6e290990156294038ed45f8f7714ad250f3384",
+      "family": "floor",
+      "repeat": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "source": "ArtSource/InteriorComponentsV2/materials-master.png",
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 627,
+        "height": 627
+      },
+      "tags": [
+        "floor",
+        "seam-conditioned-2d"
+      ]
+    },
+    {
+      "id": "floors/red-field",
+      "file": "Assets/Art/Production/InteriorComponentsV2/floors/red-field.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c797e71babf7e7d50d92bedead86429c8d85272b932ac059fc1040d79363d393",
+      "family": "floor",
+      "repeat": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "source": "ArtSource/InteriorComponentsV2/materials-master.png",
+      "sourceCrop": {
+        "left": 960,
+        "top": 240,
+        "width": 256,
+        "height": 256
+      },
+      "tags": [
+        "floor",
+        "seam-conditioned-2d"
+      ]
+    },
+    {
+      "id": "floors/wood-planks",
+      "file": "Assets/Art/Production/InteriorComponentsV2/floors/wood-planks.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7eb47db3078a8dd8c28172a34d00042122de04c529cd0c28c6da523bab3e88b9",
+      "family": "floor",
+      "repeat": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "source": "ArtSource/InteriorComponentsV2/materials-master.png",
+      "sourceCrop": {
+        "left": 0,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      },
+      "tags": [
+        "floor",
+        "seam-conditioned-2d"
+      ]
+    },
+    {
+      "id": "floors/cream-lilac",
+      "file": "Assets/Art/Production/InteriorComponentsV2/floors/cream-lilac.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2809dd4c4373fbf07133fd5ad7ede77c5f0958dd309dcd0b944b9d2b9f3dc360",
+      "family": "floor",
+      "repeat": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "source": "ArtSource/InteriorComponentsV2/materials-master.png",
+      "sourceCrop": {
+        "left": 627,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      },
+      "tags": [
+        "floor",
+        "seam-conditioned-2d"
+      ]
+    },
+    {
+      "id": "faces/cream-north",
+      "file": "Assets/Art/Production/InteriorComponentsV2/faces/cream-north.png",
+      "width": 32,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "96fd9106d8d284ffd4db4453638376f033e82dfa1611a297dd5061d82c0a555c",
+      "family": "north-face",
+      "anchor": "bottom",
+      "source": "ArtSource/InteriorComponentsV2/north-faces-master.png",
+      "ports": {
+        "W": "cream-face-horizontal",
+        "E": "cream-face-horizontal"
+      },
+      "tags": [
+        "repeatable-north-face",
+        "front-projection-only"
+      ]
+    },
+    {
+      "id": "faces/cream-door-open",
+      "file": "Assets/Art/Production/InteriorComponentsV2/faces/cream-door-open.png",
+      "width": 32,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "7863801aa39d1b212663ec6d3b18c1a3ab2e85a46ee9bd37df7a1cc9bc91ea4c",
+      "family": "north-face",
+      "anchor": "bottom",
+      "source": "ArtSource/InteriorComponentsV2/north-faces-master.png",
+      "ports": {
+        "W": "cream-face-horizontal",
+        "E": "cream-face-horizontal"
+      },
+      "tags": [
+        "open-door",
+        "front-projection-only"
+      ]
+    },
+    {
+      "id": "faces/cream-door-closed",
+      "file": "Assets/Art/Production/InteriorComponentsV2/faces/cream-door-closed.png",
+      "width": 32,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "7fcc78a796b079bada8936c7233985e6e431329e68597095be4758711b8400e5",
+      "family": "north-face",
+      "anchor": "bottom",
+      "source": "ArtSource/InteriorComponentsV2/north-faces-master.png",
+      "ports": {
+        "W": "cream-face-horizontal",
+        "E": "cream-face-horizontal"
+      },
+      "tags": [
+        "closed-door",
+        "front-projection-only"
+      ]
+    },
+    {
+      "id": "caps/n",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/n.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6c58115a0e0b5677ed01614ff20d930341a4aea528667bd737f0773287dc77dc",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 0,
+        "row": 0
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 0,
+          "top": 0,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 63,
+          "top": 121,
+          "width": 250,
+          "height": 94
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 12,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "outside",
+        "E": "HN",
+        "S": "clear",
+        "W": "HN"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "n"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/e",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/e.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2b4b72350698874b433ceae5204b9217148e92b90e9c8b35a6ab690257169b93",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 1,
+        "row": 0
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 316,
+          "top": 0,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 507,
+          "top": 59,
+          "width": 90,
+          "height": 248
+        },
+        "nativeFit": {
+          "width": 12,
+          "height": 32,
+          "left": 20,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VE",
+        "E": "outside",
+        "S": "VE",
+        "W": "clear"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "e"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/s",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/s.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6bced8a9273b5d1cd5bd9d7760ef9a7e42ffb86d1bced3d4a72fe1bb31e6d4b6",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 2,
+        "row": 0
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 632,
+          "top": 0,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 667,
+          "top": 218,
+          "width": 249,
+          "height": 89
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 12,
+          "left": 0,
+          "top": 20
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "clear",
+        "E": "HS",
+        "S": "outside",
+        "W": "HS"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "s"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/w",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/w.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "42e835f878319a8e52584260c3a75ae968f1db99830897518a62c15d37b94277",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 3,
+        "row": 0
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 948,
+          "top": 0,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 993,
+          "top": 59,
+          "width": 90,
+          "height": 248
+        },
+        "nativeFit": {
+          "width": 12,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VW",
+        "E": "clear",
+        "S": "VW",
+        "W": "outside"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "w"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/convex-ne",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/convex-ne.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6244267cbdcca012fe33dedf1af31eb8cddfaf4fa4f32e985b32553490e68903",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 0,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 0,
+          "top": 311,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 63,
+          "top": 359,
+          "width": 220,
+          "height": 237
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "outside",
+        "E": "outside",
+        "S": "VE",
+        "W": "HN"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "convex-ne"
+      ],
+      "cornerRole": "convex"
+    },
+    {
+      "id": "caps/convex-se",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/convex-se.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "57d42dc9329488b3d8fe141d43395247d95d98847402bfd04d8c0c728a5dae8b",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 1,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 316,
+          "top": 311,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 363,
+          "top": 369,
+          "width": 243,
+          "height": 231
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VE",
+        "E": "outside",
+        "S": "outside",
+        "W": "HS"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "convex-se"
+      ],
+      "cornerRole": "convex"
+    },
+    {
+      "id": "caps/convex-sw",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/convex-sw.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "27fafee66c2908a01d33e8bc6beb047bad3e020bcde5d6a97f64c20008782e9c",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 2,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 632,
+          "top": 311,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 659,
+          "top": 367,
+          "width": 242,
+          "height": 233
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VW",
+        "E": "HS",
+        "S": "outside",
+        "W": "outside"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "convex-sw"
+      ],
+      "cornerRole": "convex"
+    },
+    {
+      "id": "caps/convex-nw",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/convex-nw.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d132e4a50c268477cd31c18b26b15d2b5ce242dcdeba4fe1edb637ed3ecfdae6",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 3,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 948,
+          "top": 311,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 982,
+          "top": 359,
+          "width": 220,
+          "height": 237
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "outside",
+        "E": "HN",
+        "S": "VW",
+        "W": "outside"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "convex-nw"
+      ],
+      "cornerRole": "convex"
+    },
+    {
+      "id": "caps/concave-ne",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/concave-ne.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1d9839cfcb2b4fce0318c182f894ee668ce2b295d215ee3696aead958c4ac311",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 0,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "mode": "authored-convex-joint-subcrop",
+        "derivedFromCell": 4,
+        "nativeJointCrop": {
+          "left": 20,
+          "top": 0,
+          "width": 12,
+          "height": 12
+        },
+        "excludedGeneratedCell": 8,
+        "exclusionReason": "Generated stair shape has convex terminal ports rather than required concave terminal ports"
+      },
+      "ports": {
+        "N": "VE",
+        "E": "HN",
+        "S": "clear",
+        "W": "clear"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "concave-ne"
+      ],
+      "cornerRole": "concave"
+    },
+    {
+      "id": "caps/concave-se",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/concave-se.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "478e9fb23bbf1c9a3bb85087994d4a40287492e84458f2328988c25ff4e225d2",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 1,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "mode": "authored-convex-joint-subcrop",
+        "derivedFromCell": 5,
+        "nativeJointCrop": {
+          "left": 20,
+          "top": 20,
+          "width": 12,
+          "height": 12
+        },
+        "excludedGeneratedCell": 9,
+        "exclusionReason": "Generated stair shape has convex terminal ports rather than required concave terminal ports"
+      },
+      "ports": {
+        "N": "clear",
+        "E": "HS",
+        "S": "VE",
+        "W": "clear"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "concave-se"
+      ],
+      "cornerRole": "concave"
+    },
+    {
+      "id": "caps/concave-sw",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/concave-sw.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4aeeadf33fff45bd5090d779c54102df847f03a30218fb648c24f06a1bfce9c7",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 2,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "mode": "authored-convex-joint-subcrop",
+        "derivedFromCell": 6,
+        "nativeJointCrop": {
+          "left": 0,
+          "top": 20,
+          "width": 12,
+          "height": 12
+        },
+        "excludedGeneratedCell": 10,
+        "exclusionReason": "Generated stair shape has convex terminal ports rather than required concave terminal ports"
+      },
+      "ports": {
+        "N": "clear",
+        "E": "clear",
+        "S": "VW",
+        "W": "HS"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "concave-sw"
+      ],
+      "cornerRole": "concave"
+    },
+    {
+      "id": "caps/concave-nw",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/concave-nw.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "16438c43e54c4b41cf93b0c93fe3c8eb4b3664d11f10798dea14f7811fa2db7e",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 3,
+        "row": 1
+      },
+      "sourceRegistration": {
+        "mode": "authored-convex-joint-subcrop",
+        "derivedFromCell": 7,
+        "nativeJointCrop": {
+          "left": 0,
+          "top": 0,
+          "width": 12,
+          "height": 12
+        },
+        "excludedGeneratedCell": 11,
+        "exclusionReason": "Generated stair shape has convex terminal ports rather than required concave terminal ports"
+      },
+      "ports": {
+        "N": "VW",
+        "E": "clear",
+        "S": "clear",
+        "W": "HN"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "concave-nw"
+      ],
+      "cornerRole": "concave"
+    },
+    {
+      "id": "caps/threshold-n",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/threshold-n.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c888fee86e48e74a887c3d569b3de48e2caad7f9bcfb61b13d366eaf48b43d8c",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 0,
+        "row": 3
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 0,
+          "top": 933,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 63,
+          "top": 988,
+          "width": 248,
+          "height": 80
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 12,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "open",
+        "E": "HN",
+        "S": "clear",
+        "W": "HN"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "threshold-n"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/threshold-e",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/threshold-e.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5bb7ae0ad4842da0b94f8c6024c4f3d83b79581acca0a7c2d40ef788e79c49dc",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 1,
+        "row": 3
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 316,
+          "top": 933,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 512,
+          "top": 933,
+          "width": 81,
+          "height": 225
+        },
+        "nativeFit": {
+          "width": 12,
+          "height": 32,
+          "left": 20,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VE",
+        "E": "open",
+        "S": "VE",
+        "W": "clear"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "threshold-e"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/threshold-s",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/threshold-s.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8d2845bf2a3b390c249370d1c64baac90f69cd6acba6a0f271c68f3ad67ef68b",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 2,
+        "row": 3
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 632,
+          "top": 933,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 685,
+          "top": 1083,
+          "width": 249,
+          "height": 82
+        },
+        "nativeFit": {
+          "width": 32,
+          "height": 12,
+          "left": 0,
+          "top": 20
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "clear",
+        "E": "HS",
+        "S": "open",
+        "W": "HS"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "threshold-s"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "caps/threshold-w",
+      "file": "Assets/Art/Production/InteriorComponentsV2/caps/threshold-w.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ef4357ce675f200d7207a4e4e2d8514be311d41d53dc07608ecde79c719a7269",
+      "family": "cutcap",
+      "source": "ArtSource/InteriorComponentsV2/cutcaps-master.png",
+      "sourceCell": {
+        "column": 3,
+        "row": 3
+      },
+      "sourceRegistration": {
+        "sourceSlot": {
+          "left": 948,
+          "top": 933,
+          "width": 316,
+          "height": 311
+        },
+        "sourceAlphaBounds": {
+          "left": 999,
+          "top": 933,
+          "width": 81,
+          "height": 225
+        },
+        "nativeFit": {
+          "width": 12,
+          "height": 32,
+          "left": 0,
+          "top": 0
+        },
+        "mode": "alpha-bbox-nearest-fit-to-declared-cutcap-edge"
+      },
+      "ports": {
+        "N": "VW",
+        "E": "clear",
+        "S": "VW",
+        "W": "open"
+      },
+      "tags": [
+        "top-down-cutcap",
+        "threshold-w"
+      ],
+      "cornerRole": "straight-or-threshold"
+    },
+    {
+      "id": "carpet/red-gold-0",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d0a7b67198efb45385b1d44ea91cfc28b23284410840c979f66f9497c55e701a",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 0,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-1",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "012cb9ab34e4d3eb3916605af661bc033f3bd59f78fb7b84f6052ea960796177",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 1,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-2",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "04c871ef32b2361e611b9326b335068aea992170700c97baa29805e0952e6163",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 2,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-3",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bf781646286ec0f28785b040623228e4b815e7c96782ad6766df240d4baaec5c",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 3,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-4",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "015dc9c7f1e218695b05cc5d073da00b54337109ef16658ddd8718ba470f99b4",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 4,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-5",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "58d092073a0876a4ff2c9816c9fa2ab6253d5f07ba32bda525f79d5838d3de8a",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 5,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-6",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "66d6f305d59e07bfdaaa9ce93792fd6ded86f6ecc9037ee55279a4e5f11f51da",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 6,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-7",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bd18f317e8d7f63f53b3641848622c103f6fedbe658dd17fc1ce9aa4c657ad6b",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 7,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-8",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "594ad26ec6d5fa3a772687b4989a904c09543825ac75df4c5aca61f1286d6db7",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 8,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-9",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5871d7137931b2fcb0f7d25650ac1ea0d235665b5dfa3cbbd0e131c857c90b1d",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 9,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-10",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "267045c1625164dda54c084dd50ef4d37d41bccd8392b61a8f8bacb10bc1ec0f",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 10,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-11",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0b70468cd598ea1639a333eb17877484bc17fe77e5e185f6b1497592844ae961",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 11,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-12",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d8ebfc0b76258e2ce2aefd25d5331b668c1e6c5ec23584ebd15035650a6bc742",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 12,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-13",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f1b1dc59e0ef5c2cb2004ca4fdb14411c0a9dfad33b70aca85f4976a9f2439dd",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 13,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-14",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8c12550ac6b3b9d0665ef3243a00d4c27089b461b92ae020702f6a34fa5b7d52",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 14,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-15",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "10f9f421b9ac3a6f869bbc9ed0d2264e7bba125e91040d3e74d936fa309356af",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 15,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-19",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-19.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "75ba97c52fa0f49e2d9d85292abbf1b680197ad6307522b1c498c97e390a8490",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 19,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-23",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-23.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bd339be006eeed93d2a55812adbb7308499d4e4dc07d718b6da0bf35db682b41",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 23,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-27",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-27.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "10e3e99442ffedd19e0b9f1e3f228dfe7266bc24bce84fff9126c0cf255dd29a",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 27,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-31",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-31.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b93f053d886ca8c24fdd1ea14a6b42ecbf2a9f3d26e0affb2ede6b803c91229d",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 31,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-38",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-38.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "925f00865dca5546b58f88547467e678c3ed08c85ff23ba366abef0626894ef5",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 38,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-39",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-39.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "48bb0ff1937080700ecf1ef39362b7f023cc6cc4979ea7edfff88036cb75dc58",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 39,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-46",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-46.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6f04f1927f2c895708a8941cdb5681c6b3d325fe766968881dad8e82abedff2f",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 46,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-47",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-47.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "87cb320ffcdc6fbe7bcaa9004a56477a9f9214e9079db3204d8a6c3fb78c2f43",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 47,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-55",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-55.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8793063aecf28170fb2583fb90ff6eb4080aa879f0ccd58fead9467b24f01732",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 55,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-63",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-63.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ed0f633fe23d5cf4a3f261830c5c2a31170bbc74ee111b8ca7d71e2cda50908c",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 63,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-76",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-76.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1c43110f0a14f37a687007dfa102f8cddc451b3bf332044321d6b9931bb57385",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 76,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-77",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-77.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f23205a658e92868835c60c0471689266bd40a85996ed7d81cae982138fbe132",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 77,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-78",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-78.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bf10aaf7428dd20f62dae29450cffe57b1113eb90e910305564fb6afcfa4ebc0",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 78,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-79",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-79.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5e7462b6db8332d3793e9b2a76339b6f3e054faad460730da325e560f40cc31d",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 79,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-95",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-95.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0f98cf56fe2fa113e9e8d858731b4d564b3eee80ae48ef7acc95b985e4587499",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 95,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-110",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-110.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b83153bdd017b745f6ea811accdf6591cf21952ebb927e152dac3135ca76803d",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 110,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-111",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-111.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "869ff55c9fe89a95d43a5f5f511ba8fd93dbca63ea8bae55cf952f413ef60a2e",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 111,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-127",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-127.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2b778db479c532a710796ed09bd9e56713dcba092b9cbd79370657bad53823d2",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 127,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-137",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-137.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2799f8b20e1ed36b5b9d4c11daf54703421d7dfa88e78d445d4893f331eb5d2a",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 137,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-139",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-139.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2e98380ae6d87fd1c8a7c82f12b00cdf278533fc7141e23dd86f9fa3c79247e0",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 139,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-141",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-141.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "74362e82fd963c6cb0837be5219e75380bc6d6f75d911074e16bf9ca04ab22eb",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 141,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-143",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-143.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "aab786d022bacaad5352038a7bad62d1b601ff4a75f56762a71aebfca2c500f5",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 143,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-155",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-155.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9d36a888f1b5df2ecdb24e6fb36658e57e5775bf83d6a84efd10e2609ed653dd",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 155,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-159",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-159.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "dc4730d8b5cfc729dbdd4eefeb5c099d88dfef08e978b026b2e5a7bffaec8f4d",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 159,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-175",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-175.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e5b2e43f1049fe95f599e784fef2a43feab35195678cf430e652fe798942be40",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 175,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-191",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-191.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f776398ca4a9c554306d1ea521e5ffa34655813113d27d2fda58b44aa151403a",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 191,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-205",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-205.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c185f33d297e291a43ee03fc292a765f5d5c7483cda43301021681d032e272d3",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 205,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-207",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-207.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c5090f7625df7985710f34b7e9598e23e106d616450b8d9fed7c5f424e990c69",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 207,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-223",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-223.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6fd2067ca37adfe87bb44d90d97d4f6b28f730169e2c55406adc5b2ec0b45f4f",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 223,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-239",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-239.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "436b88e002072116bf1aa5e04b5b49c5ee2f4129e3c7ee3db7995c0cb5e65549",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 239,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/red-gold-255",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/red-gold-255.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "49600d43a25e69658a027d08eb2d82fdaae8a01eef2640d75ce8fc4ca9b51b82",
+      "family": "carpet",
+      "palette": "red-gold",
+      "mask": 255,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-0",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c703687df2d4036d47826b6d900ed4c29e42ca8d9e7364f8351bec6006f8d50c",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 0,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-1",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a2ed7b92479b3c4c266e6a947f0766fb005b2d6ac65f1585fbc8c0ac60417766",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 1,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-2",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8dfede176153b8ea17e27b95f43bf21cd95e5924789ea19c124c0578dd22ab5a",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 2,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-3",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "804b55e321af4f5b5e398804fb6eed8f9d993545996ae872b01b4c21441da9f4",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 3,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-4",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b73e7f5c913ca2e65599d8bd4b6fae8bf35086b2c73356cf377376188264f554",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 4,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-5",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "350408e7dea4a4a6ec9f0a195874a68a1dfb4a66bfa7e395e5dab789a64c798c",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 5,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-6",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1f42b76919beacdd08816ba5d9c0d550b44db600032ca1ab452c3912156e6e79",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 6,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-7",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1eea63360d4dcacdae1ba36eb4eef926e8cf1df68bf5e4dc6b2f4d912a19cf02",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 7,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-8",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2213c9e2c344ad73c079b4b7fb6b3f07a0d981c59e154ce09bbd4231aa6a0a3e",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 8,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-9",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6cc7edd2bd00390182e01faa18b8d24f2b66dded320a77f4f3b841a95d9415a6",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 9,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-10",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "58eb030fe5404136c0dfa28a9709b687fd68769404ffbe3b5edea5d5b992734e",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 10,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-11",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3dacd42a3eb321dd9ee5aabe6de22a4fe4359fed3169d8d22cfb03de3b0b5a41",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 11,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-12",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c6d623b138025e022d6d73e75166c0a9151b85881395d30a20091ddbbbd25c99",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 12,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-13",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6307a868c06475b339417c021d33990af7dccc36587569fcf727494f8cd67717",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 13,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-14",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "feec69f8aadc7d35c9ffff5945e94199d2b5468654002015d022dfe8a91a5d3d",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 14,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-15",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5a8c7361e7bce5e577f4f2e21cc9e967142a9b6ca5983d3eb8876038ea906fc9",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 15,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-19",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-19.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6c332cbefcf192577fdc00c64ab6a5ddafec214ec0dbc65f062346326a301c31",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 19,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-23",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-23.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d4f45084e3405800815e9dc9c7d8e2ab20cc1baa7ddfcee3e05d7e0060a83f17",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 23,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-27",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-27.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "fbe15361e4eec68cfea130099ad71f80765f4125cc0a5c25690d1010de392280",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 27,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-31",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-31.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ab92d64416b08ecdb74356b111e9937eff9da567b9d18c292ead4d4acbc0c6cb",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 31,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-38",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-38.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "12ed74d1ace8bc1dd6ec5464963f4d53993d214d9ffcf92580cb1a889c523566",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 38,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-39",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-39.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bc723e1de5ec80ffd0af31801f229e58b00f2851d8687c0cfe9ccfbbb76842e0",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 39,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-46",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-46.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7aaff9a4807e45dab609d26dd2a6433386bbedd7832bf599057a4931d19de05f",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 46,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-47",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-47.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f78402471b33fb0aeabd027ab0ca30c9e90b56c590e44d472f0d301a238a8780",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 47,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-55",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-55.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4a54226bbbc5f126e000be64017a540a587fa59362f39b4cf98723faa3742c6d",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 55,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-63",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-63.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2b0cfbba5ef27a425d7171a5248ef6dc01a1c8048c286f44ed43888c46c20102",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 63,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-76",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-76.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "118d07c0bb86e49732b0f0cd4a0f4a9affd868cad9e16f5345f045e22bbbeed9",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 76,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-77",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-77.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ab3033220673af696221d726d48ce56bd76714cf504c698cd8fa6667dbff7691",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 77,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-78",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-78.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8dd5d780de78ff4c1e38295bde8614ccf92612587be3ae855d320d92bd65a110",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 78,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-79",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-79.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4b3dd38642fba78ef2012c9afcdd22dda830d73e3c9d1bc76c90ac24ce656ac7",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 79,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-95",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-95.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5948e88d068760df9cd2de51369505f7c66e2428ff8ba840917bd0165abc4343",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 95,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-110",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-110.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3a04988662e0ac7aeef8e5332b1bec3a1a102715a436be566e70ddeab5acd3d4",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 110,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-111",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-111.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6e9a39735d80b4a5c4eec6347d45e1dfcab1fb9706453b37c339d950486c03ef",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 111,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-127",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-127.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9c80568652bb65f5ecf322b954566b7a740927451098e6cfca3649b0e8a1b83e",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 127,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-137",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-137.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8287144b8b4934e266155948778357b763958781e739d1945e4f264b45431d0b",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 137,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-139",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-139.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1f879116b046440f5f90888246bef63ef1afb4b7bbe3031e0ee17a4a087e27b6",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 139,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-141",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-141.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e52947e4bff2ce11dcde755df3bd5c27d753998db2454a077e1728c373bad528",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 141,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-143",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-143.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b9a6800582be02e6511fca9578c010985736a56a4e9816bdeb8f1dc37cc566ba",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 143,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-155",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-155.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b5f896dcbbeb9a2843373b3e7bf7373a7a61aa57d6fba653afbc08e263ab8714",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 155,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-159",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-159.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "cccc8d44123e6e7134c7f8f97080de90c93f46a02178cd6af48ab7e424554296",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 159,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-175",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-175.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2a73d8f7e75712eb710cc0cbf4598a515c897170d6be5be2b3b1e5e51b44db0d",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 175,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-191",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-191.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "192b37cc5c83e1d63b0078408000acd77eda30b772281fec3d756fe278971d9b",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 191,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-205",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-205.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0818b3f1e5830fab63e7a6b4b8321a0c5165390c781687fb6c544dcdee9a2828",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 205,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-207",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-207.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8c00fd82b06008084c12faa0f9bab1f3a447c5c21b0fec98f67110bfad9e5c08",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 207,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-223",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-223.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "45056d8edbe2a908a6c6749fb6bc8951bea8eb70ffec52b1286348783e8b3990",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 223,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-239",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-239.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2262decb41b387a47898fa097e7a599fedc9e795883f43a026b9d005ddc237ec",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 239,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/navy-cream-255",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/navy-cream-255.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1a8d3dad6b4a298ecdfe65f69ee732a43d75d6cc7e94ccf35c3086f3f4a255c9",
+      "family": "carpet",
+      "palette": "navy-cream",
+      "mask": 255,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-0",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e39929fe6c389b6acac027875af3ded6ac71a23b72ae765bf11d9ad390af8fe7",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 0,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-1",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7ee032486ede219475d110c7a27227289e5b59066f91ae2247129852b6df828c",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 1,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-2",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a25539fd6f9d93c0002c4d1ca9316d83e530431ec5d8e262ec355b95b54ff425",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 2,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-3",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a2f3257211f012ff7a28a1815ec9eb2e4ca19e9814326b1362c161dc0825fcee",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 3,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-4",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e2a52b9b12279ebfc2cde386a1bbfe1f1a6fcd4df837ebb72a9b81f8059d8a93",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 4,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-5",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8079742dcca800307ed02db8a4aa9d9f9d6dd07c30bbc660371cc4d97e37da74",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 5,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-6",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3b8b07c8d189f9774707d59c73c2300defb742a66ebf2e3b1ed3255da31dca7d",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 6,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-7",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1c7a340512f5546f7a21bd3899edaa2510288304c374c8278756ab2f7cdc97d9",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 7,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-8",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9fb1dff629af5f1ff99b3cd433403a91c79b9f16fb0131d266d9784ff020f465",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 8,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-9",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b7da639882f7c7e267ccf48aa6abe6c86e3b986668bf9885f29b3fb77218d354",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 9,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-10",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e01fa72297450dd1936cccc6b79742278c5c1308d317cf7c773fc394fd2a3264",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 10,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-11",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0689516d6e0a2ab58b96120aad2937dc79b7b53dac1a882c1b2a055dc8bdeb2c",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 11,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-12",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "18531bc19388ac6c9d36ac8af5edec9b7c67b075a8651a5cbd595e6253291928",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 12,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-13",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c0622cbcc7f7f33ed17591a71adb3135a1a33765b18cd3dac6fa6f4194ea24cc",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 13,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-14",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3cee33515cfd45f2f9128d427e6eee71d87c29af9d46978e84ab5f60179b0702",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 14,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-15",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1f2c569ab148b63cd4fac90112647898c2790ca925fc4ec149c4924c57427f6f",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 15,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-19",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-19.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6edeced74e8841a9913641a572d3c52ed769e19a7daa8eeefe206ff45ebb358c",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 19,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-23",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-23.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ca774a90240ed3d18db983ce82f79335c33a6f01aced872d0d85bf60031078ea",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 23,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-27",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-27.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "33f169f57aeb71ea76351aea9e9a00d45ec606a697967dc4d68f00439a768bc2",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 27,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-31",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-31.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d3577144d68ab2daf8e2b38c72fdb41549cdabc440ae8d2a3e177f9ffe4c9649",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 31,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-38",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-38.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "fa0587a5e0644ee840e6a7bd1fba24957d67d31bf758b28f937df7ee5d1f61d9",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 38,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-39",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-39.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2a23af71be0dc93a804fdc2370672e24fb9c0e7a9643877331832da18929a29c",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 39,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-46",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-46.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4b0c29beb9219c53e5e31e381765eb0a87944ce62fc00d1d01e752ac0a788c64",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 46,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-47",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-47.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9934bc2e6de6a89b44abad3403e439f6db89de1214c28054fedb20bab5d78986",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 47,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-55",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-55.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9f59a2a7e0a987338a1e6c30be4c6293dfe5e7cebe42c0234586f918e8a4b6f0",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 55,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-63",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-63.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c56181f0abad42dbda9ee13f63fa1983cbd57bb6de08613e3a7b3c53e9572688",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 63,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-76",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-76.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c189d7c81bfe7d7f8bacd1bedd924c7d722c7fca49f79c34b050cfd8680f93b8",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 76,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-77",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-77.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6a547b8bfcac8fcf221d2b9db29bd1571c1b961d394e695141102869d46c31e3",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 77,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-78",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-78.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "07796c1c3ec9ebfeb00fe70950783ce21910d71e637976f83c48d2077344f732",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 78,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-79",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-79.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4c0d5cb00911973584f5604ea170a8efe9cdf2ff94e4c37b6c00793c0cc051d7",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 79,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-95",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-95.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "da201d778593bff846e73b3dd8c3ad08e566de847f61beeae31c677ccd0684a8",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 95,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-110",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-110.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d79c35ecb7f1482337e74e0cb77d0316dfb5999f6858ec33e8f22822cd57395a",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 110,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-111",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-111.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5660a036f47b599a122914b6187544c793cebdb20d754e74104bf2f7b2af0e76",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 111,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-127",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-127.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c686b5e6d26a89078c4ca274dee209b5352db19988f81912743fd4a34661b743",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 127,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-137",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-137.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "14e056927f691b2a0c53427cb8779c0f3e20a615649426c51d155c4c3fa30dce",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 137,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-139",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-139.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6aff8adaf07afe4c622e3695523e0723be87d50bf94ded0794857d1daa4a022b",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 139,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-141",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-141.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "24c3e5a85bc78f3f20ed4610d63fbb6d9f7eb790695298da5c43317213309d84",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 141,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-143",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-143.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1e12edb3733b9998831882806b5f5d1ec1657ab223cd0da1e4201f2dba7184f3",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 143,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-155",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-155.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f20d1d4999082126028f450add21d822720f702c0cbfa1a77af3afb28587a2c5",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 155,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-159",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-159.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c820e80fa5bb1810ed8cd0d399b9280d223031368563955f5fefbc7ff3e56e9e",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 159,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-175",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-175.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f6e7ebe3653f843a5e7b6d266fc3ad914c2b1a0393ca0c333fd2df6f0b336077",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 175,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-191",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-191.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a7d4e639b16df87951b5103eb5f3a04090710f580b5ddca327d67e1492a4d4cb",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 191,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-205",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-205.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "eca9a6837b9efd88ac00a2a78d4c8971649d2f3e37753312c51994ffd9d7aa7e",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 205,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-207",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-207.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8741b71d860f125025fcafe53ef06878850d7f1724f9e8fc78699f145da224e4",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 207,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-223",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-223.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8dfe2b08fd68e71235eddd8b43f5af3e48fcaa5a84c7b7264135c6a0b6677ad1",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 223,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-239",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-239.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bf521da984afefde6865f3b0fc2c447e3990ab8010983df5ce51fb0dee00c4df",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 239,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "carpet/lilac-cream-255",
+      "file": "Assets/Art/Production/InteriorComponentsV2/carpet/lilac-cream-255.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f87c44c49ea86bc8e9cf40ba96e13906cdb0376e57783f8cffa4ce9e546518e1",
+      "family": "carpet",
+      "palette": "lilac-cream",
+      "mask": 255,
+      "source": "ArtSource/InteriorComponentsV2/rugs-master.png",
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "carpet",
+        "transparent-overlay",
+        "blob-47"
+      ]
+    },
+    {
+      "id": "stairs/north-flight",
+      "file": "Assets/Art/Production/InteriorComponentsV2/stairs/north-flight.png",
+      "width": 32,
+      "height": 64,
+      "ppu": 32,
+      "sha256": "976b3da641d1105639005e49a80660ef243b7cd809be19066af71661cd72a802",
+      "family": "stairs",
+      "source": "ArtSource/InteriorComponentsV2/stairs-master.png",
+      "sourceCrop": {
+        "left": 383,
+        "top": 122,
+        "width": 290,
+        "height": 733
+      },
+      "anchor": "bottom",
+      "tags": [
+        "stairs",
+        "north-wall-opening"
+      ]
+    },
+    {
+      "id": "stairs/down-well",
+      "file": "Assets/Art/Production/InteriorComponentsV2/stairs/down-well.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8ff2bbd564c8b0404e2305a77f05deea3b7d4c7b6da5f00f542bab7bcddbf2db",
+      "family": "stairs",
+      "source": "ArtSource/InteriorComponentsV2/stairs-master.png",
+      "sourceCrop": {
+        "left": 997,
+        "top": 504,
+        "width": 288,
+        "height": 287
+      },
+      "anchor": "bottom",
+      "tags": [
+        "stairs",
+        "floor-opening"
+      ]
+    }
+  ],
+  "limits": "Mechanical continuity is independent from visual reference fidelity. No game integration or Unity import validation."
+}

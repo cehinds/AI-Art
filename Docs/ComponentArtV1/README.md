@@ -1,6 +1,6 @@
 # Component Art V1 review catalog
 
-This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, and WorldComponentsV2 seam corrections. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
+This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, WorldComponentsV2 seam corrections, and InteriorComponentsV2 room components. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
 
 ## Status
 
@@ -10,7 +10,7 @@ WorldComponentsV1 has known visual limitations: the coast set is a continuous is
 
 Altair building facades and roofs are separated as transparent, same-canvas layers; assembled previews are included for checking the full forms. Signs and terrain props are included from the Altair manifest. This catalog is an inventory view, not an approval of every building detail against the PR map.
 
-Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, and 68 WorldComponentsV2 (254 unique PNGs total, including preserved V1 outputs).
+Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, 68 WorldComponentsV2, and 166 InteriorComponentsV2 (420 unique PNGs total, including preserved V1 outputs).
 
 ## Refresh
 
@@ -34,3 +34,7 @@ The script reads manifests from `Assets/Art/Production/{AltairKitV1,OpeningWorld
 ## WorldComponentsV2 — 2026-10-31
 
 The [revised terrain gallery](../../Review/world-components-v2/index.html) adds 47 coast masks, 16 river masks, ocean fill, and four river mouths. V1 remains available for comparison. Matching four-pixel boundary bands pass 648 compatibility checks and 700 joins across the proof layouts; this verifies static asset connectivity, not runtime integration or animated water. The [Pixel Remaster comparison](../../References/WorldComponentsV2/Comparison/index.html) records the remaining brighter grass and more regular coast shapes. Game integration stays deferred.
+
+## InteriorComponentsV2 — 2026-10-31
+
+The [joined interior kit](../../Review/interior-components-v2/index.html) adds floors, separate wall faces and cutcaps, doorways, stairs, and three carpet palettes with inside and outside corners. [Room comparisons](../../References/InteriorComponentsV2/Comparison/index.html) use attributed FFII Pixel Remaster references. See the pack verification receipt for exact tested join classes; a wall/floor material boundary is not treated as identical artwork. Earlier components and approved cursor art are preserved. Game integration remains deferred.

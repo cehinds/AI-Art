@@ -10,6 +10,7 @@ const packs = {
   world: path.join(root, 'Assets/Art/Production/WorldComponentsV1/manifest.json'),
   seams: path.join(root, 'Assets/Art/Production/WorldComponentsV2/manifest.json'),
   interior: path.join(root, 'Assets/Art/Production/InteriorComponentsV1/manifest.json'),
+  interiorV2: path.join(root, 'Assets/Art/Production/InteriorComponentsV2/manifest.json'),
 };
 
 function readManifest(file) {
@@ -66,19 +67,22 @@ function interiorCards(j) {
   });
 }
 
+function interiorV2Cards(j) {
+  return (j?.assets || []).map(x=>({id:x.id,label:x.id,file:x.file,category:'interior',detail:x.width+'×'+x.height+'px · '+x.family,pack:'InteriorComponentsV2'}));
+}
 const manifests = Object.fromEntries(Object.entries(packs).map(([k,v]) => [k,readManifest(v)]));
 const groups = {
   world: [...openingCards(manifests.opening), ...worldCards(manifests.world), ...altairCards(manifests.altair).filter(x=>x.category==='world')].filter(x=>x.category==='world'),
   water: [...worldCards(manifests.world), ...worldCards(manifests.seams, 'WorldComponentsV2')].filter(x=>x.category==='water'),
   city: altairCards(manifests.altair).filter(x=>x.category==='city'),
-  interior: interiorCards(manifests.interior).filter(x=>x.category==='interior'),
+  interior: [...interiorCards(manifests.interior).filter(x=>x.category==='interior'), ...interiorV2Cards(manifests.interiorV2)],
   ui: interiorCards(manifests.interior).filter(x=>x.category==='ui'),
 };
 const allCards = Object.values(groups).flat();
 const uniqueFiles = new Set(allCards.flatMap(x=>[x.file,...(x.children||[]).map(c=>c.file)]).filter(Boolean));
 const interiorManifestCount = Object.keys(manifests.interior?.components || {}).length;
 const interiorPngCount = new Set(Object.values(manifests.interior?.components || {}).flatMap(x=>[x.file,...Object.values(x.layers||{}).map(y=>y.file),...Object.values(x.slices||{}).map(y=>y.file)]).filter(Boolean)).size;
-const packPngCounts = {AltairKitV1:altairCards(manifests.altair).length,OpeningWorldV1:openingCards(manifests.opening).length,WorldComponentsV1:worldCards(manifests.world).length,WorldComponentsV2:worldCards(manifests.seams, 'WorldComponentsV2').length,InteriorComponentsV1:interiorPngCount};
+const packPngCounts = {AltairKitV1:altairCards(manifests.altair).length,OpeningWorldV1:openingCards(manifests.opening).length,WorldComponentsV1:worldCards(manifests.world).length,WorldComponentsV2:worldCards(manifests.seams, 'WorldComponentsV2').length,InteriorComponentsV1:interiorPngCount,InteriorComponentsV2:interiorV2Cards(manifests.interiorV2).length};
 const categoryTitles = {world:'World terrain, vegetation and settlements',water:'Water, coasts, rivers and bridge candidates',city:'Altair buildings, signs and props',interior:'Interior walls, floors and furniture',ui:'UI panels and controls'};
 const knownCounts = Object.fromEntries(Object.entries(groups).map(([k,v])=>[k,v.length]));
 const total = allCards.length;
@@ -90,6 +94,8 @@ const links = [
   ['WorldComponentsV1 gallery','../world-components-v1/index.html'],
   ['WorldComponentsV2 seam-corrected tiles','../world-components-v2/index.html'],
   ['V2 Pixel Remaster comparison','../../References/WorldComponentsV2/Comparison/index.html'],
+  ['InteriorComponentsV2 joined room kit','../interior-components-v2/index.html'],
+  ['V2 interior reference comparison','../../References/InteriorComponentsV2/Comparison/index.html'],
   ['World layer comparison','../world-layer-comparison-v1/index.html'],
   ['WorldComponentsV1 visual limits','../../Docs/WorldComponentsV1/visual-review.md'],
 ].map(([a,b])=>`<a href="${b}">${a}</a>`);
