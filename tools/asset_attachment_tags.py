@@ -747,6 +747,92 @@ def verified_completed_layer_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_wall_component_documents(root):
+    """Preserve a complete source-bound cardinal wall kit and sample recipes.
+
+    Recognition is restricted to the sixteen declared connection masks and
+    their source-bound construction parts. Geometry/seams remain independent
+    QA responsibilities; immutable hashes do not certify new inferred art.
+    """
+    base = root / 'wall-components'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or not isinstance(doc.get('assets'), list) or len(doc['assets']) != 16
+            or not isinstance(doc.get('construction'), list) or not doc['construction']
+            or not isinstance(doc.get('samples'), dict) or not doc['samples']
+            or doc.get('grid', {}).get('tileSize') != 64
+            or doc['grid'].get('canvas') != [64, 96]
+            or not isinstance(doc.get('edgeContract'), str)):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid wall component evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid wall component evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid wall component evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    parts = set()
+    for part in doc['construction']:
+        if not isinstance(part.get('id'), str) or part['id'] in parts:
+            raise ValueError('Invalid wall construction identity')
+        parts.add(part['id'])
+        verify_file(base, part.get('file'), part.get('sha256'))
+        source = part.get('provenance', {})
+        relative = source.get('file')
+        directory = project if isinstance(relative, str) and relative.startswith('Web/') else base
+        verify_file(directory, relative, source.get('sha256'))
+    ids, masks = set(), set()
+    for asset in doc['assets']:
+        provenance = asset.get('provenance', {})
+        if (asset.get('kind') != 'network-tile' or asset.get('id') in ids
+                or not isinstance(asset.get('mask'), int) or asset['mask'] in masks
+                or provenance.get('kind') != 'inferred-assembled-variant'
+                or not isinstance(provenance.get('primitives'), list)
+                or not provenance['primitives'] or not set(provenance['primitives']) <= parts):
+            raise ValueError('Invalid wall network asset provenance')
+        ids.add(asset.get('id')); masks.add(asset['mask'])
+        verify_file(base, asset.get('file'), asset.get('sha256'))
+    if masks != set(range(16)):
+        raise ValueError('Incomplete wall network mask evidence')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid wall component membership')
+        listed[target] = member
+    package = base / 'wall-components.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete wall component membership')
+    for relative in doc['samples'].values():
+        target = base / relative
+        if target not in listed:
+            raise ValueError('Unbound wall sample recipe')
+        sample = json.loads(target.read_text())
+        if (sample.get('schemaVersion') != 1 or sample.get('grid') != 64
+                or not isinstance(sample.get('instances'), list)
+                or any(instance.get('assetId') not in ids | parts for instance in sample['instances'])):
+            raise ValueError('Invalid wall sample recipe references')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid wall component package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Wall component archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -822,7 +908,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
