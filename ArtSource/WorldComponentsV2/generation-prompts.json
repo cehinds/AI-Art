@@ -1,0 +1,36 @@
+{
+  "pack": "WorldComponentsV2",
+  "date": "2026-10-31",
+  "method": "Built-in image generation and targeted edits; followed by mechanical source-layer extraction, nearest-neighbor normalization and shared-edge tile assembly.",
+  "sources": [
+    {
+      "file": "terrain-master.png",
+      "generatedFile": "exec-db464728-0e07-4442-850f-1e50210a70df.png",
+      "prompt": "Create a precise pixel-art terrain MATERIAL AND SHORE SOURCE SHEET for a Final Fantasy II Pixel Remaster-inspired overworld tileset. Image 1 is actual gameplay reference for palette and fine scale; image 2 is prior generated art to IMPROVE: quieter grass, softer cobalt water, thinner cream shoreline, fewer oversized white specks. Output square opaque PNG, exactly FOUR EQUAL SQUARE PANELS in a flush 2x2 grid, NO gutters borders labels or text. TOP LEFT: uninterrupted yellow-green grass texture, fine low-contrast pixel flecks, no objects, consistent brightness, seamless repeat. TOP RIGHT: uninterrupted medium cobalt-blue sea, small sparse horizontal pale blue ripple dashes, no large waves, seamless repeat. BOTTOM LEFT: one large rounded-square grass island centered in the same blue water, covering middle 75% of panel, mostly straight shores with softly stepped rounded convex corners, all exterior is water, very thin tan/cream bank and thin turquoise fringe, not a beach. BOTTOM RIGHT: one large rounded-square blue lake in the same green grass, middle75% panel, with gently stepped concave land corners, all exterior is grass, identical thin bank and fringe. All four panels use EXACT SAME grass and water materials. Pixel-art, orthographic overhead, hard square pixel clusters at effective 128x128pixels per panel, no blur, no shadows or gradients across material fields. Thin bank is 1-2 effective pixels, water fringe1pixel. This is a reusable source atlas for later mechanical tile extraction, not a scene. No forests, mountains, structures, people, UI, grid lines, decorative borders.",
+      "status": "Initial thin-bank source; retained for provenance, superseded."
+    },
+    {
+      "file": "terrain-thick-bank-master.png",
+      "generatedFile": "exec-b3989a52-82fa-4758-857e-b0dde8300ffc.png",
+      "prompt": "Edit this four-panel pixel-art terrain sheet for usable native tile extraction. Preserve EXACT panel grid, all four panel roles and layout, grass and water palette and grass/water pixel texture. Only change shoreline geometry and bank width in the TWO BOTTOM PANELS. Increase tan/cream bank thickness to a continuous 14 image pixels at this1254px sheet size, PLUS a blue-turquoise waterline fringe8imagepixels thick. The bank must be easily visible and must survive shrinking a160px crop to16pixels (bank becomes1-2pixels). NO thin hairline bank. Make the bottom-left island and bottom-right lake smoothly rounded squares with mostly straight shores, gentle stepped pixel curves and consistent bankwidth at corners; no jagged bulbs protruding from their corners. Preserve all original materials in top two panels entirely. Hard pixel art, no blur, anti-aliasing or shadows. This is a technical source atlas for exact tile joins. Do not add labels, dividers, objects or borders.",
+      "status": "Thicker bank; superseded because lake waterline was on wrong side."
+    },
+    {
+      "file": "terrain-master-v3.png",
+      "generatedFile": "exec-933b1547-2f7f-403f-915b-f18b2040cd02.png",
+      "prompt": "Make a surgical correction to this terrain atlas: change ONLY the border around the lake in the BOTTOM RIGHT panel. Its bright turquoise/cyan fringe is wrongly on the outside touching the grass. Move that fringe to INSIDE the cream shoreline, directly touching blue lake water. The correct material order from outside to inside is GREEN GRASS, then CREAM/TAN BANK, then TURQUOISE fringe, then BLUE WATER. Absolutely no cyan on the grass side. Preserve thick bank width, shape, pixel-art style, all top panels and the bottom-left island unchanged. NO new objects, no text, no other changes. Pixel art, hard edges.",
+      "status": "Corrected lake waterline; selected terrain master."
+    },
+    {
+      "file": "river-master.png",
+      "generatedFile": "exec-96b2a34f-915f-41a9-aa62-8cb1665ac806.png",
+      "prompt": "Create a pixel-art river AUTOTILE SOURCE ATLAS, exactly4columns x4rows of equal square cells in a flush seamless grid, NO gutters or dividing lines, NO labels. Use image1 solely for SAME green grass, cobalt-blue water, cream shore and cyan waterline materials. Image2 actualFFII gameplay shows narrow winding rivers and thin banks. Each cell an overhead grass tile with a river pattern. Allopenriver connections MUSTmeet edgeexactlyatmidpoint, SAME width: water12nativepixels, cream bank1nativepixel on eachside, turquoise fringe1nativepixelinsidebank. Think32x32nativepixels percell,128x128nativeatlas magnified. Sparse small paleblue horizontalwaterdashes; never continuous straight stripes insidewater. Continuouscream banks thatcurvearoundbends andends; cleanrounded corners. EXACT ROW-MAJOR patterns: Row1: isolatedroundpond, north-only riverend, east-only riverend, north-east bend. Row2: south-only end, north-southstraight, south-eastbend, north-east-southT. Row3: west-onlyend,north-westbend,east-weststraight,north-east-westT. Row4: south-westbend,north-south-westT,south-east-westT,four-waycross. Ends terminate roundednearcenter. No water at anyunlistedcelledge. All grass identical acrosscells. Riversbends smoothlyrounded, no harshboxelbows. Draw32pxnativepixelart with deliberately substantial enoughcreamshoreto survive downsampling, not finehairline. Flat texture2D, no blur, no typography, no shadows, no objects.",
+      "status": "Generated river topology source. Final manifest declares sampled portions."
+    }
+  ],
+  "reference": {
+    "title": "FFII Pixel Remaster: Altair and Fynn",
+    "url": "https://vorxu.com/final-fantasy-2-pixel-remaster/walkthrough/altair-and-fynn",
+    "usage": "Gameplay screenshots inform palette, shoreline width, channel shapes; no retail sprite extraction."
+  }
+}

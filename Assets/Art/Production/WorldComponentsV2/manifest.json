@@ -1,0 +1,1798 @@
+{
+  "generationRecord": {
+    "file": "ArtSource/WorldComponentsV2/generation-prompts.json",
+    "sha256": "7c934df4294bef5d702bcf4cea09c2b5a9b4609466b8e121c6369f88ee162749"
+  },
+  "sourceRecords": [
+    {
+      "file": "ArtSource/WorldComponentsV2/terrain-master.png",
+      "sha256": "0d79ab300518e2cbda731d07d2d676df7149c91307500becda83e2cba928e75b",
+      "status": "Initial thin-bank source; retained for provenance, superseded."
+    },
+    {
+      "file": "ArtSource/WorldComponentsV2/terrain-thick-bank-master.png",
+      "sha256": "389fdeb1a68df50f811865ee9a78b8e30a53d5395683cdb2bd4f82aea08a5018",
+      "status": "Thicker bank; superseded because lake waterline was on wrong side."
+    },
+    {
+      "file": "ArtSource/WorldComponentsV2/terrain-master-v3.png",
+      "sha256": "abc820932dbeed3794b9a213bc766f1b7370faf4ec1f1dad4288eb1211a34461",
+      "status": "Corrected lake waterline; selected terrain master."
+    },
+    {
+      "file": "ArtSource/WorldComponentsV2/river-master.png",
+      "sha256": "4b7bab365d2c2553be1ff17c81bb3fdefbe4e33243168fc8761b6571247ee26a",
+      "status": "Generated river topology source. Final manifest declares sampled portions."
+    }
+  ],
+  "schemaVersion": 2,
+  "kit": "world-components-v2",
+  "status": "candidate-assets-not-integrated",
+  "nativeSize": 32,
+  "source": {
+    "file": "ArtSource/WorldComponentsV2/terrain-master-v3.png",
+    "sha256": "abc820932dbeed3794b9a213bc766f1b7370faf4ec1f1dad4288eb1211a34461",
+    "crops": {
+      "grass": {
+        "left": 140,
+        "top": 140,
+        "width": 220,
+        "height": 220
+      },
+      "water": {
+        "left": 767,
+        "top": 140,
+        "width": 220,
+        "height": 220
+      },
+      "island": {
+        "left": 35,
+        "top": 665,
+        "width": 175,
+        "height": 175
+      },
+      "lakeCorner": {
+        "left": 1110,
+        "top": 1090,
+        "width": 144,
+        "height": 164
+      },
+      "north": {
+        "left": 240,
+        "top": 670,
+        "width": 160,
+        "height": 160
+      },
+      "west": {
+        "left": 35,
+        "top": 850,
+        "width": 160,
+        "height": 160
+      }
+    }
+  },
+  "riverSource": {
+    "file": "ArtSource/WorldComponentsV2/river-master.png",
+    "sha256": "4b7bab365d2c2553be1ff17c81bb3fdefbe4e33243168fc8761b6571247ee26a",
+    "grid": [
+      4,
+      4
+    ],
+    "cellInset": 2
+  },
+  "decomposition": "Generated fragment crop, nearest resize, reflection, quadrant assembly and four-pixel canonical source-fragment bands. No synthetic colors or painted artwork.",
+  "coastMaskBits": {
+    "N": 1,
+    "E": 2,
+    "S": 4,
+    "W": 8,
+    "NE": 16,
+    "SE": 32,
+    "SW": 64,
+    "NW": 128
+  },
+  "riverMaskBits": {
+    "N": 1,
+    "E": 2,
+    "S": 4,
+    "W": 8
+  },
+  "assets": [
+    {
+      "id": "coast-0",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "77c5cac48cd28737de307579c9479b18bf2bf256d6f5170f0a78063ba29cf943",
+      "family": "coast",
+      "mask": 0,
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-1",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e29e9d4e68d4e12003ee62da94c92c3903f5db6a56b72f01b598d0bb9126628d",
+      "family": "coast",
+      "mask": 1,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "water",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-2",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "da9bbe538367a1c64e6f16f5181939f887fcf140fbe06bdd0ac08da30fb12b10",
+      "family": "coast",
+      "mask": 2,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "convex"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-0",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-3",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "67cded2a971596bd7da859eda718865812f211557ddef58b6a9f16ae1f551cb9",
+      "family": "coast",
+      "mask": 3,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-0",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-4",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bdc434a26b546547e53048b27ef6bf857e1a841551426c9098782ad189129398",
+      "family": "coast",
+      "mask": 4,
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "land-0-0",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-5",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "365dd89dad87a93491948c79c0be1a391cd40a9400806d923898530cff39cba3",
+      "family": "coast",
+      "mask": 5,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "water",
+        "S": "land-0-0",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-6",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "614279452850f6ca94a5f5d6323a63edd8b038275fa31318d078208ffcd89490",
+      "family": "coast",
+      "mask": 6,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-0",
+        "S": "land-0-0",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-7",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a3e058569f03d2cdc0367ceae99cc14acea766e683b0a7adcbf1b941afd1a8f5",
+      "family": "coast",
+      "mask": 7,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-0",
+        "S": "land-0-0",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-8",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "498467b3fe6e01b3106f962e606b450c4f5d6588fdd05ef81b18b6ef7a7bbfc7",
+      "family": "coast",
+      "mask": 8,
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "water",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-9",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "a3cf932703c20d2e8a46eadf834726ff6d3f0c148c0fd170015dc9a1c4169328",
+      "family": "coast",
+      "mask": 9,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "water",
+        "S": "water",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-10",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "eb15d2f7e71b862cbb597169070d5d91a05648688f4ce6d34ba6b133f22e2c6f",
+      "family": "coast",
+      "mask": 10,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-0",
+        "S": "water",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-11",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f88d4a3b2bf65600ae424b9ad6ed6f2cfdd98d658dea3c301fb41f4f087fb1a1",
+      "family": "coast",
+      "mask": 11,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-0",
+        "S": "water",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-12",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "eecfcea0e04a948b9e4416a9ab8adee2f5b471870dac29037f97913fac5afc5c",
+      "family": "coast",
+      "mask": 12,
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "land-0-0",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-13",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "cc1c04deb808470e2676b849de7a589309f5e91f308fd22adcd1c736ed6e491c",
+      "family": "coast",
+      "mask": 13,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "water",
+        "S": "land-0-0",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-14",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "3cfbf7868cc09e9a8013fc98ee1bf63e7d2796e72eb6e06beee2a57c9285f60d",
+      "family": "coast",
+      "mask": 14,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-0",
+        "S": "land-0-0",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-15",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "6bf137c4eea0917e1ec1d00be2f33eea9aba95b69e8660f651dc6af9c3917652",
+      "family": "coast",
+      "mask": 15,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-0",
+        "S": "land-0-0",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-19",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-19.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f8abacb2797cb921ea64f38fc69ebdd7330a3d0d0cfbdb0d52de40f1892e5911",
+      "family": "coast",
+      "mask": 19,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "convex",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-0",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-23",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-23.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ab603d9d2cb0ce68a21528095e8dc1da65032c36061484bf2dbe1681f8a5300a",
+      "family": "coast",
+      "mask": 23,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-0",
+        "S": "land-0-0",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-27",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-27.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8e8f88cb28211f6b89617283eb99339c6c7fd3a07f98bd34fe6ea924c00c59f8",
+      "family": "coast",
+      "mask": 27,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-0",
+        "S": "water",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-31",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-31.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4872ecce1394da5cc841fa8fc68142e6c6c739000b4be0b1502c4b1917646ba7",
+      "family": "coast",
+      "mask": 31,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-0",
+        "S": "land-0-0",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-38",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-38.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d0732e9d79f06fc34df9ee4d8c9f655e59a69a798b14f57395a5a56f7ac8acf9",
+      "family": "coast",
+      "mask": 38,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "convex"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-1",
+        "S": "land-0-1",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-39",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-39.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "65aebf0672777927f565b5b892e99d119151e5d950f42d7f1f4c9f7bf85b5fa3",
+      "family": "coast",
+      "mask": 39,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-1",
+        "S": "land-0-1",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-46",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-46.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5a3f19f5e7729abd4881ff8e690415ccc467f0f620f004d4d7c6e250849dcd24",
+      "family": "coast",
+      "mask": 46,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-1",
+        "S": "land-0-1",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-47",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-47.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ccf94034d3c4f26663109a4c058d7b8dddb506d5cb3bfca3df991eae3e07ef95",
+      "family": "coast",
+      "mask": 47,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-1",
+        "S": "land-0-1",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-55",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-55.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "57682336eafe88983db8561e75f49d438ffedd8c7cb74fd2edc8a0ece4e28b9d",
+      "family": "coast",
+      "mask": 55,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "straight",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-1",
+        "S": "land-0-1",
+        "W": "water"
+      }
+    },
+    {
+      "id": "coast-63",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-63.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f74eade498489ce4e70e8bcf312eb54e1dc8e1b1aa7a281fde17db8fffd2c408",
+      "family": "coast",
+      "mask": 63,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-1",
+        "S": "land-0-1",
+        "W": "land-0-0"
+      }
+    },
+    {
+      "id": "coast-76",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-76.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "cdc10927ac9a9f9e5713b05a9e15556b21e6b6a204ced21a8c2cbd508a245b07",
+      "family": "coast",
+      "mask": 76,
+      "cornerRoles": {
+        "NE": "convex",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "land-1-0",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-77",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-77.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "daa1d6a2aca2b8aa69146b004b321b82a5ad26b852537057e3fe4f41b99340f3",
+      "family": "coast",
+      "mask": 77,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "water",
+        "S": "land-1-0",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-78",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-78.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0694786cef6d8618d7ded2db66c4b26df8577bd4690789314e26cd7903c845d8",
+      "family": "coast",
+      "mask": 78,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-0",
+        "S": "land-1-0",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-79",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-79.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "408ce02ea65753d3761da9dba18160e0391949c26cb8980955f6edb56f7863f4",
+      "family": "coast",
+      "mask": 79,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-0",
+        "S": "land-1-0",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-95",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-95.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "25c229a755182cceb87fb77af2a3bda3770543f93cb4cf65b132b1fc818b9aa0",
+      "family": "coast",
+      "mask": 95,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-0",
+        "S": "land-1-0",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-110",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-110.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "43b9295e4bc94539e7e2e2d5db188dfabcd8863523721fd5e57fa95bd8175633",
+      "family": "coast",
+      "mask": 110,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "straight"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-1",
+        "S": "land-1-1",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-111",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-111.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "c457dd0b12fbf8b5ccd370e5d2d1c99fea0cb4d38ba47f985624fa9f95f7d5a9",
+      "family": "coast",
+      "mask": 111,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-0",
+        "E": "land-0-1",
+        "S": "land-1-1",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-127",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-127.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "e029bc57ace0aea752a8b6d46f7634a0b69c2ad7413ba4af89298a1ea7885a60",
+      "family": "coast",
+      "mask": 127,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "concave"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-1",
+        "S": "land-1-1",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "coast-137",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-137.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "1f067bcab2d8d6d7c9add848b90a634da65941350f62aa805911fd25cf5631c3",
+      "family": "coast",
+      "mask": 137,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "convex",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "water",
+        "S": "water",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-139",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-139.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bd691345a4b3d573abdfe6508b6bf8dbafcf6e0cd16ea859cf82359a43d9891b",
+      "family": "coast",
+      "mask": 139,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "land-0-0",
+        "S": "water",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-141",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-141.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "68e5333df49d9d856410ba7622be31bf0360df8fde5defba6440bb8eb7f2bbe8",
+      "family": "coast",
+      "mask": 141,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "water",
+        "S": "land-0-0",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-143",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-143.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b858aec8a5d880836b4de8840422b529503aef3cf8ac1eda762427860eb85a84",
+      "family": "coast",
+      "mask": 143,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "land-0-0",
+        "S": "land-0-0",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-155",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-155.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d892f557d57d7212d01f0f2a22198f3e6cd4275b10f314dad6f41783ddf97d99",
+      "family": "coast",
+      "mask": 155,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "straight",
+        "SW": "straight",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-0",
+        "S": "water",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-159",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-159.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "f62dbc42fffff4f0c96a6358c280ae0a602c6b47ac492d4679d793b663a84c6b",
+      "family": "coast",
+      "mask": 159,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-0",
+        "S": "land-0-0",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-175",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-175.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8d398e0aeb3da4bdea2415b990eb42222f08b5b1a668b622d0fa9f62b83c906a",
+      "family": "coast",
+      "mask": 175,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "land-0-1",
+        "S": "land-0-1",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-191",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-191.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4c46cf492ee5f366a5a7b6ed91fc63d90595d49de13236c9bd4f027cfc925bec",
+      "family": "coast",
+      "mask": 191,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "concave",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-1",
+        "S": "land-0-1",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "coast-205",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-205.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "de5567e8286bcd4023eb43c8025c69042233dec3e077e13b1bd5f3d7c5703305",
+      "family": "coast",
+      "mask": 205,
+      "cornerRoles": {
+        "NE": "straight",
+        "SE": "straight",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "water",
+        "S": "land-1-0",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "coast-207",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-207.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b0c59d5eb6625e6d301f6d2937466a4fee3fe98336a56463897d32d9c07a3201",
+      "family": "coast",
+      "mask": 207,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "land-0-0",
+        "S": "land-1-0",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "coast-223",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-223.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "569446ec6f22d5f99afe86b5d8a0f2718e62364309f087b035ed578f42c7645c",
+      "family": "coast",
+      "mask": 223,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "concave",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-0",
+        "S": "land-1-0",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "coast-239",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-239.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "bdfdf8a163e5ba640f18ef8ec8801415220d8c9f61016d14e5bcc06c42d29b17",
+      "family": "coast",
+      "mask": 239,
+      "cornerRoles": {
+        "NE": "concave",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "coastline"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "land-0-1",
+        "S": "land-1-1",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "coast-255",
+      "file": "Assets/Art/Production/WorldComponentsV2/coast-255.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0b1f54be2feada4689b8386438247d39b846d8391a801caca832cd6fe3789dad",
+      "family": "coast",
+      "mask": 255,
+      "cornerRoles": {
+        "NE": "interior",
+        "SE": "interior",
+        "SW": "interior",
+        "NW": "interior"
+      },
+      "tags": [
+        "land-center",
+        "blob-47",
+        "interior"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-1",
+        "S": "land-1-1",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "ocean",
+      "file": "Assets/Art/Production/WorldComponentsV2/ocean.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4ec9efcc63f1a191083f09d13275cb0fa745d2ae013e22cc6b18cc720c492dd6",
+      "family": "ocean",
+      "mask": null,
+      "tags": [
+        "ocean"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "water",
+        "S": "water",
+        "W": "water"
+      }
+    },
+    {
+      "id": "river-0",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-0.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "080d543844e8277eba11e86ae9819faa01b2367489a0a24e6535c08b7e5c6d54",
+      "family": "river",
+      "mask": 0,
+      "tags": [
+        "river",
+        "isolated-pool"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "land",
+        "S": "land",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-1",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-1.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "661d1244d119a89f7f88b4a0e3eb2ada759f980bb8be1149226296d561ab4dba",
+      "family": "river",
+      "mask": 1,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "land",
+        "S": "land",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-2",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-2.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "4a2efeceb5e9ab4debfebaac1885f7808a8b128d83a124bdf6b32abccd611500",
+      "family": "river",
+      "mask": 2,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "river-open",
+        "S": "land",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-3",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-3.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "37f46446bb52a657cb5a9ff2b99e9487e81d4d08add54338251f2fb0ced2b26c",
+      "family": "river",
+      "mask": 3,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "land",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-4",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-4.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "0fc6bb484260a32e0bfe903e56820725e664a414ee602ae49d128f3249719e7d",
+      "family": "river",
+      "mask": 4,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "land",
+        "S": "river-open",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-5",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-5.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "591c134ed5cfbdfdd1c99ad790def1e0f507e9af7e60c6c9de53d556dfa14fa7",
+      "family": "river",
+      "mask": 5,
+      "tags": [
+        "river",
+        "straight"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "land",
+        "S": "river-open",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-6",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-6.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b79af324a2ad79914597e8988b04ebc9eedf9739527c6a249414159ba482f179",
+      "family": "river",
+      "mask": 6,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-7",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-7.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "2f9592f80cc57dae5a041eecad9a400d041105606270ed08ed3d34af7b81f78e",
+      "family": "river",
+      "mask": 7,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "land"
+      }
+    },
+    {
+      "id": "river-8",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-8.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "ba4dd0ad52f8b309a22166b0b5535cb4eed7ed817e83f32cd8f38d15e5da0a67",
+      "family": "river",
+      "mask": 8,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "land",
+        "S": "land",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-9",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-9.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "9551aec724d47c0f00a961693008e3b1c4fe3cbddad7c56b41e429677cfef1c4",
+      "family": "river",
+      "mask": 9,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "land",
+        "S": "land",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-10",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-10.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "97f5307c9576ade4e389e40879cdb39a131a49d552ef3d1414e176e7dc6a10b8",
+      "family": "river",
+      "mask": 10,
+      "tags": [
+        "river",
+        "straight"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "river-open",
+        "S": "land",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-11",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-11.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "7012bcb6b5de1cd6daae109d51e87c0645d42ba4947dbfe83785f9d4616e1101",
+      "family": "river",
+      "mask": 11,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "land",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-12",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-12.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "8cbc0a5cfc2f7a987586019eece9bf04232a69fc706e2101547c820f81608ecd",
+      "family": "river",
+      "mask": 12,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "land",
+        "S": "river-open",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-13",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-13.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "166c4fd62b6e7e5e66ce6431370e666c1b30f01ca533b20b6120c2679a8da2eb",
+      "family": "river",
+      "mask": 13,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "land",
+        "S": "river-open",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-14",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-14.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "d4fd8366d6f3d4db0ce13fc43127ee37ba8732fac419a59b368f9ac5f8141537",
+      "family": "river",
+      "mask": 14,
+      "tags": [
+        "river",
+        "junction-or-turn"
+      ],
+      "ports": {
+        "N": "land",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "river-15",
+      "file": "Assets/Art/Production/WorldComponentsV2/river-15.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "b4480c91a9e50aa43b8e651c096ee52cfc77ce7f2e784bcd46d5ab6018b01e62",
+      "family": "river",
+      "mask": 15,
+      "tags": [
+        "river",
+        "cross"
+      ],
+      "ports": {
+        "N": "river-open",
+        "E": "river-open",
+        "S": "river-open",
+        "W": "river-open"
+      }
+    },
+    {
+      "id": "mouth-n",
+      "file": "Assets/Art/Production/WorldComponentsV2/mouth-n.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "936a1cde653fec44b3be02ce030888acbd4c86896b926dcf77250ce526365944",
+      "family": "river-mouth",
+      "oceanSide": "N",
+      "coastMask": 110,
+      "riverMask": 4,
+      "tags": [
+        "river-mouth",
+        "coast-to-river"
+      ],
+      "ports": {
+        "N": "water",
+        "E": "land-0-1",
+        "S": "land-1-1",
+        "W": "land-0-1"
+      }
+    },
+    {
+      "id": "mouth-e",
+      "file": "Assets/Art/Production/WorldComponentsV2/mouth-e.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "5ca01d053cff6cd9d8b09340473a838a7a3bb926cc0cb8a859950af59d3d6d8a",
+      "family": "river-mouth",
+      "oceanSide": "E",
+      "coastMask": 205,
+      "riverMask": 8,
+      "tags": [
+        "river-mouth",
+        "coast-to-river"
+      ],
+      "ports": {
+        "N": "land-1-0",
+        "E": "water",
+        "S": "land-1-0",
+        "W": "land-1-1"
+      }
+    },
+    {
+      "id": "mouth-s",
+      "file": "Assets/Art/Production/WorldComponentsV2/mouth-s.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "49081510dc02575ff112bf69910ea327e72e7316d6ce40630b71ef2784b0347b",
+      "family": "river-mouth",
+      "oceanSide": "S",
+      "coastMask": 155,
+      "riverMask": 1,
+      "tags": [
+        "river-mouth",
+        "coast-to-river"
+      ],
+      "ports": {
+        "N": "land-1-1",
+        "E": "land-1-0",
+        "S": "water",
+        "W": "land-1-0"
+      }
+    },
+    {
+      "id": "mouth-w",
+      "file": "Assets/Art/Production/WorldComponentsV2/mouth-w.png",
+      "width": 32,
+      "height": 32,
+      "ppu": 32,
+      "sha256": "49e8be5df2906df85551223ed808a181a5c088a6dc527cad48ddf8e55892351a",
+      "family": "river-mouth",
+      "oceanSide": "W",
+      "coastMask": 55,
+      "riverMask": 2,
+      "tags": [
+        "river-mouth",
+        "coast-to-river"
+      ],
+      "ports": {
+        "N": "land-0-1",
+        "E": "land-1-1",
+        "S": "land-0-1",
+        "W": "water"
+      }
+    }
+  ]
+}
