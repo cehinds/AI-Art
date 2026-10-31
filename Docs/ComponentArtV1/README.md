@@ -1,6 +1,6 @@
 # Component Art V1 review catalog
 
-This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, WorldComponentsV2 seam corrections, and InteriorComponentsV2 room components. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
+This is a combined, asset-only review index. It groups the Altair building kit, opening-region sprites, world component candidates, interior/UI pack, WorldComponentsV2 seam corrections, InteriorComponentsV2 room components, and InteriorDetailsV3 reference refinements. The page reads each pack manifest so counts and previews can be refreshed as assets arrive.
 
 ## Status
 
@@ -10,7 +10,7 @@ WorldComponentsV1 has known visual limitations: the coast set is a continuous is
 
 Altair building facades and roofs are separated as transparent, same-canvas layers; assembled previews are included for checking the full forms. Signs and terrain props are included from the Altair manifest. This catalog is an inventory view, not an approval of every building detail against the PR map.
 
-Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, 68 WorldComponentsV2, and 166 InteriorComponentsV2 (420 unique PNGs total, including preserved V1 outputs).
+Interior previews group separately exported layers and nine-slice cells beneath their owning component. The current manifest has **21 top-level components and 109 unique PNG outputs**: 21 base images plus 16 layer images and 72 slice images. The combined index counts unique PNG paths across packs separately from top-level manifest entries; the current pack totals are 35 AltairKitV1, 4 OpeningWorldV1, 38 WorldComponentsV1, 109 InteriorComponentsV1, 68 WorldComponentsV2, 166 InteriorComponentsV2, and 9 InteriorDetailsV3 (429 unique PNGs total, including preserved earlier outputs).
 
 ## Refresh
 
@@ -38,3 +38,7 @@ The [revised terrain gallery](../../Review/world-components-v2/index.html) adds 
 ## InteriorComponentsV2 — 2026-10-31
 
 The [joined interior kit](../../Review/interior-components-v2/index.html) adds floors, separate wall faces and cutcaps, doorways, stairs, and three carpet palettes with inside and outside corners. [Room comparisons](../../References/InteriorComponentsV2/Comparison/index.html) use attributed FFII Pixel Remaster references. See the pack verification receipt for exact tested join classes; a wall/floor material boundary is not treated as identical artwork. Earlier components and approved cursor art are preserved. Game integration remains deferred.
+
+## InteriorDetailsV3 — 2026-10-31
+
+The [focused interior refinement](../../Review/interior-details-v3/index.html) contains seven primary designs across nine PNG exports: three patterned rugs, two north-wall styles at two resolutions, and two golden wooden counters. [Original-reference / new-asset boards](../../References/InteriorDetailsV3/Comparison/index.html) preserve actual screenshot crops on the left. Occluded rug regions are inferred continuations of visible patterns. These whole decorative assets preserve motif detail; the pack does not replace V2 autotiles or claim new arbitrary-size rug/counter joins. Game integration remains deferred.
