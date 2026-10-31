@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '../..');
-const reviewRoot = path.join(root, 'Review');
+const reviewRoot = __dirname;
 const out = path.join(__dirname, 'index.html');
 const packs = {
   altair: path.join(root, 'Assets/Art/Production/AltairKitV1/manifest.json'),
