@@ -911,13 +911,13 @@ def verified_exploration_component_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
-def verified_floor_one_concept_documents(root):
+def verified_floor_one_concept_documents(root, pack_name='floor-one-concepts', expected_title='Floor 1 concept-art studies'):
     """Preserve six source sheets and thirty-six native concept panel proofs.
 
     Coverage metadata remains illustrative and inferred. Hash/source closure
     binds reviewed concepts without claiming canonical floorplans or tiles.
     """
-    base = root / 'floor-one-concepts'
+    base = root / pack_name
     path = base / 'manifest.json'
     receipt = base / 'package-manifest.json'
     if not path.is_file() or not receipt.is_file():
@@ -926,7 +926,7 @@ def verified_floor_one_concept_documents(root):
     proof = json.loads(receipt.read_text())
     if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
             or not isinstance(proof.get('members'), list) or not proof['members']
-            or doc.get('title') != 'Floor 1 concept-art studies'
+            or doc.get('title') != expected_title
             or not isinstance(doc.get('sources'), list) or len(doc['sources']) != 6
             or not isinstance(doc.get('panels'), list) or len(doc['panels']) != 36
             or doc.get('scope', {}).get('book') != 1 or doc['scope'].get('floor') != 1):
@@ -981,7 +981,7 @@ def verified_floor_one_concept_documents(root):
         if target in listed or not isinstance(member.get('bytes'), int):
             raise ValueError('Invalid Floor 1 concept membership')
         listed[target] = member
-    package = base / 'floor-one-concepts.zip'
+    package = base / (pack_name + '.zip')
     files = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
     if set(listed) != files:
         raise ValueError('Incomplete Floor 1 concept package')
@@ -992,6 +992,32 @@ def verified_floor_one_concept_documents(root):
             if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
                 raise ValueError('Floor 1 concept archive/source bytes differ')
     return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
+def verified_floor_one_top_down_documents(root):
+    """Preserve the separate overhead revision and recorded human approvals.
+
+    Camera attestations are provenance, not automatic perspective validation.
+    """
+    verified = verified_floor_one_concept_documents(
+        root, 'floor-one-concepts-top-down', 'Floor 1 overhead concept-art revision')
+    if not verified:
+        return set()
+    base = root / 'floor-one-concepts-top-down'
+    doc = json.loads((base / 'manifest.json').read_text())
+    spec = json.loads((base / 'spec.json').read_text())
+    sheets = {sheet['id']: sheet for sheet in spec['sheets']}
+    if set(sheets) != {source['id'] for source in doc['sources']}:
+        raise ValueError('Incomplete overhead source approvals')
+    for source in doc['sources']:
+        review = source.get('cameraReview', {})
+        sheet = sheets[source['id']]
+        if (review.get('projection') != 'direct-overhead' or review.get('reviewer') != 'root'
+                or not isinstance(review.get('assessment'), str) or not review['assessment']
+                or sheet.get('rootApproved') is not True or sheet.get('reviewed') is not True
+                or sheet.get('cameraReview') != review):
+            raise ValueError('Missing recorded human overhead approval')
+    return verified
 
 
 def registry_libraries(root):
@@ -1069,7 +1095,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
