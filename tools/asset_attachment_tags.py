@@ -1020,6 +1020,95 @@ def verified_floor_one_top_down_documents(root):
     return verified
 
 
+def verified_floor_one_grid_documents(root):
+    """Bind fourteen-by-fourteen overlays to both untouched concept sets."""
+    base = root / 'floor-one-concept-grids'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or doc.get('title') != 'Floor1 concept-art coordinate grids'
+            or not isinstance(doc.get('sourceSets'), list) or len(doc['sourceSets']) != 2
+            or not isinstance(doc.get('panels'), list) or len(doc['panels']) != 72
+            or doc.get('style', {}).get('divisions') != 14
+            or doc['style'].get('styleApprovedByRoot') is not True):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid concept grid evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid concept grid evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid concept grid evidence digest: {relative}')
+        return target
+    project = root.parents[2]
+    verify_file(base, doc.get('font', {}).get('path'), doc.get('font', {}).get('sha256'))
+    expected_sets = {'original': 'floor-one-concepts', 'top-down': 'floor-one-concepts-top-down'}
+    sources = {}
+    for source_set in doc['sourceSets']:
+        ident = source_set.get('id')
+        if ident not in expected_sets or ident in sources or source_set.get('sourcePack') != expected_sets[ident]:
+            raise ValueError('Invalid concept grid source set')
+        copied = verify_file(base, source_set.get('manifestPath'), source_set.get('manifestSha256'))
+        original = verify_file(project, 'Web/wwwroot/assets/' + expected_sets[ident] + '/manifest.json', source_set['manifestSha256'])
+        source = json.loads(copied.read_text())
+        sources[ident] = {panel['id']: panel for panel in source['panels']}
+        if len(sources[ident]) != 36:
+            raise ValueError('Incomplete concept grid source catalog')
+    margin = doc['style'].get('margin')
+    if not isinstance(margin, int) or margin <= 0:
+        raise ValueError('Invalid concept grid margin')
+    seen = set()
+    for panel in doc['panels']:
+        ident, source_set = panel.get('id'), panel.get('set')
+        if (source_set not in sources or ident not in sources[source_set]
+                or (source_set, ident) in seen):
+            raise ValueError('Invalid concept grid panel identity')
+        source = sources[source_set][ident]
+        expected_path = 'Web/wwwroot/assets/' + expected_sets[source_set] + '/' + source['path']
+        if (panel.get('sourcePath') != expected_path or panel.get('sourceSha256') != source['sha256']
+                or panel.get('sourceSize') != source['nativeSize'] or panel.get('order') != source['order']
+                or panel.get('batch') != source['batch']):
+            raise ValueError('Invalid concept grid source panel binding')
+        verify_file(project, expected_path, source['sha256'])
+        verify_file(base, panel.get('path'), panel.get('sha256'))
+        width, height = source['nativeSize']
+        geometry = panel.get('grid', {})
+        if (geometry.get('columns') != list('ABCDEFGHIJKLMN') or geometry.get('rows') != list(range(1, 15))
+                or geometry.get('xBoundaries') != [round(i * width / 14) for i in range(15)]
+                or geometry.get('yBoundaries') != [round(i * height / 14) for i in range(15)]
+                or geometry.get('contentRect') != [margin, margin, width, height]
+                or panel.get('size') != [width + 2 * margin, height + 2 * margin]):
+            raise ValueError('Invalid fourteen-by-fourteen concept grid geometry')
+        seen.add((source_set, ident))
+    if len(seen) != 72:
+        raise ValueError('Incomplete concept grid panel coverage')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid concept grid membership')
+        listed[target] = member
+    package = base / 'floor-one-concept-grids.zip'
+    expected = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != expected:
+        raise ValueError('Incomplete concept grid package')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid concept grid package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Concept grid archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -1095,7 +1184,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root) | verified_floor_one_grid_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
