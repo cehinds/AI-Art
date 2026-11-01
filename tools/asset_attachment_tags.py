@@ -1123,6 +1123,137 @@ def verified_floor_one_grid_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_top_down_layer_documents(root):
+    """Preserve a full source-bound layer review kit and portable archive.
+
+    Zero replay error establishes source decomposition only. Inferred bases
+    and reusable-mode crops keep their own provenance and quality limits.
+    """
+    base = root / 'top-down-layer-kit'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or doc.get('title') != 'Top-down layer kit'
+            or not isinstance(doc.get('scenes'), list) or len(doc['scenes']) != 36
+            or not isinstance(proof.get('members'), list) or not proof['members']):
+        return set()
+    def verify_file(directory, relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid top-down layer evidence record')
+        target = directory / relative
+        if (not target.resolve().is_relative_to(directory.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid top-down layer evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid top-down layer evidence digest: {relative}')
+        return target
+    def bind_assets(value):
+        if isinstance(value, dict):
+            if 'path' in value and 'sha256' in value:
+                verify_file(base, value['path'], value['sha256'])
+            for item in value.values(): bind_assets(item)
+        elif isinstance(value, list):
+            for item in value: bind_assets(item)
+    catalog = json.loads((root / 'floor-one-concepts-top-down/manifest.json').read_text())
+    expected_scenes = {panel['id']: panel for panel in catalog['panels']}
+    seen = set()
+    for scene in doc['scenes']:
+        ident = scene.get('id')
+        if (ident not in expected_scenes or ident in seen or scene.get('schemaVersion') != 1
+                or scene.get('order') != expected_scenes[ident]['order']
+                or scene.get('size') != expected_scenes[ident]['nativeSize']):
+            raise ValueError('Invalid top-down layer scene binding')
+        seen.add(ident)
+        approved = expected_scenes[ident]
+        verify_file(root / 'floor-one-concepts-top-down', approved['path'], approved['sha256'])
+        if scene.get('source', {}).get('originalSha256') != approved['sha256']:
+            raise ValueError('Invalid top-down layer original source digest')
+        width, height = scene['size']; grid = scene.get('grid', {})
+        if (grid.get('major') != 14 or grid.get('sub') != 3
+                or grid.get('xBoundaries') != [round(i * width / 14) for i in range(15)]
+                or grid.get('yBoundaries') != [round(i * height / 14) for i in range(15)]):
+            raise ValueError('Invalid top-down layer scene grid')
+        exact = scene.get('exact', {}); metrics = exact.get('metrics', {})
+        if (not isinstance(exact.get('components'), list) or not exact['components']
+                or metrics.get('differentPixels') != 0 or metrics.get('totalPixels') != width * height
+                or not exact.get('baseProvenance') or not exact.get('claim')):
+            raise ValueError('Invalid top-down layer exact replay evidence')
+        for mode in ('exact', 'reusable'):
+            data = scene.get(mode)
+            if data is None: raise ValueError('Missing reusable interpretation')
+            if not data.get('baseProvenance') or not data.get('claim'):
+                raise ValueError('Missing top-down layer mode provenance')
+            ids = set()
+            for component in data['components']:
+                if (not isinstance(component.get('id'), str) or component['id'] in ids
+                        or not component.get('category') or not component.get('provenance')):
+                    raise ValueError('Invalid top-down layer component provenance')
+                ids.add(component['id'])
+                if mode == 'exact':
+                    x, y, w, h = component['bounds']
+                    if (component.get('x') != x or component.get('y') != y
+                            or min(x, y) < 0 or min(w, h) <= 0 or x + w > width or y + h > height
+                            or component.get('asset', {}).get('size') != [w, h]
+                            or component.get('mask', {}).get('size') != [width, height]
+                            or not 0 < component.get('visiblePixelCount', 0) <= width * height):
+                        raise ValueError('Invalid top-down layer component bounds')
+        bind_assets(scene)
+        scene_path = base / scene['scenePath']
+        if json.loads(scene_path.read_text()) != {key: value for key, value in scene.items() if key != 'scenePath'}:
+            raise ValueError('Top-down layer standalone scene JSON differs')
+    if seen != set(expected_scenes) or {row['id'] for row in doc['coverage'] if row.get('built')} != seen:
+        raise ValueError('Incomplete top-down layer scene coverage')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(base, member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid top-down layer payload membership')
+        listed[target] = member
+    archive_name = 'top-down-layer-kit.zip'; archive = base / archive_name
+    parts_manifest = base / (archive_name + '.parts.json')
+    artifacts = {receipt}; archive_stream = None; temporary = None
+    try:
+        if archive.is_file():
+            artifacts.add(archive); archive_stream = archive
+        elif parts_manifest.is_file():
+            parts_doc = json.loads(parts_manifest.read_text()); artifacts.add(parts_manifest)
+            if (parts_doc.get('schema_version') != 1 or parts_doc.get('kind') != 'multipart-zip'
+                    or parts_doc.get('payloadManifestSha256') != hashlib.sha256(receipt.read_bytes()).hexdigest()
+                    or parts_doc.get('archive', {}).get('file') != archive_name):
+                raise ValueError('Invalid top-down layer multipart evidence')
+            helper = parts_doc.get('assemblyTool', {})
+            if helper.get('file') != 'assemble_archive_parts.py': raise ValueError('Invalid archive assembly helper')
+            artifacts.add(verify_file(base, helper['file'], helper['sha256'], helper['bytes']))
+            temporary = tempfile.TemporaryFile(); whole = hashlib.sha256(); total = 0
+            for number, part in enumerate(parts_doc['parts'], 1):
+                if part.get('number') != number or part.get('file') != archive_name + f'.part-{number:03d}':
+                    raise ValueError('Invalid archive part ordering')
+                target = verify_file(base, part['file'], part['sha256'], part['bytes']); artifacts.add(target)
+                with target.open('rb') as stream:
+                    for block in iter(lambda: stream.read(1024 * 1024), b''):
+                        temporary.write(block); whole.update(block); total += len(block)
+            if not total or total != parts_doc['archive']['bytes'] or whole.hexdigest() != parts_doc['archive']['sha256']:
+                raise ValueError('Invalid assembled archive evidence')
+            temporary.seek(0); archive_stream = temporary
+        else:
+            raise ValueError('Missing top-down layer portable archive')
+        actual = {p for p in base.rglob('*') if p.is_file()} - artifacts
+        if set(listed) != actual: raise ValueError('Incomplete top-down layer payload closure')
+        with ZipFile(archive_stream) as packaged:
+            if not is_verified_portable_archive(packaged): raise ValueError('Invalid top-down layer portable manifest')
+            for member in [receipt, *listed]:
+                if packaged.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                    raise ValueError('Top-down layer archive/payload bytes differ')
+    finally:
+        if temporary is not None: temporary.close()
+    return {receipt} | ({parts_manifest} if parts_manifest.is_file() else set()) | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -1198,7 +1329,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root) | verified_floor_one_grid_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root) | verified_floor_one_grid_documents(root) | verified_top_down_layer_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
