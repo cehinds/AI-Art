@@ -911,6 +911,89 @@ def verified_exploration_component_documents(root):
     return {receipt} | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_floor_one_concept_documents(root):
+    """Preserve six source sheets and thirty-six native concept panel proofs.
+
+    Coverage metadata remains illustrative and inferred. Hash/source closure
+    binds reviewed concepts without claiming canonical floorplans or tiles.
+    """
+    base = root / 'floor-one-concepts'
+    path = base / 'manifest.json'
+    receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file():
+        return set()
+    doc = json.loads(path.read_text())
+    proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or not isinstance(proof.get('members'), list) or not proof['members']
+            or doc.get('title') != 'Floor 1 concept-art studies'
+            or not isinstance(doc.get('sources'), list) or len(doc['sources']) != 6
+            or not isinstance(doc.get('panels'), list) or len(doc['panels']) != 36
+            or doc.get('scope', {}).get('book') != 1 or doc['scope'].get('floor') != 1):
+        return set()
+    def verify_file(relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str):
+            raise ValueError('Invalid Floor 1 concept evidence record')
+        target = base / relative
+        if (not target.resolve().is_relative_to(base.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid Floor 1 concept evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid Floor 1 concept evidence digest: {relative}')
+        return target
+    sources = {}
+    for source in doc['sources']:
+        if (not isinstance(source.get('id'), str) or source['id'] in sources
+                or not source.get('provenance') or not isinstance(source.get('canvasSize'), list)
+                or len(source['canvasSize']) != 2):
+            raise ValueError('Invalid Floor 1 source provenance')
+        verify_file(source.get('path'), source.get('sha256'))
+        sources[source['id']] = source
+    coverage = json.loads((base / 'coverage.json').read_text())
+    expected = {panel['id']: panel for panel in coverage['panels']}
+    if coverage.get('schemaVersion') != 1 or coverage.get('scope') != doc['scope'] or len(expected) != 36:
+        raise ValueError('Invalid Floor 1 concept coverage')
+    ids, pixel_hashes, per_source = set(), set(), {ident: 0 for ident in sources}
+    for panel in doc['panels']:
+        ident = panel.get('id'); source_id = panel.get('sourceId')
+        if (ident not in expected or ident in ids or source_id not in sources
+                or panel.get('rectFormat') != 'xywh' or not panel.get('boundaryReview')
+                or not isinstance(panel.get('pixelSha256'), str)
+                or re.fullmatch(r'[0-9a-f]{64}', panel['pixelSha256']) is None
+                or panel['pixelSha256'] in pixel_hashes
+                or any(panel.get(key) != value for key, value in expected[ident].items())):
+            raise ValueError('Invalid Floor 1 panel provenance/coverage')
+        rect = panel.get('sourceRect')
+        if (not isinstance(rect, list) or len(rect) != 4 or not all(isinstance(n, int) for n in rect)
+                or min(rect[:2]) < 0 or min(rect[2:]) <= 0
+                or rect[0] + rect[2] > sources[source_id]['canvasSize'][0]
+                or rect[1] + rect[3] > sources[source_id]['canvasSize'][1]
+                or panel.get('nativeSize') != rect[2:]):
+            raise ValueError('Invalid Floor 1 panel crop bounds')
+        verify_file(panel.get('path'), panel.get('sha256'))
+        ids.add(ident); pixel_hashes.add(panel['pixelSha256']); per_source[source_id] += 1
+    if set(ids) != set(expected) or set(per_source.values()) != {6}:
+        raise ValueError('Incomplete Floor 1 source/panel membership')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int):
+            raise ValueError('Invalid Floor 1 concept membership')
+        listed[target] = member
+    package = base / 'floor-one-concepts.zip'
+    files = {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}
+    if set(listed) != files:
+        raise ValueError('Incomplete Floor 1 concept package')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive):
+            raise ValueError('Invalid Floor 1 concept package evidence')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes():
+                raise ValueError('Floor 1 concept archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -986,7 +1069,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
