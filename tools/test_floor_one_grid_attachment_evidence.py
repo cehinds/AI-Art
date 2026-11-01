@@ -15,14 +15,14 @@ class ConceptGridEvidenceTests(unittest.TestCase):
             source_dir=root/pack;source_dir.mkdir();(source_dir/'source.png').write_bytes(b'source');catalog=[]
             for n in range(36):
                 raw=(ident+str(n)).encode();path=f'panel-{n}.png';(source_dir/path).write_bytes(raw)
-                source={'id':str(n),'path':path,'sha256':sha(raw),'nativeSize':[14,14],'order':n,'batch':n//6+1};catalog.append(source)
+                source={'id':str(n),'path':path,'sha256':sha(raw),'nativeSize':[42,42],'order':n,'batch':n//6+1};catalog.append(source)
                 target=f'{ident}-{n}.png';(base/target).write_bytes(b'overlay'+raw)
-                geometry={'columns':list('ABCDEFGHIJKLMN'),'rows':list(range(1,15)),'xBoundaries':list(range(15)),'yBoundaries':list(range(15)),'contentRect':[2,2,14,14]}
-                panels.append({'id':str(n),'set':ident,'order':n,'batch':n//6+1,'sourcePath':f'Web/wwwroot/assets/{pack}/{path}','sourceSha256':sha(raw),'sourceSize':[14,14],'path':target,'sha256':sha(b'overlay'+raw),'size':[18,18],'grid':geometry})
-            source={'schemaVersion':1,'source':'source.png','sourceSha256':sha(b'source'),'canvas':[14,14],'representation':'visible source fragments; occluded pixels are absent, not inferred','layers':[{'id':'literal','file':'panel-0.png','componentSha256':catalog[0]['sha256'],'provenance':{'kind':'literal-source-pixels','sourceSha256':sha(b'source')}}],'panels':catalog}
+                geometry={'columns':list('ABCDEFGHIJKLMN'),'rows':list(range(1,15)),'xBoundaries':[3*i for i in range(15)],'yBoundaries':[3*i for i in range(15)],'contentRect':[2,2,42,42], 'subgrid':{'divisions':3,'columns':list('abc'),'rows':[1,2,3],'xByMajorCell':[list(range(3*i,3*i+4)) for i in range(14)],'yByMajorCell':[list(range(3*i,3*i+4)) for i in range(14)],'xMinorBoundaries':[3*i+j for i in range(14) for j in [1,2]],'yMinorBoundaries':[3*i+j for i in range(14) for j in [1,2]],'addressExample':'D7.b2'}}
+                panels.append({'id':str(n),'set':ident,'order':n,'batch':n//6+1,'sourcePath':f'Web/wwwroot/assets/{pack}/{path}','sourceSha256':sha(raw),'sourceSize':[42,42],'path':target,'sha256':sha(b'overlay'+raw),'size':[46,50],'grid':geometry})
+            source={'schemaVersion':1,'source':'source.png','sourceSha256':sha(b'source'),'canvas':[42,42],'representation':'visible source fragments; occluded pixels are absent, not inferred','layers':[{'id':'literal','file':'panel-0.png','componentSha256':catalog[0]['sha256'],'provenance':{'kind':'literal-source-pixels','sourceSha256':sha(b'source')}}],'panels':catalog}
             raw=json.dumps(source).encode();(source_dir/'manifest.json').write_bytes(raw);copy=ident+'-manifest.json';(base/copy).write_bytes(raw)
             sets.append({'id':ident,'sourcePack':pack,'manifestPath':copy,'manifestSha256':sha(raw)})
-        doc={'schemaVersion':1,'title':'Floor1 concept-art coordinate grids','style':{'divisions':14,'styleApprovedByRoot':True,'margin':2},'font':{'path':'font.ttf','sha256':sha(b'font')},'sourceSets':sets,'panels':panels}
+        doc={'schemaVersion':2,'title':'Floor1 concept-art coordinate grids','style':{'divisions':14,'styleApprovedByRoot':True,'margin':2,'subdivisions':3,'legendHeight':4},'font':{'path':'font.ttf','sha256':sha(b'font')},'sourceSets':sets,'panels':panels}
         (base/'manifest.json').write_text(json.dumps(doc));members=[{'file':p.name,'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())} for p in sorted(base.iterdir())]
         (base/'package-manifest.json').write_text(json.dumps({'schemaVersion':1,'members':members}))
         with ZipFile(base/'floor-one-concept-grids.zip','w') as z:
@@ -50,6 +50,14 @@ class ConceptGridEvidenceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'fourteen-by-fourteen'):
                 tags.apply(root)
             self.assertFalse((root/tags.RULES_NAME).exists())
+
+    def test_subgrid_geometry_must_match_each_major_cell(self):
+        for mutate in [lambda g: g.pop('subgrid'), lambda g: g['subgrid'].update(divisions=2), lambda g: g['subgrid']['xByMajorCell'][1].__setitem__(1, 999)]:
+            with tempfile.TemporaryDirectory() as tmp:
+                root,base=self.fixture(Path(tmp));p=base/'manifest.json';doc=json.loads(p.read_text());mutate(doc['panels'][0]['grid']);p.write_text(json.dumps(doc))
+                with self.assertRaisesRegex(ValueError,'three-by-three'):
+                    tags.apply(root)
+                self.assertFalse((root/tags.RULES_NAME).exists())
 
     def test_non_evidenced_json_remains_taggable(self):
         with tempfile.TemporaryDirectory() as tmp:

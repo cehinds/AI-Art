@@ -1029,13 +1029,14 @@ def verified_floor_one_grid_documents(root):
         return set()
     doc = json.loads(path.read_text())
     proof = json.loads(receipt.read_text())
-    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+    if (doc.get('schemaVersion') != 2 or proof.get('schemaVersion') != 1
             or not isinstance(proof.get('members'), list) or not proof['members']
             or doc.get('title') != 'Floor1 concept-art coordinate grids'
             or not isinstance(doc.get('sourceSets'), list) or len(doc['sourceSets']) != 2
             or not isinstance(doc.get('panels'), list) or len(doc['panels']) != 72
             or doc.get('style', {}).get('divisions') != 14
-            or doc['style'].get('styleApprovedByRoot') is not True):
+            or doc['style'].get('styleApprovedByRoot') is not True
+            or doc['style'].get('subdivisions') != 3):
         return set()
     def verify_file(directory, relative, digest, size=None):
         if not isinstance(relative, str) or not isinstance(digest, str):
@@ -1063,7 +1064,9 @@ def verified_floor_one_grid_documents(root):
         if len(sources[ident]) != 36:
             raise ValueError('Incomplete concept grid source catalog')
     margin = doc['style'].get('margin')
-    if not isinstance(margin, int) or margin <= 0:
+    legend = doc['style'].get('legendHeight')
+    if (not isinstance(margin, int) or margin <= 0
+            or not isinstance(legend, int) or legend <= 0):
         raise ValueError('Invalid concept grid margin')
     seen = set()
     for panel in doc['panels']:
@@ -1085,8 +1088,19 @@ def verified_floor_one_grid_documents(root):
                 or geometry.get('xBoundaries') != [round(i * width / 14) for i in range(15)]
                 or geometry.get('yBoundaries') != [round(i * height / 14) for i in range(15)]
                 or geometry.get('contentRect') != [margin, margin, width, height]
-                or panel.get('size') != [width + 2 * margin, height + 2 * margin]):
+                or panel.get('size') != [width + 2 * margin, height + 2 * margin + legend]):
             raise ValueError('Invalid fourteen-by-fourteen concept grid geometry')
+        subgrid = geometry.get('subgrid', {})
+        x_major, y_major = geometry['xBoundaries'], geometry['yBoundaries']
+        x_cells = [[a + round((b - a) * j / 3) for j in range(4)] for a, b in zip(x_major, x_major[1:])]
+        y_cells = [[a + round((b - a) * j / 3) for j in range(4)] for a, b in zip(y_major, y_major[1:])]
+        if (subgrid.get('divisions') != 3 or subgrid.get('columns') != list('abc')
+                or subgrid.get('rows') != [1, 2, 3] or subgrid.get('addressExample') != 'D7.b2'
+                or subgrid.get('xByMajorCell') != x_cells or subgrid.get('yByMajorCell') != y_cells
+                or subgrid.get('xMinorBoundaries') != [v for cell in x_cells for v in cell[1:-1]]
+                or subgrid.get('yMinorBoundaries') != [v for cell in y_cells for v in cell[1:-1]]
+                or any(b <= a for cell in x_cells + y_cells for a, b in zip(cell, cell[1:]))):
+            raise ValueError('Invalid three-by-three concept subgrid geometry')
         seen.add((source_set, ident))
     if len(seen) != 72:
         raise ValueError('Incomplete concept grid panel coverage')
