@@ -1254,6 +1254,111 @@ def verified_top_down_layer_documents(root):
     return {receipt} | ({parts_manifest} if parts_manifest.is_file() else set()) | {member for member in listed if member.suffix == '.json'}
 
 
+def verified_top_down_object_documents(root):
+    """Bind whole-object sprites separately from comparison-only old cutouts.
+
+    Recorded root silhouette approval is provenance; pixel/alpha and placement
+    quality are independently reviewed rather than inferred from hashes.
+    """
+    base = root / 'top-down-object-kit'
+    path = base / 'manifest.json'; receipt = base / 'package-manifest.json'
+    if not path.is_file() or not receipt.is_file(): return set()
+    doc = json.loads(path.read_text()); proof = json.loads(receipt.read_text())
+    if (doc.get('schemaVersion') != 1 or proof.get('schemaVersion') != 1
+            or doc.get('title') != 'Whole reconstructed top-down objects'
+            or not isinstance(doc.get('objects'), list) or not doc['objects']
+            or not isinstance(doc.get('sources'), list) or not doc['sources']
+            or not isinstance(doc.get('mappings'), list)
+            or not isinstance(doc.get('sceneCoverage'), list) or len(doc['sceneCoverage']) != 36
+            or not isinstance(proof.get('members'), list) or not proof['members']):
+        return set()
+    def verify_file(relative, digest, size=None):
+        if not isinstance(relative, str) or not isinstance(digest, str): raise ValueError('Invalid whole-object evidence record')
+        target = base / relative
+        if (not target.resolve().is_relative_to(base.resolve()) or target.is_symlink()
+                or not target.is_file() or re.fullmatch(r'[0-9a-f]{64}', digest) is None):
+            raise ValueError(f'Invalid whole-object evidence path: {relative}')
+        raw = target.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest or (size is not None and len(raw) != size):
+            raise ValueError(f'Invalid whole-object evidence digest: {relative}')
+        return target
+    def bind_assets(value):
+        if isinstance(value, dict):
+            if 'path' in value and 'sha256' in value: verify_file(value['path'], value['sha256'])
+            for item in value.values(): bind_assets(item)
+        elif isinstance(value, list):
+            for item in value: bind_assets(item)
+    source_ids = {source['id']: source for source in doc['sources']}
+    if len(source_ids) != len(doc['sources']): raise ValueError('Duplicate whole-object source identity')
+    for source in source_ids.values():
+        if source.get('transparentBackground') is not True or not source.get('path', '').startswith('sources/'):
+            raise ValueError('Missing transparent source declaration')
+        bind_assets(source)
+    objects = {}
+    for obj in doc['objects']:
+        ident = obj.get('id'); provenance = obj.get('provenance', {}); alpha = obj.get('alphaQa', {})
+        if (not isinstance(ident, str) or ident in objects or obj.get('sourceId') not in source_ids
+                or provenance.get('kind') != 'ai-generated-whole-object' or provenance.get('inferred', True) is not True
+                or provenance.get('originalReferencePixelRecovery', False) is not False
+                or obj.get('manualQa', {}).get('status') != 'root-approved-whole-shape-review'
+                or not obj.get('asset', {}).get('path', '').startswith('objects/')
+                or obj.get('padding') != 2 or alpha.get('sourceEdgeAlphaMax', 256) > alpha.get('thresholdForBoundsOnly', -1)
+                or alpha.get('alphaAtMost16Fraction', 0) < .03):
+            raise ValueError('Invalid whole-object provenance/alpha review evidence')
+        x, y, w, h = obj['sourceRect']; sw, sh = source_ids[obj['sourceId']]['size']
+        if (min(x, y) < 0 or min(w, h) <= 0 or x + w > sw or y + h > sh
+                or obj.get('asset', {}).get('size') != [w + 4, h + 4]):
+            raise ValueError('Invalid whole-object source crop bounds')
+        bind_assets(obj); objects[ident] = obj
+    previous = json.loads((root / 'top-down-layer-kit/manifest.json').read_text())
+    scenes = {scene['id']: scene for scene in previous['scenes']}; mapping_ids = set(); by_scene = {ident: [] for ident in scenes}
+    for mapping in doc['mappings']:
+        ident = mapping.get('id'); sid = mapping.get('sceneId')
+        if (not isinstance(ident, str) or ident in mapping_ids or sid not in scenes or mapping.get('objectId') not in objects
+                or mapping.get('replacementScope') not in ('atomic', 'assembly', 'partial-demo')):
+            raise ValueError('Invalid whole-object mapping references')
+        mapping_ids.add(ident); by_scene[sid].append(mapping)
+        old = {item['id']: item for mode in ('exact', 'reusable') for item in scenes[sid][mode]['components']}
+        if not set(mapping['replaceComponentIds']) <= set(old): raise ValueError('Unknown whole-object comparison component')
+        for reference in mapping['previousComponents']:
+            original = old.get(reference['id'])
+            if (original is None or not reference['asset'].get('path', '').startswith('references/')
+                    or reference['asset']['sha256'] != original['asset']['sha256']
+                    or reference.get('position') != [original['x'], original['y']]):
+                raise ValueError('Whole-object comparison source binding differs')
+        bind_assets(mapping)
+    coverage_ids = set(); with_placements = 0
+    for coverage in doc['sceneCoverage']:
+        sid = coverage.get('id')
+        if sid not in scenes or sid in coverage_ids: raise ValueError('Invalid whole-object scene coverage identity')
+        coverage_ids.add(sid); selected = by_scene[sid]
+        complete = {cid for row in selected if row['replacementScope'] != 'partial-demo' for cid in row['replaceComponentIds']}
+        partial = {cid for row in selected if row['replacementScope'] == 'partial-demo' for cid in row['replaceComponentIds']}
+        previous_ids = {item['id'] for item in scenes[sid]['reusable']['components']}
+        complete &= previous_ids
+        if (coverage.get('mappings') != len(selected) or coverage.get('wholeObjectIds') != sorted({row['objectId'] for row in selected})
+                or coverage.get('mappedAtomicOrAssemblyTargets') != len(complete) or coverage.get('partialDemoTargets') != len(partial)
+                or coverage.get('previousReusableComponents') != len(previous_ids)
+                or coverage.get('unmappedComponents') != len(previous_ids - complete)):
+            raise ValueError('Invalid whole-object partial coverage counts')
+        with_placements += bool(selected); bind_assets(coverage)
+    counts = {'objects': len(objects), 'mappingInstances': len(mapping_ids), 'scenesWithPlacements': with_placements, 'unmappedScenes': 36 - with_placements}
+    if coverage_ids != set(scenes) or doc.get('counts') != counts: raise ValueError('Invalid whole-object aggregate counts')
+    listed = {}
+    for member in proof['members']:
+        target = verify_file(member.get('file'), member.get('sha256'), member.get('bytes'))
+        if target in listed or not isinstance(member.get('bytes'), int): raise ValueError('Invalid whole-object package membership')
+        listed[target] = member
+    package = base / 'top-down-object-kit.zip'
+    if set(listed) != {p for p in base.rglob('*') if p.is_file() and p not in (receipt, package)}:
+        raise ValueError('Incomplete whole-object package closure')
+    with ZipFile(package) as archive:
+        if not is_verified_portable_archive(archive): raise ValueError('Invalid whole-object portable receipt')
+        for member in [receipt, *listed]:
+            if archive.read(member.relative_to(base).as_posix()) != member.read_bytes(): raise ValueError('Whole-object archive/source bytes differ')
+    return {receipt} | {member for member in listed if member.suffix == '.json'}
+
+
 def registry_libraries(root):
     registry = json.loads((root / 'reusable-library.json').read_text())
     result = []
@@ -1329,7 +1434,7 @@ def central_rules(libraries):
 
 def apply(root=DEFAULT_ASSETS, check=False):
     root = Path(root).resolve()
-    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root) | verified_floor_one_grid_documents(root) | verified_top_down_layer_documents(root)
+    verified_documents = verified_reconstruction_documents(root) | verified_hud_documents(root) | verified_reusable_hud_documents(root) | verified_map_grid_documents(root) | verified_reference_layer_documents(root) | verified_completed_layer_documents(root) | verified_wall_component_documents(root) | verified_exploration_component_documents(root) | verified_floor_one_concept_documents(root) | verified_floor_one_top_down_documents(root) | verified_floor_one_grid_documents(root) | verified_top_down_layer_documents(root) | verified_top_down_object_documents(root)
     libraries = registry_libraries(root)
     for entry, pack, path, index in libraries:enrich_library(pack, index)
     central = central_rules(libraries)
