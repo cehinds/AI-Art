@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/DungeonCrawlerTactics/Tools/capture_map_refinement.py", line 11, in <module>
+    exec(compile(layered,str(ROOT/'Tools/playtest_layered_maps.py'),'exec'))
+  File "/workspace/DungeonCrawlerTactics/Tools/playtest_layered_maps.py", line 67, in <module>
+    steps=walk(xy)
+          ^^^^^^^^
+  File "/workspace/DungeonCrawlerTactics/Tools/playtest_layered_maps.py", line 52, in walk
+    assert (view()['x'],view()['y'])==(x,y), {'expected':(x,y),'actual':(view()['x'],view()['y']),'message':view()['message']}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'expected': (14, 12), 'actual': (15, 12), 'message': 'Explore Floor 1. Approach a marker to interact.'}
