@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "scope": "Block A foundation and existing complete Floor One route; not full campaign/M10 completion.",
+  "browserErrors": [],
+  "naturalFullFloorOne": {
+    "seed": 1337,
+    "complete": true,
+    "cleared": [
+      "false-guild",
+      "goblin-workshop",
+      "hoarder",
+      "juicer",
+      "ball-of-swine"
+    ],
+    "report": "natural/report.json",
+    "controls": "Keyboard/UI only; no injected commands, saves or progression. Forecast HP non-mutation, exact preview/commit events, charged MP, earned safe Save/Load, mobile Party/Skills/Journal and exit checked."
+  },
+  "naturalEnvironment": {
+    "report": "environment/report.json",
+    "proof": [
+      "environment/authored-explosion-forecast.png",
+      "environment/authored-explosion-confirmed.png",
+      "environment/authored-explosion-wave-02.png",
+      "environment/authored-explosion-wave-03.png",
+      "environment/authored-water-extinguished.png",
+      "environment/authored-destruction-save-load.png"
+    ],
+    "provenance": "Unchanged earned v2 checkpoint loaded through UI. Actual authored workshop oil, explosive crate, Bomb, Powerful Strike and water movement. No content/status injection. Natural burning applied by oil/explosion and removed by water. Encounter destruction receipt survives safe Save/Load. Root approved final readable VFX capture."
+  },
+  "saveMigrationAndStatusFixture": {
+    "report": "state/report.json",
+    "provenance": "Earned baseline v2 safe-room checkpoint. Version-1 migration changes only root version. Burning fixture adds one disclosed status through localStorage and uses Load/Save UI; burning is not claimed naturally acquired.",
+    "limit": "Active status Save/Load screenshot is explicitly fixture-backed; natural ignition/suppression independently verified above."
+  },
+  "requiredFloorOneSmoke": {
+    "status": "PASS",
+    "evidence": "final-smoke/",
+    "controls": "actual keyboard encounter, canvas movement/select, forecast/confirm, enemy phase and victory; zero errors"
+  },
+  "assetsAndSeed42": {
+    "report": "final-assets/report.json",
+    "actors": [
+      "carl",
+      "donut",
+      "enemy.goblin",
+      "enemy.goblin-bomber",
+      "enemy.juicer",
+      "enemy.hoarder-elite",
+      "enemy.murder-dozer",
+      "enemy.ball-of-swine",
+      "enemy.scatterer"
+    ],
+    "scope": "Actual published asset browser canvases: nine actors, four distinct idle directions, two distinct walk frames captured with RAF paused after the measured frame. Seed42 game boot/map/mobile sanity."
+  },
+  "publish": {
+    "log": "publish.log",
+    "forcedRemoteRestoreLog": "hosted-restore.log",
+    "hostedCount": 105,
+    "immutableArtCommit": "beb0ae0b27c0a49d96e5f0529583debd28bfee39",
+    "sourceHashesBefore": "source-hashes-before.json",
+    "sourceHashesAfter": "source-hashes-after.json",
+    "sourceStillMatches": true,
+    "publishedHashes": "published-hashes.json",
+    "presentationOnlyDiff": "presentation-only-diff.json",
+    "fullRouteRulesUnchangedDuringFinalPresentationRepublish": true
+  },
+  "coreSuite": "../acceptance-final.log",
+  "publishedAssetValidation": {
+    "status": "PASS per asset owner",
+    "registrations": 156,
+    "negativeFixtures": 7,
+    "command": "python3 Tools/validate_assets.py --wwwroot Web/publish/wwwroot --self-test"
+  },
+  "baseline": "../baseline/report.json",
+  "retainedRejectedEvidence": "../rejected/ (browser routing attempts); ../integration-01/ (early presentation iteration)."
+}
