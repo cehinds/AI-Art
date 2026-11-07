@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "runtime": "Published .NET8 WebAssembly, Chromium /usr/bin/chromium",
+  "viewports": {
+    "desktop": [
+      1280,
+      720
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "coreSuite": {
+    "passed": true,
+    "groups": 16,
+    "log": "core-suite.log"
+  },
+  "contentValidator": {
+    "passed": true,
+    "entries": 55,
+    "diagnostics": []
+  },
+  "targeted": {
+    "passed": true,
+    "report": "after/targeted/report.json",
+    "mapOverlapPixels": {
+      "desktop": 0,
+      "mobile": 0
+    },
+    "scope": [
+      "preview/cancel no mutation",
+      "friendly fire warning",
+      "empty-ground target",
+      "direct-ID target commit events/HP/MP parity",
+      "move after canceled preview",
+      "act then move",
+      "full board and all three controls visible at both sizes"
+    ]
+  },
+  "requiredSmoke": {
+    "passed": true,
+    "log": "smoke.log",
+    "errors": []
+  },
+  "preparationLoop": {
+    "passed": true,
+    "report": "after/preparation/report.json",
+    "log": "preparation.log",
+    "rewardsVerified": 2,
+    "errors": []
+  },
+  "fullRoute": {
+    "passed": true,
+    "report": "after/full-route/report.json",
+    "log": "full-route.log",
+    "rewardsVerified": 5,
+    "cleared": [
+      "false-guild",
+      "goblin-workshop",
+      "hoarder",
+      "juicer",
+      "ball-of-swine"
+    ],
+    "errors": []
+  },
+  "fixtures": [],
+  "injection": "No gameplay commands, game state, saves or camera overrides injected in final browser flows. Read-only public rpgView used for assertions and route planning. Preparation loop installs event observers to measure latency and blur without mutating gameplay state.",
+  "rejectedIteration": "rejected-overlay-iteration retained: overlay covered lower tactical board; dock fixed it.",
+  "caveats": [
+    "Natural targeted browser scenario exercises first encounter Bomb; core tests cover varied defenses, chain footprint and Strike formulas.",
+    "Existing long-route harness uses 1440x1000 for portions of route and 390x844 for menu checks; targeted new visual checks use 1280x720 and 390x844.",
+    "No Unity export/Editor validation or pixel parity claim."
+  ],
+  "sourceGuard": "source-before-publish.json",
+  "publishedHashes": "published-sha256.json",
+  "priorIteration": "pre-support-fix-passing retained (browser flows passed before support-skill-only correction)",
+  "sourceGuardPassed": true,
+  "publishedGuardPassed": true
+}
