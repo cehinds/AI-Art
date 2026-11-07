@@ -1,0 +1,15 @@
+# Progression browser evidence
+
+`baseline/` captures the retained pre-progression published Party and Skills panels through normal browser menus.
+
+`final/earned-*`, `successful-use`, `invalid-forecast-no-practice`, `safe-save-load`, and `mobile-*` show ordinary keyboard/canvas/menu play: first encounter victory, character level 1 to 2, Carl Punch practice 0 to 3 and trained rank 1 to 2, canceled invalid forecast without practice, actual safe-room rest/save/load preserving persistent progression, and 390px Party/Skills tabs without horizontal overflow. Safe loading intentionally clears tactical coordinates and turn flags; comparison excludes only x/y/moved/acted/ended. `earned-safe-checkpoint.json` is the actual browser save produced during this route.
+
+The final natural stage ran against the final game source, including immediate Load enabling after Save. A first fixture attempt then correctly rejected an out-of-range forecast; this was a harness setup issue. The successful fixture stage was replayed separately from the actual earned checkpoint using `--fixture-checkpoint`.
+
+`final/fixture-*` is **fixture-backed UI validation, not a claim that rank 5 was naturally earned**. Starting from the actual earned checkpoint, the fixture changes only root save version to 1 and Donut's Magic Missile trained rank to 5. Actual Load UI performs migration; ordinary walking enters an uncleared Hoarder encounter, two normal party turns let enemies approach, and normal movement/skill/target/confirm controls select and resolve 3 or 6 Mana. Each spend starts from an independently reloaded fixture. Forecast damage is 22 vs 25; confirmed MP is 45→42 vs 45→39. The first target has 20HP and is defeated by either cast while another enemy remains, so there is no victory reward or level gain. Actual HP loss is capped at the target's remaining HP. `fixture-report.json` records zero browser errors and exact forecast/cost results.
+
+`floor-one/` is the required independent first-encounter smoke. Its harness tile scale was corrected from width/10,height/8 to width/12,height/10 to match the renderer's one-tile battle border; assertions were preserved.
+
+`source-served-hashes.json` guards the exact source/published browser files. Release publishing restored the existing manifest's 91 checksum-verified hosted assets. `inspector-smoke.*` records the unchanged object inspector with zero errors. The Node scene-graph suite passed its 132 runtime self placements, 62 authored assembly no-ops, and route/access fixtures.
+
+The final binary adds only the missing forecast `effectRank` metadata assignment. The approved primary natural screenshots precede that metadata-only correction; the final fixture replay verifies both spends report `effectRank: 5` against the rebuilt binary. Earlier generic supporting captures live in `iterations/natural-supporting/` and are excluded from the authoritative gallery. The required floor-one smoke passed before this metadata-only correction, and final fixture gameplay validates its unchanged action flow afterward.
