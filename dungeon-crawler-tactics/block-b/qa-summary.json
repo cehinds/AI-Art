@@ -1,0 +1,94 @@
+{
+  "completedUtc": "2026-11-07T05:35:14.234828+00:00",
+  "passed": true,
+  "browserErrors": [],
+  "coreSourceGuardUnchanged": true,
+  "runtimeSourceGuardUnchanged": true,
+  "publishedFrontendMatchesSource": true,
+  "coreSourceInputCount": 26,
+  "runtimeSourceInputCount": 31,
+  "assets": {
+    "count": 105,
+    "pin": "beb0ae0b27c0a49d96e5f0529583debd28bfee39",
+    "newArt": false
+  },
+  "checks": {
+    "baselineFullRoute": true,
+    "finalFullRoute": true,
+    "finalRequiredFloorOneSmoke": true,
+    "naturalPreparationLoop": true,
+    "rewardReceiptsVerified": 2,
+    "allFloorRewardReceiptsVerified": 5,
+    "realKeyboardNativeSelect": true,
+    "heldMovementModalStop": true,
+    "genuineBlurHeldMovementStop": true,
+    "safeServicesDisabledOutside": true,
+    "animatedEnemyCommandsLocked": true,
+    "noDuplicateRewardsOrEnemyTimers": true,
+    "mobile390x844AndDesktop1280x720NoHorizontalOverflow": true,
+    "equipmentPreviewEquipUnequip": true,
+    "earnedGoldHealthTonicPurchase": true,
+    "purchasedHealthTonicUsedInNextEncounter": true,
+    "itemHealEvent": [
+      {
+        "kind": "heal",
+        "sourceId": "carl",
+        "targetId": "carl",
+        "tag": "",
+        "detail": "",
+        "amount": 3,
+        "x": 4,
+        "y": 3
+      }
+    ],
+    "inventoryEquipmentGoldSaveLoad": true,
+    "realDefeatRetryMovement": true
+  },
+  "latency": {
+    "samplesMs": [
+      63.80000000447035,
+      53.899999998509884,
+      40.5,
+      40.69999999552965,
+      46.899999998509884,
+      54.600000001490116,
+      40,
+      38.5,
+      48.19999999552965,
+      45.900000005960464,
+      39.100000001490116,
+      51.79999999701977,
+      38.900000005960464,
+      34.69999999552965,
+      43,
+      36.70000000298023
+    ],
+    "p50Ms": 41.849999997764826,
+    "p95Ms": 63.80000000447035,
+    "method": "In-page capture keydown timestamp to read-only public view position change observed by requestAnimationFrame plus following frame; no injected commands"
+  },
+  "fixtures": [
+    {
+      "run": "defeat-retry",
+      "source": "Rebuild/Tests/Fixtures/earned-safe-v2.json",
+      "derived": "defeat-retry/low-hp-earned-v2-fixture.json",
+      "change": "Party HP only set to1 before browser boot; actual Load game UI; natural enemy defeat and actual Retry button",
+      "hash": "ec97ca1143fa769d88ae5a5108ba3d802460140fe4e4efe88062c669ad0fcc98"
+    }
+  ],
+  "fixtureFreeRuns": [
+    "before",
+    "after-final",
+    "full-route",
+    "floor-one-smoke-final"
+  ],
+  "scopeLimits": "One seed1337 browser route plus responsive menus; C# deterministic parity/connectivity suite supplies broader rules coverage. Browser event instrumentation and read-only views assist pathfinding/assertions; all game commands use keyboard/pointer controls. Latency uses220ms spacing to separate intended175ms held-movement cadence and includes subsequent animation frame. Final persisted latency sample ran alongside another route browser. No Unity Editor validation.",
+  "evidence": {
+    "gallery": "index.html",
+    "preparation": "after-final/report.json",
+    "fullRoute": "full-route/report.json",
+    "defeatRetry": "defeat-retry/report.json",
+    "smoke": "browser-smoke-final.log",
+    "publish": "publish-receipt.json"
+  }
+}
