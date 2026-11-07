@@ -1,0 +1,152 @@
+{
+  "disclosure": "Actual published WASM world, unmodified exported graph, bounded read-only proposal searches and actual UI events. No runtime geometry or game state injected.",
+  "runs": [
+    {
+      "seed": 1337,
+      "cases": {
+        "valid": {
+          "assembly": "assembly:entry-landing:stair-approach",
+          "target": {
+            "x": 10,
+            "y": 4
+          },
+          "reasons": [],
+          "members": 3
+        },
+        "overlap": {
+          "assembly": "assembly:sebastian-safe-room:rest-bedroom",
+          "target": {
+            "x": 13,
+            "y": 33
+          },
+          "reasons": [
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 14,33.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-0"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 15,33.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-0"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 14,34.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-0"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 15,34.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-0"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 14,33.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-1"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 14,34.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-1"
+            },
+            {
+              "code": "overlap",
+              "message": "Overlaps runtime solid sebastian-safe-room-washroom-fixtures-0.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-1"
+            },
+            {
+              "code": "support",
+              "message": "Requires surface: floor.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-2"
+            },
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 15,33.",
+              "nodeId": "prop:sebastian-safe-room-rest-bedroom-2"
+            }
+          ],
+          "members": 3
+        }
+      },
+      "noOpValid": "true",
+      "authoredUnderlay": {
+        "assembly": "assembly:tutorial-guildhall:teaching-table",
+        "noOpValid": true,
+        "relativeOffsetsAndRotationsPreserved": true
+      },
+      "worldUnchanged": true,
+      "exportUnchanged": true,
+      "nudgeAndReset": true,
+      "mobileNoOverflow": true
+    },
+    {
+      "seed": 42,
+      "cases": {
+        "valid": {
+          "assembly": "assembly:entry-landing:stair-approach",
+          "target": {
+            "x": 7,
+            "y": 9
+          },
+          "reasons": [],
+          "members": 3
+        },
+        "overlap": {
+          "assembly": "assembly:goblin-workshop:northwest-machinery",
+          "target": {
+            "x": 28,
+            "y": 14
+          },
+          "reasons": [
+            {
+              "code": "support",
+              "message": "Unsupported footprint at 31,14.",
+              "nodeId": "prop:goblin-workshop-northwest-machinery-0"
+            },
+            {
+              "code": "overlap",
+              "message": "Overlaps runtime solid false-guild-alley-prop-2.",
+              "nodeId": "prop:goblin-workshop-northwest-machinery-0"
+            }
+          ],
+          "members": 3
+        }
+      },
+      "noOpValid": "true",
+      "authoredUnderlay": {
+        "assembly": "assembly:tutorial-guildhall:teaching-table",
+        "noOpValid": true,
+        "relativeOffsetsAndRotationsPreserved": true
+      },
+      "worldUnchanged": true,
+      "exportUnchanged": true,
+      "nudgeAndReset": true,
+      "mobileNoOverflow": true
+    }
+  ],
+  "errors": [],
+  "servedFiles": {
+    "object-inspector.html": "a6cb8c716eff772846f64b5aff23ec596b88dcc755623379e4df998a11d1b999",
+    "object-inspector.css": "f451e07d522a63889c919d68fe536d264a7fc9ec679e60fb4f40640bb4811c28",
+    "object-inspector.js": "3f80bcd9b48c621da5d859cb1cd570e20f8bff9e37784e3ebece1d0f4d361634",
+    "map-scene-graph.js": "bbad36324c7a8b905f0260f44d93202e6001c19b5606777103bf231c832e0127",
+    "data/map-object-rules.json": "389538f678602434ad92b9acf4040809f797beebac4ba3e8877b7db197c0e7b0",
+    "rpg-renderer.js": "d63867ffdb75013690148858a315cd7cf0e958722cd271e737fecd5e9b8fe478",
+    "game.js": "0c56af287347d9e0d7585d8de2cfda2e28bcfb8c7adff854b7d09c3d2edabadc"
+  },
+  "sha256": {
+    "seed-1337-bounds-desktop.png": "19f5480da199b0efa8373369b8472dbaf681f08dae8c8b71d00955fdded99272",
+    "graph-1337.json": "a44ec87c0cda19b5c1d3892a7e47ce172c644ee1a6b0d3ea998ae048ffa9738b",
+    "seed-1337-valid-desktop.png": "3d5ec324caf7af247b410c3fce4d7b34198ba19b504e8c281713a5397cb8b08d",
+    "seed-42-valid-mobile.png": "3da33600cdd1c616fac139af4f08fc1f0a6027ecebc97e7a97ba408bbcda7fd1",
+    "seed-1337-authored-underlay-mobile.png": "241d6066cf757e7d5907dd83dd13a30324e9f5bac2bc4508a4fdbb8d3bf12abe",
+    "seed-42-bounds-desktop.png": "d4690d21399cf2321eae410618ff05e068a7d01f05de1fee29dcbdfe463841d2",
+    "seed-1337-valid-mobile.png": "8519016f01d823898429512fcf13a478fdb86b7cb70700e1ce3dd163b3a513ae",
+    "seed-42-authored-underlay-mobile.png": "88767a17b73a574fd9e4c39e050fcc10dc8c0646916591c9e6f62e5751c8101c",
+    "seed-42-valid-desktop.png": "ad3164c11239498d80213b270d91d292dc699eea1911f7d2ba1e2fdbba29eb73",
+    "seed-42-overlap-desktop.png": "b739cfc5a67a059828f74230e2186adf91d694b113b51b3d99ec9550c99ce44f",
+    "seed-1337-overlap-desktop.png": "c3e42871b49cb2f9f5ccf4c503bb0b3895dd0b443e789b17f55bf0cbc5721050",
+    "graph-42.json": "4d0a1c83c3eeda886ac07b337bcaff45fe7f81dd5dec069f0ccc4fbab8019eaa"
+  }
+}
