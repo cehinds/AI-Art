@@ -1,0 +1,2034 @@
+{
+  "purpose": "preview-only; no game integration",
+  "frame_count": 3,
+  "frame_size": [
+    256,
+    256
+  ],
+  "global_scale": 0.6010362694300518,
+  "resampling": "nearest-neighbour",
+  "centering": "union of all three frames; one offset per row",
+  "crop_boundaries": "quiet gutters near nominal grid: 3 columns; 4 rows, or 1 for Advance/afterimage",
+  "source_unit_factors": {
+    "physical": 1.0,
+    "actions": 1.0,
+    "support": 1.0,
+    "elements": 1.0,
+    "schools": 1.0,
+    "reactions": 1.0,
+    "advance": 0.5,
+    "evade-afterimage": 0.5
+  },
+  "measurement_alpha_threshold": 64,
+  "sources": {
+    "physical": {
+      "path": "raw/physical.png",
+      "sha256": "0fe5aa885f91fbb1bf5b6d4a65e61068cfca00d2476cde84ab95eea33f5efa0d",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "actions": {
+      "path": "raw/actions.png",
+      "sha256": "8da2e09a3438c06548c6a76b1faae790a5096f99afb7d5104255cb3173e46e2f",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "support": {
+      "path": "raw/support.png",
+      "sha256": "8c33b457da24a20adb242ecd76dd5dc3342d0c954fb273ccce02a3dacf26fe59",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "elements": {
+      "path": "raw/elements.png",
+      "sha256": "24ef4042344dcfd01701694bf8cf056cb5c3076b86c75331971e3772b65a4516",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "schools": {
+      "path": "raw/schools.png",
+      "sha256": "f84b4955f71e83f9f380d8bfe113be09e64b14a7186fecc45139c53b8dd80497",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "reactions": {
+      "path": "raw/reactions.png",
+      "sha256": "4060668e5e382a4e6599d3fb47d9ec55bb331e42adfb63c326bfec91e28980cc",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "advance": {
+      "path": "raw/advance.png",
+      "sha256": "e69eadfd1d3e8848ac445b52550cb8e23c6bb0efaefe6cb257319fb83fbd3993",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "evade-afterimage": {
+      "path": "raw/evade-afterimage.png",
+      "sha256": "36b9c2f793d4fe5b55a73ca473886206f6c7b66e5b349ac052237fa5993367e4",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  },
+  "effects": {
+    "slash": {
+      "sheet": "physical",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          358,
+          362
+        ],
+        [
+          358,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        45,
+        80,
+        277,
+        305
+      ],
+      "shared_row_offset": [
+        31,
+        12
+      ],
+      "frames": [
+        {
+          "path": "frames/slash-01.png",
+          "sha256": "afdcc2aba2ae4cc8b0bcfce7319e017375f73ab880051d01316111f9431c801e",
+          "alpha_bbox": [
+            51,
+            17,
+            246,
+            230
+          ]
+        },
+        {
+          "path": "frames/slash-02.png",
+          "sha256": "2a51537ed241b8c30d08dd0e118e6b960042d0922d4063929d264528fcfbe873",
+          "alpha_bbox": [
+            31,
+            23,
+            251,
+            230
+          ]
+        },
+        {
+          "path": "frames/slash-03.png",
+          "sha256": "538492257c9a1be25c95559ab21fb825669c1e3abdcf6ae5c2ecdf9d6b076484",
+          "alpha_bbox": [
+            31,
+            32,
+            243,
+            230
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/slash.png",
+        "sha256": "b092f6fb73cb0f9ff3492b8742de58412b330c181fb40eba05b2b36a7dcf4755"
+      }
+    },
+    "multi-slash": {
+      "sheet": "physical",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          362,
+          358,
+          724
+        ],
+        [
+          358,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        31,
+        46,
+        279,
+        286
+      ],
+      "shared_row_offset": [
+        35,
+        28
+      ],
+      "frames": [
+        {
+          "path": "frames/multi-slash-01.png",
+          "sha256": "4846d9f6c50e2a945f90fefb6df08f6020b1d57cd287b6b7c024ead567c701cb",
+          "alpha_bbox": [
+            44,
+            32,
+            250,
+            245
+          ]
+        },
+        {
+          "path": "frames/multi-slash-02.png",
+          "sha256": "0cbd3b46e47a6a0fb8df82ac061b1fe8006339f1e533ad799e6fe8c83ef8f934",
+          "alpha_bbox": [
+            35,
+            28,
+            255,
+            246
+          ]
+        },
+        {
+          "path": "frames/multi-slash-03.png",
+          "sha256": "b13275586b66bac8c38716ebd6e3de871d97bcdc5b95acf28c67b37222d8be47",
+          "alpha_bbox": [
+            35,
+            28,
+            248,
+            246
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/multi-slash.png",
+        "sha256": "46a4f5835455c4649a1019d1d138ec7b67354b1291948857d56627b740c0e995"
+      }
+    },
+    "smash": {
+      "sheet": "physical",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          724,
+          358,
+          1086
+        ],
+        [
+          358,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        7,
+        17,
+        359,
+        312
+      ],
+      "shared_row_offset": [
+        18,
+        29
+      ],
+      "frames": [
+        {
+          "path": "frames/smash-01.png",
+          "sha256": "f06b9afad88516cbbe5128b375c780b7ced73cef88ca1f5e95038fc5ee5d298a",
+          "alpha_bbox": [
+            18,
+            34,
+            233,
+            247
+          ]
+        },
+        {
+          "path": "frames/smash-02.png",
+          "sha256": "ce735c7e9911be39a06db1d667de039a45b07d54a06e69226f59e59b13e1736a",
+          "alpha_bbox": [
+            18,
+            29,
+            238,
+            247
+          ]
+        },
+        {
+          "path": "frames/smash-03.png",
+          "sha256": "0a41e6e06a4e9a5893901216c17e6bc1d663387a6db876182e7885cb67fad09c",
+          "alpha_bbox": [
+            18,
+            29,
+            236,
+            247
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/smash.png",
+        "sha256": "88bea4b1f82b58fd8ffe3856450d630ef3a1aa177d620cbc315c33150bedd103"
+      }
+    },
+    "thrust": {
+      "sheet": "physical",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1086,
+          358,
+          1448
+        ],
+        [
+          358,
+          1086,
+          724,
+          1448
+        ],
+        [
+          724,
+          1086,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        79,
+        41,
+        291,
+        280
+      ],
+      "shared_row_offset": [
+        17,
+        32
+      ],
+      "frames": [
+        {
+          "path": "frames/thrust-01.png",
+          "sha256": "9f60c5e5779191478cdca50e1884775feaff7d3cf2d962b169bf6e5f675c5b8c",
+          "alpha_bbox": [
+            36,
+            34,
+            230,
+            220
+          ]
+        },
+        {
+          "path": "frames/thrust-02.png",
+          "sha256": "88e894d62151b9b4b78947f11999980d4eab48f4364a9d85a30aae89caf6f324",
+          "alpha_bbox": [
+            17,
+            32,
+            236,
+            250
+          ]
+        },
+        {
+          "path": "frames/thrust-03.png",
+          "sha256": "3ee3aaf843d31f1bcb43624f4354c88d9ea68696fd23d4dded429ad51af78685",
+          "alpha_bbox": [
+            17,
+            32,
+            204,
+            225
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/thrust.png",
+        "sha256": "a0501fd661c25042d86fb4e1e30bd6723b863177dec2ec3add617f868ebe4027"
+      }
+    },
+    "sweep": {
+      "sheet": "actions",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          355,
+          362
+        ],
+        [
+          355,
+          0,
+          730,
+          362
+        ],
+        [
+          730,
+          0,
+          1086,
+          362
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        7,
+        152,
+        369,
+        222
+      ],
+      "shared_row_offset": [
+        15,
+        16
+      ],
+      "frames": [
+        {
+          "path": "frames/sweep-01.png",
+          "sha256": "1515a5c7f283cd9d5fb5b7601a2785b7eecf4d55ee929c7618a26f7301093b3d",
+          "alpha_bbox": [
+            15,
+            16,
+            228,
+            234
+          ]
+        },
+        {
+          "path": "frames/sweep-02.png",
+          "sha256": "0b87ffb4d66d98b684d5e665c091c46270e1d6fbfbcfdec5f93e864bbbd66ba2",
+          "alpha_bbox": [
+            15,
+            26,
+            240,
+            234
+          ]
+        },
+        {
+          "path": "frames/sweep-03.png",
+          "sha256": "1950e97a79ef6a4dd143daa9f536f457091781088755478aca2bf69dc682a9b3",
+          "alpha_bbox": [
+            15,
+            16,
+            229,
+            234
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/sweep.png",
+        "sha256": "6e2aea173fb0037042b1f51dddbeb73ff3a8cdc5c9642e31519fcab975e6010e"
+      }
+    },
+    "counter": {
+      "sheet": "actions",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          362,
+          355,
+          724
+        ],
+        [
+          355,
+          362,
+          730,
+          724
+        ],
+        [
+          730,
+          362,
+          1086,
+          724
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        47,
+        38,
+        332,
+        311
+      ],
+      "shared_row_offset": [
+        14,
+        23
+      ],
+      "frames": [
+        {
+          "path": "frames/counter-01.png",
+          "sha256": "b22e6ce24ece4e6de77045a52ed53ec23c946914c7cdf57e5180085676cd2c8d",
+          "alpha_bbox": [
+            14,
+            23,
+            227,
+            241
+          ]
+        },
+        {
+          "path": "frames/counter-02.png",
+          "sha256": "caf81322b211d608181f588bf84160271ffbfe15b6460386c8a656ebdd56a325",
+          "alpha_bbox": [
+            14,
+            23,
+            239,
+            241
+          ]
+        },
+        {
+          "path": "frames/counter-03.png",
+          "sha256": "dd674a5da8026c2f694c795fa296dcc4157e65c0a926e6602e01f5c42e476b99",
+          "alpha_bbox": [
+            14,
+            23,
+            228,
+            241
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/counter.png",
+        "sha256": "8bacac9af050999c94efbf3898fd398dca141a2cb57b5892dfacdac68b376ebd"
+      }
+    },
+    "spell": {
+      "sheet": "actions",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          724,
+          355,
+          1086
+        ],
+        [
+          355,
+          724,
+          730,
+          1086
+        ],
+        [
+          730,
+          724,
+          1086,
+          1086
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        46,
+        31,
+        332,
+        311
+      ],
+      "shared_row_offset": [
+        14,
+        25
+      ],
+      "frames": [
+        {
+          "path": "frames/spell-01.png",
+          "sha256": "6a86bcec8fd62522b169465638bb25fe6f9c4def375cfcbed2bbc8025cdeb63e",
+          "alpha_bbox": [
+            14,
+            25,
+            227,
+            243
+          ]
+        },
+        {
+          "path": "frames/spell-02.png",
+          "sha256": "19a7cf092696e55e83e506582daddedda794fb80417d92aaff6ad19490f5709b",
+          "alpha_bbox": [
+            14,
+            25,
+            239,
+            243
+          ]
+        },
+        {
+          "path": "frames/spell-03.png",
+          "sha256": "7c3ad4cad8787868e38b0ad40d1e35abff80d25566a33f7adcffeba4c6e814fd",
+          "alpha_bbox": [
+            14,
+            25,
+            228,
+            243
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/spell.png",
+        "sha256": "02647819a63eaadbd07c66e3b8026c9c47943497b7523bce3133aae1b589ccf8"
+      }
+    },
+    "skill": {
+      "sheet": "actions",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1086,
+          355,
+          1448
+        ],
+        [
+          355,
+          1086,
+          730,
+          1448
+        ],
+        [
+          730,
+          1086,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        50,
+        27,
+        327,
+        301
+      ],
+      "shared_row_offset": [
+        15,
+        29
+      ],
+      "frames": [
+        {
+          "path": "frames/skill-01.png",
+          "sha256": "1fc7cf0cc635c79da00971acd518caca66f206027db179209a429b09faf04a50",
+          "alpha_bbox": [
+            30,
+            29,
+            228,
+            247
+          ]
+        },
+        {
+          "path": "frames/skill-02.png",
+          "sha256": "f9d96c240d761076ad8d31250f8275a67db2ae8cf083deaa3d1965e567593a10",
+          "alpha_bbox": [
+            15,
+            29,
+            240,
+            247
+          ]
+        },
+        {
+          "path": "frames/skill-03.png",
+          "sha256": "2165f34b6bbbdeaf6f75b0bd06182824beb7b496b3d33779184ca3014ef547b5",
+          "alpha_bbox": [
+            15,
+            29,
+            223,
+            247
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/skill.png",
+        "sha256": "9057784f85062f13046bd76cf08b6b53cd0913f6bd6fb6d317725f56cfe07e90"
+      }
+    },
+    "ward": {
+      "sheet": "support",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          362,
+          386
+        ],
+        [
+          362,
+          0,
+          724,
+          386
+        ],
+        [
+          724,
+          0,
+          1086,
+          386
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        68,
+        73,
+        289,
+        380
+      ],
+      "shared_row_offset": [
+        21,
+        -8
+      ],
+      "frames": [
+        {
+          "path": "frames/ward-01.png",
+          "sha256": "5108f9a00ef11ba81936537a2fb39cc355dd110f1da83d30dfb1e764971990ad",
+          "alpha_bbox": [
+            21,
+            7,
+            237,
+            224
+          ]
+        },
+        {
+          "path": "frames/ward-02.png",
+          "sha256": "676e731234dec42d92f3ce3ba35c7fd0dfd60608268d5b7a7a9053ca77913a1c",
+          "alpha_bbox": [
+            21,
+            0,
+            239,
+            224
+          ]
+        },
+        {
+          "path": "frames/ward-03.png",
+          "sha256": "c8dfe3748da14b4f4d90b96dea2f071f1207d1235567ec1332c46e6d15ed0ad8",
+          "alpha_bbox": [
+            21,
+            4,
+            226,
+            224
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/ward.png",
+        "sha256": "1094e56a6818b78c5adcf0efa5a4ad8c1b0491c5357120082b6bf129f3e77266"
+      }
+    },
+    "buff": {
+      "sheet": "support",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          386,
+          362,
+          724
+        ],
+        [
+          362,
+          386,
+          724,
+          724
+        ],
+        [
+          724,
+          386,
+          1086,
+          724
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        61,
+        121,
+        299,
+        313
+      ],
+      "shared_row_offset": [
+        20,
+        -2
+      ],
+      "frames": [
+        {
+          "path": "frames/buff-01.png",
+          "sha256": "336dbf134842a1d3b0f8425b1e71a415cbef75f3b87cffb7144bff5a278e1935",
+          "alpha_bbox": [
+            31,
+            0,
+            238,
+            201
+          ]
+        },
+        {
+          "path": "frames/buff-02.png",
+          "sha256": "2a67271e82a27a6622bca158d05fa8f67640fce50807c183f76e4a96ba44c8a6",
+          "alpha_bbox": [
+            20,
+            0,
+            238,
+            201
+          ]
+        },
+        {
+          "path": "frames/buff-03.png",
+          "sha256": "a25c67828c8ec84bc7c16352cf70cd931e976d8473318baf84c01c26425dca55",
+          "alpha_bbox": [
+            20,
+            0,
+            232,
+            201
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/buff.png",
+        "sha256": "58cd272eb2f511a883445584eed7b396c624b02513f8007844416ca4d4250692"
+      }
+    },
+    "debuff": {
+      "sheet": "support",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        60,
+        123,
+        301,
+        310
+      ],
+      "shared_row_offset": [
+        20,
+        -2
+      ],
+      "frames": [
+        {
+          "path": "frames/debuff-01.png",
+          "sha256": "a84425260aa8426dbff5bfef48d184a59b002933aa49faebe58840e74b1ad1fb",
+          "alpha_bbox": [
+            30,
+            0,
+            238,
+            216
+          ]
+        },
+        {
+          "path": "frames/debuff-02.png",
+          "sha256": "13923caef5b3a7b10effa5437a0126d7fd0f932a9a79425bdd9297a97773aee9",
+          "alpha_bbox": [
+            20,
+            0,
+            238,
+            216
+          ]
+        },
+        {
+          "path": "frames/debuff-03.png",
+          "sha256": "d4a2a6ec108a57a32372ca0cf3273a42fc95651c9cbc85fc3b2e21eef9087fc6",
+          "alpha_bbox": [
+            20,
+            0,
+            230,
+            216
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/debuff.png",
+        "sha256": "1cdd742ab6bafea72afec20ca2d188c16613f12d7fef4a91c8c0f7c8160a0b2b"
+      }
+    },
+    "heal": {
+      "sheet": "support",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1086,
+          362,
+          1448
+        ],
+        [
+          362,
+          1086,
+          724,
+          1448
+        ],
+        [
+          724,
+          1086,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        86,
+        72,
+        256,
+        260
+      ],
+      "shared_row_offset": [
+        25,
+        28
+      ],
+      "frames": [
+        {
+          "path": "frames/heal-01.png",
+          "sha256": "b20a45282c6ef4bda7f877b2170c36388d0e8f09f796670ce08cf14bb163bd69",
+          "alpha_bbox": [
+            25,
+            28,
+            240,
+            246
+          ]
+        },
+        {
+          "path": "frames/heal-02.png",
+          "sha256": "bd46cd4c9b3cfbe48f945360e41b50121177fa0c0062a876114db8b8a28c41af",
+          "alpha_bbox": [
+            25,
+            28,
+            240,
+            235
+          ]
+        },
+        {
+          "path": "frames/heal-03.png",
+          "sha256": "1b774f68bb0c031c0af04e0a3f516a039a04a37727c88dc200862238bac992aa",
+          "alpha_bbox": [
+            25,
+            28,
+            243,
+            246
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/heal.png",
+        "sha256": "1cd83d68e66673a8e4e31980f219f289b6adb9eabdeda0840085bcf6d9c3eb4c"
+      }
+    },
+    "fire": {
+      "sheet": "elements",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          356,
+          362
+        ],
+        [
+          356,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        20,
+        48,
+        348,
+        352
+      ],
+      "shared_row_offset": [
+        17,
+        8
+      ],
+      "frames": [
+        {
+          "path": "frames/fire-01.png",
+          "sha256": "e73ad583b381c92650b6f8c41b77f75f3ba4040d0bbd07e7eee015b6b375e036",
+          "alpha_bbox": [
+            17,
+            19,
+            231,
+            226
+          ]
+        },
+        {
+          "path": "frames/fire-02.png",
+          "sha256": "dbab9798c6c6fabdad582c905476377a08e4bb6c3f68e0aea2a1ab5a821f8bba",
+          "alpha_bbox": [
+            17,
+            13,
+            238,
+            226
+          ]
+        },
+        {
+          "path": "frames/fire-03.png",
+          "sha256": "1c89909fc1b359a643353db87999947cc06c4f7f96851ce4bd71feee64f0587d",
+          "alpha_bbox": [
+            17,
+            13,
+            227,
+            226
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/fire.png",
+        "sha256": "0562aca1e9e658e9a73f27215b00df817da360e7dde227ad9fc00a429448f282"
+      }
+    },
+    "frost": {
+      "sheet": "elements",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          362,
+          356,
+          724
+        ],
+        [
+          356,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        20,
+        28,
+        334,
+        347
+      ],
+      "shared_row_offset": [
+        22,
+        15
+      ],
+      "frames": [
+        {
+          "path": "frames/frost-01.png",
+          "sha256": "934dffa0277c3ff68e4c907f523fce7171409226c396bee79fd53dc6c93e63df",
+          "alpha_bbox": [
+            37,
+            16,
+            236,
+            233
+          ]
+        },
+        {
+          "path": "frames/frost-02.png",
+          "sha256": "7c3ac46d51287c522bae0dabf68b73e6c45df6961f210d1d698ea42e37584c9e",
+          "alpha_bbox": [
+            22,
+            15,
+            243,
+            233
+          ]
+        },
+        {
+          "path": "frames/frost-03.png",
+          "sha256": "ad87685c5888f5fc8bfa6eeac36e8bf204e0e04d36fa17204983c305ed92acbf",
+          "alpha_bbox": [
+            22,
+            15,
+            240,
+            233
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/frost.png",
+        "sha256": "1a9403d2264571a040fd16d988b5088d1f21009c46b11fcd6c6c848c5bef3663"
+      }
+    },
+    "lightning": {
+      "sheet": "elements",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          724,
+          356,
+          1082
+        ],
+        [
+          356,
+          724,
+          724,
+          1082
+        ],
+        [
+          724,
+          724,
+          1086,
+          1082
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        20,
+        7,
+        334,
+        317
+      ],
+      "shared_row_offset": [
+        22,
+        31
+      ],
+      "frames": [
+        {
+          "path": "frames/lightning-01.png",
+          "sha256": "83eabbf874279c132dd91cac671d5ba2a0e4c9dd7151ed32e9c131b7b03405a9",
+          "alpha_bbox": [
+            22,
+            31,
+            236,
+            246
+          ]
+        },
+        {
+          "path": "frames/lightning-02.png",
+          "sha256": "4d8be69576570d08fe23b0ed0bad3b467ae0e8d7d943d0a4794430b3049054c6",
+          "alpha_bbox": [
+            22,
+            31,
+            243,
+            246
+          ]
+        },
+        {
+          "path": "frames/lightning-03.png",
+          "sha256": "d90b7df2e262bcc15e377e121120bc74c753cd7566d202c3a5e7f89176069ef9",
+          "alpha_bbox": [
+            22,
+            31,
+            240,
+            246
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/lightning.png",
+        "sha256": "285095c8f6452da89a8d581e66e201f0c588b3015e8f468ef4ec6a64d8849128"
+      }
+    },
+    "earth": {
+      "sheet": "elements",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1082,
+          356,
+          1448
+        ],
+        [
+          356,
+          1082,
+          724,
+          1448
+        ],
+        [
+          724,
+          1082,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        7,
+        7,
+        322,
+        314
+      ],
+      "shared_row_offset": [
+        29,
+        32
+      ],
+      "frames": [
+        {
+          "path": "frames/earth-01.png",
+          "sha256": "eea588bcdcdb3b5657bc52074dd86d570339fef141b54e8dce1ef165657b7031",
+          "alpha_bbox": [
+            29,
+            32,
+            243,
+            252
+          ]
+        },
+        {
+          "path": "frames/earth-02.png",
+          "sha256": "37e2f5846538fbf21fd92f723ba1be885e0ed95ce80ac89409285ffddf3422c8",
+          "alpha_bbox": [
+            29,
+            32,
+            250,
+            252
+          ]
+        },
+        {
+          "path": "frames/earth-03.png",
+          "sha256": "3767b0974ac94d66ade12ee2276c73656d1279418f011e79182bdad087f07395",
+          "alpha_bbox": [
+            29,
+            32,
+            247,
+            252
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/earth.png",
+        "sha256": "efde20814ab34a5d13b86dd6466d5405c28a1a25455e1bcacf343bf028f462d5"
+      }
+    },
+    "status": {
+      "sheet": "schools",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        41,
+        94,
+        317,
+        354
+      ],
+      "shared_row_offset": [
+        20,
+        -7
+      ],
+      "frames": [
+        {
+          "path": "frames/status-01.png",
+          "sha256": "47eb359dec3ee670e533217c98da33a6da2f8fd548ae6f44cebe4ed01ecaa9ec",
+          "alpha_bbox": [
+            46,
+            4,
+            238,
+            211
+          ]
+        },
+        {
+          "path": "frames/status-02.png",
+          "sha256": "6822fd86a2468f3b9d9a68e286708f65999cec9be4665cb9243afb10f0368627",
+          "alpha_bbox": [
+            20,
+            14,
+            238,
+            211
+          ]
+        },
+        {
+          "path": "frames/status-03.png",
+          "sha256": "bdb848572b176a7b93b961088c7f18cb29eef0a3847445b0320764b6d7324255",
+          "alpha_bbox": [
+            20,
+            8,
+            231,
+            211
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/status.png",
+        "sha256": "389a80a41cd1fe65f8659afd11097963a2e52fdc50d387dc61738fd03dad935a"
+      }
+    },
+    "force": {
+      "sheet": "schools",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          362,
+          362,
+          731
+        ],
+        [
+          362,
+          362,
+          724,
+          731
+        ],
+        [
+          724,
+          362,
+          1086,
+          731
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        25,
+        49,
+        337,
+        363
+      ],
+      "shared_row_offset": [
+        19,
+        4
+      ],
+      "frames": [
+        {
+          "path": "frames/force-01.png",
+          "sha256": "7e72c0baec09efef13c37cc2c9ce34231fdbbaef60f53b8435e39f9e33b84fcb",
+          "alpha_bbox": [
+            45,
+            4,
+            237,
+            226
+          ]
+        },
+        {
+          "path": "frames/force-02.png",
+          "sha256": "94081f3fe9f3786910994656455c21637f5cab09641c6b805f53e6b74a5d37bb",
+          "alpha_bbox": [
+            19,
+            4,
+            237,
+            226
+          ]
+        },
+        {
+          "path": "frames/force-03.png",
+          "sha256": "0698afce42d2ad557b298bd0e5dbf97eeee8a9ab0ce4702cd6b7cc7b5a546df3",
+          "alpha_bbox": [
+            19,
+            4,
+            230,
+            226
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/force.png",
+        "sha256": "3765089a102de24b6ba8d755f5d5a38618f3d1a72fcebb0d7fe8f3edf0fa1985"
+      }
+    },
+    "illusion": {
+      "sheet": "schools",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          731,
+          362,
+          1075
+        ],
+        [
+          362,
+          731,
+          724,
+          1075
+        ],
+        [
+          724,
+          731,
+          1086,
+          1075
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        52,
+        64,
+        304,
+        264
+      ],
+      "shared_row_offset": [
+        21,
+        29
+      ],
+      "frames": [
+        {
+          "path": "frames/illusion-01.png",
+          "sha256": "f4469706c6ab6e46ad4dfc3ef76915a6c028c34b880f7799674aa2258e105ab2",
+          "alpha_bbox": [
+            21,
+            29,
+            236,
+            228
+          ]
+        },
+        {
+          "path": "frames/illusion-02.png",
+          "sha256": "e4f3073454d1b0a3fb97d87920c26709def1f336218fb8db9b6d2afc7852aa15",
+          "alpha_bbox": [
+            21,
+            29,
+            239,
+            236
+          ]
+        },
+        {
+          "path": "frames/illusion-03.png",
+          "sha256": "04c26aaedaf6872ad9219f764160c34fb174a5db4f8938945476ab41b396cf9c",
+          "alpha_bbox": [
+            21,
+            29,
+            226,
+            234
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/illusion.png",
+        "sha256": "cb303147df912182d6e4da83447fc91f1c2f3d826bcb18a2434e5e9eb9658270"
+      }
+    },
+    "decay": {
+      "sheet": "schools",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1075,
+          362,
+          1448
+        ],
+        [
+          362,
+          1075,
+          724,
+          1448
+        ],
+        [
+          724,
+          1075,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        9,
+        7,
+        319,
+        289
+      ],
+      "shared_row_offset": [
+        29,
+        39
+      ],
+      "frames": [
+        {
+          "path": "frames/decay-01.png",
+          "sha256": "1cf271a332f9aca8ee4d6994f453e21b97ec41e150742fad81c3124542c574a5",
+          "alpha_bbox": [
+            29,
+            40,
+            247,
+            256
+          ]
+        },
+        {
+          "path": "frames/decay-02.png",
+          "sha256": "674def47a19b19395e2bc7c56bf207ed460d1a2f83461c98c26805bc50d2eb86",
+          "alpha_bbox": [
+            29,
+            39,
+            247,
+            256
+          ]
+        },
+        {
+          "path": "frames/decay-03.png",
+          "sha256": "866cb0f372df5fbb93070f8e111016814c51e55f7faf1d6ab92831169d2c4ae2",
+          "alpha_bbox": [
+            29,
+            39,
+            239,
+            256
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/decay.png",
+        "sha256": "b41585cbf3ea22ca91f3ba473eb18c5b99eaf58beb138cf7250b06f393e3c22d"
+      }
+    },
+    "spell-circle": {
+      "sheet": "reactions",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        54,
+        86,
+        308,
+        335
+      ],
+      "shared_row_offset": [
+        19,
+        1
+      ],
+      "frames": [
+        {
+          "path": "frames/spell-circle-01.png",
+          "sha256": "2e02e493888811ef0ed9994873503008686694401e1158ea1e3dfc20fb6de17a",
+          "alpha_bbox": [
+            38,
+            18,
+            219,
+            219
+          ]
+        },
+        {
+          "path": "frames/spell-circle-02.png",
+          "sha256": "a6fc31d6b777cd23ed5949cf4a02cb569d77a368d529d9615d69c8cde8c20106",
+          "alpha_bbox": [
+            20,
+            12,
+            237,
+            219
+          ]
+        },
+        {
+          "path": "frames/spell-circle-03.png",
+          "sha256": "f84d3cea325d165f546e6d7c15e56d2316d58a4597bfa9f962515a56670865e3",
+          "alpha_bbox": [
+            19,
+            18,
+            235,
+            214
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/spell-circle.png",
+        "sha256": "02fd338c7f9ee3e2a5231e9cfc18e62ca4924b7ed726d381354d1c99b6042ae9"
+      }
+    },
+    "block": {
+      "sheet": "reactions",
+      "row": 1,
+      "source_rects": [
+        [
+          0,
+          362,
+          362,
+          724
+        ],
+        [
+          362,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        80,
+        62,
+        308,
+        319
+      ],
+      "shared_row_offset": [
+        11,
+        14
+      ],
+      "frames": [
+        {
+          "path": "frames/block-01.png",
+          "sha256": "63542bb027f6b7c2cf0193fba072a7a8b982055db666d75c545dbf7e8ce53792",
+          "alpha_bbox": [
+            26,
+            14,
+            226,
+            226
+          ]
+        },
+        {
+          "path": "frames/block-02.png",
+          "sha256": "c1099ea195e3599d6a5bb4738f0477e8d7cf5218d40bfb8333c16d9f9dd9ac7b",
+          "alpha_bbox": [
+            11,
+            15,
+            229,
+            232
+          ]
+        },
+        {
+          "path": "frames/block-03.png",
+          "sha256": "5af497eeb00c31673fa6d1e13d1ff36059a2a1fb9a4bdbf5f37bac869bcdd851",
+          "alpha_bbox": [
+            11,
+            18,
+            216,
+            232
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/block.png",
+        "sha256": "3b01b7d30a697158b7c61a99ad17bc544df3a93b0d650711515281b7a4cb6b57"
+      }
+    },
+    "evade": {
+      "sheet": "reactions",
+      "row": 2,
+      "source_rects": [
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        91,
+        83,
+        282,
+        272
+      ],
+      "shared_row_offset": [
+        16,
+        21
+      ],
+      "frames": [
+        {
+          "path": "frames/evade-01.png",
+          "sha256": "9ef0e6d89d5840fcec279e52692a6aa3002dd1eb5c454c02af5ca857b69b8fde",
+          "alpha_bbox": [
+            31,
+            31,
+            231,
+            231
+          ]
+        },
+        {
+          "path": "frames/evade-02.png",
+          "sha256": "1a7a1991d49d0f64da1aabeaa47a90ad06e16710fa567ee3705ec2bad99d601c",
+          "alpha_bbox": [
+            16,
+            21,
+            230,
+            239
+          ]
+        },
+        {
+          "path": "frames/evade-03.png",
+          "sha256": "0bd9063fc6f6532b59aeefe29dfeb1a7d91d2203f52801703471a337decbd328",
+          "alpha_bbox": [
+            18,
+            22,
+            222,
+            239
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/evade.png",
+        "sha256": "a68450bf466b9c25a6ab6b5d45b8eb9ed8d16a480431d94b205092ad2018dc12"
+      }
+    },
+    "retreat": {
+      "sheet": "reactions",
+      "row": 3,
+      "source_rects": [
+        [
+          0,
+          1086,
+          362,
+          1448
+        ],
+        [
+          362,
+          1086,
+          724,
+          1448
+        ],
+        [
+          724,
+          1086,
+          1086,
+          1448
+        ]
+      ],
+      "source_unit_factor": 1.0,
+      "scale": 0.6010362694300518,
+      "union_alpha_bounds": [
+        51,
+        100,
+        308,
+        231
+      ],
+      "shared_row_offset": [
+        20,
+        29
+      ],
+      "frames": [
+        {
+          "path": "frames/retreat-01.png",
+          "sha256": "39cf2f41a6750dd5ca649f19b6f525126fa203b6811233157bd113ba0f726300",
+          "alpha_bbox": [
+            67,
+            29,
+            235,
+            218
+          ]
+        },
+        {
+          "path": "frames/retreat-02.png",
+          "sha256": "a96254ac8f014f1bbf4a059252be766c25be40568606fc0e15140bdad4c2c0ca",
+          "alpha_bbox": [
+            20,
+            29,
+            237,
+            228
+          ]
+        },
+        {
+          "path": "frames/retreat-03.png",
+          "sha256": "9147ce65bc427ee19743a987dd113970aa294c8a10d7a4e048f636ca62e0318d",
+          "alpha_bbox": [
+            20,
+            30,
+            224,
+            247
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/retreat.png",
+        "sha256": "9dfcf4b1395b18ad76c1bf2bb45f92290846d83af2002152a0a3f8206d0e97f9"
+      }
+    },
+    "advance": {
+      "sheet": "advance",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          1448,
+          724
+        ],
+        [
+          1448,
+          0,
+          2172,
+          724
+        ]
+      ],
+      "source_unit_factor": 0.5,
+      "scale": 0.3005181347150259,
+      "union_alpha_bounds": [
+        71,
+        251,
+        604,
+        478
+      ],
+      "shared_row_offset": [
+        27,
+        18
+      ],
+      "frames": [
+        {
+          "path": "frames/advance-01.png",
+          "sha256": "788dab204c8c23b50a2767f278ca9c834a861b14e385aaa09ec338827bf086c3",
+          "alpha_bbox": [
+            83,
+            33,
+            212,
+            164
+          ]
+        },
+        {
+          "path": "frames/advance-02.png",
+          "sha256": "1aa90900fd1ede164267802378734e892782864037d68c9f1712aba35075f061",
+          "alpha_bbox": [
+            42,
+            61,
+            231,
+            166
+          ]
+        },
+        {
+          "path": "frames/advance-03.png",
+          "sha256": "a43dfb51e7cb240805ac3be8f12abff124ffd5b07fcd282e6df1f783c63e9b32",
+          "alpha_bbox": [
+            36,
+            52,
+            202,
+            213
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/advance.png",
+        "sha256": "68a194f4b74feb08e89e9109d781d7205e5e86e4a384e3dfab242dc9741ecdfd"
+      }
+    },
+    "evade-afterimage": {
+      "sheet": "evade-afterimage",
+      "row": 0,
+      "source_rects": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          1448,
+          724
+        ],
+        [
+          1448,
+          0,
+          2172,
+          724
+        ]
+      ],
+      "source_unit_factor": 0.5,
+      "scale": 0.3005181347150259,
+      "union_alpha_bounds": [
+        60,
+        216,
+        661,
+        505
+      ],
+      "shared_row_offset": [
+        20,
+        20
+      ],
+      "frames": [
+        {
+          "path": "frames/evade-afterimage-01.png",
+          "sha256": "bbdec1884df6082bd8a3ebed7d2d99ce1734254e304962c161e47d73068a963d",
+          "alpha_bbox": [
+            29,
+            48,
+            125,
+            214
+          ]
+        },
+        {
+          "path": "frames/evade-afterimage-02.png",
+          "sha256": "05967c75c12fc92147d3deb29710a50faef766540eca0329d29dd8889e1d8255",
+          "alpha_bbox": [
+            104,
+            61,
+            228,
+            174
+          ]
+        },
+        {
+          "path": "frames/evade-afterimage-03.png",
+          "sha256": "aca5051f9e69f4993a8aebead8cd32323a23a35cbf1b36d608adf52e90e4f7b2",
+          "alpha_bbox": [
+            32,
+            69,
+            228,
+            183
+          ]
+        }
+      ],
+      "strip": {
+        "path": "strips/evade-afterimage.png",
+        "sha256": "a5a7353b2e6a8ea6acb569f26d60f4da5d791a8cd7604b594a8285b6356b1b78"
+      }
+    }
+  },
+  "warnings": [],
+  "reviews": [
+    {
+      "path": "review/all-twenty-five.png",
+      "sha256": "8ee3c32185667bda8a053d56f0da2f83b7ddb9cc2068cc7948e7342ea32dcd5f"
+    },
+    {
+      "path": "review/all-twenty-four.png",
+      "sha256": "7c1d1bcc8a70eea352f021faed6eb21a55bace5fd1ab30356bb2c963cbae5324"
+    },
+    {
+      "path": "review/all-twenty-six.png",
+      "sha256": "082c1b774c5ddc48d087af8ebb773c23241819b818eebb661d4991cc1b66bb80"
+    },
+    {
+      "path": "review/all-twenty.png",
+      "sha256": "dcd8dd56761bdd1a17abd7ec7329e23f408a3c80ab1a072fdffda1903dd01da9"
+    },
+    {
+      "path": "review/evade-afterimage.png",
+      "sha256": "7c86432f3b8200750ac2d90b8a764c93ef9f5cc24d71bc43e5c6357b4375c625"
+    },
+    {
+      "path": "review/other-fourteen.png",
+      "sha256": "7d87a258bc50d36025c0dd6a4d2cc61d31570ed43edc4bfed120adba5be86c37"
+    },
+    {
+      "path": "review/physical-six.png",
+      "sha256": "4c06beb015fa171af5231ce4811a7b896cd04ef65adce7326256dd62d59d8157"
+    },
+    {
+      "path": "review/reactions-five.png",
+      "sha256": "c525554de5f2744cdfd0b98f99d4b6cbfd869c4e815164b9c4da303c63b47101"
+    },
+    {
+      "path": "review/reactions-six.png",
+      "sha256": "e237a20979460343e94ab0e6d35e1f11b855a6f8b8cad9e7efd360ffebcd3667"
+    }
+  ]
+}
