@@ -416,3 +416,14 @@ corrections and rebuild tooling for contact sheets and embedded projects accompa
 them in `art/enemy-expansion-2026-10-09/`. No third-party or Creative Commons
 licence is asserted. These are development paintings with documented clipping,
 matte and design-review issues; see that folder's README.
+
+## Recipient impact effects, 2026-11-18
+
+The 35 transparent three-frame strips under `hd/assets/recipient-effects/v5/`
+(and byte-identical light twins) were generated with OpenAI image generation under
+Constantine Hinds' direction. Original raw PNGs, exact prompt JSONs, extraction
+scripts and records, a hash catalog and labelled contacts are preserved in
+`provenance/recipient-effects/v5/`. These are original project effects; no
+third-party artwork was downloaded and no third-party licence is claimed.
+Ward/Evade actor masks and school/stat tints are composed by the game, not baked
+into these sprites. The human afterimage study is provenance only, not runtime art.

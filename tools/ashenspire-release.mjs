@@ -1,9 +1,12 @@
 // AshenSpire-only release policy. Network mutations belong to the reviewed workflow.
 import { createHash } from 'node:crypto';
-import { createReadStream, readFileSync, writeFileSync } from 'node:fs';
+import { createReadStream, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { zipName } from './pack.mjs';
+import { packManifest, verifyZip, zipName } from './pack.mjs';
+import { serialize } from './manifest.mjs';
+import { readZip, writeZip } from './zip.mjs';
 import { CONTRACT, verifyDisplayManifest } from './display-snapshot.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const REPOSITORY = 'cehinds/AI-Art';
@@ -48,6 +51,7 @@ export function allocateReleaseVersion(root, tags) {
   return version;
 }
 export function migrationPolicyNote(root = ROOT) {
+  if (readReleaseConfig(root).preserveMigratedAssetBytes && readReleaseConfig(root).reviewedRecipientEffects) return 'Active preserveMigratedAssetBytes policy: the exact reviewed recipient-effect catalog is additive. Every original migration record and payload remains frozen; removing only those additions reconstructs the original high/light ZIP hashes. Full new archives and all additions are verified independently.';
   return readReleaseConfig(root).preserveMigratedAssetBytes
     ? 'Active preserveMigratedAssetBytes policy: this release retains the reviewed migration snapshot and complete v23 high/light ZIP bytes, regardless of allocated version. Historical manifest header text is retained for archive identity.'
     : 'The migration byte freeze was explicitly disabled in reviewed release.json; this release does not promise the frozen migration snapshot or v23 high/light ZIP identity.';
@@ -93,6 +97,44 @@ export function verifyReleaseMetadata(release, expected, version, sha, draft) {
 export function verifyTag(ref, sha) {
   if (ref?.object?.type !== 'commit' || ref.object.sha !== sha) throw new Error('Scoped release tag must be lightweight and name the event commit');
 }
+const RECIPIENT_CATALOG = 'provenance/recipient-effects/v5/recipient-effects-catalog.json';
+/** Fixed namespace and hash-pinned catalog: additions cannot replace a frozen ID. */
+export function reviewedRuntimeAdditions(root, manifest) {
+  const policy = readReleaseConfig(root).reviewedRecipientEffects;
+  if (policy === undefined) return [];
+  if (!policy || typeof policy !== 'object' || Array.isArray(policy)
+      || Object.keys(policy).length !== 1 || !/^[0-9a-f]{64}$/.test(policy.catalogSha256 || '')) {
+    throw new Error('Invalid reviewed recipient-effects policy');
+  }
+  const bytes = readFileSync(resolve(root, RECIPIENT_CATALOG));
+  if (createHash('sha256').update(bytes).digest('hex') !== policy.catalogSha256) throw new Error('Reviewed recipient catalog hash changed');
+  const catalog = JSON.parse(bytes);
+  if (catalog.schemaVersion !== 1 || catalog.catalog !== 'recipient-effects/v5' || catalog.frameCount !== 3
+      || !catalog.entries || Object.keys(catalog.entries).length !== 35) throw new Error('Invalid reviewed recipient catalog');
+  const ids = [];
+  for (const [shape, entry] of Object.entries(catalog.entries)) {
+    const id = `assets/recipient-effects/v5/${shape}.png`;
+    if (!/^[a-z]+(?:-[a-z]+)*$/.test(shape) || shape === 'evade-afterimage' || entry.asset !== id
+        || entry.columns !== 3 || entry.rows !== 1 || entry.row !== 0
+        || JSON.stringify(entry.size) !== '[768,256]' || JSON.stringify(entry.frameSize) !== '[256,256]'
+        || !/^[0-9a-f]{64}$/.test(entry.sha256 || '')) throw new Error('Invalid reviewed recipient addition: ' + shape);
+    const expected = {};
+    for (const [pack, tier] of [['light', 'light'], ['high', 'hd']]) {
+      if (entry.tiers?.[tier] !== `${tier}/${id}`) throw new Error('Invalid reviewed recipient tier: ' + shape);
+      const data = readFileSync(resolve(root, entry.tiers[tier]));
+      if (createHash('sha256').update(data).digest('hex') !== entry.sha256
+          || data.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a'
+          || data.readUInt32BE(16) !== 768 || data.readUInt32BE(20) !== 256 || data[25] !== 6) {
+        throw new Error('Reviewed recipient bytes changed: ' + shape);
+      }
+      expected[pack] = { path: pack === 'light' ? id.replace('assets/', 'assets-mobile/') : id,
+        bytes: data.length, sha256: entry.sha256, width: 768, height: 256 };
+    }
+    if (JSON.stringify(manifest.assets[id]) !== JSON.stringify(expected)) throw new Error('Reviewed recipient record changed: ' + id);
+    ids.push(id);
+  }
+  return ids;
+}
 export function verifyMigrationSnapshot(root = ROOT) {
   const config = readReleaseConfig(root);
   if (!config.preserveMigratedAssetBytes) return false;
@@ -112,6 +154,11 @@ export function verifyMigrationSnapshot(root = ROOT) {
       manifest.count--;
     }
   } else if (config.reviewedCardCutouts !== undefined) throw new Error('reviewedCardCutouts must be true when present');
+  for (const id of reviewedRuntimeAdditions(root, manifest)) {
+    delete manifest.assets[id];
+    manifest.count--;
+  }
+  // A collision with any old ID, extra ID or changed old record fails here.
   verifyDisplayManifest(manifest, contract);
   return true;
 }
@@ -119,8 +166,28 @@ export async function verifyFrozenArchives(root, version) {
   tagFor(version);
   if (!verifyMigrationSnapshot(root)) return;
   const contract = JSON.parse(readFileSync(resolve(root, CONTRACT), 'utf8'));
+  const manifest = JSON.parse(readFileSync(resolve(root, 'art-manifest.json'), 'utf8'));
+  const additions = reviewedRuntimeAdditions(root, manifest);
   for (const pack of ['high', 'light']) {
-    const actual = await fileHash(resolve(root, 'dist', zipName(pack, version)));
+    const archivePath = resolve(root, 'dist', zipName(pack, version));
+    let actual;
+    if (!additions.length) actual = await fileHash(archivePath);
+    else {
+      const archive = readFileSync(archivePath);
+      const problems = verifyZip(archive, pack, manifest);
+      if (problems.length) throw new Error('Reviewed runtime archive verification: ' + problems.join('; '));
+      const removedPaths = new Set(additions.map(id => manifest.assets[id][pack].path));
+      const baseline = structuredClone(manifest);
+      for (const id of additions) { delete baseline.assets[id]; baseline.count--; }
+      const entries = readZip(archive).filter(entry => !removedPaths.has(entry.name)).map(entry =>
+        entry.name === 'art-manifest.json' ? { name: entry.name, data: Buffer.from(serialize(packManifest(baseline, pack))) } : entry);
+      const temp = mkdtempSync(resolve(tmpdir(), 'recipient-frozen-'));
+      try {
+        const reconstructed = resolve(temp, 'baseline.zip');
+        writeZip(reconstructed, entries);
+        actual = await fileHash(reconstructed);
+      } finally { rmSync(temp, { recursive: true, force: true }); }
+    }
     if (actual.sha256 !== contract.preservedZipSha256[pack]) throw new Error('Migration policy: release v' + version + ' changed the original ' + pack + ' ZIP bytes');
   }
 }
