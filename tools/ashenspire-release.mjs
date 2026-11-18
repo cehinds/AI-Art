@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { packManifest, verifyZip, zipName } from './pack.mjs';
-import { serialize } from './manifest.mjs';
+import { fileRecord, serialize } from './manifest.mjs';
 import { readZip, writeZip } from './zip.mjs';
 import { CONTRACT, verifyDisplayManifest } from './display-snapshot.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -51,8 +51,9 @@ export function allocateReleaseVersion(root, tags) {
   return version;
 }
 export function migrationPolicyNote(root = ROOT) {
-  if (readReleaseConfig(root).preserveMigratedAssetBytes && readReleaseConfig(root).reviewedRecipientEffects) return 'Active preserveMigratedAssetBytes policy: the exact reviewed recipient-effect catalog is additive. Every original migration record and payload remains frozen; removing only those additions reconstructs the original high/light ZIP hashes. Full new archives and all additions are verified independently.';
-  return readReleaseConfig(root).preserveMigratedAssetBytes
+  const config = readReleaseConfig(root);
+  if (config.preserveMigratedAssetBytes && (config.reviewedRecipientEffects || config.reviewedConceptArt)) return 'The hash-pinned runtime additions preserve every original migration record and payload. Removing the reviewed additions reconstructs the original high and light ZIP hashes. The new archives and all additions are verified independently.';
+  return config.preserveMigratedAssetBytes
     ? 'Active preserveMigratedAssetBytes policy: this release retains the reviewed migration snapshot and complete v23 high/light ZIP bytes, regardless of allocated version. Historical manifest header text is retained for archive identity.'
     : 'The migration byte freeze was explicitly disabled in reviewed release.json; this release does not promise the frozen migration snapshot or v23 high/light ZIP identity.';
 }
@@ -99,8 +100,7 @@ export function verifyTag(ref, sha) {
 }
 const RECIPIENT_CATALOG = 'provenance/recipient-effects/v5/recipient-effects-catalog.json';
 /** Fixed namespace and hash-pinned catalog: additions cannot replace a frozen ID. */
-export function reviewedRuntimeAdditions(root, manifest) {
-  const policy = readReleaseConfig(root).reviewedRecipientEffects;
+function reviewedRecipientAdditions(root, manifest, policy) {
   if (policy === undefined) return [];
   if (!policy || typeof policy !== 'object' || Array.isArray(policy)
       || Object.keys(policy).length !== 1 || !/^[0-9a-f]{64}$/.test(policy.catalogSha256 || '')) {
@@ -134,6 +134,37 @@ export function reviewedRuntimeAdditions(root, manifest) {
     ids.push(id);
   }
   return ids;
+}
+const CONCEPT_CATALOG = 'provenance/AshenSpire/reviewed-concept-art.json';
+const CONCEPT_ID = /^assets\/(?:enemy-poses\/expansion\/[a-z][a-zA-Z0-9]*\/(?:idle|downed|stance-(?:smash|attack|counter|sweep|defend|preparing)|(?:attack|react|defend)-0[12])|equipment\/icon_[a-z][a-zA-Z0-9]*|relics\/[a-z][a-zA-Z0-9]*)\.webp$/;
+function reviewedConceptAdditions(root, manifest, policy) {
+  if (policy === undefined) return [];
+  const bytes = readFileSync(resolve(root, CONCEPT_CATALOG));
+  if (!policy || Object.keys(policy).length !== 1 || createHash('sha256').update(bytes).digest('hex') !== policy.catalogSha256) {
+    throw new Error('Reviewed concept catalog hash changed');
+  }
+  const { ids, recordsSha256 } = JSON.parse(bytes);
+  if (!Array.isArray(ids) || ids.length !== 497 || new Set(ids).size !== ids.length || ids.some(id => !CONCEPT_ID.test(id))) {
+    throw new Error('Invalid reviewed concept asset IDs');
+  }
+  const records = {};
+  for (const id of ids) {
+    const expected = {
+      light: fileRecord(resolve(root, 'light', id), id.replace(/^assets\//, 'assets-mobile/')),
+      high: fileRecord(resolve(root, 'hd', id), id),
+    };
+    if (JSON.stringify(expected) !== JSON.stringify(manifest.assets[id])) throw new Error('Reviewed concept record changed: ' + id);
+    records[id] = expected;
+  }
+  if (createHash('sha256').update(JSON.stringify(records)).digest('hex') !== recordsSha256) {
+    throw new Error('Reviewed concept payloads changed');
+  }
+  return ids;
+}
+export function reviewedRuntimeAdditions(root, manifest) {
+  const config = readReleaseConfig(root);
+  return [...reviewedRecipientAdditions(root, manifest, config.reviewedRecipientEffects),
+    ...reviewedConceptAdditions(root, manifest, config.reviewedConceptArt)];
 }
 export function verifyMigrationSnapshot(root = ROOT) {
   const config = readReleaseConfig(root);
