@@ -435,3 +435,14 @@ scripts and records, a hash catalog and labelled contacts are preserved in
 third-party artwork was downloaded and no third-party licence is claimed.
 Ward/Evade actor masks and school/stat tints are composed by the game, not baked
 into these sprites. The human afterimage study is provenance only, not runtime art.
+
+## Procedural skill and stat card objects (2026-11-18)
+
+Fifteen transparent PNG components were generated with OpenAI image generation
+under the project owner's direction. The reviewed common-pack exports include a
+static skill object and neutral stat objects for runtime composition of buffs
+and debuffs. The [skill selection](provenance/AshenSpire/skill-card-object.json) and
+[stat source records](provenance/AshenSpire/stat-buff-cutouts.json) identify the approved images and
+their hashes. The earlier gold pouch and its [source record](provenance/AshenSpire/stat.gold.pouch.json)
+are retained as provenance. These are original project assets with no
+third-party licence claimed.

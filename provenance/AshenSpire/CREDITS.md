@@ -864,14 +864,3 @@ reference and SHA-256; the proposal manifest records the original generation
 and extraction provenance. The implementation adds no third-party artwork
 and claims no third-party license. Scepters, ethereal outlines, objects,
 backgrounds and effects remain separate components.
-
-## Procedural skill and stat card objects (2026-11-18)
-
-Fifteen transparent PNG components were generated with OpenAI image generation
-under the project owner's direction. The reviewed common-pack exports include a
-static skill object and neutral stat objects for runtime composition of buffs
-and debuffs. The [skill selection](skill-card-object.json) and
-[stat source records](stat-buff-cutouts.json) identify the approved images and
-their hashes. The earlier gold pouch and its [source record](stat.gold.pouch.json)
-are retained as provenance. These are original project assets with no
-third-party licence claimed.
