@@ -1,3 +1,11 @@
+## Expanded enemy roster artwork (2026-11-18)
+
+Original OpenAI-generated artwork for ten additional normal enemies, fifteen elites and five bosses. Each new character has idle, six stance poses, two attack frames, two reaction frames, two defense frames and a downed pose. Five elite designs are assigned to each of the Hollow Weald, Pale Marches and Cinder Reach. Masters, prompts, frame mappings and preview galleries are retained in `pose-studio/enemy-expansion-2026-11-18/`. New downed poses for Carrion Headsman and Knellcap Sentinel are retained in `pose-studio/enemy-designs-2026-11-18/`. No third-party artwork or Creative Commons license is claimed.
+
+## Equipment card art and enemy designs (2026-11-18)
+
+Original artwork generated with OpenAI's built-in image generation for the owner's equipment proposal and new enemy sprite request. The 49 equipment illustration masters and prompts are retained in `art/equipment-cards/2026-11-18/`. Carrion Headsman and Knellcap Sentinel masters, prompts, six stance poses and attack, reaction and defense frames are retained in `pose-studio/enemy-designs-2026-11-18/`. Their manifests identify the HD and light runtime exports. No third-party artwork or Creative Commons license is claimed.
+
 ## Molten River Blight meter (2026-10-08)
 
 Original material generated with OpenAI image generation from the owner's selected Molten River concept. Master, prompt and export settings: art/molten-river-blight-20261008/. Runtime: assets/ui/ashen-blight-molten-river.webp, with a generated light twin. No third-party artwork or license is claimed.
