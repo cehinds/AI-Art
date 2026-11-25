@@ -52,7 +52,7 @@ export function allocateReleaseVersion(root, tags) {
 }
 export function migrationPolicyNote(root = ROOT) {
   const config = readReleaseConfig(root);
-  if (config.preserveMigratedAssetBytes && (config.reviewedRecipientEffects || config.reviewedConceptArt)) return 'The hash-pinned runtime additions preserve every original migration record and payload. Removing the reviewed additions reconstructs the original high and light ZIP hashes. The new archives and all additions are verified independently.';
+  if (config.preserveMigratedAssetBytes && (config.reviewedRecipientEffects || config.reviewedRecipientEffectSequences || config.reviewedConceptArt)) return 'The hash-pinned runtime additions preserve every original migration record and payload. Removing the reviewed additions reconstructs the original high and light ZIP hashes. The new archives and all additions are verified independently.';
   return config.preserveMigratedAssetBytes
     ? 'Active preserveMigratedAssetBytes policy: this release retains the reviewed migration snapshot and complete v23 high/light ZIP bytes, regardless of allocated version. Historical manifest header text is retained for archive identity.'
     : 'The migration byte freeze was explicitly disabled in reviewed release.json; this release does not promise the frozen migration snapshot or v23 high/light ZIP identity.';
@@ -98,22 +98,21 @@ export function verifyReleaseMetadata(release, expected, version, sha, draft) {
 export function verifyTag(ref, sha) {
   if (ref?.object?.type !== 'commit' || ref.object.sha !== sha) throw new Error('Scoped release tag must be lightweight and name the event commit');
 }
-const RECIPIENT_CATALOG = 'provenance/recipient-effects/v5/recipient-effects-catalog.json';
 /** Fixed namespace and hash-pinned catalog: additions cannot replace a frozen ID. */
-function reviewedRecipientAdditions(root, manifest, policy) {
+function reviewedRecipientAdditions(root, manifest, policy, catalogId, count) {
   if (policy === undefined) return [];
   if (!policy || typeof policy !== 'object' || Array.isArray(policy)
       || Object.keys(policy).length !== 1 || !/^[0-9a-f]{64}$/.test(policy.catalogSha256 || '')) {
     throw new Error('Invalid reviewed recipient-effects policy');
   }
-  const bytes = readFileSync(resolve(root, RECIPIENT_CATALOG));
+  const bytes = readFileSync(resolve(root, 'provenance', catalogId, 'recipient-effects-catalog.json'));
   if (createHash('sha256').update(bytes).digest('hex') !== policy.catalogSha256) throw new Error('Reviewed recipient catalog hash changed');
   const catalog = JSON.parse(bytes);
-  if (catalog.schemaVersion !== 1 || catalog.catalog !== 'recipient-effects/v5' || catalog.frameCount !== 3
-      || !catalog.entries || Object.keys(catalog.entries).length !== 35) throw new Error('Invalid reviewed recipient catalog');
+  if (catalog.schemaVersion !== 1 || catalog.catalog !== catalogId || catalog.frameCount !== 3
+      || !catalog.entries || Object.keys(catalog.entries).length !== count) throw new Error('Invalid reviewed recipient catalog');
   const ids = [];
   for (const [shape, entry] of Object.entries(catalog.entries)) {
-    const id = `assets/recipient-effects/v5/${shape}.png`;
+    const id = `assets/${catalogId}/${shape}.png`;
     if (!/^[a-z]+(?:-[a-z]+)*$/.test(shape) || shape === 'evade-afterimage' || entry.asset !== id
         || entry.columns !== 3 || entry.rows !== 1 || entry.row !== 0
         || JSON.stringify(entry.size) !== '[768,256]' || JSON.stringify(entry.frameSize) !== '[256,256]'
@@ -163,7 +162,9 @@ function reviewedConceptAdditions(root, manifest, policy) {
 }
 export function reviewedRuntimeAdditions(root, manifest) {
   const config = readReleaseConfig(root);
-  return [...reviewedRecipientAdditions(root, manifest, config.reviewedRecipientEffects),
+  return [
+    ...reviewedRecipientAdditions(root, manifest, config.reviewedRecipientEffects, 'recipient-effects/v5', 35),
+    ...reviewedRecipientAdditions(root, manifest, config.reviewedRecipientEffectSequences, 'recipient-effects/v6', 12),
     ...reviewedConceptAdditions(root, manifest, config.reviewedConceptArt)];
 }
 export function verifyMigrationSnapshot(root = ROOT) {

@@ -12,7 +12,8 @@ import { serialize } from '../tools/manifest.mjs';
 import { writeZip } from '../tools/zip.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const hash = value => createHash('sha256').update(Buffer.isBuffer(value) || typeof value === 'string' ? value : JSON.stringify(value)).digest('hex');
-const catalogPath = 'provenance/recipient-effects/v5/recipient-effects-catalog.json';
+const v5Catalog = 'provenance/recipient-effects/v5/recipient-effects-catalog.json';
+const v6Catalog = 'provenance/recipient-effects/v6/recipient-effects-catalog.json';
 function fixture(dir) {
   const original = Buffer.from('unchanged original art');
   const row = path => ({ path, bytes: original.length, sha256: hash(original) });
@@ -38,20 +39,27 @@ function fixture(dir) {
       { name: manifest.assets['assets/old.webp'][pack].path, data: original }]);
     contract.preservedZipSha256[pack] = hash(readFileSync(zip));
   }
-  const catalogBytes = readFileSync(join(root, catalogPath));
-  mkdirSync(dirname(join(dir, catalogPath)), { recursive: true });
-  writeFileSync(join(dir, catalogPath), catalogBytes);
-  writeFileSync(join(dir, 'release.json'), JSON.stringify({ version: 27, preserveMigratedAssetBytes: true, reviewedRecipientEffects: { catalogSha256: hash(catalogBytes) } }));
-  for (const entry of Object.values(JSON.parse(catalogBytes).entries)) {
-    const record = {};
-    for (const [pack, tier] of [['light', 'light'], ['high', 'hd']]) {
-      const target = join(dir, entry.tiers[tier]); mkdirSync(dirname(target), { recursive: true });
-      copyFileSync(join(root, entry.tiers[tier]), target);
-      record[pack] = { path: pack === 'light' ? entry.asset.replace('assets/', 'assets-mobile/') : entry.asset,
-        bytes: readFileSync(target).length, sha256: entry.sha256, width: 768, height: 256 };
+  const policy = { version: 27, preserveMigratedAssetBytes: true };
+  for (const [key, catalogPath] of [
+    ['reviewedRecipientEffects', v5Catalog],
+    ['reviewedRecipientEffectSequences', v6Catalog],
+  ]) {
+    const catalogBytes = readFileSync(join(root, catalogPath));
+    mkdirSync(dirname(join(dir, catalogPath)), { recursive: true });
+    writeFileSync(join(dir, catalogPath), catalogBytes);
+    policy[key] = { catalogSha256: hash(catalogBytes) };
+    for (const entry of Object.values(JSON.parse(catalogBytes).entries)) {
+      const record = {};
+      for (const [pack, tier] of [['light', 'light'], ['high', 'hd']]) {
+        const target = join(dir, entry.tiers[tier]); mkdirSync(dirname(target), { recursive: true });
+        copyFileSync(join(root, entry.tiers[tier]), target);
+        record[pack] = { path: pack === 'light' ? entry.asset.replace('assets/', 'assets-mobile/') : entry.asset,
+          bytes: readFileSync(target).length, sha256: entry.sha256, width: 768, height: 256 };
+      }
+      manifest.assets[entry.asset] = record; manifest.count++;
     }
-    manifest.assets[entry.asset] = record; manifest.count++;
   }
+  writeFileSync(join(dir, 'release.json'), JSON.stringify(policy));
   mkdirSync(join(dir, 'migration')); writeFileSync(join(dir, CONTRACT), JSON.stringify(contract));
   const save = () => writeFileSync(join(dir, 'art-manifest.json'), JSON.stringify(manifest)); save();
   const pack = (oldBytes = original, extra = []) => {
@@ -88,9 +96,11 @@ test('reviewed runtime additions preserve original archive identity and reject o
     f.pack(f.original, [{ name: 'assets/unlisted.png', data: Buffer.from('unlisted') }]);
     await assert.rejects(verifyFrozenArchives(dir, 27), /not in its manifest/);
     f.pack();
-    const cat = readFileSync(join(dir, catalogPath)); writeFileSync(join(dir, catalogPath), Buffer.concat([cat, Buffer.from('\n')]));
-    assert.throws(() => verifyMigrationSnapshot(dir), /catalog hash changed/);
-    writeFileSync(join(dir, catalogPath), cat);
+    for (const catalogPath of [v5Catalog, v6Catalog]) {
+      const cat = readFileSync(join(dir, catalogPath)); writeFileSync(join(dir, catalogPath), Buffer.concat([cat, Buffer.from('\n')]));
+      assert.throws(() => verifyMigrationSnapshot(dir), /catalog hash changed/);
+      writeFileSync(join(dir, catalogPath), cat);
+    }
     const contract = JSON.parse(readFileSync(join(dir, CONTRACT))); contract.preservedZipSha256.high = 'f'.repeat(64);
     writeFileSync(join(dir, CONTRACT), JSON.stringify(contract));
     await assert.rejects(verifyFrozenArchives(dir, 27), /changed the original high ZIP bytes/);
