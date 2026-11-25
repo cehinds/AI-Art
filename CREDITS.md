@@ -1,3 +1,7 @@
+## Recipient-effect animation sequences (2026-11-24)
+
+Twelve original three-frame effects generated with OpenAI image generation under Constantine Hinds' direction. The [v6 source package](provenance/recipient-effects/v6/README.md) retains the approved preview boards, transparency edits, prompts, packing transforms and hashes. No third-party artwork or Creative Commons license is claimed.
+
 ## Expanded enemy roster artwork (2026-11-18)
 
 Original OpenAI-generated artwork for ten additional normal enemies, fifteen elites and five bosses. Each new character has idle, six stance poses, two attack frames, two reaction frames, two defense frames and a downed pose. Five elite designs are assigned to each of the Hollow Weald, Pale Marches and Cinder Reach. Masters, prompts, frame mappings and preview galleries are retained in `pose-studio/enemy-expansion-2026-11-18/`. New downed poses for Carrion Headsman and Knellcap Sentinel are retained in `pose-studio/enemy-designs-2026-11-18/`. No third-party artwork or Creative Commons license is claimed.
